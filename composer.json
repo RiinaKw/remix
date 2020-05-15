@@ -1,0 +1,19 @@
+{
+    "name": "riina/remix",
+    "description": "Remix framework",
+    "type": "library",
+    "minimum-stability": "stable",
+    "license": "proprietary",
+    "authors": [{
+        "name": "Riina K.",
+        "email": "riinak.tv@gmail.com"
+    }],
+    "require": {
+        "php": ">=7.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Riina\\Remix\\": "src/"
+        }
+    }
+}

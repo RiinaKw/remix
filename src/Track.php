@@ -7,44 +7,76 @@ namespace Remix;
  */
 class Track extends \Remix\Component
 {
-
     protected $pattern = '';
+    protected $path = '';
     protected $match = [];
     protected $action = null;
-    protected $input = null;
+    protected $name = '';
 
-    protected function makePattern(string $path)
+    protected static function makePattern(string $path) : string
     {
-        $pattern = str_replace('/', '\/', $path);
-        $pattern = preg_replace('/:([^\/]+)/', '(?<$1>[^\/]+)', $pattern);
-        return '/^' . $pattern . '\/?$/';
+        return '@^' . preg_replace('/:([^\/]+)/', '(?<$1>[^\/]+)', $path) . '/?$@';
     } // function makePattern()
 
-    public static function get(string $path, $action)
+    public static function get(string $path, $action)  : Track
     {
         $track = new static;
         $track->action = $action;
-        $track->pattern = $track->makePattern($path);
+        $track->path = $path;
+        $track->pattern = static::makePattern($path);
         return $track;
     } // function get()
 
-    public function match(string $path)
+    public function name(string $name) : Track
     {
-        $result = preg_match($this->pattern, $path, $match);
-        $this->input = new \Remix\Input($match);
+        $this->name = $name;
+        return $this;
+    }
+
+    public function __get($name)
+    {
+        switch ($name) {
+            case 'name':
+                return $this->name;
+            default:
+                return null;
+        }
+    }
+
+    public function match(string $path) : bool
+    {
+        $result = preg_match($this->pattern, $path);
         return $result;
     } // function match()
 
-    public function call()
+    public function sampler(string $path) : Sampler
+    {
+        $result = preg_match($this->pattern, $path, $match);
+        return new Sampler($match);
+    } // function sampler()
+
+    public function call(Sampler $sampler) : Studio
     {
         $action = $this->action;
-        if (is_callable($action)) {
-            $action($this->input);
-        } elseif (strpos($action, '@')) {
+        if (is_string($action) && strpos($action, '@')) {
             list($class, $method) = explode('@', $action);
-            $class = '\\App\\Controller\\' . $class;
-            $controller = new $class;
-            $controller->$method($this->input);
+            $class = '\\App\\Channel\\' . $class;
+            $channel = new $class;
+            $action = [$channel, $method];
+            $this->action = $action;
         }
+
+        if (is_object($action)) {
+            return new Studio('closure', $action);
+        } elseif (is_callable($action)) {
+            return $action($sampler);
+        }
+        return new Studio;
     } // function call()
+
+    public function uri() : string
+    {
+        $config = App::getInstance()->config();
+        return $config->get('environment.public_url') . $this->path;
+    } // function uri()
 } // class Track

@@ -9,6 +9,11 @@ class Hash
 {
     protected $prop = [];
 
+    public function __construct($array = [])
+    {
+        $this->prop = $array;
+    }
+
     public function ref(&$arr)
     {
         $this->prop = &$arr;
@@ -34,8 +39,11 @@ class Hash
         return null;
     } // function callback()
 
-    public function get($name)
+    public function get(string $name = '')
     {
+        if ($name === '') {
+            return $this->prop;
+        }
         if (strpos($name, '.') !== false) {
             $cb_item = function (&$target) {
                 return isset($target);
@@ -50,7 +58,7 @@ class Hash
         }
     } // function get()
 
-    public function set($name, $value)
+    public function set(string $name, $value)
     {
         if (strpos($name, '.') !== false) {
             $cb_item = function (&$target) {
@@ -67,7 +75,7 @@ class Hash
         }
     } // function set()
 
-    public function isset($name)
+    public function isset(string $name)
     {
         if (strpos($name, '.') !== false) {
             $cb_item = function (&$target) {
@@ -82,7 +90,7 @@ class Hash
         }
     } // function isset()
 
-    public function delete($name)
+    public function delete(string $name)
     {
         if (strpos($name, '.') !== false) {
             $cb_item = function (&$target) {
@@ -98,12 +106,12 @@ class Hash
         }
     } // function delete()
 
-    public function __get($name)
+    public function __get(string $name)
     {
         return $this->get($name);
     } // function __get()
 
-    public function __set($name, $value)
+    public function __set(string $name, $value)
     {
         return $this->set($name, $value);
     } // function __set()

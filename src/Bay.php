@@ -15,7 +15,7 @@ class Bay extends \Remix\Component
 
     public function run(array $argv)
     {
-        $remix = \Remix\App::getInstance();
+        $remix = App::getInstance();
         array_shift($argv);
 
         $namespaces = [
@@ -49,7 +49,7 @@ class Bay extends \Remix\Component
         if ($instance) {
             $instance->run($method, $argv);
         } else {
-            $instance = $remix->factory(\Remix\Effector\Help::class);
+            $instance = $remix->factory(Effector\Help::class);
             $instance->index($argv);
         }
     } // function run()

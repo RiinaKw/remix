@@ -10,4 +10,9 @@ abstract class Component
             throw new \Exception('param must be empty');
         }
     } // function __construct()
+
+    public static function factory()
+    {
+        return new static;
+    } // function factory()
 } // class Component

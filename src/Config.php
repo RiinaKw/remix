@@ -10,17 +10,17 @@ class Config extends Component
     public function __construct()
     {
         parent::__construct();
-        $remix = \Remix\App::getInstance();
+        $remix = App::getInstance();
         $this->dir = $remix->appDir('/config');
 
-        $this->hash = $remix->factory(\Remix\Hash::class);
+        $this->hash = $remix->factory(Hash::class);
     } // function __construct()
 
     public function load(string $name)
     {
         $file = $this->dir . '/' . $name . '.php';
         if (! realpath($file)) {
-            throw new \Exception('config file not found');
+            throw new RemixException('config file not found');
         }
 
         $config = require($file);

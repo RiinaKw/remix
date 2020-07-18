@@ -5,31 +5,34 @@ namespace Remix;
 /**
  * Remix Bounce : view renderer
  */
-class Bounce extends \Remix\Component
+class Bounce extends \Remix\Studio
 {
+    use \Remix\Renderable;
 
     protected $source;
+    protected $file;
 
-    public function __construct()
+    public function __construct(string $file, array $params)
     {
-        parent::__construct();
+        parent::__construct('html', $params);
         $this->source = 'from bounce : {{ $var }}';
+        $this->file = $file;
     } // function __construct()
 
-    public function render(string $file, array $params = [])
+    public function render() : string
     {
-        $remix = \Remix\App::getInstance();
+        $remix = App::getInstance();
         $bounce_dir = $remix->config()->get('app.bounce_dir');
-        $path = $remix->dir($bounce_dir . '/' . $file . '.php');
+        $path = $remix->dir($bounce_dir . '/' . $this->file . '.tpl');
 
         ob_start();
         require($path);
         $source = ob_get_clean();
 
-        foreach ($params as $key => $value) {
+        foreach ($this->params as $key => $value) {
             $target = '{{ $' . $key . ' }}';
             $source = str_replace($target, $value, $source);
         }
-        echo $source;
+        return $source;
     } // function render()
 } // class Bounce

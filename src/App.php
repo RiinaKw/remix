@@ -8,6 +8,7 @@ namespace Remix;
 class App
 {
     protected static $app = null;
+    protected $cli = false;
     private $container = [];
 
     protected $root_dir;
@@ -17,21 +18,25 @@ class App
     {
     } // function __construct()
 
-    public static function initialize(string $dir)
+    public static function initialize(string $dir) : App
     {
         $remix = static::getInstance();
+
+        set_error_handler([$remix, 'errorHandle']);
+        set_exception_handler([$remix, 'exceptionHandle']);
+        register_shutdown_function([$remix, 'shutdownHandle']);
 
         $remix->root_dir = realpath($dir);
         $remix->app_dir = realpath($remix->root_dir . '/app');
 
-        $config = $remix->singleton(\Remix\Config::class);
+        $config = $remix->singleton(Config::class);
         $config->load('app');
         $config->load('environment');
 
         return $remix;
     } // function initialize()
 
-    public static function getInstance()
+    public static function getInstance() : App
     {
         if (! static::$app) {
             static::$app = new self;
@@ -53,43 +58,62 @@ class App
         return new $class;
     } // function factory()
 
-    public function dir(string $path)
+    public function dir(string $path) : string
     {
         return realpath($this->root_dir . '/' . $path);
     }
 
-    public function appDir(string $path = '')
+    public function appDir(string $path = '') : string
     {
         return realpath($this->app_dir . '/' . $path);
     } // function appDir()
 
-    public function config()
+    public function config() : Config
     {
-        return $this->singleton(\Remix\Config::class);
+        return $this->singleton(Config::class);
     } // function config()
 
-    protected function mixer()
+    public function mixer() : Mixer
     {
-        return $this->singleton(\Remix\Mixer::class);
+        return $this->singleton(Mixer::class);
     } // function mixer()
 
-    protected function bay()
+    protected function bay() : Bay
     {
-        return $this->singleton(\Remix\Bay::class);
+        return $this->singleton(Bay::class);
     } // function bay()
 
     public function runWeb()
     {
-        try {
-            $path = $_SERVER['PATH_INFO'] ?? '';
-            $this->mixer()->route($path);
-        } catch (\Remix\Exceptions\HttpException $e) {
-            $e->render();
-        }
+        $this->cli = false;
+        $path = $_SERVER['PATH_INFO'] ?? '';
+        $studio = $this->mixer()->route($path);
+        echo $studio;
     } // function runWeb()
 
     public function runCli(array $argv)
     {
+        $this->cli = true;
         $this->bay()->run($argv);
     } // function runCli()
+
+    public function errorHandle($code, $message, $file, $line, $context = [])
+    {
+        throw new Exceptions\ErrorException($message, $code);
+    } // function errorHandle()
+
+    public function exceptionHandle($e)
+    {
+        if ($this->cli) {
+            Effector::line('####');
+            Effector::line('#### ' . $e->getMessage());
+            Effector::line('####');
+        } else {
+            Studio::renderException($e);
+        }
+    } // function exceptionHandle()
+
+    public function shutdownHandle()
+    {
+    } // function shutdownHandle()
 } // class App

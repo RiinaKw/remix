@@ -6,8 +6,9 @@ class Debug
 {
     public static function dump($var)
     {
-        echo "<pre>";
         $trace = debug_backtrace()[0];
+
+        echo "<pre>";
         var_dump($var);
         echo $trace['file'], "\nline: ", $trace['line'];
         echo "</pre>\n";
@@ -19,8 +20,8 @@ class Debug
         $length = count($lines);
 
         $start = $highlight - $margin;
-        if ($start < 0) {
-            $start = 0;
+        if ($start <= 0) {
+            $start = 1;
         }
         $end = $highlight + $margin;
         if ($end >= $length) {
@@ -29,10 +30,12 @@ class Debug
 
         $target = [];
         for ($i = $start; $i <= $end; ++$i) {
-            if ($i == $highlight - 1) {
-                $target[] = $i+1 . ': <strong>' . $lines[$i] . '</strong>';
+            $line = str_replace("\n", '', $lines[$i - 1]);
+            $line = htmlspecialchars($line);
+            if ($i == $highlight) {
+                $target[] = '<li class="current">' . $i . ': ' . $line . '</li>';
             } else {
-                $target[] = $i+1 . ': ' . $lines[$i];
+                $target[] = '<li>' . $i . ': ' . $line . '</li>';
             }
         }
 

@@ -13,7 +13,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Riina\\Remix\\": "src/"
+            "Remix\\": "src/",
+            "App\\": "demo/app/"
         }
     }
 }

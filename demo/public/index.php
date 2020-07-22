@@ -1,7 +1,7 @@
 <?php
 
-$root_dir = dirname(dirname(__DIR__));
-$app_dir = $root_dir . '/demo';
+$app_dir = dirname(__DIR__);
+$root_dir = dirname($app_dir);
 $autoload_path = $root_dir . '/vendor/autoload.php';
 
 require_once($autoload_path);

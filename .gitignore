@@ -1,2 +1,2 @@
 vendor
-.editorconfig
+.phpunit.result.cache

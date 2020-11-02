@@ -4,14 +4,17 @@ namespace Remix;
 
 use PHPUnit\Framework\TestCase;
 
-$app_dir = __DIR__;
-$root_dir = dirname($app_dir);
-$autoload_path = $root_dir . '/vendor/autoload.php';
-
-require_once($autoload_path);
-
 class RemixTest extends TestCase
 {
+    protected function setUp() : void
+    {
+        $app_dir = __DIR__;
+        $root_dir = dirname($app_dir);
+        $autoload_path = $root_dir . '/vendor/autoload.php';
+
+        require_once($autoload_path);
+    }
+
     public function testRemixInstance()
     {
         // is loadable?

@@ -97,6 +97,12 @@ class App
         $this->bay()->run($argv);
     } // function runCli()
 
+    public function isCli()
+    {
+        //return $this->cli;
+        return true;
+    } // function isCli()
+
     public function errorHandle($code, $message, $file, $line, $context = [])
     {
         throw new Exceptions\ErrorException($message, $code);

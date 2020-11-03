@@ -17,7 +17,13 @@ class Mixer extends Component
 
         $remix = App::getInstance();
         $tracks_path = $remix->appDir('/mixer.php');
-        $this->tracks = require($tracks_path);
+
+        //$this->load(require($tracks_path));
+    } // function __construct()
+
+    public function load(array $tracks)
+    {
+        $this->tracks = $tracks;
 
         foreach ($this->tracks as $track) {
             $name = $track->name;
@@ -25,7 +31,8 @@ class Mixer extends Component
                 $this->named[$name] = $track;
             }
         }
-    } // function __construct()
+        return $this;
+    }
 
     public function route(string $path) : Studio
     {

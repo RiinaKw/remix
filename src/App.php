@@ -87,7 +87,9 @@ class App
     {
         $this->cli = false;
         $path = $_SERVER['PATH_INFO'] ?? '';
-        $studio = $this->mixer()->route($path);
+
+        $tracks_path = $this->appDir('/mixer.php') ?: [];
+        $studio = $this->mixer()->load($tracks_path)->route($path);
         echo $studio;
     } // function runWeb()
 

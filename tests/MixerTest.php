@@ -26,13 +26,16 @@ class MixerTest extends TestCase
         $this->assertTrue($this->mixer instanceof \Remix\Mixer);
     }
 
-    public function testLoad()
+    public function testRoute()
     {
-        // is callable with no arguments?
-        $this->startCapture();
-        $this->mixer->route('');
-        $result = $this->endCapture();
+        $tracks = [
+            \Remix\Track::get('/cb', function () {
+                return '<b>from callback</b>';
+            })->name('named'),
+        ];
 
-        $this->assertMatchesRegularExpression('/Remix Bay/', $result);
+        // is callable route?
+        $response = $this->mixer->load($tracks)->route('/cb');
+        $this->assertMatchesRegularExpression('/from callback/', $response);
     }
 }

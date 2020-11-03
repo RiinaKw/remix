@@ -24,15 +24,15 @@ class BayTest extends TestCase
         // is callable with no arguments?
         $this->startCapture();
         $this->bay->run(['bay']);
-        $result = $this->endCapture();
+        $response = $this->endCapture();
 
-        $this->assertMatchesRegularExpression('/Remix Bay/', $result);
+        $this->assertMatchesRegularExpression('/Remix Bay/', $response);
 
         // is callable with arguments?
         $this->startCapture();
         $this->bay->run(['bay', 'version']);
-        $result = $this->endCapture();
+        $response = $this->endCapture();
 
-        $this->assertMatchesRegularExpression('/Remix framework/', $result);
+        $this->assertMatchesRegularExpression('/Remix framework/', $response);
     }
 }

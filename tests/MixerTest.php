@@ -2,9 +2,9 @@
 
 namespace Remix\CoreTests;
 
-use PHPUnit\Framework\TestCase;
+use \Remix\Utility\Tests\TestCaseBase;
 
-class MixerTest extends TestCase
+class MixerTest extends TestCaseBase
 {
     use \Remix\Utility\Tests\InvokePrivateMethodBehavior;
     use \Remix\Utility\Tests\CaptureOutput;
@@ -13,8 +13,6 @@ class MixerTest extends TestCase
 
     protected function setUp() : void
     {
-        require_once(__DIR__ . '/../vendor/autoload.php');
-
         $remix = \Remix\App::getInstance();
         $this->mixer = $this->invokeMethod($remix, 'mixer', []);
 

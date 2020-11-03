@@ -2,16 +2,11 @@
 
 namespace Remix\CoreTests;
 
-use PHPUnit\Framework\TestCase;
+use \Remix\Utility\Tests\TestCaseBase;
 
-class AppTest extends TestCase
+class AppTest extends TestCaseBase
 {
     use \Remix\Utility\Tests\InvokePrivateMethodBehavior;
-
-    protected function setUp() : void
-    {
-        require_once(__DIR__ . '/../vendor/autoload.php');
-    }
 
     public function testInstance()
     {

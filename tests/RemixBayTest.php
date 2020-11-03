@@ -1,38 +1,37 @@
 <?php
 
-namespace Remix;
+namespace Remix\CoreTests;
 
 use PHPUnit\Framework\TestCase;
 
 class RemixBayTest extends TestCase
 {
+    protected $bay = null;
+
     protected function setUp() : void
     {
-        $app_dir = __DIR__;
-        $root_dir = dirname($app_dir);
-        $autoload_path = $root_dir . '/vendor/autoload.php';
-
-        require_once($autoload_path);
-    }
-
-    public function testBay()
-    {
-        $root_path = __DIR__ . '/../demo';
+        require_once(__DIR__ . '/../vendor/autoload.php');
 
         $remix = \Remix\App::getInstance();
-        $remix->initialize($root_path);
 
+        $reflection = new \ReflectionClass($remix);
+        $method = $reflection->getMethod('bay');
+        $method->setAccessible(true);
+        $this->bay = $method->invokeArgs($remix, ['bay']);
+    }
+
+    public function testRemixLoad()
+    {
         // is callable with no arguments?
         ob_start();
-        $remix->runCli(['bay']);
+        $this->bay->run(['bay']);
         $result = ob_get_clean();
 
         $this->assertMatchesRegularExpression('/Remix Bay/', $result);
 
         // is callable with arguments?
         ob_start();
-        //$remix->runCli(['bay', 'instrument:acid', '-808', '--add=909']);
-        $remix->runCli(['bay', 'version']);
+        $this->bay->run(['bay', 'version']);
         $result = ob_get_clean();
 
         $this->assertMatchesRegularExpression('/Remix framework/', $result);

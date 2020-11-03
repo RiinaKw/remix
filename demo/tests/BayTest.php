@@ -20,12 +20,13 @@ class BayTest extends TestCase
     {
         $this->startCapture();
         $this->remix->runCli(['bay', 'instrument:acid', '-808', '--add=909']);
-        $result = $this->endCapture();
+        $response = $this->endCapture();
 
         $this->assertTrue($this->remix->isCli());
+        $this->assertFalse($this->remix->isWeb());
 
-        $this->assertMatchesRegularExpression('/303/', $result);
-        $this->assertMatchesRegularExpression('/808/', $result);
-        $this->assertMatchesRegularExpression('/909/', $result);
+        $this->assertMatchesRegularExpression('/303/', $response);
+        $this->assertMatchesRegularExpression('/808/', $response);
+        $this->assertMatchesRegularExpression('/909/', $response);
     }
 }

@@ -3,9 +3,8 @@
 namespace Remix\AppTests;
 
 use PHPUnit\Framework\TestCase;
-use \Remix\Utility\Tests\TestCaseBase;
 
-class MixerTest extends TestCaseBase
+class MixerTest extends TestCase
 {
     use \Remix\Utility\Tests\CaptureOutput;
 

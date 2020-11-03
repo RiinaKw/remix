@@ -2,9 +2,9 @@
 
 namespace Remix\CoreTests;
 
-use \Remix\Utility\Tests\TestCaseBase;
+use PHPUnit\Framework\TestCase;
 
-class MixerTest extends TestCaseBase
+class MixerTest extends TestCase
 {
     use \Remix\Utility\Tests\InvokePrivateMethodBehavior;
     use \Remix\Utility\Tests\CaptureOutput;

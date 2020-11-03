@@ -4,7 +4,7 @@ namespace Remix\CoreTests;
 
 use PHPUnit\Framework\TestCase;
 
-class RemixBayTest extends TestCase
+class MixerTest extends TestCase
 {
     use \Remix\Utility\Tests\InvokePrivateMethodBehavior;
     use \Remix\Utility\Tests\CaptureOutput;
@@ -16,23 +16,23 @@ class RemixBayTest extends TestCase
         require_once(__DIR__ . '/../vendor/autoload.php');
 
         $remix = \Remix\App::getInstance();
-        $this->bay = $this->invokeMethod($remix, 'bay', []);
+        $this->mixer = $this->invokeMethod($remix, 'mixer', []);
     }
 
-    public function testRemixLoad()
+    public function testInstance()
+    {
+        // is valid instance?
+        $this->assertTrue((bool)$this->mixer);
+        $this->assertTrue($this->mixer instanceof \Remix\Mixer);
+    }
+
+    public function testLoad()
     {
         // is callable with no arguments?
         $this->startCapture();
-        $this->bay->run(['bay']);
+        $this->mixer->route('');
         $result = $this->endCapture();
 
         $this->assertMatchesRegularExpression('/Remix Bay/', $result);
-
-        // is callable with arguments?
-        $this->startCapture();
-        $this->bay->run(['bay', 'version']);
-        $result = $this->endCapture();
-
-        $this->assertMatchesRegularExpression('/Remix framework/', $result);
     }
 }

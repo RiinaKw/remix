@@ -6,6 +6,9 @@ use PHPUnit\Framework\TestCase;
 
 class RemixBayTest extends TestCase
 {
+    use \Remix\Utility\Tests\InvokePrivateMethodBehavior;
+    use \Remix\Utility\Tests\CaptureOutput;
+
     protected $bay = null;
 
     protected function setUp() : void
@@ -13,26 +16,22 @@ class RemixBayTest extends TestCase
         require_once(__DIR__ . '/../vendor/autoload.php');
 
         $remix = \Remix\App::getInstance();
-
-        $reflection = new \ReflectionClass($remix);
-        $method = $reflection->getMethod('bay');
-        $method->setAccessible(true);
-        $this->bay = $method->invokeArgs($remix, ['bay']);
+        $this->bay = $this->invokeMethod($remix, 'bay', []);
     }
 
     public function testRemixLoad()
     {
         // is callable with no arguments?
-        ob_start();
+        $this->startCapture();
         $this->bay->run(['bay']);
-        $result = ob_get_clean();
+        $result = $this->endCapture();
 
         $this->assertMatchesRegularExpression('/Remix Bay/', $result);
 
         // is callable with arguments?
-        ob_start();
+        $this->startCapture();
         $this->bay->run(['bay', 'version']);
-        $result = ob_get_clean();
+        $result = $this->endCapture();
 
         $this->assertMatchesRegularExpression('/Remix framework/', $result);
     }

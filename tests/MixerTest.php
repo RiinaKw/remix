@@ -19,13 +19,6 @@ class MixerTest extends TestCase
         $this->mixer = $this->invokeMethod($remix, 'mixer', []);
     }
 
-    public function testInstance()
-    {
-        // is valid instance?
-        $this->assertTrue((bool)$this->mixer);
-        $this->assertTrue($this->mixer instanceof \Remix\Mixer);
-    }
-
     public function testRoute()
     {
         $tracks = [

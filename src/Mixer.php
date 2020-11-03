@@ -11,19 +11,13 @@ class Mixer extends Component
     protected $tracks = [];
     protected $named = [];
 
-    public function __construct()
+    public function load($tracks)
     {
-        parent::__construct();
-
-        $remix = App::getInstance();
-        $tracks_path = $remix->appDir('/mixer.php');
-
-        //$this->load(require($tracks_path));
-    } // function __construct()
-
-    public function load(array $tracks)
-    {
-        $this->tracks = $tracks;
+        if (is_string($tracks)) {
+            $this->tracks = require($tracks);
+        } else {
+            $this->tracks = $tracks;
+        }
 
         foreach ($this->tracks as $track) {
             $name = $track->name;

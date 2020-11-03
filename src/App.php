@@ -2,6 +2,8 @@
 
 namespace Remix;
 
+use \Remix\Utility\Performance\Memory;
+
 /**
  * Remix App : entry point
  */
@@ -9,14 +11,45 @@ class App
 {
     protected static $app = null;
     protected $cli = false;
+    protected $debug = false;
     private $container = [];
 
     protected $root_dir;
     protected $app_dir;
 
-    private function __construct()
+    private function __construct($is_debug)
     {
+        $this->debug = $is_debug;
+        $this->logWithMemory(__METHOD__);
     } // function __construct()
+
+    public function __destruct()
+    {
+        $this->container = null;
+        static::$app = null;
+
+        $this->logWithMemory(__METHOD__);
+    }
+
+    public function isDebug()
+    {
+        return $this->debug;
+    }
+
+    public function log($str)
+    {
+        if ($this->isDebug()) {
+            echo '  ', $str, PHP_EOL;
+        }
+    }
+
+    public function logWithMemory($str)
+    {
+        if ($this->isDebug()) {
+            echo '  ', $str, PHP_EOL;
+            Memory::get();
+        }
+    }
 
     public static function initialize(string $dir) : App
     {
@@ -36,10 +69,10 @@ class App
         return $remix;
     } // function initialize()
 
-    public static function getInstance() : App
+    public static function getInstance($is_debug = false) : App
     {
         if (! static::$app) {
-            static::$app = new self;
+            static::$app = new self($is_debug);
         }
         return static::$app;
     } // function getInstance()

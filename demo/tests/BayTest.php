@@ -2,9 +2,9 @@
 
 namespace Remix\AppTests;
 
-use \Remix\Utility\Tests\TestCaseBase;
+use PHPUnit\Framework\TestCase;
 
-class BayTest extends TestCaseBase
+class BayTest extends TestCase
 {
     use \Remix\Utility\Tests\CaptureOutput;
 

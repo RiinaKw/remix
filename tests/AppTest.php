@@ -2,9 +2,9 @@
 
 namespace Remix\CoreTests;
 
-use \Remix\Utility\Tests\TestCaseBase;
+use PHPUnit\Framework\TestCase;
 
-class AppTest extends TestCaseBase
+class AppTest extends TestCase
 {
     use \Remix\Utility\Tests\InvokePrivateMethodBehavior;
 

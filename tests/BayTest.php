@@ -19,13 +19,6 @@ class BayTest extends TestCase
         $this->bay = $this->invokeMethod($remix, 'bay', []);
     }
 
-    public function testInstance()
-    {
-        // is valid instance?
-        $this->assertTrue((bool)$this->bay);
-        $this->assertTrue($this->bay instanceof \Remix\Bay);
-    }
-
     public function testLoad()
     {
         // is callable with no arguments?

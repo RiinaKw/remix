@@ -4,7 +4,7 @@ namespace Remix\AppTests;
 
 use PHPUnit\Framework\TestCase;
 
-class RemixDemoBayTest extends TestCase
+class BayTest extends TestCase
 {
     use \Remix\Utility\Tests\CaptureOutput;
 
@@ -21,6 +21,8 @@ class RemixDemoBayTest extends TestCase
         $this->startCapture();
         $this->remix->runCli(['bay', 'instrument:acid', '-808', '--add=909']);
         $result = $this->endCapture();
+
+        $this->assertTrue($this->remix->isCli());
 
         $this->assertMatchesRegularExpression('/303/', $result);
         $this->assertMatchesRegularExpression('/808/', $result);

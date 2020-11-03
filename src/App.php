@@ -99,10 +99,14 @@ class App
         $this->bay()->run($argv);
     } // function runCli()
 
+    public function isWeb()
+    {
+        return ! $this->cli;
+    } // function isCli()
+
     public function isCli()
     {
-        //return $this->cli;
-        return true;
+        return $this->cli;
     } // function isCli()
 
     public function errorHandle($code, $message, $file, $line, $context = [])

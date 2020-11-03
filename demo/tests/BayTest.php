@@ -18,9 +18,7 @@ class BayTest extends TestCase
 
     public function testInstrument()
     {
-        $this->startCapture();
-        $this->remix->runCli(['bay', 'instrument:acid', '-808', '--add=909']);
-        $response = $this->endCapture();
+        $response = $this->capture([$this->remix, 'runCli'], ['bay', 'instrument:acid', '-808', '--add=909']);
 
         $this->assertTrue($this->remix->isCli());
         $this->assertFalse($this->remix->isWeb());

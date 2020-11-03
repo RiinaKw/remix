@@ -7,6 +7,16 @@ namespace Remix;
  */
 abstract class Effector extends Component
 {
+    public function __construct()
+    {
+        \Remix\App::getInstance()->log(__METHOD__);
+    } // function __construct()
+
+    public function __destruct()
+    {
+        \Remix\App::getInstance()->log(__METHOD__);
+    }
+
     public function run(string $method, array $arg = [])
     {
         foreach ($arg as $item) {

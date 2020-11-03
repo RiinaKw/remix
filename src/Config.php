@@ -9,12 +9,19 @@ class Config extends Component
 
     public function __construct()
     {
+        \Remix\App::getInstance()->log(__METHOD__);
+
         parent::__construct();
         $remix = App::getInstance();
         $this->dir = $remix->appDir('/config');
 
         $this->hash = $remix->factory(Hash::class);
     } // function __construct()
+
+    public function __destruct()
+    {
+        \Remix\App::getInstance()->log(__METHOD__);
+    }
 
     public function load(string $name)
     {

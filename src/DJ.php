@@ -2,6 +2,9 @@
 
 namespace Remix;
 
+use Remix\DJ\Setlist;
+use Remix\DJ\Back2back;
+
 /**
  * Remix DJ : DB access manager
  */
@@ -28,17 +31,17 @@ class DJ extends \Remix\Component
         \Remix\App::getInstance()->log(__METHOD__);
     }
 
-    public static function prepare($sql, $params = [])
+    public static function prepare(string $sql, array $params = []) : Setlist
     {
         $statement = static::$connection->prepare($sql);
         foreach ($params as $name => $value) {
             $label = ':' . $name;
             $statement->bindParam($label, $value);
         }
-        return new \Remix\DJ\Setlist($statement);
+        return new Setlist($statement);
     }
 
-    public static function play($sql, $params = [])
+    public static function play(string $sql, array $params = []) : array
     {
         $statement = static::$connection->prepare($sql);
         foreach ($params as $name => $value) {
@@ -49,9 +52,9 @@ class DJ extends \Remix\Component
         return $statement->fetchAll();
     }
 
-    public static function back2back()
+    public static function back2back() : Back2back
     {
-        return new \Remix\DJ\Back2back(static::$connection);
+        return new Back2back(static::$connection);
     }
 
     public static function destroy()

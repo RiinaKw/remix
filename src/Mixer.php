@@ -10,7 +10,7 @@ class Mixer extends Component
     protected $tracks = [];
     protected $named = [];
 
-    public function load($tracks)
+    public function load($tracks) : self
     {
         if (is_string($tracks)) {
             $this->tracks = require($tracks);
@@ -41,7 +41,7 @@ class Mixer extends Component
         throw new Exceptions\HttpException('it did not match any route, given ' . $path, 404);
     } // function route()
 
-    public function named($named)
+    public function named(string $named)
     {
         return $this->named[$named] ?? null;
     }

@@ -47,20 +47,20 @@ class Studio extends \Remix\Component
         } // switch
     } // function __toString()
 
-    public function status(int $code = 200)
+    public function status(int $code = 200) : self
     {
         http_response_code($code);
         return $this;
     } // function status()
 
-    public function json($params)
+    public function json($params) : self
     {
         $this->type = 'json';
         $this->params = $params;
         return $this;
     } // function json()
 
-    public function redirect(string $name, int $status = 303)
+    public function redirect(string $name, int $status = 303) : self
     {
         $mixer = App::getInstance()->mixer();
         $track = $mixer->named($name);
@@ -72,7 +72,7 @@ class Studio extends \Remix\Component
         return $this;
     } // function redirect()
 
-    public static function recordException($e)
+    public static function recordException($e) : void
     {
         //Debug::dump($e);
         $target = Debug::getSource($e->getFile(), $e->getLine(), 10);

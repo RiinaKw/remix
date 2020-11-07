@@ -22,7 +22,7 @@ class Bay extends \Remix\Component
         \Remix\App::getInstance()->log(__METHOD__);
     }
 
-    public function run(array $argv)
+    public function run(array $argv) : void
     {
         $remix = App::getInstance();
         array_shift($argv);

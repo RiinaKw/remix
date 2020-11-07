@@ -18,7 +18,7 @@ class App
     protected $app_dir;
     protected $public_dir;
 
-    private function __construct($is_debug)
+    private function __construct(bool $is_debug)
     {
         $this->debug = $is_debug;
         $this->logWithMemory(__METHOD__);
@@ -35,19 +35,19 @@ class App
         }
     }
 
-    public function isDebug()
+    public function isDebug() : bool
     {
         return $this->debug;
     }
 
-    public function log($str)
+    public function log(string $str)
     {
         if ($this->isDebug()) {
             echo '  ', $str, PHP_EOL;
         }
     }
 
-    public function logWithMemory($str)
+    public function logWithMemory(string $str)
     {
         if ($this->isDebug()) {
             echo '  ', $str, PHP_EOL;
@@ -79,7 +79,7 @@ class App
         return $remix;
     } // function initialize()
 
-    public static function getInstance($is_debug = false) : App
+    public static function getInstance(bool $is_debug = false) : App
     {
         if (! static::$app) {
             static::$app = new self($is_debug);
@@ -87,7 +87,7 @@ class App
         return static::$app;
     } // function getInstance()
 
-    protected function singleton(string $class)
+    protected function singleton(string $class) : Component
     {
         $remix = static::getInstance();
         if (! array_key_exists($class, $this->container)) {
@@ -96,7 +96,7 @@ class App
         return $this->container[$class];
     } // function singleton()
 
-    public function factory(string $class)
+    public function factory(string $class) : Component
     {
         return new $class;
     } // function factory()
@@ -136,7 +136,7 @@ class App
         return $this->singleton(DJ::class);
     }
 
-    public function runWeb($public_dir)
+    public function runWeb(string $public_dir) : Studio
     {
         $this->public_dir = $public_dir;
         $this->cli = false;
@@ -147,23 +147,23 @@ class App
         return $studio;
     } // function runWeb()
 
-    public function runCli(array $argv)
+    public function runCli(array $argv) : void
     {
         $this->cli = true;
         $this->bay()->run($argv);
     } // function runCli()
 
-    public function isWeb()
+    public function isWeb() : bool
     {
         return ! $this->cli;
     } // function isCli()
 
-    public function isCli()
+    public function isCli() : bool
     {
         return $this->cli;
     } // function isCli()
 
-    public static function destroy()
+    public static function destroy() : void
     {
         $remix = static::$app;
         \Remix\DJ::destroy();

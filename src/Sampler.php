@@ -2,6 +2,8 @@
 
 namespace Remix;
 
+use Remix\Utility\Hash;
+
 /**
  * Remix Sampler : web input manager
  */
@@ -13,15 +15,15 @@ class Sampler extends Component
 
     public function __construct(array $param)
     {
-        $this->param = new Utility\Hash;
+        $this->param = new Hash;
         foreach ($param as $key => $item) {
             if (! is_int($key)) {
                 $this->param->set($key, $item);
             }
         }
 
-        $this->get = new Utility\Hash($_GET);
-        $this->post = new Utility\Hash($_POST);
+        $this->get = new Hash($_GET);
+        $this->post = new Hash($_POST);
     } // function __construct()
 
     public function param(string $name = '')

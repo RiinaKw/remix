@@ -23,12 +23,12 @@ class Bounce extends \Remix\Studio
         $this->escaped_params = $params;
     } // function __construct()
 
-    public function __set($name, $value)
+    public function __set(string $name, $value)
     {
         $this->escaped_params[$name] = $value;
     }
 
-    public function setHtml($name, $value)
+    public function setHtml(string $name, $value) : void
     {
         $this->html_params[$name] = $value;
     }
@@ -46,7 +46,7 @@ class Bounce extends \Remix\Studio
         return $this->run($source);
     } // function record()
 
-    protected function translate($source)
+    protected function translate(string $source) : string
     {
         $re_l = '/' . static::$left_delimiter . '\s*';
         $re_r = '\s*' . static::$right_delimiter . '/';
@@ -95,7 +95,7 @@ class Bounce extends \Remix\Studio
         return $executable;
     }
 
-    protected function run($source)
+    protected function run($source) : string
     {
         $executable = $this->translate($source);
 

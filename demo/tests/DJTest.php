@@ -33,12 +33,11 @@ class DJTest extends TestCase
         // is SQL executable?
         $result = \Remix\DJ::play('SELECT * FROM users;');
         $this->assertSame(2, count($result));
-        $this->assertTrue($result[0] instanceof \Remix\Vinyl);
 
         // is SQL executable with placeholder?
         $result = \Remix\DJ::play('SELECT * FROM users WHERE id = :id;', ['id' => 1]);
         $this->assertSame(1, count($result));
-        $this->assertSame('Riina', $result[0]->name);
+        $this->assertSame('Riina', $result[0]['name']);
 
         // use setlist
         $setlist = \Remix\DJ::prepare('SELECT * FROM users;');

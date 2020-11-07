@@ -45,7 +45,6 @@ class DJ extends \Remix\Component
             $label = ':' . $name;
             $statement->bindParam($label, $value);
         }
-        $statement->setFetchMode(\PDO::FETCH_CLASS, \Remix\Vinyl::class);
         $statement->execute();
         return $statement->fetchAll();
     }

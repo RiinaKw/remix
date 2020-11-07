@@ -23,18 +23,23 @@ class Config extends Component
         \Remix\App::getInstance()->log(__METHOD__);
     }
 
-    public function load(string $name)
+    public function load(string $file, string $key = '')
     {
-        $file = $this->dir . '/' . $name . '.php';
+        $filename = str_replace('.', '/', $file);
+        $file = $this->dir . '/' . $filename . '.php';
         if (! realpath($file)) {
             throw new RemixException('config file not found');
         }
 
         $config = require($file);
-        $this->hash->set($name, $config);
+        if ($key) {
+            $this->hash->set($key, $config);
+        } else {
+            $this->hash->set($filename, $config);
+        }
     } // function load()
 
-    public function get(string $name)
+    public function get(string $name = '')
     {
         //return $this->config;
         return $this->hash->get($name);

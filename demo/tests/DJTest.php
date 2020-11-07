@@ -47,4 +47,17 @@ class DJTest extends TestCase
         $result = $setlist->asVinyl(\App\Vinyl\User::class)->play();
         $this->assertTrue($result[0] instanceof \App\Vinyl\User);
     }
+
+    public function testVinyl()
+    {
+        $vinyl = \App\Vinyl\User::find(1);
+        $this->assertTrue((bool)$vinyl);
+        $this->assertTrue($vinyl instanceof \App\Vinyl\User);
+        $this->assertSame('Riina', $vinyl->name);
+
+        $vinyl = \App\Vinyl\Note::find(1);
+        $this->assertTrue((bool)$vinyl);
+        $this->assertTrue($vinyl instanceof \App\Vinyl\Note);
+        $this->assertSame('Riina Kwaad', $vinyl->body);
+    }
 }

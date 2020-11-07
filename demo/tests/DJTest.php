@@ -51,15 +51,21 @@ class DJTest extends TestCase
 
     public function testVinyl()
     {
+        // User vinyl
         $vinyl = \App\Vinyl\User::find(1);
         $this->assertTrue((bool)$vinyl);
         $this->assertTrue($vinyl instanceof \App\Vinyl\User);
         $this->assertSame('Riina', $vinyl->name);
 
+        // Note vinyl
         $vinyl = \App\Vinyl\Note::find(1);
         $this->assertTrue((bool)$vinyl);
         $this->assertTrue($vinyl instanceof \App\Vinyl\Note);
         $this->assertSame('Riina Kwaad', $vinyl->body);
+
+        // not found
+        $vinyl = \App\Vinyl\Note::find(10000);
+        $this->assertNull($vinyl);
     }
 
     public function testInsert()

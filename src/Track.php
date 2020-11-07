@@ -76,7 +76,6 @@ class Track extends \Remix\Component
 
     public function uri() : string
     {
-        $config = App::getInstance()->config();
-        return $config->get('environment.public_url') . $this->path;
+        return App::getInstance()->config()->get('app.public_url') . $this->path;
     } // function uri()
 } // class Track

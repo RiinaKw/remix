@@ -1,10 +1,11 @@
 <?php
 
-$app_dir = dirname(__DIR__);
+$public_dir = __DIR__;
+$app_dir = dirname($public_dir);
 $root_dir = dirname($app_dir);
 $autoload_path = $root_dir . '/vendor/autoload.php';
 
 require_once($autoload_path);
 
 $remix = \Remix\App::getInstance(true);
-$remix->initialize($app_dir)->runWeb();
+echo $remix->initialize($app_dir)->runWeb($public_dir);

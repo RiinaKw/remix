@@ -16,6 +16,7 @@ class App
 
     protected $root_dir;
     protected $app_dir;
+    protected $public_dir;
 
     private function __construct($is_debug)
     {
@@ -58,7 +59,7 @@ class App
     {
         $remix = static::getInstance();
 
-        set_error_handler([$remix, 'errorHandle']);
+        //set_error_handler([$remix, 'errorHandle']);
         set_exception_handler([$remix, 'exceptionHandle']);
         register_shutdown_function([$remix, 'shutdownHandle']);
 
@@ -103,19 +104,24 @@ class App
     public function dir(string $path) : string
     {
         return realpath($this->root_dir . '/' . $path);
-    }
+    } // function dir()
 
     public function appDir(string $path = '') : string
     {
         return realpath($this->app_dir . '/' . $path);
     } // function appDir()
 
+    public function publicDir(string $path = '') : string
+    {
+        return realpath($this->public_dir . '/' . $path);
+    } // function publicDir()
+
     public function config() : Config
     {
         return $this->singleton(Config::class);
     } // function config()
 
-    protected function mixer() : Mixer
+    public function mixer() : Mixer
     {
         return $this->singleton(Mixer::class);
     } // function mixer()
@@ -130,14 +136,15 @@ class App
         return $this->singleton(DJ::class);
     }
 
-    public function runWeb()
+    public function runWeb($public_dir)
     {
+        $this->public_dir = $public_dir;
         $this->cli = false;
         $path = $_SERVER['PATH_INFO'] ?? '';
 
         $tracks_path = $this->appDir('/mixer.php') ?: [];
         $studio = $this->mixer()->load($tracks_path)->route($path);
-        echo $studio;
+        return $studio;
     } // function runWeb()
 
     public function runCli(array $argv)
@@ -185,6 +192,7 @@ class App
         } else {
             Studio::recordException($e);
         }
+        var_dump(debug_backtrace());
     } // function exceptionHandle()
 
     public function shutdownHandle()

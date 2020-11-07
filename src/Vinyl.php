@@ -2,10 +2,10 @@
 
 namespace Remix;
 
-class Vinyl extends \Remix\Component
+abstract class Vinyl extends \Remix\Component
 {
-    protected static $table = 'default_table';
-    protected static $pk = 'default_pk';
+    public static $table = 'default_table';
+    public static $pk = 'default_pk';
     protected $prop = [];
 
     public function __get($name)

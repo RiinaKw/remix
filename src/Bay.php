@@ -7,7 +7,6 @@ namespace Remix;
  */
 class Bay extends \Remix\Component
 {
-
     protected static $shorthandles = [
         '-v' => \Remix\Effector\Version::class,
         '-h' => \Remix\Effector\Help::class,

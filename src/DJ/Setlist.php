@@ -17,9 +17,9 @@ class Setlist extends \Remix\Component
         return $this;
     }
 
-    public function play()
+    public function play($params = [])
     {
-        $this->statement->execute();
+        $this->statement->execute($params);
         return $this->statement->fetchAll();
     }
 } // class Setlist

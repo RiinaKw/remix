@@ -7,7 +7,6 @@ use PHPUnit\Framework\TestCase;
 class MixerTest extends TestCase
 {
     use \Remix\Utility\Tests\InvokePrivateMethodBehavior;
-    use \Remix\Utility\Tests\CaptureOutput;
 
     protected $bay = null;
 

@@ -69,7 +69,6 @@ class App
         $config->set('env.name', $env);
         $config->load('app');
         $config->load('env.' . $env, 'env.config');
-        exit;
 
         return $remix;
     } // function initialize()

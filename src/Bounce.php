@@ -7,7 +7,7 @@ namespace Remix;
  */
 class Bounce extends \Remix\Studio
 {
-    use \Remix\Renderable;
+    use \Remix\Recordable;
 
     protected $source;
     protected $file;
@@ -19,7 +19,7 @@ class Bounce extends \Remix\Studio
         $this->file = $file;
     } // function __construct()
 
-    public function render() : string
+    public function record() : string
     {
         $remix = App::getInstance();
         $bounce_dir = $remix->config()->get('app.bounce_dir');
@@ -34,5 +34,5 @@ class Bounce extends \Remix\Studio
             $source = str_replace($target, $value, $source);
         }
         return $source;
-    } // function render()
+    } // function record()
 } // class Bounce

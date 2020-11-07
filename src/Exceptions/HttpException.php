@@ -15,20 +15,5 @@ class HttpException extends \Remix\RemixException
     public function getStatus()
     {
         return $this->status;
-    }
-/*
-    public function render()
-    {
-        $target = \Remix\Debug::getSource($this->file, $this->line, 10);
-
-        $view = new \Remix\Bounce('exception', [
-            'status' => $this->status,
-            'message' => $this->message,
-            'file' => $this->file,
-            'line' => $this->line,
-            'target' => implode("\n", $target),
-        ]);
-        echo $view->status($this->status)->render();
-    } // function render()
-*/
+    } // function getStatus()
 } // class HttpException

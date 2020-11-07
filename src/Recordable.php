@@ -2,12 +2,12 @@
 
 namespace Remix;
 
-trait Renderable
+trait Recordable
 {
     protected $status;
 
-    public function render()
+    public function record()
     {
         http_response_code($this->status);
-    } // function render()
-} // trait Renderable
+    } // function record()
+} // trait Recordable

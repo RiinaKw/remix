@@ -3,7 +3,7 @@
 from bounce.php : {{ $var }}<br />
 get parameter 'some' : {{ $some }}<br />
 
-{{foreach ([1, 2, 3] as $item) }}
+{{foreach ($arr as $item) }}
   {{if $item == 1}}
     <b>{{ $item }}</b>
   {{elseif $item == 3}}
@@ -15,3 +15,8 @@ get parameter 'some' : {{ $some }}<br />
 
 <div>escaped : {{ $escaped }}</div>
 <div>unescaped : {{ $unescaped }}</div>
+
+<div>
+  object : {{ $vinyl->name }}<br />
+  arr : {{ $arr[0] }}
+</div>

@@ -60,7 +60,7 @@ class App
         $remix = static::getInstance();
 
         //set_error_handler([$remix, 'errorHandle']);
-        set_exception_handler([$remix, 'exceptionHandle']);
+        //set_exception_handler([$remix, 'exceptionHandle']);
         register_shutdown_function([$remix, 'shutdownHandle']);
 
         $remix->root_dir = realpath($dir);

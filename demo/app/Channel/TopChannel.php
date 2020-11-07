@@ -25,6 +25,12 @@ class TopChannel extends \Remix\Channel
         $bounce->escaped = '<b>boo</b>';
         $bounce->setHtml('unescaped', '<b>boo</b>');
 
+        $bounce->arr = [1, 2, 3];
+
+        $vinyl = \App\Vinyl\User::factory();
+        $vinyl->name = 'Riina';
+        $bounce->vinyl = $vinyl;
+
         return $bounce;
     } // function bounce()
 

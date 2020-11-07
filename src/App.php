@@ -10,7 +10,8 @@ use \Remix\Utility\Performance\Memory;
 class App
 {
     protected static $app = null;
-    protected $cli = false;
+    protected $env;
+    protected $cli = true;
     protected $debug = false;
     private $container = [];
 
@@ -62,9 +63,13 @@ class App
         $remix->root_dir = realpath($dir);
         $remix->app_dir = realpath($remix->root_dir . '/app');
 
+        $env = require($remix->app_dir . '/env.php');
+        $remix->env = ($env && $env !== 1) ? $env : 'production';
+
         $config = $remix->singleton(Config::class);
         $config->load('app');
-        $config->load('environment');
+        $config->load('env.' . $remix->env, 'env.config');
+        exit;
 
         return $remix;
     } // function initialize()
@@ -149,9 +154,10 @@ class App
 
     public function exceptionHandle($e)
     {
-        if ($this->cli) {
+        if ($this->isCli()) {
             Effector::line('####');
             Effector::line('#### ' . $e->getMessage());
+            Effector::line('#### ' . $e->getFile() . ' line ' . $e->getLine());
             Effector::line('####');
         } else {
             Studio::renderException($e);

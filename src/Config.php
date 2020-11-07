@@ -14,7 +14,7 @@ class Config extends Component
         parent::__construct();
         $remix = App::getInstance();
         $this->dir = $remix->appDir('/config');
-        $this->hash = $remix->factory(Hash::class);
+        $this->hash = $remix->factory(Utility\Hash::class);
     } // function __construct()
 
     public function __destruct()

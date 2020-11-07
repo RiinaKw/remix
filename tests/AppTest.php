@@ -27,6 +27,9 @@ class AppTest extends TestCase
         // is valid instance?
         $this->assertTrue((bool)$bay);
         $this->assertTrue($bay instanceof \Remix\Bay);
+
+        $bay2 = $this->invokeMethod($remix, 'dj', []);
+        $this->assertSame($bay, $bay2);
     }
 
     public function testMixerInstance()
@@ -37,6 +40,9 @@ class AppTest extends TestCase
         // is valid instance?
         $this->assertTrue((bool)$mixer);
         $this->assertTrue($mixer instanceof \Remix\Mixer);
+
+        $mixer2 = $this->invokeMethod($remix, 'dj', []);
+        $this->assertSame($mixer, $mixer2);
     }
 
     public function testDJInstance()

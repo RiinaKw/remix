@@ -9,9 +9,9 @@ class Config extends Component
 
     public function __construct()
     {
-        \Remix\App::getInstance()->log(__METHOD__);
-
         parent::__construct();
+        \Remix\App::getInstance()->logBirth(__METHOD__);
+
         $remix = App::getInstance();
         $this->dir = $remix->appDir('/config');
         $this->hash = new Utility\Hash;
@@ -19,7 +19,8 @@ class Config extends Component
 
     public function __destruct()
     {
-        \Remix\App::getInstance()->log(__METHOD__);
+        \Remix\App::getInstance()->logDeath(__METHOD__);
+        parent::__destruct();
     }
 
     public function load(string $file, string $key = '') : void

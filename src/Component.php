@@ -11,6 +11,10 @@ abstract class Component
         }
     } // function __construct()
 
+    public function __destruct()
+    {
+    }
+
     public static function factory() : self
     {
         return new static;

@@ -9,12 +9,14 @@ abstract class Effector extends Component
 {
     public function __construct()
     {
-        \Remix\App::getInstance()->log(__METHOD__);
+        parent::__construct();
+        \Remix\App::getInstance()->logBirth(__METHOD__);
     } // function __construct()
 
     public function __destruct()
     {
-        \Remix\App::getInstance()->log(__METHOD__);
+        \Remix\App::getInstance()->logDeath(__METHOD__);
+        parent::__destruct();
     }
 
     public function run(string $method, array $arg = []) : void

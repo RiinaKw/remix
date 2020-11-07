@@ -15,6 +15,9 @@ class Sampler extends Component
 
     public function __construct(array $param)
     {
+        parent::__construct();
+        \Remix\App::getInstance()->logBirth(__METHOD__);
+
         $this->params_hash = new Hash;
         foreach ($param as $key => $item) {
             if (! is_int($key)) {
@@ -25,6 +28,12 @@ class Sampler extends Component
         $this->get_hash = new Hash($_GET);
         $this->post_hash = new Hash($_POST);
     } // function __construct()
+
+    public function __destruct()
+    {
+        \Remix\App::getInstance()->logDeath(__METHOD__);
+        parent::__destruct();
+    } // function __destruct()
 
     public function param(string $name = '')
     {

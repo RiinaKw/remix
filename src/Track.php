@@ -13,6 +13,18 @@ class Track extends \Remix\Component
     protected $action = null;
     protected $name = '';
 
+    private function __construct($path)
+    {
+        parent::__construct();
+        //\Remix\App::getInstance()->logBirth(__METHOD__ . ' [' . $path . ']');
+    } // function __construct()
+
+    public function __destruct()
+    {
+        //\Remix\App::getInstance()->logDeath(__METHOD__ . ' [' . $this->path . ']');
+        parent::__destruct();
+    } // function __destruct()
+
     protected static function makePattern(string $path) : string
     {
         return '@^' . preg_replace('/:([^\/]+)/', '(?<$1>[^\/]+)', $path) . '/?$@';
@@ -20,7 +32,7 @@ class Track extends \Remix\Component
 
     public static function get(string $path, $action)  : self
     {
-        $track = new static;
+        $track = new static($path);
         $track->action = $action;
         $track->path = $path;
         $track->pattern = static::makePattern($path);
@@ -51,8 +63,9 @@ class Track extends \Remix\Component
 
     public function sampler(string $path) : Sampler
     {
-        $result = preg_match($this->pattern, $path, $match);
-        return new Sampler($match);
+        $remix = \Remix\App::getInstance();
+        $result = preg_match($this->pattern, $path, $matches);
+        return \Remix\App::getInstance()->factory(Sampler::class, $matches);
     } // function sampler()
 
     public function call(Sampler $sampler) : Studio
@@ -69,6 +82,7 @@ class Track extends \Remix\Component
             return new Studio('closure', $action);
         } elseif (is_callable($action)) {
             $result = $action($sampler);
+            unset($sampler);
             if ($result instanceof Studio) {
                 return $result;
             } else {

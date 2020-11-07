@@ -18,10 +18,18 @@ class Bounce extends \Remix\Studio
 
     public function __construct(string $file, array $params = [])
     {
+        \Remix\App::getInstance()->logBirth(__METHOD__ . ' [' . $file . ']');
+
         parent::__construct('html', $params);
         $this->file = $file;
         $this->escaped_params = $params;
     } // function __construct()
+
+    public function __destruct()
+    {
+        \Remix\App::getInstance()->logDeath(__METHOD__ . ' [' . $this->file . ']');
+        parent::__destruct();
+    } // function __destruct()
 
     public function __set(string $name, $value)
     {

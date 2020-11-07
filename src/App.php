@@ -20,8 +20,11 @@ class App
 
     private function __construct(bool $is_debug)
     {
+        if ($is_debug) {
+            Memory::get(__METHOD__);
+            static::log(true, __METHOD__, '+');
+        }
         $this->debug = $is_debug;
-        $this->logWithMemory(__METHOD__);
     } // function __construct()
 
     public function __destruct()
@@ -30,7 +33,7 @@ class App
         static::destroy();
 
         if ($this->isDebug()) {
-            echo '  ', __METHOD__, PHP_EOL;
+            static::log(true, __METHOD__, '-');
             Memory::get(__METHOD__);
         }
     }
@@ -40,27 +43,39 @@ class App
         return $this->debug;
     }
 
-    public function log(string $str)
+    protected static function log(bool $show, string $str, string $flag = '')
     {
-        if ($this->isDebug()) {
-            echo '  ', $str, PHP_EOL;
+        if ($show) {
+            $flag = $flag ? sprintf('[%s]', $flag) : '';
+            echo '  ', $flag, ' ', $str, PHP_EOL;
         }
-    }
+    } // function log()
 
-    public function logWithMemory(string $str)
+    public function logBirth(string $str)
+    {
+        $debug = $this->isDebug();
+        static::log($debug, $str, '+');
+    } // function logBirth()
+
+    public function logDeath(string $str)
+    {
+        $debug = $this->isDebug();
+        static::log($debug, $str, '-');
+    } // function logDeath()
+
+    public function logMemory(string $str)
     {
         if ($this->isDebug()) {
-            echo '  ', $str, PHP_EOL;
             Memory::get();
         }
-    }
+    } // function logMemory()
 
     public static function initialize(string $dir) : App
     {
         $remix = static::getInstance();
 
         //set_error_handler([$remix, 'errorHandle']);
-        //set_exception_handler([$remix, 'exceptionHandle']);
+        set_exception_handler([$remix, 'exceptionHandle']);
         register_shutdown_function([$remix, 'shutdownHandle']);
 
         $remix->root_dir = realpath($dir);
@@ -96,9 +111,9 @@ class App
         return $this->container[$class];
     } // function singleton()
 
-    public function factory(string $class) : Component
+    public function factory(string $class, $args = null) : Component
     {
-        return new $class;
+        return new $class($args);
     } // function factory()
 
     public function dir(string $path) : string
@@ -143,7 +158,9 @@ class App
         $path = $_SERVER['PATH_INFO'] ?? '';
 
         $tracks_path = $this->appDir('/mixer.php') ?: [];
-        $studio = $this->mixer()->load($tracks_path)->route($path);
+        $mixer = $this->mixer();
+        $studio = $mixer->load($tracks_path)->route($path);
+        $mixer->destroy();
         return $studio;
     } // function runWeb()
 
@@ -166,11 +183,14 @@ class App
     public static function destroy() : void
     {
         $remix = static::$app;
-        \Remix\DJ::destroy();
 
-        if (isset($remix->container)) {
+        if ($remix && $remix->container) {
             foreach ($remix->container as $key => $item) {
-                $remix->container[$key] = null;
+                if (method_exists($item, 'destroy')) {
+                    $item->destroy();
+                }
+                $item = null;
+                unset($remix->container[$key]);
             }
             $remix->container = [];
         }
@@ -193,6 +213,7 @@ class App
             Studio::recordException($e);
         }
         var_dump(debug_backtrace());
+        unset($e);
     } // function exceptionHandle()
 
     public function shutdownHandle()

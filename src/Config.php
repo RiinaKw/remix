@@ -41,7 +41,16 @@ class Config extends Component
 
     public function get(string $name = '')
     {
-        //return $this->config;
         return $this->hash->get($name);
     } // function get()
+
+    public function set(string $name, $value)
+    {
+        return $this->hash->set($name, $value);
+    } // function get()
+
+    public function env()
+    {
+        return $this->hash->get('env.name');
+    }
 } // class Config

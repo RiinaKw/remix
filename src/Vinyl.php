@@ -2,6 +2,9 @@
 
 namespace Remix;
 
+/**
+ * Remix Vinyl : capsulate a single DB record
+ */
 abstract class Vinyl extends \Remix\Component
 {
     public static $table = 'default_table';

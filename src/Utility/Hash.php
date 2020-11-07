@@ -1,6 +1,6 @@
 <?php
 
-namespace Remix;
+namespace Remix\Utility;
 
 /**
  * [Hash description]

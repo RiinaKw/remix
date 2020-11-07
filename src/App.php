@@ -10,7 +10,6 @@ use \Remix\Utility\Performance\Memory;
 class App
 {
     protected static $app = null;
-    protected $env;
     protected $cli = true;
     protected $debug = false;
     private $container = [];
@@ -64,11 +63,12 @@ class App
         $remix->app_dir = realpath($remix->root_dir . '/app');
 
         $env = require($remix->app_dir . '/env.php');
-        $remix->env = ($env && $env !== 1) ? $env : 'production';
+        $env = ($env && $env !== 1) ? $env : 'production';
 
         $config = $remix->singleton(Config::class);
+        $config->set('env.name', $env);
         $config->load('app');
-        $config->load('env.' . $remix->env, 'env.config');
+        $config->load('env.' . $env, 'env.config');
         exit;
 
         return $remix;

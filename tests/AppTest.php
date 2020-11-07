@@ -8,6 +8,11 @@ class AppTest extends TestCase
 {
     use \Remix\Utility\Tests\InvokePrivateMethodBehavior;
 
+    public function tearDown() : void
+    {
+        \Remix\App::destroy();
+    }
+
     public function testInstance()
     {
         // is loadable?
@@ -28,7 +33,7 @@ class AppTest extends TestCase
         $this->assertTrue((bool)$bay);
         $this->assertTrue($bay instanceof \Remix\Bay);
 
-        $bay2 = $this->invokeMethod($remix, 'dj', []);
+        $bay2 = $this->invokeMethod($remix, 'bay', []);
         $this->assertSame($bay, $bay2);
     }
 
@@ -41,7 +46,7 @@ class AppTest extends TestCase
         $this->assertTrue((bool)$mixer);
         $this->assertTrue($mixer instanceof \Remix\Mixer);
 
-        $mixer2 = $this->invokeMethod($remix, 'dj', []);
+        $mixer2 = $this->invokeMethod($remix, 'mixer', []);
         $this->assertSame($mixer, $mixer2);
     }
 

@@ -23,6 +23,11 @@ class MixerTest extends TestCase
         $this->mixer->load($tracks);
     }
 
+    public function tearDown() : void
+    {
+        \Remix\App::destroy();
+    }
+
     public function testRoute()
     {
         // is callable route?

@@ -15,6 +15,11 @@ class BayTest extends TestCase
         $this->remix = \Remix\App::getInstance()->initialize(__DIR__ . '/..');
     }
 
+    public function tearDown() : void
+    {
+        \Remix\App::destroy();
+    }
+
     public function testNoArg()
     {
         $response = $this->capture([$this->remix, 'runCli'], ['bay']);

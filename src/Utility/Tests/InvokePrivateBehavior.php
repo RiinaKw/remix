@@ -12,6 +12,14 @@ trait InvokePrivateBehavior
         return $method->invokeArgs($obj, $param);
     } // function invokeMethod
 
+    protected function invokeProperty($obj, string $name)
+    {
+        $reflection = new \ReflectionClass($obj);
+        $prop = $reflection->getProperty($name);
+        $prop->setAccessible(true);
+        return $prop->getValue($obj);
+    } // function invokeMethod
+
     protected function staticProperty($className, string $name)
     {
         $reflection = new \ReflectionClass($className);

@@ -9,6 +9,7 @@ class Studio extends \Remix\Component
 {
     protected $params = [];
     protected $type = 'html';
+    protected $status = 200;
 
     public function __construct(string $type = 'none', $params = [])
     {
@@ -18,6 +19,7 @@ class Studio extends \Remix\Component
 
     public function __toString() : string
     {
+        $this->status($this->status);
         switch ($this->type) {
             case 'none':
                 return '';
@@ -28,6 +30,10 @@ class Studio extends \Remix\Component
 
             case 'json':
                 return json_encode($this->params);
+
+            case 'redirect':
+                header('Location: ' . $this->params);
+                return '';
 
             default:
                 if (method_exists($this, 'record')) {
@@ -56,8 +62,11 @@ class Studio extends \Remix\Component
         $mixer = App::getInstance()->mixer();
         $track = $mixer->named($name);
         $uri = $track->uri();
-        $this->status(status);
-        header('Location: ' . $uri);
+
+        $this->type = 'redirect';
+        $this->params = $uri;
+        $this->status = $status;
+        return $this;
     } // function redirect()
 
     public static function recordException($e)

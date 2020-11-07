@@ -10,6 +10,18 @@ class Mixer extends Component
     protected $tracks = [];
     protected $named = [];
 
+    public function __construct()
+    {
+        parent::__construct();
+        \Remix\App::getInstance()->logBirth(__METHOD__);
+    } // function __construct()
+
+    public function __destruct()
+    {
+        \Remix\App::getInstance()->logDeath(__METHOD__);
+        parent::__destruct();
+    } // function __destruct()
+
     public function load($tracks) : self
     {
         if (is_string($tracks)) {
@@ -25,6 +37,12 @@ class Mixer extends Component
             }
         }
         return $this;
+    } // function load()
+
+    public function destroy()
+    {
+        $this->tracks = null;
+        $this->named = null;
     }
 
     public function route(string $path) : Studio
@@ -35,7 +53,9 @@ class Mixer extends Component
         foreach ($this->tracks as $track) {
             if ($track->match($path)) {
                 $sampler = $track->sampler($path);
-                return $track->call($sampler);
+                $studio = $track->call($sampler);
+                unset($track);
+                return $studio;
             }
         }
         throw new Exceptions\HttpException('it did not match any route, given ' . $path, 404);
@@ -44,5 +64,5 @@ class Mixer extends Component
     public function named(string $named)
     {
         return $this->named[$named] ?? null;
-    }
+    } // function named()
 } // class Mixer

@@ -14,6 +14,9 @@ class DJ extends \Remix\Component
 
     public function __construct()
     {
+        parent::__construct();
+        \Remix\App::getInstance()->logBirth(__METHOD__);
+
         $remix = \Remix\App::getInstance();
         if (!static::$connection) {
             $config = $remix->config()->get('env.config.db');
@@ -21,14 +24,14 @@ class DJ extends \Remix\Component
                 static::$connection = new \PDO($config['dsn'], $config['user'], $config['password']);
             }
         }
-        \Remix\App::getInstance()->log(__METHOD__);
         return $this;
     }
 
     public function __destruct()
     {
         static::destroy();
-        \Remix\App::getInstance()->log(__METHOD__);
+        \Remix\App::getInstance()->logDeath(__METHOD__);
+        parent::__destruct();
     }
 
     public static function prepare(string $sql, array $params = []) : Setlist

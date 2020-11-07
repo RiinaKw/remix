@@ -9,6 +9,16 @@ use \Remix\Bounce;
 
 class TopChannel extends \Remix\Channel
 {
+    public function __construct()
+    {
+        \Remix\App::getInstance()->logBirth(__METHOD__);
+    } // function __construct()
+
+    public function __destruct()
+    {
+        \Remix\App::getInstance()->logDeath(__METHOD__);
+    } // function __destruct()
+
     public function index()
     {
         return 'Remix is ​​a lightweight PHP framework.';

@@ -1,6 +1,7 @@
 <h1>Remix framework</h1>
 
-from bounce.php : {{ $var }}
+from bounce.php : {{ $var }}<br />
+get parameter 'some' : {{ $some }}<br />
 
 {{foreach ([1, 2, 3] as $item) }}
   {{if $item == 1}}

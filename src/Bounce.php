@@ -29,10 +29,44 @@ class Bounce extends \Remix\Studio
         require($path);
         $source = ob_get_clean();
 
-        foreach ($this->params as $key => $value) {
-            $target = '{{ $' . $key . ' }}';
-            $source = str_replace($target, $value, $source);
-        }
-        return $source;
+        return $this->run($source);
     } // function record()
+
+    protected function run($source)
+    {
+        $executable = $source;
+        $executable = preg_replace(
+            '/\{\{\s*(for|while|foreach|if|elseif)\s+?([^\s].*?[^\s])\s*\}\}/',
+            '{{ $1 ($2) }}',
+            $executable
+        );
+        $executable = preg_replace(
+            '/\{\{\s*(for|while|foreach|if|elseif)\s+\(\((.*?)\)\)\s*\}\}/',
+            '<?php $1 ($2) : ?>',
+            $executable
+        );
+        $executable = preg_replace(
+            '/\{\{\s*(for|while|foreach|if|elseif)\s+(.*?)\s*\}\}/',
+            '<?php $1 $2 : ?>',
+            $executable
+        );
+        $executable = preg_replace(
+            '/\{\{\s*(else)\s*\}\}/',
+            '<?php $1 : ?>',
+            $executable
+        );
+        $executable = preg_replace(
+            '/\{\{\s*(endfor|endwhile|endforeach|endif)\s*\}\}/',
+            '<?php $1; ?>',
+            $executable
+        );
+        $executable = '?>' . preg_replace('/\{\{\s*(.*?)\s*\}\}/', '<?php echo $1; ?>', $executable) . '<?php';
+        extract($this->params);
+
+        ob_start();
+        eval($executable);
+        $response = ob_get_clean();
+
+        return $response;
+    }
 } // class Bounce

@@ -15,6 +15,11 @@ class MixerTest extends TestCase
         $this->remix = \Remix\App::getInstance()->initialize(__DIR__ . '/..');
     }
 
+    public function tearDown() : void
+    {
+        \Remix\App::destroy();
+    }
+
     public function testMixer()
     {
         $_SERVER['PATH_INFO'] = '/cb';

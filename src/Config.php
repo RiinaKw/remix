@@ -14,7 +14,6 @@ class Config extends Component
         parent::__construct();
         $remix = App::getInstance();
         $this->dir = $remix->appDir('/config');
-
         $this->hash = $remix->factory(Hash::class);
     } // function __construct()
 
@@ -27,6 +26,7 @@ class Config extends Component
     {
         $filename = str_replace('.', '/', $file);
         $file = $this->dir . '/' . $filename . '.php';
+
         if (! realpath($file)) {
             throw new RemixException('config file not found');
         }

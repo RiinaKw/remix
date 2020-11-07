@@ -25,10 +25,13 @@ class App
 
     public function __destruct()
     {
-        $this->container = null;
-        static::$app = null;
+        $debug = $this->isDebug();
+        static::destroy();
 
-        $this->logWithMemory(__METHOD__);
+        if ($this->isDebug()) {
+            echo '  ', __METHOD__, PHP_EOL;
+            Memory::get(__METHOD__);
+        }
     }
 
     public function isDebug()
@@ -70,6 +73,8 @@ class App
         $config->load('app');
         $config->load('env.' . $env, 'env.config');
 
+        $remix->dj();
+
         return $remix;
     } // function initialize()
 
@@ -110,7 +115,7 @@ class App
         return $this->singleton(Config::class);
     } // function config()
 
-    public function mixer() : Mixer
+    protected function mixer() : Mixer
     {
         return $this->singleton(Mixer::class);
     } // function mixer()
@@ -120,7 +125,7 @@ class App
         return $this->singleton(Bay::class);
     } // function bay()
 
-    protected function dj() : DJ
+    public function dj() : DJ
     {
         return $this->singleton(DJ::class);
     }
@@ -151,6 +156,18 @@ class App
         return $this->cli;
     } // function isCli()
 
+    public static function destroy()
+    {
+        $remix = static::$app;
+        if (isset($remix->container)) {
+            foreach ($remix->container as $key => $item) {
+                $remix->container[$key] = null;
+            }
+            $remix->container = [];
+        }
+        static::$app = null;
+    } // function destroy()
+
     public function errorHandle($code, $message, $file, $line, $context = [])
     {
         throw new Exceptions\ErrorException($message, $code);
@@ -170,5 +187,6 @@ class App
 
     public function shutdownHandle()
     {
+        self::destroy();
     } // function shutdownHandle()
 } // class App

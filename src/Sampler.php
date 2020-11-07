@@ -9,35 +9,35 @@ use Remix\Utility\Hash;
  */
 class Sampler extends Component
 {
-    protected $param = null;
-    protected $get = null;
-    protected $post = null;
+    protected $params_hash = null;
+    protected $get_hash = null;
+    protected $post_hash = null;
 
     public function __construct(array $param)
     {
-        $this->param = new Hash;
+        $this->params_hash = new Hash;
         foreach ($param as $key => $item) {
             if (! is_int($key)) {
-                $this->param->set($key, $item);
+                $this->params_hash->set($key, $item);
             }
         }
 
-        $this->get = new Hash($_GET);
-        $this->post = new Hash($_POST);
+        $this->get_hash = new Hash($_GET);
+        $this->post_hash = new Hash($_POST);
     } // function __construct()
 
     public function param(string $name = '')
     {
-        return $this->param->get($name);
+        return $this->params_hash->get($name);
     } // function param()
 
     public function get(string $name = '')
     {
-        return $this->get->get($name);
+        return $this->get_hash->get($name);
     } // function get()
 
     public function post(string $name = '')
     {
-        return $this->post->get($name);
+        return $this->post_hash->get($name);
     } // function post()
 } // class Sampler

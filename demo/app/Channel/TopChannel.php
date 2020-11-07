@@ -9,9 +9,9 @@ use \Remix\Bounce;
 
 class TopChannel extends \Remix\Channel
 {
-    public function index() : Studio
+    public function index()
     {
-        return new Studio;
+        return 'Remix is ​​a lightweight PHP framework.';
     } // function index()
 
     public function bounce(Sampler $sampler) : Studio

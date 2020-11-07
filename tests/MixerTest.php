@@ -32,6 +32,7 @@ class MixerTest extends TestCase
     {
         // is callable route?
         $response = $this->mixer->route('/cb');
+        $this->assertTrue($response instanceof \Remix\Studio);
         $this->assertMatchesRegularExpression('/from callback/', $response);
     }
 

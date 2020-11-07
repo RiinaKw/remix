@@ -2,6 +2,9 @@
 
 namespace Remix\DJ;
 
+/**
+ * Remix Setlist : PDO statement
+ */
 class Setlist extends \Remix\Component
 {
     protected $statement = null;

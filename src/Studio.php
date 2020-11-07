@@ -30,10 +30,10 @@ class Studio extends \Remix\Component
                 return json_encode($this->params);
 
             default:
-                if (method_exists($this, 'render')) {
-                    return $this->render($this->params);
+                if (method_exists($this, 'record')) {
+                    return $this->record($this->params);
                 } else {
-                    return 'not renderable';
+                    return 'not recordable';
                 }
         } // switch
     } // function __toString()
@@ -60,7 +60,7 @@ class Studio extends \Remix\Component
         header('Location: ' . $uri);
     } // function redirect()
 
-    public static function renderException($e)
+    public static function recordException($e)
     {
         //Debug::dump($e);
         $target = Debug::getSource($e->getFile(), $e->getLine(), 10);
@@ -77,6 +77,6 @@ class Studio extends \Remix\Component
             'line' => $e->getLine(),
             'target' => '<ol class="source">' . implode("\n", $target) . '</ol>',
         ]);
-        echo $view->status($status)->render();
-    } // function renderException()
+        echo $view->status($status)->record();
+    } // function recordException()
 } // class Studio

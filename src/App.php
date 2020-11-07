@@ -159,7 +159,7 @@ class App
             Effector::line('#### ' . $e->getFile() . ' line ' . $e->getLine());
             Effector::line('####');
         } else {
-            Studio::renderException($e);
+            Studio::recordException($e);
         }
     } // function exceptionHandle()
 

@@ -11,7 +11,7 @@ class Setlist extends \Remix\Component
         $this->statement = $statement;
     }
 
-    public function asVinyl($vinyl = \Remix\Vinyl::class)
+    public function asVinyl($vinyl)
     {
         $this->statement->setFetchMode(\PDO::FETCH_CLASS, $vinyl);
         return $this;

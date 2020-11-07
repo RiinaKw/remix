@@ -29,6 +29,8 @@ class DJTest extends TestCase
         // is SQL executable?
         $result = \Remix\DJ::play('SELECT * FROM users;');
         $this->assertSame(2, count($result));
+        var_dump($result);exit;
+        $this->assertTrue($result[0] instanceof \Remix\Vinyl);
 
         // is SQL executable with placeholder?
         $result = \Remix\DJ::play('SELECT * FROM users WHERE id = :id;', ['id' => 1]);

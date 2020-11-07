@@ -31,10 +31,6 @@ class DJTest extends TestCase
     public function testPlay()
     {
         // is SQL executable?
-        $result = \Remix\DJ::play('SELECT * FROM users;');
-        $this->assertSame(2, count($result));
-
-        // is SQL executable with placeholder?
         $result = \Remix\DJ::play('SELECT * FROM users WHERE id = :id;', ['id' => 1]);
         $this->assertSame(1, count($result));
         $this->assertSame('Riina', $result[0]['name']);
@@ -74,6 +70,35 @@ class DJTest extends TestCase
 
         // insert
         $result = \Remix\DJ::play('INSERT INTO users(name) VALUES(:name);', ['name' => 'Luke']);
+
+        // get new count
+        $result = \Remix\DJ::play('SELECT * FROM users;');
+        $this->assertSame($count + 1, count($result));
+    }
+
+    public function testTransaction()
+    {
+        // get current count
+        $result = \Remix\DJ::play('SELECT * FROM users;');
+        $count = count($result);
+
+        $back2back = \Remix\DJ::back2back();
+        $this->assertTrue((bool)$back2back);
+        $this->assertTrue($back2back instanceof \Remix\DJ\Back2back);
+
+        // rollback transaction
+        $back2back->start();
+        \Remix\DJ::play('INSERT INTO users(name) VALUES(:name);', ['name' => 'Vader']);
+        $back2back->fail();
+
+        // get new count
+        $result = \Remix\DJ::play('SELECT * FROM users;');
+        $this->assertSame($count, count($result));
+
+        // commit transaction
+        $back2back->start();
+        \Remix\DJ::play('INSERT INTO users(name) VALUES(:name);', ['name' => 'Leia']);
+        $back2back->success();
 
         // get new count
         $result = \Remix\DJ::play('SELECT * FROM users;');

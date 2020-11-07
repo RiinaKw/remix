@@ -16,12 +16,12 @@ class TopChannel extends \Remix\Channel
 
     public function bounce(Sampler $sampler) : Studio
     {
-        echo $sampler->get('some');
         $message = $sampler->param('message') ?? 'hello';
-        $bounce = new Bounce('test', [
-            'var' => $message,
-        ]);
+        $some = $sampler->get('some') ?? '';
+        $bounce = new Bounce('test');
 
+        $bounce->var = $message;
+        $bounce->some = $some;
         $bounce->escaped = '<b>boo</b>';
         $bounce->setHtml('unescaped', '<b>boo</b>');
 

@@ -39,7 +39,8 @@ class DJTest extends TestCase
         // use setlist
         $setlist = \Remix\DJ::prepare('SELECT * FROM users;');
         $this->assertTrue($setlist instanceof \Remix\DJ\Setlist);
-        $result = $setlist->asVinyl()->play();
-        $this->assertTrue($result[0] instanceof \Remix\Vinyl);
+
+        $result = $setlist->asVinyl(\App\Vinyl\User::class)->play();
+        $this->assertTrue($result[0] instanceof \App\Vinyl\User);
     }
 }

@@ -11,3 +11,6 @@ from bounce.php : {{ $var }}
     {{ $item }}
   {{endif}}
 {{endforeach}}
+
+<div>escaped : {{ $escaped }}</div>
+<div>unescaped : {{ $unescaped }}</div>

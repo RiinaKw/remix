@@ -65,4 +65,18 @@ class DJTest extends TestCase
         $this->assertTrue($vinyl instanceof \App\Vinyl\Note);
         $this->assertSame('Riina Kwaad', $vinyl->body);
     }
+
+    public function testInsert()
+    {
+        // get current count
+        $result = \Remix\DJ::play('SELECT * FROM users;');
+        $count = count($result);
+
+        // insert
+        $result = \Remix\DJ::play('INSERT INTO users(name) VALUES(:name);', ['name' => 'Luke']);
+
+        // get new count
+        $result = \Remix\DJ::play('SELECT * FROM users;');
+        $this->assertSame($count + 1, count($result));
+    }
 }

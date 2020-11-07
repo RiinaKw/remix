@@ -49,6 +49,11 @@ class DJ extends \Remix\Component
         return $statement->fetchAll();
     }
 
+    public static function back2back()
+    {
+        return new \Remix\DJ\Back2back(static::$connection);
+    }
+
     public static function destroy()
     {
         static::$connection = null;

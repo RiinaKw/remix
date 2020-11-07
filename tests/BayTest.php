@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 
 class BayTest extends TestCase
 {
-    use \Remix\Utility\Tests\InvokePrivateMethodBehavior;
+    use \Remix\Utility\Tests\InvokePrivateBehavior;
     use \Remix\Utility\Tests\CaptureOutput;
 
     protected $bay = null;

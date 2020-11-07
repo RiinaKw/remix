@@ -15,5 +15,4 @@ class Vinyl extends \Remix\Component
     {
         $this->prop[$name] = $value;
     }
-
 } // class Vinyl

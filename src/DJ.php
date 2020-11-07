@@ -28,6 +28,16 @@ class DJ extends \Remix\Component
         \Remix\App::getInstance()->log(__METHOD__);
     }
 
+    public static function prepare($sql, $params = [])
+    {
+        $statement = static::$connection->prepare($sql);
+        foreach ($params as $name => $value) {
+            $label = ':' . $name;
+            $statement->bindParam($label, $value);
+        }
+        return new \Remix\DJ\Setlist($statement);
+    }
+
     public static function play($sql, $params = [])
     {
         $statement = static::$connection->prepare($sql);

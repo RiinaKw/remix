@@ -24,6 +24,9 @@ class Studio extends \Remix\Component
             case 'none':
                 return '';
 
+            case 'text':
+                return $this->params;
+
             case 'closure':
                 $closure = $this->params;
                 return $closure();

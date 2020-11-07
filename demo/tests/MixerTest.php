@@ -24,12 +24,14 @@ class MixerTest extends TestCase
 
     public function testMixer()
     {
-        $_SERVER['PATH_INFO'] = '/cb';
+        $_SERVER['PATH_INFO'] = '/';
         $response = $this->remix->runWeb($this->public_dir);
-
         $this->assertTrue($this->remix->isWeb());
         $this->assertFalse($this->remix->isCli());
+        $this->assertMatchesRegularExpression('/Remix is ​​a lightweight PHP framework./', (string)$response);
 
+        $_SERVER['PATH_INFO'] = '/cb';
+        $response = $this->remix->runWeb($this->public_dir);
         $this->assertMatchesRegularExpression('/from callback/', (string)$response);
 
         $_SERVER['PATH_INFO'] = '/bounce';

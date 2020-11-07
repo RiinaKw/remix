@@ -65,11 +65,15 @@ class Track extends \Remix\Component
             $action = [$channel, $method];
             $this->action = $action;
         }
-
         if (is_object($action)) {
             return new Studio('closure', $action);
         } elseif (is_callable($action)) {
-            return $action($sampler);
+            $result = $action($sampler);
+            if ($result instanceof Studio) {
+                return $result;
+            } else {
+                return new Studio('text', $result);
+            }
         }
         return new Studio;
     } // function call()

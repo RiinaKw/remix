@@ -11,9 +11,6 @@ class TopChannel extends \Remix\Channel
 {
     public function index() : Studio
     {
-        Debug::dump(__METHOD__);
-        throw new \Remix\Exceptions\HttpException('exception test', 400);
-        //error;
         return new Studio;
     } // function index()
 
@@ -38,4 +35,12 @@ class TopChannel extends \Remix\Channel
     {
         return Studio::factory()->redirect('top');
     }
+
+    public function exception() : Studio
+    {
+        Debug::dump(__METHOD__);
+        throw new \Remix\Exceptions\HttpException('exception test', 400);
+        //error;
+        return new Studio;
+    } // function index()
 } // class TopChannel

@@ -38,4 +38,17 @@ class AppTest extends TestCase
         $this->assertTrue((bool)$mixer);
         $this->assertTrue($mixer instanceof \Remix\Mixer);
     }
+
+    public function testDJInstance()
+    {
+        $remix = \Remix\App::getInstance();
+        $dj = $this->invokeMethod($remix, 'dj', []);
+
+        // is valid instance?
+        $this->assertTrue((bool)$dj);
+        $this->assertTrue($dj instanceof \Remix\DJ);
+
+        $dj2 = $this->invokeMethod($remix, 'dj', []);
+        $this->assertSame($dj, $dj2);
+    }
 }

@@ -120,6 +120,11 @@ class App
         return $this->singleton(Bay::class);
     } // function bay()
 
+    protected function dj() : DJ
+    {
+        return $this->singleton(DJ::class);
+    }
+
     public function runWeb()
     {
         $this->cli = false;

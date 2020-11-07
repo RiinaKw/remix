@@ -10,5 +10,6 @@ return [
         return '<b>from callback</b>';
     }),
     Track::get('/json', 'TopChannel@json'),
-    Track::get('/redirect', 'TopChannel@redirect')
+    Track::get('/redirect', 'TopChannel@redirect'),
+    Track::get('/exception', 'TopChannel@exception'),
 ];

@@ -45,6 +45,12 @@ class DJTest extends TestCase
 
         $result = $setlist->asVinyl(\App\Vinyl\User::class)->play();
         $this->assertTrue($result[0] instanceof \App\Vinyl\User);
+
+        // use setlist with placeholder
+        $setlist = \Remix\DJ::prepare('SELECT * FROM users WHERE id = :id;');
+        $result = $setlist->asVinyl(\App\Vinyl\User::class)->play(['id' => 1]);
+        $this->assertSame(1, count($result));
+        $this->assertTrue($result[0] instanceof \App\Vinyl\User);
     }
 
     public function testVinyl()

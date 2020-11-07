@@ -21,15 +21,15 @@ abstract class Vinyl extends \Remix\Component
     public static function find($id)
     {
         $sql = sprintf('SELECT * FROM `%s` WHERE `%s` = :id;', static::$table, static::$pk);
-        $setlist = \Remix\DJ::prepare($sql, ['id' => $id]);
-        $result = $setlist->asVinyl(static::class)->play();
+        $setlist = \Remix\DJ::prepare($sql);
+        $result = $setlist->asVinyl(static::class)->play(['id' => $id]);
 
         switch (count($result) === 1) {
             case 1:
                 return $result[0];
                 break;
             case 2:
-                throw new \Exception('find by primary key, why multiple results?');
+                throw new \Remix\RemixException('find by primary key, why multiple results?');
         }
         return null;
     }

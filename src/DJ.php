@@ -12,11 +12,20 @@ class DJ extends \Remix\Component
     public function __construct()
     {
         $remix = \Remix\App::getInstance();
-        $config = $remix->config()->get('env.config.db');
-        if ($config) {
-            static::$connection = new \PDO($config['dsn'], $config['user'], $config['password']);
+        if (!static::$connection) {
+            $config = $remix->config()->get('env.config.db');
+            if ($config) {
+                static::$connection = new \PDO($config['dsn'], $config['user'], $config['password']);
+            }
         }
+        \Remix\App::getInstance()->log(__METHOD__);
         return $this;
+    }
+
+    public function __destruct()
+    {
+        static::destroy();
+        \Remix\App::getInstance()->log(__METHOD__);
     }
 
     public static function play($sql, $params = [])
@@ -28,5 +37,10 @@ class DJ extends \Remix\Component
         }
         $statement->execute();
         return $statement->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public static function destroy()
+    {
+        static::$connection = null;
     }
 } // class DJ

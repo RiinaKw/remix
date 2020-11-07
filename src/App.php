@@ -159,6 +159,8 @@ class App
     public static function destroy()
     {
         $remix = static::$app;
+        \Remix\DJ::destroy();
+
         if (isset($remix->container)) {
             foreach ($remix->container as $key => $item) {
                 $remix->container[$key] = null;

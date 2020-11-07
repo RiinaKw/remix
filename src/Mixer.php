@@ -7,7 +7,6 @@ namespace Remix;
  */
 class Mixer extends Component
 {
-
     protected $tracks = [];
     protected $named = [];
 

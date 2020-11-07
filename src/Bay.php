@@ -59,11 +59,12 @@ class Bay extends \Remix\Component
 
         if ($instance) {
             $instance->run($method, $argv);
-        } else {
+        } elseif ($class) {
             echo 'unknown effector : ' . $class. PHP_EOL;
             echo 'try "bay help"' . PHP_EOL;
-            //$instance = $remix->factory(Effector\Help::class);
-            //$instance->index($argv);
+        } else {
+            $instance = $remix->factory(Effector\Help::class);
+            $instance->index($argv);
         }
     } // function run()
 } // class Bay

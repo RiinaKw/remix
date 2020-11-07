@@ -14,7 +14,7 @@ trait CaptureOutput
         return ob_get_clean();
     }
 
-    protected function capture($call, $args)
+    protected function capture($call, $args = null)
     {
         $this->startCapture();
         $call($args);

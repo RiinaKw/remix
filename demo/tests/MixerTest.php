@@ -17,10 +17,8 @@ class MixerTest extends TestCase
 
     public function testMixer()
     {
-        $this->startCapture();
         $_SERVER['PATH_INFO'] = '/cb';
-        $this->remix->runWeb();
-        $response = $this->endCapture();
+        $response = $this->capture([$this->remix, 'runWeb']);
 
         $this->assertTrue($this->remix->isWeb());
         $this->assertFalse($this->remix->isCli());

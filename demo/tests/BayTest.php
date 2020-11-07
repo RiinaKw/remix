@@ -15,12 +15,19 @@ class BayTest extends TestCase
         $this->remix = \Remix\App::getInstance()->initialize(__DIR__ . '/..');
     }
 
-    public function testInstrument()
+    public function testNoArg()
     {
-        $response = $this->capture([$this->remix, 'runCli'], ['bay', 'instrument:acid', '-808', '--add=909']);
+        $response = $this->capture([$this->remix, 'runCli'], ['bay']);
 
         $this->assertTrue($this->remix->isCli());
         $this->assertFalse($this->remix->isWeb());
+
+        $this->assertMatchesRegularExpression('/Remix Bay/', $response);
+    }
+
+    public function testInstrument()
+    {
+        $response = $this->capture([$this->remix, 'runCli'], ['bay', 'instrument:acid', '-808', '--add=909']);
 
         $this->assertMatchesRegularExpression('/303/', $response);
         $this->assertMatchesRegularExpression('/808/', $response);

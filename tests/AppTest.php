@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 
 class AppTest extends TestCase
 {
-    use \Remix\Utility\Tests\InvokePrivateMethodBehavior;
+    use \Remix\Utility\Tests\InvokePrivateBehavior;
 
     public function tearDown() : void
     {

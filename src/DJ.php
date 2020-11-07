@@ -7,7 +7,7 @@ namespace Remix;
  */
 class DJ extends \Remix\Component
 {
-    public static $connection = null;
+    protected static $connection = null;
 
     public function __construct()
     {

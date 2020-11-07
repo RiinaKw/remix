@@ -6,6 +6,8 @@ use PHPUnit\Framework\TestCase;
 
 class DJTest extends TestCase
 {
+    use \Remix\Utility\Tests\InvokePrivateBehavior;
+
     protected $remix = null;
 
     protected function setUp() : void
@@ -20,8 +22,10 @@ class DJTest extends TestCase
 
     public function testInstance()
     {
-        $this->assertTrue((bool)\Remix\DJ::$connection);
-        $this->assertTrue(\Remix\DJ::$connection instanceof \PDO);
+        $connection = $this->staticProperty(\Remix\DJ::class, 'connection');
+
+        $this->assertTrue((bool)$connection);
+        $this->assertTrue($connection instanceof \PDO);
     }
 
     public function testPlay()

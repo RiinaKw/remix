@@ -85,10 +85,11 @@ class Bounce extends \Remix\Studio
             '<?php $1; ?>',
             $executable
         );
+
         $executable = '?>'
             . preg_replace(
                 $re_l . '(.*?)' . $re_r,
-                '<?php echo htmlspecialchars($1); ?>',
+                '<?php echo \Remix\Utility\Str::h($1); ?>',
                 $executable
             ) . '<?php';
 

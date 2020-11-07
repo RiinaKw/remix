@@ -14,7 +14,7 @@ class Config extends Component
         parent::__construct();
         $remix = App::getInstance();
         $this->dir = $remix->appDir('/config');
-        $this->hash = $remix->factory(Utility\Hash::class);
+        $this->hash = new Utility\Hash;
     } // function __construct()
 
     public function __destruct()
@@ -22,7 +22,7 @@ class Config extends Component
         \Remix\App::getInstance()->log(__METHOD__);
     }
 
-    public function load(string $file, string $key = '')
+    public function load(string $file, string $key = '') : void
     {
         $filename = str_replace('.', '/', $file);
         $file = $this->dir . '/' . $filename . '.php';
@@ -49,7 +49,7 @@ class Config extends Component
         return $this->hash->set($name, $value);
     } // function get()
 
-    public function env()
+    public function env() : string
     {
         return $this->hash->get('env.name');
     }

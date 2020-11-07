@@ -18,7 +18,7 @@ class Track extends \Remix\Component
         return '@^' . preg_replace('/:([^\/]+)/', '(?<$1>[^\/]+)', $path) . '/?$@';
     } // function makePattern()
 
-    public static function get(string $path, $action)  : Track
+    public static function get(string $path, $action)  : self
     {
         $track = new static;
         $track->action = $action;
@@ -27,7 +27,7 @@ class Track extends \Remix\Component
         return $track;
     } // function get()
 
-    public function name(string $name) : Track
+    public function name(string $name) : self
     {
         $this->name = $name;
         return $this;

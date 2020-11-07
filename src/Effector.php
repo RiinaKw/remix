@@ -17,7 +17,7 @@ abstract class Effector extends Component
         \Remix\App::getInstance()->log(__METHOD__);
     }
 
-    public function run(string $method, array $arg = [])
+    public function run(string $method, array $arg = []) : void
     {
         foreach ($arg as $item) {
             preg_match('/^--(.+?)=(.+)$/', $item, $matches);
@@ -28,18 +28,18 @@ abstract class Effector extends Component
 
         if ($method) {
             if (method_exists($this, $method)) {
-                return $this->$method($arg);
+                $this->$method($arg);
             } else {
                 $class = static::class;
                 echo "method {$method} not exists in {$class}" . PHP_EOL;
-                return $this->index($arg);
+                $this->index($arg);
             }
         } else {
-            return $this->index($arg);
+            $this->index($arg);
         }
     } // function run()
 
-    public static function line(string $str)
+    public static function line(string $str) : void
     {
         echo $str . PHP_EOL;
     } // function line()

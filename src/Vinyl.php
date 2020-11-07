@@ -21,7 +21,7 @@ abstract class Vinyl extends \Remix\Component
         $this->prop[$name] = $value;
     }
 
-    public static function find($id)
+    public static function find($id) : ?self
     {
         $sql = sprintf('SELECT * FROM `%s` WHERE `%s` = :id;', static::$table, static::$pk);
         $setlist = \Remix\DJ::prepare($sql);

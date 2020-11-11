@@ -9,7 +9,7 @@ class Memory
 
     protected static function format($bytes)
     {
-        return number_format($bytes / static::BYTE_TO_MEGA, 4) . static::UNIT;
+        return number_format($bytes / static::BYTE_TO_MEGA, 4) . ' ' . static::UNIT;
     }
 
     protected static function usage()
@@ -26,6 +26,6 @@ class Memory
 
     public static function get()
     {
-        echo 'usage : ', static::usage(), ' / peak : ', static::usagePeak(), PHP_EOL;
+        return sprintf('usage : %s / peal : %s', static::usage(), static::usagePeak());
     }
 }

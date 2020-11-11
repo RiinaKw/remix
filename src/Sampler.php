@@ -13,7 +13,7 @@ class Sampler extends Component
     protected $get_hash = null;
     protected $post_hash = null;
 
-    public function __construct(array $param)
+    protected function __construct(array $param)
     {
         parent::__construct();
         \Remix\App::getInstance()->logBirth(__METHOD__);

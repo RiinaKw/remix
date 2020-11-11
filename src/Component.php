@@ -4,7 +4,7 @@ namespace Remix;
 
 abstract class Component
 {
-    public function __construct($remix = null)
+    protected function __construct($remix = null)
     {
         if ($remix) {
             throw new \Exception('param must be empty');
@@ -15,8 +15,14 @@ abstract class Component
     {
     }
 
-    public static function factory() : self
+    public static function factory($arg1 = null, $arg2 = null) : self
     {
-        return new static;
-    } // function factory()
-} // class Component
+        if ($arg1 === null) {
+            return new static;
+        } elseif ($arg2 === null) {
+            return new static($arg1);
+        } else {
+            return new static($arg1, $arg2);
+        }
+    }
+}

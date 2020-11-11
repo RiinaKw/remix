@@ -7,7 +7,7 @@ namespace Remix;
  */
 abstract class Effector extends Component
 {
-    public function __construct()
+    protected function __construct()
     {
         parent::__construct();
         \Remix\App::getInstance()->logBirth(__METHOD__);

@@ -31,12 +31,16 @@ class Debug
         $target = [];
         for ($i = $start; $i <= $end; ++$i) {
             $line = str_replace("\n", '', $lines[$i - 1]);
-            $line = htmlspecialchars($line);
+            //$line = htmlspecialchars($line);
+
+            $arr = [
+                'line' => $i,
+                'source' => $line,
+            ];
             if ($i == $highlight) {
-                $target[] = '<li class="current">' . $i . ': ' . $line . '</li>';
-            } else {
-                $target[] = '<li>' . $i . ': ' . $line . '</li>';
+                $arr['class'] = 'current';
             }
+            $target[] = $arr;
         }
 
         return $target;

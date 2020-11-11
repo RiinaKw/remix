@@ -125,7 +125,7 @@ class App
 
     public function factory(string $class, $args = null) : Component
     {
-        return new $class($args);
+        return $class::factory($args);
     } // function factory()
 
     public function dir(string $path) : string

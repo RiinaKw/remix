@@ -10,7 +10,7 @@ class Mixer extends Component
     protected $tracks = [];
     protected $named = [];
 
-    public function __construct()
+    protected function __construct()
     {
         parent::__construct();
         \Remix\App::getInstance()->logBirth(__METHOD__);

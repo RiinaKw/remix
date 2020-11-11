@@ -9,11 +9,11 @@
         list-style-type: none;
         background-color: #cccccc;
         font-family: monospace;
-        white-space: pre-wrap;
       }
       .source li {
         margin: 0;
-        padding: 0;
+        padding: 0.2rem;
+        white-space: pre-wrap;
       }
       .source .current {
         font-weight: bold;
@@ -26,6 +26,10 @@
     <h1>Exception {{ $status }}</h1>
     <p><?php echo $this->params['message'] ?></p>
     <p><strong>{{ $file }}</strong>, line <strong>{{ $line }}</strong></p>
-{{ $target }}
+    <ol class="source">
+{{ foreach ($target as $line) }}
+      <li class="{{ $line['class'] ?? '' }}">{{ $line['line'] }} : {{ $line['source'] }}</li>
+{{ endforeach }}
+    </ol>
   </body>
 </html>

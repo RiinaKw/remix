@@ -90,7 +90,6 @@ class Studio extends \Remix\Component
     public static function recordException($e) : void
     {
         //Debug::dump($e);
-        $target = Debug::getSource($e->getFile(), $e->getLine(), 10);
 
         $status = 500;
         if ($e instanceof Exceptions\HttpException) {
@@ -102,7 +101,7 @@ class Studio extends \Remix\Component
             'message' => $e->getMessage(),
             'file' => $e->getFile(),
             'line' => $e->getLine(),
-            'target' => '<ol class="source">' . implode("\n", $target) . '</ol>',
+            'target' => Debug::getSource($e->getFile(), $e->getLine(), 10),
         ]);
         echo $view->status($status)->record();
     } // function recordException()

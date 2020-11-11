@@ -12,7 +12,7 @@ class DJ extends \Remix\Component
 {
     protected static $connection = null;
 
-    public function __construct()
+    protected function __construct()
     {
         parent::__construct();
         \Remix\App::getInstance()->logBirth(__METHOD__);

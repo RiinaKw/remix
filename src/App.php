@@ -3,6 +3,7 @@
 namespace Remix;
 
 use \Remix\Utility\Performance\Memory;
+use \Remix\Utility\Performance\Time;
 
 /**
  * Remix App : entry point
@@ -14,6 +15,9 @@ class App
     protected $debug = false;
     private $container = [];
 
+    private static $log = [];
+    private static $time = null;
+
     protected $root_dir;
     protected $app_dir;
     protected $public_dir;
@@ -21,7 +25,9 @@ class App
     private function __construct(bool $is_debug)
     {
         if ($is_debug) {
-            Memory::get(__METHOD__);
+            static::$time = new Time;
+            static::$time->start();
+            static::log($is_debug, Memory::get());
             static::log(true, __METHOD__, '+');
         }
         $this->debug = $is_debug;
@@ -29,12 +35,20 @@ class App
 
     public function __destruct()
     {
+        $cli = $this->isCli();
         $debug = $this->isDebug();
-        static::destroy();
+        $log = static::$log;
 
         if ($this->isDebug()) {
             static::log(true, __METHOD__, '-');
-            Memory::get(__METHOD__);
+            static::$time->stop();
+            $log[] = Memory::get(__METHOD__);
+            $log[] = (string)static::$time;
+            if ($cli) {
+                echo implode(PHP_EOL, $log);
+            } else {
+                echo '<pre>', implode(PHP_EOL, $log), '</pre>';
+            }
         }
     }
 
@@ -47,7 +61,7 @@ class App
     {
         if ($show) {
             $flag = $flag ? sprintf('[%s]', $flag) : '';
-            echo '  ', $flag, ' ', $str, PHP_EOL;
+            static::$log[] =  $flag . ' ' . $str;
         }
     } // function log()
 
@@ -65,9 +79,7 @@ class App
 
     public function logMemory(string $str)
     {
-        if ($this->isDebug()) {
-            Memory::get();
-        }
+        static::log($this->isDebug(), Memory::get());
     } // function logMemory()
 
     public static function initialize(string $dir) : App
@@ -160,6 +172,7 @@ class App
         $tracks_path = $this->appDir('/mixer.php') ?: [];
         $mixer = $this->mixer();
         $studio = $mixer->load($tracks_path)->route($path);
+        static::log(true, '[body]');
         $mixer->destroy();
         return $studio;
     } // function runWeb()
@@ -168,6 +181,7 @@ class App
     {
         $this->cli = true;
         $this->bay()->run($argv);
+        static::log(true, '[body]');
     } // function runCli()
 
     public function isWeb() : bool
@@ -218,6 +232,6 @@ class App
 
     public function shutdownHandle()
     {
-        self::destroy();
+        static::destroy();
     } // function shutdownHandle()
 } // class App

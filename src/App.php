@@ -15,8 +15,8 @@ class App
     protected $debug = false;
     private $container = [];
 
-    private static $log = [];
-    private static $time = null;
+    private $log = [];
+    private $time = null;
 
     protected $root_dir;
     protected $app_dir;
@@ -25,10 +25,10 @@ class App
     private function __construct(bool $is_debug)
     {
         if ($is_debug) {
-            static::$time = new Time;
-            static::$time->start();
-            static::log($is_debug, Memory::get());
-            static::log(true, __METHOD__, '+');
+            $this->time = new Time;
+            $this->time->start();
+            $this->log($is_debug, Memory::get());
+            $this->log(true, __METHOD__, '+');
         }
         $this->debug = $is_debug;
     } // function __construct()
@@ -37,17 +37,17 @@ class App
     {
         $cli = $this->isCli();
         $debug = $this->isDebug();
-        $log = static::$log;
 
         if ($debug) {
-            static::logDeath(__METHOD__, '-');
-            static::$time->stop();
-            $log[] = Memory::get(__METHOD__);
-            $log[] = (string)static::$time;
+            $this->logDeath(__METHOD__, '-');
+            $this->time->stop();
+            $this->log(true, Memory::get(__METHOD__));
+            $this->log(true, (string)$this->time);
+
             if ($cli) {
-                echo implode(PHP_EOL, $log);
+                echo implode(PHP_EOL, $this->log);
             } else {
-                echo '<pre>', implode(PHP_EOL, $log), '</pre>';
+                echo '<pre>', implode(PHP_EOL, $this->log), '</pre>';
             }
         }
     }
@@ -57,29 +57,29 @@ class App
         return $this->debug;
     }
 
-    protected static function log(bool $show, string $str, string $flag = '')
+    protected function log(bool $show, string $str, string $flag = '')
     {
         if ($show) {
             $flag = $flag ? sprintf('[%s]', $flag) : '';
-            static::$log[] =  $flag . ' ' . $str;
+            $this->log[] =  $flag . ' ' . $str;
         }
     } // function log()
 
     public function logBirth(string $str)
     {
         $debug = $this->isDebug();
-        static::log($debug, $str, '+');
+        $this->log($debug, $str, '+');
     } // function logBirth()
 
     public function logDeath(string $str)
     {
         $debug = $this->isDebug();
-        static::log($debug, $str, '-');
+        $this->log($debug, $str, '-');
     } // function logDeath()
 
     public function logMemory(string $str)
     {
-        static::log($this->isDebug(), Memory::get());
+        $this->log($this->isDebug(), Memory::get());
     } // function logMemory()
 
     public static function initialize(string $dir) : App

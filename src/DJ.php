@@ -15,7 +15,6 @@ class DJ extends \Remix\Component
     protected function __construct()
     {
         parent::__construct();
-        \Remix\App::getInstance()->logBirth(__METHOD__);
 
         $remix = \Remix\App::getInstance();
         if (!static::$connection) {
@@ -30,7 +29,6 @@ class DJ extends \Remix\Component
     public function __destruct()
     {
         static::destroy();
-        \Remix\App::getInstance()->logDeath(__METHOD__);
         parent::__destruct();
     }
 

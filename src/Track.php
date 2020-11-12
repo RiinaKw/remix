@@ -15,14 +15,12 @@ class Track extends \Remix\Component
 
     private function __construct($path)
     {
-        parent::__construct();
-        //\Remix\App::getInstance()->logBirth(__METHOD__ . ' [' . $path . ']');
+        \Remix\App::getInstance()->logBirth(__METHOD__ . ' [' . $path . ']');
     } // function __construct()
 
     public function __destruct()
     {
-        //\Remix\App::getInstance()->logDeath(__METHOD__ . ' [' . $this->path . ']');
-        parent::__destruct();
+        \Remix\App::getInstance()->logDeath(__METHOD__ . ' [' . $this->path . ']');
     } // function __destruct()
 
     protected static function makePattern(string $path) : string

@@ -12,18 +12,6 @@ class Bay extends \Remix\Component
         '-h' => \Remix\Effector\Help::class,
     ];
 
-    public function __construct()
-    {
-        parent::__construct();
-        \Remix\App::getInstance()->logBirth(__METHOD__);
-    } // function __construct()
-
-    public function __destruct()
-    {
-        \Remix\App::getInstance()->logDeath(__METHOD__);
-        parent::__destruct();
-    }
-
     public function run(array $argv) : void
     {
         $remix = App::getInstance();

@@ -14,17 +14,10 @@ class Studio extends \Remix\Component
     public function __construct(string $type = 'none', $params = [])
     {
         parent::__construct();
-        \Remix\App::getInstance()->logBirth(__METHOD__);
 
         $this->type = $type;
         $this->params = $params;
     } // function __construct()
-
-    public function __destruct()
-    {
-        \Remix\App::getInstance()->logDeath(__METHOD__);
-        parent::__destruct();
-    } // function __destruct()
 
     public function destroy()
     {

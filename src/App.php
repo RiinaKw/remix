@@ -39,8 +39,8 @@ class App
         $debug = $this->isDebug();
         $log = static::$log;
 
-        if ($this->isDebug()) {
-            static::log(true, __METHOD__, '-');
+        if ($debug) {
+            static::logDeath(__METHOD__, '-');
             static::$time->stop();
             $log[] = Memory::get(__METHOD__);
             $log[] = (string)static::$time;

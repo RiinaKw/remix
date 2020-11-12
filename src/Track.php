@@ -61,9 +61,9 @@ class Track extends \Remix\Component
 
     public function sampler(string $path) : Sampler
     {
-        $remix = \Remix\App::getInstance();
+        $remix = App::getInstance();
         $result = preg_match($this->pattern, $path, $matches);
-        return \Remix\App::getInstance()->factory(Sampler::class, $matches);
+        return $remix->factory(Sampler::class, $matches);
     } // function sampler()
 
     public function call(Sampler $sampler) : Studio

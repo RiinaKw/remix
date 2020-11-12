@@ -8,7 +8,7 @@ abstract class Component
     {
         $method = str_replace(__CLASS__, static::class, __METHOD__);
         \Remix\App::getInstance()->logBirth($method);
-        
+
         if ($remix) {
             throw new \Exception('param must be empty');
         }

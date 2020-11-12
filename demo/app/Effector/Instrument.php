@@ -11,6 +11,7 @@ class Instrument extends Effector
     {
         Effector::line('I am Instrument belonging to App, which instruments do you like?');
         \Remix\Monitor::dump(1);
+        throw new \Exception('test exception from Effector');
     }
 
     public function piano($arg)

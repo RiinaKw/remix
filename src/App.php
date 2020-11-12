@@ -222,10 +222,12 @@ class App
     public function exceptionHandle($e)
     {
         if ($this->isCli()) {
+            echo "\033[41m";
             Effector::line('####');
             Effector::line('#### ' . $e->getMessage());
-            Effector::line('#### ' . $e->getFile() . ' line ' . $e->getLine());
+            Effector::line('#### ' . sprintf('%s (%d)', $e->getFile(), $e->getLine()));
             Effector::line('####');
+            echo "\033[0m";
         } else {
             Studio::recordException($e);
         }

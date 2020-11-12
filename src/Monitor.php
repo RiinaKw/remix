@@ -2,16 +2,27 @@
 
 namespace Remix;
 
-class Debug
+/**
+ * Remix Monitor: debug tools
+ */
+class Monitor
 {
     public static function dump($var) : void
     {
         $trace = debug_backtrace()[0];
 
-        echo "<pre>";
-        var_dump($var);
-        echo $trace['file'], "\nline: ", $trace['line'];
-        echo "</pre>\n";
+        if (App::getInstance()->isWeb()) {
+            echo '<section class="remix-monitor-dump" style="background-color: lightgray; padding: 1rem;">', PHP_EOL;
+            echo sprintf('<strong>%s (%d)</strong>', $trace['file'], $trace['line']), PHP_EOL;
+            echo '<pre>';
+            var_dump($var);
+            echo '</pre>' . PHP_EOL;
+            echo '</section>' . PHP_EOL;
+        } else {
+            echo "\033[0;30m" . "\033[43m";
+            var_dump($var);
+            echo sprintf('%s (%d)', $trace['file'], $trace['line']), "\033[0m", PHP_EOL;
+        }
     } // function dump()
 
     public static function getSource(string $file, int $highlight, int $margin) : array
@@ -31,7 +42,6 @@ class Debug
         $target = [];
         for ($i = $start; $i <= $end; ++$i) {
             $line = str_replace("\n", '', $lines[$i - 1]);
-            //$line = htmlspecialchars($line);
 
             $arr = [
                 'line' => $i,
@@ -45,4 +55,4 @@ class Debug
 
         return $target;
     } // function getSource()
-} // class Debug
+} // class Monitor

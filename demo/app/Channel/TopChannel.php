@@ -4,7 +4,7 @@ namespace App\Channel;
 
 use \Remix\Sampler;
 use \Remix\Studio;
-use \Remix\Debug;
+use \Remix\Monitor;
 use \Remix\Bounce;
 
 class TopChannel extends \Remix\Channel
@@ -59,7 +59,7 @@ class TopChannel extends \Remix\Channel
 
     public function exception() : Studio
     {
-        Debug::dump(__METHOD__);
+        Monitor::dump(__METHOD__);
         throw new \Remix\Exceptions\HttpException('exception test', 400);
         //error;
         return new Studio;

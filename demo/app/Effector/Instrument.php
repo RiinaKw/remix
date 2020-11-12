@@ -10,6 +10,7 @@ class Instrument extends Effector
     public function index($arg)
     {
         Effector::line('I am Instrument belonging to App, which instruments do you like?');
+        \Remix\Monitor::dump(1);
     }
 
     public function piano($arg)

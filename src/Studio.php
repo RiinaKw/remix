@@ -82,7 +82,7 @@ class Studio extends \Remix\Component
 
     public static function recordException($e) : void
     {
-        //Debug::dump($e);
+        //Monitor::dump($e);
 
         $status = 500;
         if ($e instanceof Exceptions\HttpException) {
@@ -94,7 +94,7 @@ class Studio extends \Remix\Component
             'message' => $e->getMessage(),
             'file' => $e->getFile(),
             'line' => $e->getLine(),
-            'target' => Debug::getSource($e->getFile(), $e->getLine(), 10),
+            'target' => Monitor::getSource($e->getFile(), $e->getLine(), 10),
         ]);
         echo $view->status($status)->record();
     } // function recordException()

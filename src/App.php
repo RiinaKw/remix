@@ -45,7 +45,10 @@ class App
             $this->log(true, (string)$this->time);
 
             if ($cli) {
-                echo implode(PHP_EOL, $this->log);
+                // message is purple
+                foreach ($this->log as $log) {
+                    echo "\033[0;35m" . $log . "\033[0m" . PHP_EOL;
+                }
             } else {
                 echo '<pre>', implode(PHP_EOL, $this->log), '</pre>';
             }

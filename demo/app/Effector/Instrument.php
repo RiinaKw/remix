@@ -14,12 +14,16 @@ class Instrument extends Effector
 
     public function piano($arg)
     {
-        Effector::line('I like John Cage\'s 4\'33"... is it not piano!?');
+        // title background is yellow
+        Effector::line('I like John Cage\'s '
+            . "\033[0;30m" . "\033[43m" . '4\'33"' . "\033[0m" .
+            '... is it not piano!?');
     }
 
     public function guitar($arg)
     {
-        Effector::line('SMOKE ON THE WATER!!!');
+        // message is green
+        Effector::line("\033[0;32m" . 'SMOKE ON THE WATER!!!' . "\033[0m");
     }
 
     public function acid($arg)

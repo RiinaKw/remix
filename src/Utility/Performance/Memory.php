@@ -26,6 +26,6 @@ class Memory
 
     public static function get()
     {
-        return sprintf('usage : %s / peal : %s', static::usage(), static::usagePeak());
+        return sprintf('usage : %s / peak : %s', static::usage(), static::usagePeak());
     }
 }

@@ -2,21 +2,19 @@
 
 namespace Remix;
 
-use \Remix\Utility\Performance\Memory;
-use \Remix\Utility\Performance\Time;
-
 /**
  * Remix App : entry point
  */
-class App
+class App extends Component
 {
-    protected static $app = null;
-    protected $cli = true;
-    protected $debug = false;
-    private $container = [];
+    private static $app = null;
+    private static $equalizer = null;
+    private static $delay = null;
+    private static $time = null;
 
-    private $log = [];
-    private $time = null;
+    protected static $is_cli = null;
+
+    protected static $debug = false;
 
     protected $root_dir;
     protected $app_dir;
@@ -24,65 +22,80 @@ class App
 
     private function __construct(bool $is_debug)
     {
-        if ($is_debug) {
-            $this->time = new Time;
-            $this->time->start();
-            $this->log($is_debug, Memory::get());
-            $this->log(true, __METHOD__, '+');
+        if (! static::$delay) {
+            static::$delay = new Delay($is_debug);
         }
-        $this->debug = $is_debug;
+        if ($is_debug) {
+            static::$delay->logMemory();
+        }
+        static::$debug = $is_debug;
+
+        static::$app = $this;
+        static::$is_cli = (php_sapi_name() == 'cli');
+        parent::__construct();
+
+        static::$equalizer = Equalizer::factory();
     } // function __construct()
 
     public function __destruct()
     {
-        $cli = $this->isCli();
-        $debug = $this->isDebug();
+        parent::__destruct();
 
-        if ($debug) {
-            $this->logDeath(__METHOD__, '-');
-            $this->time->stop();
-            $this->log(true, Memory::get(__METHOD__));
-            $this->log(true, (string)$this->time);
-
-            if ($cli) {
-                // message is purple
-                foreach ($this->log as $log) {
-                    echo "\033[0;35m" . $log . "\033[0m" . PHP_EOL;
-                }
-            } else {
-                echo '<pre>', implode(PHP_EOL, $this->log), '</pre>';
-            }
+        if (static::isDebug()) {
+            static::$delay->logMemory();
+            static::$delay->logTime();
         }
+        static::$delay = null;
     }
 
-    public function isDebug() : bool
+    public static function getInstance(bool $is_debug = false) : App
     {
-        return $this->debug;
+        if (! static::$app) {
+            new self($is_debug);
+        }
+        return static::$app;
+    } // function getInstance()
+
+    public static function destroy() : void
+    {
+        if (static::$equalizer) {
+            static::$equalizer->destroy();
+            static::$equalizer = null;
+        }
+
+        static::$app = null;
+    } // function destroy()
+
+    public static function isDebug() : bool
+    {
+        return static::$debug;
     }
 
-    protected function log(bool $show, string $str, string $flag = '')
+    public function isCli() : bool
     {
-        if ($show) {
-            $flag = $flag ? sprintf('[%s]', $flag) : '';
-            $this->log[] =  $flag . ' ' . $str;
+        return static::$is_cli;
+    }
+
+    protected static function log(bool $show, string $type, string $str, string $flag = '')
+    {
+        if (static::isDebug()) {
+            static::$delay->log($type, $str, $flag);
         }
     } // function log()
 
-    public function logBirth(string $str)
+    public static function logBirth(string $str)
     {
-        $debug = $this->isDebug();
-        $this->log($debug, $str, '+');
+        static::log(true, 'TRACE', $str, '+');
     } // function logBirth()
 
-    public function logDeath(string $str)
+    public static function logDeath(string $str)
     {
-        $debug = $this->isDebug();
-        $this->log($debug, $str, '-');
+        static::log(true, 'TRACE', $str, '-');
     } // function logDeath()
 
-    public function logMemory(string $str)
+    public static function logMemory(string $str)
     {
-        $this->log($this->isDebug(), Memory::get());
+        static::log(true, 'MEMORY', Memory::get());
     } // function logMemory()
 
     public static function initialize(string $dir) : App
@@ -99,7 +112,7 @@ class App
         $env = require($remix->app_dir . '/env.php');
         $env = ($env && $env !== 1) ? $env : 'production';
 
-        $config = $remix->singleton(Config::class);
+        $config = $remix->equalizer()->singleton(Config::class);
         $config->set('env.name', $env);
         $config->load('app');
         $config->load('env.' . $env, 'env.config');
@@ -109,27 +122,13 @@ class App
         return $remix;
     } // function initialize()
 
-    public static function getInstance(bool $is_debug = false) : App
+    public function equalizer() : Equalizer
     {
-        if (! static::$app) {
-            static::$app = new self($is_debug);
+        if (! static::$equalizer) {
+            static::$equalizer = Equalizer::factory();
         }
-        return static::$app;
-    } // function getInstance()
-
-    protected function singleton(string $class) : Component
-    {
-        $remix = static::getInstance();
-        if (! array_key_exists($class, $this->container)) {
-            $this->container[$class] = $remix->factory($class);
-        }
-        return $this->container[$class];
-    } // function singleton()
-
-    public function factory(string $class, $args = null) : Component
-    {
-        return $class::factory($args);
-    } // function factory()
+        return static::$equalizer;
+    } // function equalizer()
 
     public function dir(string $path) : string
     {
@@ -148,71 +147,44 @@ class App
 
     public function config() : Config
     {
-        return $this->singleton(Config::class);
+        return $this->equalizer()->singleton(Config::class);
     } // function config()
 
     public function mixer() : Mixer
     {
-        return $this->singleton(Mixer::class);
+        return $this->equalizer()->singleton(Mixer::class);
     } // function mixer()
 
     protected function bay() : Bay
     {
-        return $this->singleton(Bay::class);
+        return $this->equalizer()->singleton(Bay::class);
     } // function bay()
 
     public function dj() : DJ
     {
-        return $this->singleton(DJ::class);
+        return $this->equalizer()->singleton(DJ::class);
     }
 
     public function runWeb(string $public_dir) : Studio
     {
+        static::$is_cli = false;
+
         $this->public_dir = $public_dir;
-        $this->cli = false;
         $path = $_SERVER['PATH_INFO'] ?? '';
 
         $tracks_path = $this->appDir('/mixer.php') ?: [];
         $mixer = $this->mixer();
         $studio = $mixer->load($tracks_path)->route($path);
-        static::log(true, '[body]');
+        static::log(true, 'BODY', '');
         $mixer->destroy();
         return $studio;
     } // function runWeb()
 
     public function runCli(array $argv) : void
     {
-        $this->cli = true;
         $this->bay()->run($argv);
-        static::log(true, '[body]');
+        static::log(true, 'BODY', '');
     } // function runCli()
-
-    public function isWeb() : bool
-    {
-        return ! $this->cli;
-    } // function isCli()
-
-    public function isCli() : bool
-    {
-        return $this->cli;
-    } // function isCli()
-
-    public static function destroy() : void
-    {
-        $remix = static::$app;
-
-        if ($remix && $remix->container) {
-            foreach ($remix->container as $key => $item) {
-                if (method_exists($item, 'destroy')) {
-                    $item->destroy();
-                }
-                $item = null;
-                unset($remix->container[$key]);
-            }
-            $remix->container = [];
-        }
-        static::$app = null;
-    } // function destroy()
 
     public function errorHandle($code, $message, $file, $line, $context = [])
     {

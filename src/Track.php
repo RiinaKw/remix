@@ -61,9 +61,9 @@ class Track extends \Remix\Component
 
     public function sampler(string $path) : Sampler
     {
-        $remix = App::getInstance();
+        $equalizer = App::getInstance()->equalizer();
         $result = preg_match($this->pattern, $path, $matches);
-        return $remix->factory(Sampler::class, $matches);
+        return $equalizer->instance(Sampler::class, $matches);
     } // function sampler()
 
     public function call(Sampler $sampler) : Studio

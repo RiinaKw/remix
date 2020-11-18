@@ -10,17 +10,19 @@ class Time
     private $start;
     private $end;
 
-    public function start()
+    public function start() : self
     {
         $this->start = hrtime(true);
+        return $this;
     }
 
-    public function stop()
+    public function stop() : self
     {
         $this->end = hrtime(true);
+        return $this;
     }
 
-    public function msec()
+    public function msec() : ?float
     {
         if ($this->start && $this->end) {
             return ($this->end - $this->start) / self::NANOSEC_TO_MILISEC;

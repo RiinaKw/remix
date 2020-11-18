@@ -14,7 +14,7 @@ class Bay extends \Remix\Component
 
     public function run(array $argv) : void
     {
-        $remix = App::getInstance();
+        $equalizer = App::getInstance()->equalizer();
         array_shift($argv);
 
         $namespaces = [
@@ -34,12 +34,12 @@ class Bay extends \Remix\Component
 
         if (array_key_exists($class, static::$shorthandles)) {
             $target = static::$shorthandles[$class];
-            $instance = $remix->factory($target);
+            $instance = $equalizer->instance($target);
         } else {
             foreach ($namespaces as $namespace) {
                 $target = $namespace . $class;
                 if (class_exists($target)) {
-                    $instance = $remix->factory($target);
+                    $instance = $equalizer->instance($target);
                     break;
                 }
             }
@@ -51,7 +51,7 @@ class Bay extends \Remix\Component
             echo 'unknown effector : ' . $class. PHP_EOL;
             echo 'try "bay help"' . PHP_EOL;
         } else {
-            $instance = $remix->factory(Effector\Help::class);
+            $instance = $equalizer->instance(Effector\Help::class);
             $instance->index($argv);
         }
     } // function run()

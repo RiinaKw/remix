@@ -25,7 +25,6 @@ class BayTest extends TestCase
         $response = $this->capture([$this->remix, 'runCli'], ['bay']);
 
         $this->assertTrue($this->remix->isCli());
-        $this->assertFalse($this->remix->isWeb());
 
         $this->assertMatchesRegularExpression('/Remix Bay/', $response);
     }

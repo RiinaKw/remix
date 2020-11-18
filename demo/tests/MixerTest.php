@@ -26,7 +26,6 @@ class MixerTest extends TestCase
     {
         $_SERVER['PATH_INFO'] = '/';
         $response = $this->remix->runWeb($this->public_dir);
-        $this->assertTrue($this->remix->isWeb());
         $this->assertFalse($this->remix->isCli());
         $this->assertMatchesRegularExpression('/Remix is ​​a lightweight PHP framework./', (string)$response);
 

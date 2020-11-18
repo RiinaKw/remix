@@ -7,7 +7,7 @@ abstract class Component
     protected function __construct($remix = null)
     {
         $method = str_replace(__CLASS__, static::class, __METHOD__);
-        \Remix\App::getInstance()->logBirth($method);
+        \Remix\App::logBirth($method);
 
         if ($remix) {
             throw new \Exception('param must be empty');
@@ -17,7 +17,7 @@ abstract class Component
     public function __destruct()
     {
         $method = str_replace(__CLASS__, static::class, __METHOD__);
-        \Remix\App::getInstance()->logDeath($method);
+        \Remix\App::logDeath($method);
     }
 
     public static function factory($arg1 = null, $arg2 = null) : self

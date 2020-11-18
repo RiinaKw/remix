@@ -63,6 +63,9 @@ class Delay
             case 'TIME':
                 $color = '0;35';
                 break;
+            case 'QUERY':
+                $color = '0;36';
+                break;
         }
         fprintf(STDERR, "\033[%sm %s\033[0m\n", $color, static::format($log));
     }

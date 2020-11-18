@@ -133,6 +133,11 @@ class App extends Component
         return static::$equalizer;
     } // function equalizer()
 
+    public function delay() : Delay
+    {
+        return static::$delay;
+    }
+
     public function dir(string $path) : string
     {
         return realpath($this->root_dir . '/' . $path);

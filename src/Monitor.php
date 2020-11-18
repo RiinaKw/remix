@@ -11,17 +11,17 @@ class Monitor
     {
         $trace = debug_backtrace()[0];
 
-        if (App::getInstance()->isWeb()) {
+        if (App::isCli()) {
+            echo "\033[0;30m" . "\033[43m";
+            var_dump($var);
+            echo sprintf('%s (%d)', $trace['file'], $trace['line']), "\033[0m", PHP_EOL;
+        } else {
             echo '<section class="remix-monitor-dump" style="background-color: lightgray; padding: 1rem;">', PHP_EOL;
             echo sprintf('<strong>%s (%d)</strong>', $trace['file'], $trace['line']), PHP_EOL;
             echo '<pre>';
             var_dump($var);
             echo '</pre>' . PHP_EOL;
             echo '</section>' . PHP_EOL;
-        } else {
-            echo "\033[0;30m" . "\033[43m";
-            var_dump($var);
-            echo sprintf('%s (%d)', $trace['file'], $trace['line']), "\033[0m", PHP_EOL;
         }
     } // function dump()
 

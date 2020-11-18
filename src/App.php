@@ -12,7 +12,7 @@ class App extends Component
     private static $delay = null;
     private static $time = null;
 
-    protected static $is_cli = null;
+    protected static $is_cli = false;
 
     protected static $debug = false;
 
@@ -44,6 +44,9 @@ class App extends Component
         if (static::isDebug()) {
             static::$delay->logMemory();
             static::$delay->logTime();
+            if (! static::isCli()) {
+                echo static::$delay->get();
+            }
         }
         static::$delay = null;
     }
@@ -71,7 +74,7 @@ class App extends Component
         return static::$debug;
     }
 
-    public function isCli() : bool
+    public static function isCli() : bool
     {
         return static::$is_cli;
     }

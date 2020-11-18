@@ -27,7 +27,7 @@ class Delay
             'log' => $flag . $str,
         ];
         $this->log[] = $log;
-        if ($this->is_debug) {
+        if ($this->is_debug && App::isCli()) {
             static::stderr($log);
         }
     }

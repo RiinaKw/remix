@@ -30,6 +30,9 @@ class DJTest extends TestCase
 
     public function testPlay()
     {
+        \Remix\DJ::truncate('users');
+        \Remix\DJ::play('INSERT INTO users(name) VALUES(:name);', ['name' => 'Riina']);
+
         // is SQL executable?
         $result = \Remix\DJ::play('SELECT * FROM users WHERE id = :id;', ['id' => 1]);
         $this->assertSame(1, count($result));
@@ -80,6 +83,15 @@ class DJTest extends TestCase
         // get new count
         $result = \Remix\DJ::play('SELECT * FROM users;');
         $this->assertSame($count + 1, count($result));
+    }
+
+    public function testTruncate()
+    {
+        $result = \Remix\DJ::truncate('users');
+        $this->assertTrue($result);
+
+        $result = \Remix\DJ::play('SELECT * FROM users;');
+        $this->assertSame(0, count($result));
     }
 
     public function testTransaction()

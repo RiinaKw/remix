@@ -16,9 +16,8 @@ class DJ extends \Remix\Component
     {
         parent::__construct();
 
-        $remix = \Remix\App::getInstance();
-        if (!static::$connection) {
-            $config = $remix->config()->get('env.config.db');
+        if (! static::$connection) {
+            $config = \Remix\App::getInstance()->config()->get('env.config.db');
             if ($config) {
                 static::$connection = new \PDO($config['dsn'], $config['user'], $config['password']);
             }
@@ -51,6 +50,15 @@ class DJ extends \Remix\Component
         }
         $statement->execute();
         return $statement->fetchAll();
+    }
+
+    public static function truncate(string $table)
+    {
+        if (strpos($table, '`')) {
+            throw new Exceptions\DJException('Invalid table name "' . $table . '"');
+        }
+        $result = static::$connection->exec('TRUNCATE TABLE `' . $table . '`;');
+        return ($result !== false);
     }
 
     public static function back2back() : Back2back

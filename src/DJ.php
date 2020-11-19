@@ -17,9 +17,9 @@ class DJ extends \Remix\Component
         parent::__construct();
 
         if (! static::$connection) {
-            $config = \Remix\App::getInstance()->config()->get('env.config.db');
-            if ($config) {
-                static::$connection = new \PDO($config['dsn'], $config['user'], $config['password']);
+            $preset = \Remix\App::getInstance()->preset()->get('env.db');
+            if ($preset) {
+                static::$connection = new \PDO($preset['dsn'], $preset['user'], $preset['password']);
             }
         }
         return $this;

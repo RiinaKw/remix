@@ -36,7 +36,7 @@ class Bounce extends \Remix\Studio
     public function record() : string
     {
         $remix = App::getInstance();
-        $bounce_dir = $remix->config()->get('app.bounce_dir');
+        $bounce_dir = $remix->preset()->get('app.bounce_dir');
         $path = $remix->dir($bounce_dir . '/' . $this->file . '.tpl');
 
         $source = \Remix\Utility\Capture::capture(function () use ($path) {

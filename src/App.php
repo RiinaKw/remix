@@ -115,10 +115,10 @@ class App extends Component
         $env = require($remix->app_dir . '/env.php');
         $env = ($env && $env !== 1) ? $env : 'production';
 
-        $config = $remix->equalizer()->singleton(Config::class);
-        $config->set('env.name', $env);
-        $config->load('app');
-        $config->load('env.' . $env, 'env.config');
+        $preset = $remix->equalizer()->singleton(Preset::class);
+        $preset->set('env.name', $env);
+        $preset->load('app');
+        $preset->load('env.' . $env, 'env');
 
         $remix->dj();
 
@@ -153,10 +153,10 @@ class App extends Component
         return realpath($this->public_dir . '/' . $path);
     } // function publicDir()
 
-    public function config() : Config
+    public function preset() : Preset
     {
-        return $this->equalizer()->singleton(Config::class);
-    } // function config()
+        return $this->equalizer()->singleton(Preset::class);
+    } // function preset()
 
     public function mixer() : Mixer
     {

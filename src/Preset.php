@@ -2,7 +2,7 @@
 
 namespace Remix;
 
-class Config extends Component
+class Preset extends Component
 {
     protected $dir = '';
     protected $hash = null;
@@ -12,7 +12,7 @@ class Config extends Component
         parent::__construct();
 
         $remix = App::getInstance();
-        $this->dir = $remix->appDir('/config');
+        $this->dir = $remix->appDir('/Preset');
         $this->hash = new Utility\Hash;
     } // function __construct()
 
@@ -22,14 +22,14 @@ class Config extends Component
         $file = $this->dir . '/' . $filename . '.php';
 
         if (! realpath($file)) {
-            throw new RemixException('config file not found');
+            throw new RemixException('preset file not found');
         }
 
-        $config = require($file);
+        $preset = require($file);
         if ($key) {
-            $this->hash->set($key, $config);
+            $this->hash->set($key, $preset);
         } else {
-            $this->hash->set($filename, $config);
+            $this->hash->set($filename, $preset);
         }
     } // function load()
 
@@ -47,4 +47,4 @@ class Config extends Component
     {
         return $this->hash->get('env.name');
     }
-} // class Config
+} // class Preset

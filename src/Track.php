@@ -30,7 +30,6 @@ class Track extends \Remix\Component
 
     public static function get(string $path, $action)  : self
     {
-        //'/^\/bounce(\/(?<message>[^\/]+))?\/?$/'
         $track = new static($path);
         $track->action = $action;
         $track->path = $path;

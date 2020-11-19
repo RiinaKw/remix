@@ -2,17 +2,19 @@
 
 namespace App\Channel;
 
+use \Remix\DJ;
 use \Remix\Sampler;
 use \Remix\Studio;
 use \Remix\Monitor;
 use \Remix\Bounce;
+use \App\Vinyl\User;
 
 class TopChannel extends \Remix\Channel
 {
     public function index()
     {
-        \Remix\DJ::truncate('users');
-        $result = \App\Vinyl\User::find(1);
+        DJ::truncate('users');
+        $result = User::find(1);
         return 'Remix is ​​a lightweight PHP framework.';
     } // function index()
 
@@ -29,7 +31,7 @@ class TopChannel extends \Remix\Channel
 
         $bounce->arr = [1, 2, 3];
 
-        $vinyl = \App\Vinyl\User::factory();
+        $vinyl = User::factory();
         $vinyl->name = 'Riina';
         $bounce->vinyl = $vinyl;
 

@@ -27,12 +27,12 @@ abstract class Vinyl extends \Remix\Component
         $setlist = \Remix\DJ::prepare($sql);
         $result = $setlist->asVinyl(static::class)->play(['id' => $id]);
 
-        switch (count($result) === 1) {
+        switch (count($result)) {
             case 1:
                 return $result[0];
                 break;
             case 2:
-                throw new \Remix\RemixException('find by primary key, why multiple results?');
+                throw new \Remix\DJException('find by primary key, why multiple results?');
         }
         return null;
     }

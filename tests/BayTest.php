@@ -7,7 +7,6 @@ use PHPUnit\Framework\TestCase;
 class BayTest extends TestCase
 {
     use \Remix\Utility\Tests\InvokePrivateBehavior;
-    use \Remix\Utility\Tests\CaptureOutput;
 
     protected $bay = null;
 
@@ -25,13 +24,13 @@ class BayTest extends TestCase
     public function testLoad()
     {
         // is callable with no arguments?
-        $response = $this->capture([$this->bay, 'run'], ['bay']);
+        $this->expectOutputRegex('/Remix Bay/');
+        $this->bay->run(['bay']);
+    }
 
-        $this->assertMatchesRegularExpression('/Remix Bay/', $response);
-
-        // is callable with arguments?
-        $response = $this->capture([$this->bay, 'run'], ['bay', 'version']);
-
-        $this->assertMatchesRegularExpression('/Remix framework/', $response);
+    public function testLoadWithParams()
+    {
+        $this->expectOutputRegex('/Remix framework/');
+        $this->bay->run(['bay', 'version']);
     }
 }

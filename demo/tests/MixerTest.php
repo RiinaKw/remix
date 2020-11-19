@@ -7,7 +7,6 @@ use PHPUnit\Framework\TestCase;
 class MixerTest extends TestCase
 {
     use \Remix\Utility\Tests\InvokePrivateBehavior;
-    use \Remix\Utility\Tests\CaptureOutput;
 
     protected $remix = null;
     protected $public_dir = __DIR__ . '../public';

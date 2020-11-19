@@ -27,9 +27,9 @@ class Setlist extends \Remix\Component
     {
         $this->statement->execute($params);
 
-        ob_start();
-        $this->statement->debugDumpParams();
-        $dump = ob_get_clean();
+        $dump = \Remix\Utility\Capture::capture(function () {
+            $this->statement->debugDumpParams();
+        });
 
         preg_match('/(^|\n)SQL: \[\d+\] (?<sql>.*?)($|\n)/', $dump, $matches_sql);
         preg_match('/(^|\n)Sent SQL: \[\d+\] (?<sql>.*?)($|\n)/', $dump, $matches_sent);

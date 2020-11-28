@@ -11,4 +11,8 @@ return [
     Track::get('/json', 'TopChannel@json'),
     Track::get('/redirect', 'TopChannel@redirect'),
     Track::get('/exception', 'TopChannel@exception'),
+
+    [
+        Track::get('/api/:id(\.:ext)?', 'ApiChannel@test'),
+    ]
 ];

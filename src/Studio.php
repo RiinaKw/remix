@@ -16,7 +16,11 @@ class Studio extends \Remix\Component
         parent::__construct();
 
         $this->type = $type;
-        $this->params = $params;
+        if ($params instanceof Vinyl) {
+            $this->params = $params->toArray();
+        } else {
+            $this->params = $params;
+        }
     } // function __construct()
 
     public function destroy()
@@ -33,7 +37,7 @@ class Studio extends \Remix\Component
                 return '';
 
             case 'text':
-                return $this->params;
+                return serialize($this->params);
 
             case 'closure':
                 $closure = $this->params;
@@ -41,6 +45,9 @@ class Studio extends \Remix\Component
 
             case 'json':
                 return json_encode($this->params);
+
+            case 'xml':
+                return \Remix\Utility\Arr::toXML($this->params);
 
             case 'redirect':
                 header('Location: ' . $this->params);
@@ -64,7 +71,22 @@ class Studio extends \Remix\Component
     public function json($params) : self
     {
         $this->type = 'json';
-        $this->params = $params;
+        if ($params instanceof Vinyl) {
+            $this->params = $params->toArray();
+        } else {
+            $this->params = $params;
+        }
+        return $this;
+    } // function json()
+
+    public function xml($params) : self
+    {
+        $this->type = 'xml';
+        if ($params instanceof Vinyl) {
+            $this->params = $params->toArray();
+        } else {
+            $this->params = $params;
+        }
         return $this;
     } // function json()
 

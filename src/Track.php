@@ -25,11 +25,12 @@ class Track extends \Remix\Component
 
     protected static function makePattern(string $path) : string
     {
-        return '@^' . preg_replace('/:([^\/)]+)/', '(?<$1>[^\/]+)', $path) . '/?$@';
+        return '@^' . preg_replace('/:([a-zA-Z0-9]+)/', '(?<$1>[a-zA-Z0-9]+)', $path) . '/?$@';
     } // function makePattern()
 
     public static function get(string $path, $action)  : self
     {
+        //'/^\/api\/(?<id>[a-zA-Z]+)(\.(?<ext>[a-zA-Z]+))?\/?$/'
         $track = new static($path);
         $track->action = $action;
         $track->path = $path;

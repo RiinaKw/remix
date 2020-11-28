@@ -17,6 +17,7 @@ class Mixer extends Component
         } else {
             $this->tracks = $tracks;
         }
+        $this->tracks = Utility\Arr::flatten($this->tracks);
 
         foreach ($this->tracks as $track) {
             $name = $track->name;

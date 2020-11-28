@@ -18,7 +18,7 @@
   <div>unescaped : {{ $unescaped }}</div>
 
   <div>
-    object : {{ $vinyl->name }}<br />
+    object : <a href="{{ $vinyl->urlApi() }}">{{ $vinyl->title }}</a><br />
     arr : {{ $arr[0] }}
   </div>
 </body>

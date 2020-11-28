@@ -2,7 +2,9 @@
 
 namespace App\Vinyl;
 
-class User extends \Remix\Vinyl
+use \Remix\Vinyl;
+
+class User extends Vinyl
 {
     public static $table = 'users';
     public static $pk = 'id';

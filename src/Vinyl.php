@@ -2,6 +2,8 @@
 
 namespace Remix;
 
+use \Remix\Turntable;
+
 /**
  * Remix Vinyl : capsulate a single DB record
  */
@@ -10,6 +12,7 @@ abstract class Vinyl extends \Remix\Component
     public static $table = 'default_table';
     public static $pk = 'default_pk';
     protected $prop = [];
+    protected static $turntable = Turntable::class;
 
     public function __get($name)
     {
@@ -24,6 +27,11 @@ abstract class Vinyl extends \Remix\Component
     public function toArray()
     {
         return $this->prop;
+    }
+
+    public function turntable() : Turntable
+    {
+        return new static::$turntable($this);
     }
 
     public static function find($id) : ?self

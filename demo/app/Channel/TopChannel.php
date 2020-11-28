@@ -8,6 +8,7 @@ use \Remix\Studio;
 use \Remix\Monitor;
 use \Remix\Bounce;
 use \App\Vinyl\User;
+use \App\Vinyl\Note;
 
 class TopChannel extends \Remix\Channel
 {
@@ -31,8 +32,7 @@ class TopChannel extends \Remix\Channel
 
         $bounce->arr = [1, 2, 3];
 
-        $vinyl = User::factory();
-        $vinyl->name = 'Riina';
+        $vinyl = Note::find(1)->turntable();
         $bounce->vinyl = $vinyl;
 
         return $bounce;

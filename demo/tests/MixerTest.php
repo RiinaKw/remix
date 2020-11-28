@@ -36,9 +36,9 @@ class MixerTest extends TestCase
         $response = $this->remix->runWeb($this->public_dir);
         $this->assertMatchesRegularExpression('/hello/', (string)$response);
 
-        $_SERVER['PATH_INFO'] = '/bounce/hey,dj';
+        $_SERVER['PATH_INFO'] = '/bounce/heydj';
         $response = $this->remix->runWeb($this->public_dir);
-        $this->assertMatchesRegularExpression('/hey,dj/', (string)$response);
+        $this->assertMatchesRegularExpression('/heydj/', (string)$response);
 
         $_SERVER['PATH_INFO'] = '/redirect';
         $response = $this->remix->runWeb($this->public_dir);

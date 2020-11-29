@@ -9,6 +9,7 @@ class Mixer extends Component
 {
     protected $tracks = [];
     protected $named = [];
+    protected $urls = [];
 
     public function load($tracks) : self
     {
@@ -24,14 +25,26 @@ class Mixer extends Component
             if ($name) {
                 $this->named[$name] = $track;
             }
+
+            $this->urlArr($track);
         }
         return $this;
     } // function load()
+
+    protected function urlArr(Track $track)
+    {
+        $path = $track->path;
+        if (! isset($this->urls[$path])) {
+            $this->urls[$path] = [];
+        }
+        $this->urls[$path][$track->method] = $track;
+    }
 
     public function destroy() : void
     {
         $this->tracks = null;
         $this->named = null;
+        $this->urls = null;
     }
 
     public function route(string $path) : Studio
@@ -39,15 +52,26 @@ class Mixer extends Component
         if (strpos($path, '/') !== 0) {
             $path = '/' . $path;
         }
-        foreach ($this->tracks as $track) {
-        //var_dump($track);
-            if ($track->isMatch($path)) {
+
+        $method = strtoupper($_SERVER['REQUEST_METHOD']);
+        foreach ($this->urls as $url => $tracks) {
+            $fader = \Remix\Fader::factory($url);
+
+            // get track
+            $result = $fader->isMatch($path);
+            if ($result) {
+                if (! isset($tracks[$method])) {
+                    return Studio::factory()->header(405, 'method not allowed, given ' . $method . ' ' . $path);
+                }
+
+                // setup Studio
+                $track = $tracks[$method];
                 $equalizer = \Remix\App::getInstance()->equalizer();
-                $sampler = $equalizer->instance(Sampler::class, $track->matched($path));
+                $sampler = $equalizer->instance(Sampler::class, $fader->matched($path));
                 return static::studio($track->action, $sampler);
             }
         }
-        throw new Exceptions\HttpException('it did not match any route, given ' . $path, 404);
+        return Studio::factory()->header(404, 'it did not match any route, given ' . $path);
     } // function route()
 
     protected static function studio($action, Sampler $sampler)
@@ -75,4 +99,20 @@ class Mixer extends Component
     {
         return $this->named[$named] ?? null;
     } // function named()
+
+    public function uri(string $name, array $params = [])
+    {
+        $track = $this->named($name);
+        if (! $track) {
+            throw new \Remix\RemixException('track "' . $name . '" not found');
+        }
+
+        $path = $track->path;
+        foreach ($params as $label => $value) {
+            $path = str_replace($label, $value, $path);
+        }
+
+        $public_url = \Remix\App::getInstance()->preset()->get('env.public_url');
+        return $public_url . $path;
+    }
 } // class Mixer

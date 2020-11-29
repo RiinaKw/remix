@@ -53,6 +53,13 @@ class Studio extends \Remix\Component
                 header('Location: ' . $this->params);
                 return '';
 
+            case 'header':
+                http_response_code($this->status);
+                $bounce = new Bounce('httperror');
+                $bounce->code = $this->status;
+                $bounce->message = $this->params;
+                return $bounce->record();
+
             default:
                 if (method_exists($this, 'record')) {
                     return $this->record($this->params);
@@ -90,11 +97,10 @@ class Studio extends \Remix\Component
         return $this;
     } // function json()
 
-    public function redirect(string $name, int $status = 303) : self
+    public function redirect(string $name, array $params = [], int $status = 303) : self
     {
         $mixer = App::getInstance()->mixer();
-        $track = $mixer->named($name);
-        $uri = $track->uri();
+        $uri = $mixer->uri($name, $params);
 
         $this->type = 'redirect';
         $this->params = $uri;
@@ -102,10 +108,16 @@ class Studio extends \Remix\Component
         return $this;
     } // function redirect()
 
+    public function header(int $status, string $message = '') : self
+    {
+        $this->type = 'header';
+        $this->status = $status;
+        $this->params = $message;
+        return $this;
+    }
+
     public static function recordException($e) : void
     {
-        //Monitor::dump($e);
-
         $status = 500;
         if ($e instanceof Exceptions\HttpException) {
             $status = $e->getStatus();

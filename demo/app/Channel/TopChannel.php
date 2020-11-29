@@ -48,7 +48,7 @@ class TopChannel extends \Remix\Channel
 
     public function redirect() : Studio
     {
-        return Studio::factory()->redirect('top');
+        return Studio::factory()->redirect('form', [':id' => 1]);
     }
 
     public function exception() : Studio

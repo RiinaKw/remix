@@ -31,6 +31,7 @@ class MixerTest extends TestCase
     public function testRoute() : void
     {
         // is callable route?
+        $_SERVER['REQUEST_METHOD'] = 'GET';
         $response = $this->mixer->route('/cb');
         $this->assertTrue($response instanceof \Remix\Studio);
         $this->assertMatchesRegularExpression('/from callback/', $response);
@@ -38,10 +39,11 @@ class MixerTest extends TestCase
 
     public function test404() : void
     {
-        $this->expectException(\Remix\Exceptions\HttpException::class);
-
         // will throw exception when unknown route?
+        $_SERVER['REQUEST_METHOD'] = 'GET';
         $response = $this->mixer->route('/unknwon');
+        $status = $this->invokeProperty($response, 'status');
+        $this->assertSame(404, $status);
     }
 
     public function testName() : void

@@ -81,7 +81,7 @@ class App extends Component
 
     protected static function log(bool $show, string $type, string $str, string $flag = '') : void
     {
-        if (static::isDebug()) {
+        if (static::$delay && static::isDebug()) {
             static::$delay->log($type, $str, $flag);
         }
     } // function log()

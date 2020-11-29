@@ -39,6 +39,10 @@ class Bounce extends \Remix\Studio
         $bounce_dir = $remix->preset()->get('app.bounce_dir');
         $path = $remix->dir($bounce_dir . '/' . $this->file . '.tpl');
 
+        if (! $path) {
+            throw new \Remix\RemixException('bounce "' . $this->file . '.tpl" not found');
+        }
+
         $source = \Remix\Utility\Capture::capture(function () use ($path) {
             require($path);
         });
@@ -56,7 +60,7 @@ class Bounce extends \Remix\Studio
         foreach ($this->html_params as $key => $unused) {
             $executable = preg_replace(
                 $re_l . '(\$' . $key . ')' . $re_r,
-                '<?php echo $1; ?>',
+                '<?php echo $1 ?? null; ?>',
                 $executable
             );
         }
@@ -89,7 +93,7 @@ class Bounce extends \Remix\Studio
         $executable = '?>'
             . preg_replace(
                 $re_l . '(.*?)' . $re_r,
-                '<?php echo \Remix\Utility\Str::h($1); ?>',
+                '<?php echo \Remix\Utility\Str::h($1 ?? null); ?>',
                 $executable
             ) . '<?php';
 

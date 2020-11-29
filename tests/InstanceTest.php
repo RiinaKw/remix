@@ -20,16 +20,16 @@ class InstanceTest extends TestCase
         \Remix\App::destroy();
     }
 
-    public function testBayInstance() : void
+    public function testAmpInstance() : void
     {
-        $bay = $this->invokeMethod($this->remix, 'bay', []);
+        $amp = $this->invokeMethod($this->remix, 'amp', []);
 
         // is valid instance?
-        $this->assertTrue((bool)$bay);
-        $this->assertTrue($bay instanceof \Remix\Bay);
+        $this->assertTrue((bool)$amp);
+        $this->assertTrue($amp instanceof \Remix\Amp);
 
-        $bay2 = $this->invokeMethod($this->remix, 'bay', []);
-        $this->assertSame($bay, $bay2);
+        $amp2 = $this->invokeMethod($this->remix, 'amp', []);
+        $this->assertSame($amp, $amp2);
     }
 
     public function testMixerInstance() : void

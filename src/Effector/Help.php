@@ -8,8 +8,8 @@ class Help extends Effector
 {
     public function index()
     {
-        Effector::line('Remix Bay : command line client.');
-        Effector::line('bay version : show version');
-        Effector::line('bay help : this message');
+        Effector::line('Remix Amp : command line client.');
+        Effector::line('amp version : show version');
+        Effector::line('amp help : this message');
     }
 } // class Help

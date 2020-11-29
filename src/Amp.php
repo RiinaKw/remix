@@ -3,9 +3,9 @@
 namespace Remix;
 
 /**
- * Remix Bay : command line interface
+ * Remix Amp : command line interface
  */
-class Bay extends \Remix\Component
+class Amp extends \Remix\Component
 {
     protected static $shorthandles = [
         '-v' => \Remix\Effector\Version::class,

@@ -4,16 +4,16 @@ namespace Remix\CoreTests;
 
 use PHPUnit\Framework\TestCase;
 
-class BayTest extends TestCase
+class AmpTest extends TestCase
 {
     use \Remix\Utility\Tests\InvokePrivateBehavior;
 
-    protected $bay = null;
+    protected $amp = null;
 
     protected function setUp() : void
     {
         $remix = \Remix\App::getInstance();
-        $this->bay = $this->invokeMethod($remix, 'bay', []);
+        $this->amp = $this->invokeMethod($remix, 'amp', []);
     }
 
     public function tearDown() : void
@@ -24,13 +24,13 @@ class BayTest extends TestCase
     public function testLoad() : void
     {
         // is callable with no arguments?
-        $this->expectOutputRegex('/Remix Bay/');
-        $this->bay->run(['bay']);
+        $this->expectOutputRegex('/Remix Amp/');
+        $this->amp->run(['amp']);
     }
 
     public function testLoadWithParams() : void
     {
         $this->expectOutputRegex('/Remix framework/');
-        $this->bay->run(['bay', 'version']);
+        $this->amp->run(['amp', 'version']);
     }
 }

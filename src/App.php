@@ -163,10 +163,10 @@ class App extends Component
         return $this->equalizer()->singleton(Mixer::class);
     } // function mixer()
 
-    protected function bay() : Bay
+    protected function amp() : Amp
     {
-        return $this->equalizer()->singleton(Bay::class);
-    } // function bay()
+        return $this->equalizer()->singleton(Amp::class);
+    } // function amp()
 
     public function dj() : DJ
     {
@@ -190,7 +190,7 @@ class App extends Component
 
     public function runCli(array $argv) : void
     {
-        $this->bay()->run($argv);
+        $this->amp()->run($argv);
         static::log(true, 'BODY', '');
     } // function runCli()
 

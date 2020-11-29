@@ -4,7 +4,7 @@ namespace Remix\AppTests;
 
 use PHPUnit\Framework\TestCase;
 
-class BayTest extends TestCase
+class AmpTest extends TestCase
 {
     protected $remix = null;
 
@@ -20,9 +20,9 @@ class BayTest extends TestCase
 
     public function testNoArg()
     {
-        $this->expectOutputRegex('/Remix Bay/');
+        $this->expectOutputRegex('/Remix Amp/');
 
-        $this->remix->runCli(['bay']);
+        $this->remix->runCli(['amp']);
         $this->assertTrue($this->remix->isCli());
     }
 
@@ -30,6 +30,6 @@ class BayTest extends TestCase
     {
         $this->expectOutputRegex('/TB-303 and TR-808 and 909/');
 
-        $this->remix->runCli(['bay', 'instrument:acid', '-808', '--add=909']);
+        $this->remix->runCli(['amp', 'instrument:acid', '-808', '--add=909']);
     }
 }

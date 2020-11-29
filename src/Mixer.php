@@ -40,11 +40,33 @@ class Mixer extends Component
             $path = '/' . $path;
         }
         foreach ($this->tracks as $track) {
-            if ($track->match($path)) {
-                $sampler = $track->sampler($path);
-                $studio = $track->call($sampler);
-                unset($track);
-                return $studio;
+        //var_dump($track);
+            if ($track->isMatch($path)) {
+                //$sampler = $track->sampler($path);
+                //$studio = $track->call($sampler);
+
+                $equalizer = \Remix\App::getInstance()->equalizer();
+                $sampler = $equalizer->instance(Sampler::class, $track->matched($path));
+
+                $action = $track->action;
+                if (is_string($action) && strpos($action, '@')) {
+                    list($class, $method) = explode('@', $action);
+                    $class = '\\App\\Channel\\' . $class;
+                    $channel = new $class;
+                    $action = [$channel, $method];
+                    $this->action = $action;
+                }
+                if (is_object($action)) {
+                    return Studio::factory('closure', $action);
+                } elseif (is_callable($action)) {
+                    $result = $action($sampler);
+                    unset($sampler);
+                    if ($result instanceof Studio) {
+                        return $result;
+                    } else {
+                        return Studio::factory('text', $result);
+                    }
+                }
             }
         }
         throw new Exceptions\HttpException('it did not match any route, given ' . $path, 404);

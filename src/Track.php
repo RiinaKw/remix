@@ -7,13 +7,10 @@ namespace Remix;
  */
 class Track extends \Remix\Component
 {
-    protected $pattern = '';
-    protected $path = '';
-    protected $match = [];
-    protected $action = null;
-    protected $name = '';
+    protected $props = [];
+    protected $fader = null;
 
-    private function __construct($path)
+    private function __construct(string $path)
     {
         \Remix\App::getInstance()->logBirth(__METHOD__ . ' [' . $path . ']');
     } // function __construct()
@@ -23,73 +20,51 @@ class Track extends \Remix\Component
         \Remix\App::getInstance()->logDeath(__METHOD__ . ' [' . $this->path . ']');
     } // function __destruct()
 
-    protected static function makePattern(string $path) : string
-    {
-        return '@^' . preg_replace('/:([a-zA-Z0-9]+)/', '(?<$1>[a-zA-Z0-9]+)', $path) . '/?$@';
-    } // function makePattern()
-
     public static function get(string $path, $action)  : self
     {
-        //'/^\/api\/(?<id>[a-zA-Z]+)(\.(?<ext>[a-zA-Z]+))?\/?$/'
+        //'/^\/api\/(?<id>\S+?)(\.(?<ext>\S+?))?\/?$/'
         $track = new static($path);
-        $track->action = $action;
-        $track->path = $path;
-        $track->pattern = static::makePattern($path);
+        $track->props['method'] = 'get';
+        $track->props['action'] = $action;
+        $track->props['path'] = $path;
         return $track;
     } // function get()
 
     public function name(string $name) : self
     {
-        $this->name = $name;
+        $this->props['name'] = $name;
         return $this;
     }
 
-    public function __get($name)
+    public function __get(string $name)
     {
         switch ($name) {
+            case 'action':
+            case 'path':
+            case 'method':
+                return $this->props[$name];
             case 'name':
-                return $this->name;
+                return $this->props[$name] ?? null;
             default:
                 return null;
         }
     }
 
-    public function match(string $path) : bool
+    public function isMatch(string $path) : bool
     {
-        $result = preg_match($this->pattern, $path);
+        //$result = preg_match($this->pattern, $path);
+        $this->fader = \Remix\Fader::factory($this->props['path']);
+        $result = $this->fader->isMatch($path);
+        if (! $result) {
+            $this->fader = null;
+        }
         return $result;
-    } // function match()
+    } // function isMatch()
 
-    public function sampler(string $path) : Sampler
+    public function matched() : array
     {
-        $equalizer = App::getInstance()->equalizer();
-        $result = preg_match($this->pattern, $path, $matches);
-        return $equalizer->instance(Sampler::class, $matches);
-    } // function sampler()
-
-    public function call(Sampler $sampler) : Studio
-    {
-        $action = $this->action;
-        if (is_string($action) && strpos($action, '@')) {
-            list($class, $method) = explode('@', $action);
-            $class = '\\App\\Channel\\' . $class;
-            $channel = new $class;
-            $action = [$channel, $method];
-            $this->action = $action;
-        }
-        if (is_object($action)) {
-            return new Studio('closure', $action);
-        } elseif (is_callable($action)) {
-            $result = $action($sampler);
-            unset($sampler);
-            if ($result instanceof Studio) {
-                return $result;
-            } else {
-                return new Studio('text', $result);
-            }
-        }
-        return new Studio;
-    } // function call()
+        return $this->fader ? $this->fader->matched() : null;
+    } // function isMatch()
 
     public function uri() : string
     {

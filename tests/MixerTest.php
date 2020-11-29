@@ -8,7 +8,7 @@ class MixerTest extends TestCase
 {
     use \Remix\Utility\Tests\InvokePrivateBehavior;
 
-    protected $bay = null;
+    protected $mixer = null;
 
     protected function setUp() : void
     {
@@ -28,7 +28,7 @@ class MixerTest extends TestCase
         \Remix\App::destroy();
     }
 
-    public function testRoute()
+    public function testRoute() : void
     {
         // is callable route?
         $response = $this->mixer->route('/cb');
@@ -36,7 +36,7 @@ class MixerTest extends TestCase
         $this->assertMatchesRegularExpression('/from callback/', $response);
     }
 
-    public function test404()
+    public function test404() : void
     {
         $this->expectException(\Remix\Exceptions\HttpException::class);
 
@@ -44,7 +44,7 @@ class MixerTest extends TestCase
         $response = $this->mixer->route('/unknwon');
     }
 
-    public function testName()
+    public function testName() : void
     {
         $track = $this->mixer->named('testname');
 
@@ -53,7 +53,7 @@ class MixerTest extends TestCase
         $this->assertTrue($track instanceof \Remix\Track);
     }
 
-    public function testUnknownName()
+    public function testUnknownName() : void
     {
         $track = $this->mixer->named('unknwon');
 

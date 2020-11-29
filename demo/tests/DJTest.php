@@ -20,9 +20,9 @@ class DJTest extends TestCase
         \Remix\App::destroy();
     }
 
-    public function testInstance()
+    public function testInstance() : void
     {
-        $connection = $this->staticProperty(\Remix\DJ::class, 'connection');
+        $connection = $this->invokeStaticProperty(\Remix\DJ::class, 'connection');
 
         $this->assertTrue((bool)$connection);
         $this->assertTrue($connection instanceof \PDO);

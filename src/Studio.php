@@ -54,7 +54,6 @@ class Studio extends \Remix\Component
                 return '';
 
             case 'header':
-                http_response_code($this->status);
                 $bounce = new Bounce('httperror');
                 $bounce->code = $this->status;
                 $bounce->message = $this->params;

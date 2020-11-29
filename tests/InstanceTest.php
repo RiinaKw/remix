@@ -20,7 +20,7 @@ class InstanceTest extends TestCase
         \Remix\App::destroy();
     }
 
-    public function testBayInstance()
+    public function testBayInstance() : void
     {
         $bay = $this->invokeMethod($this->remix, 'bay', []);
 
@@ -32,7 +32,7 @@ class InstanceTest extends TestCase
         $this->assertSame($bay, $bay2);
     }
 
-    public function testMixerInstance()
+    public function testMixerInstance() : void
     {
         $mixer = $this->invokeMethod($this->remix, 'mixer', []);
 
@@ -44,7 +44,7 @@ class InstanceTest extends TestCase
         $this->assertSame($mixer, $mixer2);
     }
 
-    public function testDJInstance()
+    public function testDJInstance() : void
     {
         $dj = $this->invokeMethod($this->remix, 'dj', []);
 

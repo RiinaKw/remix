@@ -8,7 +8,7 @@ class AppTest extends TestCase
 {
     use \Remix\Utility\Tests\InvokePrivateBehavior;
 
-    public function testInstance()
+    public function testInstance() : void
     {
         // is loadable?
         $this->assertTrue(class_exists('\Remix\App'));

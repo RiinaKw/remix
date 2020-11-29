@@ -28,7 +28,7 @@ class Mixer extends Component
         return $this;
     } // function load()
 
-    public function destroy()
+    public function destroy() : void
     {
         $this->tracks = null;
         $this->named = null;

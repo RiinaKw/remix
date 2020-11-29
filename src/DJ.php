@@ -48,7 +48,7 @@ class DJ extends \Remix\Component
         return $result;
     } // function play()
 
-    public static function truncate(string $table)
+    public static function truncate(string $table) : bool
     {
         if (strpos($table, '`')) {
             throw new Exceptions\DJException('Invalid table name "' . $table . '"');
@@ -63,7 +63,7 @@ class DJ extends \Remix\Component
         return new Back2back(static::$connection);
     } // function back2back()
 
-    public static function destroy()
+    public static function destroy() : void
     {
         static::$connection = null;
     } // function destroy()

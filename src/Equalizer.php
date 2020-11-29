@@ -22,7 +22,7 @@ class Equalizer extends Component
         return $class::factory($args);
     } // function factory()
 
-    public function destroy()
+    public function destroy() : void
     {
         if ($this->container) {
             foreach ($this->container as $key => $item) {

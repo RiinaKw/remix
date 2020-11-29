@@ -47,7 +47,7 @@ class Delay
         return sprintf("[%s] %s", $log['type'], $log['log']);
     }
 
-    protected static function stderr(Array $log)
+    protected static function stderr(Array $log) : void
     {
         $color = '0;37';
         switch ($log['type']) {

@@ -79,24 +79,24 @@ class App extends Component
         return static::$is_cli;
     }
 
-    protected static function log(bool $show, string $type, string $str, string $flag = '')
+    protected static function log(bool $show, string $type, string $str, string $flag = '') : void
     {
         if (static::isDebug()) {
             static::$delay->log($type, $str, $flag);
         }
     } // function log()
 
-    public static function logBirth(string $str)
+    public static function logBirth(string $str) : void
     {
         static::log(true, 'TRACE', $str, '+');
     } // function logBirth()
 
-    public static function logDeath(string $str)
+    public static function logDeath(string $str) : void
     {
         static::log(true, 'TRACE', $str, '-');
     } // function logDeath()
 
-    public static function logMemory(string $str)
+    public static function logMemory(string $str) : void
     {
         static::log(true, 'MEMORY', Memory::get());
     } // function logMemory()
@@ -194,12 +194,12 @@ class App extends Component
         static::log(true, 'BODY', '');
     } // function runCli()
 
-    public function errorHandle($code, $message, $file, $line, $context = [])
+    public function errorHandle($code, $message, $file, $line, $context = []) : void
     {
         throw new Exceptions\ErrorException($message, $code);
     } // function errorHandle()
 
-    public function exceptionHandle($e)
+    public function exceptionHandle($e) : void
     {
         if ($this->isCli()) {
             echo "\033[41m";
@@ -215,7 +215,7 @@ class App extends Component
         unset($e);
     } // function exceptionHandle()
 
-    public function shutdownHandle()
+    public function shutdownHandle() : void
     {
         static::destroy();
     } // function shutdownHandle()

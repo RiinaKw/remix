@@ -22,7 +22,7 @@ abstract class Turntable extends \Remix\Component
         return $this->prop[$name] ?? null;
     }
 
-    public function __set($name, $value)
+    public function __set($name, $value) : void
     {
         $this->prop[$name] = $value;
     }

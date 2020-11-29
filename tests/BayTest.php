@@ -21,14 +21,14 @@ class BayTest extends TestCase
         \Remix\App::destroy();
     }
 
-    public function testLoad()
+    public function testLoad() : void
     {
         // is callable with no arguments?
         $this->expectOutputRegex('/Remix Bay/');
         $this->bay->run(['bay']);
     }
 
-    public function testLoadWithParams()
+    public function testLoadWithParams() : void
     {
         $this->expectOutputRegex('/Remix framework/');
         $this->bay->run(['bay', 'version']);

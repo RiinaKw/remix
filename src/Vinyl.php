@@ -24,7 +24,7 @@ abstract class Vinyl extends \Remix\Component
         $this->prop[$name] = $value;
     }
 
-    public function toArray()
+    public function toArray() : array
     {
         return $this->prop;
     }

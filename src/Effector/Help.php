@@ -2,7 +2,7 @@
 
 namespace Remix\Effector;
 
-use \Remix\Effector;
+use Remix\Effector;
 
 class Help extends Effector
 {
@@ -12,4 +12,5 @@ class Help extends Effector
         Effector::line('amp version : show version');
         Effector::line('amp help : this message');
     }
-} // class Help
+}
+// class Help

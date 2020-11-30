@@ -2,13 +2,13 @@
 
 namespace App\Channel;
 
-use \Remix\Sampler;
-use \Remix\Studio;
-use \Remix\Bounce;
+use Remix\Sampler;
+use Remix\Studio;
+use Remix\Bounce;
 
 class FormChannel extends \Remix\Channel
 {
-    public function index(Sampler $sampler) : Studio
+    public function index(Sampler $sampler): Studio
     {
         $mixer = \Remix\App::getInstance()->mixer();
 
@@ -17,9 +17,10 @@ class FormChannel extends \Remix\Channel
         $bounce = new Bounce('form/index');
         $bounce->url = $mixer->uri('form', [':id' => $id]);
         return $bounce;
-    } // function index()
+    }
+    // function index()
 
-    public function post(Sampler $sampler)
+    public function post(Sampler $sampler): Studio
     {
         $id = $sampler->param('id');
         $title = $sampler->post('title');
@@ -28,5 +29,7 @@ class FormChannel extends \Remix\Channel
         $bounce->id = $id;
         $bounce->title = $title;
         return $bounce;
-    } // function index()
-} // class ApiChannel
+    }
+    // function index()
+}
+// class ApiChannel

@@ -8,12 +8,12 @@ class AmpTest extends TestCase
 {
     protected $remix = null;
 
-    protected function setUp() : void
+    protected function setUp(): void
     {
         $this->remix = \Remix\App::getInstance()->initialize(__DIR__ . '/..');
     }
 
-    public function tearDown() : void
+    public function tearDown(): void
     {
         \Remix\App::destroy();
     }
@@ -33,3 +33,4 @@ class AmpTest extends TestCase
         $this->remix->runCli(['amp', 'instrument:acid', '-808', '--add=909']);
     }
 }
+// class AmpTest

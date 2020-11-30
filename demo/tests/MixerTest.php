@@ -11,16 +11,19 @@ class MixerTest extends TestCase
     protected $remix = null;
     protected $public_dir = __DIR__ . '../public';
 
-    protected function setUp() : void
+    protected function setUp(): void
     {
         $this->remix = \Remix\App::getInstance()->initialize(__DIR__ . '/..');
     }
 
-    public function tearDown() : void
+    public function tearDown(): void
     {
         \Remix\App::destroy();
     }
 
+    /**
+     * @SuppressWarnings(PHPMD.Superglobals)
+     */
     public function testMixer()
     {
         $_SERVER['REQUEST_METHOD'] = 'GET';
@@ -71,3 +74,4 @@ class MixerTest extends TestCase
         $this->assertMatchesRegularExpression('/method not allowed/', (string)$response);
     }
 }
+// class MixerTest

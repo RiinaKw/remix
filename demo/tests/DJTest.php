@@ -10,17 +10,17 @@ class DJTest extends TestCase
 
     protected $remix = null;
 
-    protected function setUp() : void
+    protected function setUp(): void
     {
         $this->remix = \Remix\App::getInstance()->initialize(__DIR__ . '/..');
     }
 
-    public function tearDown() : void
+    public function tearDown(): void
     {
         \Remix\App::destroy();
     }
 
-    public function testInstance() : void
+    public function testInstance(): void
     {
         $connection = $this->invokeStaticProperty(\Remix\DJ::class, 'connection');
 
@@ -28,7 +28,7 @@ class DJTest extends TestCase
         $this->assertTrue($connection instanceof \PDO);
     }
 
-    public function testPlay()
+    public function testPlay(): void
     {
         \Remix\DJ::truncate('users');
         \Remix\DJ::play('INSERT INTO users(name) VALUES(:name);', ['name' => 'Riina']);
@@ -52,7 +52,7 @@ class DJTest extends TestCase
         $this->assertTrue($result[0] instanceof \App\Vinyl\User);
     }
 
-    public function testVinyl()
+    public function testVinyl(): void
     {
         // User vinyl
         $vinyl = \App\Vinyl\User::find(1);
@@ -71,7 +71,7 @@ class DJTest extends TestCase
         $this->assertNull($vinyl);
     }
 
-    public function testInsert()
+    public function testInsert(): void
     {
         // get current count
         $result = \Remix\DJ::play('SELECT * FROM users;');
@@ -85,7 +85,7 @@ class DJTest extends TestCase
         $this->assertSame($count + 1, count($result));
     }
 
-    public function testTruncate()
+    public function testTruncate(): void
     {
         $result = \Remix\DJ::truncate('users');
         $this->assertTrue($result);
@@ -94,7 +94,7 @@ class DJTest extends TestCase
         $this->assertSame(0, count($result));
     }
 
-    public function testTransaction()
+    public function testTransaction(): void
     {
         // get current count
         $result = \Remix\DJ::play('SELECT * FROM users;');
@@ -123,3 +123,4 @@ class DJTest extends TestCase
         $this->assertSame($count + 1, count($result));
     }
 }
+// class DJTest

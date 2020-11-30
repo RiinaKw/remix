@@ -3,6 +3,7 @@
 namespace Remix\CoreTests;
 
 use PHPUnit\Framework\TestCase;
+use \Remix\Track;
 
 class TrackTest extends TestCase
 {
@@ -10,7 +11,7 @@ class TrackTest extends TestCase
 
     public function testLoad() : void
     {
-        $track = \Remix\Track::get('/:test', 'SampleTrack@index');
+        $track = Track::get('/:test', 'SampleTrack@index');
         $this->assertNotNull($track);
     }
 }

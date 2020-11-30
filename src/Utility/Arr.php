@@ -4,7 +4,7 @@ namespace Remix\Utility;
 
 class Arr
 {
-    public static function flatten(array $arr)
+    public static function flatten(array $arr): array
     {
         $v = [];
         array_walk_recursive(
@@ -16,7 +16,7 @@ class Arr
         return $v;
     }
 
-    public static function toXML(array $arr, $root = 'root')
+    public static function toXML(array $arr, $root = 'root'): string
     {
         $xml = '';
         foreach ($arr as $key => $value) {
@@ -32,3 +32,4 @@ class Arr
         return sprintf('<%s>%s</%s>', $root, $xml, $root);
     }
 }
+// class Arr

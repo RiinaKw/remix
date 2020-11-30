@@ -21,3 +21,4 @@ class Capture
         return static::endCapture();
     }
 }
+// class Capture

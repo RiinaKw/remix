@@ -14,10 +14,11 @@ class Hash
         $this->prop = $array;
     }
 
-    public function ref(&$arr)
+    public function ref(&$arr): void
     {
         $this->prop = &$arr;
-    } // function ref()
+    }
+    // function ref()
 
     protected function callback($name, $item_func, $final_func = null)
     {
@@ -37,7 +38,8 @@ class Hash
             return $final_func($target, $last);
         }
         return null;
-    } // function callback()
+    }
+    // function callback()
 
     public function get(string $name = '')
     {
@@ -56,9 +58,10 @@ class Hash
         } else {
             return $this->isset($name) ? $this->prop[$name] : null;
         }
-    } // function get()
+    }
+    // function get()
 
-    public function set(string $name, $value)
+    public function set(string $name, $value): void
     {
         if (strpos($name, '.') !== false) {
             $cb_item = function (&$target) {
@@ -73,9 +76,10 @@ class Hash
         } else {
             $this->prop[$name] = $value;
         }
-    } // function set()
+    }
+    // function set()
 
-    public function isset(string $name)
+    public function isset(string $name): bool
     {
         if (strpos($name, '.') !== false) {
             $cb_item = function (&$target) {
@@ -88,9 +92,10 @@ class Hash
         } else {
             return isset($this->prop[$name]);
         }
-    } // function isset()
+    }
+    // function isset()
 
-    public function delete(string $name)
+    public function delete(string $name): void
     {
         if (strpos($name, '.') !== false) {
             $cb_item = function (&$target) {
@@ -100,19 +105,23 @@ class Hash
                 unset($target[$last]);
                 return true;
             };
-            return $this->callback($name, $cb_item, $cb_final);
+            $this->callback($name, $cb_item, $cb_final);
         } else {
             unset($this->prop[$name]);
         }
-    } // function delete()
+    }
+    // function delete()
 
     public function __get(string $name)
     {
         return $this->get($name);
-    } // function __get()
+    }
+    // function __get()
 
     public function __set(string $name, $value)
     {
         return $this->set($name, $value);
-    } // function __set()
-} // class Hash
+    }
+    // function __set()
+}
+// class Hash

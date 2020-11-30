@@ -2,8 +2,8 @@
 
 namespace Remix;
 
-use \Remix\Utility\Performance\Memory;
-use \Remix\Utility\Performance\Time;
+use Remix\Utility\Performance\Memory;
+use Remix\Utility\Performance\Time;
 
 class Delay
 {
@@ -15,11 +15,11 @@ class Delay
     {
         $this->is_debug = $is_debug;
 
-        $this->time = new Time;
+        $this->time = new Time();
         $this->time->start();
     }
 
-    public function log(string $type, string $str, string $flag = '') : void
+    public function log(string $type, string $str, string $flag = ''): void
     {
         $flag = $flag ? sprintf('%s ', $flag) : '';
         $log = [
@@ -32,22 +32,22 @@ class Delay
         }
     }
 
-    public function logMemory() : void
+    public function logMemory(): void
     {
         $this->log('MEMORY', Memory::get());
     }
 
-    public function logTime() : void
+    public function logTime(): void
     {
         $this->log('TIME', (string)$this->time->stop());
     }
 
-    protected static function format(Array $log) : string
+    protected static function format(array $log): string
     {
         return sprintf("[%s] %s", $log['type'], $log['log']);
     }
 
-    protected static function stderr(Array $log) : void
+    protected static function stderr(array $log): void
     {
         $color = '0;37';
         switch ($log['type']) {
@@ -70,7 +70,7 @@ class Delay
         fprintf(STDERR, "\033[%sm %s\033[0m\n", $color, static::format($log));
     }
 
-    public function get() : string
+    public function get(): string
     {
         $result = [];
         foreach ($this->log as $log) {
@@ -79,3 +79,4 @@ class Delay
         return implode("<br />\n", $result);
     }
 }
+// class Delay

@@ -11,7 +11,7 @@ class Mixer extends Component
     protected $named = [];
     protected $urls = [];
 
-    public function load($tracks) : self
+    public function load($tracks): self
     {
         if (is_string($tracks)) {
             $this->tracks = require($tracks);
@@ -29,7 +29,8 @@ class Mixer extends Component
             $this->urlArr($track);
         }
         return $this;
-    } // function load()
+    }
+    // function load()
 
     protected function urlArr(Track $track)
     {
@@ -40,14 +41,18 @@ class Mixer extends Component
         $this->urls[$path][$track->method] = $track;
     }
 
-    public function destroy() : void
+    public function destroy(): void
     {
         $this->tracks = null;
         $this->named = null;
         $this->urls = null;
     }
+    // function destroy()
 
-    public function route(string $path) : Studio
+    /**
+     * @SuppressWarnings(PHPMD.Superglobals)
+     */
+    public function route(string $path): Studio
     {
         if (strpos($path, '/') !== 0) {
             $path = '/' . $path;
@@ -72,14 +77,15 @@ class Mixer extends Component
             }
         }
         return Studio::factory()->header(404, 'it did not match any route, given ' . $path);
-    } // function route()
+    }
+    // function route()
 
     protected static function studio($action, Sampler $sampler)
     {
         if (is_string($action) && strpos($action, '@')) {
             list($class, $method) = explode('@', $action);
             $class = '\\App\\Channel\\' . $class;
-            $channel = new $class;
+            $channel = new $class();
             $action = [$channel, $method];
         }
         if (is_object($action)) {
@@ -94,11 +100,13 @@ class Mixer extends Component
             }
         }
     }
+    // function studio()
 
     public function named(string $named)
     {
         return $this->named[$named] ?? null;
-    } // function named()
+    }
+    // function named()
 
     public function uri(string $name, array $params = [])
     {
@@ -115,4 +123,6 @@ class Mixer extends Component
         $public_url = \Remix\App::getInstance()->preset()->get('env.public_url');
         return $public_url . $path;
     }
-} // class Mixer
+    // function uri()
+}
+// class Mixer

@@ -21,19 +21,20 @@ class Bounce extends \Remix\Studio
         parent::__construct('html', $params);
         $this->file = $file;
         $this->escaped_params = $params;
-    } // function __construct()
+    }
+    // function __construct()
 
-    public function __set(string $name, $value)
+    public function __set(string $name, $value): void
     {
         $this->escaped_params[$name] = $value;
     }
 
-    public function setHtml(string $name, $value) : void
+    public function setHtml(string $name, $value): void
     {
         $this->html_params[$name] = $value;
     }
 
-    public function record() : string
+    public function record(): string
     {
         $remix = App::getInstance();
         $bounce_dir = $remix->preset()->get('app.bounce_dir');
@@ -48,16 +49,17 @@ class Bounce extends \Remix\Studio
         });
 
         return $this->run($source);
-    } // function record()
+    }
+    // function record()
 
-    protected function translate(string $source) : string
+    protected function translate(string $source): string
     {
         $re_l = '/' . static::$left_delimiter . '\s*';
         $re_r = '\s*' . static::$right_delimiter . '/';
         $executable = $source;
 
         // translate to php
-        foreach ($this->html_params as $key => $unused) {
+        foreach (array_keys($this->html_params) as $key) {
             $executable = preg_replace(
                 $re_l . '(\$' . $key . ')' . $re_r,
                 '<?php echo $1 ?? null; ?>',
@@ -100,7 +102,10 @@ class Bounce extends \Remix\Studio
         return $executable;
     }
 
-    protected function run($source) : string
+    /**
+     * @SuppressWarnings(PHPMD.EvalExpression)
+     */
+    protected function run($source): string
     {
         $escaped_params = $this->escaped_params;
         $html_params = $this->html_params;
@@ -116,4 +121,5 @@ class Bounce extends \Remix\Studio
 
         return $response;
     }
-} // class Bounce
+}
+// class Bounce

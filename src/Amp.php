@@ -12,7 +12,7 @@ class Amp extends \Remix\Component
         '-h' => \Remix\Effector\Help::class,
     ];
 
-    public function run(array $argv) : void
+    public function run(array $argv): void
     {
         $equalizer = App::getInstance()->equalizer();
         array_shift($argv);
@@ -48,11 +48,13 @@ class Amp extends \Remix\Component
         if ($instance) {
             $instance->run($method, $argv);
         } elseif ($class) {
-            echo 'unknown effector : ' . $class. PHP_EOL;
+            echo 'unknown effector : ' . $class . PHP_EOL;
             echo 'try "bay help"' . PHP_EOL;
         } else {
             $instance = $equalizer->instance(Effector\Help::class);
             $instance->index($argv);
         }
-    } // function run()
-} // class Bay
+    }
+    // function run()
+}
+// class Bay

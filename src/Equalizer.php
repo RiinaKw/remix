@@ -9,20 +9,22 @@ class Equalizer extends Component
 {
     private $container = [];
 
-    public function singleton(string $class) : Component
+    public function singleton(string $class): Component
     {
         if (! array_key_exists($class, $this->container)) {
             $this->container[$class] = $this->instance($class);
         }
         return $this->container[$class];
-    } // function singleton()
+    }
+    // function singleton()
 
-    public function instance(string $class, $args = null) : Component
+    public function instance(string $class, $args = null): Component
     {
         return $class::factory($args);
-    } // function factory()
+    }
+    // function factory()
 
-    public function destroy() : void
+    public function destroy(): void
     {
         if ($this->container) {
             foreach ($this->container as $key => $item) {
@@ -34,5 +36,7 @@ class Equalizer extends Component
             }
             $this->container = [];
         }
-    } // function destroy()
-} // class Equalizer
+    }
+    // function destroy()
+}
+// class Equalizer

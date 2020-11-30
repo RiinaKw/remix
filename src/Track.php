@@ -16,30 +16,35 @@ class Track extends \Remix\Component
         $this->props['method'] = $method;
         $this->props['path'] = $path;
         $this->props['action'] = $action;
-    } // function __construct()
+    }
+    // function __construct()
 
     public function __destruct()
     {
         \Remix\App::getInstance()->logDeath(__METHOD__ . ' [' . $this->method . ' ' . $this->path . ']');
-    } // function __destruct()
+    }
+    // function __destruct()
 
-    public static function get(string $path, $action)  : self
+    public static function get(string $path, $action): self
     {
         $track = new static('GET', $path, $action);
         return $track;
-    } // function get()
+    }
+    // function get()
 
-    public static function post(string $path, $action)  : self
+    public static function post(string $path, $action): self
     {
         $track = new static('POST', $path, $action);
         return $track;
-    } // function post()
+    }
+    // function post()
 
-    public function name(string $name) : self
+    public function name(string $name): self
     {
         $this->props['name'] = $name;
         return $this;
-    } // function name()
+    }
+    // function name()
 
     public function __get(string $name)
     {
@@ -53,10 +58,13 @@ class Track extends \Remix\Component
             default:
                 return null;
         }
-    } // function __get()
+    }
+    // function __get()
 
-    public function uri() : string
+    public function uri(): string
     {
         return App::getInstance()->preset()->get('env.public_url') . $this->path;
-    } // function uri()
-} // class Track
+    }
+    // function uri()
+}
+// class Track

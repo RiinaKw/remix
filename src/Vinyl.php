@@ -2,7 +2,7 @@
 
 namespace Remix;
 
-use \Remix\Turntable;
+use Remix\Turntable;
 
 /**
  * Remix Vinyl : capsulate a single DB record
@@ -24,17 +24,20 @@ abstract class Vinyl extends \Remix\Component
         $this->prop[$name] = $value;
     }
 
-    public function toArray() : array
+    public function toArray(): array
     {
         return $this->prop;
     }
 
-    public function turntable() : Turntable
+    /**
+     * @SuppressWarnings(PHPMD.UnusedLocalVariable)
+     */
+    public function turntable(): Turntable
     {
         return new static::$turntable($this);
     }
 
-    public static function find($id) : ?self
+    public static function find($id): ?self
     {
         $sql = sprintf('SELECT * FROM `%s` WHERE `%s` = :id;', static::$table, static::$pk);
         $setlist = \Remix\DJ::prepare($sql);
@@ -49,4 +52,5 @@ abstract class Vinyl extends \Remix\Component
         }
         return null;
     }
-} // class Vinyl
+}
+// class Vinyl

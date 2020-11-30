@@ -2,7 +2,7 @@
 
 namespace Remix;
 
-use \Remix\Vinyl;
+use Remix\Vinyl;
 
 /**
  * Remix Turntable : presenter instance
@@ -22,7 +22,7 @@ abstract class Turntable extends \Remix\Component
         return $this->prop[$name] ?? null;
     }
 
-    public function __set($name, $value) : void
+    public function __set($name, $value): void
     {
         $this->prop[$name] = $value;
     }

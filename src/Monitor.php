@@ -7,7 +7,7 @@ namespace Remix;
  */
 class Monitor
 {
-    public static function dump($var) : void
+    public static function dump($var): void
     {
         $trace = debug_backtrace()[0];
 
@@ -23,9 +23,10 @@ class Monitor
             echo '</pre>' . PHP_EOL;
             echo '</section>' . PHP_EOL;
         }
-    } // function dump()
+    }
+    // function dump()
 
-    public static function getSource(string $file, int $highlight, int $margin) : array
+    public static function getSource(string $file, int $highlight, int $margin): array
     {
         $lines = file($file);
         $length = count($lines);
@@ -54,5 +55,7 @@ class Monitor
         }
 
         return $target;
-    } // function getSource()
-} // class Monitor
+    }
+    // function getSource()
+}
+// class Monitor

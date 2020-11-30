@@ -12,7 +12,8 @@ abstract class Component
         if ($remix) {
             throw new \Exception('param must be empty');
         }
-    } // function __construct()
+    }
+    // function __construct()
 
     public function __destruct()
     {
@@ -20,10 +21,10 @@ abstract class Component
         \Remix\App::logDeath($method);
     }
 
-    public static function factory($arg1 = null, $arg2 = null) : self
+    public static function factory($arg1 = null, $arg2 = null): self
     {
         if ($arg1 === null) {
-            return new static;
+            return new static();
         } elseif ($arg2 === null) {
             return new static($arg1);
         } else {
@@ -31,3 +32,4 @@ abstract class Component
         }
     }
 }
+// class Component

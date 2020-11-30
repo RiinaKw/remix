@@ -2,6 +2,8 @@
 
 namespace Remix;
 
+use \Remix\Exceptions\HttpException;
+
 /**
  * Remix Studio : web response manager
  */
@@ -54,7 +56,6 @@ class Studio extends \Remix\Component
                 return '';
 
             case 'header':
-                http_response_code($this->status);
                 $bounce = new Bounce('httperror');
                 $bounce->code = $this->status;
                 $bounce->message = $this->params;
@@ -116,19 +117,19 @@ class Studio extends \Remix\Component
         return $this;
     }
 
-    public static function recordException($e) : void
+    public static function recordException(\Exceptin $exception) : void
     {
         $status = 500;
-        if ($e instanceof Exceptions\HttpException) {
-            $status = $e->getStatus();
+        if ($exception instanceof HttpException) {
+            $status = $exception->getStatus();
         }
 
         $view = new Bounce('exception', [
             'status' => $status,
-            'message' => $e->getMessage(),
-            'file' => $e->getFile(),
-            'line' => $e->getLine(),
-            'target' => Monitor::getSource($e->getFile(), $e->getLine(), 10),
+            'message' => $exception->getMessage(),
+            'file' => $exception->getFile(),
+            'line' => $exception->getLine(),
+            'target' => Monitor::getSource($exception->getFile(), $exception->getLine(), 10),
         ]);
         echo $view->status($status)->record();
     } // function recordException()

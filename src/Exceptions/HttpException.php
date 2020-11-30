@@ -10,10 +10,13 @@ class HttpException extends \Remix\RemixException
     {
         parent::__construct($message);
         $this->status = $status;
-    } // function __construct()
+    }
+    // function __construct()
 
-    public function getStatus()
+    public function getStatus(): int
     {
         return $this->status;
-    } // function getStatus()
-} // class HttpException
+    }
+    // function getStatus()
+}
+// class HttpException

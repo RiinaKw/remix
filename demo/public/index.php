@@ -9,6 +9,6 @@ require_once($autoload_path);
 
 $remix = \Remix\App::getInstance(true);
 $studio = $remix->initialize($app_dir)->runWeb($public_dir);
-echo (string)$studio;
+echo $studio;
 $studio = null;
 $remix = null;

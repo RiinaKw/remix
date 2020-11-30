@@ -1,6 +1,6 @@
 <?php
 
-use \Remix\Track;
+use Remix\Track;
 
 return [
     Track::get('/', 'TopChannel@index')->name('top'),

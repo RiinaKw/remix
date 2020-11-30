@@ -28,6 +28,9 @@
         ],
         "phpcs": [
             "sh vendor/bin/phpcs ."
+        ],
+        "phpunit": [
+            "sh vendor/bin/phpunit"
         ]
     }
 }

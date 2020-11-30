@@ -15,13 +15,15 @@ class Setlist extends \Remix\Component
         parent::__construct();
 
         $this->statement = $statement;
-    } // function __construct()
+    }
+    // function __construct()
 
-    public function asVinyl($classname)
+    public function asVinyl($classname): self
     {
         $this->statement->setFetchMode(\PDO::FETCH_CLASS, $classname);
         return $this;
-    } // function asVinyl()
+    }
+    // function asVinyl()
 
     public function play($params = [])
     {
@@ -41,5 +43,7 @@ class Setlist extends \Remix\Component
         \Remix\App::delay()->log('QUERY', $sql);
 
         return $this->statement->fetchAll();
-    } // function play()
-} // class Setlist
+    }
+    // function play()
+}
+// class Setlist

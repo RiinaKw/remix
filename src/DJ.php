@@ -23,15 +23,17 @@ class DJ extends \Remix\Component
             }
         }
         return $this;
-    } // function __construct()
+    }
+    // function __construct()
 
     public function __destruct()
     {
         static::destroy();
         parent::__destruct();
-    } // function __destruct()
+    }
+    // function __destruct()
 
-    public static function prepare(string $sql, array $params = []) : Setlist
+    public static function prepare(string $sql, array $params = []): Setlist
     {
         $statement = static::$connection->prepare($sql);
         foreach ($params as $name => $value) {
@@ -39,16 +41,18 @@ class DJ extends \Remix\Component
             $statement->bindParam($label, $value);
         }
         return new Setlist($statement);
-    } // function prepare()
+    }
+    // function prepare()
 
-    public static function play(string $sql, array $params = []) : array
+    public static function play(string $sql, array $params = []): array
     {
         $setlist = static::prepare($sql, $params);
         $result = $setlist->play($params);
         return $result;
-    } // function play()
+    }
+    // function play()
 
-    public static function truncate(string $table) : bool
+    public static function truncate(string $table): bool
     {
         if (strpos($table, '`')) {
             throw new Exceptions\DJException('Invalid table name "' . $table . '"');
@@ -56,15 +60,19 @@ class DJ extends \Remix\Component
 
         $sql = sprintf('TRUNCATE TABLE `%s`;', $table);
         return static::play($sql) !== false;
-    } // function truncate()
+    }
+    // function truncate()
 
-    public static function back2back() : Back2back
+    public static function back2back(): Back2back
     {
         return new Back2back(static::$connection);
-    } // function back2back()
+    }
+    // function back2back()
 
-    public static function destroy() : void
+    public static function destroy(): void
     {
         static::$connection = null;
-    } // function destroy()
-} // class DJ
+    }
+    // function destroy()
+}
+// class DJ

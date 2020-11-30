@@ -28,4 +28,5 @@ class Back2back extends \Remix\Component
     {
         $this->connection->rollBack();
     }
-} // class Setlist
+}
+// class Setlist

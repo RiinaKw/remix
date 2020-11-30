@@ -8,13 +8,13 @@ class FaderTest extends TestCase
 {
     use \Remix\Utility\Tests\InvokePrivateBehavior;
 
-    public function testLoad() : void
+    public function testLoad(): void
     {
         $fader = \Remix\Fader::factory('');
         $this->assertNotNull($fader);
     }
 
-    public function testTranslate() : void
+    public function testTranslate(): void
     {
         $translated = $this->invokeStaticMethod(\Remix\Fader::class, 'translate', ['/:test']);
         $this->assertSame('/^\/(?<test>\S+?)\\/?$/', $translated);
@@ -23,7 +23,7 @@ class FaderTest extends TestCase
         $this->assertSame('/^effector (?<param1>\S+?) (?<param2>\S+?)\/?$/', $translated);
     }
 
-    public function testMatch() : void
+    public function testMatch(): void
     {
         // is match?
         $fader = \Remix\Fader::factory('/:test');
@@ -55,3 +55,4 @@ class FaderTest extends TestCase
         $this->assertSame(false, $match);
     }
 }
+// class FaderTest

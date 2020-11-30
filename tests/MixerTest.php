@@ -10,7 +10,7 @@ class MixerTest extends TestCase
 
     protected $mixer = null;
 
-    protected function setUp() : void
+    protected function setUp(): void
     {
         $remix = \Remix\App::getInstance();
         $this->mixer = $this->invokeMethod($remix, 'mixer', []);
@@ -23,12 +23,15 @@ class MixerTest extends TestCase
         $this->mixer->load($tracks);
     }
 
-    public function tearDown() : void
+    public function tearDown(): void
     {
         \Remix\App::destroy();
     }
 
-    public function testRoute() : void
+    /**
+     * @SuppressWarnings(PHPMD.Superglobals)
+     */
+    public function testRoute(): void
     {
         // is callable route?
         $_SERVER['REQUEST_METHOD'] = 'GET';
@@ -37,7 +40,10 @@ class MixerTest extends TestCase
         $this->assertMatchesRegularExpression('/from callback/', $response);
     }
 
-    public function test404() : void
+    /**
+     * @SuppressWarnings(PHPMD.Superglobals)
+     */
+    public function test404(): void
     {
         // will throw exception when unknown route?
         $_SERVER['REQUEST_METHOD'] = 'GET';
@@ -46,7 +52,7 @@ class MixerTest extends TestCase
         $this->assertSame(404, $status);
     }
 
-    public function testName() : void
+    public function testName(): void
     {
         $track = $this->mixer->named('testname');
 
@@ -55,7 +61,7 @@ class MixerTest extends TestCase
         $this->assertTrue($track instanceof \Remix\Track);
     }
 
-    public function testUnknownName() : void
+    public function testUnknownName(): void
     {
         $track = $this->mixer->named('unknwon');
 
@@ -63,3 +69,4 @@ class MixerTest extends TestCase
         $this->assertNull($track);
     }
 }
+// class MixerTest

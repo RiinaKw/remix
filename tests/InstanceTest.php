@@ -10,17 +10,17 @@ class InstanceTest extends TestCase
 
     protected $remix = null;
 
-    public function setUp() : void
+    public function setUp(): void
     {
         $this->remix = \Remix\App::getInstance();
     }
 
-    public function tearDown() : void
+    public function tearDown(): void
     {
         \Remix\App::destroy();
     }
 
-    public function testAmpInstance() : void
+    public function testAmpInstance(): void
     {
         $amp = $this->invokeMethod($this->remix, 'amp', []);
 
@@ -32,7 +32,7 @@ class InstanceTest extends TestCase
         $this->assertSame($amp, $amp2);
     }
 
-    public function testMixerInstance() : void
+    public function testMixerInstance(): void
     {
         $mixer = $this->invokeMethod($this->remix, 'mixer', []);
 
@@ -44,7 +44,7 @@ class InstanceTest extends TestCase
         $this->assertSame($mixer, $mixer2);
     }
 
-    public function testDJInstance() : void
+    public function testDJInstance(): void
     {
         $dj = $this->invokeMethod($this->remix, 'dj', []);
 
@@ -56,3 +56,4 @@ class InstanceTest extends TestCase
         $this->assertSame($dj, $dj2);
     }
 }
+// class InstanceTest

@@ -2,7 +2,7 @@
 
 namespace Remix;
 
-use \Remix\Exceptions\HttpException;
+use Remix\Exceptions\HttpException;
 
 /**
  * Remix Studio : web response manager
@@ -23,15 +23,17 @@ class Studio extends \Remix\Component
         } else {
             $this->params = $params;
         }
-    } // function __construct()
+    }
+    // function __construct()
 
     public function destroy()
     {
         $this->type = null;
         $this->params = null;
     }
+    // function destroy()
 
-    public function __toString() : string
+    public function __toString(): string
     {
         $this->status($this->status);
         switch ($this->type) {
@@ -68,15 +70,17 @@ class Studio extends \Remix\Component
                     return 'not recordable';
                 }
         } // switch
-    } // function __toString()
+    }
+    // function __toString()
 
-    public function status(int $code = 200) : self
+    public function status(int $code = 200): self
     {
         http_response_code($code);
         return $this;
-    } // function status()
+    }
+    // function status()
 
-    public function json($params) : self
+    public function json($params): self
     {
         $this->type = 'json';
         if ($params instanceof Vinyl) {
@@ -85,9 +89,10 @@ class Studio extends \Remix\Component
             $this->params = $params;
         }
         return $this;
-    } // function json()
+    }
+    // function json()
 
-    public function xml($params) : self
+    public function xml($params): self
     {
         $this->type = 'xml';
         if ($params instanceof Vinyl) {
@@ -96,9 +101,10 @@ class Studio extends \Remix\Component
             $this->params = $params;
         }
         return $this;
-    } // function json()
+    }
+    // function xml()
 
-    public function redirect(string $name, array $params = [], int $status = 303) : self
+    public function redirect(string $name, array $params = [], int $status = 303): self
     {
         $mixer = App::getInstance()->mixer();
         $uri = $mixer->uri($name, $params);
@@ -107,17 +113,19 @@ class Studio extends \Remix\Component
         $this->params = $uri;
         $this->status = $status;
         return $this;
-    } // function redirect()
+    }
+    // function redirect()
 
-    public function header(int $status, string $message = '') : self
+    public function header(int $status, string $message = ''): self
     {
         $this->type = 'header';
         $this->status = $status;
         $this->params = $message;
         return $this;
     }
+    // function header()
 
-    public static function recordException(\Exceptin $exception) : void
+    public static function recordException(\Exception $exception): void
     {
         $status = 500;
         if ($exception instanceof HttpException) {
@@ -132,5 +140,7 @@ class Studio extends \Remix\Component
             'target' => Monitor::getSource($exception->getFile(), $exception->getLine(), 10),
         ]);
         echo $view->status($status)->record();
-    } // function recordException()
-} // class Studio
+    }
+    // function recordException()
+}
+// class Studio

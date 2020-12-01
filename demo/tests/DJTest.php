@@ -8,11 +8,9 @@ class DJTest extends TestCase
 {
     use \Remix\Utility\Tests\InvokePrivateBehavior;
 
-    protected $remix = null;
-
     protected function setUp(): void
     {
-        $this->remix = \Remix\App::getInstance()->initialize(__DIR__ . '/..');
+        \Remix\App::getInstance()->daw->initialize(__DIR__ . '/..');
     }
 
     public function tearDown(): void

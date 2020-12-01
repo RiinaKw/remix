@@ -12,7 +12,7 @@ class Amp extends Gear
         '-h' => \Remix\Effector\Help::class,
     ];
 
-    public function run(array $argv): void
+    public function play(array $argv): void
     {
         $equalizer = App::getInstance()->equalizer;
         array_shift($argv);
@@ -46,7 +46,7 @@ class Amp extends Gear
         }
 
         if ($instance) {
-            $instance->run($method, $argv);
+            $instance->play($method, $argv);
         } elseif ($class) {
             echo 'unknown effector : ' . $class . PHP_EOL;
             echo 'try "bay help"' . PHP_EOL;
@@ -57,6 +57,6 @@ class Amp extends Gear
 
         $equalizer = null;
     }
-    // function run()
+    // function play()
 }
 // class Bay

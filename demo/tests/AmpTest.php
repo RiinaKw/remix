@@ -6,11 +6,11 @@ use PHPUnit\Framework\TestCase;
 
 class AmpTest extends TestCase
 {
-    protected $remix = null;
+    protected $daw = null;
 
     protected function setUp(): void
     {
-        $this->remix = \Remix\App::getInstance()->initialize(__DIR__ . '/..');
+        $this->daw = \Remix\App::getInstance()->daw->initialize(__DIR__ . '/..');
     }
 
     public function tearDown(): void
@@ -22,15 +22,15 @@ class AmpTest extends TestCase
     {
         $this->expectOutputRegex('/Remix Amp/');
 
-        $this->remix->runCli(['amp']);
-        $this->assertTrue($this->remix->cli);
+        $this->daw->playCli(['amp']);
+        $this->assertTrue(\Remix\App::getInstance()->cli);
     }
 
     public function testInstrument()
     {
         $this->expectOutputRegex('/TB-303 and TR-808 and 909/');
 
-        $this->remix->runCli(['amp', 'instrument:acid', '-808', '--add=909']);
+        $this->daw->playCli(['amp', 'instrument:acid', '-808', '--add=909']);
     }
 }
 // class AmpTest

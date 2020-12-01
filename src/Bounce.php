@@ -47,7 +47,7 @@ class Bounce extends Studio
             require($path);
         });
 
-        return $this->run($source);
+        return $this->play($source);
     }
     // function record()
 
@@ -100,11 +100,12 @@ class Bounce extends Studio
 
         return $executable;
     }
+    // function translate()
 
     /**
      * @SuppressWarnings(PHPMD.EvalExpression)
      */
-    protected function run($source): string
+    protected function play($source): string
     {
         $escaped_params = $this->escaped_params;
         $html_params = $this->html_params;
@@ -120,5 +121,6 @@ class Bounce extends Studio
 
         return $response;
     }
+    // function play()
 }
 // class Bounce

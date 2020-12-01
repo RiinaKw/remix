@@ -7,7 +7,7 @@ namespace Remix;
  */
 abstract class Effector extends Gear
 {
-    public function run(string $method, array $arg = []): void
+    public function play(string $method, array $arg = []): void
     {
         foreach ($arg as $item) {
             preg_match('/^--(.+?)=(.+)$/', $item, $matches);
@@ -28,7 +28,7 @@ abstract class Effector extends Gear
             $this->index($arg);
         }
     }
-    // function run()
+    // function play()
 
     public static function line(string $str): void
     {

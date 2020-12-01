@@ -74,16 +74,32 @@ class App
     }
     // function __get()
 
+    public function __set(string $key, $value)
+    {
+        switch ($key) {
+            case 'cli':
+                static::$is_cli = $value;
+                break;
+
+            default:
+                var_dump('unknown key', $key);
+                break;
+        }
+    }
+    // function __set()
+
     public static function destroy(): void
     {
-        static::$app->equalizer->destroy();
-        static::$app->equalizer = null;
+        if (static::$app) {
+            static::$app->equalizer->destroy();
+            static::$app->equalizer = null;
 
-        if (static::$is_debug) {
-            Delay::logMemory();
-            Delay::logTime();
-            if (! static::$app->cli) {
-                echo Delay::get();
+            if (static::$is_debug) {
+                Delay::logMemory();
+                Delay::logTime();
+                if (! static::$app->cli) {
+                    echo Delay::get();
+                }
             }
         }
         static::$app = null;
@@ -94,7 +110,7 @@ class App
     public function initialize(): self
     {
         $this->equalizer = Equalizer::factory();
-        //set_error_handler([$remix, 'errorHandle']);
+        //set_error_handler([$this, 'errorHandle']);
         //set_exception_handler([$this, 'exceptionHandle']);
         register_shutdown_function([$this, 'shutdownHandle']);
 

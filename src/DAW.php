@@ -61,9 +61,10 @@ class DAW extends Gear
     /**
      * @SuppressWarnings(PHPMD.Superglobals)
      */
-    public function runWeb(string $public_dir): Studio
+    public function playWeb(string $public_dir): Studio
     {
         $app = App::getInstance();
+        $app->cli = false;
 
         $this->public_dir = $public_dir;
         $path = $_SERVER['PATH_INFO'] ?? '';
@@ -77,15 +78,15 @@ class DAW extends Gear
         $app = null;
         return $studio;
     }
-    // function runWeb()
+    // function playWeb()
 
-    public function runCli(array $argv): void
+    public function playCli(array $argv): void
     {
         $app = App::getInstance();
-        $app->amp->run($argv);
+        $app->amp->play($argv);
         Delay::log(true, 'BODY', '');
         $app = null;
     }
-    // function runCli()
+    // function playCli()
 }
 // class DAW

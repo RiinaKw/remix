@@ -5,7 +5,7 @@ namespace Remix;
 /**
  * Remix Track : web route definition
  */
-class Track extends \Remix\Component
+class Track extends Gear
 {
     protected $props = [];
 

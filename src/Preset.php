@@ -2,7 +2,7 @@
 
 namespace Remix;
 
-class Preset extends Component
+class Preset extends Gear
 {
     //protected $dir = '';
     protected $hash = null;
@@ -17,9 +17,9 @@ class Preset extends Component
     public function load(string $file, string $key = ''): void
     {
         $filename = str_replace('.', '/', $file);
-        $project = App::getInstance()->project;
-        $file = $project ->appDir('/Preset') . '/' . $filename . '.php';
-        $project = null;
+        $daw = App::getInstance()->daw;
+        $file = $daw ->appDir('/Preset') . '/' . $filename . '.php';
+        $daw = null;
 
         if (! realpath($file)) {
             throw new RemixException('preset file not found');

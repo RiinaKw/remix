@@ -7,7 +7,7 @@ use Remix\Vinyl;
 /**
  * Remix Turntable : presenter instance
  */
-abstract class Turntable extends \Remix\Component
+abstract class Turntable extends Gear
 {
     protected $prop = [];
 

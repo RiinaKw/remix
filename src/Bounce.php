@@ -5,10 +5,8 @@ namespace Remix;
 /**
  * Remix Bounce : view renderer
  */
-class Bounce extends \Remix\Studio
+class Bounce extends Studio
 {
-    use \Remix\Recordable;
-
     protected static $left_delimiter = '{{';
     protected static $right_delimiter = '}}';
 
@@ -36,15 +34,16 @@ class Bounce extends \Remix\Studio
 
     public function record(): string
     {
-        $remix = App::getInstance()->project;
+        $daw = App::getInstance()->daw;
         $bounce_dir = App::getInstance()->preset->get('app.bounce_dir');
-        $path = $remix->dir($bounce_dir . '/' . $this->file . '.tpl');
+        $path = $daw->dir($bounce_dir . '/' . $this->file . '.tpl');
+        $daw = null;
 
         if (! $path) {
-            throw new \Remix\RemixException('bounce "' . $this->file . '.tpl" not found');
+            throw new RemixException('bounce "' . $this->file . '.tpl" not found');
         }
 
-        $source = \Remix\Utility\Capture::capture(function () use ($path) {
+        $source = Utility\Capture::capture(function () use ($path) {
             require($path);
         });
 

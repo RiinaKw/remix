@@ -5,7 +5,7 @@ namespace Remix;
 /**
  * Remix Amp : command line interface
  */
-class Amp extends \Remix\Component
+class Amp extends Gear
 {
     protected static $shorthandles = [
         '-v' => \Remix\Effector\Version::class,

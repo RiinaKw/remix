@@ -5,7 +5,7 @@ namespace Remix;
 /**
  * Remix Effector : command line controller
  */
-abstract class Effector extends Component
+abstract class Effector extends Gear
 {
     public function run(string $method, array $arg = []): void
     {

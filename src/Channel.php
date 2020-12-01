@@ -2,7 +2,7 @@
 
 namespace Remix;
 
-abstract class Channel extends \Remix\Component
+abstract class Channel extends \Remix\Gear
 {
 }
 // class Channel

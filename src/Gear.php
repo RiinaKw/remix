@@ -2,15 +2,12 @@
 
 namespace Remix;
 
-abstract class Component
+abstract class Gear
 {
-    protected function __construct($remix = null)
+    protected function __construct()
     {
         $method = str_replace(__CLASS__, static::class, __METHOD__);
         Delay::logBirth($method);
-        if ($remix) {
-            throw new \Exception('param must be empty');
-        }
     }
     // function __construct()
 

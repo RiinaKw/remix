@@ -6,6 +6,6 @@ $autoload_path = $root_dir . '/vendor/autoload.php';
 
 require_once($autoload_path);
 
-$remix = \Remix\App::getInstance(true)->project;
-$remix->initialize($app_dir)->runCli($argv);
-$remix = null;
+$daw = \Remix\App::getInstance(true)->daw;
+$daw->initialize($app_dir)->runCli($argv);
+$daw = null;

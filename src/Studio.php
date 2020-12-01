@@ -7,7 +7,7 @@ use Remix\Exceptions\HttpException;
 /**
  * Remix Studio : web response manager
  */
-class Studio extends \Remix\Component
+class Studio extends Gear
 {
     protected $params = [];
     protected $type = 'html';

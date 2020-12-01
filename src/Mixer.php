@@ -5,7 +5,7 @@ namespace Remix;
 /**
  * Remix Mixer : routing
  */
-class Mixer extends Component
+class Mixer extends Gear
 {
     protected $tracks = [];
     protected $named = [];

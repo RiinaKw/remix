@@ -7,7 +7,7 @@ use Remix\Turntable;
 /**
  * Remix Vinyl : capsulate a single DB record
  */
-abstract class Vinyl extends \Remix\Component
+abstract class Vinyl extends Gear
 {
     public static $table = 'default_table';
     public static $pk = 'default_pk';

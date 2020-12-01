@@ -2,8 +2,6 @@
 
 namespace Remix;
 
-use Remix\Project;
-
 /**
  * Remix App : entry point
  */
@@ -54,8 +52,8 @@ class App
             case 'equalizer':
                 return $this->equalizer;
 
-            case 'project':
-                return $this->equalizer->singleton(Project::class);
+            case 'daw':
+                return $this->equalizer->singleton(DAW::class);
 
             case 'preset':
                 return $this->equalizer->singleton(Preset::class);
@@ -97,7 +95,7 @@ class App
     {
         $this->equalizer = Equalizer::factory();
         //set_error_handler([$remix, 'errorHandle']);
-        set_exception_handler([$this, 'exceptionHandle']);
+        //set_exception_handler([$this, 'exceptionHandle']);
         register_shutdown_function([$this, 'shutdownHandle']);
 
         return $this;

@@ -7,7 +7,7 @@ use Remix\Utility\Hash;
 /**
  * Remix Sampler : web input manager
  */
-class Sampler extends Component
+class Sampler extends Gear
 {
     protected $params_hash = null;
     protected $get_hash = null;

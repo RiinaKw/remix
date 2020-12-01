@@ -3,9 +3,9 @@
 namespace Remix;
 
 /**
- * Remix Project : entry point
+ * Remix DAW : entry point
  */
-class Project extends Component
+class DAW extends Gear
 {
     protected $root_dir;
     protected $app_dir;
@@ -88,4 +88,4 @@ class Project extends Component
     }
     // function runCli()
 }
-// class Project
+// class DAW

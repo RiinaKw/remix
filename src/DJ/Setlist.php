@@ -2,12 +2,13 @@
 
 namespace Remix\DJ;
 
-use Remix\App;
+use Remix\Delay;
+use Remix\Gear;
 
 /**
  * Remix Setlist : PDO statement
  */
-class Setlist extends \Remix\Component
+class Setlist extends Gear
 {
     protected $statement = null;
     protected $dump = null;
@@ -42,8 +43,7 @@ class Setlist extends \Remix\Component
         } else {
             $sql = $matches_sql['sql'];
         }
-        //\Remix\App::delay()->log('QUERY', $sql);
-        \Remix\Delay::getInstance()->log('QUERY', $sql);
+        Delay::getInstance()->log('QUERY', $sql);
 
         return $this->statement->fetchAll();
     }

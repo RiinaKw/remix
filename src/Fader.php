@@ -2,7 +2,7 @@
 
 namespace Remix;
 
-class Fader extends Component
+class Fader extends Gear
 {
     protected $pattern;
     protected $translated = '';

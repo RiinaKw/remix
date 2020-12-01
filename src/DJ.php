@@ -8,7 +8,7 @@ use Remix\DJ\Back2back;
 /**
  * Remix DJ : DB access manager
  */
-class DJ extends \Remix\Component
+class DJ extends \Remix\Gear
 {
     protected static $connection = null;
 

@@ -21,6 +21,7 @@ class Livehouse extends Effector
         }
         static::$table = $table;
     }
+    // function setup()
 
     private static function find(): array
     {
@@ -30,8 +31,8 @@ class Livehouse extends Effector
         foreach (glob($livehouse_dir . '/*.php') as $file) {
             if (is_file($file)) {
                 $name = basename($file);
-                preg_match('/^(\d{8}_\d{6})_(.*?)\.php$/', $name, $matches);
-                $time = $matches[1] ?? null;
+                preg_match('/^(\d{8}_\d{6}_(.*?))\.php$/', $name, $matches);
+                $livehouse_name = $matches[1] ?? null;
                 $class = $matches[2] ?? null;
                 if (! $class) {
                     $message = sprintf('Unexpected file in Livehouse, given "%s"', $name);
@@ -47,12 +48,13 @@ class Livehouse extends Effector
 
                 $livehouse = $class_ns::factory(basename($name, '.php'));
                 //var_dump($livehouse->asVinyl());
-                $arr[$time] = $livehouse;
+                $arr[$livehouse_name] = $livehouse;
             }
         }
 
         return $arr;
     }
+    // function find()
 
     public function open()
     {
@@ -61,22 +63,10 @@ class Livehouse extends Effector
         try {
             DJ::back2back()->start();
             static::setup();
-
             $arr = static::find();
             foreach ($arr as &$livehouse) {
-                //var_dump($livehouse);
-                $vinyl = static::$vinyl_class::find($livehouse->name);
-                if (! $vinyl) {
-                    $livehouse->open();
-                    $sql = sprintf(
-                        'INSERT INTO `%s` (`%s`) VALUES(:%s);',
-                        static::$vinyl_class::$table,
-                        static::$vinyl_class::$pk,
-                        static::$vinyl_class::$pk
-                    );
-                    DJ::play($sql, [':' . static::$vinyl_class::$pk => $livehouse->name]);
-                    $livehouse = null;
-                }
+                static::stepOpen($livehouse);
+                $livehouse = null;
             }
 
             DJ::back2back()->success();
@@ -85,6 +75,24 @@ class Livehouse extends Effector
             throw $e;
         }
     }
+    // function open()
+
+    private static function stepOpen(\Remix\DJ\Livehouse $livehouse)
+    {
+        $vinyl = static::$vinyl_class::find($livehouse->name);
+        if (! $vinyl) {
+            $livehouse->open();
+            $sql = sprintf(
+                'INSERT INTO `%s` (`%s`) VALUES(:%s);',
+                static::$vinyl_class::$table,
+                static::$vinyl_class::$pk,
+                static::$vinyl_class::$pk
+            );
+            DJ::play($sql, [':' . static::$vinyl_class::$pk => $livehouse->name]);
+            $livehouse = null;
+        }
+    }
+    // function stepOpen()
 
     public function close()
     {
@@ -93,23 +101,20 @@ class Livehouse extends Effector
         try {
             DJ::back2back()->start();
             static::setup();
-
             $arr = static::find();
-            $arr = array_reverse($arr);
-            foreach ($arr as &$livehouse) {
-                $vinyl = static::$vinyl_class::find($livehouse->name);
-                if ($vinyl) {
-                    $livehouse->close();
-                    $sql = sprintf(
-                        'DELETE FROM `%s` WHERE %s = :%s;',
-                        static::$vinyl_class::$table,
-                        static::$vinyl_class::$pk,
-                        static::$vinyl_class::$pk
-                    );
-                    DJ::play($sql, [':' . static::$vinyl_class::$pk => $livehouse->name]);
-                    $livehouse = null;
-                }
+
+            $sql = sprintf(
+                'SELECT * FROM `%s` ORDER BY %s DESC',
+                static::$vinyl_class::$table,
+                static::$vinyl_class::$pk
+            );
+            $result = DJ::first($sql, []);
+
+            if ($result) {
+                $last = $result['livehouse'];
+                static::stepClose($arr[$last]);
             }
+            $arr = null;
 
             DJ::back2back()->success();
         } catch (\Exception $e) {
@@ -117,5 +122,22 @@ class Livehouse extends Effector
             throw $e;
         }
     }
+    // function close()
+
+    private static function stepClose(\Remix\DJ\Livehouse $livehouse)
+    {
+        $vinyl = static::$vinyl_class::find($livehouse->name);
+        if ($vinyl) {
+            $livehouse->close();
+            $sql = sprintf(
+                'DELETE FROM `%s` WHERE %s = :%s;',
+                static::$vinyl_class::$table,
+                static::$vinyl_class::$pk,
+                static::$vinyl_class::$pk
+            );
+            DJ::play($sql, [':' . static::$vinyl_class::$pk => $livehouse->name]);
+        }
+    }
+    // function stepClose()
 }
 // class Livehouse

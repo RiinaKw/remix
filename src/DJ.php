@@ -47,10 +47,16 @@ class DJ extends \Remix\Gear
     public static function play(string $sql, array $params = []): array
     {
         $setlist = static::prepare($sql, $params);
-        $result = $setlist->play($params);
-        return $result;
+        return $setlist->play($params);
     }
     // function play()
+
+    public static function first(string $sql, array $params = [])
+    {
+        $setlist = static::prepare($sql, $params);
+        return $setlist->first($params);
+    }
+    // function first()
 
     public static function back2back(): Back2back
     {

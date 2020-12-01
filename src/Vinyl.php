@@ -37,18 +37,8 @@ abstract class Vinyl extends Gear
 
     public static function find($id): ?self
     {
-        $sql = sprintf('SELECT * FROM `%s` WHERE `%s` = :id;', static::$table, static::$pk);
-        $setlist = DJ::prepare($sql);
-        $result = $setlist->asVinyl(static::class)->play(['id' => $id]);
-
-        switch (count($result)) {
-            case 1:
-                return $result[0];
-                break;
-            case 2:
-                throw new DJException('find by primary key, why multiple results?');
-        }
-        return null;
+        $table = \Remix\DJ::table(static::$table)->where(static::$pk, '=', $id);
+        return $table->asVinyl(static::class)->first();
     }
 }
 // class Vinyl

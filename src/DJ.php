@@ -4,6 +4,7 @@ namespace Remix;
 
 use Remix\DJ\Setlist;
 use Remix\DJ\Back2back;
+use Remix\DJ\Table;
 
 /**
  * Remix DJ : DB access manager
@@ -56,6 +57,12 @@ class DJ extends \Remix\Gear
         return new Back2back(static::$connection);
     }
     // function back2back()
+
+    public static function table(string $name): Table
+    {
+        return Table::factory($name);
+    }
+    // function table()
 
     public function destroy(): void
     {

@@ -10,7 +10,7 @@ class Test2 extends Livehouse
 {
     public function open()
     {
-        Table::context('test2')->create([
+        DJ::table('test2')->create([
             'id INT',
             'title TEXT',
         ]);
@@ -18,6 +18,6 @@ class Test2 extends Livehouse
 
     public function close()
     {
-        Table::context('test2')->drop();
+        DJ::table('test2')->drop();
     }
 }

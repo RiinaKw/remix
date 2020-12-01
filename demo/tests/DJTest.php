@@ -28,7 +28,7 @@ class DJTest extends TestCase
 
     public function testPlay(): void
     {
-        \Remix\DJ\Table::context('users')->truncate();
+        \Remix\DJ::table('users')->truncate();
         \Remix\DJ::play('INSERT INTO users(name) VALUES(:name);', ['name' => 'Riina']);
 
         // is SQL executable?
@@ -87,7 +87,7 @@ class DJTest extends TestCase
     {
         \Remix\DJ::play('INSERT INTO users(name) VALUES(:name);', ['name' => 'Luke']);
 
-        $result = \Remix\DJ\Table::context('users')->truncate();
+        $result = \Remix\DJ::table('users')->truncate();
         $this->assertTrue($result);
 
         $result = \Remix\DJ::play('SELECT * FROM users;');
@@ -125,7 +125,7 @@ class DJTest extends TestCase
 
     public function testCreate()
     {
-        $table = \Remix\DJ\Table::context('test_table');
+        $table = \Remix\DJ::table('test_table');
 
         if ($table->exists()) {
             $table->drop();
@@ -143,7 +143,7 @@ class DJTest extends TestCase
 
     public function testDrop()
     {
-        $table = \Remix\DJ\Table::context('test_table');
+        $table = \Remix\DJ::table('test_table');
 
         if (! $table->exists()) {
             $table->create([

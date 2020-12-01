@@ -2,8 +2,6 @@
 
 namespace Remix;
 
-use Remix\Turntable;
-
 /**
  * Remix Vinyl : capsulate a single DB record
  */
@@ -40,7 +38,7 @@ abstract class Vinyl extends Gear
     public static function find($id): ?self
     {
         $sql = sprintf('SELECT * FROM `%s` WHERE `%s` = :id;', static::$table, static::$pk);
-        $setlist = \Remix\DJ::prepare($sql);
+        $setlist = DJ::prepare($sql);
         $result = $setlist->asVinyl(static::class)->play(['id' => $id]);
 
         switch (count($result)) {
@@ -48,7 +46,7 @@ abstract class Vinyl extends Gear
                 return $result[0];
                 break;
             case 2:
-                throw new \Remix\DJException('find by primary key, why multiple results?');
+                throw new DJException('find by primary key, why multiple results?');
         }
         return null;
     }

@@ -4,7 +4,6 @@ namespace App\Livehouse;
 
 use Remix\DJ;
 use Remix\DJ\Livehouse;
-use Remix\DJ\Table;
 
 class Test2 extends Livehouse
 {

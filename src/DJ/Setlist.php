@@ -28,10 +28,8 @@ class Setlist extends Gear
     }
     // function asVinyl()
 
-    public function play($params = [])
+    protected function dump()
     {
-        $this->statement->execute($params);
-
         $dump = \Remix\Utility\Capture::capture(function () {
             $this->statement->debugDumpParams();
         });
@@ -44,9 +42,24 @@ class Setlist extends Gear
             $sql = $matches_sql['sql'];
         }
         Delay::getInstance()->log('QUERY', $sql);
+    }
+    // function dump();
+
+    public function play($params = [])
+    {
+        $this->statement->execute($params);
+        $this->dump();
 
         return $this->statement->fetchAll();
     }
     // function play()
+
+    public function first($params = [])
+    {
+        $this->statement->execute($params);
+        $this->dump();
+
+        return $this->statement->fetch();
+    }
 }
 // class Setlist

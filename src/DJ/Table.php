@@ -115,8 +115,7 @@ class Table extends Gear
         if ($this->as) {
             $setlist->asVinyl($this->as);
         }
-        $result = $setlist->play($this->params);
-        return $result[0] ?? null;
+        return $setlist->first($this->params);
     }
 }
 // class Table

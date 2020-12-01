@@ -8,6 +8,20 @@ use Remix\RemixException;
 
 class Livehouse extends Effector
 {
+    private static $table = null;
+    private static $vinyl_class = \Remix\Vinyl\Livehouse::class;
+
+    private static function setup(): void
+    {
+        $table = static::$vinyl_class::table();
+        if (! $table->exists()) {
+            $table->create([
+                'livehouse VARCHAR(255)',
+            ]);
+        }
+        static::$table = $table;
+    }
+
     private static function find(): array
     {
         $livehouse_dir = \Remix\App::getInstance()->daw->appDir('Livehouse');
@@ -31,8 +45,8 @@ class Livehouse extends Effector
                     throw new RemixException($message);
                 }
 
-                $livehouse = new $class_ns();
-
+                $livehouse = $class_ns::factory(basename($name, '.php'));
+                //var_dump($livehouse->asVinyl());
                 $arr[$time] = $livehouse;
             }
         }
@@ -46,11 +60,23 @@ class Livehouse extends Effector
 
         try {
             DJ::back2back()->start();
+            static::setup();
 
             $arr = static::find();
             foreach ($arr as &$livehouse) {
-                $livehouse->open();
-                $livehouse = null;
+                //var_dump($livehouse);
+                $vinyl = static::$vinyl_class::find($livehouse->name);
+                if (! $vinyl) {
+                    $livehouse->open();
+                    $sql = sprintf(
+                        'INSERT INTO `%s` (`%s`) VALUES(:%s);',
+                        static::$vinyl_class::$table,
+                        static::$vinyl_class::$pk,
+                        static::$vinyl_class::$pk
+                    );
+                    DJ::play($sql, [':' . static::$vinyl_class::$pk => $livehouse->name]);
+                    $livehouse = null;
+                }
             }
 
             DJ::back2back()->success();
@@ -66,12 +92,23 @@ class Livehouse extends Effector
 
         try {
             DJ::back2back()->start();
+            static::setup();
 
             $arr = static::find();
             $arr = array_reverse($arr);
             foreach ($arr as &$livehouse) {
-                $livehouse->close();
-                $livehouse = null;
+                $vinyl = static::$vinyl_class::find($livehouse->name);
+                if ($vinyl) {
+                    $livehouse->close();
+                    $sql = sprintf(
+                        'DELETE FROM `%s` WHERE %s = :%s;',
+                        static::$vinyl_class::$table,
+                        static::$vinyl_class::$pk,
+                        static::$vinyl_class::$pk
+                    );
+                    DJ::play($sql, [':' . static::$vinyl_class::$pk => $livehouse->name]);
+                    $livehouse = null;
+                }
             }
 
             DJ::back2back()->success();

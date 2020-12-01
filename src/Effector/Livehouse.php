@@ -3,6 +3,7 @@
 namespace Remix\Effector;
 
 use Remix\Effector;
+use Remix\DJ;
 use Remix\RemixException;
 
 class Livehouse extends Effector
@@ -43,22 +44,40 @@ class Livehouse extends Effector
     {
         Effector::line('Remix Livehouse open');
 
-        $arr = static::find();
-        foreach ($arr as &$livehouse) {
-            $livehouse->open();
-            $livehouse = null;
+        try {
+            DJ::back2back()->start();
+
+            $arr = static::find();
+            foreach ($arr as &$livehouse) {
+                $livehouse->open();
+                $livehouse = null;
+            }
+
+            DJ::back2back()->success();
+        } catch (\Exception $e) {
+            DJ::back2back()->fail();
+            throw $e;
         }
     }
 
     public function close()
     {
-        Effector::line('Remix Livehouse open');
+        Effector::line('Remix Livehouse close');
 
-        $arr = static::find();
-        $arr = array_reverse($arr);
-        foreach ($arr as &$livehouse) {
-            $livehouse->close();
-            $livehouse = null;
+        try {
+            DJ::back2back()->start();
+
+            $arr = static::find();
+            $arr = array_reverse($arr);
+            foreach ($arr as &$livehouse) {
+                $livehouse->close();
+                $livehouse = null;
+            }
+
+            DJ::back2back()->success();
+        } catch (\Exception $e) {
+            DJ::back2back()->fail();
+            throw $e;
         }
     }
 }

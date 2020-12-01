@@ -51,17 +51,6 @@ class DJ extends \Remix\Gear
     }
     // function play()
 
-    public static function truncate(string $table): bool
-    {
-        if (strpos($table, '`')) {
-            throw new Exceptions\DJException('Invalid table name "' . $table . '"');
-        }
-
-        $sql = sprintf('TRUNCATE TABLE `%s`;', $table);
-        return static::play($sql) !== false;
-    }
-    // function truncate()
-
     public static function back2back(): Back2back
     {
         return new Back2back(static::$connection);

@@ -4,16 +4,20 @@ namespace App\Livehouse;
 
 use Remix\DJ;
 use Remix\DJ\Livehouse;
+use Remix\DJ\Table;
 
 class Test extends Livehouse
 {
     public function open()
     {
-        DJ::play('CREATE TABLE `test` (`id` INT, `title` TEXT);');
+        Table::context('test')->create([
+            'id INT',
+            'title TEXT',
+        ]);
     }
 
     public function close()
     {
-        DJ::play('DROP TABLE `test`;');
+        Table::context('test')->drop();
     }
 }

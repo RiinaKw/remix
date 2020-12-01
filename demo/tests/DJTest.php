@@ -28,7 +28,7 @@ class DJTest extends TestCase
 
     public function testPlay(): void
     {
-        \Remix\DJ::truncate('users');
+        \Remix\DJ\Table::context('users')->truncate();
         \Remix\DJ::play('INSERT INTO users(name) VALUES(:name);', ['name' => 'Riina']);
 
         // is SQL executable?
@@ -85,7 +85,9 @@ class DJTest extends TestCase
 
     public function testTruncate(): void
     {
-        $result = \Remix\DJ::truncate('users');
+        \Remix\DJ::play('INSERT INTO users(name) VALUES(:name);', ['name' => 'Luke']);
+
+        $result = \Remix\DJ\Table::context('users')->truncate();
         $this->assertTrue($result);
 
         $result = \Remix\DJ::play('SELECT * FROM users;');
@@ -119,6 +121,42 @@ class DJTest extends TestCase
         // get new count
         $result = \Remix\DJ::play('SELECT * FROM users;');
         $this->assertSame($count + 1, count($result));
+    }
+
+    public function testCreate()
+    {
+        $table = \Remix\DJ\Table::context('test_table');
+
+        if ($table->exists()) {
+            $table->drop();
+        }
+
+        $this->assertFalse($table->exists());
+
+        $table->create([
+            'id INT',
+            'title TEXT',
+        ]);
+
+        $this->assertTrue($table->exists());
+    }
+
+    public function testDrop()
+    {
+        $table = \Remix\DJ\Table::context('test_table');
+
+        if (! $table->exists()) {
+            $table->create([
+                'id INT',
+                'title TEXT',
+            ]);
+        }
+
+        $this->assertTrue($table->exists());
+
+        $table->drop();
+
+        $this->assertFalse($table->exists());
     }
 }
 // class DJTest

@@ -2,7 +2,7 @@
 
 namespace App\Channel;
 
-use Remix\DJ;
+use Remix\DJ\Table;
 use Remix\Sampler;
 use Remix\Studio;
 use Remix\Monitor;
@@ -14,7 +14,7 @@ class TopChannel extends \Remix\Channel
 {
     public function index()
     {
-        DJ::truncate('users');
+        Table::context('users')->truncate();
         User::find(1);
         return 'Remix is ​​a lightweight PHP framework.';
     }

@@ -3,11 +3,11 @@
 namespace Remix;
 
 /**
- * Remix App : entry point
+ * Remix Audio : entry point
  */
-class App
+class Audio
 {
-    private static $app = null;
+    private static $audio = null;
     private $equalizer = null;
     //private $delay = null;
 

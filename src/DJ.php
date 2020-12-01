@@ -15,9 +15,8 @@ class DJ extends \Remix\Component
     protected function __construct()
     {
         parent::__construct();
-
         if (! static::$connection) {
-            $preset = \Remix\App::getInstance()->preset()->get('env.db');
+            $preset = App::getInstance()->preset->get('env.db');
             if ($preset) {
                 static::$connection = new \PDO($preset['dsn'], $preset['user'], $preset['password']);
             }
@@ -69,7 +68,7 @@ class DJ extends \Remix\Component
     }
     // function back2back()
 
-    public static function destroy(): void
+    public function destroy(): void
     {
         static::$connection = null;
     }

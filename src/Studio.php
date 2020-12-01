@@ -26,7 +26,7 @@ class Studio extends \Remix\Component
     }
     // function __construct()
 
-    public function destroy()
+    public function destroy(): void
     {
         $this->type = null;
         $this->params = null;
@@ -106,8 +106,7 @@ class Studio extends \Remix\Component
 
     public function redirect(string $name, array $params = [], int $status = 303): self
     {
-        $mixer = App::getInstance()->mixer();
-        $uri = $mixer->uri($name, $params);
+        $uri = App::getInstance()->mixer->uri($name, $params);
 
         $this->type = 'redirect';
         $this->params = $uri;
@@ -125,7 +124,7 @@ class Studio extends \Remix\Component
     }
     // function header()
 
-    public static function recordException(\Exception $exception): void
+    public static function recordException(\Throwable $exception): void
     {
         $status = 500;
         if ($exception instanceof HttpException) {

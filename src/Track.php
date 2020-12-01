@@ -11,7 +11,7 @@ class Track extends \Remix\Component
 
     private function __construct(string $method, string $path, $action)
     {
-        \Remix\App::getInstance()->logBirth(__METHOD__ . ' [' . $method . ' ' . $path . ']');
+        Delay::logBirth(__METHOD__ . ' [' . $method . ' ' . $path . ']');
 
         $this->props['method'] = $method;
         $this->props['path'] = $path;
@@ -21,7 +21,7 @@ class Track extends \Remix\Component
 
     public function __destruct()
     {
-        \Remix\App::getInstance()->logDeath(__METHOD__ . ' [' . $this->method . ' ' . $this->path . ']');
+        Delay::logDeath(__METHOD__ . ' [' . $this->method . ' ' . $this->path . ']');
     }
     // function __destruct()
 

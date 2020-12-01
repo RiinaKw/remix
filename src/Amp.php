@@ -14,7 +14,7 @@ class Amp extends \Remix\Component
 
     public function run(array $argv): void
     {
-        $equalizer = App::getInstance()->equalizer();
+        $equalizer = App::getInstance()->equalizer;
         array_shift($argv);
 
         $namespaces = [
@@ -54,6 +54,8 @@ class Amp extends \Remix\Component
             $instance = $equalizer->instance(Effector\Help::class);
             $instance->index($argv);
         }
+
+        $equalizer = null;
     }
     // function run()
 }

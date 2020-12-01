@@ -10,7 +10,7 @@ class Fader extends Component
 
     protected function __construct(string $pattern)
     {
-        \Remix\App::getInstance()->logBirth(__METHOD__ . ' [' . $pattern . ']');
+        Delay::logBirth(__METHOD__ . ' [' . $pattern . ']');
 
         $this->pattern = $pattern;
         $this->translated = static::translate($pattern);
@@ -19,7 +19,7 @@ class Fader extends Component
 
     public function __destruct()
     {
-        \Remix\App::getInstance()->logDeath(__METHOD__ . ' [' . $this->pattern . ']');
+        Delay::logDeath(__METHOD__ . ' [' . $this->pattern . ']');
     }
     // function __destruct()
 

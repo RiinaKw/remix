@@ -12,8 +12,7 @@ class AmpTest extends TestCase
 
     protected function setUp(): void
     {
-        $remix = \Remix\App::getInstance();
-        $this->amp = $this->invokeMethod($remix, 'amp', []);
+        $this->amp = \Remix\App::getInstance()->amp;
     }
 
     public function tearDown(): void

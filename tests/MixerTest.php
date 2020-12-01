@@ -12,8 +12,7 @@ class MixerTest extends TestCase
 
     protected function setUp(): void
     {
-        $remix = \Remix\App::getInstance();
-        $this->mixer = $this->invokeMethod($remix, 'mixer', []);
+        $this->mixer = \Remix\App::getInstance()->mixer;
 
         $tracks = [
             \Remix\Track::get('/cb', function () {

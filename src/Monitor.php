@@ -7,11 +7,12 @@ namespace Remix;
  */
 class Monitor
 {
-    public static function dump($var): void
+    public static function dump($var, $is_cli): void
     {
-        $trace = debug_backtrace()[0];
+        $trace = debug_backtrace()[1];
+        $is_cli = $is_cli;
 
-        if (App::isCli()) {
+        if ($is_cli) {
             echo "\033[0;30m" . "\033[43m";
             var_dump($var);
             echo sprintf('%s (%d)', $trace['file'], $trace['line']), "\033[0m", PHP_EOL;

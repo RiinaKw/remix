@@ -29,7 +29,7 @@ class MixerTest extends TestCase
         $_SERVER['REQUEST_METHOD'] = 'GET';
         $_SERVER['PATH_INFO'] = '/';
         $response = $this->remix->runWeb($this->public_dir);
-        $this->assertFalse($this->remix->isCli());
+        $this->assertFalse($this->remix->cli);
         $this->assertMatchesRegularExpression('/Remix is ​​a lightweight PHP framework./', (string)$response);
 
         // callback

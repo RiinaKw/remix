@@ -23,7 +23,7 @@ class AmpTest extends TestCase
         $this->expectOutputRegex('/Remix Amp/');
 
         $this->remix->runCli(['amp']);
-        $this->assertTrue($this->remix->isCli());
+        $this->assertTrue($this->remix->cli);
     }
 
     public function testInstrument()

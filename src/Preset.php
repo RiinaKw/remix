@@ -4,15 +4,12 @@ namespace Remix;
 
 class Preset extends Component
 {
-    protected $dir = '';
+    //protected $dir = '';
     protected $hash = null;
 
     public function __construct()
     {
         parent::__construct();
-
-        $remix = App::getInstance();
-        $this->dir = $remix->appDir('/Preset');
         $this->hash = new Utility\Hash();
     }
     // function __construct()
@@ -20,7 +17,9 @@ class Preset extends Component
     public function load(string $file, string $key = ''): void
     {
         $filename = str_replace('.', '/', $file);
-        $file = $this->dir . '/' . $filename . '.php';
+        $project = App::getInstance()->project;
+        $file = $project ->appDir('/Preset') . '/' . $filename . '.php';
+        $project = null;
 
         if (! realpath($file)) {
             throw new RemixException('preset file not found');

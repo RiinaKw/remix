@@ -2,6 +2,8 @@
 
 namespace Remix\DJ;
 
+use Remix\App;
+
 /**
  * Remix Setlist : PDO statement
  */
@@ -40,7 +42,8 @@ class Setlist extends \Remix\Component
         } else {
             $sql = $matches_sql['sql'];
         }
-        \Remix\App::delay()->log('QUERY', $sql);
+        //\Remix\App::delay()->log('QUERY', $sql);
+        \Remix\Delay::getInstance()->log('QUERY', $sql);
 
         return $this->statement->fetchAll();
     }

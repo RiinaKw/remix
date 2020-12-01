@@ -2,206 +2,120 @@
 
 namespace Remix;
 
+use Remix\Project;
+
 /**
  * Remix App : entry point
  */
-class App extends Component
+class App
 {
     private static $app = null;
-    private static $equalizer = null;
-    private static $delay = null;
-    private static $time = null;
+    private $equalizer = null;
+    //private $delay = null;
 
+    protected static $is_debug = false;
     protected static $is_cli = false;
-
-    protected static $debug = false;
-
-    protected $root_dir;
-    protected $app_dir;
-    protected $public_dir;
 
     private function __construct(bool $is_debug)
     {
-        if (! static::$delay) {
-            static::$delay = new Delay($is_debug);
-        }
-        if ($is_debug) {
-            static::$delay->logMemory();
-        }
-        static::$debug = $is_debug;
-
-        static::$app = $this;
+        static::$is_debug = $is_debug;
         static::$is_cli = (php_sapi_name() == 'cli');
-        parent::__construct();
-
-        static::$equalizer = Equalizer::factory();
-    } // function __construct()
+        Delay::getInstance(static::$is_debug, static::$is_cli);
+        if ($is_debug) {
+            Delay::logMemory();
+        }
+    }
+    // function __construct()
 
     public function __destruct()
     {
-        parent::__destruct();
-
-        if (static::isDebug()) {
-            static::$delay->logMemory();
-            static::$delay->logTime();
-            if (! static::isCli()) {
-                echo static::$delay->get();
-            }
-        }
-        static::$delay = null;
     }
+    // function __destruct()
 
-    public static function getInstance(bool $is_debug = false) : App
+    public static function getInstance(bool $is_debug = false): self
     {
         if (! static::$app) {
-            new self($is_debug);
+            static::$app = new static($is_debug);
+            static::$app->initialize();
         }
         return static::$app;
-    } // function getInstance()
+    }
+    // function getInstance()
 
-    public static function destroy() : void
+    public function __get($key)
     {
-        if (static::$equalizer) {
-            static::$equalizer->destroy();
-            static::$equalizer = null;
-        }
+        switch ($key) {
+            case 'debug':
+                return static::$is_debug;
 
+            case 'cli':
+                return static::$is_cli;
+
+            case 'equalizer':
+                return $this->equalizer;
+
+            case 'project':
+                return $this->equalizer->singleton(Project::class);
+
+            case 'preset':
+                return $this->equalizer->singleton(Preset::class);
+
+            case 'mixer':
+                return $this->equalizer->singleton(Mixer::class);
+
+            case 'amp':
+                return $this->equalizer->singleton(Amp::class);
+
+            case 'dj':
+                return $this->equalizer->singleton(DJ::class);
+
+            default:
+                var_dump('unknown key', $key);
+                return null;
+        }
+    }
+    // function __get()
+
+    public static function destroy(): void
+    {
+        static::$app->equalizer->destroy();
+        static::$app->equalizer = null;
+
+        if (static::$is_debug) {
+            Delay::logMemory();
+            Delay::logTime();
+            if (! static::$app->cli) {
+                echo Delay::get();
+            }
+        }
         static::$app = null;
-    } // function destroy()
-
-    public static function isDebug() : bool
-    {
-        return static::$debug;
+        Delay::destroy();
     }
+    // function destroy()
 
-    public static function isCli() : bool
+    public function initialize(): self
     {
-        return static::$is_cli;
-    }
-
-    protected static function log(bool $show, string $type, string $str, string $flag = '') : void
-    {
-        if (static::$delay && static::isDebug()) {
-            static::$delay->log($type, $str, $flag);
-        }
-    } // function log()
-
-    public static function logBirth(string $str) : void
-    {
-        static::log(true, 'TRACE', $str, '+');
-    } // function logBirth()
-
-    public static function logDeath(string $str) : void
-    {
-        static::log(true, 'TRACE', $str, '-');
-    } // function logDeath()
-
-    public static function logMemory(string $str) : void
-    {
-        static::log(true, 'MEMORY', Memory::get());
-    } // function logMemory()
-
-    public static function initialize(string $dir) : App
-    {
-        $remix = static::getInstance();
-
+        $this->equalizer = Equalizer::factory();
         //set_error_handler([$remix, 'errorHandle']);
-        set_exception_handler([$remix, 'exceptionHandle']);
-        register_shutdown_function([$remix, 'shutdownHandle']);
+        set_exception_handler([$this, 'exceptionHandle']);
+        register_shutdown_function([$this, 'shutdownHandle']);
 
-        $remix->root_dir = realpath($dir);
-        $remix->app_dir = realpath($remix->root_dir . '/app');
-
-        $env = require($remix->app_dir . '/env.php');
-        $env = ($env && $env !== 1) ? $env : 'production';
-
-        $preset = $remix->equalizer()->singleton(Preset::class);
-        $preset->set('env.name', $env);
-        $preset->load('app');
-        $preset->load('env.' . $env, 'env');
-
-        $remix->dj();
-
-        return $remix;
-    } // function initialize()
-
-    public function equalizer() : Equalizer
-    {
-        if (! static::$equalizer) {
-            static::$equalizer = Equalizer::factory();
-        }
-        return static::$equalizer;
-    } // function equalizer()
-
-    public function delay() : Delay
-    {
-        return static::$delay;
+        return $this;
     }
+    // function initialize()
 
-    public function dir(string $path) : string
-    {
-        return realpath($this->root_dir . '/' . $path);
-    } // function dir()
-
-    public function appDir(string $path = '') : string
-    {
-        return realpath($this->app_dir . '/' . $path);
-    } // function appDir()
-
-    public function publicDir(string $path = '') : string
-    {
-        return realpath($this->public_dir . '/' . $path);
-    } // function publicDir()
-
-    public function preset() : Preset
-    {
-        return $this->equalizer()->singleton(Preset::class);
-    } // function preset()
-
-    public function mixer() : Mixer
-    {
-        return $this->equalizer()->singleton(Mixer::class);
-    } // function mixer()
-
-    protected function amp() : Amp
-    {
-        return $this->equalizer()->singleton(Amp::class);
-    } // function amp()
-
-    public function dj() : DJ
-    {
-        return $this->equalizer()->singleton(DJ::class);
-    }
-
-    public function runWeb(string $public_dir) : Studio
-    {
-        static::$is_cli = false;
-
-        $this->public_dir = $public_dir;
-        $path = $_SERVER['PATH_INFO'] ?? '';
-
-        $tracks_path = $this->appDir('/mixer.php') ?: [];
-        $mixer = $this->mixer();
-        $studio = $mixer->load($tracks_path)->route($path);
-        static::log(true, 'BODY', '');
-        $mixer->destroy();
-        return $studio;
-    } // function runWeb()
-
-    public function runCli(array $argv) : void
-    {
-        $this->amp()->run($argv);
-        static::log(true, 'BODY', '');
-    } // function runCli()
-
-    public function errorHandle($code, $message, $file, $line, $context = []) : void
+    /**
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     */
+    public function errorHandle($code, $message, $file, $line, $context = []): void
     {
         throw new Exceptions\ErrorException($message, $code);
-    } // function errorHandle()
+    }
+    // function errorHandle()
 
-    public function exceptionHandle($e) : void
+    public function exceptionHandle($e): void
     {
-        if ($this->isCli()) {
+        if (static::$is_cli) {
             echo "\033[41m";
             Effector::line('####');
             Effector::line('#### ' . $e->getMessage());
@@ -213,10 +127,14 @@ class App extends Component
         }
         var_dump(debug_backtrace());
         unset($e);
-    } // function exceptionHandle()
+    }
+    // function exceptionHandle()
 
-    public function shutdownHandle() : void
+    public function shutdownHandle(): void
     {
         static::destroy();
-    } // function shutdownHandle()
-} // class App
+        static::$app = null;
+    }
+    // function shutdownHandle()
+}
+// class App

@@ -7,7 +7,7 @@ $autoload_path = $root_dir . '/vendor/autoload.php';
 
 require_once($autoload_path);
 
-$remix = \Remix\App::getInstance(true);
+$remix = \Remix\App::getInstance(true)->project;
 $studio = $remix->initialize($app_dir)->runWeb($public_dir);
 echo $studio;
 $studio = null;

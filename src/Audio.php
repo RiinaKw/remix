@@ -3,13 +3,12 @@
 namespace Remix;
 
 /**
- * Remix Audio : entry point
+ * Remix Audio : application handler
  */
 class Audio
 {
     private static $audio = null;
     private $equalizer = null;
-    //private $delay = null;
 
     protected static $is_debug = false;
     protected static $is_cli = false;

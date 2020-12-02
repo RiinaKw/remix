@@ -43,7 +43,6 @@ class Table extends Gear
             foreach ($columns as $column) {
                 $columns_string[] = (string)$column;
             }
-            var_dump($columns_string);
             $sql = sprintf('CREATE TABLE `%s` (%s);', $this->name, implode(', ', $columns_string));
             return DJ::play($sql) !== false;
         } else {
@@ -125,29 +124,19 @@ class Table extends Gear
         return $setlist->first($this->params);
     }
 
-    public function int(string $name, $length = 11): Column
+    public function __call(string $name, $args)
     {
-        return new Column($name, 'INT', $length);
-    }
+        switch ($name) {
+            case 'int':
+            case 'varchar':
+                return Column::factory($args[0], ['type' => $name, 'length' => $args[1] ?? false]);
 
-    public function varchar(string $name, $length): Column
-    {
-        return new Column($name, 'VARCHAR', $length);
-    }
-
-    public function text(string $name): Column
-    {
-        return new Column($name, 'TEXT');
-    }
-
-    public function datetime(string $name): Column
-    {
-        return new Column($name, 'DATETIME');
-    }
-
-    public function timestamp(string $name): Column
-    {
-        return new Column($name, 'TIMESTAMP');
+            case 'text':
+            case 'datetime':
+            case 'timestamp':
+                return Column::factory($args[0], ['type' => $name]);
+        }
+        throw new Exception('unknown method');
     }
 }
 // class Table

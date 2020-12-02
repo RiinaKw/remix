@@ -8,11 +8,11 @@ class Column extends Gear
 {
     protected $props = [];
 
-    public function __construct(string $name, $type, $param = '')
+    protected function __construct(string $name, array $params = [])
     {
         $this->props['name'] = $name;
-        $this->props['type'] = $type;
-        $this->props['param'] = $param;
+        $this->props['type'] = strtoupper($params['type']);
+        $this->props['length'] = $params['length'] ?? false;
         $this->props['nullable'] = false;
         $this->props['unsigned'] = false;
         //$this->props['default'] = ''; // unset is default
@@ -36,8 +36,9 @@ class Column extends Gear
             case 'unique':
             case 'index':
                 $this->props['index'] = $name;
-                break;
+                return $this;
         }
+        throw new Exception('unknown method');
         return $this;
     }
 
@@ -76,8 +77,8 @@ class Column extends Gear
         $type = '';
         switch ($this->props['type']) {
             case 'INT':
-                if ($this->props['param']) {
-                    $type = sprintf('INT(%d)', $this->props['param']);
+                if ($this->props['length']) {
+                    $type = sprintf('INT(%d)', $this->props['length']);
                 } else {
                     $type = 'INT';
                 }
@@ -87,7 +88,7 @@ class Column extends Gear
                 break;
 
             case 'VARCHAR':
-                $type = sprintf('VARCHAR(%d)', $this->props['param']);
+                $type = sprintf('VARCHAR(%d)', $this->props['length']);
                 break;
 
             case 'TEXT':

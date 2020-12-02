@@ -133,10 +133,12 @@ class DJTest extends TestCase
 
         $this->assertFalse($table->exists());
 
-        $table->create([
-            'id INT',
-            'title TEXT',
-        ]);
+        $table->create(function ($table) {
+            return [
+                'id INT',
+                'title TEXT',
+            ];
+        });
 
         $this->assertTrue($table->exists());
     }

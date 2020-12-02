@@ -31,19 +31,26 @@ class Table extends Gear
         return count($result) > 0;
     }
 
-    public function create(array $columns): bool
+    public function create(callable $cb): bool
     {
         if (! $this->exists()) {
+            $columns = $cb($this);
             if (count($columns) < 1) {
                 $message = sprintf('Table "%s" must contains any column', $this->name);
                 throw new RemixException($message);
             }
-            $sql = sprintf('CREATE TABLE `%s` (%s);', $this->name, implode(', ', $columns));
+            $columns_string = [];
+            foreach ($columns as $column) {
+                $columns_string[] = (string)$column;
+            }
+            var_dump($columns_string);
+            $sql = sprintf('CREATE TABLE `%s` (%s);', $this->name, implode(', ', $columns_string));
             return DJ::play($sql) !== false;
         } else {
             $message = sprintf('Table "%s" is already exists', $this->name);
             throw new RemixException($message);
         }
+        return false;
     }
 
     public function drop(): bool
@@ -116,6 +123,31 @@ class Table extends Gear
             $setlist->asVinyl($this->as);
         }
         return $setlist->first($this->params);
+    }
+
+    public function int(string $name, $length = 11): Column
+    {
+        return new Column($name, 'INT', $length);
+    }
+
+    public function varchar(string $name, $length): Column
+    {
+        return new Column($name, 'VARCHAR', $length);
+    }
+
+    public function text(string $name): Column
+    {
+        return new Column($name, 'TEXT');
+    }
+
+    public function datetime(string $name): Column
+    {
+        return new Column($name, 'DATETIME');
+    }
+
+    public function timestamp(string $name): Column
+    {
+        return new Column($name, 'TIMESTAMP');
     }
 }
 // class Table

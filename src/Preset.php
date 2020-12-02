@@ -17,7 +17,7 @@ class Preset extends Gear
     public function load(string $file, string $key = ''): void
     {
         $filename = str_replace('.', '/', $file);
-        $daw = App::getInstance()->daw;
+        $daw = Audio::getInstance()->daw;
         $file = $daw ->appDir('/Preset') . '/' . $filename . '.php';
         $daw = null;
 

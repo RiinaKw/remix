@@ -2,6 +2,7 @@
 
 namespace App\Channel;
 
+use Remix\Audio;
 use Remix\Sampler;
 use Remix\Studio;
 use Remix\Bounce;
@@ -10,7 +11,7 @@ class FormChannel extends \Remix\Channel
 {
     public function index(Sampler $sampler): Studio
     {
-        $mixer = \Remix\App::getInstance()->mixer();
+        $mixer = Audio::getInstance()->mixer();
 
         $id = $sampler->param('id');
 

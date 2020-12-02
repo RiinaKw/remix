@@ -12,12 +12,12 @@ class AmpTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->amp = \Remix\App::getInstance()->amp;
+        $this->amp = \Remix\Audio::getInstance()->amp;
     }
 
     public function tearDown(): void
     {
-        \Remix\App::destroy();
+        \Remix\Audio::destroy();
     }
 
     public function testLoad(): void

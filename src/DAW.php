@@ -30,12 +30,12 @@ class DAW extends Gear
         $env = require($this->appdir('env.php'));
         $env = ($env && $env !== 1) ? $env : 'production';
 
-        $preset = App::getInstance()->preset;
+        $preset = Audio::getInstance()->preset;
         $preset->set('env.name', $env);
         $preset->load('app');
         $preset->load('env.' . $env, 'env');
 
-        App::getInstance()->dj;
+        Audio::getInstance()->dj;
         return $this;
     }
     // function initialize()
@@ -63,29 +63,29 @@ class DAW extends Gear
      */
     public function playWeb(string $public_dir): Studio
     {
-        $app = App::getInstance();
-        $app->cli = false;
+        $audio = Audio::getInstance();
+        $audio->cli = false;
 
         $this->public_dir = $public_dir;
         $path = $_SERVER['PATH_INFO'] ?? '';
 
         $tracks_path = $this->appDir('/mixer.php') ?: [];
-        $mixer = $app->mixer;
+        $mixer = $audio->mixer;
         $studio = $mixer->load($tracks_path)->route($path);
         Delay::log(true, 'BODY', '');
         $mixer->destroy();
         $mixer = null;
-        $app = null;
+        $audio = null;
         return $studio;
     }
     // function playWeb()
 
     public function playCli(array $argv): void
     {
-        $app = App::getInstance();
-        $app->amp->play($argv);
+        $audio = Audio::getInstance();
+        $audio->amp->play($argv);
         Delay::log(true, 'BODY', '');
-        $app = null;
+        $audio = null;
     }
     // function playCli()
 }

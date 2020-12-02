@@ -10,12 +10,12 @@ class AmpTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->daw = \Remix\App::getInstance()->daw->initialize(__DIR__ . '/..');
+        $this->daw = \Remix\Audio::getInstance()->daw->initialize(__DIR__ . '/..');
     }
 
     public function tearDown(): void
     {
-        \Remix\App::destroy();
+        \Remix\Audio::destroy();
     }
 
     public function testNoArg()
@@ -23,7 +23,7 @@ class AmpTest extends TestCase
         $this->expectOutputRegex('/Remix Amp/');
 
         $this->daw->playCli(['amp']);
-        $this->assertTrue(\Remix\App::getInstance()->cli);
+        $this->assertTrue(\Remix\Audio::getInstance()->cli);
     }
 
     public function testInstrument()

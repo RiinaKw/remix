@@ -13,14 +13,12 @@ class MixerTest extends TestCase
 
     protected function setUp(): void
     {
-        $app = \Remix\App::getInstance()->initialize();
-        $this->daw = $app->daw->initialize(__DIR__ . '/..');
-        $app = null;
+        $this->daw = \Remix\Audio::getInstance()->initialize()->daw->initialize(__DIR__ . '/..');
     }
 
     public function tearDown(): void
     {
-        \Remix\App::destroy();
+        \Remix\Audio::destroy();
     }
 
     /**
@@ -31,7 +29,7 @@ class MixerTest extends TestCase
         $_SERVER['REQUEST_METHOD'] = 'GET';
         $_SERVER['PATH_INFO'] = '/';
         $response = $this->daw->playWeb($this->public_dir);
-        $this->assertFalse(\Remix\App::getInstance()->cli);
+        $this->assertFalse(\Remix\Audio::getInstance()->cli);
         $this->assertMatchesRegularExpression('/Remix is ​​a lightweight PHP framework./', (string)$response);
 
         // callback

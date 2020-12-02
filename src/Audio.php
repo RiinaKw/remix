@@ -3,9 +3,9 @@
 namespace Remix;
 
 /**
- * Remix App : entry point
+ * Remix Audio : entry point
  */
-class App
+class Audio
 {
     private static $app = null;
     private $equalizer = null;
@@ -151,4 +151,4 @@ class App
     }
     // function shutdownHandle()
 }
-// class App
+// class Audio

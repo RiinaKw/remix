@@ -34,8 +34,8 @@ class Bounce extends Studio
 
     public function record(): string
     {
-        $daw = App::getInstance()->daw;
-        $bounce_dir = App::getInstance()->preset->get('app.bounce_dir');
+        $daw = Audio::getInstance()->daw;
+        $bounce_dir = Audio::getInstance()->preset->get('app.bounce_dir');
         $path = $daw->dir($bounce_dir . '/' . $this->file . '.tpl');
         $daw = null;
 

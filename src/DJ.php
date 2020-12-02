@@ -17,7 +17,7 @@ class DJ extends \Remix\Gear
     {
         parent::__construct();
         if (! static::$connection) {
-            $preset = App::getInstance()->preset->get('env.db');
+            $preset = Audio::getInstance()->preset->get('env.db');
             if ($preset) {
                 static::$connection = new \PDO($preset['dsn'], $preset['user'], $preset['password']);
             }

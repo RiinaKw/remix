@@ -106,7 +106,7 @@ class Studio extends Gear
 
     public function redirect(string $name, array $params = [], int $status = 303): self
     {
-        $uri = App::getInstance()->mixer->uri($name, $params);
+        $uri = Audio::getInstance()->mixer->uri($name, $params);
 
         $this->type = 'redirect';
         $this->params = $uri;

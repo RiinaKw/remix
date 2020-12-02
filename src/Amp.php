@@ -14,7 +14,7 @@ class Amp extends Gear
 
     public function play(array $argv): void
     {
-        $equalizer = App::getInstance()->equalizer;
+        $equalizer = Audio::getInstance()->equalizer;
         array_shift($argv);
 
         $namespaces = [

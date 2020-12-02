@@ -25,7 +25,7 @@ class Livehouse extends Effector
 
     private static function find(): array
     {
-        $livehouse_dir = \Remix\App::getInstance()->daw->appDir('Livehouse');
+        $livehouse_dir = \Remix\Audio::getInstance()->daw->appDir('Livehouse');
         $arr = [];
 
         foreach (glob($livehouse_dir . '/*.php') as $file) {

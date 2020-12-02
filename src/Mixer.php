@@ -71,7 +71,7 @@ class Mixer extends Gear
 
                 // setup Studio
                 $track = $tracks[$method];
-                $sampler = App::getInstance()->equalizer->instance(Sampler::class, $fader->matched($path));
+                $sampler = Audio::getInstance()->equalizer->instance(Sampler::class, $fader->matched($path));
                 return static::studio($track->action, $sampler);
             }
         }
@@ -119,7 +119,7 @@ class Mixer extends Gear
             $path = str_replace($label, $value, $path);
         }
 
-        $public_url = \Remix\App::getInstance()->preset->get('env.public_url');
+        $public_url = Audio::getInstance()->preset->get('env.public_url');
         return $public_url . $path;
     }
     // function uri()

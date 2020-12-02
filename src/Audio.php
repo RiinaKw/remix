@@ -32,11 +32,11 @@ class Audio
 
     public static function getInstance(bool $is_debug = false): self
     {
-        if (! static::$app) {
-            static::$app = new static($is_debug);
-            static::$app->initialize();
+        if (! static::$audio) {
+            static::$audio = new static($is_debug);
+            static::$audio->initialize();
         }
-        return static::$app;
+        return static::$audio;
     }
     // function getInstance()
 
@@ -90,19 +90,19 @@ class Audio
 
     public static function destroy(): void
     {
-        if (static::$app) {
-            static::$app->equalizer->destroy();
-            static::$app->equalizer = null;
+        if (static::$audio) {
+            static::$audio->equalizer->destroy();
+            static::$audio->equalizer = null;
 
             if (static::$is_debug) {
                 Delay::logMemory();
                 Delay::logTime();
-                if (! static::$app->cli) {
+                if (! static::$audio->cli) {
                     echo Delay::get();
                 }
             }
         }
-        static::$app = null;
+        static::$audio = null;
         Delay::destroy();
     }
     // function destroy()
@@ -147,7 +147,7 @@ class Audio
     public function shutdownHandle(): void
     {
         static::destroy();
-        static::$app = null;
+        static::$audio = null;
     }
     // function shutdownHandle()
 }

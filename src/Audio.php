@@ -7,7 +7,7 @@ namespace Remix;
  */
 class Audio
 {
-    private static $app = null;
+    private static $audio = null;
     private $equalizer = null;
     //private $delay = null;
 

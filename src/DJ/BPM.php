@@ -5,10 +5,9 @@ namespace Remix\DJ;
 use Remix\Gear;
 
 /**
- * Remix BPM : query builder
+ * Remix BPM : Query Builder
  */
 class BPM extends Gear
 {
-    //
 }
-// CKASS BPM
+// class BPM

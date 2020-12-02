@@ -36,6 +36,7 @@ class Instrument extends Effector
         if (array_key_exists('add', $arg)) {
             $inst[] = $arg['add'];
         }
+        \Remix\Monitor::dump($inst);
         if (count($inst) == 1) {
             Effector::line($inst[0] . ' is AWESOME!!!');
         } else {

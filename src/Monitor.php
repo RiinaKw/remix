@@ -7,10 +7,14 @@ namespace Remix;
  */
 class Monitor
 {
-    public static function dump($var, $is_cli): void
+    /**
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     * parameter '$audio' is renamed dummy parameter from '$is_cli', no longer userd
+     */
+    public static function dump($var, Remix\Audio $audio = null): void
     {
         $trace = debug_backtrace()[1];
-        $is_cli = $is_cli;
+        $is_cli = Audio::getInstance()->cli;
 
         if ($is_cli) {
             echo "\033[0;30m" . "\033[43m";

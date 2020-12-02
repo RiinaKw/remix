@@ -4,9 +4,6 @@ namespace Remix\DJ;
 
 use Remix\Gear;
 
-/**
- * @SuppressWarnings(PHPMD.TooManyPublicMethods)
- */
 class Column extends Gear
 {
     protected $props = [];
@@ -30,6 +27,18 @@ class Column extends Gear
                 return $this->props[$key];
         }
         return null;
+    }
+
+    public function __call($name, $args = null): self
+    {
+        switch ($name) {
+            case 'pk':
+            case 'unique':
+            case 'index':
+                $this->props['index'] = $name;
+                break;
+        }
+        return $this;
     }
 
     public function autoIncrement(): self
@@ -59,24 +68,6 @@ class Column extends Gear
     public function currentTimestamp(): self
     {
         $this->props['default'] = 'current_timestamp()';
-        return $this;
-    }
-
-    public function pk(): self
-    {
-        $this->props['index'] = 'pk';
-        return $this;
-    }
-
-    public function unique(): self
-    {
-        $this->props['index'] = 'unique';
-        return $this;
-    }
-
-    public function index(): self
-    {
-        $this->props['index'] = 'index';
         return $this;
     }
 

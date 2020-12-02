@@ -9,9 +9,7 @@
     <description>
         Remix custom rule set
     </description>
-    <rule ref="rulesets/codesize.xml">
-        <exclude name="TooManyPublicMethods"/>
-    </rule>
+    <rule ref="rulesets/codesize.xml" />
     <rule ref="rulesets/controversial.xml">
         <exclude name="CamelCaseVariableName" />
         <exclude name="CamelCaseParameterName" />
@@ -24,13 +22,6 @@
         <exclude name="ShortMethodName" />
         <exclude name="ShortClassName" />
     </rule>
-
-    <rule ref="rulesets/codesize.xml/TooManyPublicMethods">
-        <properties>
-            <property name="maxmethods" value="20"/>
-        </properties>
-    </rule>
-
     <rule ref="rulesets/naming.xml/ShortVariable">
         <properties>
             <property name="minimum" value="1" />

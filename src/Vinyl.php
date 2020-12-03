@@ -36,6 +36,12 @@ abstract class Vinyl extends Gear
         return DJ::table(static::$table);
     }
 
+    public static function select($columns = '*'): BPM
+    {
+        //return new BPM(static::$table, 'select', $columns);
+        return new BPM\Select(static ::$table, $columns);
+    }
+
     /**
      * @SuppressWarnings(PHPMD.UnusedLocalVariable)
      */

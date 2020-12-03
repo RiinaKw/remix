@@ -15,8 +15,8 @@ class TopChannel extends \Remix\Channel
     public function index()
     {
         //DJ::table('users')->truncate();
-        $user = User::find(1);
-        var_dump($user);
+        //$user = User::find(1);
+        //var_dump($user);
         return 'Remix is ​​a lightweight PHP framework.';
     }
     // function index()

@@ -4,23 +4,25 @@ namespace Remix\Utility\Performance;
 
 class Time
 {
-    const NANOSEC_TO_MILISEC = 1000 * 1000;
-    const UNIT = 'msec';
+    protected const NANOSEC_TO_MILISEC = 1000 * 1000;
+    protected const UNIT = 'msec';
 
     private $start;
     private $end;
 
-    public function start()
+    public function start(): self
     {
         $this->start = hrtime(true);
+        return $this;
     }
 
-    public function stop()
+    public function stop(): self
     {
         $this->end = hrtime(true);
+        return $this;
     }
 
-    public function msec()
+    public function msec(): ?float
     {
         if ($this->start && $this->end) {
             return ($this->end - $this->start) / self::NANOSEC_TO_MILISEC;
@@ -38,4 +40,5 @@ class Time
             return '';
         }
     }
-} // class Time
+}
+// class Time

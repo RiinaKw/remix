@@ -4,8 +4,8 @@ namespace Remix\Utility\Performance;
 
 class Memory
 {
-    const BYTE_TO_MEGA = 1024 * 1024;
-    const UNIT = 'MiB';
+    protected const BYTE_TO_MEGA = 1024 * 1024;
+    protected const UNIT = 'MiB';
 
     protected static function format($bytes)
     {
@@ -26,6 +26,6 @@ class Memory
 
     public static function get()
     {
-        return sprintf('usage : %s / peal : %s', static::usage(), static::usagePeak());
+        return sprintf('usage : %s / peak : %s', static::usage(), static::usagePeak());
     }
 }

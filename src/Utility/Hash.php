@@ -17,7 +17,8 @@ class Hash
     public function ref(&$arr)
     {
         $this->prop = &$arr;
-    } // function ref()
+    }
+    // function ref()
 
     protected function callback($name, $item_func, $final_func = null)
     {
@@ -37,7 +38,8 @@ class Hash
             return $final_func($target, $last);
         }
         return null;
-    } // function callback()
+    }
+    // function callback()
 
     public function get(string $name = '')
     {
@@ -56,7 +58,8 @@ class Hash
         } else {
             return $this->isset($name) ? $this->prop[$name] : null;
         }
-    } // function get()
+    }
+    // function get()
 
     public function set(string $name, $value)
     {
@@ -73,7 +76,8 @@ class Hash
         } else {
             $this->prop[$name] = $value;
         }
-    } // function set()
+    }
+    // function set()
 
     public function isset(string $name)
     {
@@ -88,7 +92,8 @@ class Hash
         } else {
             return isset($this->prop[$name]);
         }
-    } // function isset()
+    }
+    // function isset()
 
     public function delete(string $name)
     {
@@ -104,15 +109,19 @@ class Hash
         } else {
             unset($this->prop[$name]);
         }
-    } // function delete()
+    }
+    // function delete()
 
     public function __get(string $name)
     {
         return $this->get($name);
-    } // function __get()
+    }
+    // function __get()
 
     public function __set(string $name, $value)
     {
         return $this->set($name, $value);
-    } // function __set()
-} // class Hash
+    }
+    // function __set()
+}
+// class Hash

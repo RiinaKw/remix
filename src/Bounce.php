@@ -21,32 +21,34 @@ class Bounce extends \Remix\Studio
         parent::__construct('html', $params);
         $this->file = $file;
         $this->escaped_params = $params;
-    } // function __construct()
+    }
+    // function __construct()
 
     public function __set(string $name, $value)
     {
         $this->escaped_params[$name] = $value;
     }
 
-    public function setHtml(string $name, $value) : void
+    public function setHtml(string $name, $value): void
     {
         $this->html_params[$name] = $value;
     }
 
-    public function record() : string
+    public function record(): string
     {
         $remix = App::getInstance();
-        $bounce_dir = $remix->config()->get('app.bounce_dir');
+        $bounce_dir = $remix->preset()->get('app.bounce_dir');
         $path = $remix->dir($bounce_dir . '/' . $this->file . '.tpl');
 
-        ob_start();
-        require($path);
-        $source = ob_get_clean();
+        $source = \Remix\Utility\Capture::capture(function () use ($path) {
+            require($path);
+        });
 
         return $this->run($source);
-    } // function record()
+    }
+    // function record()
 
-    protected function translate(string $source) : string
+    protected function translate(string $source): string
     {
         $re_l = '/' . static::$left_delimiter . '\s*';
         $re_r = '\s*' . static::$right_delimiter . '/';
@@ -96,17 +98,21 @@ class Bounce extends \Remix\Studio
         return $executable;
     }
 
-    protected function run($source) : string
+    protected function run($source): string
     {
-        $executable = $this->translate($source);
+        $escaped_params = $this->escaped_params;
+        $html_params = $this->html_params;
 
-        extract($this->escaped_params);
-        extract($this->html_params);
+        $response = \Remix\Utility\Capture::capture(function () use ($source, $escaped_params, $html_params) {
+            $executable = $this->translate($source);
 
-        ob_start();
-        eval($executable);
-        $response = ob_get_clean();
+            extract($escaped_params);
+            extract($html_params);
+
+            eval($executable);
+        });
 
         return $response;
     }
-} // class Bounce
+}
+// class Bounce

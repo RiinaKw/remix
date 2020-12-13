@@ -8,4 +8,5 @@ class Str
     {
         return is_scalar($param) ? htmlspecialchars($param) : $param;
     }
-} // class Str
+}
+// class Str

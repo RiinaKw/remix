@@ -10,12 +10,12 @@ class BayTest extends TestCase
 
     protected $remix = null;
 
-    protected function setUp() : void
+    protected function setUp(): void
     {
         $this->remix = \Remix\App::getInstance()->initialize(__DIR__ . '/..');
     }
 
-    public function tearDown() : void
+    public function tearDown(): void
     {
         \Remix\App::destroy();
     }

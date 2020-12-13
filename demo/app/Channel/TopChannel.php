@@ -2,29 +2,25 @@
 
 namespace App\Channel;
 
-use \Remix\Sampler;
-use \Remix\Studio;
-use \Remix\Debug;
-use \Remix\Bounce;
+use Remix\DJ;
+use Remix\Sampler;
+use Remix\Studio;
+use Remix\Monitor;
+use Remix\Bounce;
+use App\Vinyl\User;
+use App\Vinyl\Note;
 
 class TopChannel extends \Remix\Channel
 {
-    public function __construct()
-    {
-        \Remix\App::getInstance()->logBirth(__METHOD__);
-    } // function __construct()
-
-    public function __destruct()
-    {
-        \Remix\App::getInstance()->logDeath(__METHOD__);
-    } // function __destruct()
-
     public function index()
     {
+        DJ::truncate('users');
+        User::find(1);
         return 'Remix is ​​a lightweight PHP framework.';
-    } // function index()
+    }
+    // function index()
 
-    public function bounce(Sampler $sampler) : Studio
+    public function bounce(Sampler $sampler): Studio
     {
         $message = $sampler->param('message') ?? 'hello';
         $some = $sampler->get('some') ?? '';
@@ -37,31 +33,34 @@ class TopChannel extends \Remix\Channel
 
         $bounce->arr = [1, 2, 3];
 
-        $vinyl = \App\Vinyl\User::factory();
-        $vinyl->name = 'Riina';
+        $vinyl = Note::find(1)->turntable();
         $bounce->vinyl = $vinyl;
 
         return $bounce;
-    } // function bounce()
+    }
+    // function bounce()
 
-    public function json() : Studio
+    public function json(): Studio
     {
         $param = [
             'some' => 'thing',
         ];
         return Studio::factory()->json($param);
-    } // function json()
+    }
+    // function json()
 
-    public function redirect() : Studio
+    public function redirect(): Studio
     {
         return Studio::factory()->redirect('top');
     }
 
-    public function exception() : Studio
+    public function exception(): Studio
     {
-        Debug::dump(__METHOD__);
+        Monitor::dump(__METHOD__);
         throw new \Remix\Exceptions\HttpException('exception test', 400);
         //error;
-        return new Studio;
-    } // function index()
-} // class TopChannel
+        return new Studio();
+    }
+    // function index()
+}
+// class TopChannel

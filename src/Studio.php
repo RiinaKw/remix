@@ -16,8 +16,13 @@ class Studio extends \Remix\Component
         parent::__construct();
 
         $this->type = $type;
-        $this->params = $params;
-    } // function __construct()
+        if ($params instanceof Vinyl) {
+            $this->params = $params->toArray();
+        } else {
+            $this->params = $params;
+        }
+    }
+    // function __construct()
 
     public function destroy()
     {
@@ -25,7 +30,7 @@ class Studio extends \Remix\Component
         $this->params = null;
     }
 
-    public function __toString() : string
+    public function __toString(): string
     {
         $this->status($this->status);
         switch ($this->type) {
@@ -33,7 +38,7 @@ class Studio extends \Remix\Component
                 return '';
 
             case 'text':
-                return $this->params;
+                return serialize($this->params);
 
             case 'closure':
                 $closure = $this->params;
@@ -41,6 +46,9 @@ class Studio extends \Remix\Component
 
             case 'json':
                 return json_encode($this->params);
+
+            case 'xml':
+                return \Remix\Utility\Arr::toXML($this->params);
 
             case 'redirect':
                 header('Location: ' . $this->params);
@@ -52,23 +60,43 @@ class Studio extends \Remix\Component
                 } else {
                     return 'not recordable';
                 }
-        } // switch
-    } // function __toString()
+        }
+        // switch
+    }
+    // function __toString()
 
-    public function status(int $code = 200) : self
+    public function status(int $code = 200): self
     {
         http_response_code($code);
         return $this;
-    } // function status()
+    }
+    // function status()
 
-    public function json($params) : self
+    public function json($params): self
     {
         $this->type = 'json';
-        $this->params = $params;
+        if ($params instanceof Vinyl) {
+            $this->params = $params->toArray();
+        } else {
+            $this->params = $params;
+        }
         return $this;
-    } // function json()
+    }
+    // function json()
 
-    public function redirect(string $name, int $status = 303) : self
+    public function xml($params): self
+    {
+        $this->type = 'xml';
+        if ($params instanceof Vinyl) {
+            $this->params = $params->toArray();
+        } else {
+            $this->params = $params;
+        }
+        return $this;
+    }
+    // function json()
+
+    public function redirect(string $name, int $status = 303): self
     {
         $mixer = App::getInstance()->mixer();
         $track = $mixer->named($name);
@@ -78,11 +106,12 @@ class Studio extends \Remix\Component
         $this->params = $uri;
         $this->status = $status;
         return $this;
-    } // function redirect()
+    }
+    // function redirect()
 
-    public static function recordException($e) : void
+    public static function recordException($e): void
     {
-        //Debug::dump($e);
+        //Monitor::dump($e);
 
         $status = 500;
         if ($e instanceof Exceptions\HttpException) {
@@ -94,8 +123,10 @@ class Studio extends \Remix\Component
             'message' => $e->getMessage(),
             'file' => $e->getFile(),
             'line' => $e->getLine(),
-            'target' => Debug::getSource($e->getFile(), $e->getLine(), 10),
+            'target' => Monitor::getSource($e->getFile(), $e->getLine(), 10),
         ]);
         echo $view->status($status)->record();
-    } // function recordException()
-} // class Studio
+    }
+    // function recordException()
+}
+// class Studio

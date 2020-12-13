@@ -10,13 +10,14 @@ class Mixer extends Component
     protected $tracks = [];
     protected $named = [];
 
-    public function load($tracks) : self
+    public function load($tracks): self
     {
         if (is_string($tracks)) {
             $this->tracks = require($tracks);
         } else {
             $this->tracks = $tracks;
         }
+        $this->tracks = Utility\Arr::flatten($this->tracks);
 
         foreach ($this->tracks as $track) {
             $name = $track->name;
@@ -25,32 +26,57 @@ class Mixer extends Component
             }
         }
         return $this;
-    } // function load()
+    }
+    // function load()
 
-    public function destroy()
+    public function destroy(): void
     {
         $this->tracks = null;
         $this->named = null;
     }
 
-    public function route(string $path) : Studio
+    public function route(string $path): Studio
     {
         if (strpos($path, '/') !== 0) {
             $path = '/' . $path;
         }
         foreach ($this->tracks as $track) {
-            if ($track->match($path)) {
-                $sampler = $track->sampler($path);
-                $studio = $track->call($sampler);
-                unset($track);
-                return $studio;
+        //var_dump($track);
+            if ($track->isMatch($path)) {
+                $equalizer = \Remix\App::getInstance()->equalizer();
+                $sampler = $equalizer->instance(Sampler::class, $track->matched($path));
+                return static::studio($track->action, $sampler);
             }
         }
         throw new Exceptions\HttpException('it did not match any route, given ' . $path, 404);
-    } // function route()
+    }
+    // function route()
+
+    protected static function studio($action, Sampler $sampler)
+    {
+        if (is_string($action) && strpos($action, '@')) {
+            list($class, $method) = explode('@', $action);
+            $class = '\\App\\Channel\\' . $class;
+            $channel = new $class();
+            $action = [$channel, $method];
+        }
+        if (is_object($action)) {
+            return Studio::factory('closure', $action);
+        } elseif (is_callable($action)) {
+            $result = $action($sampler);
+            unset($sampler);
+            if ($result instanceof Studio) {
+                return $result;
+            } else {
+                return Studio::factory('text', $result);
+            }
+        }
+    }
 
     public function named(string $named)
     {
         return $this->named[$named] ?? null;
-    } // function named()
-} // class Mixer
+    }
+    // function named()
+}
+// class Mixer

@@ -7,7 +7,7 @@ namespace Remix;
  */
 abstract class Effector extends Component
 {
-    public function run(string $method, array $arg = []) : void
+    public function run(string $method, array $arg = []): void
     {
         foreach ($arg as $item) {
             preg_match('/^--(.+?)=(.+)$/', $item, $matches);
@@ -27,10 +27,13 @@ abstract class Effector extends Component
         } else {
             $this->index($arg);
         }
-    } // function run()
+    }
+    // function run()
 
-    public static function line(string $str) : void
+    public static function line(string $str): void
     {
         echo $str . PHP_EOL;
-    } // function line()
-} // class Effector
+    }
+    // function line()
+}
+// class Effector

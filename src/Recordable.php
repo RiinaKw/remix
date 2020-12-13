@@ -4,7 +4,9 @@ namespace Remix;
 
 trait Recordable
 {
-    public function record()
+    public function record(): string
     {
-    } // function record()
-} // trait Recordable
+    }
+    // function record()
+}
+// trait Recordable

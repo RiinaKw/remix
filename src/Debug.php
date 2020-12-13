@@ -4,7 +4,7 @@ namespace Remix;
 
 class Debug
 {
-    public static function dump($var) : void
+    public static function dump($var): void
     {
         $trace = debug_backtrace()[0];
 
@@ -12,9 +12,10 @@ class Debug
         var_dump($var);
         echo $trace['file'], "\nline: ", $trace['line'];
         echo "</pre>\n";
-    } // function dump()
+    }
+    // function dump()
 
-    public static function getSource(string $file, int $highlight, int $margin) : array
+    public static function getSource(string $file, int $highlight, int $margin): array
     {
         $lines = file($file);
         $length = count($lines);
@@ -44,5 +45,7 @@ class Debug
         }
 
         return $target;
-    } // function getSource()
-} // class Debug
+    }
+    // function getSource()
+}
+// class Debug

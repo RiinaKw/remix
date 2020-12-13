@@ -11,13 +11,13 @@ class BayTest extends TestCase
 
     protected $bay = null;
 
-    protected function setUp() : void
+    protected function setUp(): void
     {
         $remix = \Remix\App::getInstance();
         $this->bay = $this->invokeMethod($remix, 'bay', []);
     }
 
-    public function tearDown() : void
+    public function tearDown(): void
     {
         \Remix\App::destroy();
     }

@@ -15,5 +15,11 @@ return [
 
     [
         Track::get('/api/:id(\.:ext)?', 'ApiChannel@test'),
-    ]
+    ],
+
+    Track::get('/form/:id', 'FormChannel@index')->name('form'),
+    Track::post('/form/:id', 'FormChannel@post'),
+    Track::post('/postonly', function () {
+        return 'this page is post only';
+    }),
 ];

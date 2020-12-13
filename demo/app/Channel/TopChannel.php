@@ -14,8 +14,9 @@ class TopChannel extends \Remix\Channel
 {
     public function index()
     {
-        DJ::truncate('users');
-        User::find(1);
+        //DJ::table('users')->truncate();
+        //$user = User::find(1);
+        //var_dump($user);
         return 'Remix is ​​a lightweight PHP framework.';
     }
     // function index()
@@ -51,15 +52,14 @@ class TopChannel extends \Remix\Channel
 
     public function redirect(): Studio
     {
-        return Studio::factory()->redirect('top');
+        return Studio::factory()->redirect('form', [':id' => 1]);
     }
 
     public function exception(): Studio
     {
         Monitor::dump(__METHOD__);
         throw new \Remix\Exceptions\HttpException('exception test', 400);
-        //error;
-        return new Studio();
+        //return Studio::factory();
     }
     // function index()
 }

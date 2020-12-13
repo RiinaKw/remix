@@ -2,33 +2,39 @@
 
 namespace Remix\DJ;
 
+use Remix\Delay;
+use Remix\Gear;
+
 /**
  * Remix Setlist : PDO statement
  */
-class Setlist extends \Remix\Component
+class Setlist extends Gear implements \Iterator, \Countable
 {
+    protected $holders;
     protected $statement = null;
-    protected $dump = null;
 
-    public function __construct($statement)
+    private $i = 0;
+    private $cur_row = null;
+
+    //public function __construct($statement)
+    public function __construct(\PDOStatement $statement, array $holders = [])
     {
         parent::__construct();
 
+        $this->holders = $holders;
         $this->statement = $statement;
     }
     // function __construct()
 
-    public function asVinyl($classname)
+    public function asVinyl($classname): self
     {
         $this->statement->setFetchMode(\PDO::FETCH_CLASS, $classname);
         return $this;
     }
     // function asVinyl()
 
-    public function play($params = [])
+    protected function dump(): void
     {
-        $this->statement->execute($params);
-
         $dump = \Remix\Utility\Capture::capture(function () {
             $this->statement->debugDumpParams();
         });
@@ -40,10 +46,56 @@ class Setlist extends \Remix\Component
         } else {
             $sql = $matches_sql['sql'];
         }
-        \Remix\App::delay()->log('QUERY', $sql);
+        Delay::getInstance()->log('QUERY', $sql);
+    }
+    // function dump();
 
-        return $this->statement->fetchAll();
+    public function play(): self
+    {
+        $this->statement->execute($this->holders);
+        $this->dump();
+
+        return $this;
     }
     // function play()
+
+    public function first()
+    {
+        return $this->play()->statement->fetch();
+    }
+
+    public function count(): int
+    {
+        $sql = preg_replace('/^\s*SELECT .+? FROM\s/', 'SELECT COUNT(*) FROM ', $this->statement->queryString);
+        $result = \Remix\DJ::first($sql, $this->holders);
+        return $result[0];
+    }
+
+    public function current()
+    {
+        return $this->cur_row;
+    }
+
+    public function key()
+    {
+        return $this->i;
+    }
+
+    public function next(): void
+    {
+        $this->cur_row = $this->statement->fetch();
+        ++$this->i;
+    }
+
+    public function rewind(): void
+    {
+        $this->cur_row = $this->statement->fetch();
+        $this->i = 0;
+    }
+
+    public function valid(): bool
+    {
+        return (bool)$this->cur_row;
+    }
 }
 // class Setlist

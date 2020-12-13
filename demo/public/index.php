@@ -7,8 +7,8 @@ $autoload_path = $root_dir . '/vendor/autoload.php';
 
 require_once($autoload_path);
 
-$remix = \Remix\App::getInstance(true);
-$studio = $remix->initialize($app_dir)->runWeb($public_dir);
-echo (string)$studio;
+$daw = \Remix\Audio::getInstance(true)->daw;
+$studio = $daw->initialize($app_dir)->playWeb($public_dir);
+echo $studio;
 $studio = null;
-$remix = null;
+$daw = null;

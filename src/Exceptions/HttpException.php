@@ -13,7 +13,7 @@ class HttpException extends \Remix\RemixException
     }
     // function __construct()
 
-    public function getStatus()
+    public function getStatus(): int
     {
         return $this->status;
     }

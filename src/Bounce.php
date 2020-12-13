@@ -5,10 +5,8 @@ namespace Remix;
 /**
  * Remix Bounce : view renderer
  */
-class Bounce extends \Remix\Studio
+class Bounce extends Studio
 {
-    use \Remix\Recordable;
-
     protected static $left_delimiter = '{{';
     protected static $right_delimiter = '}}';
 
@@ -24,7 +22,7 @@ class Bounce extends \Remix\Studio
     }
     // function __construct()
 
-    public function __set(string $name, $value)
+    public function __set(string $name, $value): void
     {
         $this->escaped_params[$name] = $value;
     }
@@ -36,15 +34,20 @@ class Bounce extends \Remix\Studio
 
     public function record(): string
     {
-        $remix = App::getInstance();
-        $bounce_dir = $remix->preset()->get('app.bounce_dir');
-        $path = $remix->dir($bounce_dir . '/' . $this->file . '.tpl');
+        $daw = Audio::getInstance()->daw;
+        $bounce_dir = Audio::getInstance()->preset->get('app.bounce_dir');
+        $path = $daw->dir($bounce_dir . '/' . $this->file . '.tpl');
+        $daw = null;
 
-        $source = \Remix\Utility\Capture::capture(function () use ($path) {
+        if (! $path) {
+            throw new RemixException('bounce "' . $this->file . '.tpl" not found');
+        }
+
+        $source = Utility\Capture::capture(function () use ($path) {
             require($path);
         });
 
-        return $this->run($source);
+        return $this->play($source);
     }
     // function record()
 
@@ -55,10 +58,10 @@ class Bounce extends \Remix\Studio
         $executable = $source;
 
         // translate to php
-        foreach ($this->html_params as $key => $unused) {
+        foreach (array_keys($this->html_params) as $key) {
             $executable = preg_replace(
                 $re_l . '(\$' . $key . ')' . $re_r,
-                '<?php echo $1; ?>',
+                '<?php echo $1 ?? null; ?>',
                 $executable
             );
         }
@@ -91,14 +94,18 @@ class Bounce extends \Remix\Studio
         $executable = '?>'
             . preg_replace(
                 $re_l . '(.*?)' . $re_r,
-                '<?php echo \Remix\Utility\Str::h($1); ?>',
+                '<?php echo \Remix\Utility\Str::h($1 ?? null); ?>',
                 $executable
             ) . '<?php';
 
         return $executable;
     }
+    // function translate()
 
-    protected function run($source): string
+    /**
+     * @SuppressWarnings(PHPMD.EvalExpression)
+     */
+    protected function play($source): string
     {
         $escaped_params = $this->escaped_params;
         $html_params = $this->html_params;
@@ -114,5 +121,6 @@ class Bounce extends \Remix\Studio
 
         return $response;
     }
+    // function play()
 }
 // class Bounce

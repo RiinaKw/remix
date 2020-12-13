@@ -2,16 +2,19 @@
 
 namespace Remix;
 
+use Remix\DJ;
 use Remix\Turntable;
+use Remix\DJ\BPM;
 
 /**
  * Remix Vinyl : capsulate a single DB record
  */
-abstract class Vinyl extends \Remix\Component
+abstract class Vinyl extends Gear
 {
     public static $table = 'default_table';
     public static $pk = 'default_pk';
     protected $prop = [];
+    protected $is_new = false;
     protected static $turntable = Turntable::class;
 
     public function __get($name)
@@ -29,6 +32,19 @@ abstract class Vinyl extends \Remix\Component
         return $this->prop;
     }
 
+    public static function table(): Table
+    {
+        return DJ::table(static::$table);
+    }
+
+    public static function select($columns = '*'): BPM
+    {
+        return new BPM\Select(static ::$table, $columns);
+    }
+
+    /**
+     * @SuppressWarnings(PHPMD.UnusedLocalVariable)
+     */
     public function turntable(): Turntable
     {
         return new static::$turntable($this);
@@ -36,18 +52,11 @@ abstract class Vinyl extends \Remix\Component
 
     public static function find($id): ?self
     {
-        $sql = sprintf('SELECT * FROM `%s` WHERE `%s` = :id;', static::$table, static::$pk);
-        $setlist = \Remix\DJ::prepare($sql);
-        $result = $setlist->asVinyl(static::class)->play(['id' => $id]);
-
-        switch (count($result)) {
-            case 1:
-                return $result[0];
-                break;
-            case 2:
-                throw new \Remix\DJException('find by primary key, why multiple results?');
-        }
-        return null;
+        $bpm = static::select();
+        $bpm->where(static::$pk, '=', $id);
+        $setlist = $bpm->prepare();
+        $vinyl = $setlist->asVinyl(static::class)->first();
+        return $vinyl ?: null;
     }
 }
 // class Vinyl

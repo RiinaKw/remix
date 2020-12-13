@@ -11,13 +11,14 @@ class AppTest extends TestCase
     public function testInstance(): void
     {
         // is loadable?
-        $this->assertTrue(class_exists('\Remix\App'));
+        $this->assertTrue(class_exists('\Remix\Audio'));
 
         // is valid instance?
-        $remix = \Remix\App::getInstance();
+        $remix = \Remix\Audio::getInstance();
         $this->assertTrue((bool)$remix);
-        $this->assertTrue($remix instanceof \Remix\App);
+        $this->assertTrue($remix instanceof \Remix\Audio);
 
-        \Remix\App::destroy();
+        \Remix\Audio::destroy();
     }
 }
+// class AppTest

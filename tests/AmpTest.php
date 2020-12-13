@@ -12,25 +12,25 @@ class AmpTest extends TestCase
 
     protected function setUp(): void
     {
-        $remix = \Remix\App::getInstance();
-        $this->amp = $this->invokeMethod($remix, 'amp', []);
+        $this->amp = \Remix\Audio::getInstance()->amp;
     }
 
     public function tearDown(): void
     {
-        \Remix\App::destroy();
+        \Remix\Audio::destroy();
     }
 
     public function testLoad(): void
     {
         // is callable with no arguments?
         $this->expectOutputRegex('/Remix Amp/');
-        $this->amp->run(['amp']);
+        $this->amp->play(['amp']);
     }
 
     public function testLoadWithParams(): void
     {
         $this->expectOutputRegex('/Remix framework/');
-        $this->amp->run(['amp', 'version']);
+        $this->amp->play(['amp', 'version']);
     }
 }
+// class AmpTest

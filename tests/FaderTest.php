@@ -55,3 +55,4 @@ class FaderTest extends TestCase
         $this->assertSame(false, $match);
     }
 }
+// class FaderTest

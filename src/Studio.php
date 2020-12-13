@@ -2,10 +2,12 @@
 
 namespace Remix;
 
+use Remix\Exceptions\HttpException;
+
 /**
  * Remix Studio : web response manager
  */
-class Studio extends \Remix\Component
+class Studio extends Gear
 {
     protected $params = [];
     protected $type = 'html';
@@ -24,11 +26,12 @@ class Studio extends \Remix\Component
     }
     // function __construct()
 
-    public function destroy()
+    public function destroy(): void
     {
         $this->type = null;
         $this->params = null;
     }
+    // function destroy()
 
     public function __toString(): string
     {
@@ -53,6 +56,12 @@ class Studio extends \Remix\Component
             case 'redirect':
                 header('Location: ' . $this->params);
                 return '';
+
+            case 'header':
+                $bounce = new Bounce('httperror');
+                $bounce->code = $this->status;
+                $bounce->message = $this->params;
+                return $bounce->record();
 
             default:
                 if (method_exists($this, 'record')) {
@@ -94,13 +103,11 @@ class Studio extends \Remix\Component
         }
         return $this;
     }
-    // function json()
+    // function xml()
 
-    public function redirect(string $name, int $status = 303): self
+    public function redirect(string $name, array $params = [], int $status = 303): self
     {
-        $mixer = App::getInstance()->mixer();
-        $track = $mixer->named($name);
-        $uri = $track->uri();
+        $uri = Audio::getInstance()->mixer->uri($name, $params);
 
         $this->type = 'redirect';
         $this->params = $uri;
@@ -109,21 +116,28 @@ class Studio extends \Remix\Component
     }
     // function redirect()
 
-    public static function recordException($e): void
+    public function header(int $status, string $message = ''): self
     {
-        //Monitor::dump($e);
+        $this->type = 'header';
+        $this->status = $status;
+        $this->params = $message;
+        return $this;
+    }
+    // function header()
 
+    public static function recordException(\Throwable $exception): void
+    {
         $status = 500;
-        if ($e instanceof Exceptions\HttpException) {
-            $status = $e->getStatus();
+        if ($exception instanceof HttpException) {
+            $status = $exception->getStatus();
         }
 
         $view = new Bounce('exception', [
             'status' => $status,
-            'message' => $e->getMessage(),
-            'file' => $e->getFile(),
-            'line' => $e->getLine(),
-            'target' => Monitor::getSource($e->getFile(), $e->getLine(), 10),
+            'message' => $exception->getMessage(),
+            'file' => $exception->getFile(),
+            'line' => $exception->getLine(),
+            'target' => Monitor::getSource($exception->getFile(), $exception->getLine(), 10),
         ]);
         echo $view->status($status)->record();
     }

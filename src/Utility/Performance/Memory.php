@@ -29,3 +29,4 @@ class Memory
         return sprintf('usage : %s / peak : %s', static::usage(), static::usagePeak());
     }
 }
+// class Memory

@@ -2,23 +2,19 @@
 
 namespace Remix;
 
-abstract class Component
+abstract class Gear
 {
-    protected function __construct($remix = null)
+    protected function __construct()
     {
         $method = str_replace(__CLASS__, static::class, __METHOD__);
-        \Remix\App::logBirth($method);
-
-        if ($remix) {
-            throw new \Exception('param must be empty');
-        }
+        Delay::logBirth($method);
     }
     // function __construct()
 
     public function __destruct()
     {
         $method = str_replace(__CLASS__, static::class, __METHOD__);
-        \Remix\App::logDeath($method);
+        Delay::logDeath($method);
     }
 
     public static function factory($arg1 = null, $arg2 = null): self
@@ -31,4 +27,9 @@ abstract class Component
             return new static($arg1, $arg2);
         }
     }
+
+    public function destroy(): void
+    {
+    }
 }
+// class Component

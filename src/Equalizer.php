@@ -5,11 +5,11 @@ namespace Remix;
 /**
  * Remix Equalizer : instance manager
  */
-class Equalizer extends Component
+class Equalizer extends Gear
 {
     private $container = [];
 
-    public function singleton(string $class): Component
+    public function singleton(string $class): Gear
     {
         if (! array_key_exists($class, $this->container)) {
             $this->container[$class] = $this->instance($class);
@@ -18,7 +18,7 @@ class Equalizer extends Component
     }
     // function singleton()
 
-    public function instance(string $class, $args = null): Component
+    public function instance(string $class, $args = null): Gear
     {
         return $class::factory($args);
     }

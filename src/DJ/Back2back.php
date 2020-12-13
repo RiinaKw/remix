@@ -2,10 +2,12 @@
 
 namespace Remix\DJ;
 
+use Remix\Gear;
+
 /**
  * Remix Back2back : DB transaction manager
  */
-class Back2back extends \Remix\Component
+class Back2back extends Gear
 {
     protected $connection = null;
 

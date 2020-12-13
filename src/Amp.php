@@ -5,16 +5,16 @@ namespace Remix;
 /**
  * Remix Amp : command line interface
  */
-class Amp extends \Remix\Component
+class Amp extends Gear
 {
     protected static $shorthandles = [
         '-v' => \Remix\Effector\Version::class,
         '-h' => \Remix\Effector\Help::class,
     ];
 
-    public function run(array $argv): void
+    public function play(array $argv): void
     {
-        $equalizer = App::getInstance()->equalizer();
+        $equalizer = Audio::getInstance()->equalizer;
         array_shift($argv);
 
         $namespaces = [
@@ -46,7 +46,7 @@ class Amp extends \Remix\Component
         }
 
         if ($instance) {
-            $instance->run($method, $argv);
+            $instance->play($method, $argv);
         } elseif ($class) {
             echo 'unknown effector : ' . $class . PHP_EOL;
             echo 'try "bay help"' . PHP_EOL;
@@ -54,7 +54,9 @@ class Amp extends \Remix\Component
             $instance = $equalizer->instance(Effector\Help::class);
             $instance->index($argv);
         }
+
+        $equalizer = null;
     }
-    // function run()
+    // function play()
 }
 // class Bay

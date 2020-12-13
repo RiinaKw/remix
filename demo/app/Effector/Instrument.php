@@ -6,10 +6,9 @@ use Remix\Effector;
 
 class Instrument extends Effector
 {
-
     public function index()
     {
-        Effector::line('I am Instrument belonging to App, which instruments do you like?');
+        Effector::line('I am Instrument belonging to Audio, which instruments do you like?');
         \Remix\Monitor::dump(1);
         throw new \Exception('test exception from Effector');
     }
@@ -37,6 +36,7 @@ class Instrument extends Effector
         if (array_key_exists('add', $arg)) {
             $inst[] = $arg['add'];
         }
+        \Remix\Monitor::dump($inst);
         if (count($inst) == 1) {
             Effector::line($inst[0] . ' is AWESOME!!!');
         } else {

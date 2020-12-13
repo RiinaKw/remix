@@ -4,7 +4,7 @@ namespace Remix\CoreTests;
 
 use PHPUnit\Framework\TestCase;
 
-class AppTest extends TestCase
+class AudioTest extends TestCase
 {
     use \Remix\Utility\Tests\InvokePrivateBehavior;
 
@@ -21,4 +21,4 @@ class AppTest extends TestCase
         \Remix\Audio::destroy();
     }
 }
-// class AppTest
+// class AudioTest

@@ -36,15 +36,11 @@ class DJ extends \Remix\Gear
     public static function prepare(string $sql, array $params = []): Setlist
     {
         $statement = static::$connection->prepare($sql);
-        foreach ($params as $name => $value) {
-            $label = ':' . $name;
-            $statement->bindParam($label, $value);
-        }
-        return new Setlist($statement);
+        return new Setlist($statement, $params);
     }
     // function prepare()
 
-    public static function play(string $sql, array $params = []): array
+    public static function play(string $sql, array $params = []): ?Setlist
     {
         $setlist = static::prepare($sql, $params);
         return $setlist->play($params);

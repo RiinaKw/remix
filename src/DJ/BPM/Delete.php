@@ -15,9 +15,9 @@ class Delete extends BPM
         $this->context('delete')->table($table);
     }
 
-    public function stringContext(): string
+    protected function buildContext(): string
     {
         return sprintf('DELETE FROM `%s`', $this->table);
     }
 }
-// class BPM
+// class Delete

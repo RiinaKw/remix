@@ -5,19 +5,21 @@ namespace Remix\DJ;
 use Remix\Gear;
 use Remix\DJ;
 use Remix\DJ\Setlist;
+use Remix\DJ\BPM;
+use Remix\DJ\BPM\Select;
 use Remix\RemixException;
 
 class Table extends Gear
 {
     protected $name;
-    protected $context = 'select';
-    protected $where = [];
-    protected $params = [];
-    protected $as = null;
+    //protected $context = 'select';
+    //protected $where = [];
+    //protected $params = [];
+    //protected $as = null;
 
     protected function __construct(string $name)
     {
-        if (preg_match('/[\'\"\-\`\.\s]/', $name)) {
+        if (preg_match('/\W/', $name)) {
             $message = sprintf('Illegal table name "%s"', $name);
             throw new RemixException($message);
         }
@@ -27,8 +29,8 @@ class Table extends Gear
 
     public function exists(): bool
     {
-        $result = DJ::play('SHOW TABLES LIKE :table;', [':table' => $this->name]);
-        return count($result) > 0;
+        $result = DJ::first('SHOW TABLES LIKE :table;', [':table' => $this->name]);
+        return (bool)$result;
     }
 
     public function create(callable $cb): bool
@@ -74,7 +76,7 @@ class Table extends Gear
         }
     }
     // function truncate()
-
+/*
     public function where($column, $op, $value): self
     {
         $uid = md5(rand());
@@ -123,6 +125,11 @@ class Table extends Gear
         }
         return $setlist->first($this->params);
     }
+*/
+    public function select(): BPM
+    {
+        return new Select($this->name);
+    }
 
     public function __call(string $name, $args)
     {
@@ -136,7 +143,8 @@ class Table extends Gear
             case 'timestamp':
                 return Column::factory($args[0], ['type' => $name]);
         }
-        throw new Exception('unknown method');
+        $message = sprintf('unknown method "%s"', $name);
+        throw new RemixException($message);
     }
 }
 // class Table

@@ -4,6 +4,7 @@ namespace Remix;
 
 use Remix\DJ;
 use Remix\DJ\Table;
+use Remix\DJ\BPM;
 
 /**
  * Remix Vinyl : capsulate a single DB record
@@ -13,7 +14,7 @@ abstract class Vinyl extends Gear
     public static $table = 'default_table';
     public static $pk = 'default_pk';
     protected $prop = [];
-    protected $is_new = true;
+    protected $is_new = false;
     protected static $turntable = Turntable::class;
 
     public function __get($name)
@@ -38,7 +39,6 @@ abstract class Vinyl extends Gear
 
     public static function select($columns = '*'): BPM
     {
-        //return new BPM(static::$table, 'select', $columns);
         return new BPM\Select(static ::$table, $columns);
     }
 
@@ -52,14 +52,11 @@ abstract class Vinyl extends Gear
 
     public static function find($id): ?self
     {
-        $table = \Remix\DJ::table(static::$table)->where(static::$pk, '=', $id);
-        $vinyl = $table->asVinyl(static::class)->first();
-        if ($vinyl) {
-            $vinyl->is_new = false;
-            return $vinyl;
-        } else {
-            return null;
-        }
+        $bpm = static::select();
+        $bpm->where(static::$pk, '=', $id);
+        $setlist = $bpm->prepare();
+        $vinyl = $setlist->asVinyl(static::class)->first();
+        return $vinyl ?: null;
     }
 }
 // class Vinyl

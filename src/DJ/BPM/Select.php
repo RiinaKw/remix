@@ -23,7 +23,7 @@ class Select extends BPM
         }
     }
 
-    public function stringContext(): string
+    protected function buildContext(): string
     {
         $selected_arr = [];
         foreach ($this->columns as $column) {
@@ -36,4 +36,4 @@ class Select extends BPM
         return sprintf('SELECT %s FROM `%s`', implode(', ', $selected_arr), $this->table);
     }
 }
-// class BPM
+// class Select

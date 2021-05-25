@@ -93,7 +93,7 @@ class BPMTest extends TestCase
         $bpm = new Select('test', 'name');
         $bpm->where('id', 1);
         $sql = $this->invokeMethod($bpm, 'buildWhere');
-        $this->assertMatchesRegularExpression("/^`id` = :[0-9a-zA-Z]+$/", $sql);
+        $this->assertRegExp("/^`id` = :[0-9a-zA-Z]+$/", $sql);
         preg_match('/(:[0-9a-zA-Z]+)$/', $sql, $matches);
         $holder = $matches[1];
         //$holders = $bpm->placeholders();

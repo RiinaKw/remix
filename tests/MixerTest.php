@@ -36,7 +36,7 @@ class MixerTest extends TestCase
         $_SERVER['REQUEST_METHOD'] = 'GET';
         $response = $this->mixer->route('/cb');
         $this->assertTrue($response instanceof \Remix\Studio);
-        $this->assertMatchesRegularExpression('/from callback/', $response);
+        $this->assertRegExp('/from callback/', $response);
     }
 
     /**

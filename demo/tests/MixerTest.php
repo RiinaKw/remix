@@ -30,25 +30,25 @@ class MixerTest extends TestCase
         $_SERVER['PATH_INFO'] = '/';
         $response = $this->daw->playWeb($this->public_dir);
         $this->assertFalse(\Remix\Audio::getInstance()->cli);
-        $this->assertMatchesRegularExpression('/Remix is ​​a lightweight PHP framework./', (string)$response);
+        $this->assertRegExp('/Remix is ​​a lightweight PHP framework./', (string)$response);
 
         // callback
         $_SERVER['REQUEST_METHOD'] = 'GET';
         $_SERVER['PATH_INFO'] = '/cb';
         $response = $this->daw->playWeb($this->public_dir);
-        $this->assertMatchesRegularExpression('/from callback/', (string)$response);
+        $this->assertRegExp('/from callback/', (string)$response);
 /*
         // bounce
         $_SERVER['REQUEST_METHOD'] = 'GET';
         $_SERVER['PATH_INFO'] = '/bounce';
         $response = $this->daw->playWeb($this->public_dir);
-        $this->assertMatchesRegularExpression('/hello/', (string)$response);
+        $this->assertRegExp('/hello/', (string)$response);
 
         // bounce with parameters
         $_SERVER['REQUEST_METHOD'] = 'GET';
         $_SERVER['PATH_INFO'] = '/bounce/heydj';
         $response = $this->daw->playWeb($this->public_dir);
-        $this->assertMatchesRegularExpression('/heydj/', (string)$response);
+        $this->assertRegExp('/heydj/', (string)$response);
 */
         // redirect
         $_SERVER['REQUEST_METHOD'] = 'GET';
@@ -62,8 +62,8 @@ class MixerTest extends TestCase
         $_SERVER['PATH_INFO'] = '/form/dummy_id';
         $_POST['title'] = 'dummy_title';
         $response = $this->daw->playWeb($this->public_dir);
-        $this->assertMatchesRegularExpression('/dummy_id/', (string)$response);
-        $this->assertMatchesRegularExpression('/dummy_title/', (string)$response);
+        $this->assertRegExp('/dummy_id/', (string)$response);
+        $this->assertRegExp('/dummy_title/', (string)$response);
 
         // method not allowed
         $_SERVER['REQUEST_METHOD'] = 'GET';
@@ -71,7 +71,7 @@ class MixerTest extends TestCase
         $response = $this->daw->playWeb($this->public_dir);
         $status = $this->invokeProperty($response, 'status');
         $this->assertSame(405, $status);
-        $this->assertMatchesRegularExpression('/method not allowed/', (string)$response);
+        $this->assertRegExp('/method not allowed/', (string)$response);
 */
     }
 }

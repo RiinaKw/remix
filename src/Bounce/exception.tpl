@@ -31,5 +31,15 @@
       <li class="{{ $line['class'] ?? '' }}">{{ $line['line'] }} : {{ $line['source'] }}</li>
 {{ endforeach }}
     </ol>
+
+    <h2>trace</h2>
+    <ol class="trace">
+{{ foreach ($trace as $item) }}
+      <li>
+          <strong>{{ $item['file'] }}</strong>, line <strong>{{ $item['line'] }}</strong>
+          / {{ $item['class'] }}::{{ $item['function'] }}()
+      </li>
+{{ endforeach }}
+    </ol>
   </body>
 </html>

@@ -115,7 +115,7 @@ class Audio
     {
         $this->equalizer = Equalizer::factory();
         //set_error_handler([$this, 'errorHandle']);
-        //set_exception_handler([$this, 'exceptionHandle']);
+        set_exception_handler([$this, 'exceptionHandle']);
         register_shutdown_function([$this, 'shutdownHandle']);
 
         return $this;
@@ -143,7 +143,6 @@ class Audio
         } else {
             Studio::recordException($e);
         }
-        var_dump(debug_backtrace());
         unset($e);
     }
     // function exceptionHandle()

@@ -54,13 +54,13 @@ class TopChannel extends \Remix\Channel
     {
         return Studio::factory()->redirect('form', [':id' => 1]);
     }
+    // function redirect()
 
     public function exception(): Studio
     {
-        Monitor::dump(__METHOD__);
         throw new \Remix\Exceptions\HttpException('exception test', 400);
         //return Studio::factory();
     }
-    // function index()
+    // function exception()
 }
 // class TopChannel

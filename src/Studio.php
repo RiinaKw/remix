@@ -138,7 +138,8 @@ class Studio extends Gear
             'file' => $exception->getFile(),
             'line' => $exception->getLine(),
             'target' => Monitor::getSource($exception->getFile(), $exception->getLine(), 10),
-        ]);
+            'trace' => $exception->getTrace(),
+        ], true);
         echo $view->status($status)->record();
     }
     // function recordException()

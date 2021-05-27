@@ -18,7 +18,7 @@ class Preset extends Gear
     {
         $filename = str_replace('.', '/', $file);
         $daw = Audio::getInstance()->daw;
-        $file = $daw ->appDir('/Preset') . '/' . $filename . '.php';
+        $file = $daw->appDir('/Preset') . '/' . $filename . '.php';
         $daw = null;
 
         if (! realpath($file)) {

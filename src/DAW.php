@@ -26,11 +26,15 @@ class DAW extends Gear
     {
         $this->root_dir = realpath($dir);
         $this->app_dir = $this->dir('app');
+        $this->remix_dir = __DIR__;
 
         $env = require($this->appdir('env.php'));
         $env = ($env && $env !== 1) ? $env : 'production';
 
         $preset = Audio::getInstance()->preset;
+        $preset->set('remix.root_dir', $this->remix_dir);
+        $preset->set('remix.bounce_dir', '/Bounce');
+
         $preset->set('env.name', $env);
         $preset->load('app');
         $preset->load('env.' . $env, 'env');
@@ -39,6 +43,12 @@ class DAW extends Gear
         return $this;
     }
     // function initialize()
+
+    public function remixDir(string $path): string
+    {
+        return realpath($this->remix_dir . '/' . $path);
+    }
+    // function dir()
 
     public function dir(string $path): string
     {

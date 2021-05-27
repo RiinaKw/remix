@@ -13,12 +13,14 @@ class Bounce extends Studio
     protected $file;
     protected $escaped_params = [];
     protected $html_params = [];
+    protected $is_internal;
 
-    public function __construct(string $file, array $params = [])
+    public function __construct(string $file, array $params = [], bool $is_internal = false)
     {
         parent::__construct('html', $params);
         $this->file = $file;
         $this->escaped_params = $params;
+        $this->is_internal = $is_internal;
     }
     // function __construct()
 
@@ -35,8 +37,13 @@ class Bounce extends Studio
     public function record(): string
     {
         $daw = Audio::getInstance()->daw;
-        $bounce_dir = Audio::getInstance()->preset->get('app.bounce_dir');
-        $path = $daw->dir($bounce_dir . '/' . $this->file . '.tpl');
+        if ($this->is_internal) {
+            $bounce_dir = Audio::getInstance()->preset->get('remix.bounce_dir');
+            $path = $daw->remixDir($bounce_dir . '/' . $this->file . '.tpl');
+        } else {
+            $bounce_dir = Audio::getInstance()->preset->get('app.bounce_dir');
+            $path = $daw->dir($bounce_dir . '/' . $this->file . '.tpl');
+        }
         $daw = null;
 
         if (! $path) {

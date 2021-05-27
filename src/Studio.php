@@ -58,7 +58,7 @@ class Studio extends Gear
                 return '';
 
             case 'header':
-                $bounce = new Bounce('httperror');
+                $bounce = new Bounce('httperror', [], true);
                 $bounce->code = $this->status;
                 $bounce->message = $this->params;
                 return $bounce->record();

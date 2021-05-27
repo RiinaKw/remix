@@ -16,6 +16,7 @@ class Track extends Gear
         $this->props['method'] = $method;
         $this->props['path'] = $path;
         $this->props['action'] = $action;
+        $this->props['console'] = true;
     }
     // function __construct()
 
@@ -46,12 +47,19 @@ class Track extends Gear
     }
     // function name()
 
+    public function console(bool $is_console): self
+    {
+        $this->props['console'] = $is_console;
+        return $this;
+    }
+
     public function __get(string $name)
     {
         switch ($name) {
             case 'action':
             case 'path':
             case 'method':
+            case 'console':
                 return $this->props[$name];
             case 'name':
                 return $this->props[$name] ?? null;

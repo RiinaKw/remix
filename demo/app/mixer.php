@@ -8,13 +8,13 @@ return [
 
     Track::get('/cb', function () {
         return '<b>from callback</b>';
-    }),
-    Track::get('/json', 'TopChannel@json'),
+    })->console(false),
+    Track::get('/json', 'TopChannel@json')->console(false),
     Track::get('/redirect', 'TopChannel@redirect'),
     Track::get('/exception', 'TopChannel@exception'),
 
     [
-        Track::get('/api/:id(\.:ext)?', 'ApiChannel@test'),
+        Track::get('/api/:id(\.:ext)?', 'ApiChannel@test')->console(false),
     ],
 
     Track::get('/form/:id', 'FormChannel@index')->name('form'),

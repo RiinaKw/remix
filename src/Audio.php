@@ -12,6 +12,7 @@ class Audio
 
     protected static $is_debug = false;
     protected static $is_cli = false;
+    protected static $is_console = true;
 
     private function __construct(bool $is_debug)
     {
@@ -80,6 +81,10 @@ class Audio
                 static::$is_cli = $value;
                 break;
 
+            case 'console':
+                static::$is_console = $value;
+                break;
+
             default:
                 var_dump('unknown key', $key);
                 break;
@@ -96,7 +101,7 @@ class Audio
             if (static::$is_debug) {
                 Delay::logMemory();
                 Delay::logTime();
-                if (! static::$audio->cli) {
+                if (! static::$is_cli && static::$is_console) {
                     echo Delay::get();
                 }
             }

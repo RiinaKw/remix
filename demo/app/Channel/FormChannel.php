@@ -11,7 +11,7 @@ class FormChannel extends \Remix\Channel
 {
     public function index(Sampler $sampler): Studio
     {
-        $mixer = Audio::getInstance()->mixer();
+        $mixer = Audio::getInstance()->mixer;
 
         $id = $sampler->param('id');
 

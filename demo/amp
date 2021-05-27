@@ -1,3 +1,4 @@
+#!/usr/bin/env php
 <?php
 
 $app_dir = __DIR__;

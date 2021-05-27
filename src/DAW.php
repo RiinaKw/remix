@@ -24,8 +24,7 @@ class DAW extends Gear
 
     public function initialize(string $dir): self
     {
-        $this->root_dir = realpath($dir);
-        $this->app_dir = $this->dir('app');
+        $this->app_dir = realpath($dir);
         $this->remix_dir = __DIR__;
 
         $env = require($this->appdir('env.php'));
@@ -47,12 +46,6 @@ class DAW extends Gear
     public function remixDir(string $path): string
     {
         return realpath($this->remix_dir . '/' . $path);
-    }
-    // function dir()
-
-    public function dir(string $path): string
-    {
-        return realpath($this->root_dir . '/' . $path);
     }
     // function dir()
 

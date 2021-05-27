@@ -10,7 +10,7 @@ class DJTest extends TestCase
 
     protected function setUp(): void
     {
-        \Remix\Audio::getInstance()->daw->initialize(__DIR__ . '/..');
+        \Remix\Audio::getInstance()->daw->initialize(__DIR__ . '/../app');
     }
 
     public function tearDown(): void

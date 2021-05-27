@@ -10,7 +10,7 @@ class AmpTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->daw = \Remix\Audio::getInstance()->daw->initialize(__DIR__ . '/..');
+        $this->daw = \Remix\Audio::getInstance()->daw->initialize(__DIR__ . '/../app');
     }
 
     public function tearDown(): void

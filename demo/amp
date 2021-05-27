@@ -1,11 +1,11 @@
 #!/usr/bin/env php
 <?php
 
-$app_dir = __DIR__;
-$root_dir = dirname($app_dir);
-$autoload_path = $root_dir . '/vendor/autoload.php';
+// Be careful of directory settings
+$app_dir = __DIR__ . '/app';
+$project_dir = dirname(__DIR__);
 
-require_once($autoload_path);
+require_once($project_dir . '/vendor/autoload.php');
 
 $daw = \Remix\Audio::getInstance(true)->daw;
 $daw->initialize($app_dir)->playCli($argv);

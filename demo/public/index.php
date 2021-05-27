@@ -1,11 +1,11 @@
 <?php
 
+// Be careful of directory settings
 $public_dir = __DIR__;
-$app_dir = dirname($public_dir);
-$root_dir = dirname($app_dir);
-$autoload_path = $root_dir . '/vendor/autoload.php';
+$app_dir = __DIR__ . '/../app';
+$project_dir = dirname(dirname(__DIR__));
 
-require_once($autoload_path);
+require_once($project_dir . '/vendor/autoload.php');
 
 $daw = \Remix\Audio::getInstance(true)->daw;
 $studio = $daw->initialize($app_dir)->playWeb($public_dir);

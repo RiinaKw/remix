@@ -42,7 +42,7 @@ class Bounce extends Studio
             $path = $daw->remixDir($bounce_dir . '/' . $this->file . '.tpl');
         } else {
             $bounce_dir = Audio::getInstance()->preset->get('app.bounce_dir');
-            $path = $daw->dir($bounce_dir . '/' . $this->file . '.tpl');
+            $path = $daw->appDir($bounce_dir . '/' . $this->file . '.tpl');
         }
         $daw = null;
 

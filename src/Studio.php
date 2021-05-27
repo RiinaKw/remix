@@ -13,6 +13,14 @@ class Studio extends Gear
     protected $type = 'html';
     protected $status = 200;
 
+    protected static $mimetype = [
+        'text' => 'text/plain',
+        'html' => 'text/html',
+        'json' => 'application/json',
+        'xml' => 'application/xml',
+        'stream' => 'application/octet-stream',
+    ];
+
     public function __construct(string $type = 'none', $params = [])
     {
         parent::__construct();
@@ -38,19 +46,24 @@ class Studio extends Gear
         $this->status($this->status);
         switch ($this->type) {
             case 'none':
+                $this->mime();
                 return '';
 
             case 'text':
+                $this->mime('text');
                 return serialize($this->params);
 
             case 'closure':
+                $this->mime();
                 $closure = $this->params;
                 return $closure();
 
             case 'json':
+                $this->mime('json');
                 return json_encode($this->params);
 
             case 'xml':
+                $this->mime('xml');
                 return \Remix\Utility\Arr::toXML($this->params);
 
             case 'redirect':
@@ -65,6 +78,7 @@ class Studio extends Gear
 
             default:
                 if (method_exists($this, 'record')) {
+                    $this->mime('html');
                     return $this->record($this->params);
                 } else {
                     return 'not recordable';
@@ -73,6 +87,16 @@ class Studio extends Gear
         // switch
     }
     // function __toString()
+
+    public function mime(string $type = 'html', string $charset = 'utf-8'): self
+    {
+        $mimetype = static::$mimetype[$type] ?? static::$mimetype['html'];
+        $charset = 'utf-8';
+
+        header("Content-type: {$mimetype}; charset={$charset}");
+        return $this;
+    }
+    // function mime()
 
     public function status(int $code = 200): self
     {

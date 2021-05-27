@@ -47,6 +47,14 @@ class Track extends Gear
     }
     // function name()
 
+    public function api(): self
+    {
+        $this->props['console'] = false;
+        $this->props['path'] .= '(\.:ext)?';
+        return $this;
+    }
+    // function api()
+
     public function console(bool $is_console): self
     {
         $this->props['console'] = $is_console;

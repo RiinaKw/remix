@@ -14,7 +14,7 @@ return [
     Track::get('/exception', 'TopChannel@exception'),
 
     [
-        Track::get('/api/:id(\.:ext)?', 'ApiChannel@test')->console(false),
+        Track::get('/api/:id', 'ApiChannel@test')->api(),
     ],
 
     Track::get('/form/:id', 'FormChannel@index')->name('form'),

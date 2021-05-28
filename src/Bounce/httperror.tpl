@@ -1,4 +1,4 @@
 <body>
-  <h1>error : {{ $code }}</h1>
+  <h1>error : {{ $title }}</h1>
   <p>{{ $message }}</p>
 </body>

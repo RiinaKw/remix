@@ -8,7 +8,7 @@
     #remix-console h1 {
         background-color: #ccccff;
         margin: 0;
-        padding: 10px;
+        padding: 10px 20px;
         line-height: 20px;
         position: absolute;
         top: -40px;
@@ -16,12 +16,10 @@
     }
     #remix-console-body {
         width: 500px;
-        height: 0;
-        overflow: hidden;
+        display: none;
     }
     #remix-console-body.show {
-        height: 180px;
-        padding: 10px;
+        display: block;
     }
     #remix-console-tabs ul {
         list-style-type: none;
@@ -44,7 +42,8 @@
         background-color: #ccffcc;
     }
     #remix-console .pane {
-        height: 140px;
+        height: 180px;
+        padding: 10px;
         display: none;
     }
     #remix-console .pane.show {
@@ -90,15 +89,15 @@
     const tabs = document.querySelectorAll('#remix-console-tabs label');
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
-            tabs.forEach(curTab => {
-                curTab.classList.remove('active')
+            tabs.forEach(current => {
+                current.classList.remove('active')
             })
             tab.classList.toggle('active');
             const paneId = tab.getAttribute('for')
 
             const panes = document.querySelectorAll('#remix-console-content .pane')
-            panes.forEach(curPane => {
-                curPane.classList.remove('show')
+            panes.forEach(current => {
+                current.classList.remove('show')
             })
             document.getElementById(paneId).classList.add('show');
         });

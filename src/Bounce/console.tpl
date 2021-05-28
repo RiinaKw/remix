@@ -83,6 +83,9 @@
     </div>
 </section>
 <script>
+    const console = document.getElementById('remix-console')
+    const body = document.querySelector('body')
+    body.appendChild(console)
     document.getElementById('remix-console-toggler').addEventListener('click', () => {
         document.getElementById('remix-console-body').classList.toggle('show');
     })

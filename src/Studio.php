@@ -12,13 +12,29 @@ class Studio extends Gear
     protected $params = [];
     protected $type = 'html';
     protected $status = 200;
+    protected $headers = [];
 
     protected static $mimetype = [
-        'text' => 'text/plain',
-        'html' => 'text/html',
-        'json' => 'application/json',
-        'xml' => 'application/xml',
-        'stream' => 'application/octet-stream',
+        'text' => [
+            'type' => 'text/plain',
+            'console' => false,
+        ],
+        'html' => [
+            'type' => 'text/html',
+            'console' => true,
+        ],
+        'json' => [
+            'type' => 'application/json',
+            'console' => false,
+        ],
+        'xml' => [
+            'type' => 'application/xml',
+            'console' => false,
+        ],
+        'stream' => [
+            'type' => 'application/octet-stream',
+            'console' => false,
+        ],
     ];
 
     public function __construct(string $type = 'none', $params = [])
@@ -41,62 +57,82 @@ class Studio extends Gear
     }
     // function destroy()
 
-    public function __toString(): string
+    protected function contentType(string $forceType = '', string $charset = 'utf-8'): void
+    {
+        if ($forceType) {
+            $mimetype = static::$mimetype[$forceType] ?? static::$mimetype['html'];
+        } else {
+            $mimetype = static::$mimetype[$this->type] ?? static::$mimetype['html'];
+        }
+        Audio::getInstance()->console = $mimetype['console'];
+        $this->headers[] = "Content-type: {$mimetype['type']}; charset={$charset}";
+    }
+
+    protected function sendHeader()
+    {
+        foreach ($this->headers as $header) {
+            header($header);
+        }
+    }
+
+    public function recorded(): string
     {
         $this->status($this->status);
+        $output = '';
+
         switch ($this->type) {
             case 'none':
-                $this->mime();
-                return '';
+                $output =  '';
+                break;
 
             case 'text':
-                $this->mime('text');
-                return serialize($this->params);
+                $this->contentType();
+                $output = serialize($this->params);
+                break;
 
             case 'closure':
-                $this->mime();
+                $this->contentType('text');
                 $closure = $this->params;
-                return $closure();
+                $output = $closure();
+                break;
 
             case 'json':
-                $this->mime('json');
-                return json_encode($this->params);
+                $this->contentType();
+                $output = json_encode($this->params);
+                break;
 
             case 'xml':
-                $this->mime('xml');
-                return \Remix\Utility\Arr::toXML($this->params);
+                $this->contentType();
+                $output = \Remix\Utility\Arr::toXML($this->params);
+                break;
 
             case 'redirect':
                 header('Location: ' . $this->params);
-                return '';
+                break;
+                $output = '';
 
             case 'header':
+                $this->contentType('html');
                 $bounce = new Bounce('httperror', [], true);
                 $bounce->code = $this->status;
                 $bounce->message = $this->params;
-                return $bounce->record();
+                $output = $bounce->record();
+                break;
 
             default:
                 if (method_exists($this, 'record')) {
-                    $this->mime('html');
-                    return $this->record($this->params);
+                    $this->contentType('html');
+                    $output = $this->record($this->params);
                 } else {
-                    return 'not recordable';
+                    $this->contentType('text');
+                    $output = 'not recordable';
                 }
+                break;
         }
         // switch
+        return $output;
     }
-    // function __toString()
-
-    public function mime(string $type = 'html', string $charset = 'utf-8'): self
-    {
-        $mimetype = static::$mimetype[$type] ?? static::$mimetype['html'];
-        $charset = 'utf-8';
-
-        header("Content-type: {$mimetype}; charset={$charset}");
-        return $this;
-    }
-    // function mime()
+    // function recorded()
 
     public function status(int $code = 200): self
     {
@@ -104,30 +140,6 @@ class Studio extends Gear
         return $this;
     }
     // function status()
-
-    public function json($params): self
-    {
-        $this->type = 'json';
-        if ($params instanceof Vinyl) {
-            $this->params = $params->toArray();
-        } else {
-            $this->params = $params;
-        }
-        return $this;
-    }
-    // function json()
-
-    public function xml($params): self
-    {
-        $this->type = 'xml';
-        if ($params instanceof Vinyl) {
-            $this->params = $params->toArray();
-        } else {
-            $this->params = $params;
-        }
-        return $this;
-    }
-    // function xml()
 
     public function redirect(string $name, array $params = [], int $status = 303): self
     {
@@ -145,9 +157,26 @@ class Studio extends Gear
         $this->type = 'header';
         $this->status = $status;
         $this->params = $message;
+        Audio::getInstance()->console = true;
         return $this;
     }
     // function header()
+
+    public function output(bool $sendHeader = true): string
+    {
+        $output = $this->recorded();
+        if ($sendHeader) {
+            $this->sendHeader();
+        }
+        return $output;
+    }
+    // function output()
+
+    public function __toString(): string
+    {
+        return $this->output();
+    }
+    // function __toString()
 
     public static function recordException(\Throwable $exception): void
     {
@@ -155,6 +184,7 @@ class Studio extends Gear
         if ($exception instanceof HttpException) {
             $status = $exception->getStatus();
         }
+        Audio::getInstance()->console = true;
 
         $view = new Bounce('exception', [
             'status' => $status,

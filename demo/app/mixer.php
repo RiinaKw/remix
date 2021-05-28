@@ -8,8 +8,8 @@ return [
 
     Track::get('/cb', function () {
         return '<b>from callback</b>';
-    })->console(false),
-    Track::get('/json', 'TopChannel@json')->console(false),
+    }),
+    Track::get('/json', 'TopChannel@json'),
     Track::get('/redirect', 'TopChannel@redirect'),
     Track::get('/exception', 'TopChannel@exception'),
 

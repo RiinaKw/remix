@@ -16,7 +16,6 @@ class Track extends Gear
         $this->props['method'] = $method;
         $this->props['path'] = $path;
         $this->props['action'] = $action;
-        $this->props['console'] = true;
     }
     // function __construct()
 
@@ -49,17 +48,10 @@ class Track extends Gear
 
     public function api(): self
     {
-        $this->props['console'] = false;
         $this->props['path'] .= '(\.:ext)?';
         return $this;
     }
     // function api()
-
-    public function console(bool $is_console): self
-    {
-        $this->props['console'] = $is_console;
-        return $this;
-    }
 
     public function __get(string $name)
     {
@@ -67,8 +59,6 @@ class Track extends Gear
             case 'action':
             case 'path':
             case 'method':
-            case 'console':
-                return $this->props[$name];
             case 'name':
                 return $this->props[$name] ?? null;
             default:

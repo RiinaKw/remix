@@ -7,47 +7,35 @@ namespace Remix;
  */
 class Bounce extends Studio
 {
+    use Recordable;
+
     protected static $left_delimiter = '{{';
     protected static $right_delimiter = '}}';
-
-    protected $file;
-    protected $escaped_params = [];
-    protected $html_params = [];
-    protected $is_internal;
 
     public function __construct(string $file, array $params = [], bool $is_internal = false)
     {
         parent::__construct('html', $params);
-        $this->file = $file;
-        $this->escaped_params = $params;
-        $this->is_internal = $is_internal;
+        $this->property->file = $file;
+        $this->property->escaped_params = $params;
+        $this->property->is_internal = $is_internal;
     }
     // function __construct()
 
-    public function __set(string $name, $value): void
-    {
-        $this->escaped_params[$name] = $value;
-    }
-
-    public function setHtml(string $name, $value): void
-    {
-        $this->html_params[$name] = $value;
-    }
 
     public function record(): string
     {
         $daw = Audio::getInstance()->daw;
-        if ($this->is_internal) {
+        if ($this->property->is_internal) {
             $bounce_dir = Audio::getInstance()->preset->get('remix.bounce_dir');
-            $path = $daw->remixDir($bounce_dir . '/' . $this->file . '.tpl');
+            $path = $daw->remixDir($bounce_dir . '/' . $this->property->file . '.tpl');
         } else {
             $bounce_dir = Audio::getInstance()->preset->get('app.bounce_dir');
-            $path = $daw->appDir($bounce_dir . '/' . $this->file . '.tpl');
+            $path = $daw->appDir($bounce_dir . '/' . $this->property->file . '.tpl');
         }
         $daw = null;
 
         if (! $path) {
-            throw new RemixException('bounce "' . $this->file . '.tpl" not found');
+            throw new RemixException('bounce "' . $this->property->file . '.tpl" not found');
         }
 
         $source = Utility\Capture::capture(function () use ($path) {
@@ -65,12 +53,14 @@ class Bounce extends Studio
         $executable = $source;
 
         // translate to php
-        foreach (array_keys($this->html_params) as $key) {
-            $executable = preg_replace(
-                $re_l . '(\$' . $key . ')' . $re_r,
-                '<?php echo $1 ?? null; ?>',
-                $executable
-            );
+        if ($this->property->html_params) {
+            foreach (array_keys($this->property->html_params) as $key) {
+                $executable = preg_replace(
+                    $re_l . '(\$' . $key . ')' . $re_r,
+                    '<?php echo $1 ?? null; ?>',
+                    $executable
+                );
+            }
         }
         $executable = preg_replace(
             $re_l . '(for|while|foreach|if|elseif)\s+?([^\s].*?[^\s])' . $re_r,
@@ -114,17 +104,19 @@ class Bounce extends Studio
      */
     protected function play($source): string
     {
-        $escaped_params = $this->escaped_params;
-        $html_params = $this->html_params;
+        $escaped_params = $this->property->escaped_params;
+        $html_params = $this->property->html_params;
 
-        $response = \Remix\Utility\Capture::capture(function () use ($source, $escaped_params, $html_params) {
-            $executable = $this->translate($source);
-
-            extract($escaped_params);
-            extract($html_params);
-
-            eval($executable);
-        });
+        $response = \Remix\Utility\Capture::capture(
+            function () use ($source, $escaped_params, $html_params) {
+                extract($escaped_params);
+                if ($html_params) {
+                    extract($html_params);
+                }
+                $executable = $this->translate($source);
+                eval($executable);
+            }
+        );
 
         return $response;
     }

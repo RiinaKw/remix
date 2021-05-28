@@ -23,8 +23,7 @@
     </style>
   </head>
   <body>
-    <h1>Exception {{ $status }}</h1>
-    <p><?php echo $this->params['message'] ?></p>
+    <h1>Exception {{ $status }} : {{ $message }}</h1>
     <p><strong>{{ $file }}</strong>, line <strong>{{ $line }}</strong></p>
     <ol class="source">
 {{ foreach ($target as $line) }}

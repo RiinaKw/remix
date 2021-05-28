@@ -47,8 +47,7 @@ class MixerTest extends TestCase
         // will throw exception when unknown route?
         $_SERVER['REQUEST_METHOD'] = 'GET';
         $response = $this->mixer->route('/unknwon');
-        $code = $this->invokeProperty($response, 'code');
-        $this->assertSame(404, $code);
+        $this->assertSame(404, $response->code());
     }
 
     public function testName(): void

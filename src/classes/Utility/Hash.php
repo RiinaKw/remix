@@ -112,6 +112,20 @@ class Hash
     }
     // function delete()
 
+    public function push(string $name, $value, ?string $key = null): void
+    {
+        if ($this->isset($name) && !is_array($this->get($name))) {
+            throw Error();
+        }
+        $arr = $this->get($name) ?: [];
+        if ($key === null) {
+            $arr[] = $value;
+        } else {
+            $arr[$key] = $value;
+        }
+        $this->set($name, $arr);
+    }
+
     public function __get(string $name)
     {
         return $this->get($name);

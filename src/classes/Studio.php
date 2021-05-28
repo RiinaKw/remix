@@ -74,69 +74,57 @@ class Studio extends Gear
     }
     // function sendHeader()
 
-    /**
-     *
-     * @SuppressWarnings(PHPMD.CyclomaticComplexity)
-     */
     public function recorded(): string
     {
         if ($this->property->code) {
             $this->status($this->property->code);
         }
-        $output = '';
 
-        switch ($this->property->type) {
-            case 'none':
-                $output =  '';
-                break;
-
-            case 'text':
+        $map = [
+            'none' => function () {
+                return '';
+            },
+            'text' => function () {
                 $this->contentType();
-                $output = serialize($this->property->params);
-                break;
-
-            case 'closure':
+                return serialize($this->property->params);
+            },
+            'closure' => function () {
                 $this->contentType('text');
-                $closure = $this->property->params;
-                $output = $closure();
-                break;
-
-            case 'json':
+                return $this->property->params();
+            },
+            'json' => function () {
                 $this->contentType();
-                $output = json_encode($this->property->params);
-                break;
-
-            case 'xml':
+                return json_encode($this->property->params);
+            },
+            'xml' => function () {
                 $this->contentType();
-                $output = \Remix\Utility\Arr::toXML($this->property->params);
-                break;
-
-            case 'redirect':
+                return \Remix\Utility\Arr::toXML($this->property->params);
+            },
+            'redirect' => function () {
                 header('Location: ' . $this->property->params);
-                break;
-                $output = '';
-
-            case 'header':
+                return '';
+            },
+            'header' => function () {
                 $this->contentType('html');
                 $bounce = new Bounce('httperror', [], true);
                 $bounce->satus_code = $this->property->code;
                 $bounce->title = $this->property->params['title'];
                 $bounce->message = $this->property->params['message'];
-                $output = $bounce->record();
-                break;
+                return $bounce->record();
+            },
+        ];
 
-            default:
-                if (method_exists($this, 'record')) {
-                    $this->contentType('html');
-                    $output = $this->record($this->property->params);
-                } else {
-                    $this->contentType('text');
-                    $output = 'not recordable';
-                }
-                break;
+        if (issey($map[$this->property->type])) {
+            return $map[$this->property->type]();
+        } else {
+            if (method_exists($this, 'record')) {
+                $this->contentType('html');
+                return $this->record($this->property->params);
+            } else {
+                $this->contentType('text');
+                return 'not recordable';
+            }
         }
-        // switch
-        return $output;
     }
     // function recorded()
 

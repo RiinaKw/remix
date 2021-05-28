@@ -114,7 +114,7 @@ class Studio extends Gear
             },
         ];
 
-        if (issey($map[$this->property->type])) {
+        if (isset($map[$this->property->type])) {
             return $map[$this->property->type]();
         } else {
             if (method_exists($this, 'record')) {

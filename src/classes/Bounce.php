@@ -22,17 +22,19 @@ class Bounce extends Studio
     // function __construct()
 
 
-    public function record(): string
+    public function record(string $path = null): string
     {
-        $daw = Audio::getInstance()->daw;
-        if ($this->property->is_internal) {
-            $bounce_dir = Audio::getInstance()->preset->get('remix.bounce_dir');
-            $path = $daw->remixDir($bounce_dir . '/' . $this->property->file . '.tpl');
-        } else {
-            $bounce_dir = Audio::getInstance()->preset->get('app.bounce_dir');
-            $path = $daw->appDir($bounce_dir . '/' . $this->property->file . '.tpl');
+        if (! $path) {
+            $daw = Audio::getInstance()->daw;
+            if ($this->property->is_internal) {
+                $bounce_dir = Audio::getInstance()->preset->get('remix.bounce_dir');
+                $path = $daw->remixDir($bounce_dir . '/' . $this->property->file . '.tpl');
+            } else {
+                $bounce_dir = Audio::getInstance()->preset->get('app.bounce_dir');
+                $path = $daw->appDir($bounce_dir . '/' . $this->property->file . '.tpl');
+            }
+            $daw = null;
         }
-        $daw = null;
 
         if (! $path) {
             throw new RemixException('bounce "' . $this->property->file . '.tpl" not found');

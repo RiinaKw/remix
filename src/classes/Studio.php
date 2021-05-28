@@ -118,8 +118,7 @@ class Studio extends Gear
             return $map[$this->property->type]();
         } else {
             if (method_exists($this, 'record')) {
-                $this->contentType('html');
-                return $this->record($this->property->params);
+                return $this->contentType('html')->record();
             } else {
                 $this->contentType('text');
                 return 'not recordable';

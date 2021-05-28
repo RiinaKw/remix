@@ -46,7 +46,7 @@ class TopChannel extends \Remix\Channel
         $param = [
             'some' => 'thing',
         ];
-        return Studio::factory()->json($param);
+        return Studio::factory('json', $param);
     }
     // function json()
 

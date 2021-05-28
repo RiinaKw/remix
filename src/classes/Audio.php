@@ -95,14 +95,23 @@ class Audio
     public static function destroy(): void
     {
         if (static::$audio) {
+            $bounce_dir = Audio::getInstance()->preset->get('remix.bounce_dir');
+            $path = Audio::getInstance()->daw->remixDir($bounce_dir . '/console.tpl');
+
             static::$audio->equalizer->destroy();
             static::$audio->equalizer = null;
 
             if (static::$is_debug) {
                 Delay::logMemory();
                 Delay::logTime();
+
                 if (! static::$is_cli && static::$is_console) {
-                    echo Delay::get();
+                    $delay =  Delay::get();
+                    $view = new Bounce('console', [
+                    ], true);
+                    $view->setHtml('delay', $delay);
+
+                    echo $view->record($path);
                 }
             }
         }

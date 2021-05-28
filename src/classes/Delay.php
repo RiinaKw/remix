@@ -105,13 +105,13 @@ class Delay
     }
     // function stderr()
 
-    public static function get(): string
+    public static function get(): array
     {
         $result = [];
         foreach (static::$log as $log) {
             $result[] = static::format($log);
         }
-        return implode("<br />\n", $result);
+        return $result;
     }
     // public function get()
 }

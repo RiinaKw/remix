@@ -4,8 +4,8 @@ namespace App\Vinyl;
 
 class Note extends \Remix\Vinyl
 {
-    public static $table = 'notes';
-    public static $pk = 'note_id';
+    public const TABLE = 'notes';
+    public const PK = 'note_id';
 
     protected static $turntable = \App\Turntable\NoteTurntable::class;
 }

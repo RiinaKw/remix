@@ -4,7 +4,7 @@ namespace Remix\Vinyl;
 
 class Livehouse extends \Remix\Vinyl
 {
-    public static $table = 'livehouses';
-    public static $pk = 'livehouse';
+    public const TABLE = 'livehouses';
+    public const PK = 'livehouse';
 }
-// class User
+// class Livehouse

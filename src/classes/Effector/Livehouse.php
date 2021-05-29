@@ -21,9 +21,11 @@ final class Livehouse extends Effector
     {
         $table = self::$vinyl_class::table();
         if (! $table->exists()) {
-            $table->create([
-                'livehouse VARCHAR(255)',
-            ]);
+            $table->create(function (DJ\Table $table) {
+                return [
+                    $table->varchar('livehouse', 255)->pk(),
+                ];
+            });
         }
         self::$table = $table;
     }
@@ -93,11 +95,11 @@ final class Livehouse extends Effector
             $livehouse->open();
             $sql = sprintf(
                 'INSERT INTO `%s` (`%s`) VALUES(:%s);',
-                self::$vinyl_class::$table,
-                self::$vinyl_class::$pk,
-                self::$vinyl_class::$pk
+                self::$vinyl_class::TABLE,
+                self::$vinyl_class::PK,
+                self::$vinyl_class::PK
             );
-            DJ::play($sql, [':' . self::$vinyl_class::$pk => $livehouse->name]);
+            DJ::play($sql, [':' . self::$vinyl_class::PK => $livehouse->name]);
             self::line("  + open livehouse '{$livehouse->name}'", 'cyan');
             $livehouse = null;
             return true;
@@ -117,8 +119,8 @@ final class Livehouse extends Effector
 
             $sql = sprintf(
                 'SELECT * FROM `%s` ORDER BY %s DESC',
-                self::$vinyl_class::$table,
-                self::$vinyl_class::$pk
+                self::$vinyl_class::TABLE,
+                self::$vinyl_class::PK
             );
             $result = DJ::first($sql, []);
 
@@ -145,11 +147,11 @@ final class Livehouse extends Effector
             $livehouse->close();
             $sql = sprintf(
                 'DELETE FROM `%s` WHERE %s = :%s;',
-                self::$vinyl_class::$table,
-                self::$vinyl_class::$pk,
-                self::$vinyl_class::$pk
+                self::$vinyl_class::TABLE,
+                self::$vinyl_class::PK,
+                self::$vinyl_class::PK
             );
-            DJ::play($sql, [':' . self::$vinyl_class::$pk => $livehouse->name]);
+            DJ::play($sql, [':' . self::$vinyl_class::PK => $livehouse->name]);
             self::line("  - close livehouse '{$livehouse->name}'", 'cyan');
         }
     }

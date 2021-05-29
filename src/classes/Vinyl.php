@@ -11,8 +11,9 @@ use Remix\DJ\BPM;
  */
 abstract class Vinyl extends Gear
 {
-    public static $table = 'default_table';
-    public static $pk = 'default_pk';
+    public const TABLE = 'default_table';
+    public const PK = 'default_pk';
+
     protected $prop = [];
     protected $is_new = false;
     protected static $turntable = Turntable::class;
@@ -34,12 +35,12 @@ abstract class Vinyl extends Gear
 
     public static function table(): DJ\Table
     {
-        return DJ::table(static::$table);
+        return DJ::table(static::TABLE);
     }
 
     public static function select($columns = '*'): BPM
     {
-        return new BPM\Select(static ::$table, $columns);
+        return new BPM\Select(static::TABLE, $columns);
     }
 
     /**
@@ -53,7 +54,7 @@ abstract class Vinyl extends Gear
     public static function find($id): ?self
     {
         $bpm = static::select();
-        $bpm->where(static::$pk, '=', $id);
+        $bpm->where(static::PK, '=', $id);
         $setlist = $bpm->prepare();
         $vinyl = $setlist->asVinyl(static::class)->first();
         return $vinyl ?: null;

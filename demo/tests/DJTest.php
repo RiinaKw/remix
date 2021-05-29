@@ -165,5 +165,21 @@ class DJTest extends TestCase
 
         $this->assertFalse($table->exists());
     }
+
+    public function testBack2back()
+    {
+        $back2back = \Remix\DJ::back2back();
+
+        // The original behavior is that an exception is thrown
+        // if beginTransaction is performed before the transaction is completed.
+        try {
+            // Remix doesn't have that problem.
+            $back2back->start();
+            $back2back->start();
+        } catch (\Exception $e) {
+            $this->fail('exception throwed');
+        }
+        $this->assertTrue(true);
+    }
 }
 // class DJTest

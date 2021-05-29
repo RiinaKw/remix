@@ -7,12 +7,12 @@ namespace Remix;
  */
 abstract class Effector extends Gear
 {
-    protected static $title = 'this eccector is abstract class';
+    protected const TITLE = 'this eccector is abstract class';
     protected static $commands = [
         '' => 'nothing to do',
     ];
 
-    protected static $text_colors = array(
+    private const TEXT_COLORS = array(
         'black'        => '0;30',
         'dark_gray'    => '1;30',
         'blue'         => '0;34',
@@ -31,7 +31,7 @@ abstract class Effector extends Gear
         'light_gray'   => '0;37',
         'white'        => '1;37',
     );
-    protected static $background_colors = array(
+    private const BACKGROUND_COLORS = array(
         'black'      => '40',
         'red'        => '41',
         'green'      => '42',
@@ -50,7 +50,7 @@ abstract class Effector extends Gear
     public static function detail(): void
     {
         $command = static::classToCommand();
-        static::line(static::color($command, 'green') . ' : ' . static::$title);
+        static::line(static::color($command, 'green') . ' : ' . static::TITLE);
         static::commands();
     }
     // function title()
@@ -137,16 +137,16 @@ abstract class Effector extends Gear
         $left = '';
         $right = '';
 
-        if ($text_color && ! isset(static::$text_colors[$text_color])) {
+        if ($text_color && ! isset(self::TEXT_COLORS[$text_color])) {
             throw new RemixException("unknown color : '{$text_color}'");
         }
-        if ($background_color && ! isset(static::$background_colors[$background_color])) {
+        if ($background_color && ! isset(self::BACKGROUND_COLORS[$background_color])) {
             throw new RemixException("unknown color : '{$background_color}'");
         }
 
-        $left = "\033[" . static::$text_colors[$text_color] . "m";
+        $left = "\033[" . self::TEXT_COLORS[$text_color] . "m";
         if ($background_color) {
-            $left .= "\033[" . static::$background_colors[$background_color] . "m";
+            $left .= "\033[" . self::BACKGROUND_COLORS[$background_color] . "m";
         }
         $right = "\033[0m";
         return $left . $text . $right;

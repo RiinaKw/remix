@@ -6,7 +6,7 @@ use Remix\Effector;
 
 class Version extends Effector
 {
-    protected static $title = 'Show version of Remix framework.';
+    protected const TITLE = 'Show version of Remix framework.';
     protected static $commands = [
         '' => 'show version',
     ];

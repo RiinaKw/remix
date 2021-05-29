@@ -8,7 +8,7 @@ use App\Vinyl;
 
 class User extends Effector
 {
-    protected static $title = 'Example of Effector with DJ.';
+    protected const TITLE = 'Example of Effector with DJ.';
     protected static $commands = [
         '' => 'show user',
     ];

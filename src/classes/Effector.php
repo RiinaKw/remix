@@ -42,26 +42,34 @@ abstract class Effector extends Gear
         'light_gray' => '47',
     );
 
+    protected static function detail()
+    {
+        Effector::line(static::$title);
+        Effector::line('usage :');
+        static::commands();
+    }
+    // function detail()
+
     public function title(): array
     {
         $command = static::classToCommand();
         $outputs = [];
         $outputs[] = '  ' . Effector::color($command, 'green') . ' : ' . static::$title;
-        $outputs[] = $this->commands();
+        $outputs[] = static::commands();
         return $outputs;
     }
     // function title()
 
-    private function classToCommand()
+    private static function classToCommand()
     {
-        $namespaces = explode('\\', get_class($this));
+        $namespaces = explode('\\', static::class);
         return strtolower(array_pop($namespaces));
     }
     // function classToCommand()
 
-    private function commands(): array
+    private static function commands(): array
     {
-        $name = $this->classToCommand();
+        $name = static::classToCommand();
         $outputs = [];
         array_walk(static::$commands, function ($item, $key) use ($name, &$outputs) {
             if ($key) {

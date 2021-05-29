@@ -135,14 +135,11 @@ class DJTest extends TestCase
         if ($table->exists()) {
             $table->drop();
         }
-
         $this->assertFalse($table->exists());
 
         $table->create(function ($table) {
-            return [
-                $table->int('id'),
-                $table->text('title'),
-            ];
+            $table->int('id')->pk();
+            $table->text('title');
         });
 
         $this->assertTrue($table->exists());
@@ -150,20 +147,20 @@ class DJTest extends TestCase
 
     public function testDrop()
     {
-        $table = \Remix\DJ::table('test_table');
+        $test_table = \Remix\DJ::table('test_table');
 
-        if (! $table->exists()) {
-            $table->create([
-                'id INT',
-                'title TEXT',
-            ]);
+        if (! $test_table->exists()) {
+            $test_table->create(function ($table) {
+                $table->int('id');
+                $table->text('title');
+            });
         }
 
-        $this->assertTrue($table->exists());
+        $this->assertTrue($test_table->exists());
 
-        $table->drop();
+        $test_table->drop();
 
-        $this->assertFalse($table->exists());
+        $this->assertFalse($test_table->exists());
     }
 
     public function testBack2back()

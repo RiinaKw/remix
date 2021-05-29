@@ -22,9 +22,7 @@ final class Livehouse extends Effector
         $table = self::$vinyl_class::table();
         if (! $table->exists()) {
             $table->create(function (DJ\Table $table) {
-                return [
-                    $table->varchar('livehouse', 255)->pk(),
-                ];
+                $table->varchar('livehouse', 255)->pk();
             });
         }
         self::$table = $table;

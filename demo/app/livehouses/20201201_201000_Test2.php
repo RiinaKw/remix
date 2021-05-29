@@ -13,13 +13,11 @@ class Test2 extends Livehouse
     {
         $table = DJ::table('test2');
         $table->create(function (Table $table) {
-            return [
-                $table->int('id')->pk(),
-                $table->int('user_id')->unsigned()->index(),
-                $table->varchar('title', 100)->default('untitled')->unique(),
-                $table->text('content')->nullable(),
-                $table->timestamp('created_at')->default('current_timestamp()'),
-            ];
+            $table->int('id')->pk();
+            $table->int('user_id')->unsigned()->index();
+            $table->varchar('title', 100)->default('untitled')->unique();
+            $table->text('content')->nullable();
+            $table->timestamp('created_at')->default('current_timestamp()');
         });
         // throw new RemixException('test in Livehouse');
     }

@@ -11,12 +11,10 @@ class Test extends Livehouse
     public function open()
     {
         DJ::table('test')->create(function (Table $table) {
-            return [
-                $table->int('id')->pk(),
-                $table->varchar('name', 100),
-                $table->text('profile')->nullable(),
-                $table->timestamp('created_at')->default('current_timestamp()'),
-            ];
+            $table->int('id')->pk();
+            $table->varchar('name', 100);
+            $table->text('profile')->nullable();
+            $table->timestamp('created_at')->default('current_timestamp()');
         });
     }
 

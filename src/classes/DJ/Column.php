@@ -18,7 +18,7 @@ class Column extends Gear
         $this->props['unsigned'] = false;
         //$this->props['default'] = ''; // unset is default
         $this->props['additional'] = [];
-        $this->props['index'] = '';
+        $this->props['index'] = [];
     }
 
     public function __get(string $key)
@@ -31,16 +31,21 @@ class Column extends Gear
         return null;
     }
 
-    public function __call($name, $args = null): self
+    public function pk()
     {
-        switch ($name) {
-            case 'pk':
-            case 'unique':
-            case 'index':
-                $this->props['index'] = $name;
-                return $this;
-        }
-        throw new DJException('unknown method "' . $name . '"');
+        $this->props['index'][] = $this;
+        return $this;
+    }
+
+    public function unique()
+    {
+        $this->props['index'][] = $this;
+        return $this;
+    }
+
+    public function index()
+    {
+        $this->props['index'][] = $this;
         return $this;
     }
 

@@ -12,10 +12,7 @@ use Remix\Exceptions\DJException;
 class Table extends Gear
 {
     protected $name;
-    //protected $context = 'select';
-    //protected $where = [];
-    //protected $params = [];
-    //protected $as = null;
+    protected $columns = [];
 
     protected function __construct(string $name)
     {
@@ -38,13 +35,13 @@ class Table extends Gear
     public function create(callable $cb): bool
     {
         if (! $this->exists()) {
-            $columns = $cb($this);
-            if (count($columns) < 1) {
+            $cb($this);
+            if (count($this->columns) < 1) {
                 $message = sprintf('Table "%s" must contains any column', $this->name);
                 throw new DJException($message);
             }
             $columns_string = [];
-            foreach ($columns as $column) {
+            foreach ($this->columns as $column) {
                 $columns_string[] = (string)$column;
             }
             $sql = sprintf(
@@ -55,8 +52,7 @@ class Table extends Gear
 
             try {
                 if (DJ::play($sql)) {
-                    array_walk($columns, function ($column) {
-                        $this->index($column);
+                    array_walk($this->columns, function ($column) {
                     });
                     return true;
                 } else {
@@ -191,20 +187,26 @@ class Table extends Gear
         return new Select($this->name);
     }
 
-    public function __call(string $name, $args)
+    public function __call(string $name, $args): Column
     {
         switch ($name) {
             case 'int':
             case 'varchar':
-                return Column::factory($args[0], ['type' => $name, 'length' => $args[1] ?? false]);
+                $column = Column::factory($args[0], ['type' => $name, 'length' => $args[1] ?? false]);
+                break;
 
             case 'text':
             case 'datetime':
             case 'timestamp':
-                return Column::factory($args[0], ['type' => $name]);
+                $column = Column::factory($args[0], ['type' => $name]);
+                break;
+
+            default:
+                $message = sprintf('unknown method "%s"', $name);
+                throw new DJException($message);
         }
-        $message = sprintf('unknown method "%s"', $name);
-        throw new DJException($message);
+        $this->columns[$column->name] = $column;
+        return $column;
     }
 }
 // class Table

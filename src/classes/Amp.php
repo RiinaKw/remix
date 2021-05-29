@@ -50,18 +50,10 @@ class Amp extends Gear
         static::available('app');
 
         Effector::line('Available commands :');
-        Effector::line('');
 
-        $outputs = [];
-        array_walk(static::$effectors, function ($classname) use (&$outputs) {
-            $effector = new $classname();
-            $outputs[] = $effector->title();
-            $outputs[] = '';
-        });
-        array_pop($outputs);
-        $lines = Arr::flatten($outputs);
-        array_walk($lines, function ($line) {
-            Effector::line($line);
+        array_walk(static::$effectors, function ($classname) {
+            Effector::line('');
+            $classname::detail();
         });
     }
 

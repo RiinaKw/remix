@@ -42,21 +42,16 @@ abstract class Effector extends Gear
         'light_gray' => '47',
     );
 
-    protected static function detail()
+    public function index()
     {
-        Effector::line(static::$title);
-        Effector::line('usage :');
-        static::commands();
+        static::detail();
     }
-    // function detail()
 
-    public function title(): array
+    public static function detail(): void
     {
         $command = static::classToCommand();
-        $outputs = [];
-        $outputs[] = '  ' . Effector::color($command, 'green') . ' : ' . static::$title;
-        $outputs[] = static::commands();
-        return $outputs;
+        static::line(static::color($command, 'green') . ' : ' . static::$title);
+        static::commands();
     }
     // function title()
 
@@ -67,19 +62,24 @@ abstract class Effector extends Gear
     }
     // function classToCommand()
 
-    private static function commands(): array
+    protected static function commands(): void
     {
         $name = static::classToCommand();
         $outputs = [];
         array_walk(static::$commands, function ($item, $key) use ($name, &$outputs) {
             if ($key) {
-                $outputs[] = '    '
-                    . Effector::color($name . ':' . $key, 'yellow')
-                    . ' : '
-                    . $item;
+                $outputs[] = '    ' .
+                    Effector::color($name . ':' . $key, 'yellow') .
+                    ' : ' .
+                    $item;
             }
         });
-        return $outputs;
+        if ($outputs) {
+            Effector::line('  usage :');
+            array_walk($outputs, function ($item) {
+                static::line($item);
+            });
+        }
     }
     // function commands()
 

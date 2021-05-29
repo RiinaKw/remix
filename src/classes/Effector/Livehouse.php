@@ -17,12 +17,6 @@ class Livehouse extends Effector
     private static $table = null;
     private static $vinyl_class = \Remix\Vinyl\Livehouse::class;
 
-
-    public function index()
-    {
-        $this->detail();
-    }
-
     private static function setup(): void
     {
         $table = static::$vinyl_class::table();

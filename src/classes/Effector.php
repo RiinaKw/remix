@@ -19,13 +19,31 @@ abstract class Effector extends Gear
         $this->commands();
     }
 
-    public function commands(): void
+    public function title(): array
+    {
+        $command = static::classToCommand();
+        $outputs = [];
+        $outputs[] = "  {$command} : " . static::$title;
+        $outputs[] = $this->commands();
+        return $outputs;
+    }
+
+    public function classToCommand()
     {
         $namespaces = explode('\\', get_class($this));
-        $name = strtolower(array_pop($namespaces));
-        array_walk(static::$commands, function ($item, $key) use ($name) {
-            Effector::line("  {$name} {$key} : {$item}");
+        return strtolower(array_pop($namespaces));
+    }
+
+    public function commands(): array
+    {
+        $name = $this->classToCommand();
+        $outputs = [];
+        array_walk(static::$commands, function ($item, $key) use ($name, &$outputs) {
+            if ($key) {
+                $outputs[] = "    {$name} {$key} : {$item}";
+            }
         });
+        return $outputs;
     }
 
     public function play(string $method, array $arg = []): void

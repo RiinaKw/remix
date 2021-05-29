@@ -20,7 +20,7 @@ class AmpTest extends TestCase
 
     public function testNoArg()
     {
-        $this->expectOutputRegex('/Remix Amp/');
+        $this->expectOutputRegex('/Remix framework/');
 
         $this->daw->playCli(['amp']);
         $this->assertTrue(\Remix\Audio::getInstance()->cli);
@@ -31,6 +31,14 @@ class AmpTest extends TestCase
         $this->expectOutputRegex('/TB-303 and TR-808 and 909/');
 
         $this->daw->playCli(['amp', 'instrument:acid', '-808', '--add=909']);
+    }
+
+    public function testInvalidArg()
+    {
+        $this->expectOutputRegex('/unknown effector/');
+
+        $this->daw->playCli(['amp', 'boo']);
+        $this->assertTrue(\Remix\Audio::getInstance()->cli);
     }
 }
 // class AmpTest

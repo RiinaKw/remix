@@ -6,6 +6,11 @@ use Remix\Effector;
 
 class Instrument extends Effector
 {
+    protected static $title = 'Example of Effector.';
+    protected static $commands = [
+        '' => 'show instrument',
+    ];
+
     public function index()
     {
         Effector::line('I am Instrument belonging to Audio, which instruments do you like?');

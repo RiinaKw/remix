@@ -8,7 +8,7 @@ use Remix\RemixException;
 
 class Livehouse extends Effector
 {
-    protected static $title = 'Remix Livehouse : Migration manager.';
+    protected static $title = 'Remix migration manager.';
     protected static $commands = [
         'open' => 'oepn livehouse',
         'close' => 'close livehouse',

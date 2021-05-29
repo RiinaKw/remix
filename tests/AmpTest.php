@@ -23,7 +23,7 @@ class AmpTest extends TestCase
     public function testLoad(): void
     {
         // is callable with no arguments?
-        $this->expectOutputRegex('/Remix Amp/');
+        $this->expectOutputRegex('/Remix framework/');
         $this->amp->play(['amp']);
     }
 

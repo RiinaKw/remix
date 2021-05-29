@@ -2,6 +2,8 @@
 
 namespace Remix;
 
+use Remix\Utility\Arr;
+
 /**
  * Remix Amp : command line interface
  */
@@ -47,11 +49,19 @@ class Amp extends Gear
         static::available('remix');
         static::available('app');
 
-        array_walk(static::$effectors, function ($classname, $command) {
+        Effector::line('Available commands :');
+        Effector::line('');
+
+        $outputs = [];
+        array_walk(static::$effectors, function ($classname) use (&$outputs) {
             $effector = new $classname();
-            echo "$command\n";
-            $effector->commands();
-            echo "\n";
+            $outputs[] = $effector->title();
+            $outputs[] = '';
+        });
+        array_pop($outputs);
+        $lines = Arr::flatten($outputs);
+        array_walk($lines, function ($line) {
+            Effector::line($line);
         });
     }
 

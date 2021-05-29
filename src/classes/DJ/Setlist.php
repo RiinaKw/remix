@@ -50,18 +50,19 @@ class Setlist extends Gear implements \Iterator, \Countable
     }
     // function dump();
 
-    public function play(): self
+    public function play(): bool
     {
-        $this->statement->execute($this->holders);
+        $result = $this->statement->execute($this->holders);
         $this->dump();
 
-        return $this;
+        return $result;
     }
     // function play()
 
     public function first()
     {
-        return $this->play()->statement->fetch();
+        $result = $this->play();
+        return $result ? $this->statement->fetch() : null;
     }
 
     public function count(): int

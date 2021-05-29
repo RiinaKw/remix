@@ -43,7 +43,8 @@ class DJ extends \Remix\Gear
     public static function play(string $sql, array $params = []): ?Setlist
     {
         $setlist = static::prepare($sql, $params);
-        return $setlist->play($params);
+        $result = $setlist->play($params);
+        return $result ? $setlist : null;
     }
     // function play()
 

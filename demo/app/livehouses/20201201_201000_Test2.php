@@ -14,7 +14,7 @@ class Test2 extends Livehouse
             return [
                 $table->int('id')->pk(),
                 $table->int('user_id')->unsigned()->index(),
-                $table->varchar('title', 100)->default('untitled'),
+                $table->varchar('title', 100)->default('untitled')->unique(),
                 $table->text('content')->nullable(),
                 $table->timestamp('created_at')->default('current_timestamp()'),
             ];

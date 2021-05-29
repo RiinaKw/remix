@@ -3,6 +3,7 @@
 namespace Remix\DJ;
 
 use Remix\Gear;
+use Remix\Exceptions\DJException;
 
 class Column extends Gear
 {
@@ -17,6 +18,7 @@ class Column extends Gear
         $this->props['unsigned'] = false;
         //$this->props['default'] = ''; // unset is default
         $this->props['additional'] = [];
+        $this->props['index'] = '';
     }
 
     public function __get(string $key)
@@ -24,7 +26,7 @@ class Column extends Gear
         switch ($key) {
             case 'name':
             case 'index':
-                return $this->props[$key];
+                return $this->props[$key] ?? null;
         }
         return null;
     }
@@ -38,7 +40,7 @@ class Column extends Gear
                 $this->props['index'] = $name;
                 return $this;
         }
-        throw new Exception('unknown method');
+        throw new DJException('unknown method "' . $name . '"');
         return $this;
     }
 
@@ -125,6 +127,7 @@ class Column extends Gear
         $text .= ' ' . ($this->props['nullable'] ? 'NULL' : 'NOT NULL');
         $text .= $this->definitionDefaultValue();
         $text .= $this->props['additional'] ? (' ' . implode(' ', $this->props['additional'])) : '';
+        $text .= $this->props['index'] === 'pk' ? ' PRIMARY KEY' : '';
         return $text;
     }
 }

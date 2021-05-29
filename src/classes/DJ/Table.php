@@ -7,7 +7,7 @@ use Remix\DJ;
 use Remix\DJ\Setlist;
 use Remix\DJ\BPM;
 use Remix\DJ\BPM\Select;
-use Remix\RemixException;
+use Remix\Exceptions\DJException;
 
 class Table extends Gear
 {
@@ -21,17 +21,19 @@ class Table extends Gear
     {
         if (preg_match('/\W/', $name)) {
             $message = sprintf('Illegal table name "%s"', $name);
-            throw new RemixException($message);
+            throw new DJException($message);
         }
         parent::__construct();
         $this->name = $name;
     }
+    // function __construct()
 
     public function exists(): bool
     {
         $result = DJ::first('SHOW TABLES LIKE :table;', [':table' => $this->name]);
         return (bool)$result;
     }
+    // function exists()
 
     public function create(callable $cb): bool
     {
@@ -39,20 +41,77 @@ class Table extends Gear
             $columns = $cb($this);
             if (count($columns) < 1) {
                 $message = sprintf('Table "%s" must contains any column', $this->name);
-                throw new RemixException($message);
+                throw new DJException($message);
             }
             $columns_string = [];
             foreach ($columns as $column) {
                 $columns_string[] = (string)$column;
             }
-            $sql = sprintf('CREATE TABLE `%s` (%s);', $this->name, implode(', ', $columns_string));
-            return DJ::play($sql) !== false;
+            $sql = sprintf(
+                'CREATE TABLE `%s` (%s);',
+                $this->name,
+                implode(', ', $columns_string)
+            );
+
+            try {
+                if (DJ::play($sql)) {
+                    array_walk($columns, function ($column) {
+                        $this->index($column);
+                    });
+                    return true;
+                } else {
+                    $message = 'Cannot create table "' . $this->name . '"';
+                    throw new DJException($message);
+                }
+            } catch (\Exception $e) {
+                $this->drop();
+                throw new DJException($e->getMessage());
+            }
         } else {
-            $message = sprintf('Table "%s" is already exists', $this->name);
-            throw new RemixException($message);
+            $message = 'Table "' . $this->name . '" is already exists';
+            throw new DJException($message);
         }
         return false;
     }
+    // function create()
+
+    public function index(Column $column): void
+    {
+        switch ($column->index) {
+            case '':
+            case 'pk':
+                // ignore
+                return;
+
+            case 'index':
+                $index_type = 'INDEX';
+                $prefix = 'idx';
+                break;
+
+            case 'unique':
+                $index_type = 'UNIQUE INDEX';
+                $prefix = 'uq';
+                break;
+
+            default:
+                $message = 'Unknown index type "' . $column->index . '"';
+                throw new DJException($message);
+        }
+        $index_name = $prefix . '_' . $this->name . '_' . $column->name;
+
+        $sql = sprintf(
+            'CREATE %s `%s` ON %s(%s);',
+            $index_type,
+            $index_name,
+            $this->name,
+            $column->name
+        );
+        if (! DJ::play($sql)) {
+            $message = 'Cannot create index for table "' . $this->name . '"';
+            throw new DJException($message);
+        }
+    }
+    // function index()
 
     public function drop(): bool
     {
@@ -61,9 +120,10 @@ class Table extends Gear
             return DJ::play($sql) !== false;
         } else {
             $message = sprintf('Table "%s" is not exists', $this->name);
-            throw new RemixException($message);
+            throw new DJException($message);
         }
     }
+    // function drop()
 
     public function truncate(): bool
     {
@@ -72,7 +132,7 @@ class Table extends Gear
             return DJ::play($sql) !== false;
         } else {
             $message = sprintf('Table "%s" is not exists', $this->name);
-            throw new RemixException($message);
+            throw new DJException($message);
         }
     }
     // function truncate()
@@ -144,7 +204,7 @@ class Table extends Gear
                 return Column::factory($args[0], ['type' => $name]);
         }
         $message = sprintf('unknown method "%s"', $name);
-        throw new RemixException($message);
+        throw new DJException($message);
     }
 }
 // class Table

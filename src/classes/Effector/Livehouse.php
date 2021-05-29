@@ -6,7 +6,7 @@ use Remix\Effector;
 use Remix\DJ;
 use Remix\RemixException;
 
-class Livehouse extends Effector
+final class Livehouse extends Effector
 {
     protected const TITLE = 'Remix migration manager.';
     protected static $commands = [
@@ -19,19 +19,19 @@ class Livehouse extends Effector
 
     private static function setup(): void
     {
-        $table = static::$vinyl_class::table();
+        $table = self::$vinyl_class::table();
         if (! $table->exists()) {
             $table->create([
                 'livehouse VARCHAR(255)',
             ]);
         }
-        static::$table = $table;
+        self::$table = $table;
     }
     // function setup()
 
     private static function find(): array
     {
-        $livehouse_dir = \Remix\Audio::getInstance()->daw->appDir('Livehouse');
+        $livehouse_dir = \Remix\Audio::getInstance()->daw->appDir('livehouses');
         $arr = [];
 
         foreach (glob($livehouse_dir . '/*.php') as $file) {
@@ -53,10 +53,9 @@ class Livehouse extends Effector
                 }
 
                 $livehouse = $class_ns::factory(basename($name, '.php'));
-                //var_dump($livehouse->asVinyl());
                 $arr[$livehouse_name] = $livehouse;
             }
-        }
+        } // foreach (glob())
 
         return $arr;
     }
@@ -64,15 +63,19 @@ class Livehouse extends Effector
 
     public function open()
     {
-        Effector::line('Remix Livehouse open');
+        self::line('Remix Livehouse open', 'green');
 
         try {
             DJ::back2back()->start();
-            static::setup();
-            $arr = static::find();
+            self::setup();
+            $arr = self::find();
+            $opened = false;
             foreach ($arr as &$livehouse) {
-                static::stepOpen($livehouse);
+                $opened = self::stepOpen($livehouse);
                 $livehouse = null;
+            }
+            if (! $opened) {
+                self::line('  All livehouses opened', 'red');
             }
 
             DJ::back2back()->success();
@@ -83,42 +86,47 @@ class Livehouse extends Effector
     }
     // function open()
 
-    private static function stepOpen(\Remix\DJ\Livehouse $livehouse)
+    private static function stepOpen(\Remix\DJ\Livehouse $livehouse): bool
     {
-        $vinyl = static::$vinyl_class::find($livehouse->name);
+        $vinyl = self::$vinyl_class::find($livehouse->name);
         if (! $vinyl) {
             $livehouse->open();
             $sql = sprintf(
                 'INSERT INTO `%s` (`%s`) VALUES(:%s);',
-                static::$vinyl_class::$table,
-                static::$vinyl_class::$pk,
-                static::$vinyl_class::$pk
+                self::$vinyl_class::$table,
+                self::$vinyl_class::$pk,
+                self::$vinyl_class::$pk
             );
-            DJ::play($sql, [':' . static::$vinyl_class::$pk => $livehouse->name]);
+            DJ::play($sql, [':' . self::$vinyl_class::$pk => $livehouse->name]);
+            self::line("  + open livehouse '{$livehouse->name}'", 'cyan');
             $livehouse = null;
+            return true;
         }
+        return false;
     }
     // function stepOpen()
 
     public function close()
     {
-        Effector::line('Remix Livehouse close');
+        self::line('Remix Livehouse close', 'green');
 
         try {
             DJ::back2back()->start();
-            static::setup();
-            $arr = static::find();
+            self::setup();
+            $arr = self::find();
 
             $sql = sprintf(
                 'SELECT * FROM `%s` ORDER BY %s DESC',
-                static::$vinyl_class::$table,
-                static::$vinyl_class::$pk
+                self::$vinyl_class::$table,
+                self::$vinyl_class::$pk
             );
             $result = DJ::first($sql, []);
 
             if ($result) {
                 $last = $result['livehouse'];
-                static::stepClose($arr[$last]);
+                self::stepClose($arr[$last]);
+            } else {
+                self::line('  All livehouses closed', 'red');
             }
             $arr = null;
 
@@ -130,18 +138,19 @@ class Livehouse extends Effector
     }
     // function close()
 
-    private static function stepClose(\Remix\DJ\Livehouse $livehouse)
+    private static function stepClose(\Remix\DJ\Livehouse $livehouse): void
     {
-        $vinyl = static::$vinyl_class::find($livehouse->name);
+        $vinyl = self::$vinyl_class::find($livehouse->name);
         if ($vinyl) {
             $livehouse->close();
             $sql = sprintf(
                 'DELETE FROM `%s` WHERE %s = :%s;',
-                static::$vinyl_class::$table,
-                static::$vinyl_class::$pk,
-                static::$vinyl_class::$pk
+                self::$vinyl_class::$table,
+                self::$vinyl_class::$pk,
+                self::$vinyl_class::$pk
             );
-            DJ::play($sql, [':' . static::$vinyl_class::$pk => $livehouse->name]);
+            DJ::play($sql, [':' . self::$vinyl_class::$pk => $livehouse->name]);
+            self::line("  - close livehouse '{$livehouse->name}'", 'cyan');
         }
     }
     // function stepClose()

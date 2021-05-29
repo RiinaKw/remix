@@ -32,7 +32,7 @@ abstract class Vinyl extends Gear
         return $this->prop;
     }
 
-    public static function table(): Table
+    public static function table(): DJ\Table
     {
         return DJ::table(static::$table);
     }

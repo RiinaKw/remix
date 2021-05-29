@@ -5,12 +5,14 @@ namespace App\Livehouse;
 use Remix\DJ;
 use Remix\DJ\Livehouse;
 use Remix\DJ\Table;
+use Remix\RemixException;
 
 class Test2 extends Livehouse
 {
     public function open()
     {
-        DJ::table('test2')->create(function (Table $table) {
+        $table = DJ::table('test2');
+        $table->create(function (Table $table) {
             return [
                 $table->int('id')->pk(),
                 $table->int('user_id')->unsigned()->index(),
@@ -19,6 +21,7 @@ class Test2 extends Livehouse
                 $table->timestamp('created_at')->default('current_timestamp()'),
             ];
         });
+        // throw new RemixException('test in Livehouse');
     }
 
     public function close()

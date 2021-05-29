@@ -140,8 +140,8 @@ class DJTest extends TestCase
 
         $table->create(function ($table) {
             return [
-                'id INT',
-                'title TEXT',
+                $table->int('id'),
+                $table->text('title'),
             ];
         });
 

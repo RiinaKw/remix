@@ -68,21 +68,25 @@ final class Livehouse extends Effector
         self::line('Remix Livehouse open', 'green');
 
         try {
-            DJ::back2back()->start();
             self::setup();
             $arr = self::find();
             $opened = false;
-            foreach ($arr as &$livehouse) {
-                $opened = self::stepOpen($livehouse);
+            foreach ($arr as $filename => &$livehouse) {
+                try {
+                    $opened = self::stepOpen($livehouse);
+                    if ($opened) {
+                        self::line('  + open livehouse "' . $filename . '"', 'cyan');
+                    }
+                } catch (\Exception $e) {
+                    self::stepClose($livehouse);
+                    throw $e;
+                }
                 $livehouse = null;
             }
             if (! $opened) {
                 self::line('  All livehouses opened', 'red');
             }
-
-            DJ::back2back()->success();
         } catch (\Exception $e) {
-            DJ::back2back()->fail();
             throw $e;
         }
     }
@@ -92,7 +96,6 @@ final class Livehouse extends Effector
     {
         $vinyl = self::$vinyl_class::find($livehouse->name);
         if (! $vinyl) {
-            $livehouse->open();
             $sql = sprintf(
                 'INSERT INTO `%s` (`%s`) VALUES(:%s);',
                 self::$vinyl_class::TABLE,
@@ -100,7 +103,8 @@ final class Livehouse extends Effector
                 self::$vinyl_class::PK
             );
             DJ::play($sql, [':' . self::$vinyl_class::PK => $livehouse->name]);
-            self::line("  + open livehouse '{$livehouse->name}'", 'cyan');
+
+            $livehouse->open();
             $livehouse = null;
             return true;
         }
@@ -113,7 +117,6 @@ final class Livehouse extends Effector
         self::line('Remix Livehouse close', 'green');
 
         try {
-            DJ::back2back()->start();
             self::setup();
             $arr = self::find();
 
@@ -127,14 +130,12 @@ final class Livehouse extends Effector
             if ($result) {
                 $last = $result['livehouse'];
                 self::stepClose($arr[$last]);
+                self::line("  - close livehouse '{$last}'", 'cyan');
             } else {
                 self::line('  All livehouses closed', 'red');
             }
             $arr = null;
-
-            DJ::back2back()->success();
         } catch (\Exception $e) {
-            DJ::back2back()->fail();
             throw $e;
         }
     }
@@ -152,7 +153,6 @@ final class Livehouse extends Effector
                 self::$vinyl_class::PK
             );
             DJ::play($sql, [':' . self::$vinyl_class::PK => $livehouse->name]);
-            self::line("  - close livehouse '{$livehouse->name}'", 'cyan');
         }
     }
     // function stepClose()

@@ -50,8 +50,8 @@ class Hash
             $cb_item = function (&$target) {
                 return isset($target);
             };
-            $cb_final = function (&$target, $last) {
-                return $target[$last];
+            $cb_final = function ($target, $last) {
+                return $target[$last] ?? null;
             };
             $result = $this->callback($name, $cb_item, $cb_final);
             return $result;

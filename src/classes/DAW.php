@@ -7,7 +7,7 @@ namespace Remix;
  */
 class DAW extends Gear
 {
-    protected $root_dir;
+    protected $remix_dir;
     protected $app_dir;
     protected $public_dir;
 

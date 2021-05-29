@@ -22,7 +22,7 @@ class Preset extends Gear
         $daw = null;
 
         if (! realpath($file)) {
-            throw new RemixException('preset file not found');
+            throw new RemixException("preset file '{$filename}' not found");
         }
 
         $preset = require($file);

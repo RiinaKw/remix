@@ -7,6 +7,27 @@ namespace Remix;
  */
 abstract class Effector extends Gear
 {
+    protected static $title = 'this eccector is abstract class';
+    protected static $commands = [
+        '' => 'nothing to do',
+    ];
+
+    public function detail()
+    {
+        Effector::line(static::$title);
+        Effector::line('usage:');
+        $this->commands();
+    }
+
+    public function commands(): void
+    {
+        $namespaces = explode('\\', get_class($this));
+        $name = strtolower(array_pop($namespaces));
+        array_walk(static::$commands, function ($item, $key) use ($name) {
+            Effector::line("  {$name} {$key} : {$item}");
+        });
+    }
+
     public function play(string $method, array $arg = []): void
     {
         foreach ($arg as $item) {

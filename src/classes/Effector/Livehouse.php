@@ -8,8 +8,20 @@ use Remix\RemixException;
 
 class Livehouse extends Effector
 {
+    protected static $title = 'Remix Livehouse : Migration manager.';
+    protected static $commands = [
+        'open' => 'oepn livehouse',
+        'close' => 'close livehouse',
+    ];
+
     private static $table = null;
     private static $vinyl_class = \Remix\Vinyl\Livehouse::class;
+
+
+    public function index()
+    {
+        $this->detail();
+    }
 
     private static function setup(): void
     {

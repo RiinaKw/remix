@@ -19,7 +19,7 @@
     "autoload": {
         "psr-4": {
             "Remix\\": "src/classes",
-            "App\\": "demo/app/"
+            "App\\": "demo/app/classes"
         }
     },
     "scripts": {

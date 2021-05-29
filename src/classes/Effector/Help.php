@@ -14,7 +14,7 @@ class Help extends Effector
 
     public function index()
     {
-        $this->detail();
+        \Remix\Amp::availableCommands();
     }
 }
 // class Help

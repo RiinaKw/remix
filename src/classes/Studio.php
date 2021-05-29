@@ -2,6 +2,8 @@
 
 namespace Remix;
 
+use Remix\Preset\Http\MimeType;
+use Remix\Preset\Http\StatusCode;
 use Remix\Exceptions\HttpException;
 
 /**
@@ -9,13 +11,6 @@ use Remix\Exceptions\HttpException;
  */
 class Studio extends Gear
 {
-    /*
-    protected $params = [];
-    protected $type = 'html';
-    protected $code = 200;
-    protected $status = '';
-    protected $headers = [];
-    */
     protected $property;
 
     public function __construct(string $type = 'none', $params = [])
@@ -42,9 +37,9 @@ class Studio extends Gear
     protected function contentType(string $forceType = '', string $charset = 'utf-8'): self
     {
         if ($forceType) {
-            $mimetype = Preset\MimeType::get($forceType);
+            $mimetype = MimeType::get($forceType);
         } else {
-            $mimetype = Preset\MimeType::get($this->property->type);
+            $mimetype = MimeType::get($this->property->type);
         }
         Audio::getInstance()->console = $mimetype['console'];
         $this->property->push('headers', "Content-type: {$mimetype['type']}; charset={$charset}");
@@ -53,7 +48,7 @@ class Studio extends Gear
 
     public function status(int $code = 200): self
     {
-        $message = Preset\StatusCode::get($code);
+        $message = StatusCode::get($code);
         $status = "{$code} {$message}";
         $this->property->push('headers', "HTTP/1.1 {$status}");
         $this->property->status = $status;

@@ -1,10 +1,10 @@
 <?php
 
-namespace Remix\Preset;
+namespace Remix\Preset\Http;
 
-class StatusCode
+final class StatusCode
 {
-    private static $codes = [
+    private const CODES = [
         200 => 'OK',
         201 => 'Created',
         202 => 'Accepted',
@@ -61,7 +61,7 @@ class StatusCode
 
     public static function get(string $code): string
     {
-        return static::$codes[$code] ?? 'Unknown Status Code';
+        return self::CODES[$code] ?? 'Unknown Status Code';
     }
     // function get()
 }

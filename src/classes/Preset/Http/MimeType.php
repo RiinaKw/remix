@@ -1,10 +1,10 @@
 <?php
 
-namespace Remix\Preset;
+namespace Remix\Preset\Http;
 
-class MimeType
+final class MimeType
 {
-    private static $types = [
+    private const TYPES = [
         'text' => [
             'type' => 'text/plain',
             'console' => false,
@@ -29,7 +29,7 @@ class MimeType
 
     public static function get(string $type): array
     {
-        return static::$types[$type] ?? static::$types['html'];
+        return self::TYPES[$type] ?? self::TYPES['html'];
     }
     // function get()
 }

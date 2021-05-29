@@ -72,6 +72,11 @@ abstract class Effector extends Gear
                     Effector::color($name . ':' . $key, 'yellow') .
                     ' : ' .
                     $item;
+            } else {
+                $outputs[] = '    ' .
+                    Effector::color($name, 'yellow') .
+                    ' : ' .
+                    $item;
             }
         });
         if ($outputs) {

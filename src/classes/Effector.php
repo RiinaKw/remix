@@ -15,7 +15,7 @@ abstract class Effector extends Gear
     public function detail()
     {
         Effector::line(static::$title);
-        Effector::line('usage:');
+        Effector::line('usage :');
         $this->commands();
     }
 
@@ -40,32 +40,31 @@ abstract class Effector extends Gear
         $outputs = [];
         array_walk(static::$commands, function ($item, $key) use ($name, &$outputs) {
             if ($key) {
-                $outputs[] = "    {$name} {$key} : {$item}";
+                $outputs[] = "    {$name}:{$key} : {$item}";
             }
         });
         return $outputs;
     }
 
-    public function play(string $method, array $arg = []): void
+    public function play(string $method, array $args = []): void
     {
-        foreach ($arg as $item) {
+        foreach ($args as $item) {
             preg_match('/^--(.+?)=(.+)$/', $item, $matches);
             if ($matches) {
-                $arg[ $matches[1] ] = $matches[2];
+                $args[ $matches[1] ] = $matches[2];
             }
         }
 
         if ($method) {
             if (method_exists($this, $method)) {
-                $this->$method($arg);
+                $this->$method($args);
+                return;
             } else {
                 $class = static::class;
-                echo "method {$method} not exists in {$class}" . PHP_EOL;
-                $this->index($arg);
+                Effector::line("method {$method} not exists in {$class}");
             }
-        } else {
-            $this->index($arg);
         }
+        $this->index($args);
     }
     // function play()
 

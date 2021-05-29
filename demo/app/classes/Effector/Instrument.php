@@ -8,7 +8,10 @@ class Instrument extends Effector
 {
     protected static $title = 'Example of Effector.';
     protected static $commands = [
-        '' => 'show instrument',
+        '' => 'test to throw exception',
+        'piano' => 'play piano',
+        'guitar' => 'play guitar',
+        'acid' => 'play acid house',
     ];
 
     public function index()

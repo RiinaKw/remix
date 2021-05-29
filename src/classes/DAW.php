@@ -32,7 +32,7 @@ class DAW extends Gear
 
         $preset = Audio::getInstance()->preset;
         $preset->set('remix.root_dir', $this->remix_dir);
-        $preset->set('remix.bounce_dir', '/bounce');
+        $preset->set('remix.bounce_dir', '/bounces');
         $preset->load('app', 'app');
         $preset->load('env.' . $env, 'app', true);
 

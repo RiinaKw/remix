@@ -95,8 +95,9 @@ class Audio
     public static function destroy(): void
     {
         if (static::$audio) {
-            $bounce_dir = Audio::getInstance()->preset->get('remix.bounce_dir');
-            $path = Audio::getInstance()->daw->remixDir($bounce_dir . '/console.tpl');
+            $bounce_dir = static::$audio->preset->get('remix.bounce_dir');
+            $path = static::$audio->daw->remixDir($bounce_dir . '/console.tpl');
+            $preset = static::$audio->preset->get();
 
             static::$audio->equalizer->destroy();
             static::$audio->equalizer = null;
@@ -109,7 +110,8 @@ class Audio
                     $delay =  Delay::get();
                     $view = new Bounce('console', [
                     ], true);
-                    $view->setHtml('delay', $delay);
+                    $view->delay = $delay;
+                    $view->preset = $preset;
 
                     echo $view->record($path);
                 }

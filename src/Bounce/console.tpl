@@ -44,6 +44,7 @@
     #remix-console .pane {
         height: 180px;
         padding: 10px;
+        overflow-y: scroll;
         display: none;
     }
     #remix-console .pane.show {
@@ -51,7 +52,6 @@
     }
     #remix-console-delay-pane ol {
         height: 100%;
-        overflow-y: scroll;
         margin: 0;
     }
 </style>
@@ -61,7 +61,7 @@
         <nav id="remix-console-tabs">
             <ul>
                 <li><label class="active" for="remix-console-delay-pane">Delay</label></li>
-                <li><label for="remix-console-2nd-pane">tab2</label></li>
+                <li><label for="remix-console-preset-pane">Preset</label></li>
                 <li><label for="remix-console-3rd-pane">tab3</label></li>
             </ul>
         </nav>
@@ -73,8 +73,10 @@
 {{endforeach}}
                 </ol>
             </div>
-            <div class="pane" id="remix-console-2nd-pane">
-                2nd
+            <div class="pane" id="remix-console-preset-pane">
+                <pre>
+{{ var_dump($preset) }}
+                </pre>
             </div>
             <div class="pane" id="remix-console-3rd-pane">
                 3rd

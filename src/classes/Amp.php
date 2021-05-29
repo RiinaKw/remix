@@ -96,8 +96,8 @@ class Amp extends Gear
         if ($instance) {
             $instance->play($method, $argv);
         } elseif ($class) {
-            echo 'unknown effector : ' . $class . PHP_EOL;
-            echo 'try "amp help"' . PHP_EOL;
+            Effector::line("unknown effector '{$class}'", 'black', 'red');
+            Effector::line('try "amp help"');
         } else {
             $instance = $equalizer->instance(Effector\Help::class);
             $instance->index($argv);

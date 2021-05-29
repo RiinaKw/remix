@@ -144,12 +144,14 @@ class Audio
     public function exceptionHandle($e): void
     {
         if (static::$is_cli) {
-            echo "\033[41m";
-            Effector::line('####');
-            Effector::line('#### ' . $e->getMessage());
-            Effector::line('#### ' . sprintf('%s (%d)', $e->getFile(), $e->getLine()));
-            Effector::line('####');
-            echo "\033[0m";
+            Effector::line(
+                '####' . PHP_EOL .
+                '#### ' . $e->getMessage() . PHP_EOL .
+                '#### ' . sprintf('%s (%d)', $e->getFile(), $e->getLine()) . PHP_EOL .
+                '####',
+                'white',
+                'red'
+            );
         } else {
             Studio::recordException($e);
         }

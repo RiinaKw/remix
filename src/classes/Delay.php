@@ -83,25 +83,27 @@ class Delay
 
     protected static function stderr(array $log): void
     {
-        $color = '0;37';
+        $text_color = '';
+        $background_color = '';
         switch ($log['type']) {
             case 'BODY':
-                $color = '1;30';
+                $text_color = 'dark_gray';
+                $background_color = 'green';
                 break;
             case 'TRACE':
-                $color = '1;34';
+                $text_color = 'light_blue';
                 break;
             case 'MEMORY':
-                $color = '1;33';
+                $text_color = 'yellow';
                 break;
             case 'TIME':
-                $color = '0;35';
+                $text_color = 'purple';
                 break;
             case 'QUERY':
-                $color = '0;36';
+                $text_color = 'cyan';
                 break;
         }
-        fprintf(STDERR, "\033[%sm %s\033[0m\n", $color, static::format($log));
+        Effector::lineError(static::format($log), $text_color, $background_color);
     }
     // function stderr()
 

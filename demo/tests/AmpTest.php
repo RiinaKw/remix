@@ -28,9 +28,9 @@ class AmpTest extends TestCase
 
     public function testInstrument()
     {
-        $this->expectOutputRegex('/TB-303 and TR-808 and 909/');
+        $this->expectOutputRegex('/TB-303(.*?) and (.*?)TR-808(.*?) and (.*?)TB-909/');
 
-        $this->daw->playCli(['amp', 'instrument:acid', '-808', '--add=909']);
+        $this->daw->playCli(['amp', 'instrument:acid', '-808', '--add=TB-909']);
     }
 
     public function testInvalidArg()

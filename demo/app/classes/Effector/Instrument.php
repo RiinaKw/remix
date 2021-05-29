@@ -11,12 +11,12 @@ class Instrument extends Effector
         '' => 'test to throw exception',
         'piano' => 'play piano',
         'guitar' => 'play guitar',
-        'acid' => 'play acid house',
+        'acid' => 'play acid house, Use it like "instrument:acid -808 --add=TR-909"',
     ];
 
     public function index()
     {
-        Effector::line('I am Instrument belonging to Audio, which instruments do you like?');
+        static::line('I am Instrument belonging to Audio, which instruments do you like?');
         \Remix\Monitor::dump(1);
         throw new \Exception('test exception from Effector');
     }
@@ -24,31 +24,32 @@ class Instrument extends Effector
     public function piano()
     {
         // title background is yellow
-        Effector::line('I like John Cage\'s '
-            . "\033[0;30m" . "\033[43m" . '4\'33"' . "\033[0m" .
-            '... is it not piano!?');
+        static::line(
+            'I like John Cage\'s '
+            . Effector::color('4\'33"', 'black', 'yellow')
+            . '... is it not piano!?',
+        );
     }
 
     public function guitar()
     {
         // message is green
-        Effector::line("\033[0;32m" . 'SMOKE ON THE WATER!!!' . "\033[0m");
+        static::line('SMOKE ON THE WATER!!!', 'green');
     }
 
     public function acid($arg)
     {
-        $inst = [ 'TB-303' ];
+        $inst = [ static::color('TB-303', 'yellow') ];
         if (in_array('-808', $arg)) {
-            $inst[] = 'TR-808';
+            $inst[] = static::color('TR-808', 'black', 'green');
         }
         if (array_key_exists('add', $arg)) {
-            $inst[] = $arg['add'];
+            $inst[] = static::color($arg['add'], 'black', 'yellow');
         }
-        \Remix\Monitor::dump($inst);
         if (count($inst) == 1) {
-            Effector::line($inst[0] . ' is AWESOME!!!');
+            static::line($inst[0] . ' is AWESOME!!!');
         } else {
-            Effector::line(implode(' and ', $inst) . ' are AWESOME!!!');
+            static::line(implode(' and ', $inst) . ' are AWESOME!!!');
         }
     }
 }

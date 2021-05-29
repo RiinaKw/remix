@@ -31,9 +31,14 @@ class DAW extends Gear
 
         $preset = Audio::getInstance()->preset;
         $preset->set('remix.root_dir', $this->remix_dir);
-        $preset->set('remix.bounce_dir', '/bounces');
+        $preset->set('remix.bounce_dir', $this->remixDir('bounces'));
+        $preset->set('remix.effector_dir', $this->remixDir('classes/Effector'));
+
         $preset->load('app', 'app');
         $preset->load('env.' . $env, 'app', true);
+
+        $bounce_dir = $preset->get('app.bounce_dir');
+        $preset->set('app.bounce_dir', $this->appdir($bounce_dir));
 
         Audio::getInstance()->dj;
         return $this;
@@ -55,7 +60,7 @@ class DAW extends Gear
     /**
      * @SuppressWarnings(PHPMD.Superglobals)
      */
-    public function playWeb(string $public_dir): Studio
+    public function playWeb(): Studio
     {
         $audio = Audio::getInstance();
         $audio->cli = false;

@@ -27,7 +27,7 @@ class Amp extends Gear
         if ($namespace == 'app') {
             $effector_dir = $daw->appDir('classes/Effector');
         } else {
-            $effector_dir = $daw->remixDir('classes/Effector');
+            $effector_dir = Audio::getInstance()->preset->get('remix.effector_dir');
         }
 
         foreach (glob($effector_dir . '/{*.php}', GLOB_BRACE) as $file) {

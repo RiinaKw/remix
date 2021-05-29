@@ -96,7 +96,6 @@ class Audio
     {
         if (static::$audio) {
             $bounce_dir = static::$audio->preset->get('remix.bounce_dir');
-            $path = static::$audio->daw->remixDir($bounce_dir . '/console.tpl');
             $preset = static::$audio->preset->get();
 
             static::$audio->equalizer->destroy();
@@ -113,7 +112,7 @@ class Audio
                     $view->delay = $delay;
                     $view->preset = $preset;
 
-                    echo $view->record($path);
+                    echo $view->record($bounce_dir . '/console.tpl');
                 }
             }
         }

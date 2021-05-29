@@ -90,7 +90,8 @@ class Studio extends Gear
             },
             'closure' => function () {
                 $this->contentType('text');
-                return $this->property->params;
+                $closure = $this->property->params;
+                return $closure();
             },
             'json' => function () {
                 $this->contentType();

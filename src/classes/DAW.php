@@ -9,7 +9,6 @@ class DAW extends Gear
 {
     protected $remix_dir;
     protected $app_dir;
-    protected $public_dir;
 
     public static function factory($arg1 = null, $arg2 = null): self
     {
@@ -53,12 +52,6 @@ class DAW extends Gear
     }
     // function appDir()
 
-    public function publicDir(string $path = ''): string
-    {
-        return realpath($this->public_dir . '/' . $path);
-    }
-    // function publicDir()
-
     /**
      * @SuppressWarnings(PHPMD.Superglobals)
      */
@@ -67,7 +60,6 @@ class DAW extends Gear
         $audio = Audio::getInstance();
         $audio->cli = false;
 
-        $this->public_dir = $public_dir;
         $path = $_SERVER['PATH_INFO'] ?? '';
 
         $tracks_path = $this->appDir('/mixer.php') ?: [];

@@ -14,7 +14,7 @@ class Preset extends Gear
     }
     // function __construct()
 
-    public function load(string $file, string $key = ''): void
+    public function load(string $file, string $key = '', bool $append = false): void
     {
         $filename = str_replace('.', '/', $file);
         $daw = Audio::getInstance()->daw;
@@ -25,11 +25,15 @@ class Preset extends Gear
             throw new RemixException("preset file '{$filename}' not found");
         }
 
+        if (! $key) {
+            $key = $filename;
+        }
         $preset = require($file);
-        if ($key) {
-            $this->hash->set($key, $preset);
+
+        if ($append) {
+            $this->hash->pushHash($key, $preset);
         } else {
-            $this->hash->set($filename, $preset);
+            $this->hash->set($key, $preset);
         }
     }
     // function load()

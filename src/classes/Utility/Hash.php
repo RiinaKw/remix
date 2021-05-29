@@ -88,7 +88,7 @@ class Hash
             $cb_final = function (&$target, $last) {
                 return array_key_exists($last, $target);
             };
-            return $this->callback($name, $cb_item, $cb_final);
+            return $this->callback($name, $cb_item, $cb_final) ?: false;
         } else {
             return isset($this->prop[$name]);
         }
@@ -123,6 +123,15 @@ class Hash
         } else {
             $arr[$key] = $value;
         }
+        $this->set($name, $arr);
+    }
+
+    public function pushHash(string $name, $value)
+    {
+        $arr = $this->get($name) ?: [];
+        array_walk($value, function ($item, $key) use (&$arr) {
+            $arr[$key] = $item;
+        });
         $this->set($name, $arr);
     }
 

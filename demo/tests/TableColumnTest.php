@@ -10,7 +10,6 @@ class TableColumnTest extends TestCase
 {
     private $db = null;
     private $table = null;
-    private const TABLE_NAME = 'test_table';
 
     protected function setUp(): void
     {
@@ -46,11 +45,11 @@ class TableColumnTest extends TestCase
 
     public function testIndex()
     {
-        $table = self::TABLE_NAME;
+        $table_name = $this->table->name;
         $sql = <<<SQL
 SELECT TABLE_NAME, INDEX_NAME, COLUMN_NAME FROM information_schema.STATISTICS
 WHERE TABLE_SCHEMA = '{$this->db}'
-    AND TABLE_NAME = '{$table}'
+    AND TABLE_NAME = '{$table_name}'
     AND COLUMN_NAME = :column;
 SQL;
 

@@ -25,6 +25,19 @@ class Table extends Gear
     }
     // function __construct()
 
+    public function __get(string $key)
+    {
+        switch ($key) {
+            case 'name':
+                return $this->name;
+
+            default:
+                $message = 'Unknown property "' . $key . '"';
+                throw new DJException($message);
+        }
+    }
+    // function __get()
+
     public function exists(): bool
     {
         $result = DJ::first('SHOW TABLES LIKE :table;', [':table' => $this->name]);

@@ -9,12 +9,11 @@ use Remix\Exceptions\DJException;
 class TableTest extends TestCase
 {
     private $table = null;
-    private const TABLE_NAME = 'test_table';
 
     protected function setUp(): void
     {
         \Remix\Audio::getInstance()->initialize()->daw->initialize(__DIR__ . '/../app');
-        $this->table = DJ::table(self::TABLE_NAME);
+        $this->table = DJ::table('test_table');
         if ($this->table->exists()) {
             $this->table->drop();
         }
@@ -65,7 +64,7 @@ class TableTest extends TestCase
 
     public function testTruncate(): void
     {
-        $table_name = self::TABLE_NAME;
+        $table_name = $this->table->name;
         $sql = <<<SQL
 INSERT INTO `$table_name`(`id`, `title`) VALUES(:id, :title);
 SQL;
@@ -83,7 +82,7 @@ SQL;
     public function testCreateWithNoColumns()
     {
         $this->expectException(DJException::class);
-        $this->expectExceptionMessage(self::TABLE_NAME);
+        $this->expectExceptionMessage($this->table->name);
         $this->expectExceptionMessage('must contains any column');
 
         if ($this->table->exists()) {
@@ -97,7 +96,7 @@ SQL;
     public function testCreateDuplicates()
     {
         $this->expectException(DJException::class);
-        $this->expectExceptionMessage(self::TABLE_NAME);
+        $this->expectExceptionMessage($this->table->name);
         $this->expectExceptionMessage('already exists');
 
         if ($this->table->exists()) {
@@ -117,7 +116,7 @@ SQL;
     public function testDropFail()
     {
         $this->expectException(DJException::class);
-        $this->expectExceptionMessage(self::TABLE_NAME);
+        $this->expectExceptionMessage($this->table->name);
         $this->expectExceptionMessage('is not exists');
 
         if ($this->table->exists()) {

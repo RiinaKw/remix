@@ -35,7 +35,7 @@ class Setlist extends Gear implements \Iterator, \Countable
     }
     // function asVinyl()
 
-    protected function dump(): void
+    protected function dump(): self
     {
         $dump = \Remix\Utility\Capture::capture(function () {
             $this->statement->debugDumpParams();
@@ -61,14 +61,14 @@ class Setlist extends Gear implements \Iterator, \Countable
         }
         $this->exexuted = $sql;
         Delay::getInstance()->log('QUERY', $sql);
+        return $this;
     }
-    // function dump();
+    // function dump()
 
     public function play(): self
     {
         $this->statement->execute($this->holders);
-        $this->dump();
-        return $this;
+        return $this->dump();
     }
     // function play()
 

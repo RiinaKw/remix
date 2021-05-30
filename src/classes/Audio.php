@@ -12,7 +12,6 @@ class Audio
 
     protected static $is_debug = false;
     protected static $is_cli = false;
-    protected static $is_console = true;
 
     private function __construct(bool $is_debug)
     {
@@ -81,10 +80,6 @@ class Audio
                 static::$is_cli = $value;
                 break;
 
-            case 'console':
-                static::$is_console = $value;
-                break;
-
             default:
                 var_dump('unknown key', $key);
                 break;
@@ -95,23 +90,8 @@ class Audio
     public static function destroy(): void
     {
         if (static::$audio) {
-            $bounce_dir = static::$audio->preset->get('remix.bounce_dir');
-            $preset = static::$audio->preset->get();
-
             static::$audio->equalizer->destroy();
             static::$audio->equalizer = null;
-
-            if (static::$is_debug) {
-                Delay::logMemory();
-                Delay::logTime();
-
-                if (! static::$is_cli && static::$is_console) {
-                    $view = new Bounce('console');
-                    $view->delay = Delay::get();
-                    $view->preset = $preset;
-                    echo $view->record($bounce_dir . '/console.tpl');
-                }
-            }
         }
         static::$audio = null;
         Delay::destroy();
@@ -150,7 +130,7 @@ class Audio
                 'red'
             );
         } else {
-            Studio::recordException($e);
+            echo Studio::recordException($e);
         }
         unset($e);
     }

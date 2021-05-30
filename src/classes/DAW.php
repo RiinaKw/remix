@@ -33,6 +33,8 @@ class DAW extends Gear
         $preset->set('remix.root_dir', $this->remix_dir);
         $preset->set('remix.bounce_dir', $this->remixDir('bounces'));
         $preset->set('remix.effector_dir', $this->remixDir('classes/Effector'));
+        $preset->set('remix.exception_path', $this->remixDir('bounces/exception.tpl'));
+        $preset->set('remix.console_path', $this->remixDir('bounces/console.tpl'));
 
         $preset->load('app', 'app');
         $preset->load('env.' . $env, 'app', true);

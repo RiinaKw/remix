@@ -18,14 +18,15 @@ class Bounce extends Studio
         parent::__construct('html', $params);
         $this->property->file = $file;
         $this->property->escaped_params = $params;
+
+        $this->property->source = static::template($this->property->file);
     }
     // function __construct()
 
 
-    public function record(string $path = null): string
+    public function record(): string
     {
-        $source = static::template($path);
-        return $this->play($source);
+        return $this->play($this->property->source);
     }
     // function record()
 

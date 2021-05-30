@@ -6,12 +6,13 @@ trait RecordableWithTemplate
 {
     protected function template(string $path = null): string
     {
-        if (! $path) {
+        if (! $path || ! file_exists($path)) {
             $audio = Audio::getInstance();
             $dirs = [
                 $audio->preset->get('app.bounce_dir'),
                 $audio->preset->get('remix.bounce_dir'),
             ];
+            $audio = null;
             foreach ($dirs as $dir) {
                 $path = $dir . '/' . $this->property->file . '.tpl';
                 if (file_exists($path)) {
@@ -19,8 +20,8 @@ trait RecordableWithTemplate
                 }
             }
         }
-        if (! $path) {
-            throw new RemixException('bounce "' . $this->property->file . '.tpl" not found');
+        if (! $path || ! file_exists($path)) {
+            throw new RemixException('bounce "' . $this->property->file . '" not found');
         }
 
         return Utility\Capture::capture(function () use ($path) {

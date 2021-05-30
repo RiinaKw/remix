@@ -20,6 +20,7 @@ class Studio extends Gear
 
         $this->property->type = $type;
         $this->property->status_code = 200;
+        $this->property->is_console = false;
 
         // Make sure to set the mime type
         $this->contentType();
@@ -45,7 +46,7 @@ class Studio extends Gear
         } else {
             $mime_type = MimeType::get($this->property->type);
         }
-        Audio::getInstance()->console = $mime_type['console'];
+        $this->property->is_console = $mime_type['console'];
         $this->property->push('headers', "Content-type: {$mime_type['type']}; charset={$charset}");
         $this->property->mime_type = $mime_type['type'];
         return $this;
@@ -159,7 +160,6 @@ class Studio extends Gear
             'title' => $this->property->status,
             'message' => $message
         ];
-        Audio::getInstance()->console = true;
         return $this;
     }
     // function header()
@@ -174,19 +174,51 @@ class Studio extends Gear
     }
     // function output()
 
-    public function __toString(): string
+    protected function appendConsole(string $content, Preset $preset): string
     {
-        return $this->output();
-    }
-    // function __toString()
+        $template_path = $preset->get('remix.console_path');
 
-    public static function recordException(\Throwable $exception): void
+        $view = new Bounce($template_path);
+
+        Delay::logMemory();
+        Delay::logTime();
+
+        $view->preset = $preset->get();
+        $preset = null;
+
+        $view->delay = Delay::get();
+        $console = $view->record();
+
+        $body_end = preg_match('/<\/body>/', $content);
+        if ($body_end) {
+            return str_replace(
+                '</body>',
+                $console . '</body>',
+                $content
+            );
+        } else {
+            return $content . $console;
+        }
+    }
+
+    public function finalize(): string
+    {
+        $content = $this->output();
+        if ($this->property->type === 'html' && $this->property->is_console) {
+            $audio = Audio::getInstance();
+            $preset = $audio->preset;
+            $audio->destroy();
+            $content = $this->appendConsole($content, $preset);
+        }
+        return $content;
+    }
+
+    public static function recordException(\Throwable $exception): string
     {
         $status_code = 500;
         if ($exception instanceof HttpException) {
             $status_code = $exception->getStatusCode();
         }
-        Audio::getInstance()->console = true;
 
         $traces = [];
         foreach ($exception->getTrace() as $item) {
@@ -196,7 +228,8 @@ class Studio extends Gear
             ];
         }
 
-        $view = new Bounce('exception', [
+        $template_path = Audio::getInstance()->preset->get('remix.exception_path');
+        $view = new Bounce($template_path, [
             'status' => $status_code,
             'message' => $exception->getMessage(),
             'file' => $exception->getFile(),
@@ -204,7 +237,7 @@ class Studio extends Gear
             'target' => Monitor::getSource($exception->getFile(), $exception->getLine(), 10),
             'traces' => $traces,
         ]);
-        echo $view->statusCode($status_code)->sendHeader()->record();
+        return $view->statusCode($status_code)->sendHeader()->finalize();
     }
     // function recordException()
 }

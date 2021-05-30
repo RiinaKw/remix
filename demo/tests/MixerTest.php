@@ -53,7 +53,7 @@ class MixerTest extends TestCase
         $_SERVER['REQUEST_METHOD'] = 'GET';
         $_SERVER['PATH_INFO'] = '/redirect';
         $response = $this->daw->playWeb();
-        $this->assertSame(303, $response->code());
+        $this->assertSame(303, $response->getStatusCode());
 
         // post
         $_SERVER['REQUEST_METHOD'] = 'POST';
@@ -67,7 +67,7 @@ class MixerTest extends TestCase
         $_SERVER['REQUEST_METHOD'] = 'GET';
         $_SERVER['PATH_INFO'] = '/postonly';
         $response = $this->daw->playWeb();
-        $this->assertSame(405, $response->code());
+        $this->assertSame(405, $response->getStatusCode());
         $this->assertRegExp('/not allowed/', $response->output(false));
     }
 }

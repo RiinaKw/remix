@@ -53,6 +53,25 @@
     #remix-console-delay-pane ol {
         height: 100%;
         margin: 0;
+        font-size: 80%;
+    }
+    #remix-console-content li {
+        padding: 0.2em;
+    }
+    #remix-console-content li.body {
+        background-color: lightgreen;
+    }
+    #remix-console-content li.trace {
+        background-color: lightblue;
+    }
+    #remix-console-content li.memory {
+        background-color: yellow;
+    }
+    #remix-console-content li.time {
+        background-color: fuchsia;
+    }
+    #remix-console-content li.query {
+        background-color: cyan;
     }
 </style>
 <section id="remix-console">
@@ -69,7 +88,9 @@
             <div class="pane show" id="remix-console-delay-pane">
                 <ol>
 {{foreach ($delay as $item) }}
-                    <li>{{ $item }}</li>
+                    <li class="{{ $item['type'] }}">
+                        [{{ $item['type'] }}] {{ $item['log'] }}
+                    </li>
 {{endforeach}}
                 </ol>
             </div>

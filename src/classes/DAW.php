@@ -70,7 +70,7 @@ class DAW extends Gear
         $tracks_path = $this->appDir('/mixer.php') ?: [];
         $mixer = $audio->mixer;
         $studio = $mixer->load($tracks_path)->route($path);
-        Delay::log(true, 'BODY', '');
+        Delay::log('BODY', '');
         $mixer->destroy();
         $mixer = null;
         $audio = null;
@@ -82,7 +82,7 @@ class DAW extends Gear
     {
         $audio = Audio::getInstance();
         $audio->amp->play($argv);
-        Delay::log(true, 'BODY', '');
+        Delay::log('BODY', '');
         $audio = null;
     }
     // function playCli()

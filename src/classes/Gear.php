@@ -6,15 +6,13 @@ abstract class Gear
 {
     protected function __construct()
     {
-        $method = str_replace(__CLASS__, static::class, __METHOD__);
-        Delay::logBirth($method);
+        Delay::logBirth(static::class);
     }
     // function __construct()
 
     public function __destruct()
     {
-        $method = str_replace(__CLASS__, static::class, __METHOD__);
-        Delay::logDeath($method);
+        Delay::logDeath(static::class);
     }
 
     public static function factory($arg1 = null, $arg2 = null): self

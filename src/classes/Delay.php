@@ -55,13 +55,13 @@ class Delay
 
     public static function logBirth(string $str): void
     {
-        static::log('TRACE', $str, '+');
+        static::log('TRACE', $str, '+ birth');
     }
     // function logBirth()
 
     public static function logDeath(string $str): void
     {
-        static::log('TRACE', $str, '-');
+        static::log('TRACE', $str, '- death');
     }
     // function logDeath()
 
@@ -89,8 +89,7 @@ class Delay
         $background_color = '';
         switch ($log['type']) {
             case 'BODY':
-                $text_color = 'dark_gray';
-                $background_color = 'green';
+                $text_color = 'green';
                 break;
             case 'TRACE':
                 $text_color = 'light_blue';
@@ -111,11 +110,7 @@ class Delay
 
     public static function get(): array
     {
-        $result = [];
-        foreach (static::$log as $log) {
-            $result[] = static::format($log);
-        }
-        return $result;
+        return static::$log;
     }
     // public function get()
 }

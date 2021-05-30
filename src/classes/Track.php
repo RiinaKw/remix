@@ -11,7 +11,7 @@ class Track extends Gear
 
     private function __construct(string $method, string $path, $action)
     {
-        Delay::logBirth(__METHOD__ . ' [' . $method . ' ' . $path . ']');
+        Delay::logBirth(static::class . ' [' . $method . ' ' . $path . ']');
 
         $this->props['method'] = $method;
         $this->props['path'] = $path;
@@ -21,7 +21,7 @@ class Track extends Gear
 
     public function __destruct()
     {
-        Delay::logDeath(__METHOD__ . ' [' . $this->method . ' ' . $this->path . ']');
+        Delay::logDeath(static::class . ' [' . $this->method . ' ' . $this->path . ']');
     }
     // function __destruct()
 

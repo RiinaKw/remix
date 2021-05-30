@@ -51,6 +51,7 @@ class Studio extends Gear
         $message = StatusCode::get($code);
         $status = "{$code} {$message}";
         $this->property->push('headers', "HTTP/1.1 {$status}");
+        $this->property->code = $code;
         $this->property->status = $status;
         return $this;
     }
@@ -61,20 +62,17 @@ class Studio extends Gear
         return $this->property->code;
     }
 
-    protected function sendHeader()
+    protected function sendHeader(): self
     {
         foreach ($this->property->headers as $header) {
             header($header);
         }
+        return $this;
     }
     // function sendHeader()
 
     public function recorded(): string
     {
-        if ($this->property->code) {
-            $this->status($this->property->code);
-        }
-
         $map = [
             'none' => function () {
                 return '';

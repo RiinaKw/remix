@@ -38,15 +38,15 @@ class SampleChannelTest extends TestCase
      */
     public function testError()
     {
-        // accept any methods
         $_SERVER['PATH_INFO'] = '/sample/error';
         $_SERVER['REQUEST_METHOD'] = 'GET';
-        $this->daw->playWeb();
-        // #### Someone overwrote the headers ####
-        // $response = $this->daw->playWeb();
-        // $this->assertSame(500, $response->code());
+        $response = $this->daw->playWeb();
+        $this->assertSame(500, $response->code());
 
-        $this->assertTrue(true);
+        $_SERVER['PATH_INFO'] = '/sample/error/418';
+        $_SERVER['REQUEST_METHOD'] = 'GET';
+        $response = $this->daw->playWeb();
+        $this->assertSame(418, $response->code());
     }
 
     /**

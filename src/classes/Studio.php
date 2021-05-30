@@ -102,10 +102,11 @@ class Studio extends Gear
             },
             'header' => function () {
                 $this->contentType('html');
-                $bounce = new Bounce('httperror', [], true);
-                $bounce->satus_code = $this->property->code;
-                $bounce->title = $this->property->params['title'];
-                $bounce->message = $this->property->params['message'];
+                $bounce = new Bounce('httperror', [
+                    'satus_code' => $this->property->code,
+                    'title' => $this->property->params['title'],
+                    'message' => $this->property->params['message'],
+                ]);
                 return $bounce->record();
             },
         ];
@@ -179,7 +180,7 @@ class Studio extends Gear
             'line' => $exception->getLine(),
             'target' => Monitor::getSource($exception->getFile(), $exception->getLine(), 10),
             'trace' => $exception->getTrace(),
-        ], true);
+        ]);
         echo $view->status($code)->record();
     }
     // function recordException()

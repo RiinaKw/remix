@@ -106,7 +106,7 @@ class Audio
                 Delay::logTime();
 
                 if (! static::$is_cli && static::$is_console) {
-                    $view = new Bounce('console', [], true);
+                    $view = new Bounce('console');
                     $view->delay = Delay::get();
                     $view->preset = $preset;
                     echo $view->record($bounce_dir . '/console.tpl');

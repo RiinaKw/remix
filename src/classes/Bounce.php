@@ -8,40 +8,23 @@ namespace Remix;
 class Bounce extends Studio
 {
     use Recordable;
+    use RecordableWithTemplate;
 
     protected static $left_delimiter = '{{';
     protected static $right_delimiter = '}}';
 
-    public function __construct(string $file, array $params = [], bool $is_internal = false)
+    public function __construct(string $file, array $params = [])
     {
         parent::__construct('html', $params);
         $this->property->file = $file;
         $this->property->escaped_params = $params;
-        $this->property->is_internal = $is_internal;
     }
     // function __construct()
 
 
     public function record(string $path = null): string
     {
-        if (! $path) {
-            $audio = Audio::getInstance();
-            if ($this->property->is_internal) {
-                $bounce_dir = $audio->preset->get('remix.bounce_dir');
-            } else {
-                $bounce_dir = $audio->preset->get('app.bounce_dir');
-            }
-            $audio = null;
-            $path = $bounce_dir . '/' . $this->property->file . '.tpl';
-        }
-        if (! $path) {
-            throw new RemixException('bounce "' . $this->property->file . '.tpl" not found');
-        }
-
-        $source = Utility\Capture::capture(function () use ($path) {
-            require($path);
-        });
-
+        $source = static::template($path);
         return $this->play($source);
     }
     // function record()

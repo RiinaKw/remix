@@ -61,6 +61,30 @@ class SampleChannelTest extends TestCase
     /**
      * @SuppressWarnings(PHPMD.Superglobals)
      */
+    public function testApi()
+    {
+        $_SERVER['PATH_INFO'] = '/sample/api';
+        $_SERVER['REQUEST_METHOD'] = 'GET';
+        $response = $this->daw->playWeb();
+        $response->recorded();
+        $this->assertSame('text/plain', $response->getMimeType());
+
+        $_SERVER['PATH_INFO'] = '/sample/api.xml';
+        $_SERVER['REQUEST_METHOD'] = 'GET';
+        $response = $this->daw->playWeb();
+        $response->recorded();
+        $this->assertSame('application/xml', $response->getMimeType());
+
+        $_SERVER['PATH_INFO'] = '/sample/api.json';
+        $_SERVER['REQUEST_METHOD'] = 'GET';
+        $response = $this->daw->playWeb();
+        $response->recorded();
+        $this->assertSame('application/json', $response->getMimeType());
+    }
+
+    /**
+     * @SuppressWarnings(PHPMD.Superglobals)
+     */
     public function testStatus()
     {
         $_SERVER['PATH_INFO'] = '/sample/status';

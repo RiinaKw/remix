@@ -29,4 +29,5 @@ return [
     Track::any('/sample/json', 'SampleChannel@json')->name('json'),
     Track::any('/sample/status(/:code)?', 'SampleChannel@status')->name('status'),
     Track::any('/sample/exception(/:code)?', 'SampleChannel@exception')->name('exception'),
+    Track::any('/sample/api', 'SampleChannel@api')->name('api')->api(),
 ];

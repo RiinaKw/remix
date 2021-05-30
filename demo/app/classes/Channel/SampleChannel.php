@@ -73,5 +73,30 @@ class SampleChannel extends \Remix\Channel
         throw new HttpException($message, $code);
     }
     // function exception()
+
+    public function api(Sampler $sampler): Studio
+    {
+        $ext = $sampler->param('ext') ?? 'text';
+        $params = [
+            'persons' => [
+                [
+                    'author' => 'Tahiri Veila',
+                    'race' => 'Human',
+                ],
+                [
+                    'author' => 'Riina Kwaad',
+                    'race' => ['Human', 'Yuuzhan Vong'],
+                ],
+            ],
+            'planets' => [
+                'Coruscant',
+                'Alderaan',
+                'Tatooine',
+                'Zonama Sekot',
+            ],
+        ];
+
+        return Studio::factory($ext, $params);
+    }
 }
 // class SampleChannel

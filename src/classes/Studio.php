@@ -188,13 +188,21 @@ class Studio extends Gear
         }
         Audio::getInstance()->console = true;
 
+        $traces = [];
+        foreach ($exception->getTrace() as $item) {
+            $traces[] = [
+                'trace' => $item,
+                'source' => Monitor::getSource($item['file'], $item['line'], 5),
+            ];
+        }
+
         $view = new Bounce('exception', [
             'status' => $status_code,
             'message' => $exception->getMessage(),
             'file' => $exception->getFile(),
             'line' => $exception->getLine(),
             'target' => Monitor::getSource($exception->getFile(), $exception->getLine(), 10),
-            'trace' => $exception->getTrace(),
+            'traces' => $traces,
         ]);
         echo $view->statusCode($status_code)->sendHeader()->record();
     }

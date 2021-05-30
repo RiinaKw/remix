@@ -24,4 +24,5 @@ return [
     }),
 
     Track::any('/sample', 'SampleChannel@index'),
+    Track::any('/sample/exception(/:code)?', 'SampleChannel@exception'),
 ];

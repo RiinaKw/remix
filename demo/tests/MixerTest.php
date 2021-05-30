@@ -68,7 +68,15 @@ class MixerTest extends TestCase
         $_SERVER['PATH_INFO'] = '/postonly';
         $response = $this->daw->playWeb();
         $this->assertSame(405, $response->code());
-        $this->assertRegExp('/method not allowed/', $response->output(false));
+        $this->assertRegExp('/not allowed/', $response->output(false));
+
+        // accept any methods
+        $_SERVER['PATH_INFO'] = '/sample';
+        foreach (['GET', 'POST'] as $method) {
+            $_SERVER['REQUEST_METHOD'] = $method;
+            $response = $this->daw->playWeb();
+            $this->assertSame(200, $response->code());
+        }
     }
 }
 // class MixerTest

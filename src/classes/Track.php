@@ -39,6 +39,13 @@ class Track extends Gear
     }
     // function post()
 
+    public static function any(string $path, $action): self
+    {
+        $track = new static('ANY', $path, $action);
+        return $track;
+    }
+    // function any()
+
     public function name(string $name): self
     {
         $this->props['name'] = $name;

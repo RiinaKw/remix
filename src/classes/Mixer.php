@@ -60,17 +60,21 @@ class Mixer extends Gear
 
         $method = strtoupper($_SERVER['REQUEST_METHOD']);
         foreach ($this->urls as $url => $tracks) {
-            $fader = \Remix\Fader::factory($url);
-
             // get track
-            $result = $fader->isMatch($path);
-            if ($result) {
-                if (! isset($tracks[$method])) {
-                    return Studio::factory()->header(405, 'method not allowed, given ' . $method . ' ' . $path);
+            $fader = \Remix\Fader::factory($url);
+            if ($fader->isMatch($path)) {
+                if (isset($tracks['ANY'])) {
+                    $track = $tracks['ANY'];
+                } elseif (isset($tracks[$method])) {
+                    $track = $tracks[$method];
+                } else {
+                    return Studio::factory()->header(
+                        405,
+                        'method ' . $method . ' not allowed, given ' . $method . ' ' . $path
+                    );
                 }
 
                 // setup Studio
-                $track = $tracks[$method];
                 $sampler = Audio::getInstance()->equalizer->instance(Sampler::class, $fader->matched($path));
                 return static::studio($track->action, $sampler);
             }

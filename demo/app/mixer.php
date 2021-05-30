@@ -22,4 +22,6 @@ return [
     Track::post('/postonly', function () {
         return 'this page is post only';
     }),
+
+    Track::any('/sample', 'SampleChannel@index'),
 ];

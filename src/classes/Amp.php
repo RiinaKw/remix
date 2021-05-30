@@ -51,10 +51,10 @@ class Amp extends Gear
 
         Effector::line('Available commands :');
 
-        array_walk(static::$effectors, function ($classname) {
+        foreach (static::$effectors as $classname) {
             Effector::line('');
             $classname::detail();
-        });
+        }
     }
 
     public function play(array $argv): void

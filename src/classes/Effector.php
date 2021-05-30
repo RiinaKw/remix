@@ -66,7 +66,7 @@ abstract class Effector extends Gear
     {
         $name = static::classToCommand();
         $outputs = [];
-        array_walk(static::$commands, function ($item, $key) use ($name, &$outputs) {
+        foreach (static::$commands as $key => $item) {
             if ($key) {
                 $outputs[] = '    ' .
                     Effector::color($name . ':' . $key, 'yellow') .
@@ -78,12 +78,12 @@ abstract class Effector extends Gear
                     ' : ' .
                     $item;
             }
-        });
+        }
         if ($outputs) {
             Effector::line('  usage :');
-            array_walk($outputs, function ($item) {
+            foreach ($outputs as $item) {
                 static::line($item);
-            });
+            }
         }
     }
     // function commands()

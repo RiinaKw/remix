@@ -129,9 +129,9 @@ class Hash
     public function pushHash(string $name, $value)
     {
         $arr = $this->get($name) ?: [];
-        array_walk($value, function ($item, $key) use (&$arr) {
+        foreach ($value as $key => $item) {
             $arr[$key] = $item;
-        });
+        }
         $this->set($name, $arr);
     }
 

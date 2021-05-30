@@ -62,9 +62,9 @@ class Table extends Gear
 
             try {
                 if (DJ::play($sql)) {
-                    array_walk($this->columns, function ($column) {
+                    foreach ($this->columns as $column) {
                         $this->createIndex($column);
-                    });
+                    }
                     return true;
                 } else {
                     $message = 'Cannot create table "' . $this->name . '"';

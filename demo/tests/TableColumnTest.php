@@ -58,14 +58,14 @@ SQL;
             'col_uq' => 'uq',
             'col_idx' => 'idx',
         ];
-        array_walk($arr, function (string $index_type, string $column_name) use ($sql) {
+        foreach ($arr as $column_name => $index_type) {
             $setlist = DJ::play($sql, [ ':column' => $column_name ]);
             $this->assertSame(1, $setlist->count());
             $column = $this->table->column($column_name);
             $this->assertSame($index_type, $column->index);
             $row = $setlist->first();
             $this->assertTrue((bool)$row);
-        });
+        }
 
         $setlist = DJ::play($sql, [ ':column' => 'col_non_idx' ]);
         $this->assertSame(0, $setlist->count());

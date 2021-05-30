@@ -4,6 +4,7 @@ namespace Remix\DJ;
 
 use Remix\Delay;
 use Remix\Gear;
+use Remix\Exceptions\DJException;
 
 /**
  * Remix Setlist : PDO statement
@@ -12,6 +13,7 @@ class Setlist extends Gear implements \Iterator, \Countable
 {
     protected $holders;
     protected $statement = null;
+    protected $exexuted = '';
 
     private $i = 0;
     private $cur_row = null;
@@ -38,14 +40,26 @@ class Setlist extends Gear implements \Iterator, \Countable
         $dump = \Remix\Utility\Capture::capture(function () {
             $this->statement->debugDumpParams();
         });
+        preg_match(
+            '/(^|\n)\s*(?<prefix>SQL: \[\d+\])\s+(?<sql>.+)\nParams:/s',
+            $dump,
+            $matches_sql
+        );
+        preg_match(
+            '/(^|\n)\s*(?<prefix>Sent SQL: \[\d+\])\s+(?<sql>.+)\nParams:/s',
+            $dump,
+            $matches_sent
+        );
 
-        preg_match('/(^|\n)SQL: \[\d+\] (?<sql>.*?)($|\n)/', $dump, $matches_sql);
-        preg_match('/(^|\n)Sent SQL: \[\d+\] (?<sql>.*?)($|\n)/', $dump, $matches_sent);
         if ($matches_sent) {
             $sql = $matches_sent['sql'];
-        } else {
+        } elseif ($matches_sql) {
             $sql = $matches_sql['sql'];
+        } else {
+            $message = 'Setlist dump failed';
+            throw new DJException($message);
         }
+        $this->exexuted = $sql;
         Delay::getInstance()->log('QUERY', $sql);
     }
     // function dump();
@@ -67,9 +81,13 @@ class Setlist extends Gear implements \Iterator, \Countable
 
     public function count(): int
     {
-        $sql = preg_replace('/^\s*SELECT .+? FROM\s/', 'SELECT COUNT(*) FROM ', $this->statement->queryString);
+        $sql = preg_replace(
+            '/^\s*(SELECT)\s+(.+)\s+(FROM)\s/',
+            'SELECT COUNT(*) FROM ',
+            $this->statement->queryString
+        );
         $result = \Remix\DJ::first($sql, $this->holders);
-        return $result[0];
+        return (int)$result[0];
     }
 
     public function current()

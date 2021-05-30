@@ -35,43 +35,6 @@ class DJTest extends TestCase
         $result = \Remix\DJ::play('SELECT * FROM users WHERE id = :id;', ['id' => 1]);
         $this->assertSame(1, count($result));
         $this->assertSame('Riina', $result->first()['name']);
-
-        // use setlist
-        /*
-        $setlist = \Remix\DJ::prepare('SELECT * FROM users;');
-        $this->assertTrue($setlist instanceof \Remix\DJ\Setlist);
-
-        $result = $setlist->asVinyl(\App\Vinyl\User::class)->play();
-        $this->assertTrue($result[0] instanceof \App\Vinyl\User);
-
-        // use setlist with placeholder
-        $setlist = \Remix\DJ::prepare('SELECT * FROM users WHERE id = :id;');
-        $result = $setlist->asVinyl(\App\Vinyl\User::class)->play(['id' => 1]);
-        $this->assertSame(1, count($result));
-        $this->assertTrue($result[0] instanceof \App\Vinyl\User);
-        */
-    }
-
-    public function testVinyl(): void
-    {
-/*
-        // User vinyl
-        $vinyl = \App\Vinyl\User::find(1);
-        $this->assertTrue((bool)$vinyl);
-        $this->assertTrue($vinyl instanceof \App\Vinyl\User);
-        $this->assertSame('Riina', $vinyl->name);
-
-        // Note vinyl
-        $vinyl = \App\Vinyl\Note::find(1);
-        $this->assertTrue((bool)$vinyl);
-        $this->assertTrue($vinyl instanceof \App\Vinyl\Note);
-        $this->assertSame('Riina Kwaad', $vinyl->body);
-
-        // not found
-        $vinyl = \App\Vinyl\Note::find(10000);
-        $this->assertNull($vinyl);
-*/
-        $this->assertTrue(true);
     }
 
     public function testInsert(): void

@@ -18,7 +18,7 @@ class Column extends Gear
         $this->props['unsigned'] = false;
         //$this->props['default'] = ''; // unset is default
         $this->props['additional'] = [];
-        $this->props['index'] = [];
+        $this->props['index'] = '';
     }
 
     public function __get(string $key)
@@ -29,24 +29,6 @@ class Column extends Gear
                 return $this->props[$key] ?? null;
         }
         return null;
-    }
-
-    public function pk()
-    {
-        $this->props['index'][] = $this;
-        return $this;
-    }
-
-    public function unique()
-    {
-        $this->props['index'][] = $this;
-        return $this;
-    }
-
-    public function index()
-    {
-        $this->props['index'][] = $this;
-        return $this;
     }
 
     public function autoIncrement(): self
@@ -124,6 +106,18 @@ class Column extends Gear
             return sprintf(' DEFAULT %s', $formatted);
         }
         return '';
+    }
+
+    public function __call(string $name, array $args): self
+    {
+        switch ($name) {
+            case 'pk':
+            case 'uq':
+            case 'idx':
+                $this->props['index'] = $name;
+                break;
+        }
+        return $this;
     }
 
     public function __toString()

@@ -19,7 +19,7 @@ class Studio extends Gear
         $this->property = new Utility\Hash();
 
         $this->property->type = $type;
-        $this->property->code = 200;
+        $this->property->status_code = 200;
         if ($params instanceof Vinyl) {
             $this->property->params = $params->toArray();
         } else {
@@ -46,20 +46,20 @@ class Studio extends Gear
         return $this;
     }
 
-    public function status(int $code = 200): self
+    public function statusCode(int $status_code = 200): self
     {
-        $message = StatusCode::get($code);
-        $status = "{$code} {$message}";
+        $message = StatusCode::get($status_code);
+        $status = "{$status_code} {$message}";
         $this->property->push('headers', "HTTP/1.1 {$status}");
-        $this->property->code = $code;
+        $this->property->status_code = $status_code;
         $this->property->status = $status;
         return $this;
     }
     // function status()
 
-    public function code(): int
+    public function getStatusCode(): int
     {
-        return $this->property->code;
+        return $this->property->status_code;
     }
 
     protected function sendHeader(): self
@@ -101,7 +101,7 @@ class Studio extends Gear
             'header' => function () {
                 $this->contentType('html');
                 $bounce = new Bounce('httperror', [
-                    'satus_code' => $this->property->code,
+                    'satus_code' => $this->property->status_code,
                     'title' => $this->property->params['title'],
                     'message' => $this->property->params['message'],
                 ]);
@@ -122,22 +122,22 @@ class Studio extends Gear
     }
     // function recorded()
 
-    public function redirect(string $name, array $params = [], int $code = 303): self
+    public function redirect(string $name, array $params = [], int $status_code = 303): self
     {
         $uri = Audio::getInstance()->mixer->uri($name, $params);
 
         $this->property->type = 'redirect';
         $this->property->params = $uri;
-        $this->property->code = $code;
+        $this->property->status_code = $status_code;
         return $this;
     }
     // function redirect()
 
-    public function header(int $code, string $message = ''): self
+    public function header(int $status_code, string $message = ''): self
     {
-        $this->status($code);
+        $this->status($status_code);
         $this->property->type = 'header';
-        $this->property->code = $code;
+        $this->property->status_code = $status_code;
         $this->property->params = [
             'title' => $this->property->status,
             'message' => $message
@@ -165,21 +165,21 @@ class Studio extends Gear
 
     public static function recordException(\Throwable $exception): void
     {
-        $code = 500;
+        $status_code = 500;
         if ($exception instanceof HttpException) {
-            $code = $exception->getStatus();
+            $status_code = $exception->getStatusCode();
         }
         Audio::getInstance()->console = true;
 
         $view = new Bounce('exception', [
-            'status' => $code,
+            'status' => $status_code,
             'message' => $exception->getMessage(),
             'file' => $exception->getFile(),
             'line' => $exception->getLine(),
             'target' => Monitor::getSource($exception->getFile(), $exception->getLine(), 10),
             'trace' => $exception->getTrace(),
         ]);
-        echo $view->status($code)->sendHeader()->record();
+        echo $view->statusCode($status_code)->sendHeader()->record();
     }
     // function recordException()
 }

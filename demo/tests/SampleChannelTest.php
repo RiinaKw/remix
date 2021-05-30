@@ -29,7 +29,7 @@ class SampleChannelTest extends TestCase
         foreach (['GET', 'POST'] as $method) {
             $_SERVER['REQUEST_METHOD'] = $method;
             $response = $this->daw->playWeb();
-            $this->assertSame(200, $response->code());
+            $this->assertSame(200, $response->getStatusCode());
         }
     }
 
@@ -41,12 +41,12 @@ class SampleChannelTest extends TestCase
         $_SERVER['PATH_INFO'] = '/sample/error';
         $_SERVER['REQUEST_METHOD'] = 'GET';
         $response = $this->daw->playWeb();
-        $this->assertSame(500, $response->code());
+        $this->assertSame(500, $response->getStatusCode());
 
         $_SERVER['PATH_INFO'] = '/sample/error/418';
         $_SERVER['REQUEST_METHOD'] = 'GET';
         $response = $this->daw->playWeb();
-        $this->assertSame(418, $response->code());
+        $this->assertSame(418, $response->getStatusCode());
     }
 
     /**
@@ -63,7 +63,7 @@ class SampleChannelTest extends TestCase
             $_SERVER['REQUEST_METHOD'] = 'GET';
             $this->daw->playWeb();
         } catch (HttpException $e) {
-            $this->assertSame(500, $e->getStatus());
+            $this->assertSame(500, $e->getStatusCode());
             throw $e;
         }
         //$this->assertTrue(false);
@@ -79,7 +79,7 @@ class SampleChannelTest extends TestCase
             $_SERVER['REQUEST_METHOD'] = 'GET';
             $this->daw->playWeb();
         } catch (HttpException $e) {
-            $this->assertSame(418, $e->getStatus());
+            $this->assertSame(418, $e->getStatusCode());
         }
     }
 }

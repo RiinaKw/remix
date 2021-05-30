@@ -4,18 +4,18 @@ namespace Remix\Exceptions;
 
 class HttpException extends \Remix\RemixException
 {
-    protected $status = 200;
+    protected $status_code = 200;
 
-    public function __construct(string $message, int $status = 200)
+    public function __construct(string $message, int $status_code = 200)
     {
         parent::__construct($message);
-        $this->status = $status;
+        $this->status_code = $status_code;
     }
     // function __construct()
 
-    public function getStatus(): int
+    public function getStatusCode(): int
     {
-        return $this->status;
+        return $this->status_code;
     }
     // function getStatus()
 }

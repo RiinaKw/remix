@@ -27,7 +27,7 @@ class SampleChannel extends \Remix\Channel
             'code' => $code,
             'message' => StatusCode::get($code),
         ]);
-        return $bounce->status($code);
+        return $bounce->statusCode($code);
     }
     // function error()
 

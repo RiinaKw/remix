@@ -36,12 +36,10 @@ class Table extends Gear
     {
         if (! $this->exists()) {
             $cb($this);
-            /*
             if (count($this->columns) < 1) {
                 $message = sprintf('Table "%s" must contains any column', $this->name);
                 throw new DJException($message);
             }
-            */
             $columns_string = [];
             foreach ($this->columns as $column) {
                 $columns_string[] = (string)$column;
@@ -53,7 +51,8 @@ class Table extends Gear
             );
 
             try {
-                if (DJ::play($sql)) {
+                $result = DJ::play($sql);
+                if ($result) {
                     array_walk($this->columns, function ($column) {
                         $this->createIndex($column);
                     });
@@ -63,7 +62,6 @@ class Table extends Gear
                     throw new DJException($message);
                 }
             } catch (\Exception $e) {
-                $this->drop();
                 throw new DJException($e->getMessage());
             }
         } else {
@@ -121,11 +119,19 @@ class Table extends Gear
     {
         if ($this->exists()) {
             $sql = sprintf('DROP TABLE `%s`;', $this->name);
-            return DJ::play($sql) !== false;
+            $result = DJ::play($sql);
+            if ($result) {
+                $this->columns = [];
+                return true;
+            } else {
+                $message = sprintf('Table "%s" is not exists', $this->name);
+                throw new DJException($message);
+            }
         } else {
             $message = sprintf('Table "%s" is not exists', $this->name);
             throw new DJException($message);
         }
+        return false;
     }
     // function drop()
 

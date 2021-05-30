@@ -37,31 +37,6 @@ class DJTest extends TestCase
         $this->assertSame('Riina', $result->first()['name']);
     }
 
-    public function testInsert(): void
-    {
-        // get current count
-        $result = \Remix\DJ::play('SELECT * FROM users;');
-        $count = count($result);
-
-        // insert
-        $result = \Remix\DJ::play('INSERT INTO users(name) VALUES(:name);', ['name' => 'Luke']);
-
-        // get new count
-        $result = \Remix\DJ::play('SELECT * FROM users;');
-        $this->assertSame($count + 1, count($result));
-    }
-
-    public function testTruncate(): void
-    {
-        \Remix\DJ::play('INSERT INTO users(name) VALUES(:name);', ['name' => 'Luke']);
-
-        $result = \Remix\DJ::table('users')->truncate();
-        $this->assertTrue($result);
-
-        $result = \Remix\DJ::play('SELECT * FROM users;');
-        $this->assertSame(0, count($result));
-    }
-
     public function testTransaction(): void
     {
         // get current count
@@ -91,49 +66,14 @@ class DJTest extends TestCase
         $this->assertSame($count + 1, count($result));
     }
 
-    public function testCreate()
-    {
-        $table = \Remix\DJ::table('test_table');
-
-        if ($table->exists()) {
-            $table->drop();
-        }
-        $this->assertFalse($table->exists());
-
-        $table->create(function ($table) {
-            $table->int('id')->pk();
-            $table->text('title');
-        });
-
-        $this->assertTrue($table->exists());
-    }
-
-    public function testDrop()
-    {
-        $test_table = \Remix\DJ::table('test_table');
-
-        if (! $test_table->exists()) {
-            $test_table->create(function ($table) {
-                $table->int('id');
-                $table->text('title');
-            });
-        }
-
-        $this->assertTrue($test_table->exists());
-
-        $test_table->drop();
-
-        $this->assertFalse($test_table->exists());
-    }
-
     public function testBack2back()
     {
         $back2back = \Remix\DJ::back2back();
 
-        // The original behavior is that an exception is thrown
-        // if beginTransaction is performed before the transaction is completed.
+        // ** The original behavior is that an exception is thrown
+        // ** if beginTransaction is performed before the transaction is completed.
         try {
-            // Remix doesn't have that problem.
+            // ** Remix doesn't have that problem.
             $back2back->start();
             $back2back->start();
         } catch (\Exception $e) {

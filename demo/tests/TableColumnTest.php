@@ -8,16 +8,14 @@ use Remix\DJ\Column;
 
 class TableColumnTest extends TestCase
 {
-    use \Remix\Utility\Tests\InvokePrivateBehavior;
-
-    protected $db = '';
-    protected $table = null;
+    private $db = null;
+    private $table = null;
     private const TABLE_NAME = 'test_table';
 
     protected function setUp(): void
     {
         \Remix\Audio::getInstance()->initialize()->daw->initialize(__DIR__ . '/../app');
-        $this->table = DJ::table(self::TABLE_NAME);
+        $this->table = DJ::table('test_table');
         if ($this->table->exists()) {
             $this->table->drop();
         }
@@ -35,7 +33,7 @@ class TableColumnTest extends TestCase
 
     public function tearDown(): void
     {
-        // $this->table->drop();
+        $this->table->drop();
         \Remix\Audio::destroy();
     }
 

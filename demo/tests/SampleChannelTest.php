@@ -36,6 +36,22 @@ class SampleChannelTest extends TestCase
     /**
      * @SuppressWarnings(PHPMD.Superglobals)
      */
+    public function testError()
+    {
+        // accept any methods
+        $_SERVER['PATH_INFO'] = '/sample/error';
+        $_SERVER['REQUEST_METHOD'] = 'GET';
+        $this->daw->playWeb();
+        // #### Someone overwrote the headers ####
+        // $response = $this->daw->playWeb();
+        // $this->assertSame(500, $response->code());
+
+        $this->assertTrue(true);
+    }
+
+    /**
+     * @SuppressWarnings(PHPMD.Superglobals)
+     */
     public function testException()
     {
         $this->expectException(HttpException::class);

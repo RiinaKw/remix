@@ -5,6 +5,7 @@ namespace App\Channel;
 use Remix\Sampler;
 use Remix\Studio;
 use Remix\Bounce;
+use Remix\Preset\Http\StatusCode;
 use Remix\Exceptions\HttpException;
 
 class SampleChannel extends \Remix\Channel
@@ -16,6 +17,19 @@ class SampleChannel extends \Remix\Channel
         ]);
     }
     // function index()
+
+    public function error(Sampler $sampler): Studio
+    {
+        $code = $sampler->param('code', 500);
+
+        $bounce = new Bounce('sample/error', [
+            'title' => 'Remix example with http status code',
+            'code' => $code,
+            'message' => StatusCode::get($code),
+        ]);
+        return $bounce->status($code);
+    }
+    // function error()
 
     public function exception(Sampler $sampler): Studio
     {

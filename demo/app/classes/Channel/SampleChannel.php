@@ -18,6 +18,24 @@ class SampleChannel extends \Remix\Channel
     }
     // function index()
 
+    public function xml(): Studio
+    {
+        $params = [
+            'some' => 'thing',
+        ];
+        return Studio::factory('xml', $params);
+    }
+    // function xml()
+
+    public function json(): Studio
+    {
+        $params = [
+            'some' => 'thing',
+        ];
+        return Studio::factory('json', $params);
+    }
+    // function json()
+
     public function error(Sampler $sampler): Studio
     {
         $code = $sampler->param('code', 500);

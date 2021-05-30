@@ -29,8 +29,27 @@ class SampleChannelTest extends TestCase
         foreach (['GET', 'POST'] as $method) {
             $_SERVER['REQUEST_METHOD'] = $method;
             $response = $this->daw->playWeb();
+            $response->recorded();
             $this->assertSame(200, $response->getStatusCode());
         }
+    }
+
+    /**
+     * @SuppressWarnings(PHPMD.Superglobals)
+     */
+    public function testMimeType()
+    {
+        $_SERVER['PATH_INFO'] = '/sample/xml';
+        $_SERVER['REQUEST_METHOD'] = 'GET';
+        $response = $this->daw->playWeb();
+        $response->recorded();
+        $this->assertSame('application/xml', $response->getMimeType());
+
+        $_SERVER['PATH_INFO'] = '/sample/json';
+        $_SERVER['REQUEST_METHOD'] = 'GET';
+        $response = $this->daw->playWeb();
+        $response->recorded();
+        $this->assertSame('application/json', $response->getMimeType());
     }
 
     /**
@@ -41,11 +60,13 @@ class SampleChannelTest extends TestCase
         $_SERVER['PATH_INFO'] = '/sample/error';
         $_SERVER['REQUEST_METHOD'] = 'GET';
         $response = $this->daw->playWeb();
+        $response->recorded();
         $this->assertSame(500, $response->getStatusCode());
 
         $_SERVER['PATH_INFO'] = '/sample/error/418';
         $_SERVER['REQUEST_METHOD'] = 'GET';
         $response = $this->daw->playWeb();
+        $response->recorded();
         $this->assertSame(418, $response->getStatusCode());
     }
 

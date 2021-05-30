@@ -20,6 +20,7 @@ class Studio extends Gear
 
         $this->property->type = $type;
         $this->property->status_code = 200;
+        $this->property->mime_type = 'html';
         if ($params instanceof Vinyl) {
             $this->property->params = $params->toArray();
         } else {
@@ -37,12 +38,13 @@ class Studio extends Gear
     protected function contentType(string $forceType = '', string $charset = 'utf-8'): self
     {
         if ($forceType) {
-            $mimetype = MimeType::get($forceType);
+            $mime_type = MimeType::get($forceType);
         } else {
-            $mimetype = MimeType::get($this->property->type);
+            $mime_type = MimeType::get($this->property->type);
         }
-        Audio::getInstance()->console = $mimetype['console'];
-        $this->property->push('headers', "Content-type: {$mimetype['type']}; charset={$charset}");
+        Audio::getInstance()->console = $mime_type['console'];
+        $this->property->push('headers', "Content-type: {$mime_type['type']}; charset={$charset}");
+        $this->property->mime_type = $mime_type['type'];
         return $this;
     }
 
@@ -61,6 +63,13 @@ class Studio extends Gear
     {
         return $this->property->status_code;
     }
+    // function getStatusCode()
+
+    public function getMimeType(): string
+    {
+        return $this->property->mime_type;
+    }
+    // function getMimeType()
 
     protected function sendHeader(): self
     {
@@ -135,7 +144,7 @@ class Studio extends Gear
 
     public function header(int $status_code, string $message = ''): self
     {
-        $this->status($status_code);
+        $this->statusCode($status_code);
         $this->property->type = 'header';
         $this->property->status_code = $status_code;
         $this->property->params = [

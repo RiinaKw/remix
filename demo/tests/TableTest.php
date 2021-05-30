@@ -19,10 +19,8 @@ class TableTest extends TestCase
             $this->table->drop();
         }
         $this->table->create(function ($table) {
-            $table->int('col_pk')->pk();
-            $table->varchar('col_uq', 10)->uq();
-            $table->timestamp('col_idx')->idx();
-            $table->text('col_non_idx');
+            $table->int('id');
+            $table->text('title');
         });
     }
 
@@ -74,6 +72,53 @@ class TableTest extends TestCase
 
         $result = \Remix\DJ::play('SELECT * FROM users;');
         $this->assertSame(0, count($result));
+    }
+
+    public function testCreateWithNoColumns()
+    {
+        $this->expectException(DJException::class);
+        $this->expectExceptionMessage(self::TABLE_NAME);
+        $this->expectExceptionMessage('must contains any column');
+
+        if ($this->table->exists()) {
+            $this->table->drop();
+        }
+
+        $this->table->create(function () {
+        });
+    }
+
+    public function testCreateDuplicates()
+    {
+        $this->expectException(DJException::class);
+        $this->expectExceptionMessage(self::TABLE_NAME);
+        $this->expectExceptionMessage('already exists');
+
+        if ($this->table->exists()) {
+            $this->table->drop();
+        }
+
+        $this->table->create(function ($table) {
+            $table->int('id');
+            $table->text('title');
+        });
+        $this->table->create(function ($table) {
+            $table->int('id');
+            $table->text('title');
+        });
+    }
+
+    public function testDropFail()
+    {
+        $this->expectException(DJException::class);
+        $this->expectExceptionMessage(self::TABLE_NAME);
+        $this->expectExceptionMessage('is not exists');
+
+        if ($this->table->exists()) {
+            $this->table->drop();
+        }
+
+        $this->table->drop();
     }
 }
 // class DJTest

@@ -39,6 +39,12 @@ class SampleChannelTest extends TestCase
      */
     public function testMimeType()
     {
+        $_SERVER['PATH_INFO'] = '/sample/text';
+        $_SERVER['REQUEST_METHOD'] = 'GET';
+        $response = $this->daw->playWeb();
+        $response->recorded();
+        $this->assertSame('text/plain', $response->getMimeType());
+
         $_SERVER['PATH_INFO'] = '/sample/xml';
         $_SERVER['REQUEST_METHOD'] = 'GET';
         $response = $this->daw->playWeb();
@@ -55,15 +61,15 @@ class SampleChannelTest extends TestCase
     /**
      * @SuppressWarnings(PHPMD.Superglobals)
      */
-    public function testError()
+    public function testStatus()
     {
-        $_SERVER['PATH_INFO'] = '/sample/error';
+        $_SERVER['PATH_INFO'] = '/sample/status';
         $_SERVER['REQUEST_METHOD'] = 'GET';
         $response = $this->daw->playWeb();
         $response->recorded();
         $this->assertSame(500, $response->getStatusCode());
 
-        $_SERVER['PATH_INFO'] = '/sample/error/418';
+        $_SERVER['PATH_INFO'] = '/sample/status/418';
         $_SERVER['REQUEST_METHOD'] = 'GET';
         $response = $this->daw->playWeb();
         $response->recorded();

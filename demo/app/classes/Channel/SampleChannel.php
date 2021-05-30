@@ -2,6 +2,7 @@
 
 namespace App\Channel;
 
+use Remix\Audio;
 use Remix\Sampler;
 use Remix\Studio;
 use Remix\Bounce;
@@ -12,11 +13,25 @@ class SampleChannel extends \Remix\Channel
 {
     public function index(): Studio
     {
+        $mixer = Audio::getInstance()->mixer;
+
         return new Bounce('sample/index', [
             'title' => 'Remix example',
+            'url_xml' => $mixer->uri('xml'),
+            'url_json' => $mixer->uri('json'),
+            'url_status' => $mixer->uri('status'),
+            'url_status_with_code' => $mixer->uri('status', ['code' => 418]),
+            'url_exception' => $mixer->uri('exception'),
+            'url_exception_with_code' => $mixer->uri('exception', ['code' => 402]),
         ]);
     }
     // function index()
+
+    public function text(): Studio
+    {
+        return Studio::factory('text', 'boo');
+    }
+    // function xml()
 
     public function xml(): Studio
     {
@@ -36,11 +51,11 @@ class SampleChannel extends \Remix\Channel
     }
     // function json()
 
-    public function error(Sampler $sampler): Studio
+    public function status(Sampler $sampler): Studio
     {
         $code = $sampler->param('code', 500);
 
-        $bounce = new Bounce('sample/error', [
+        $bounce = new Bounce('sample/status', [
             'title' => 'Remix example with http status code',
             'code' => $code,
             'message' => StatusCode::get($code),

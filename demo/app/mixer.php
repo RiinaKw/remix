@@ -24,8 +24,9 @@ return [
     }),
 
     Track::any('/sample', 'SampleChannel@index'),
-    Track::any('/sample/xml', 'SampleChannel@xml'),
-    Track::any('/sample/json', 'SampleChannel@json'),
-    Track::any('/sample/error(/:code)?', 'SampleChannel@error'),
-    Track::any('/sample/exception(/:code)?', 'SampleChannel@exception'),
+    Track::any('/sample/text', 'SampleChannel@text')->name('text'),
+    Track::any('/sample/xml', 'SampleChannel@xml')->name('xml'),
+    Track::any('/sample/json', 'SampleChannel@json')->name('json'),
+    Track::any('/sample/status(/:code)?', 'SampleChannel@status')->name('status'),
+    Track::any('/sample/exception(/:code)?', 'SampleChannel@exception')->name('exception'),
 ];

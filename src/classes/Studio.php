@@ -88,7 +88,12 @@ class Studio extends Gear
             },
             'text' => function () {
                 $this->contentType();
-                return serialize($this->property->params);
+                $params = $this->property->params;
+                if (is_scalar($params)) {
+                    return $params;
+                } else {
+                    return serialize($this->property->params);
+                }
             },
             'closure' => function () {
                 $this->contentType('text');

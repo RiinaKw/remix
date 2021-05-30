@@ -23,6 +23,10 @@ class Mixer extends Gear
         foreach ($this->tracks as $track) {
             $name = $track->name;
             if ($name) {
+                if (isset($this->named[$name])) {
+                    $message = 'Tracks cannot have the same named Track "' . $name . '"';
+                    throw new \Remix\RemixException($message);
+                }
                 $this->named[$name] = $track;
             }
 
@@ -75,7 +79,8 @@ class Mixer extends Gear
                 }
 
                 // setup Studio
-                $sampler = Audio::getInstance()->equalizer->instance(Sampler::class, $fader->matched($path));
+                $sampler = Audio::getInstance()->equalizer
+                    ->instance(Sampler::class, $fader->matched($path));
                 return static::studio($track->action, $sampler);
             }
         }
@@ -101,6 +106,16 @@ class Mixer extends Gear
             } else {
                 return Studio::factory('text', $result);
             }
+        } else {
+            if ($action[0] instanceof \Remix\Channel) {
+                if (! method_exists($action[0], $action[1])) {
+                    $message = 'Channel "' . get_class($action[0])
+                        . '" does not contain method "' . $action[1] . '"';
+                    throw new \Remix\RemixException($message);
+                }
+            } else {
+                throw new \Remix\RemixException('Unknown Channel');
+            }
         }
     }
     // function studio()
@@ -119,11 +134,24 @@ class Mixer extends Gear
         }
 
         $path = $track->path;
+        preg_match('/\(\/:(?<name>.+?)\)\?/', $path, $matches);
+        if ($matches && isset($matches['name'])) {
+            $source = $matches[0];
+            $key = $matches['name'];
+
+            $value = $params[$key] ?? null;
+            if ($value !== null) {
+                $path = str_replace($source, '/' . $value, $path);
+            } else {
+                $path = str_replace($source, '', $path);
+            }
+        }
+
         foreach ($params as $label => $value) {
             $path = str_replace($label, $value, $path);
         }
 
-        $public_url = Audio::getInstance()->preset->get('env.public_url');
+        $public_url = Audio::getInstance()->preset->get('app.public_url');
         return $public_url . $path;
     }
     // function uri()

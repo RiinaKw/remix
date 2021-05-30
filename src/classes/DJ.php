@@ -40,11 +40,10 @@ class DJ extends \Remix\Gear
     }
     // function prepare()
 
-    public static function play(string $sql, array $params = []): ?Setlist
+    public static function play(string $sql, array $params = []): Setlist
     {
         $setlist = static::prepare($sql, $params);
-        $result = $setlist->play($params);
-        return $result ? $setlist : null;
+        return $setlist->play($params);
     }
     // function play()
 

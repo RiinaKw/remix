@@ -64,12 +64,11 @@ class Setlist extends Gear implements \Iterator, \Countable
     }
     // function dump();
 
-    public function play(): bool
+    public function play(): self
     {
-        $result = $this->statement->execute($this->holders);
+        $this->statement->execute($this->holders);
         $this->dump();
-
-        return $result;
+        return $this;
     }
     // function play()
 
@@ -87,7 +86,7 @@ class Setlist extends Gear implements \Iterator, \Countable
             $this->statement->queryString
         );
         $result = \Remix\DJ::first($sql, $this->holders);
-        return (int)$result[0];
+        return $result[0];
     }
 
     public function current()

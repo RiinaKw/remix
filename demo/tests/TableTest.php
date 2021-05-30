@@ -65,12 +65,18 @@ class TableTest extends TestCase
 
     public function testTruncate(): void
     {
-        \Remix\DJ::play('INSERT INTO users(name) VALUES(:name);', ['name' => 'Luke']);
+        $table_name = self::TABLE_NAME;
+        $sql = <<<SQL
+INSERT INTO `$table_name`(`id`, `title`) VALUES(:id, :title);
+SQL;
+        \Remix\DJ::play($sql, ['id' => 1, 'title' => 'Luke']);
 
-        $result = \Remix\DJ::table('users')->truncate();
-        $this->assertTrue($result);
+        $result = \Remix\DJ::play("SELECT * FROM `{$table_name}`;");
+        $this->assertSame(1, count($result));
 
-        $result = \Remix\DJ::play('SELECT * FROM users;');
+        \Remix\DJ::table($table_name)->truncate();
+
+        $result = \Remix\DJ::play("SELECT * FROM `{$table_name}`;");
         $this->assertSame(0, count($result));
     }
 

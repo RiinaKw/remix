@@ -51,8 +51,7 @@ class Table extends Gear
             );
 
             try {
-                $result = DJ::play($sql);
-                if ($result) {
+                if (DJ::play($sql)) {
                     array_walk($this->columns, function ($column) {
                         $this->createIndex($column);
                     });

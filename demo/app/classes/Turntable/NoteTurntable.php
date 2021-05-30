@@ -8,12 +8,12 @@ class NoteTurntable extends Turntable
 {
     public function htmlId(): string
     {
-        return sprintf('<strong>%s</strong>', $this->name);
+        return "<strong>{$this->name}</strong>";
     }
 
     public function urlApi(): string
     {
-        return sprintf('api/%d.json', $this->note_id);
+        return "api/{$this->note_id}.json";
     }
 }
 // class NoteTurntable

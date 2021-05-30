@@ -40,7 +40,9 @@ class Delay
 
     public static function log(string $type, string $str, string $flag = ''): void
     {
-        $flag = $flag ? sprintf('%s ', $flag) : '';
+        if ($flag) {
+            $flag .= ' ';
+        }
         $log = [
             'type' => $type,
             'log' => $flag . $str,
@@ -77,7 +79,7 @@ class Delay
 
     protected static function format(array $log): string
     {
-        return sprintf("[%s] %s", $log['type'], $log['log']);
+        return "[{$log['type']}] {$log['log']}";
     }
     // function format()
 

@@ -30,10 +30,11 @@ class Select extends BPM
             if ($column === '*') {
                 $selected_arr[] = $column;
             } else {
-                $selected_arr[] = sprintf('`%s`', $column);
+                $selected_arr[] = '`' . $column . '`';
             }
         }
-        return sprintf('SELECT %s FROM `%s`', implode(', ', $selected_arr), $this->table);
+        $select_str = implode(', ', $selected_arr);
+        return "SELECT {$select_str} FROM `{$this->table}`";
     }
 }
 // class Select

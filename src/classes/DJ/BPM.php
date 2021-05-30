@@ -58,7 +58,7 @@ abstract class BPM extends Gear
         }
         //$this->holder[$holder] = $value;
         $this->placeholder($holder, $value);
-        $this->where[] = sprintf('`%s` %s %s', $column, $op, $holder);
+        $this->where[] = "`{$column}` {$op} {$holder}";
         return $this;
     }
 
@@ -78,7 +78,7 @@ abstract class BPM extends Gear
     {
         $context = $this->buildContext();
         $where = $this->buildWhere();
-        return sprintf('%s WHERE %s;', $context, $where);
+        return $context . ' WHERE ' . $where . ';';
     }
 
     public function placeholders(): array

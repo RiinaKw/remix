@@ -17,7 +17,12 @@ class Instrument extends Effector
     public function index()
     {
         static::line('I am Instrument belonging to Audio, which instruments do you like?');
+
+        // monitor test
+        static::line('monitor test', 'black', 'yellow');
         \Remix\Monitor::dump(1);
+
+        // exception test
         throw new \Exception('test exception from Effector');
     }
 

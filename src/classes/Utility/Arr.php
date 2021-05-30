@@ -26,10 +26,10 @@ class Arr
             if (is_array($value)) {
                 $xml .= static::toXML($value, $key);
             } else {
-                $xml .= sprintf('<%s>%s</%s>', $key, $value, $key);
+                $xml .= "<{$key}>{$value}</{$key}>";
             }
         }
-        return sprintf('<%s>%s</%s>', $root, $xml, $root);
+        return "<{$root}>{$xml}</{$root}>";
     }
 }
 // class Arr

@@ -17,7 +17,7 @@ class Table extends Gear
     protected function __construct(string $name)
     {
         if (preg_match('/\W/', $name)) {
-            $message = sprintf('Illegal table name "%s"', $name);
+            $message = "Illegal table name '{$name}'";
             throw new DJException($message);
         }
         parent::__construct();
@@ -50,18 +50,15 @@ class Table extends Gear
         if (! $this->exists()) {
             $cb($this);
             if (count($this->columns) < 1) {
-                $message = sprintf('Table "%s" must contains any column', $this->name);
+                $message = "Table '{$this->name}' must contains any column";
                 throw new DJException($message);
             }
             $columns_string = [];
             foreach ($this->columns as $column) {
                 $columns_string[] = (string)$column;
             }
-            $sql = sprintf(
-                'CREATE TABLE `%s` (%s);',
-                $this->name,
-                implode(', ', $columns_string)
-            );
+            $columns = implode(', ', $columns_string);
+            $sql = "CREATE TABLE `{$this->name}` ({$columns});";
 
             try {
                 if (DJ::play($sql)) {
@@ -112,13 +109,7 @@ class Table extends Gear
         }
         $index_name = $prefix . '_' . $this->name . '_' . $column->name;
 
-        $sql = sprintf(
-            'CREATE %s `%s` ON `%s`(`%s`);',
-            $index_type,
-            $index_name,
-            $this->name,
-            $column->name
-        );
+        $sql = "CREATE {$index_type} `{$index_name}` ON `{$this->name}`(`{$column->name}`);";
         $results = DJ::play($sql);
         if (! $results) {
             $message = 'Cannot create index "' . $index_name .  '"for table "' . $this->name . '"';
@@ -130,17 +121,17 @@ class Table extends Gear
     public function drop(): bool
     {
         if ($this->exists()) {
-            $sql = sprintf('DROP TABLE `%s`;', $this->name);
+            $sql = 'DROP TABLE ' . $this->name . ';';
             $result = DJ::play($sql);
             if ($result) {
                 $this->columns = [];
                 return true;
             } else {
-                $message = sprintf('Table "%s" is not exists', $this->name);
+                $message = "Table '{$this->name}' is not exists";
                 throw new DJException($message);
             }
         } else {
-            $message = sprintf('Table "%s" is not exists', $this->name);
+            $message = "Table '{$this->name}' is not exists";
             throw new DJException($message);
         }
         return false;
@@ -150,10 +141,10 @@ class Table extends Gear
     public function truncate(): bool
     {
         if ($this->exists()) {
-            $sql = sprintf('TRUNCATE TABLE `%s`;', $this->name);
+            $sql = "TRUNCATE TABLE `{$this->name}`;";
             return DJ::play($sql) !== false;
         } else {
-            $message = sprintf('Table "%s" is not exists', $this->name);
+            $message = "Table '{$this->name}' is not exists";
             throw new DJException($message);
         }
     }
@@ -186,7 +177,7 @@ class Table extends Gear
                 break;
 
             default:
-                $message = sprintf('unknown method "%s"', $type);
+                $message = 'unknown method ' . $type;
                 throw new DJException($message);
         }
         $this->columns[$args[0]] = $column;

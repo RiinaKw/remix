@@ -41,14 +41,14 @@ final class Livehouse extends Effector
                 $livehouse_name = $matches[1] ?? null;
                 $class = $matches[2] ?? null;
                 if (! $class) {
-                    $message = sprintf('Unexpected file in Livehouse, given "%s"', $name);
+                    $message = "Unexpected file in Livehouse, given '{$name}'";
                     throw new RemixException($message);
                 }
 
                 require($file);
                 $class_ns = '\\App\\Livehouse\\' . $class;
                 if (! class_exists($class_ns)) {
-                    $message = sprintf('The file "%s" doees not contain class "%s"', $name, $class_ns);
+                    $message = "The file '{$name}' doees not contain class '{$class_ns}'";
                     throw new RemixException($message);
                 }
 

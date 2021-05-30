@@ -19,14 +19,15 @@ class Monitor
         if ($is_cli) {
             echo "\033[0;30m" . "\033[43m";
             var_dump($var);
-            echo sprintf('%s (%d)', $trace['file'], $trace['line']), "\033[0m", PHP_EOL;
+            echo "{$trace['file']} ({$trace['line']})";
+            echo "\033[0m", PHP_EOL;
         } else {
             echo '<section class="remix-monitor-dump" style="background-color: lightgray; padding: 1rem;">', PHP_EOL;
-            echo sprintf('<strong>%s (%d)</strong>', $trace['file'], $trace['line']), PHP_EOL;
-            echo '<pre>';
+            echo "<strong>{$trace['file']} ({$trace['line']})</strong>", PHP_EOL;
+            echo '<pre>', PHP_EOL;
             var_dump($var);
-            echo '</pre>' . PHP_EOL;
-            echo '</section>' . PHP_EOL;
+            echo '</pre>', PHP_EOL;
+            echo '</section>', PHP_EOL;
         }
     }
     // function dump()

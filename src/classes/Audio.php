@@ -147,7 +147,7 @@ class Audio
             Effector::line(
                 '####' . PHP_EOL .
                 '#### ' . $e->getMessage() . PHP_EOL .
-                '#### ' . sprintf('%s (%d)', $e->getFile(), $e->getLine()) . PHP_EOL .
+                '#### ' . $e->getFile() . ' (' . $e->getLine() . ')' . PHP_EOL .
                 '####',
                 'white',
                 'red'

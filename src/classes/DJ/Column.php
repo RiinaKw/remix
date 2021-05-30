@@ -67,7 +67,7 @@ class Column extends Gear
         switch ($this->props['type']) {
             case 'INT':
                 if ($this->props['length']) {
-                    $type = sprintf('INT(%d)', $this->props['length']);
+                    $type = "INT({$this->props['length']})";
                 } else {
                     $type = 'INT';
                 }
@@ -77,7 +77,7 @@ class Column extends Gear
                 break;
 
             case 'VARCHAR':
-                $type = sprintf('VARCHAR(%d)', $this->props['length']);
+                $type = "VARCHAR({$this->props['length']})";
                 break;
 
             case 'TEXT':
@@ -86,7 +86,7 @@ class Column extends Gear
                 $type = $this->props['type'];
                 break;
         }
-        return sprintf('`%s` %s', $this->props['name'], $type);
+        return "`{$this->props['name']}` {$type}";
     }
 
     private function definitionDefaultValue(): string
@@ -99,11 +99,11 @@ class Column extends Gear
             } elseif ($default === 'current_timestamp()') {
                 $formatted = $default;
             } elseif (is_string($default)) {
-                $formatted = sprintf("'%s'", $default);
+                $formatted = "'" . $default . "'";
             } elseif (is_int($default)) {
                 $formatted = $default;
             }
-            return sprintf(' DEFAULT %s', $formatted);
+            return ' DEFAULT ' . $formatted;
         }
         return '';
     }

@@ -70,7 +70,7 @@ class DAW extends Gear
         $tracks_path = $this->appDir('/mixer.php') ?: [];
         $mixer = $audio->mixer;
         $studio = $mixer->load($tracks_path)->route($path);
-        Delay::log('BODY', '');
+        Delay::log('BODY', $studio->getMimeType());
         $mixer->destroy();
         $mixer = null;
         $audio = null;

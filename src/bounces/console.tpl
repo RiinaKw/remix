@@ -58,19 +58,19 @@
     #remix-console-content li {
         padding: 0.2em;
     }
-    #remix-console-content li.body {
+    #remix-console-content li.BODY {
         background-color: lightgreen;
     }
-    #remix-console-content li.trace {
+    #remix-console-content li.TRACE {
         background-color: lightblue;
     }
-    #remix-console-content li.memory {
+    #remix-console-content li.MEMORY {
         background-color: yellow;
     }
-    #remix-console-content li.time {
+    #remix-console-content li.TIME {
         background-color: fuchsia;
     }
-    #remix-console-content li.query {
+    #remix-console-content li.QUERY {
         background-color: cyan;
     }
 </style>

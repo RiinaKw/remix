@@ -20,7 +20,10 @@ class Studio extends Gear
 
         $this->property->type = $type;
         $this->property->status_code = 200;
-        $this->property->mime_type = 'html';
+
+        // Make sure to set the mime type
+        $this->contentType();
+
         if ($params instanceof Vinyl) {
             $this->property->params = $params->toArray();
         } else {

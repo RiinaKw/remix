@@ -48,4 +48,8 @@ return [
     Track::get('/post/:id', 'PostChannel@show')->name('post.show'),
 
     Track::get('/include', 'IncludeChannel@index'),
+
+    Track::get('/method/nochannel', 'UnknownChannel@index'),
+    Track::get('/method/nomethod', 'MethodChannel@unknwonmethod'),
+    Track::get('/method/instance', [new \App\Channel\MethodChannel(), 'index']),
 ];

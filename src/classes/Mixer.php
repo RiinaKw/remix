@@ -94,51 +94,33 @@ class Mixer extends Gear
     }
     // function route()
 
-    protected static function doAction($action, Sampler $sampler)
-    {
-        if ($action[0] instanceof \Remix\Channel) {
-            if (method_exists($action[0], 'before')) {
-                $action[0]->before($sampler);
-            }
-            $result = $action($sampler);
-            if (method_exists($action[0], 'after')) {
-                $result = $action[0]->after($sampler, $result);
-            }
-        } else {
-            $result = $action($sampler);
-        }
-        return $result;
-    }
-
     protected static function studio($action, Sampler $sampler)
     {
-        if (is_string($action) && strpos($action, '@')) {
-            list($class, $method) = explode('@', $action);
-            $class = '\\App\\Channel\\' . $class;
-            $channel = new $class();
-            $action = [$channel, $method];
-        }
         if (is_object($action)) {
             return Studio::factory('closure', $action);
-        } elseif (is_callable($action)) {
-            $result = static::doAction($action, $sampler);
-            unset($sampler);
+        } else {
+            if (is_string($action) && strpos($action, '@')) {
+                list($class, $method) = explode('@', $action);
+                $class = '\\App\\Channel\\' . $class;
+
+                if (! class_exists($class)) {
+                    throw new \Remix\RemixException('Unknwon channel "' . $class . '"');
+                }
+
+                $channel = new $class($method);
+            } elseif (is_callable($action)) {
+                list($channel, $method) = $action;
+            }
+            $result = $channel->play($method, $sampler);
+
             if ($result instanceof Studio) {
                 return $result;
             } else {
                 return Studio::factory('text', $result);
             }
-        } else {
-            if ($action[0] instanceof \Remix\Channel) {
-                if (! method_exists($action[0], $action[1])) {
-                    $message = 'Channel "' . get_class($action[0])
-                        . '" does not contain method "' . $action[1] . '"';
-                    throw new \Remix\RemixException($message);
-                }
-            } else {
-                throw new \Remix\RemixException('Unknown Channel');
-            }
+            return $result;
         }
+        throw new \Remix\RemixException(__METHOD__ . ' has some errors??');
     }
     // function studio()
 

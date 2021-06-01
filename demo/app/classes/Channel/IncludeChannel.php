@@ -9,6 +9,9 @@ use Remix\Bounce;
 
 class IncludeChannel extends \Remix\Channel
 {
+    /**
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     */
     protected function after(Sampler $sampler, Studio $studio): Studio
     {
         $layout = new Bounce('include_test/external');
@@ -17,7 +20,7 @@ class IncludeChannel extends \Remix\Channel
         return $layout;
     }
 
-    public function index(Sampler $sampler): Studio
+    public function index(): Studio
     {
         $bounce = new Bounce('include_test/internal');
         $bounce->internal_param = 'i am include_test/internal';

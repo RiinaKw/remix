@@ -13,7 +13,7 @@ class Sampler extends Gear
     protected $get_hash = null;
     protected $post_hash = null;
     protected $method = '';
-    protected $uri = '';
+    // protected $uri = '';
 
     /**
      * @SuppressWarnings(PHPMD.Superglobals)
@@ -34,7 +34,7 @@ class Sampler extends Gear
             }
         }
         $this->method = $params['method'];
-        $this->uri = $_SERVER['REQUEST_URI'];
+        // $this->uri = $_SERVER['REQUEST_URI'];
 
         $this->get_hash = new Hash($_GET);
         $this->post_hash = new Hash($_POST);

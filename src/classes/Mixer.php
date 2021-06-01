@@ -61,8 +61,8 @@ class Mixer extends Gear
         if (strpos($path, '/') !== 0) {
             $path = '/' . $path;
         }
-
-        $method = $_REQUEST['_method'] ?? $_SERVER['REQUEST_METHOD'];
+        // $uri = $_SERVER['REQUEST_URI'] ?? $path;
+        $method = $_REQUEST['_method'] ?? ($_SERVER['REQUEST_METHOD'] ?? 'GET');
         $method = strtoupper($method);
 
         foreach ($this->urls as $url => $tracks) {
@@ -82,6 +82,7 @@ class Mixer extends Gear
 
                 // setup Studio
                 $params = [
+                    // 'path' => $path,
                     'method' => $method,
                     'data' => $fader->matched($path),
                 ];

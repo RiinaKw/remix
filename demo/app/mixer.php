@@ -30,4 +30,23 @@ return [
     Track::any('/sample/status(/:code)?', 'SampleChannel@status')->name('status'),
     Track::any('/sample/exception(/:code)?', 'SampleChannel@exception')->name('exception'),
     Track::any('/sample/api', 'SampleChannel@api')->name('api')->api(),
+
+    /**** scaffold for "post" ****/
+    Track::get(   '/post',                'PostChannel@list'    )->name('post.list'),
+    //Track::get(   '/post/new',            'PostChannel@new'     )->name('post.new'),
+    Track::put(   '/post/new',            'PostChannel@doInsert')->name('post.new'),
+
+    Track::post(  '/post/confirm(/:id)?', 'PostChannel@confirm' )->name('post.confirm'),
+
+    Track::get(   '/post/:id',            'PostChannel@show'    )->name('post.show'),
+    //Track::get(   '/post/(?<id>\d+)/edit',       'PostChannel@edit'    )->name('post.edit'),
+    Track::put(   '/post/:id/edit',       'PostChannel@doUpdate')->name('post.edit'),
+
+
+
+
+
+
+    //Track::get(   '/post/:id/delete',     'PostChannel@delete'  )->name('post.delete'),
+    Track::delete('/post/:id/delete',     'PostChannel@doDelete')->name('post.delete'),
 ];

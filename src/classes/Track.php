@@ -39,6 +39,20 @@ class Track extends Gear
     }
     // function post()
 
+    public static function put(string $path, $action): self
+    {
+        $track = new static('PUT', $path, $action);
+        return $track;
+    }
+    // function put()
+
+    public static function delete(string $path, $action): self
+    {
+        $track = new static('DELETE', $path, $action);
+        return $track;
+    }
+    // function put()
+
     public static function any(string $path, $action): self
     {
         $track = new static('ANY', $path, $action);

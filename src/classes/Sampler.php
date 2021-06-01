@@ -9,6 +9,8 @@ use Remix\Utility\Hash;
  */
 class Sampler extends Gear
 {
+    //private static $sampler = null;
+
     protected $params_hash = null;
     protected $get_hash = null;
     protected $post_hash = null;
@@ -18,7 +20,8 @@ class Sampler extends Gear
     /**
      * @SuppressWarnings(PHPMD.Superglobals)
      */
-    protected function __construct(array $params)
+    //private function __construct(array $params)
+    public function __construct(array $params)
     {
         parent::__construct();
 
@@ -33,6 +36,7 @@ class Sampler extends Gear
                 $this->params_hash->set($key, $item);
             }
         }
+
         $this->method = $params['method'];
         // $this->uri = $_SERVER['REQUEST_URI'];
 
@@ -40,6 +44,17 @@ class Sampler extends Gear
         $this->post_hash = new Hash($_POST);
     }
     // function __construct()
+
+/*
+    public static function getInstance(array $params): self
+    {
+        if (! static::$sampler) {
+            static::$sampler = new self($params);
+        }
+        return static::$sampler;
+    }
+    // function getInstance()
+*/
 
     public function params(string $name = '', $default = null)
     {

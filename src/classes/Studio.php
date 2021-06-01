@@ -222,6 +222,9 @@ class Studio extends Gear
 
         $traces = [];
         foreach ($exception->getTrace() as $item) {
+            if (! isset($item['file']) || ! isset($item['line'])) {
+                break;
+            }
             $traces[] = [
                 'trace' => $item,
                 'source' => Monitor::getSource($item['file'], $item['line'], 5),

@@ -13,7 +13,7 @@ class Monitor
      */
     public static function dump($var, Remix\Audio $audio = null): void
     {
-        $trace = debug_backtrace()[1];
+        $trace = static::called(1);
         $is_cli = Audio::getInstance()->cli;
 
         if ($is_cli) {
@@ -31,6 +31,11 @@ class Monitor
         }
     }
     // function dump()
+
+    public static function called(int $depth = 1): array
+    {
+        return debug_backtrace()[$depth];
+    }
 
     public static function getSource(string $file, int $highlight, int $margin): array
     {

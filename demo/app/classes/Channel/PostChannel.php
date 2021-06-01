@@ -24,8 +24,9 @@ class PostChannel extends \Remix\Channel
     {
         $mixer = Audio::getInstance()->mixer;
 
-        $trace = debug_backtrace()[1];
-        $studio->function = $trace['class'] . '::' . $trace['function'];
+        // $trace = Monitor::called(2);
+        // $studio->function = $trace['class'] . '::' . $trace['function'];
+
         $studio->request = $sampler->method() . ' ' . $sampler->uri();
         $studio->params = $sampler->params();
 

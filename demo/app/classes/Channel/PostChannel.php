@@ -8,119 +8,108 @@ use Remix\Studio;
 use Remix\Bounce;
 use Remix\Monitor;
 
+/**
+ * @SuppressWarnings(PHPMD.TooManyMethods)
+ * @SuppressWarnings(PHPMD.TooManyPublicMethods)
+ */
 class PostChannel extends \Remix\Channel
 {
-    protected function before(Sampler $sampler): Sampler
+    public function before(Sampler $sampler): Sampler
     {
-        $trace = debug_backtrace()[1];
-        Monitor::dump($trace['class'] . '::' . $trace['function']);
-        Monitor::dump($sampler->param());
         return $sampler;
     }
     // function before()
 
-    protected function after(Studio $studio): Studio
+    public function after(Sampler $sampler, Studio $studio): Studio
     {
         $mixer = Audio::getInstance()->mixer;
+
+        $trace = debug_backtrace()[1];
+        $studio->function = $trace['class'] . '::' . $trace['function'];
+        $studio->request = $sampler->method() . ' ' . $sampler->uri();
+        $studio->params = $sampler->param();
 
         $studio->url_list = $mixer->uri('post.list');
         $studio->url_new = $mixer->uri('post.new');
         $studio->url_show = $mixer->uri('post.show', [':id' => 1]);
         $studio->url_edit = $mixer->uri('post.edit', [':id' => 1]);
         $studio->url_delete = $mixer->uri('post.delete', [':id' => 1]);
+        $studio->url_validate = $mixer->uri('post.validate', [':id' => 1]);
 
         return $studio;
     }
     // function after()
 
-    public function list(Sampler $sampler): Studio
+    public function list(): Studio
     {
-        $this->before($sampler);
-        Monitor::dump(__METHOD__);
-
         $bounce = new Bounce('post/list');
-        return $this->after($bounce);
+        $bounce->action = 'show lists';
+        return $bounce;
     }
     // function list()
 
-    public function new(Sampler $sampler): Studio
+    public function new(): Studio
     {
-        $this->before($sampler);
-        Monitor::dump(__METHOD__);
-
         $bounce = new Bounce('post/list');
-        return $this->after($bounce);
+        $bounce->action = 'new form';
+        return $bounce;
     }
     // function new()
 
-    public function doInsert(Sampler $sampler): Studio
+    public function doInsert(): Studio
     {
-        $this->before($sampler);
-        Monitor::dump(__METHOD__);
-
         $bounce = new Bounce('post/list');
-        return $this->after($bounce);
+        $bounce->action = 'insert to db';
+        return $bounce;
     }
     // function insert()
 
-    public function show(Sampler $sampler): Studio
+    public function show(): Studio
     {
-        $this->before($sampler);
-        Monitor::dump(__METHOD__);
-
         $bounce = new Bounce('post/list');
-        return $this->after($bounce);
+        $bounce->action = 'item detail';
+        return $bounce;
     }
     // function show()
 
-    public function edit(Sampler $sampler): Studio
+    public function edit(): Studio
     {
-        $this->before($sampler);
-        Monitor::dump(__METHOD__);
-
         $bounce = new Bounce('post/list');
-        return $this->after($bounce);
+        $bounce->action = 'edit form';
+        return $bounce;
     }
     // function edit()
 
-    public function doUpdate(Sampler $sampler): Studio
+    public function doUpdate(): Studio
     {
-        $this->before($sampler);
-        Monitor::dump(__METHOD__);
-
         $bounce = new Bounce('post/list');
-        return $this->after($bounce);
+        $bounce->action = 'update in db';
+        return $bounce;
     }
     // function update()
 
-    public function delete(Sampler $sampler): Studio
+    public function delete(): Studio
     {
-        $this->before($sampler);
-        Monitor::dump(__METHOD__);
-
         $bounce = new Bounce('post/list');
-        return $this->after($bounce);
+        $bounce->action = 'confirm delete';
+        return $bounce;
     }
     // function delete()
 
-    public function doDelete(Sampler $sampler): Studio
+    public function doDelete(): Studio
     {
-        $this->before($sampler);
-        Monitor::dump(__METHOD__);
-
         $bounce = new Bounce('post/list');
-        return $this->after($bounce);
+        $bounce->action = 'delete in db';
+        return $bounce;
     }
     // function destroy()
 
-    public function confirm(Sampler $sampler): Studio
+    public function validate(): Studio
     {
-        $this->before($sampler);
-        Monitor::dump(__METHOD__);
-
         $bounce = new Bounce('post/list');
-        return $this->after($bounce);
+        $bounce->action = 'validate input';
+        return $bounce;
     }
-    // function confirm()
+    // function validate()
 }
 // class ApiChannel

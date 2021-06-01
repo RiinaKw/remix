@@ -62,7 +62,9 @@ class Mixer extends Gear
             $path = '/' . $path;
         }
 
-        $method = strtoupper($_SERVER['REQUEST_METHOD']);
+        $method = $_REQUEST['_method'] ?? $_SERVER['REQUEST_METHOD'];
+        $method = strtoupper($method);
+
         foreach ($this->urls as $url => $tracks) {
             // get track
             $fader = \Remix\Fader::factory($url);
@@ -79,14 +81,34 @@ class Mixer extends Gear
                 }
 
                 // setup Studio
+                $params = [
+                    'method' => $method,
+                    'data' => $fader->matched($path),
+                ];
                 $sampler = Audio::getInstance()->equalizer
-                    ->instance(Sampler::class, $fader->matched($path));
+                    ->instance(Sampler::class, $params);
                 return static::studio($track->action, $sampler);
             }
         }
         return Studio::factory()->header(404, 'it did not match any route, given ' . $path);
     }
     // function route()
+
+    protected static function doAction($action, Sampler $sampler)
+    {
+        if ($action[0] instanceof \Remix\Channel) {
+            if (method_exists($action[0], 'before')) {
+                $action[0]->before($sampler);
+            }
+            $result = $action($sampler);
+            if (method_exists($action[0], 'after')) {
+                $result = $action[0]->after($sampler, $result);
+            }
+        } else {
+            $result = $action($sampler);
+        }
+        return $result;
+    }
 
     protected static function studio($action, Sampler $sampler)
     {
@@ -99,7 +121,7 @@ class Mixer extends Gear
         if (is_object($action)) {
             return Studio::factory('closure', $action);
         } elseif (is_callable($action)) {
-            $result = $action($sampler);
+            $result = static::doAction($action, $sampler);
             unset($sampler);
             if ($result instanceof Studio) {
                 return $result;

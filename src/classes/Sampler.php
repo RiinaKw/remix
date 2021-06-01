@@ -12,20 +12,29 @@ class Sampler extends Gear
     protected $params_hash = null;
     protected $get_hash = null;
     protected $post_hash = null;
+    protected $method = '';
+    protected $uri = '';
 
     /**
      * @SuppressWarnings(PHPMD.Superglobals)
      */
-    protected function __construct(array $param)
+    protected function __construct(array $params)
     {
         parent::__construct();
 
         $this->params_hash = new Hash();
-        foreach ($param as $key => $item) {
+        foreach ($params['data'] as $key => $item) {
             if (! is_int($key)) {
                 $this->params_hash->set($key, $item);
             }
         }
+        foreach ($_REQUEST as $key => $item) {
+            if (! is_int($key) && $key !== '_method') {
+                $this->params_hash->set($key, $item);
+            }
+        }
+        $this->method = $params['method'];
+        $this->uri = $_SERVER['REQUEST_URI'];
 
         $this->get_hash = new Hash($_GET);
         $this->post_hash = new Hash($_POST);
@@ -49,5 +58,17 @@ class Sampler extends Gear
         return $this->post_hash->get($name) ?? $default;
     }
     // function post()
+
+    public function method(): string
+    {
+        return $this->method;
+    }
+    // function method()
+
+    public function uri(): string
+    {
+        return $this->uri;
+    }
+    // function uri()
 }
 // class Sampler

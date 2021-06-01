@@ -27,7 +27,7 @@ class PostChannel extends \Remix\Channel
         $trace = debug_backtrace()[1];
         $studio->function = $trace['class'] . '::' . $trace['function'];
         $studio->request = $sampler->method() . ' ' . $sampler->uri();
-        $studio->params = $sampler->param();
+        $studio->params = $sampler->params();
 
         $studio->url_list = $mixer->uri('post.list');
         $studio->url_new = $mixer->uri('post.new');

@@ -41,7 +41,7 @@ class Sampler extends Gear
     }
     // function __construct()
 
-    public function param(string $name = '', $default = null)
+    public function params(string $name = '', $default = null)
     {
         return $this->params_hash->get($name) ?? $default;
     }

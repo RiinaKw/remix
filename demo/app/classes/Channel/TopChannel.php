@@ -23,7 +23,7 @@ class TopChannel extends \Remix\Channel
 
     public function bounce(Sampler $sampler): Studio
     {
-        $message = $sampler->param('message') ?? 'hello';
+        $message = $sampler->params('message') ?? 'hello';
         $some = $sampler->get('some') ?? '';
         $bounce = new Bounce('test');
 

@@ -13,7 +13,7 @@ class FormChannel extends \Remix\Channel
     {
         $mixer = Audio::getInstance()->mixer;
 
-        $id = $sampler->param('id');
+        $id = $sampler->params('id');
 
         $bounce = new Bounce('form/index');
         $bounce->url = $mixer->uri('form', [':id' => $id]);
@@ -23,7 +23,7 @@ class FormChannel extends \Remix\Channel
 
     public function post(Sampler $sampler): Studio
     {
-        $id = $sampler->param('id');
+        $id = $sampler->params('id');
         $title = $sampler->post('title');
 
         $bounce = new Bounce('form/result');

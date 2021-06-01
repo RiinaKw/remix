@@ -53,7 +53,7 @@ class SampleChannel extends \Remix\Channel
 
     public function status(Sampler $sampler): Studio
     {
-        $code = $sampler->param('code', 500);
+        $code = $sampler->params('code', 500);
 
         $bounce = new Bounce('sample/status', [
             'title' => 'Remix example with http status code',
@@ -66,7 +66,7 @@ class SampleChannel extends \Remix\Channel
 
     public function exception(Sampler $sampler): Studio
     {
-        $code = $sampler->param('code', 500);
+        $code = $sampler->params('code', 500);
 
         $message = 'exception test from ' . __METHOD__
             . ' with status code ' . $code;
@@ -76,7 +76,7 @@ class SampleChannel extends \Remix\Channel
 
     public function api(Sampler $sampler): Studio
     {
-        $ext = $sampler->param('ext') ?? 'text';
+        $ext = $sampler->params('ext') ?? 'text';
         $params = [
             'persons' => [
                 [

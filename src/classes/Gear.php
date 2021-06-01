@@ -29,5 +29,16 @@ abstract class Gear
     public function destroy(): void
     {
     }
+
+    public function uses($name)
+    {
+        return isset(class_uses($this)[$name]);
+        //var_dump(class_uses($this), $name);
+    }
+
+    public function recordable()
+    {
+        return $this->uses('Remix\\Recordable');
+    }
 }
 // class Component

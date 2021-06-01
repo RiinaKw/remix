@@ -8,7 +8,7 @@
       <h1>Blog Posts : {{ $action }}</h1>
       <h2>{{ $request }}</h2>
       <pre>{{ var_dump($params) }}</pre>
-{{ include('post/test.tpl') }}
+{{ include post/test.tpl }}
       <ul>
         <li>
           <strong>list</strong> : {{ $url_list }}<br />

@@ -46,4 +46,6 @@ return [
     Track::delete('/post/:id', 'PostChannel@doDelete'),
 
     Track::get('/post/:id', 'PostChannel@show')->name('post.show'),
+
+    Track::get('/include', 'IncludeChannel@index'),
 ];

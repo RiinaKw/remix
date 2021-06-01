@@ -9,18 +9,19 @@ use Remix\Bounce;
 
 class IncludeChannel extends \Remix\Channel
 {
+    protected function after(Sampler $sampler, Studio $studio): Studio
+    {
+        $layout = new Bounce('include_test/external');
+        $layout->external_param = 'i am include_test/external';
+        $layout->in = $studio;
+        return $layout;
+    }
+
     public function index(Sampler $sampler): Studio
     {
-        $in = new Bounce('include_test/internal');
-        $in->internal_param = 'i am include_test/internal';
-        //var_dump( $in->recordable() );
-        //exit;
-
-        $ex = new Bounce('include_test/external');
-        $ex->external_param = 'i am include_test/external';
-
-        $ex->in = $in;
-        return $ex;
+        $bounce = new Bounce('include_test/internal');
+        $bounce->internal_param = 'i am include_test/internal';
+        return $bounce;
     }
     // function test()
 }

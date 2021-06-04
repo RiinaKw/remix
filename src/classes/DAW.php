@@ -10,17 +10,6 @@ class DAW extends Gear
     protected $remix_dir;
     protected $app_dir;
 
-    public static function factory($arg1 = null, $arg2 = null): self
-    {
-        if ($arg1 === null) {
-            return new static();
-        } elseif ($arg2 === null) {
-            return new static($arg1);
-        } else {
-            return new static($arg1, $arg2);
-        }
-    }
-
     public function initialize(string $dir): self
     {
         $this->app_dir = realpath($dir);

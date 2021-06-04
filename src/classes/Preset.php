@@ -32,7 +32,6 @@ class Preset extends Gear
     {
         $filename = str_replace('.', '/', $file);
         $file = $this->dir . '/' . $filename . '.php';
-        $daw = null;
 
         if (! realpath($file)) {
             if ($required === static::REQUIRED) {

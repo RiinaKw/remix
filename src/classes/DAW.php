@@ -19,18 +19,18 @@ class DAW extends Gear
         $env = ($env && $env !== 1) ? $env : 'production';
 
         $preset = Audio::getInstance()->preset;
-        $preset->set('remix.root_dir', $this->remix_dir);
-        $preset->set('remix.bounce_dir', $this->remixDir('bounces'));
-        $preset->set('remix.effector_dir', $this->remixDir('classes/Effector'));
-        $preset->set('remix.exception_path', $this->remixDir('bounces/exception.tpl'));
-        $preset->set('remix.console_path', $this->remixDir('bounces/console.tpl'));
+        $preset->set('remix.pathes.root_dir', $this->remix_dir);
+        $preset->set('remix.pathes.bounce_dir', $this->remixDir('bounces'));
+        $preset->set('remix.pathes.effector_dir', $this->remixDir('classes/Effector'));
+        $preset->set('remix.pathes.exception_path', $this->remixDir('bounces/exception.tpl'));
+        $preset->set('remix.pathes.console_path', $this->remixDir('bounces/console.tpl'));
 
         $preset->require('app', '', false, true);
         $preset->require('env.' . $env, 'app', true);
         $preset->optional('effector', 'app.effector', true);
 
-        $bounce_dir = $preset->get('app.bounce_dir');
-        $preset->set('app.bounce_dir', $this->appdir($bounce_dir));
+        $bounce_dir = $preset->get('app.pathes.bounce_dir');
+        $preset->set('app.pathes.bounce_dir', $this->appdir($bounce_dir));
 
         Audio::getInstance()->dj;
         return $this;

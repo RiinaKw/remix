@@ -176,7 +176,7 @@ class Studio extends Gear
 
     protected function appendConsole(string $content, Preset $preset): string
     {
-        $template_path = $preset->get('remix.console_path');
+        $template_path = $preset->get('remix.pathes.console_path');
 
         $view = new Bounce($template_path);
 
@@ -231,7 +231,11 @@ class Studio extends Gear
             ];
         }
 
-        $template_path = Audio::getInstance()->preset->get('remix.exception_path');
+        $template_path = Audio::getInstance()->preset->get('remix.pathes.exception_path');
+        if (! $template_path) {
+            Monitor::dump($exception->getTrace());
+            return 'Template path not found';
+        }
         $view = new Bounce($template_path, [
             'status' => $status_code,
             'message' => $exception->getMessage(),

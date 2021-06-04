@@ -9,8 +9,8 @@ trait RecordableWithTemplate
         if (! $path || ! file_exists($path)) {
             $audio = Audio::getInstance();
             $dirs = [
-                $audio->preset->get('app.bounce_dir'),
-                $audio->preset->get('remix.bounce_dir'),
+                $audio->preset->get('app.pathes.bounce_dir'),
+                $audio->preset->get('remix.pathes.bounce_dir'),
             ];
             $audio = null;
             foreach ($dirs as $dir) {

@@ -9,8 +9,6 @@ use Remix\Utility\Hash;
  */
 class Sampler extends Gear
 {
-    //private static $sampler = null;
-
     protected $params_hash = null;
     protected $get_hash = null;
     protected $post_hash = null;
@@ -20,11 +18,8 @@ class Sampler extends Gear
     /**
      * @SuppressWarnings(PHPMD.Superglobals)
      */
-    //private function __construct(array $params)
-    public function __construct(array $params)
+    public function load(array $params)
     {
-        parent::__construct();
-
         $this->params_hash = new Hash();
         foreach ($params['data'] as $key => $item) {
             if (! is_int($key)) {
@@ -43,18 +38,7 @@ class Sampler extends Gear
         $this->get_hash = new Hash($_GET);
         $this->post_hash = new Hash($_POST);
     }
-    // function __construct()
-
-/*
-    public static function getInstance(array $params): self
-    {
-        if (! static::$sampler) {
-            static::$sampler = new self($params);
-        }
-        return static::$sampler;
-    }
-    // function getInstance()
-*/
+    // function load()
 
     public function params(string $name = '', $default = null)
     {

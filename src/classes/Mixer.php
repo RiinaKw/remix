@@ -86,11 +86,9 @@ class Mixer extends Gear
                     'method' => $method,
                     'data' => $fader->matched($path),
                 ];
-
                 $sampler = Audio::getInstance()->equalizer
-                    ->instance(Sampler::class, $params);
-
-                //$sampler = Sampler::getInstance($params);
+                    ->singleton(Sampler::class);
+                $sampler->load($params);
                 return static::studio($track->action, $sampler);
             }
         }

@@ -7,12 +7,13 @@ class Preset extends Gear
     private const REQUIRED = true;
     private const OPTIONAL = false;
 
-    //protected $dir = '';
-    protected $hash = null;
+    private $dir = '';
+    private $hash = null;
 
     public function __construct()
     {
         parent::__construct();
+        $this->dir = Audio::getInstance()->daw->appDir('/presets');
         $this->hash = new Utility\Hash();
     }
     // function __construct()
@@ -30,8 +31,7 @@ class Preset extends Gear
     private function load(bool $required, string $file, string $key = '', bool $append = false): void
     {
         $filename = str_replace('.', '/', $file);
-        $daw = Audio::getInstance()->daw;
-        $file = $daw->appDir('/presets') . '/' . $filename . '.php';
+        $file = $this->dir . '/' . $filename . '.php';
         $daw = null;
 
         if (! realpath($file)) {

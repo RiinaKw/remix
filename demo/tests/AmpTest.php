@@ -33,6 +33,13 @@ class AmpTest extends TestCase
         $this->daw->playCli(['amp', 'instrument:acid', '-808', '--add=TB-909']);
     }
 
+    public function testShorthandle()
+    {
+        $this->expectOutputRegex('/4\'33\"/');
+
+        $this->daw->playCli(['amp', '-p']);
+    }
+
     public function testInvalidArg()
     {
         $this->expectOutputRegex('/unknown effector/');

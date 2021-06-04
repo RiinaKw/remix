@@ -13,17 +13,20 @@ class Amp extends Gear
         'remix' => '\\Remix\\Effector\\',
         'app' => '\\App\\Effector\\',
     ];
-
-    // Why static instead of const? I wanna read from Presets!
-    protected static $shorthandles = [
-        '-v' => \Remix\Effector\Version::class,
-        '-h' => \Remix\Effector\Help::class,
-    ];
-
+    protected static $shorthandles = [];
     private $effectors = [];
 
     public function initialize(): self
     {
+        static::$shorthandles = Preset\Effector::SHORTHANDLES;
+        $app_shorthandles = Audio::getInstance()->preset->get('app.effector.shorthandles');
+        foreach ($app_shorthandles as $handle => $method) {
+            if (isset(static::$shorthandles[$handle])) {
+                throw new \Exception("Error: reserved handle : {$handle}");
+            }
+            static::$shorthandles[$handle] = $method;
+        }
+
         $daw = Audio::getInstance()->daw;
 
         $this->load($daw, 'remix');
@@ -82,7 +85,13 @@ class Amp extends Gear
 
         if (array_key_exists($class, static::$shorthandles)) {
             $target = static::$shorthandles[$class];
-            $instance = $equalizer->instance($target, $this);
+            if (is_array($target)) {
+                list($class, $method) = $target;
+            } else {
+                $class = $target;
+                $method = 'index';
+            }
+            $instance = $equalizer->instance($class, $this);
         } else {
             foreach (static::NAMESPACES as $namespace) {
                 $target = $namespace . $class;

@@ -27,6 +27,7 @@ class DAW extends Gear
 
         $preset->load('app', 'app');
         $preset->load('env.' . $env, 'app', true);
+        $preset->load('effector', 'app.effector', true);
 
         $bounce_dir = $preset->get('app.bounce_dir');
         $preset->set('app.bounce_dir', $this->appdir($bounce_dir));

@@ -130,7 +130,11 @@ class Audio
                 'red'
             );
         } else {
-            echo Studio::recordException($e);
+            if (! $e instanceof \Remix\Exceptions\CoreException) {
+                echo Studio::recordException($e);
+            } else {
+                throw $e;
+            }
         }
         unset($e);
     }

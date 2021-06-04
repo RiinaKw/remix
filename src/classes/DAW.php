@@ -18,6 +18,8 @@ class DAW extends Gear
         $env = require($this->appdir('env.php'));
         $env = ($env && $env !== 1) ? $env : 'production';
 
+        // throw new \Remix\Exceptions\CoreException('Tests before initialization');
+
         $preset = Audio::getInstance()->preset;
         $preset->set('remix.pathes.root_dir', $this->remix_dir);
         $preset->set('remix.pathes.bounce_dir', $this->remixDir('bounces'));

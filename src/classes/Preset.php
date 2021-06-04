@@ -4,6 +4,9 @@ namespace Remix;
 
 class Preset extends Gear
 {
+    private const REQUIRED = true;
+    private const OPTIONAL = false;
+
     //protected $dir = '';
     protected $hash = null;
 
@@ -14,7 +17,17 @@ class Preset extends Gear
     }
     // function __construct()
 
-    public function load(string $file, string $key = '', bool $append = false): void
+    public function require(string $file, string $key = '', bool $append = false)
+    {
+        $this->load(static::REQUIRED, $file, $key, $append);
+    }
+
+    public function optional(string $file, string $key = '', bool $append = false)
+    {
+        $this->load(static::OPTIONAL, $file, $key, $append);
+    }
+
+    private function load(bool $required, string $file, string $key = '', bool $append = false): void
     {
         $filename = str_replace('.', '/', $file);
         $daw = Audio::getInstance()->daw;
@@ -22,7 +35,11 @@ class Preset extends Gear
         $daw = null;
 
         if (! realpath($file)) {
-            throw new RemixException("preset file '{$filename}' not found");
+            if ($required === static::REQUIRED) {
+                throw new RemixException("preset file '{$filename}' not found");
+            } else {
+                return;
+            }
         }
 
         if (! $key) {
@@ -38,9 +55,9 @@ class Preset extends Gear
     }
     // function load()
 
-    public function get(string $name = '')
+    public function get(string $name = '', $default = null)
     {
-        return $this->hash->get($name);
+        return $this->hash->get($name) ?: $default;
     }
     // function get()
 

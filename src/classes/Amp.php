@@ -19,7 +19,7 @@ class Amp extends Gear
     public function initialize(): self
     {
         static::$shorthandles = Preset\Effector::SHORTHANDLES;
-        $app_shorthandles = Audio::getInstance()->preset->get('app.effector.shorthandles');
+        $app_shorthandles = Audio::getInstance()->preset->get('app.effector.shorthandles', []);
         foreach ($app_shorthandles as $handle => $method) {
             if (isset(static::$shorthandles[$handle])) {
                 throw new \Exception("Error: reserved handle : {$handle}");

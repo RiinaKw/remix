@@ -17,7 +17,8 @@ class Help extends Effector
         static::line('Remix framework 0.5', 'black', 'green');
         static::line('by Riina K. <riinak.tv@gmail.com>', 'green');
         static::line('');
-        \Remix\Amp::availableCommands();
+        //\Remix\Amp::availableCommands();
+        $this->amp->availableCommands();
     }
 }
 // class Help

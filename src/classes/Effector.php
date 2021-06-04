@@ -7,6 +7,8 @@ namespace Remix;
  */
 abstract class Effector extends Gear
 {
+    protected $amp = null;
+
     protected const TITLE = 'this eccector is abstract class';
     protected static $commands = [
         '' => 'nothing to do',
@@ -41,6 +43,12 @@ abstract class Effector extends Gear
         'cyan'       => '46',
         'light_gray' => '47',
     );
+
+    protected function __construct(Amp $amp)
+    {
+        parent::__construct();
+        $this->amp = $amp;
+    }
 
     public function index()
     {

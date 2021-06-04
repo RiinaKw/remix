@@ -9,19 +9,19 @@ use Remix\Utility\Arr;
  */
 class Amp extends Gear
 {
+    // Why static instead of const? I wanna read from Presets!
     protected static $namespaces = [
         'remix' => '\\Remix\\Effector\\',
         'app' => '\\App\\Effector\\',
     ];
-
     protected static $shorthandles = [
         '-v' => \Remix\Effector\Version::class,
         '-h' => \Remix\Effector\Help::class,
     ];
 
-    private static $effectors = [];
+    private $effectors = [];
 
-    private static function available($namespace): void
+    private function available($namespace): void
     {
         $daw = Audio::getInstance()->daw;
         if ($namespace == 'app') {
@@ -38,20 +38,20 @@ class Amp extends Gear
                 $target = static::$namespaces[$namespace] . $name;
                 if (class_exists($target)) {
                     $command = strtolower($name);
-                    static::$effectors[$command] = $target;
+                    $this->effectors[$command] = $target;
                 }
             } // if (is_file($file))
         }
     }
 
-    public static function availableCommands()
+    public function availableCommands()
     {
-        static::available('remix');
-        static::available('app');
+        $this->available('remix');
+        $this->available('app');
 
         Effector::line('Available commands :');
 
-        foreach (static::$effectors as $classname) {
+        foreach ($this->effectors as $classname) {
             Effector::line('');
             $classname::detail();
         }
@@ -74,12 +74,12 @@ class Amp extends Gear
 
         if (array_key_exists($class, static::$shorthandles)) {
             $target = static::$shorthandles[$class];
-            $instance = $equalizer->instance($target);
+            $instance = $equalizer->instance($target, $this);
         } else {
             foreach (static::$namespaces as $namespace) {
                 $target = $namespace . $class;
                 if (class_exists($target)) {
-                    $instance = $equalizer->instance($target);
+                    $instance = $equalizer->instance($target, $this);
                     break;
                 }
             }
@@ -91,7 +91,7 @@ class Amp extends Gear
             Effector::line("unknown effector '{$class}'", 'black', 'red');
             Effector::line('try "amp help"');
         } else {
-            $instance = $equalizer->instance(Effector\Help::class);
+            $instance = $equalizer->instance(Effector\Help::class, $this);
             $instance->index($argv);
         }
 

@@ -9,11 +9,12 @@ use Remix\Utility\Arr;
  */
 class Amp extends Gear
 {
-    // Why static instead of const? I wanna read from Presets!
-    protected static $namespaces = [
+    private const NAMESPACES = [
         'remix' => '\\Remix\\Effector\\',
         'app' => '\\App\\Effector\\',
     ];
+
+    // Why static instead of const? I wanna read from Presets!
     protected static $shorthandles = [
         '-v' => \Remix\Effector\Version::class,
         '-h' => \Remix\Effector\Help::class,
@@ -21,9 +22,18 @@ class Amp extends Gear
 
     private $effectors = [];
 
-    private function available($namespace): void
+    public function initialize(): self
     {
         $daw = Audio::getInstance()->daw;
+
+        $this->load($daw, 'remix');
+        $this->load($daw, 'app');
+
+        return $this;
+    }
+
+    private function load(DAW $daw, string $namespace): void
+    {
         if ($namespace == 'app') {
             $effector_dir = $daw->appDir('classes/Effector');
         } else {
@@ -35,7 +45,7 @@ class Amp extends Gear
                 preg_match('/\/(?<name>.+?).php$/', $file, $matches);
                 $name = $matches['name'];
 
-                $target = static::$namespaces[$namespace] . $name;
+                $target = static::NAMESPACES[$namespace] . $name;
                 if (class_exists($target)) {
                     $command = strtolower($name);
                     $this->effectors[$command] = $target;
@@ -43,12 +53,10 @@ class Amp extends Gear
             } // if (is_file($file))
         }
     }
+    // function load()
 
     public function availableCommands()
     {
-        $this->available('remix');
-        $this->available('app');
-
         Effector::line('Available commands :');
 
         foreach ($this->effectors as $classname) {
@@ -76,7 +84,7 @@ class Amp extends Gear
             $target = static::$shorthandles[$class];
             $instance = $equalizer->instance($target, $this);
         } else {
-            foreach (static::$namespaces as $namespace) {
+            foreach (static::NAMESPACES as $namespace) {
                 $target = $namespace . $class;
                 if (class_exists($target)) {
                     $instance = $equalizer->instance($target, $this);

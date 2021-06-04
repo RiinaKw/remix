@@ -72,7 +72,7 @@ class DAW extends Gear
     public function playCli(array $argv): void
     {
         $audio = Audio::getInstance();
-        $audio->amp->play($argv);
+        $audio->amp->initialize()->play($argv);
         Delay::log('BODY', '');
         $audio = null;
     }

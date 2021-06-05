@@ -27,9 +27,10 @@ class DAW extends Gear
         $preset->set('remix.pathes.exception_path', $this->remixDir('bounces/exception.tpl'));
         $preset->set('remix.pathes.console_path', $this->remixDir('bounces/console.tpl'));
 
-        $preset->require('app', '', false, true);
-        $preset->require('env.' . $env, 'app', true);
-        $preset->optional('effector', 'app.effector', true);
+        $env_file = 'env.' . $env;
+        $preset->require('app');
+        $preset->require($env_file, 'app', Preset::APPEND);
+        $preset->optional('effector', 'app.effector', Preset::APPEND);
 
         $bounce_dir = $preset->get('app.pathes.bounce_dir');
         $preset->set('app.pathes.bounce_dir', $this->appdir($bounce_dir));

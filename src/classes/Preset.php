@@ -7,6 +7,9 @@ class Preset extends Gear
     private const REQUIRED = true;
     private const OPTIONAL = false;
 
+    public const APPEND = true;
+    public const REPLACE = false;
+
     private $dir = '';
     private $hash = null;
 
@@ -46,7 +49,7 @@ class Preset extends Gear
         }
         $preset = require($file);
 
-        if ($append) {
+        if ($append == static::APPEND) {
             $this->hash->pushHash($key, $preset);
         } else {
             $this->hash->set($key, $preset);

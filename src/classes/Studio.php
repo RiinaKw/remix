@@ -233,8 +233,13 @@ class Studio extends Gear
 
         $template_path = Audio::getInstance()->preset->get('remix.pathes.exception_path');
         if (! $template_path) {
-            Monitor::dump($exception->getTrace());
-            return 'Template path not found';
+            http_response_code(500);
+            echo '<h1>Remix fatal error : Cannot render exception</h1>' . "\n";
+            echo '<h2>Exception thrown : ' . $exception->getMessage() . '</h2>' . "\n";
+            echo $exception->getFile() . ' in ' . $exception->getLine();
+            //Monitor::dump($exception->getTrace());
+            //Monitor::dump(Audio::getInstance()->preset);
+            return '';
         }
         $view = new Bounce($template_path, [
             'status' => $status_code,

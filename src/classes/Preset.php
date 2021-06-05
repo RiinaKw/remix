@@ -10,31 +10,38 @@ class Preset extends Gear
     public const APPEND = true;
     public const REPLACE = false;
 
+    private $remix_dir = '';
     private $dir = '';
     private $hash = null;
 
     public function __construct()
     {
         parent::__construct();
+        $this->remix_dir = Audio::getInstance()->daw->remixDir('/presets');
         $this->dir = Audio::getInstance()->daw->appDir('/presets');
         $this->hash = new Utility\Hash();
     }
     // function __construct()
 
+    public function remixRequire(string $file, string $key = '', bool $append = false)
+    {
+        $this->load('remix', static::REQUIRED, $file, $key, $append);
+    }
+
     public function require(string $file, string $key = '', bool $append = false)
     {
-        $this->load(static::REQUIRED, $file, $key, $append);
+        $this->load('app', static::REQUIRED, $file, $key, $append);
     }
 
     public function optional(string $file, string $key = '', bool $append = false)
     {
-        $this->load(static::OPTIONAL, $file, $key, $append);
+        $this->load('app', static::OPTIONAL, $file, $key, $append);
     }
 
-    private function load(bool $required, string $file, string $key = '', bool $append = false): void
+    private function load(string $namespace, bool $required, string $file, string $key = '', bool $append = false): void
     {
         $filename = str_replace('.', '/', $file);
-        $file = $this->dir . '/' . $filename . '.php';
+        $file = ($namespace === 'remix' ? $this->remix_dir : $this->dir) . '/' . $filename . '.php';
 
         if (! realpath($file)) {
             if ($required === static::REQUIRED) {
@@ -43,12 +50,11 @@ class Preset extends Gear
                 return;
             }
         }
-
-        if (! $key) {
-            $key = $filename;
-        }
         $preset = require($file);
 
+        if ($namespace !== $key) {
+            $key = $namespace . '.' . ($key ?: $filename);
+        }
         if ($append == static::APPEND) {
             $this->hash->pushHash($key, $preset);
         } else {

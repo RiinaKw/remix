@@ -18,19 +18,20 @@ class DAW extends Gear
         $env = require($this->appdir('env.php'));
         $env = ($env && $env !== 1) ? $env : 'production';
 
-        // throw new \Remix\Exceptions\CoreException('Tests before initialization');
-
         $preset = Audio::getInstance()->preset;
         $preset->set('remix.pathes.root_dir', $this->remix_dir);
-        $preset->set('remix.pathes.bounce_dir', $this->remixDir('bounces'));
-        $preset->set('remix.pathes.effector_dir', $this->remixDir('classes/Effector'));
-        $preset->set('remix.pathes.exception_path', $this->remixDir('bounces/exception.tpl'));
-        $preset->set('remix.pathes.console_path', $this->remixDir('bounces/console.tpl'));
+
+        $preset->remixRequire('versions', 'remix', Preset::APPEND);
+        $preset->remixRequire('pathes', '', Preset::APPEND);
+        foreach ($preset->get('remix.pathes') as $key => $value) {
+            $key = 'remix.pathes.' . $key;
+            $preset->set($key, $this->remixDir($value));
+        }
 
         $env_file = 'env.' . $env;
-        $preset->require('app');
+        $preset->require('app', 'app');
         $preset->require($env_file, 'app', Preset::APPEND);
-        $preset->optional('effector', 'app.effector', Preset::APPEND);
+        $preset->optional('effector');
 
         $bounce_dir = $preset->get('app.pathes.bounce_dir');
         $preset->set('app.pathes.bounce_dir', $this->appdir($bounce_dir));

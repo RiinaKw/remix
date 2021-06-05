@@ -3,6 +3,7 @@
 namespace Remix\Effector;
 
 use Remix\Effector;
+use Remix\Audio;
 
 class Version extends Effector
 {
@@ -13,8 +14,9 @@ class Version extends Effector
 
     public function index()
     {
-        Effector::line('Remix framework 0.5');
-        Effector::line('by Riina K.<riinak.tv@gmail.com>');
+        $preset = Audio::getInstance()->preset;
+        static::line($preset->get('remix.title') . ' ' . $preset->get('remix.version'));
+        static::line($preset->get('remix.author'));
     }
 }
 // class Version

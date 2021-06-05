@@ -14,10 +14,8 @@ class Help extends Effector
 
     public function index()
     {
-        static::line('Remix framework 0.5', 'black', 'green');
-        static::line('by Riina K. <riinak.tv@gmail.com>', 'green');
+        $this->amp->play(['amp', 'version']);
         static::line('');
-        //\Remix\Amp::availableCommands();
         $this->amp->availableCommands();
     }
 }

@@ -60,18 +60,17 @@ class Amp extends Gear
 
     public function availableCommands($command = '')
     {
-        Effector::line('Available commands :');
-        Effector::line('');
+        if ($command && ! isset($this->effectors[$command])) {
+            Effector::line("unknown effector '{$command}'", 'black', 'red');
+        } else {
+            Effector::line('Available commands :');
 
-        if ($command) {
-            if (isset($this->effectors[$command])) {
+            if ($command) {
                 $this->effectors[$command]::detail();
             } else {
-                Effector::line("unknown effector '{$command}'", 'black', 'red');
-            }
-        } else {
-            foreach ($this->effectors as $classname) {
-                $classname::detail();
+                foreach ($this->effectors as $classname) {
+                    $classname::detail();
+                }
             }
         }
     }

@@ -58,6 +58,7 @@ abstract class Effector extends Gear
     public static function detail(): void
     {
         $command = static::classToCommand();
+        static::line('');
         static::line(static::color($command, 'green') . ' : ' . static::TITLE);
         static::commands();
     }

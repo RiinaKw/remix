@@ -78,7 +78,11 @@ abstract class BPM extends Gear
     {
         $context = $this->buildContext();
         $where = $this->buildWhere();
-        return $context . ' WHERE ' . $where . ';';
+        if ($where) {
+            return $context . ' WHERE ' . $where . ';';
+        } else {
+            return $context . ';';
+        }
     }
 
     public function placeholders(): array

@@ -6,8 +6,8 @@ use Remix\Effector;
 
 class Instrument extends Effector
 {
-    protected const TITLE = 'Example of Effector.';
-    protected static $commands = [
+    public const TITLE = 'Example of Effector.';
+    public const COMMANDS = [
         '' => 'test to throw exception',
         'piano' => 'play piano',
         'guitar' => 'play guitar',

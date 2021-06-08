@@ -58,7 +58,7 @@ class Amp extends Gear
     }
     // function load()
 
-    public function availableCommands($command = '')
+    public function availableEffector(string $command = '')
     {
         if ($command && ! isset($this->effectors[$command])) {
             Effector::line("unknown effector '{$command}'", 'black', 'red');
@@ -66,11 +66,41 @@ class Amp extends Gear
             Effector::line('Available commands :');
 
             if ($command) {
-                $this->effectors[$command]::commandDetail();
+                $this->availableCommands($this->effectors[$command]);
             } else {
                 foreach ($this->effectors as $classname) {
-                    $classname::commandDetail();
+                    $this->availableCommands($classname);
                 }
+            }
+        }
+    }
+
+    public function availableCommands(string $effector)
+    {
+        $namespaces = explode('\\', $effector);
+        $command = strtolower(array_pop($namespaces));
+
+        Effector::line('');
+        Effector::line(Effector::color($command, 'green') . ' : ' . $effector::TITLE);
+
+        $outputs = [];
+        foreach ($effector::COMMANDS as $key => $item) {
+            if ($key) {
+                $outputs[] = '    ' .
+                    Effector::color($command . ':' . $key, 'yellow') .
+                    ' : ' .
+                    $item;
+            } else {
+                $outputs[] = '    ' .
+                    Effector::color($command, 'yellow') .
+                    ' : ' .
+                    $item;
+            }
+        }
+        if ($outputs) {
+            Effector::line('  usage :');
+            foreach ($outputs as $item) {
+                Effector::line($item);
             }
         }
     }

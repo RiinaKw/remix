@@ -8,8 +8,8 @@ use App\Vinyl;
 
 class User extends Effector
 {
-    protected const TITLE = 'Example of Effector with DJ.';
-    protected static $commands = [
+    public const TITLE = 'Example of Effector with DJ.';
+    public const COMMANDS = [
         '' => 'show users, you can also search by --name',
         'init' => 'initialize user data for testing',
         'detail' => 'show details of the specified user',

@@ -8,8 +8,8 @@ use Remix\RemixException;
 
 final class Livehouse extends Effector
 {
-    protected const TITLE = 'Remix migration manager.';
-    protected static $commands = [
+    public const TITLE = 'Remix migration manager.';
+    public const COMMANDS = [
         'open' => 'oepn livehouse',
         'close' => 'close livehouse',
     ];

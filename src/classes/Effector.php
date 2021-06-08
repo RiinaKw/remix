@@ -9,8 +9,8 @@ abstract class Effector extends Gear
 {
     protected $amp = null;
 
-    protected const TITLE = 'this eccector is abstract class';
-    protected static $commands = [
+    public const TITLE = 'this eccector is abstract class';
+    public const COMMANDS = [
         '' => 'nothing to do',
     ];
 
@@ -52,51 +52,8 @@ abstract class Effector extends Gear
 
     public function index()
     {
-        static::commandDetail();
+        Effector::line('nothing to do', 'black', 'yellow');
     }
-
-    // Should the methods around here be moved to Amp?
-    final public static function commandDetail(): void
-    {
-        $command = static::classToCommand();
-        static::line('');
-        static::line(static::color($command, 'green') . ' : ' . static::TITLE);
-        static::commands();
-    }
-    // function title()
-
-    private static function classToCommand()
-    {
-        $namespaces = explode('\\', static::class);
-        return strtolower(array_pop($namespaces));
-    }
-    // function classToCommand()
-
-    protected static function commands(): void
-    {
-        $name = static::classToCommand();
-        $outputs = [];
-        foreach (static::$commands as $key => $item) {
-            if ($key) {
-                $outputs[] = '    ' .
-                    Effector::color($name . ':' . $key, 'yellow') .
-                    ' : ' .
-                    $item;
-            } else {
-                $outputs[] = '    ' .
-                    Effector::color($name, 'yellow') .
-                    ' : ' .
-                    $item;
-            }
-        }
-        if ($outputs) {
-            Effector::line('  usage :');
-            foreach ($outputs as $item) {
-                static::line($item);
-            }
-        }
-    }
-    // function commands()
 
     public function play(string $method, array $args = []): void
     {

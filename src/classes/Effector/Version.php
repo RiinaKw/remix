@@ -7,8 +7,8 @@ use Remix\Audio;
 
 class Version extends Effector
 {
-    protected const TITLE = 'Show version of Remix framework.';
-    protected static $commands = [
+    public const TITLE = 'Show version of Remix framework.';
+    public const COMMANDS = [
         '' => 'show version',
     ];
 

@@ -66,10 +66,10 @@ class Amp extends Gear
             Effector::line('Available commands :');
 
             if ($command) {
-                $this->effectors[$command]::detail();
+                $this->effectors[$command]::commandDetail();
             } else {
                 foreach ($this->effectors as $classname) {
-                    $classname::detail();
+                    $classname::commandDetail();
                 }
             }
         }

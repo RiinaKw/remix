@@ -52,10 +52,11 @@ abstract class Effector extends Gear
 
     public function index()
     {
-        static::detail();
+        static::commandDetail();
     }
 
-    public static function detail(): void
+    // Should the methods around here be moved to Amp?
+    final public static function commandDetail(): void
     {
         $command = static::classToCommand();
         static::line('');

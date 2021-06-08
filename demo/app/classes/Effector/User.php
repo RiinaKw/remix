@@ -12,7 +12,7 @@ class User extends Effector
     protected static $commands = [
         '' => 'show users, you can also search by --name',
         'init' => 'initialize user data for testing',
-        'show' => 'show details of the specified user',
+        'detail' => 'show details of the specified user',
     ];
 
     public function index($arg = [])
@@ -32,7 +32,7 @@ class User extends Effector
         }
     }
 
-    public function show($arg)
+    public function detail($arg)
     {
         $id = $arg[0] ?? null;
         $user = Vinyl\User::find($id);

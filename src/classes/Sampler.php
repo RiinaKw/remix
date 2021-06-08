@@ -13,12 +13,12 @@ class Sampler extends Gear
     protected $get_hash = null;
     protected $post_hash = null;
     protected $method = '';
-    // protected $uri = '';
+    protected $uri = '';
 
     /**
      * @SuppressWarnings(PHPMD.Superglobals)
      */
-    public function load(array $params)
+    public function load(string $uri, array $params)
     {
         $this->params_hash = new Hash();
         foreach ($params['data'] as $key => $item) {
@@ -33,7 +33,7 @@ class Sampler extends Gear
         }
 
         $this->method = $params['method'];
-        // $this->uri = $_SERVER['REQUEST_URI'];
+        $this->uri = $uri;
 
         $this->get_hash = new Hash($_GET);
         $this->post_hash = new Hash($_POST);

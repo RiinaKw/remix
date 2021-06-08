@@ -47,7 +47,7 @@ class Bounce extends Studio
             }
         }
 
-        $bounce_dir = Audio::getInstance()->preset->get('app.bounce_dir');
+        $bounce_dir = Audio::getInstance()->preset->get('app.pathes.bounce_dir');
         $executable = preg_replace(
             $re_l . 'include\s+(.+?)' . $re_r,
             "<?php include('{$bounce_dir}/$1'); ?>",

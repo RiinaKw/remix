@@ -61,7 +61,7 @@ class Mixer extends Gear
         if (strpos($path, '/') !== 0) {
             $path = '/' . $path;
         }
-        // $uri = $_SERVER['REQUEST_URI'] ?? $path;
+        $uri = $_SERVER['PATH_INFO'] ?? $path;
         $method = $_REQUEST['_method'] ?? ($_SERVER['REQUEST_METHOD'] ?? 'GET');
         $method = strtoupper($method);
 
@@ -88,7 +88,7 @@ class Mixer extends Gear
                 ];
                 $sampler = Audio::getInstance()->equalizer
                     ->singleton(Sampler::class);
-                $sampler->load($params);
+                $sampler->load($uri, $params);
                 return static::studio($track->action, $sampler);
             }
         }

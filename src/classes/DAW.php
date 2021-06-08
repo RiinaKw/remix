@@ -10,15 +10,13 @@ class DAW extends Gear
     protected $remix_dir;
     protected $app_dir;
 
-    public function initialize(string $dir): self
+    public function initializeCore(): self
     {
-        $this->app_dir = realpath($dir);
         $this->remix_dir = realpath(__DIR__ . '/..');
 
-        $env = require($this->appdir('env.php'));
-        $env = ($env && $env !== 1) ? $env : 'production';
-
         $preset = Audio::getInstance()->preset;
+        $preset->remixDir($this->remixDir('/presets'));
+
         $preset->set('remix.pathes.root_dir', $this->remix_dir);
 
         $preset->remixRequire('versions', 'remix', Preset::APPEND);
@@ -27,6 +25,19 @@ class DAW extends Gear
             $key = 'remix.pathes.' . $key;
             $preset->set($key, $this->remixDir($value));
         }
+
+        return $this;
+    }
+
+    public function initializeApp(string $dir): self
+    {
+        $this->app_dir = realpath($dir);
+
+        $env = require($this->appdir('env.php'));
+        $env = ($env && $env !== 1) ? $env : 'production';
+
+        $preset = Audio::getInstance()->preset;
+        $preset->appDir($this->appDir('/presets'));
 
         $env_file = 'env.' . $env;
         $preset->require('app', 'app');
@@ -39,7 +50,12 @@ class DAW extends Gear
         Audio::getInstance()->dj;
         return $this;
     }
-    // function initialize()
+    // function initializeApp()
+
+    public function initialize(string $dir): self
+    {
+        return $this->initializeCore()->initializeApp($dir);
+    }
 
     public function remixDir(string $path): string
     {

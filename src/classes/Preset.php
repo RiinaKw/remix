@@ -2,6 +2,8 @@
 
 namespace Remix;
 
+use Remix\Exceptions\CoreException;
+
 class Preset extends Gear
 {
     private const REQUIRED = true;
@@ -17,11 +19,23 @@ class Preset extends Gear
     public function __construct()
     {
         parent::__construct();
-        $this->remix_dir = Audio::getInstance()->daw->remixDir('/presets');
-        $this->dir = Audio::getInstance()->daw->appDir('/presets');
         $this->hash = new Utility\Hash();
     }
     // function __construct()
+
+    public function remixDir(string $dir): self
+    {
+        $this->remix_dir = $dir;
+        return $this;
+    }
+    // function remixDir()
+
+    public function appDir(string $dir): self
+    {
+        $this->dir = $dir;
+        return $this;
+    }
+    // function appDir()
 
     public function remixRequire(string $file, string $key = '', bool $append = false)
     {

@@ -15,6 +15,8 @@ class Bounce extends Studio
 
     public function __construct(string $file, array $params = [])
     {
+        Delay::logBirth(static::class . ' [' . $file . ']');
+
         parent::__construct('html', $params);
         $this->property->file = $file;
         $this->property->escaped_params = $params;

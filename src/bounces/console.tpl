@@ -16,116 +16,137 @@
   }
   #remix-console-body {
     width: 500px;
+    height: 220px;
+    position: relative;
     display: none;
   }
   #remix-console-body.show {
-    display: block;
-  }
-  #remix-console-tabs ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    border-bottom: solid 1px #000000;
     display: flex;
   }
-  #remix-console-tabs li {
+
+  #remix-console-body details {
     width: 20%;
-    line-height: 40px;
     text-align: center;
     background-color: #99cc99;
     border-right: solid 1px #000000;
   }
-  #remix-console-tabs label {
-    display: block;
-  }
-  #remix-console-tabs .active {
+  #remix-console-body details[open] {
     background-color: #ccffcc;
   }
-  #remix-console .pane {
-    height: 180px;
-    padding: 10px;
-    overflow-y: scroll;
-    display: none;
-  }
-  #remix-console .pane.show {
+
+  #remix-console-body summary {
+    line-height: 40px;
+    cursor: pointer;
     display: block;
   }
-  #remix-console-delay-pane ol {
+  #remix-console-body summary::-webkit-details-marker {
+    display: none;
+  }
+
+  #remix-console-body .pane {
+    position: absolute;
+    left: 0;
+    top: 40px;
+
+    width: 100%;
+    height: 180px;
+    overflow-y: scroll;
+
+    text-align: left;
+    border-top: solid 1px #000000;
+    background-color: #ccccff;
+  }
+  #remix-console-body .pane-wrapper {
+    margin: 0;
+    padding: 10px;
+  }
+
+  #remix-console-delay ol {
     height: 100%;
     margin: 0;
+    padding: 0;
     font-size: 80%;
   }
-  #remix-console-content li {
+  #remix-console-delay li {
+    margin-left: 2em;
     padding: 0.2em;
   }
-  #remix-console-content li.BODY {
+  #remix-console-delay li.BODY {
     background-color: lightgreen;
   }
-  #remix-console-content li.TRACE {
+  #remix-console-delay li.TRACE {
     background-color: lightblue;
   }
-  #remix-console-content li.MEMORY {
+  #remix-console-delay li.MEMORY {
     background-color: yellow;
   }
-  #remix-console-content li.TIME {
+  #remix-console-delay li.TIME {
     background-color: fuchsia;
   }
-  #remix-console-content li.QUERY {
+  #remix-console-delay li.QUERY {
     background-color: cyan;
   }
 </style>
 <section id="remix-console">
   <h1 id="remix-console-toggler">console</h1>
   <div id="remix-console-body">
-    <nav id="remix-console-tabs">
-      <ul>
-        <li><label class="active" for="remix-console-delay-pane">Delay</label></li>
-        <li><label for="remix-console-preset-pane">Preset</label></li>
-        <li><label for="remix-console-3rd-pane">tab3</label></li>
-      </ul>
-    </nav>
-    <div id="remix-console-content">
-      <div class="pane show" id="remix-console-delay-pane">
-        <ol>
+
+    <details id="remix-console-delay" open>
+      <summary>Delay</summary>
+      <section class="pane">
+        <ol class="pane-wrapper">
 {{foreach ($delay as $item) }}
           <li class="{{ $item['type'] }}">
             [{{ $item['type'] }}] {{ $item['log'] }}
           </li>
 {{endforeach}}
         </ol>
-      </div>
-      <div class="pane" id="remix-console-preset-pane">
-        <pre>
-{{ var_dump($preset) }}
-        </pre>
-      </div>
-      <div class="pane" id="remix-console-3rd-pane">
-        3rd
-      </div>
-    </div>
+      </section>
+    </details>
+
+    <details>
+      <summary>Preset</summary>
+      <section class="pane">
+        <pre class="pane-wrapper">{{ var_dump($preset) }}</pre>
+      </section>
+    </details>
+
+    <details>
+      <summary>3rd</summary>
+      <section class="pane">
+        <div class="pane-wrapper">
+          3rd content
+        </div>
+      </section>
+    </details>
+
   </div>
 </section>
 <script>
+  // Make sure to append it inside <body>
   const elConsole = document.getElementById('remix-console')
   const elBody = document.querySelector('body')
   elBody.appendChild(elConsole)
+
+  // Toggle tab
   document.getElementById('remix-console-toggler').addEventListener('click', () => {
     document.getElementById('remix-console-body').classList.toggle('show');
   })
-  const tabs = document.querySelectorAll('#remix-console-tabs label');
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(current => {
-        current.classList.remove('active')
-      })
-      tab.classList.toggle('active');
-      const paneId = tab.getAttribute('for')
 
-      const panes = document.querySelectorAll('#remix-console-content .pane')
-      panes.forEach(current => {
-        current.classList.remove('show')
+  const elsDetails = document.querySelectorAll('#remix-console-body details')
+  elsDetails.forEach(elDetails => {
+    elDetails.addEventListener('click', e => {
+      // Hide other panes
+      elsDetails.forEach(current => {
+        current.open = false
       })
-      document.getElementById(paneId).classList.add('show');
-    });
+    })
+  })
+
+  document.querySelectorAll('#remix-console-body .pane').forEach(elPane => {
+    elPane.addEventListener('click', e => {
+      // Stop propagation to <details>
+      e.stopPropagation()
+    })
   })
 </script>

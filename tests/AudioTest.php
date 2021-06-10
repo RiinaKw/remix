@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 
 class AudioTest extends TestCase
 {
-    use \Remix\Utility\Tests\InvokePrivateBehavior;
+    use \Utility\Tests\InvokePrivateBehavior;
 
     public function testInstance(): void
     {

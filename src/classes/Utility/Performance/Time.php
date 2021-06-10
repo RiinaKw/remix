@@ -1,6 +1,6 @@
 <?php
 
-namespace Remix\Utility\Performance;
+namespace Utility\Performance;
 
 class Time
 {

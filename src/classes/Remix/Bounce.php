@@ -2,6 +2,8 @@
 
 namespace Remix;
 
+use Utility\Capture;
+
 /**
  * Remix Bounce : view renderer
  */
@@ -91,7 +93,7 @@ class Bounce extends Studio
         $executable = '?>'
             . preg_replace(
                 $re_l . '(.*?)' . $re_r,
-                '<?php echo \Remix\Utility\Str::h($1 ?? null); ?>',
+                '<?php echo \Utility\Str::h($1 ?? null); ?>',
                 $executable
             ) . '<?php';
 
@@ -107,7 +109,7 @@ class Bounce extends Studio
         $escaped_params = $this->property->escaped_params;
         $html_params = $this->property->html_params;
 
-        $response = \Remix\Utility\Capture::capture(
+        $response = Capture::capture(
             function () use ($source, $escaped_params, $html_params) {
                 extract($escaped_params);
                 if ($html_params) {

@@ -9,7 +9,7 @@ use Remix\DJ\BPM\Delete;
 
 class BPMTest extends TestCase
 {
-    use \Remix\Utility\Tests\InvokePrivateBehavior;
+    use \Utility\Tests\InvokePrivateBehavior;
 
     public function testSelect(): void
     {

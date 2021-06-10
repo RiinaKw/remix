@@ -2,9 +2,10 @@
 
 namespace Remix\DJ;
 
-use Remix\Delay;
 use Remix\Gear;
+use Remix\Delay;
 use Remix\Exceptions\DJException;
+use Utility\Capture;
 
 /**
  * Remix Setlist : PDO statement
@@ -37,7 +38,7 @@ class Setlist extends Gear implements \Iterator, \Countable
 
     protected function dump(): self
     {
-        $dump = \Remix\Utility\Capture::capture(function () {
+        $dump = Capture::capture(function () {
             $this->statement->debugDumpParams();
         });
         preg_match(

@@ -1,6 +1,6 @@
 <?php
 
-namespace Remix\Utility;
+namespace Utility;
 
 class Arr
 {

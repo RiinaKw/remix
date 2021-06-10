@@ -2,6 +2,8 @@
 
 namespace Remix;
 
+use Utility\Arr;
+
 /**
  * Remix Mixer : routing
  */
@@ -18,7 +20,7 @@ class Mixer extends Gear
         } else {
             $this->tracks = $tracks;
         }
-        $this->tracks = Utility\Arr::flatten($this->tracks);
+        $this->tracks = Arr::flatten($this->tracks);
 
         foreach ($this->tracks as $track) {
             $name = $track->name;

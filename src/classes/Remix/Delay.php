@@ -2,8 +2,8 @@
 
 namespace Remix;
 
-use Remix\Utility\Performance\Memory;
-use Remix\Utility\Performance\Time;
+use Utility\Performance\Memory;
+use Utility\Performance\Time;
 
 class Delay
 {

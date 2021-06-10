@@ -12,7 +12,7 @@ class DAW extends Gear
 
     public function initializeCore(): self
     {
-        $this->remix_dir = realpath(__DIR__ . '/..');
+        $this->remix_dir = realpath(__DIR__ . '/../..');
 
         $preset = Audio::getInstance()->preset;
         $preset->remixDir($this->remixDir('/presets'));

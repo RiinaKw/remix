@@ -2,6 +2,7 @@
 
 namespace Remix;
 
+use Utility\Hash;
 use Remix\Exceptions\CoreException;
 
 class Preset extends Gear
@@ -19,7 +20,7 @@ class Preset extends Gear
     public function __construct()
     {
         parent::__construct();
-        $this->hash = new Utility\Hash();
+        $this->hash = new Hash();
     }
     // function __construct()
 

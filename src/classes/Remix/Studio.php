@@ -2,6 +2,8 @@
 
 namespace Remix;
 
+use Utility\Hash;
+use Utility\Arr;
 use Remix\Preset\Http\MimeType;
 use Remix\Preset\Http\StatusCode;
 use Remix\Exceptions\HttpException;
@@ -16,7 +18,7 @@ class Studio extends Gear
     public function __construct(string $type = 'none', $params = [])
     {
         // parent::__construct();
-        $this->property = new Utility\Hash();
+        $this->property = new Hash();
 
         $this->property->type = $type;
         $this->property->status_code = 200;
@@ -110,7 +112,7 @@ class Studio extends Gear
             },
             'xml' => function () {
                 $this->contentType();
-                return \Remix\Utility\Arr::toXML($this->property->params);
+                return Arr::toXML($this->property->params);
             },
             'redirect' => function () {
                 header('Location: ' . $this->property->params);

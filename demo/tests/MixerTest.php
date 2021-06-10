@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 
 class MixerTest extends TestCase
 {
-    use \Remix\Utility\Tests\InvokePrivateBehavior;
+    use \Utility\Tests\InvokePrivateBehavior;
 
     protected $daw = null;
 

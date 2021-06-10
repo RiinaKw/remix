@@ -1,6 +1,6 @@
 <?php
 
-namespace Remix\Utility\Tests;
+namespace Utility\Tests;
 
 trait CaptureOutput
 {

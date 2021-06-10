@@ -2,7 +2,7 @@
 
 namespace Remix;
 
-use Remix\Utility\Hash;
+use Utility\Hash;
 
 /**
  * Remix Sampler : web input manager

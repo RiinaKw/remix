@@ -2,6 +2,8 @@
 
 namespace Remix;
 
+use Utility\Capture;
+
 trait RecordableWithTemplate
 {
     protected function template(string $path = null): string
@@ -24,7 +26,7 @@ trait RecordableWithTemplate
             throw new RemixException('bounce "' . $this->property->file . '" not found');
         }
 
-        return Utility\Capture::capture(function () use ($path) {
+        return Capture::capture(function () use ($path) {
             require($path);
         });
     }

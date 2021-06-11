@@ -3,7 +3,7 @@
     "description": "Remix framework",
     "type": "library",
     "minimum-stability": "stable",
-    "license": "proprietary",
+    "license": "MIT",
     "authors": [{
         "name": "Riina K.",
         "email": "riinak.tv@gmail.com"

@@ -185,7 +185,15 @@ class Studio extends Gear
         Delay::logMemory();
         Delay::logTime();
 
-        $view->preset = $preset->get();
+        $view->setHtml(
+            'preset',
+            \Utility\Dump::html(
+                $preset->get(),
+                [
+                    'id_prefix' => 'remix-dump-',
+                ]
+            )
+        );
         $preset = null;
 
         $view->delay = Delay::get();

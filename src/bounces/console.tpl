@@ -24,26 +24,26 @@
     display: flex;
   }
 
-  #remix-console-body details {
+  #remix-console-body .pane {
     width: 20%;
     text-align: center;
     background-color: #99cc99;
     border-right: solid 1px #000000;
   }
-  #remix-console-body details[open] {
+  #remix-console-body .pane[open] {
     background-color: #ccffcc;
   }
 
-  #remix-console-body summary {
+  #remix-console-body .pane > summary {
     line-height: 40px;
     cursor: pointer;
     display: block;
   }
-  #remix-console-body summary::-webkit-details-marker {
+  #remix-console-body .pane > summary::-webkit-details-marker {
     display: none;
   }
 
-  #remix-console-body .pane {
+  #remix-console-body .pane-content {
     position: absolute;
     left: 0;
     top: 40px;
@@ -56,7 +56,7 @@
     border-top: solid 1px #000000;
     background-color: #ccccff;
   }
-  #remix-console-body .pane-wrapper {
+  #remix-console-body .pane-content-wrapper {
     margin: 0;
     padding: 10px;
   }
@@ -91,10 +91,10 @@
   <h1 id="remix-console-toggler">console</h1>
   <div id="remix-console-body">
 
-    <details id="remix-console-delay" open>
+    <details class="pane" id="remix-console-delay" open>
       <summary>Delay</summary>
-      <section class="pane">
-        <ol class="pane-wrapper">
+      <section class="pane-content">
+        <ol class="pane-content-wrapper">
 {{foreach ($delay as $item) }}
           <li class="{{ $item['type'] }}">
             [{{ $item['type'] }}] {{ $item['log'] }}
@@ -104,17 +104,17 @@
       </section>
     </details>
 
-    <details>
+    <details class="pane">
       <summary>Preset</summary>
-      <section class="pane">
-        <pre class="pane-wrapper">{{ var_dump($preset) }}</pre>
+      <section class="pane-content">
+        <div class="pane-content-wrapper">{{ $preset }}</div>
       </section>
     </details>
 
-    <details>
+    <details class="pane">
       <summary>3rd</summary>
-      <section class="pane">
-        <div class="pane-wrapper">
+      <section class="pane-content">
+        <div class="pane-content-wrapper">
           3rd content
         </div>
       </section>
@@ -133,7 +133,7 @@
     document.getElementById('remix-console-body').classList.toggle('show');
   })
 
-  const elsDetails = document.querySelectorAll('#remix-console-body details')
+  const elsDetails = document.querySelectorAll('#remix-console-body .pane')
   elsDetails.forEach(elDetails => {
     elDetails.addEventListener('click', e => {
       // Hide other panes
@@ -143,7 +143,7 @@
     })
   })
 
-  document.querySelectorAll('#remix-console-body .pane').forEach(elPane => {
+  document.querySelectorAll('#remix-console-body .pane-content').forEach(elPane => {
     elPane.addEventListener('click', e => {
       // Stop propagation to <details>
       e.stopPropagation()

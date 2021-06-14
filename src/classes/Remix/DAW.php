@@ -4,6 +4,8 @@ namespace Remix;
 
 /**
  * Remix DAW : entry point
+ *
+ * @package  Remix\Core
  */
 class DAW extends Gear
 {

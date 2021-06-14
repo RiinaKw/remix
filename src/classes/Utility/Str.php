@@ -2,6 +2,11 @@
 
 namespace Utility;
 
+/**
+ * Utilities of string operations
+ *
+ * @package  Utility
+ */
 class Str
 {
     public static function h($param)

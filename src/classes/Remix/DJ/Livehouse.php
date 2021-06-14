@@ -4,6 +4,11 @@ namespace Remix\DJ;
 
 use Remix\Gear;
 
+/**
+ * Remix DJ Livehouse : migration
+ *
+ * @package  Remix\DB
+ */
 class Livehouse extends Gear
 {
     protected $name = '';

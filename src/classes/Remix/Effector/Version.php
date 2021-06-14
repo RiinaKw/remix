@@ -5,6 +5,11 @@ namespace Remix\Effector;
 use Remix\Effector;
 use Remix\Audio;
 
+/**
+ * Remix Version Effector : show versions of Remix
+ *
+ * @package  Remix\CLI
+ */
 class Version extends Effector
 {
     public const TITLE = 'Show version of Remix framework.';

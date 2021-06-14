@@ -5,7 +5,9 @@ namespace Remix\DJ\BPM;
 use Remix\DJ\BPM;
 
 /**
- * Remix BPM Select : Query Builder
+ * Remix BPM Select : Query Builder for SELECT statement
+ *
+ * @package  Remix\DB
  */
 class Select extends BPM
 {

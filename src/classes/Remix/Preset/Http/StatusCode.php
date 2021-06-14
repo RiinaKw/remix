@@ -2,6 +2,12 @@
 
 namespace Remix\Preset\Http;
 
+/**
+ * HTTP status codes
+ *
+ * @package  Remix\Core
+ * @deprecated  No need to make it a class.
+ */
 final class StatusCode
 {
     private const CODES = [

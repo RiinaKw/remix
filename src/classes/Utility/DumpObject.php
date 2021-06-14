@@ -2,6 +2,11 @@
 
 namespace Utility;
 
+/**
+ * Utilities of dumping object variables
+ *
+ * @package  Utility\Dump
+ */
 class DumpObject
 {
     private static $instance = null;
@@ -89,6 +94,9 @@ class DumpObject
         // function staticProperties()
     }
 
+    /**
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     */
     private function constants(\ReflectionClass $reflection, object $object): string
     {
         // スコープを取得したかったけど、値がダイレクトに取れてしまう
@@ -112,6 +120,9 @@ class DumpObject
         // function constants()
     }
 
+    /**
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     */
     private function method(\ReflectionClass $reflection, object $object): string
     {
         $method_html = '';
@@ -151,6 +162,9 @@ class DumpObject
         // function method()
     }
 
+    /**
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     */
     private function staticMethod(\ReflectionClass $reflection, object $object): string
     {
         $method_html = '';
@@ -187,6 +201,9 @@ class DumpObject
         // function staticMethod()
     }
 
+    /**
+     * @SuppressWarnings(PHPMD.UnusedPrivateMethod)
+     */
     private function object(object &$object): string
     {
         $reflection = new \ReflectionClass($object);

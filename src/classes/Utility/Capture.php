@@ -2,6 +2,13 @@
 
 namespace Utility;
 
+/**
+ * Utilities of capturing output
+ *
+ * @package  Utility
+ * @deprecated  A similar function exists separately.
+ * @see  Utility\Tests\CaptureOutput
+ */
 class Capture
 {
     protected static function startCapture()

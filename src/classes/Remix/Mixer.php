@@ -6,6 +6,8 @@ use Utility\Arr;
 
 /**
  * Remix Mixer : routing
+ *
+ * @package  Remix\Web
  */
 class Mixer extends Gear
 {

@@ -2,6 +2,11 @@
 
 namespace Remix\Exceptions;
 
+/**
+ * Exception class indicating the HTTP error
+ *
+ * @package  Remix\Exception
+ */
 class HttpException extends \Remix\RemixException
 {
     protected $status_code = 200;

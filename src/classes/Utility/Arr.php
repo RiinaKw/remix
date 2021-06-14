@@ -2,6 +2,11 @@
 
 namespace Utility;
 
+/**
+ * Utilities of array operations
+ *
+ * @package  Utility
+ */
 class Arr
 {
     public static function flatten(array $arr): array

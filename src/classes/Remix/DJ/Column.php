@@ -5,6 +5,11 @@ namespace Remix\DJ;
 use Remix\Gear;
 use Remix\Exceptions\DJException;
 
+/**
+ * Remix DJ Column : column definition of DB table
+ *
+ * @package  Remix\DB
+ */
 class Column extends Gear
 {
     protected $props = [];

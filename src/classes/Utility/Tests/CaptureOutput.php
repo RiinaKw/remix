@@ -2,6 +2,13 @@
 
 namespace Utility\Tests;
 
+/**
+ * Utilities of capturing output
+ *
+ * @package  Utility\Tests
+ * @deprecated  A similar function exists separately.
+ * @see  Utility\Capture
+ */
 trait CaptureOutput
 {
     protected function startCapture()

@@ -5,6 +5,11 @@ namespace Remix;
 use Utility\Hash;
 use Remix\Exceptions\CoreException;
 
+/**
+ * Remix Preset : configs manager
+ *
+ * @package  Remix\Core
+ */
 class Preset extends Gear
 {
     private const REQUIRED = true;

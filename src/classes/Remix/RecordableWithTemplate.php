@@ -4,6 +4,11 @@ namespace Remix;
 
 use Utility\Capture;
 
+/**
+ * Recordable using template files
+ *
+ * @package  Remix\Base
+ */
 trait RecordableWithTemplate
 {
     protected function template(string $path = null): string

@@ -2,6 +2,12 @@
 
 namespace Remix\Preset;
 
+/**
+ * Effector settings
+ *
+ * @package  Remix\Core
+ * @deprecated  No need to make it a class.
+ */
 final class Effector
 {
     public const SHORTHANDLES = [

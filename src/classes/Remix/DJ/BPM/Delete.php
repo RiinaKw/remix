@@ -5,7 +5,9 @@ namespace Remix\DJ\BPM;
 use Remix\DJ\BPM;
 
 /**
- * Remix BPM Select : Query Builder
+ * Remix BPM Delete : Query Builder for DELETE statement
+ *
+ * @package  Remix\DB
  */
 class Delete extends BPM
 {

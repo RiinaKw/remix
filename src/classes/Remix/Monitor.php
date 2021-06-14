@@ -4,6 +4,8 @@ namespace Remix;
 
 /**
  * Remix Monitor: debug tools
+ *
+ * @package  Remix\Core
  */
 class Monitor
 {

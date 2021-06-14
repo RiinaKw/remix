@@ -8,6 +8,8 @@ use Remix\DJ\Table;
 
 /**
  * Remix DJ : DB access manager
+ *
+ * @package  Remix\DB
  */
 class DJ extends \Remix\Gear
 {

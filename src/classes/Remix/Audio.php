@@ -4,6 +4,8 @@ namespace Remix;
 
 /**
  * Remix Audio : application handler
+ *
+ * @package  Remix\Core
  */
 class Audio
 {

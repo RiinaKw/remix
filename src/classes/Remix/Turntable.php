@@ -6,6 +6,8 @@ use Remix\Vinyl;
 
 /**
  * Remix Turntable : presenter instance
+ *
+ * @package  Remix\DB
  */
 abstract class Turntable extends Gear
 {

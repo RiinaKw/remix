@@ -2,6 +2,11 @@
 
 namespace Utility;
 
+/**
+ * Utilities of HTML string operations
+ *
+ * @package  Utility
+ */
 class Html
 {
     public static function quote(string $string): string

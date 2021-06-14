@@ -6,6 +6,11 @@ use Remix\Effector;
 use Remix\DJ;
 use Remix\RemixException;
 
+/**
+ * Remix Livehouse Effector : migration manager
+ *
+ * @package  Remix\CLI
+ */
 final class Livehouse extends Effector
 {
     public const TITLE = 'Remix migration manager.';

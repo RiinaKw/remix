@@ -6,6 +6,8 @@ use Utility\Capture;
 
 /**
  * Remix Bounce : view renderer
+ *
+ * @package  Remix\Web
  */
 class Bounce extends Studio
 {

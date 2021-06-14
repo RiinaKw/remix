@@ -5,6 +5,11 @@ namespace Remix;
 use Utility\Performance\Memory;
 use Utility\Performance\Time;
 
+/**
+ * Remix Delay : log manager
+ *
+ * @package  Remix\Core
+ */
 class Delay
 {
     private static $delay = null;

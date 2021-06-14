@@ -128,7 +128,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Bounce\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020constructed.",
             "url": "classes/Remix-Bounce.html#method___construct"
         },                {
             "fqsen": "\\Remix\\Bounce\u003A\u003Arecord\u0028\u0029",
@@ -158,7 +158,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Channel",
             "name": "Channel",
-            "summary": "",
+            "summary": "Remix\u0020Channel\u0020\u003A\u0020web\u0020controller",
             "url": "classes/Remix-Channel.html"
         },                {
             "fqsen": "\\Remix\\Channel\u003A\u003Aplay\u0028\u0029",
@@ -218,7 +218,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Debug",
             "name": "Debug",
-            "summary": "",
+            "summary": "Remix\u0020Debug\u0020\u003A\u0020utilities\u0020for\u0020debug",
             "url": "classes/Remix-Debug.html"
         },                {
             "fqsen": "\\Remix\\Debug\u003A\u003Adump\u0028\u0029",
@@ -233,7 +233,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Delay",
             "name": "Delay",
-            "summary": "",
+            "summary": "Remix\u0020Delay\u0020\u003A\u0020log\u0020manager",
             "url": "classes/Remix-Delay.html"
         },                {
             "fqsen": "\\Remix\\Delay\u003A\u003A__construct\u0028\u0029",
@@ -318,7 +318,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\DJ\\Back2back\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020constructed.",
             "url": "classes/Remix-DJ-Back2back.html#method___construct"
         },                {
             "fqsen": "\\Remix\\DJ\\Back2back\u003A\u003Astart\u0028\u0029",
@@ -343,7 +343,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\DJ\\BPM\\Delete",
             "name": "Delete",
-            "summary": "Remix\u0020BPM\u0020Select\u0020\u003A\u0020Query\u0020Builder",
+            "summary": "Remix\u0020BPM\u0020Delete\u0020\u003A\u0020Query\u0020Builder\u0020for\u0020DELETE\u0020statement",
             "url": "classes/Remix-DJ-BPM-Delete.html"
         },                {
             "fqsen": "\\Remix\\DJ\\BPM\\Delete\u003A\u003A__construct\u0028\u0029",
@@ -358,7 +358,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\DJ\\BPM\\Select",
             "name": "Select",
-            "summary": "Remix\u0020BPM\u0020Select\u0020\u003A\u0020Query\u0020Builder",
+            "summary": "Remix\u0020BPM\u0020Select\u0020\u003A\u0020Query\u0020Builder\u0020for\u0020SELECT\u0020statement",
             "url": "classes/Remix-DJ-BPM-Select.html"
         },                {
             "fqsen": "\\Remix\\DJ\\BPM\\Select\u003A\u003A__construct\u0028\u0029",
@@ -433,12 +433,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\DJ\\Column",
             "name": "Column",
-            "summary": "",
+            "summary": "Remix\u0020DJ\u0020Column\u0020\u003A\u0020column\u0020definition\u0020of\u0020DB\u0020table",
             "url": "classes/Remix-DJ-Column.html"
         },                {
             "fqsen": "\\Remix\\DJ\\Column\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020constructed.",
             "url": "classes/Remix-DJ-Column.html#method___construct"
         },                {
             "fqsen": "\\Remix\\DJ\\Column\u003A\u003A__get\u0028\u0029",
@@ -498,12 +498,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\DJ\\Livehouse",
             "name": "Livehouse",
-            "summary": "",
+            "summary": "Remix\u0020DJ\u0020Livehouse\u0020\u003A\u0020migration",
             "url": "classes/Remix-DJ-Livehouse.html"
         },                {
             "fqsen": "\\Remix\\DJ\\Livehouse\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020constructed.",
             "url": "classes/Remix-DJ-Livehouse.html#method___construct"
         },                {
             "fqsen": "\\Remix\\DJ\\Livehouse\u003A\u003A__get\u0028\u0029",
@@ -528,7 +528,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\DJ\\Setlist\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020constructed.",
             "url": "classes/Remix-DJ-Setlist.html#method___construct"
         },                {
             "fqsen": "\\Remix\\DJ\\Setlist\u003A\u003AasVinyl\u0028\u0029",
@@ -608,12 +608,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\DJ\\Table",
             "name": "Table",
-            "summary": "",
+            "summary": "Remix\u0020DJ\u0020Table\u0020\u003A\u0020DB\u0020tables",
             "url": "classes/Remix-DJ-Table.html"
         },                {
             "fqsen": "\\Remix\\DJ\\Table\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020constructed.",
             "url": "classes/Remix-DJ-Table.html#method___construct"
         },                {
             "fqsen": "\\Remix\\DJ\\Table\u003A\u003A__get\u0028\u0029",
@@ -678,12 +678,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\DJ\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020constructed.",
             "url": "classes/Remix-DJ.html#method___construct"
         },                {
             "fqsen": "\\Remix\\DJ\u003A\u003A__destruct\u0028\u0029",
             "name": "__destruct",
-            "summary": "",
+            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020destructed.",
             "url": "classes/Remix-DJ.html#method___destruct"
         },                {
             "fqsen": "\\Remix\\DJ\u003A\u003Aprepare\u0028\u0029",
@@ -723,7 +723,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Effector\\Help",
             "name": "Help",
-            "summary": "Remix\u0020Effector\u0020\u003A\u0020command\u0020line\u0020controller",
+            "summary": "Remix\u0020Help\u0020Effector\u0020\u003A\u0020cli\u0020help\u0020message",
             "url": "classes/Remix-Effector-Help.html"
         },                {
             "fqsen": "\\Remix\\Effector\\Help\u003A\u003Aindex\u0028\u0029",
@@ -743,7 +743,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Effector\\Livehouse",
             "name": "Livehouse",
-            "summary": "Remix\u0020Effector\u0020\u003A\u0020command\u0020line\u0020controller",
+            "summary": "Remix\u0020Livehouse\u0020Effector\u0020\u003A\u0020migration\u0020manager",
             "url": "classes/Remix-Effector-Livehouse.html"
         },                {
             "fqsen": "\\Remix\\Effector\\Livehouse\u003A\u003Asetup\u0028\u0029",
@@ -798,7 +798,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Effector\\Version",
             "name": "Version",
-            "summary": "Remix\u0020Effector\u0020\u003A\u0020command\u0020line\u0020controller",
+            "summary": "Remix\u0020Version\u0020Effector\u0020\u003A\u0020show\u0020versions\u0020of\u0020Remix",
             "url": "classes/Remix-Effector-Version.html"
         },                {
             "fqsen": "\\Remix\\Effector\\Version\u003A\u003Aindex\u0028\u0029",
@@ -823,7 +823,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Effector\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020constructed.",
             "url": "classes/Remix-Effector.html#method___construct"
         },                {
             "fqsen": "\\Remix\\Effector\u003A\u003Aindex\u0028\u0029",
@@ -903,22 +903,22 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Exceptions\\CoreException",
             "name": "CoreException",
-            "summary": "",
+            "summary": "Exception\u0020class\u0020raised\u0020by\u0020Remix\u0020cores",
             "url": "classes/Remix-Exceptions-CoreException.html"
         },                {
             "fqsen": "\\Remix\\Exceptions\\DJException",
             "name": "DJException",
-            "summary": "",
+            "summary": "Exception\u0020class\u0020indicating\u0020the\u0020database\u0020errors",
             "url": "classes/Remix-Exceptions-DJException.html"
         },                {
             "fqsen": "\\Remix\\Exceptions\\ErrorException",
             "name": "ErrorException",
-            "summary": "",
+            "summary": "Exception\u0020class\u0020indicating\u0020the\u0020PHP\u0020errors",
             "url": "classes/Remix-Exceptions-ErrorException.html"
         },                {
             "fqsen": "\\Remix\\Exceptions\\HttpException",
             "name": "HttpException",
-            "summary": "",
+            "summary": "Exception\u0020class\u0020indicating\u0020the\u0020HTTP\u0020error",
             "url": "classes/Remix-Exceptions-HttpException.html"
         },                {
             "fqsen": "\\Remix\\Exceptions\\HttpException\u003A\u003A__construct\u0028\u0029",
@@ -938,17 +938,17 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Fader",
             "name": "Fader",
-            "summary": "",
+            "summary": "Remix\u0020Fader\u0020\u003A\u0020reg\u002Dexp\u0020manager",
             "url": "classes/Remix-Fader.html"
         },                {
             "fqsen": "\\Remix\\Fader\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020constructed.",
             "url": "classes/Remix-Fader.html#method___construct"
         },                {
             "fqsen": "\\Remix\\Fader\u003A\u003A__destruct\u0028\u0029",
             "name": "__destruct",
-            "summary": "",
+            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020destructed.",
             "url": "classes/Remix-Fader.html#method___destruct"
         },                {
             "fqsen": "\\Remix\\Fader\u003A\u003Atranslate\u0028\u0029",
@@ -983,22 +983,22 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Gear",
             "name": "Gear",
-            "summary": "",
+            "summary": "Remix\u0020Gear\u0020\u003A\u0020Base\u0020class\u0020of\u0020Remix",
             "url": "classes/Remix-Gear.html"
         },                {
             "fqsen": "\\Remix\\Gear\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020constructed.",
             "url": "classes/Remix-Gear.html#method___construct"
         },                {
             "fqsen": "\\Remix\\Gear\u003A\u003A__destruct\u0028\u0029",
             "name": "__destruct",
-            "summary": "",
+            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020destructed.",
             "url": "classes/Remix-Gear.html#method___destruct"
         },                {
             "fqsen": "\\Remix\\Gear\u003A\u003Afactory\u0028\u0029",
             "name": "factory",
-            "summary": "",
+            "summary": "Factory\u0020method.",
             "url": "classes/Remix-Gear.html#method_factory"
         },                {
             "fqsen": "\\Remix\\Gear\u003A\u003Adestroy\u0028\u0029",
@@ -1013,7 +1013,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Gear\u003A\u003Arecordable\u0028\u0029",
             "name": "recordable",
-            "summary": "",
+            "summary": "Does\u0020it\u0020implementing\u0020the\u0020trait\u0020Recordable\u003F",
             "url": "classes/Remix-Gear.html#method_recordable"
         },                {
             "fqsen": "\\Remix\\Mixer",
@@ -1088,7 +1088,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Preset\\Effector",
             "name": "Effector",
-            "summary": "",
+            "summary": "Effector\u0020settings",
             "url": "classes/Remix-Preset-Effector.html"
         },                {
             "fqsen": "\\Remix\\Preset\\Effector\u003A\u003ASHORTHANDLES",
@@ -1098,7 +1098,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Preset\\Http\\MimeType",
             "name": "MimeType",
-            "summary": "",
+            "summary": "Mime\u0020type",
             "url": "classes/Remix-Preset-Http-MimeType.html"
         },                {
             "fqsen": "\\Remix\\Preset\\Http\\MimeType\u003A\u003Aget\u0028\u0029",
@@ -1113,7 +1113,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Preset\\Http\\StatusCode",
             "name": "StatusCode",
-            "summary": "",
+            "summary": "HTTP\u0020status\u0020codes",
             "url": "classes/Remix-Preset-Http-StatusCode.html"
         },                {
             "fqsen": "\\Remix\\Preset\\Http\\StatusCode\u003A\u003Aget\u0028\u0029",
@@ -1128,12 +1128,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Preset",
             "name": "Preset",
-            "summary": "",
+            "summary": "Remix\u0020Preset\u0020\u003A\u0020configs\u0020manager",
             "url": "classes/Remix-Preset.html"
         },                {
             "fqsen": "\\Remix\\Preset\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020constructed.",
             "url": "classes/Remix-Preset.html#method___construct"
         },                {
             "fqsen": "\\Remix\\Preset\u003A\u003AremixDir\u0028\u0029",
@@ -1218,7 +1218,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Recordable",
             "name": "Recordable",
-            "summary": "",
+            "summary": "Recordable\u0020base\u0020trait\u0020of\u0020Remix",
             "url": "classes/Remix-Recordable.html"
         },                {
             "fqsen": "\\Remix\\Recordable\u003A\u003Arecord\u0028\u0029",
@@ -1243,7 +1243,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\RecordableWithTemplate",
             "name": "RecordableWithTemplate",
-            "summary": "",
+            "summary": "Recordable\u0020using\u0020template\u0020files",
             "url": "classes/Remix-RecordableWithTemplate.html"
         },                {
             "fqsen": "\\Remix\\RecordableWithTemplate\u003A\u003Atemplate\u0028\u0029",
@@ -1253,7 +1253,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\RemixException",
             "name": "RemixException",
-            "summary": "",
+            "summary": "Exception\u0020class\u0020of\u0020Remix",
             "url": "classes/Remix-RemixException.html"
         },                {
             "fqsen": "\\Remix\\Sampler",
@@ -1313,7 +1313,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Studio\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020constructed.",
             "url": "classes/Remix-Studio.html#method___construct"
         },                {
             "fqsen": "\\Remix\\Studio\u003A\u003Adestroy\u0028\u0029",
@@ -1393,12 +1393,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Track\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020constructed.",
             "url": "classes/Remix-Track.html#method___construct"
         },                {
             "fqsen": "\\Remix\\Track\u003A\u003A__destruct\u0028\u0029",
             "name": "__destruct",
-            "summary": "",
+            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020destructed.",
             "url": "classes/Remix-Track.html#method___destruct"
         },                {
             "fqsen": "\\Remix\\Track\u003A\u003Aget\u0028\u0029",
@@ -1458,7 +1458,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Turntable\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020constructed.",
             "url": "classes/Remix-Turntable.html#method___construct"
         },                {
             "fqsen": "\\Remix\\Turntable\u003A\u003A__get\u0028\u0029",
@@ -1478,7 +1478,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Vinyl\\Livehouse",
             "name": "Livehouse",
-            "summary": "Remix\u0020Vinyl\u0020\u003A\u0020capsulate\u0020a\u0020single\u0020DB\u0020record",
+            "summary": "Remix\u0020Livehouse\u0020\u003A\u0020migration",
             "url": "classes/Remix-Vinyl-Livehouse.html"
         },                {
             "fqsen": "\\Remix\\Vinyl\\Livehouse\u003A\u003ATABLE",
@@ -1553,7 +1553,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Utility\\Arr",
             "name": "Arr",
-            "summary": "",
+            "summary": "Utilities\u0020of\u0020array\u0020operations",
             "url": "classes/Utility-Arr.html"
         },                {
             "fqsen": "\\Utility\\Arr\u003A\u003Aflatten\u0028\u0029",
@@ -1568,7 +1568,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Utility\\Capture",
             "name": "Capture",
-            "summary": "",
+            "summary": "Utilities\u0020of\u0020capturing\u0020output",
             "url": "classes/Utility-Capture.html"
         },                {
             "fqsen": "\\Utility\\Capture\u003A\u003AstartCapture\u0028\u0029",
@@ -1588,7 +1588,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Utility\\Dump",
             "name": "Dump",
-            "summary": "",
+            "summary": "Utilities\u0020of\u0020dumping\u0020variables",
             "url": "classes/Utility-Dump.html"
         },                {
             "fqsen": "\\Utility\\Dump\u003A\u003A__construct\u0028\u0029",
@@ -1658,7 +1658,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Utility\\DumpObject",
             "name": "DumpObject",
-            "summary": "",
+            "summary": "Utilities\u0020of\u0020dumping\u0020object\u0020variables",
             "url": "classes/Utility-DumpObject.html"
         },                {
             "fqsen": "\\Utility\\DumpObject\u003A\u003A__construct\u0028\u0029",
@@ -1713,7 +1713,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Utility\\Hash",
             "name": "Hash",
-            "summary": "\u005BHash\u0020description\u005D",
+            "summary": "Utilities\u0020of\u0020hash\u0020operations",
             "url": "classes/Utility-Hash.html"
         },                {
             "fqsen": "\\Utility\\Hash\u003A\u003A__construct\u0028\u0029",
@@ -1778,7 +1778,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Utility\\Html",
             "name": "Html",
-            "summary": "",
+            "summary": "Utilities\u0020of\u0020HTML\u0020string\u0020operations",
             "url": "classes/Utility-Html.html"
         },                {
             "fqsen": "\\Utility\\Html\u003A\u003Aquote\u0028\u0029",
@@ -1823,7 +1823,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Utility\\Performance\\Memory",
             "name": "Memory",
-            "summary": "",
+            "summary": "Measure\u0020the\u0020memory\u0020used",
             "url": "classes/Utility-Performance-Memory.html"
         },                {
             "fqsen": "\\Utility\\Performance\\Memory\u003A\u003Aformat\u0028\u0029",
@@ -1858,7 +1858,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Utility\\Performance\\Time",
             "name": "Time",
-            "summary": "",
+            "summary": "Measure\u0020the\u0020execution\u0020time",
             "url": "classes/Utility-Performance-Time.html"
         },                {
             "fqsen": "\\Utility\\Performance\\Time\u003A\u003A\u0024start",
@@ -1898,7 +1898,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Utility\\Str",
             "name": "Str",
-            "summary": "",
+            "summary": "Utilities\u0020of\u0020string\u0020operations",
             "url": "classes/Utility-Str.html"
         },                {
             "fqsen": "\\Utility\\Str\u003A\u003Ah\u0028\u0029",
@@ -1908,7 +1908,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Utility\\Tests\\CaptureOutput",
             "name": "CaptureOutput",
-            "summary": "",
+            "summary": "Utilities\u0020of\u0020capturing\u0020output",
             "url": "classes/Utility-Tests-CaptureOutput.html"
         },                {
             "fqsen": "\\Utility\\Tests\\CaptureOutput\u003A\u003AstartCapture\u0028\u0029",
@@ -1928,7 +1928,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Utility\\Tests\\InvokePrivateBehavior",
             "name": "InvokePrivateBehavior",
-            "summary": "",
+            "summary": "Using\u0020reflection\u0020classes\u0020to\u0020allow\u0020access\u0020to\u0020private\u0020or\u0020protected\u0020properties\/methods",
             "url": "classes/Utility-Tests-InvokePrivateBehavior.html"
         },                {
             "fqsen": "\\Utility\\Tests\\InvokePrivateBehavior\u003A\u003AinvokeMethod\u0028\u0029",

@@ -6,6 +6,8 @@ use Utility\Hash;
 
 /**
  * Remix Sampler : web input manager
+ *
+ * @package  Remix\Web
  */
 class Sampler extends Gear
 {

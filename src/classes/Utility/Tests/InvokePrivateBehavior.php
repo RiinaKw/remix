@@ -2,6 +2,11 @@
 
 namespace Utility\Tests;
 
+/**
+ * Using reflection classes to allow access to private or protected properties/methods
+ *
+ * @package  Utility\Tests
+ */
 trait InvokePrivateBehavior
 {
     protected function invokeMethod(object $obj, string $name, array $param = [])

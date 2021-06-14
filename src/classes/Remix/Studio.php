@@ -10,6 +10,8 @@ use Remix\Exceptions\HttpException;
 
 /**
  * Remix Studio : web response manager
+ *
+ * @package  Remix\Web
  */
 class Studio extends Gear
 {

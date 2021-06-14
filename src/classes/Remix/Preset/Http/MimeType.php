@@ -2,6 +2,12 @@
 
 namespace Remix\Preset\Http;
 
+/**
+ * Mime type
+ *
+ * @package  Remix\Core
+ * @deprecated  No need to make it a class.
+ */
 final class MimeType
 {
     private const TYPES = [

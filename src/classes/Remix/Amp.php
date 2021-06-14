@@ -6,6 +6,8 @@ use Remix\Utility\Arr;
 
 /**
  * Remix Amp : command line interface
+ *
+ * @package  Remix\CLI
  */
 class Amp extends Gear
 {

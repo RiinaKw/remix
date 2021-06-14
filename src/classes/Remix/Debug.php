@@ -2,6 +2,11 @@
 
 namespace Remix;
 
+/**
+ * Remix Debug : utilities for debug
+ *
+ * @package  Remix\Core
+ */
 class Debug
 {
     public static function dump($var): void

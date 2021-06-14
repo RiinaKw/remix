@@ -4,6 +4,8 @@ namespace Remix;
 
 /**
  * Remix Track : web route definition
+ *
+ * @package  Remix\Web
  */
 class Track extends Gear
 {

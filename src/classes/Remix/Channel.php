@@ -2,6 +2,11 @@
 
 namespace Remix;
 
+/**
+ * Remix Channel : web controller
+ *
+ * @package  Remix\Web
+ */
 abstract class Channel extends \Remix\Gear
 {
     public function play($args, Sampler $sampler)

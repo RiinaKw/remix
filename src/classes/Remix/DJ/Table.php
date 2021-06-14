@@ -9,6 +9,11 @@ use Remix\DJ\BPM;
 use Remix\DJ\BPM\Select;
 use Remix\Exceptions\DJException;
 
+/**
+ * Remix DJ Table : DB tables
+ *
+ * @package  Remix\DB
+ */
 class Table extends Gear
 {
     protected $name;

@@ -2,6 +2,11 @@
 
 namespace Utility\Performance;
 
+/**
+ * Measure the memory used
+ *
+ * @package  Utility\Performance
+ */
 class Memory
 {
     protected const BYTE_TO_MEGA = 1024 * 1024;

@@ -2,6 +2,11 @@
 
 namespace Utility\Performance;
 
+/**
+ * Measure the execution time
+ *
+ * @package  Utility\Performance
+ */
 class Time
 {
     protected const NANOSEC_TO_MILISEC = 1000 * 1000;

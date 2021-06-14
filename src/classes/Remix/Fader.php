@@ -2,6 +2,11 @@
 
 namespace Remix;
 
+/**
+ * Remix Fader : reg-exp manager
+ *
+ * @package  Remix\Core
+ */
 class Fader extends Gear
 {
     protected $pattern;

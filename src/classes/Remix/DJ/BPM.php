@@ -8,6 +8,8 @@ use Remix\DJ\Setlist;
 
 /**
  * Remix BPM : Query Builder
+ *
+ * @package  Remix\DB
  */
 abstract class BPM extends Gear
 {

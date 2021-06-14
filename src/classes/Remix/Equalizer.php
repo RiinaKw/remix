@@ -4,6 +4,8 @@ namespace Remix;
 
 /**
  * Remix Equalizer : instance manager
+ *
+ * @package  Remix\Core
  */
 class Equalizer extends Gear
 {

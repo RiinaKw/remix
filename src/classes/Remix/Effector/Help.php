@@ -4,6 +4,11 @@ namespace Remix\Effector;
 
 use Remix\Effector;
 
+/**
+ * Remix Help Effector : cli help message
+ *
+ * @package  Remix\CLI
+ */
 class Help extends Effector
 {
     public const TITLE = 'Remix command line client.';

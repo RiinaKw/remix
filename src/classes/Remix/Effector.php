@@ -4,6 +4,8 @@ namespace Remix;
 
 /**
  * Remix Effector : command line controller
+ *
+ * @package  Remix\CLI
  */
 abstract class Effector extends Gear
 {

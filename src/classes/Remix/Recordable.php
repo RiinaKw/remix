@@ -2,6 +2,11 @@
 
 namespace Remix;
 
+/**
+ * Recordable base trait of Remix
+ *
+ * @package  Remix\Base
+ */
 trait Recordable
 {
     public function record(): string

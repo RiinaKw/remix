@@ -3,7 +3,9 @@
 namespace Utility;
 
 /**
- * [Hash description]
+ * Utilities of hash operations
+ *
+ * @package  Utility
  */
 class Hash
 {

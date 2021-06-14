@@ -2,6 +2,11 @@
 
 namespace Utility;
 
+/**
+ * Utilities of dumping variables
+ *
+ * @package  Utility\Dump
+ */
 class Dump
 {
     //private static $instance = null;

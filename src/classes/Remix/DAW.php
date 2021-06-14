@@ -22,6 +22,9 @@ class DAW extends Gear
         $preset->remixRequire('versions', 'remix', Preset::APPEND);
         $preset->remixRequire('pathes', '', Preset::APPEND);
         foreach ($preset->get('remix.pathes') as $key => $value) {
+            if ($key === 'root_dir') {
+                continue;
+            }
             $key = 'remix.pathes.' . $key;
             $preset->set($key, $this->remixDir($value));
         }

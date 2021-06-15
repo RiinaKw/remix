@@ -1133,87 +1133,87 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Preset\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020constructed.",
+            "summary": "Create\u0020internal\u0020Hash.",
             "url": "classes/Remix-Preset.html#method___construct"
         },                {
             "fqsen": "\\Remix\\Preset\u003A\u003AremixDir\u0028\u0029",
             "name": "remixDir",
-            "summary": "",
+            "summary": "Set\u0020Remix\u0020core\u0020directory.",
             "url": "classes/Remix-Preset.html#method_remixDir"
         },                {
             "fqsen": "\\Remix\\Preset\u003A\u003AappDir\u0028\u0029",
             "name": "appDir",
-            "summary": "",
+            "summary": "Set\u0020application\u0020directory.",
             "url": "classes/Remix-Preset.html#method_appDir"
         },                {
             "fqsen": "\\Remix\\Preset\u003A\u003AremixRequire\u0028\u0029",
             "name": "remixRequire",
-            "summary": "",
+            "summary": "Load\u0020the\u0020required\u0020configs\u0020in\u0020the\u0020Remix\u0020namespace.",
             "url": "classes/Remix-Preset.html#method_remixRequire"
         },                {
             "fqsen": "\\Remix\\Preset\u003A\u003Arequire\u0028\u0029",
             "name": "require",
-            "summary": "",
+            "summary": "Load\u0020the\u0020required\u0020configs\u0020in\u0020the\u0020application\u0020namespace.",
             "url": "classes/Remix-Preset.html#method_require"
         },                {
             "fqsen": "\\Remix\\Preset\u003A\u003Aoptional\u0028\u0029",
             "name": "optional",
-            "summary": "",
+            "summary": "Load\u0020the\u0020optional\u0020configs\u0020in\u0020the\u0020application\u0020namespace.",
             "url": "classes/Remix-Preset.html#method_optional"
         },                {
             "fqsen": "\\Remix\\Preset\u003A\u003Aload\u0028\u0029",
             "name": "load",
-            "summary": "",
+            "summary": "Load\u0020config\u0020file.",
             "url": "classes/Remix-Preset.html#method_load"
         },                {
             "fqsen": "\\Remix\\Preset\u003A\u003Aget\u0028\u0029",
             "name": "get",
-            "summary": "",
+            "summary": "Get\u0020from\u0020the\u0020config\u0020hash.",
             "url": "classes/Remix-Preset.html#method_get"
         },                {
             "fqsen": "\\Remix\\Preset\u003A\u003Aset\u0028\u0029",
             "name": "set",
-            "summary": "",
+            "summary": "Set\u0020to\u0020the\u0020config\u0020hash.",
             "url": "classes/Remix-Preset.html#method_set"
         },                {
             "fqsen": "\\Remix\\Preset\u003A\u003Aenv\u0028\u0029",
             "name": "env",
-            "summary": "",
+            "summary": "Get\u0020current\u0020environment",
             "url": "classes/Remix-Preset.html#method_env"
         },                {
             "fqsen": "\\Remix\\Preset\u003A\u003AREQUIRED",
             "name": "REQUIRED",
-            "summary": "",
+            "summary": "Is\u0020it\u0020required\u0020or\u0020optional\u003F",
             "url": "classes/Remix-Preset.html#constant_REQUIRED"
         },                {
             "fqsen": "\\Remix\\Preset\u003A\u003AOPTIONAL",
             "name": "OPTIONAL",
-            "summary": "",
+            "summary": "Is\u0020it\u0020required\u0020or\u0020optional\u003F",
             "url": "classes/Remix-Preset.html#constant_OPTIONAL"
         },                {
             "fqsen": "\\Remix\\Preset\u003A\u003AAPPEND",
             "name": "APPEND",
-            "summary": "",
+            "summary": "Is\u0020it\u0020replace\u0020or\u0020append\u003F",
             "url": "classes/Remix-Preset.html#constant_APPEND"
         },                {
             "fqsen": "\\Remix\\Preset\u003A\u003AREPLACE",
             "name": "REPLACE",
-            "summary": "",
+            "summary": "Is\u0020it\u0020replace\u0020or\u0020append\u003F",
             "url": "classes/Remix-Preset.html#constant_REPLACE"
         },                {
             "fqsen": "\\Remix\\Preset\u003A\u003A\u0024remix_dir",
             "name": "remix_dir",
-            "summary": "",
+            "summary": "Remix\u0020core\u0020directory",
             "url": "classes/Remix-Preset.html#property_remix_dir"
         },                {
             "fqsen": "\\Remix\\Preset\u003A\u003A\u0024dir",
             "name": "dir",
-            "summary": "",
+            "summary": "Application\u0020directory",
             "url": "classes/Remix-Preset.html#property_dir"
         },                {
             "fqsen": "\\Remix\\Preset\u003A\u003A\u0024hash",
             "name": "hash",
-            "summary": "",
+            "summary": "All\u0020settings\u0020it\u0027s\u0020managing",
             "url": "classes/Remix-Preset.html#property_hash"
         },                {
             "fqsen": "\\Remix\\Recordable",

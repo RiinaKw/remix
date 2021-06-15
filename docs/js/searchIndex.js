@@ -1483,72 +1483,72 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Vinyl\\Livehouse\u003A\u003ATABLE",
             "name": "TABLE",
-            "summary": "",
+            "summary": "Name\u0020of\u0020the\u0020table",
             "url": "classes/Remix-Vinyl-Livehouse.html#constant_TABLE"
         },                {
             "fqsen": "\\Remix\\Vinyl\\Livehouse\u003A\u003APK",
             "name": "PK",
-            "summary": "",
+            "summary": "Primary\u0020key\u0020of\u0020the\u0020table",
             "url": "classes/Remix-Vinyl-Livehouse.html#constant_PK"
         },                {
             "fqsen": "\\Remix\\Vinyl",
             "name": "Vinyl",
-            "summary": "Remix\u0020Vinyl\u0020\u003A\u0020capsulate\u0020a\u0020single\u0020DB\u0020record",
+            "summary": "Remix\u0020Vinyl\u0020\u003A\u0020active\u0020Record",
             "url": "classes/Remix-Vinyl.html"
         },                {
             "fqsen": "\\Remix\\Vinyl\u003A\u003A__get\u0028\u0029",
             "name": "__get",
-            "summary": "",
+            "summary": "Get\u0020property",
             "url": "classes/Remix-Vinyl.html#method___get"
         },                {
             "fqsen": "\\Remix\\Vinyl\u003A\u003A__set\u0028\u0029",
             "name": "__set",
-            "summary": "",
+            "summary": "Set\u0020property",
             "url": "classes/Remix-Vinyl.html#method___set"
         },                {
             "fqsen": "\\Remix\\Vinyl\u003A\u003AtoArray\u0028\u0029",
             "name": "toArray",
-            "summary": "",
+            "summary": "Properties\u0020to\u0020array",
             "url": "classes/Remix-Vinyl.html#method_toArray"
         },                {
             "fqsen": "\\Remix\\Vinyl\u003A\u003Atable\u0028\u0029",
             "name": "table",
-            "summary": "",
+            "summary": "Get\u0020Table\u0020object",
             "url": "classes/Remix-Vinyl.html#method_table"
         },                {
             "fqsen": "\\Remix\\Vinyl\u003A\u003Aselect\u0028\u0029",
             "name": "select",
-            "summary": "",
+            "summary": "Get\u0020Select\u0020BPM",
             "url": "classes/Remix-Vinyl.html#method_select"
         },                {
             "fqsen": "\\Remix\\Vinyl\u003A\u003A\u0024turntable",
             "name": "turntable",
-            "summary": "",
+            "summary": "Class\u0020name\u0020of\u0020Turntable",
             "url": "classes/Remix-Vinyl.html#property_turntable"
         },                {
             "fqsen": "\\Remix\\Vinyl\u003A\u003Afind\u0028\u0029",
             "name": "find",
-            "summary": "",
+            "summary": "Find\u0020by\u0020primary\u0020key",
             "url": "classes/Remix-Vinyl.html#method_find"
         },                {
             "fqsen": "\\Remix\\Vinyl\u003A\u003ATABLE",
             "name": "TABLE",
-            "summary": "",
+            "summary": "Name\u0020of\u0020the\u0020table",
             "url": "classes/Remix-Vinyl.html#constant_TABLE"
         },                {
             "fqsen": "\\Remix\\Vinyl\u003A\u003APK",
             "name": "PK",
-            "summary": "",
+            "summary": "Primary\u0020key\u0020of\u0020the\u0020table",
             "url": "classes/Remix-Vinyl.html#constant_PK"
         },                {
             "fqsen": "\\Remix\\Vinyl\u003A\u003A\u0024prop",
             "name": "prop",
-            "summary": "",
+            "summary": "Properties",
             "url": "classes/Remix-Vinyl.html#property_prop"
         },                {
             "fqsen": "\\Remix\\Vinyl\u003A\u003A\u0024is_new",
             "name": "is_new",
-            "summary": "",
+            "summary": "Is\u0020new\u0020record\u003F",
             "url": "classes/Remix-Vinyl.html#property_is_new"
         },                {
             "fqsen": "\\Utility\\Arr",

@@ -9,13 +9,31 @@ namespace Remix;
  */
 abstract class Effector extends Gear
 {
+    /**
+     * Parent Amp object.
+     * @var Amp
+     */
     protected $amp = null;
 
+    /**
+     * Its own title.
+     * @var string
+     */
     public const TITLE = 'this eccector is abstract class';
+
+    /**
+     * Its own available commands and descriptions.
+     * @var string[]
+     */
     public const COMMANDS = [
         '' => 'nothing to do',
     ];
 
+    /**
+     * Text colors for CLI
+     * @var string[]
+     * @todo Do I need to define it in this class? Shouldn't it rather be defined in Amp?
+     */
     private const TEXT_COLORS = array(
         'black'        => '0;30',
         'dark_gray'    => '1;30',
@@ -35,6 +53,12 @@ abstract class Effector extends Gear
         'light_gray'   => '0;37',
         'white'        => '1;37',
     );
+
+    /**
+     * Background colors for CLI
+     * @var string[]
+     * @todo Do I need to define it in this class? Shouldn't it rather be defined in Amp?
+     */
     private const BACKGROUND_COLORS = array(
         'black'      => '40',
         'red'        => '41',
@@ -46,17 +70,31 @@ abstract class Effector extends Gear
         'light_gray' => '47',
     );
 
+    /**
+     * Specify the parent Amp.
+     * @param Amp $amp  Amp object
+     */
     protected function __construct(Amp $amp)
     {
         parent::__construct();
         $this->amp = $amp;
     }
 
+    /**
+     * Default command : nothing to do.
+     * @todo: Return value
+     */
     public function index()
     {
         Effector::line('nothing to do', 'black', 'yellow');
     }
 
+    /**
+     * Execute the command.
+     *
+     * @param string $method  Method of command
+     * @param array  $args    Arguments of command
+     */
     public function play(string $method, array $args = []): void
     {
         foreach ($args as $item) {
@@ -79,6 +117,14 @@ abstract class Effector extends Gear
     }
     // function play()
 
+    /**
+     * Output a line to the CLI
+     *
+     * @param string $text              Content of line
+     * @param string $text_color        Text color
+     * @param string $background_color  Background color
+     * @todo Do I need to define it in this class? Because it might conflict with routing.
+     */
     public static function line(
         string $text,
         string $text_color = '',
@@ -91,6 +137,14 @@ abstract class Effector extends Gear
     }
     // function line()
 
+    /**
+     * Output a line to the STDERR
+     *
+     * @param string $text              Content of line
+     * @param string $text_color        Text color
+     * @param string $background_color  Background color
+     * @todo Do I need to define it in this class? Because it might conflict with routing.
+     */
     public static function lineError(
         string $text,
         string $text_color = '',
@@ -103,6 +157,15 @@ abstract class Effector extends Gear
     }
     // function line()
 
+    /**
+     * Color the text
+     *
+     * @param string $text              Source text
+     * @param string $text_color        Text color
+     * @param string $background_color  Background color
+     * @return string                   Colored text
+     * @todo Do I need to define it in this class? Because it might conflict with routing.
+     */
     public static function color(
         string $text,
         string $text_color = '',

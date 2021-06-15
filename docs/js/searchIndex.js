@@ -728,17 +728,17 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Effector\\Help\u003A\u003Aindex\u0028\u0029",
             "name": "index",
-            "summary": "",
+            "summary": "Default\u0020command\u0020\u003A\u0020nothing\u0020to\u0020do.",
             "url": "classes/Remix-Effector-Help.html#method_index"
         },                {
             "fqsen": "\\Remix\\Effector\\Help\u003A\u003ATITLE",
             "name": "TITLE",
-            "summary": "",
+            "summary": "Its\u0020own\u0020title.",
             "url": "classes/Remix-Effector-Help.html#constant_TITLE"
         },                {
             "fqsen": "\\Remix\\Effector\\Help\u003A\u003ACOMMANDS",
             "name": "COMMANDS",
-            "summary": "",
+            "summary": "Its\u0020own\u0020available\u0020commands\u0020and\u0020descriptions.",
             "url": "classes/Remix-Effector-Help.html#constant_COMMANDS"
         },                {
             "fqsen": "\\Remix\\Effector\\Livehouse",
@@ -778,12 +778,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Effector\\Livehouse\u003A\u003ATITLE",
             "name": "TITLE",
-            "summary": "",
+            "summary": "Its\u0020own\u0020title.",
             "url": "classes/Remix-Effector-Livehouse.html#constant_TITLE"
         },                {
             "fqsen": "\\Remix\\Effector\\Livehouse\u003A\u003ACOMMANDS",
             "name": "COMMANDS",
-            "summary": "",
+            "summary": "Its\u0020own\u0020available\u0020commands\u0020and\u0020descriptions.",
             "url": "classes/Remix-Effector-Livehouse.html#constant_COMMANDS"
         },                {
             "fqsen": "\\Remix\\Effector\\Livehouse\u003A\u003A\u0024table",
@@ -803,17 +803,17 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Effector\\Version\u003A\u003Aindex\u0028\u0029",
             "name": "index",
-            "summary": "",
+            "summary": "Default\u0020command\u0020\u003A\u0020nothing\u0020to\u0020do.",
             "url": "classes/Remix-Effector-Version.html#method_index"
         },                {
             "fqsen": "\\Remix\\Effector\\Version\u003A\u003ATITLE",
             "name": "TITLE",
-            "summary": "",
+            "summary": "Its\u0020own\u0020title.",
             "url": "classes/Remix-Effector-Version.html#constant_TITLE"
         },                {
             "fqsen": "\\Remix\\Effector\\Version\u003A\u003ACOMMANDS",
             "name": "COMMANDS",
-            "summary": "",
+            "summary": "Its\u0020own\u0020available\u0020commands\u0020and\u0020descriptions.",
             "url": "classes/Remix-Effector-Version.html#constant_COMMANDS"
         },                {
             "fqsen": "\\Remix\\Effector",
@@ -823,57 +823,57 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Effector\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020constructed.",
+            "summary": "Specify\u0020the\u0020parent\u0020Amp.",
             "url": "classes/Remix-Effector.html#method___construct"
         },                {
             "fqsen": "\\Remix\\Effector\u003A\u003Aindex\u0028\u0029",
             "name": "index",
-            "summary": "",
+            "summary": "Default\u0020command\u0020\u003A\u0020nothing\u0020to\u0020do.",
             "url": "classes/Remix-Effector.html#method_index"
         },                {
             "fqsen": "\\Remix\\Effector\u003A\u003Aplay\u0028\u0029",
             "name": "play",
-            "summary": "",
+            "summary": "Execute\u0020the\u0020command.",
             "url": "classes/Remix-Effector.html#method_play"
         },                {
             "fqsen": "\\Remix\\Effector\u003A\u003Aline\u0028\u0029",
             "name": "line",
-            "summary": "",
+            "summary": "Output\u0020a\u0020line\u0020to\u0020the\u0020CLI",
             "url": "classes/Remix-Effector.html#method_line"
         },                {
             "fqsen": "\\Remix\\Effector\u003A\u003AlineError\u0028\u0029",
             "name": "lineError",
-            "summary": "",
+            "summary": "Output\u0020a\u0020line\u0020to\u0020the\u0020STDERR",
             "url": "classes/Remix-Effector.html#method_lineError"
         },                {
             "fqsen": "\\Remix\\Effector\u003A\u003Acolor\u0028\u0029",
             "name": "color",
-            "summary": "",
+            "summary": "Color\u0020the\u0020text",
             "url": "classes/Remix-Effector.html#method_color"
         },                {
             "fqsen": "\\Remix\\Effector\u003A\u003ATITLE",
             "name": "TITLE",
-            "summary": "",
+            "summary": "Its\u0020own\u0020title.",
             "url": "classes/Remix-Effector.html#constant_TITLE"
         },                {
             "fqsen": "\\Remix\\Effector\u003A\u003ACOMMANDS",
             "name": "COMMANDS",
-            "summary": "",
+            "summary": "Its\u0020own\u0020available\u0020commands\u0020and\u0020descriptions.",
             "url": "classes/Remix-Effector.html#constant_COMMANDS"
         },                {
             "fqsen": "\\Remix\\Effector\u003A\u003ATEXT_COLORS",
             "name": "TEXT_COLORS",
-            "summary": "",
+            "summary": "Text\u0020colors\u0020for\u0020CLI",
             "url": "classes/Remix-Effector.html#constant_TEXT_COLORS"
         },                {
             "fqsen": "\\Remix\\Effector\u003A\u003ABACKGROUND_COLORS",
             "name": "BACKGROUND_COLORS",
-            "summary": "",
+            "summary": "Background\u0020colors\u0020for\u0020CLI",
             "url": "classes/Remix-Effector.html#constant_BACKGROUND_COLORS"
         },                {
             "fqsen": "\\Remix\\Effector\u003A\u003A\u0024amp",
             "name": "amp",
-            "summary": "",
+            "summary": "Parent\u0020Amp\u0020object.",
             "url": "classes/Remix-Effector.html#property_amp"
         },                {
             "fqsen": "\\Remix\\Equalizer",

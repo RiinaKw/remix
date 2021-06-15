@@ -151,35 +151,35 @@
     <span>
         &nbsp;= [&#039;&#039; =&gt; &#039;nothing to do&#039;]                    </span>
 </dt>
-<dd></dd>
+<dd>Its own available commands and descriptions.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="classes/Remix-Effector.html#constant_TITLE">TITLE</a>
     <span>
         &nbsp;= &#039;this eccector is abstract class&#039;                    </span>
 </dt>
-<dd></dd>
+<dd>Its own title.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -private">
     <a href="classes/Remix-Effector.html#constant_BACKGROUND_COLORS">BACKGROUND_COLORS</a>
     <span>
         &nbsp;= array(&#039;black&#039; =&gt; &#039;40&#039;, &#039;red&#039; =&gt; &#039;41&#039;, &#039;green&#039; =&gt; &#039;42&#039;, &#039;yellow&#039; =&gt; &#039;43&#039;, &#039;blue&#039; =&gt; &#039;44&#039;, &#039;magenta&#039; =&gt; &#039;45&#039;, &#039;cyan&#039; =&gt; &#039;46&#039;, &#039;light_gray&#039; =&gt; &#039;47&#039;)                    </span>
 </dt>
-<dd></dd>
+<dd>Background colors for CLI</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -private">
     <a href="classes/Remix-Effector.html#constant_TEXT_COLORS">TEXT_COLORS</a>
     <span>
         &nbsp;= array(&#039;black&#039; =&gt; &#039;0;30&#039;, &#039;dark_gray&#039; =&gt; &#039;1;30&#039;, &#039;blue&#039; =&gt; &#039;0;34&#039;, &#039;dark_blue&#039; =&gt; &#039;1;34&#039;, &#039;light_blue&#039; =&gt; &#039;1;34&#039;, &#039;green&#039; =&gt; &#039;0;32&#039;, &#039;light_green&#039; =&gt; &#039;1;32&#039;, &#039;cyan&#039; =&gt; &#039;0;36&#039;, &#039;light_cyan&#039; =&gt; &#039;1;36&#039;, &#039;red&#039; =&gt; &#039;0;31&#039;, &#039;light_red&#039; =&gt; &#039;1;31&#039;, &#039;purple&#039; =&gt; &#039;0;35&#039;, &#039;light_purple&#039; =&gt; &#039;1;35&#039;, &#039;light_yellow&#039; =&gt; &#039;0;33&#039;, &#039;yellow&#039; =&gt; &#039;1;33&#039;, &#039;light_gray&#039; =&gt; &#039;0;37&#039;, &#039;white&#039; =&gt; &#039;1;37&#039;)                    </span>
 </dt>
-<dd></dd>
+<dd>Text colors for CLI</dd>
 
                 <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/Remix-Effector.html#property_amp">$amp</a>
     <span>
-                &nbsp;: mixed            </span>
+                &nbsp;: <a href="classes/Remix-Amp.html"><abbr title="\Remix\Amp">Amp</abbr></a>            </span>
 </dt>
-<dd></dd>
+<dd>Parent Amp object.</dd>
 
                 <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-Gear.html#method___destruct">__destruct()</a>
@@ -193,7 +193,7 @@
     <span>
                         &nbsp;: string    </span>
 </dt>
-<dd></dd>
+<dd>Color the text</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-Gear.html#method_destroy">destroy()</a>
@@ -214,28 +214,28 @@
     <span>
                         &nbsp;: mixed    </span>
 </dt>
-<dd></dd>
+<dd>Default command : nothing to do.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-Effector.html#method_line">line()</a>
     <span>
                         &nbsp;: void    </span>
 </dt>
-<dd></dd>
+<dd>Output a line to the CLI</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-Effector.html#method_lineError">lineError()</a>
     <span>
                         &nbsp;: void    </span>
 </dt>
-<dd></dd>
+<dd>Output a line to the STDERR</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-Effector.html#method_play">play()</a>
     <span>
                         &nbsp;: void    </span>
 </dt>
-<dd></dd>
+<dd>Execute the command.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-Gear.html#method_recordable">recordable()</a>
@@ -256,7 +256,7 @@
     <span>
                         &nbsp;: mixed    </span>
 </dt>
-<dd>Let Delay know that an instance has been constructed.</dd>
+<dd>Specify the parent Amp.</dd>
 
         </dl>
 
@@ -277,19 +277,21 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effector.php"><a href="files/src-classes-remix-effector.html"><abbr title="src/classes/Remix/Effector.php">Effector.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15</span>
+    <span class="phpdocumentor-element-found-in__line">28</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Its own available commands and descriptions.</p>
+
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
-    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
     <span class="phpdocumentor-signature__name">COMMANDS</span>
     = <span class="phpdocumentor-signature__default-value">[&#039;&#039; =&gt; &#039;nothing to do&#039;]</span>
 </code>
 
 
-    
+        <section class="phpdocumentor-description"></section>
+
     
 
 </article>
@@ -302,19 +304,21 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effector.php"><a href="files/src-classes-remix-effector.html"><abbr title="src/classes/Remix/Effector.php">Effector.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14</span>
+    <span class="phpdocumentor-element-found-in__line">22</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Its own title.</p>
+
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
-    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">TITLE</span>
     = <span class="phpdocumentor-signature__default-value">&#039;this eccector is abstract class&#039;</span>
 </code>
 
 
-    
+        <section class="phpdocumentor-description"></section>
+
     
 
 </article>
@@ -327,20 +331,37 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effector.php"><a href="files/src-classes-remix-effector.html"><abbr title="src/classes/Remix/Effector.php">Effector.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">38</span>
+    <span class="phpdocumentor-element-found-in__line">62</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Background colors for CLI</p>
+
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">private</span>
-    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
     <span class="phpdocumentor-signature__name">BACKGROUND_COLORS</span>
     = <span class="phpdocumentor-signature__default-value">array(&#039;black&#039; =&gt; &#039;40&#039;, &#039;red&#039; =&gt; &#039;41&#039;, &#039;green&#039; =&gt; &#039;42&#039;, &#039;yellow&#039; =&gt; &#039;43&#039;, &#039;blue&#039; =&gt; &#039;44&#039;, &#039;magenta&#039; =&gt; &#039;45&#039;, &#039;cyan&#039; =&gt; &#039;46&#039;, &#039;light_gray&#039; =&gt; &#039;47&#039;)</span>
 </code>
 
 
+        <section class="phpdocumentor-description"></section>
+
     
-    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">todo</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Do I need to define it in this class? Shouldn't it rather be defined in Amp?</p>
+</section>
+
+                                    </dd>
+                        </dl>
 
 </article>
                     <article class="phpdocumentor-element -constant -private ">
@@ -352,20 +373,37 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effector.php"><a href="files/src-classes-remix-effector.html"><abbr title="src/classes/Remix/Effector.php">Effector.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">19</span>
+    <span class="phpdocumentor-element-found-in__line">37</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Text colors for CLI</p>
+
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">private</span>
-    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
     <span class="phpdocumentor-signature__name">TEXT_COLORS</span>
     = <span class="phpdocumentor-signature__default-value">array(&#039;black&#039; =&gt; &#039;0;30&#039;, &#039;dark_gray&#039; =&gt; &#039;1;30&#039;, &#039;blue&#039; =&gt; &#039;0;34&#039;, &#039;dark_blue&#039; =&gt; &#039;1;34&#039;, &#039;light_blue&#039; =&gt; &#039;1;34&#039;, &#039;green&#039; =&gt; &#039;0;32&#039;, &#039;light_green&#039; =&gt; &#039;1;32&#039;, &#039;cyan&#039; =&gt; &#039;0;36&#039;, &#039;light_cyan&#039; =&gt; &#039;1;36&#039;, &#039;red&#039; =&gt; &#039;0;31&#039;, &#039;light_red&#039; =&gt; &#039;1;31&#039;, &#039;purple&#039; =&gt; &#039;0;35&#039;, &#039;light_purple&#039; =&gt; &#039;1;35&#039;, &#039;light_yellow&#039; =&gt; &#039;0;33&#039;, &#039;yellow&#039; =&gt; &#039;1;33&#039;, &#039;light_gray&#039; =&gt; &#039;0;37&#039;, &#039;white&#039; =&gt; &#039;1;37&#039;)</span>
 </code>
 
 
+        <section class="phpdocumentor-description"></section>
+
     
-    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">todo</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Do I need to define it in this class? Shouldn't it rather be defined in Amp?</p>
+</section>
+
+                                    </dd>
+                        </dl>
 
 </article>
             </section>
@@ -392,17 +430,19 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effector.php"><a href="files/src-classes-remix-effector.html"><abbr title="src/classes/Remix/Effector.php">Effector.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12</span>
+    <span class="phpdocumentor-element-found-in__line">16</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Parent Amp object.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
+        <span class="phpdocumentor-signature__type"><a href="classes/Remix-Amp.html"><abbr title="\Remix\Amp">Amp</abbr></a></span>
     <span class="phpdocumentor-signature__name">$amp</span>
      = <span class="phpdocumentor-signature__default-value">null</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
     
 
 </article>
@@ -460,15 +500,17 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effector.php"><a href="files/src-classes-remix-effector.html"><abbr title="src/classes/Remix/Effector.php">Effector.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">106</span>
+    <span class="phpdocumentor-element-found-in__line">169</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Color the text</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">color</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$text</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$text_color</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$background_color</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -476,30 +518,52 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Source text</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$text_color</span>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Text color</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$background_color</span>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Background color</p>
+</section>
+
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">todo</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Do I need to define it in this class? Because it might conflict with routing.</p>
+</section>
+
+                                    </dd>
+                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">string</span>
             &mdash;
-            <section class="phpdocumentor-description"></section>
+            <section class="phpdocumentor-description"><p>Colored text</p>
+</section>
 
     
 </article>
@@ -606,17 +670,34 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effector.php"><a href="files/src-classes-remix-effector.html"><abbr title="src/classes/Remix/Effector.php">Effector.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">55</span>
+    <span class="phpdocumentor-element-found-in__line">87</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Default command : nothing to do.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                 <span class="phpdocumentor-signature__name">index</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
+        <section class="phpdocumentor-description"></section>
+
     
     
-    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">todo:</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Return value</p>
+</section>
+
+                                    </dd>
+                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">mixed</span>
@@ -638,15 +719,17 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effector.php"><a href="files/src-classes-remix-effector.html"><abbr title="src/classes/Remix/Effector.php">Effector.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">82</span>
+    <span class="phpdocumentor-element-found-in__line">128</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Output a line to the CLI</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">line</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$text</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$text_color</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$background_color</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -654,25 +737,46 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Content of line</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$text_color</span>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Text color</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$background_color</span>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Background color</p>
+</section>
+
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">todo</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Do I need to define it in this class? Because it might conflict with routing.</p>
+</section>
+
+                                    </dd>
+                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">void</span>
@@ -694,15 +798,17 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effector.php"><a href="files/src-classes-remix-effector.html"><abbr title="src/classes/Remix/Effector.php">Effector.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">94</span>
+    <span class="phpdocumentor-element-found-in__line">148</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Output a line to the STDERR</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">lineError</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$text</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$text_color</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$background_color</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -710,25 +816,46 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Content of line</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$text_color</span>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Text color</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$background_color</span>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Background color</p>
+</section>
+
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">todo</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Do I need to define it in this class? Because it might conflict with routing.</p>
+</section>
+
+                                    </dd>
+                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">void</span>
@@ -750,15 +877,17 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effector.php"><a href="files/src-classes-remix-effector.html"><abbr title="src/classes/Remix/Effector.php">Effector.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">60</span>
+    <span class="phpdocumentor-element-found-in__line">98</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Execute the command.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                 <span class="phpdocumentor-signature__name">play</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$method</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$args</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -766,14 +895,18 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Method of command</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$args</span>
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Arguments of command</p>
+</section>
+
             </dd>
             </dl>
 
@@ -881,10 +1014,10 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effector.php"><a href="files/src-classes-remix-effector.html"><abbr title="src/classes/Remix/Effector.php">Effector.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">49</span>
+    <span class="phpdocumentor-element-found-in__line">77</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Let Delay know that an instance has been constructed.</p>
+        <p class="phpdocumentor-summary">Specify the parent Amp.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -899,7 +1032,9 @@
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-Amp.html"><abbr title="\Remix\Amp">Amp</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Amp object</p>
+</section>
+
             </dd>
             </dl>
 

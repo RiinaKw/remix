@@ -44,14 +44,21 @@ abstract class Gear
         }
     }
 
+    /**
+     * Destroy itself.
+     */
     public function destroy(): void
     {
     }
 
-    public function uses($name)
+    /**
+     * Does it implementing the specified trait?
+     * @param  string $name  Target trait
+     * @return bool          Implemented or not
+     */
+    public function uses(string $name): bool
     {
         return isset(class_uses($this)[$name]);
-        //var_dump(class_uses($this), $name);
     }
 
     /**

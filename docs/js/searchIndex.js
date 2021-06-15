@@ -713,7 +713,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\DJ\u003A\u003Adestroy\u0028\u0029",
             "name": "destroy",
-            "summary": "",
+            "summary": "Destroy\u0020itself.",
             "url": "classes/Remix-DJ.html#method_destroy"
         },                {
             "fqsen": "\\Remix\\DJ\u003A\u003A\u0024connection",
@@ -883,22 +883,22 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Equalizer\u003A\u003Asingleton\u0028\u0029",
             "name": "singleton",
-            "summary": "",
+            "summary": "Get\u0020a\u0020singleton\u0020instance.",
             "url": "classes/Remix-Equalizer.html#method_singleton"
         },                {
             "fqsen": "\\Remix\\Equalizer\u003A\u003Ainstance\u0028\u0029",
             "name": "instance",
-            "summary": "",
+            "summary": "Get\u0020a\u0020instance.",
             "url": "classes/Remix-Equalizer.html#method_instance"
         },                {
             "fqsen": "\\Remix\\Equalizer\u003A\u003Adestroy\u0028\u0029",
             "name": "destroy",
-            "summary": "",
+            "summary": "Destroy\u0020all\u0020held\u0020singleton\u0020objects.",
             "url": "classes/Remix-Equalizer.html#method_destroy"
         },                {
             "fqsen": "\\Remix\\Equalizer\u003A\u003A\u0024container",
             "name": "container",
-            "summary": "",
+            "summary": "Array\u0020of\u0020singleton\u0020instances.",
             "url": "classes/Remix-Equalizer.html#property_container"
         },                {
             "fqsen": "\\Remix\\Exceptions\\CoreException",
@@ -938,47 +938,47 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Fader",
             "name": "Fader",
-            "summary": "Remix\u0020Fader\u0020\u003A\u0020reg\u002Dexp\u0020manager",
+            "summary": "Remix\u0020Fader\u0020\u003A\u0020regular\u0020expression\u0020manager",
             "url": "classes/Remix-Fader.html"
         },                {
             "fqsen": "\\Remix\\Fader\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020constructed.",
+            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020constructed\u0020and\u0020the\u0020pattern\u0020it\u0020is\u0020holding.",
             "url": "classes/Remix-Fader.html#method___construct"
         },                {
             "fqsen": "\\Remix\\Fader\u003A\u003A__destruct\u0028\u0029",
             "name": "__destruct",
-            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020destructed.",
+            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020destructed\u0020and\u0020the\u0020pattern\u0020it\u0020is\u0020holding.",
             "url": "classes/Remix-Fader.html#method___destruct"
         },                {
             "fqsen": "\\Remix\\Fader\u003A\u003Atranslate\u0028\u0029",
             "name": "translate",
-            "summary": "",
+            "summary": "Translates\u0020a\u0020pattern\u0020to\u0020a\u0020regular\u0020expression.",
             "url": "classes/Remix-Fader.html#method_translate"
         },                {
             "fqsen": "\\Remix\\Fader\u003A\u003AisMatch\u0028\u0029",
             "name": "isMatch",
-            "summary": "",
+            "summary": "Does\u0020it\u0020match\u0020the\u0020regular\u0020expression\u0020it\u0020has\u003F",
             "url": "classes/Remix-Fader.html#method_isMatch"
         },                {
             "fqsen": "\\Remix\\Fader\u003A\u003Amatched\u0028\u0029",
             "name": "matched",
-            "summary": "",
+            "summary": "Return\u0020the\u0020matched\u0020part.",
             "url": "classes/Remix-Fader.html#method_matched"
         },                {
             "fqsen": "\\Remix\\Fader\u003A\u003A\u0024pattern",
             "name": "pattern",
-            "summary": "",
+            "summary": "Source\u0020pattern.",
             "url": "classes/Remix-Fader.html#property_pattern"
         },                {
             "fqsen": "\\Remix\\Fader\u003A\u003A\u0024translated",
             "name": "translated",
-            "summary": "",
+            "summary": "Translated\u0020regular\u0020expressions.",
             "url": "classes/Remix-Fader.html#property_translated"
         },                {
             "fqsen": "\\Remix\\Fader\u003A\u003A\u0024matches",
             "name": "matches",
-            "summary": "",
+            "summary": "Matched\u0020parameters.",
             "url": "classes/Remix-Fader.html#property_matches"
         },                {
             "fqsen": "\\Remix\\Gear",
@@ -1003,12 +1003,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Gear\u003A\u003Adestroy\u0028\u0029",
             "name": "destroy",
-            "summary": "",
+            "summary": "Destroy\u0020itself.",
             "url": "classes/Remix-Gear.html#method_destroy"
         },                {
             "fqsen": "\\Remix\\Gear\u003A\u003Auses\u0028\u0029",
             "name": "uses",
-            "summary": "",
+            "summary": "Does\u0020it\u0020implementing\u0020the\u0020specified\u0020trait\u003F",
             "url": "classes/Remix-Gear.html#method_uses"
         },                {
             "fqsen": "\\Remix\\Gear\u003A\u003Arecordable\u0028\u0029",
@@ -1033,7 +1033,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Mixer\u003A\u003Adestroy\u0028\u0029",
             "name": "destroy",
-            "summary": "",
+            "summary": "Destroy\u0020itself.",
             "url": "classes/Remix-Mixer.html#method_destroy"
         },                {
             "fqsen": "\\Remix\\Mixer\u003A\u003Aroute\u0028\u0029",
@@ -1318,7 +1318,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Studio\u003A\u003Adestroy\u0028\u0029",
             "name": "destroy",
-            "summary": "",
+            "summary": "Destroy\u0020itself.",
             "url": "classes/Remix-Studio.html#method_destroy"
         },                {
             "fqsen": "\\Remix\\Studio\u003A\u003AcontentType\u0028\u0029",

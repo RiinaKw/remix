@@ -9,8 +9,18 @@ namespace Remix;
  */
 class Equalizer extends Gear
 {
+    /**
+     * Array of singleton instances.
+     * @var Gear[]
+     */
     private $container = [];
 
+    /**
+     * Get a singleton instance.
+     *
+     * @param  string $class  class name
+     * @return Gear           object
+     */
     public function singleton(string $class): Gear
     {
         if (! array_key_exists($class, $this->container)) {
@@ -20,12 +30,29 @@ class Equalizer extends Gear
     }
     // function singleton()
 
+    /**
+     * Get a instance.
+     *
+     * @param  string $class  class name
+     * @return Gear           object
+     */
+
+    /**
+     * Get a instance.
+     *
+     * @param  string $class  class name
+     * @param  mixed  $args   Arguments of constructor
+     * @return Gear           object
+     */
     public function instance(string $class, $args = null): Gear
     {
         return $class::factory($args);
     }
     // function factory()
 
+    /**
+     * Destroy all held singleton objects.
+     */
     public function destroy(): void
     {
         if ($this->container) {

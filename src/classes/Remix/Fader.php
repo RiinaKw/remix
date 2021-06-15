@@ -3,16 +3,35 @@
 namespace Remix;
 
 /**
- * Remix Fader : reg-exp manager
+ * Remix Fader : regular expression manager
  *
  * @package  Remix\Core
  */
 class Fader extends Gear
 {
+    /**
+     * Source pattern.
+     * @var string
+     */
     protected $pattern;
-    protected $translated = '';
-    protected $matches;
 
+    /**
+     * Translated regular expressions.
+     * @var string
+     */
+    protected $translated = '';
+
+    /**
+     * Matched parameters.
+     * @var array
+     */
+    protected $matches = [];
+
+    /**
+     * Let Delay know that an instance has been constructed and the pattern it is holding.
+     *
+     * @param string $pattern  Pattern of expression.
+     */
     protected function __construct(string $pattern)
     {
         Delay::logBirth(__METHOD__ . ' [' . $pattern . ']');
@@ -22,12 +41,21 @@ class Fader extends Gear
     }
     // function __construct()
 
+    /**
+     * Let Delay know that an instance has been destructed and the pattern it is holding.
+     */
     public function __destruct()
     {
         Delay::logDeath(__METHOD__ . ' [' . $this->pattern . ']');
     }
     // function __destruct()
 
+    /**
+     * Translates a pattern to a regular expression.
+     *
+     * @param  string $pattern  Source pattern.
+     * @return string           Translated regular expressions.
+     */
     protected static function translate(string $pattern): string
     {
         $pattern = str_replace('/', '\\/', $pattern);
@@ -35,6 +63,12 @@ class Fader extends Gear
     }
     // function translate()
 
+    /**
+     * Does it match the regular expression it has?
+     *
+     * @param  string $string  Original string
+     * @return bool            Match or not
+     */
     public function isMatch(string $string): bool
     {
         preg_match($this->translated, $string, $this->matches);
@@ -42,6 +76,11 @@ class Fader extends Gear
     }
     // function isMatch()
 
+    /**
+     * Return the matched part.
+     *
+     * @return array Matched parameters
+     */
     public function matched(): array
     {
         $matches = $this->matches;

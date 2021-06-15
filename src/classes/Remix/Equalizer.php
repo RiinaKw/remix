@@ -12,6 +12,7 @@ class Equalizer extends Gear
     /**
      * Array of singleton instances.
      * @var Gear[]
+     * @todo Why not Hash?
      */
     private $container = [];
 

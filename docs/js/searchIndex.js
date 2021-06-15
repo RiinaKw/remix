@@ -923,17 +923,17 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Exceptions\\HttpException\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "constructor",
             "url": "classes/Remix-Exceptions-HttpException.html#method___construct"
         },                {
             "fqsen": "\\Remix\\Exceptions\\HttpException\u003A\u003AgetStatusCode\u0028\u0029",
             "name": "getStatusCode",
-            "summary": "",
+            "summary": "Get\u0020HTTP\u0020status\u0020code.",
             "url": "classes/Remix-Exceptions-HttpException.html#method_getStatusCode"
         },                {
             "fqsen": "\\Remix\\Exceptions\\HttpException\u003A\u003A\u0024status_code",
             "name": "status_code",
-            "summary": "",
+            "summary": "HTTP\u0020status\u0020code",
             "url": "classes/Remix-Exceptions-HttpException.html#property_status_code"
         },                {
             "fqsen": "\\Remix\\Fader",

@@ -9,6 +9,7 @@ use Utility\Performance\Time;
  * Remix Delay : log manager
  *
  * @package  Remix\Core
+ * @todo Write the details.
  */
 class Delay
 {

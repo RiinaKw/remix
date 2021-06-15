@@ -6,6 +6,7 @@ namespace Utility;
  * Utilities of array operations
  *
  * @package  Utility
+ * @todo Write the details.
  */
 class Arr
 {

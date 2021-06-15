@@ -6,6 +6,7 @@ namespace Utility;
  * Utilities of dumping object variables
  *
  * @package  Utility\Dump
+ * @todo Write the details.
  */
 class DumpObject
 {

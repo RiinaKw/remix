@@ -8,6 +8,7 @@ use Remix\DJ\BPM;
  * Remix BPM Delete : Query Builder for DELETE statement
  *
  * @package  Remix\DB
+ * @todo Write the details.
  */
 class Delete extends BPM
 {

@@ -6,6 +6,7 @@ namespace Utility\Performance;
  * Measure the execution time
  *
  * @package  Utility\Performance
+ * @todo Write the details.
  */
 class Time
 {

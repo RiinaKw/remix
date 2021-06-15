@@ -6,6 +6,7 @@ namespace Utility;
  * Utilities of HTML string operations
  *
  * @package  Utility
+ * @todo Write the details.
  */
 class Html
 {

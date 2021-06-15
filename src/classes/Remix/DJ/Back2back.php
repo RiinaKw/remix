@@ -9,6 +9,7 @@ use Remix\Exceptions\DJException;
  * Remix Back2back : DB transaction manager
  *
  * @package  Remix\DB
+ * @todo Write the details.
  */
 class Back2back extends Gear
 {

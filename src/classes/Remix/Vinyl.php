@@ -10,6 +10,7 @@ use Remix\DJ\BPM;
  * Remix Vinyl : capsulate a single DB record
  *
  * @package  Remix\DB
+ * @todo Write the details.
  */
 abstract class Vinyl extends Gear
 {

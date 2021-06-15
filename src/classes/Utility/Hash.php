@@ -6,6 +6,7 @@ namespace Utility;
  * Utilities of hash operations
  *
  * @package  Utility
+ * @todo Write the details.
  */
 class Hash
 {

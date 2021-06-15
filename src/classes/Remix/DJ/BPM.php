@@ -10,6 +10,7 @@ use Remix\DJ\Setlist;
  * Remix BPM : Query Builder
  *
  * @package  Remix\DB
+ * @todo Write the details.
  */
 abstract class BPM extends Gear
 {

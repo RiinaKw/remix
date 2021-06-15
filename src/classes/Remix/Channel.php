@@ -6,6 +6,7 @@ namespace Remix;
  * Remix Channel : web controller
  *
  * @package  Remix\Web
+ * @todo Write the details.
  */
 abstract class Channel extends \Remix\Gear
 {

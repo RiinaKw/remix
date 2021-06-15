@@ -13,6 +13,7 @@ use Remix\Exceptions\DJException;
  * Remix DJ Table : DB tables
  *
  * @package  Remix\DB
+ * @todo Write the details.
  */
 class Table extends Gear
 {

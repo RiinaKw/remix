@@ -12,6 +12,7 @@ use Remix\Exceptions\HttpException;
  * Remix Studio : web response manager
  *
  * @package  Remix\Web
+ * @todo Write the details.
  */
 class Studio extends Gear
 {

@@ -8,6 +8,7 @@ use Utility\Capture;
  * Recordable using template files
  *
  * @package  Remix\Base
+ * @todo Write the details.
  */
 trait RecordableWithTemplate
 {

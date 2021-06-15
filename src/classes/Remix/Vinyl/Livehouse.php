@@ -6,6 +6,7 @@ namespace Remix\Vinyl;
  * Remix Livehouse : migration
  *
  * @package  Remix\DB
+ * @todo Write the details.
  */
 class Livehouse extends \Remix\Vinyl
 {

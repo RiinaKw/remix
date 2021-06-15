@@ -11,6 +11,7 @@ use Utility\Capture;
  * Remix Setlist : PDO statement
  *
  * @package  Remix\DB
+ * @todo Write the details.
  */
 class Setlist extends Gear implements \Iterator, \Countable
 {

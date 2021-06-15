@@ -6,6 +6,7 @@ namespace Remix;
  * Recordable base trait of Remix
  *
  * @package  Remix\Base
+ * @todo Write the details.
  */
 trait Recordable
 {

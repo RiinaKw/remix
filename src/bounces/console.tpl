@@ -69,19 +69,19 @@
     margin-left: 4em;
     padding: 0.2em;
   }
-  #remix-console .Delay__item.-BODY {
+  #remix-console .Delay__item.--BODY {
     background-color: lightgreen;
   }
-  #remix-console .Delay__item.-TRACE {
+  #remix-console .Delay__item.--TRACE {
     background-color: lightblue;
   }
-  #remix-console .Delay__item.-MEMORY {
+  #remix-console .Delay__item.--MEMORY {
     background-color: yellow;
   }
-  #remix-console .Delay__item.-TIME {
+  #remix-console .Delay__item.--TIME {
     background-color: fuchsia;
   }
-  #remix-console .Delay__item.-QUERY {
+  #remix-console .Delay__item.--QUERY {
     background-color: cyan;
   }
 </style>
@@ -94,7 +94,7 @@
       <section class="Pane__content">
         <ol class="Pane__container Delay">
 {{foreach ($delay as $item) }}
-          <li class="Delay__item -{{ $item['type'] }}">
+          <li class="Delay__item --{{ $item['type'] }}">
             [{{ $item['type'] }}] {{ $item['log'] }}
           </li>
 {{endforeach}}

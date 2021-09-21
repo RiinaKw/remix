@@ -41,7 +41,7 @@ class DAW extends Gear
 
         $env_path = $this->appDir('env.php');
         if (! $env_path) {
-            throw new \Exception('app requires env.php');
+            throw new RemixException('app requires env.php');
         }
         $env = require($env_path);
         $env = ($env && $env !== 1) ? $env : 'production';
@@ -55,7 +55,7 @@ class DAW extends Gear
         $preset->optional('effector');
 
         $bounce_dir = $preset->get('app.pathes.bounce_dir');
-        $preset->set('app.pathes.bounce_dir', $this->appdir($bounce_dir));
+        $preset->set('app.pathes.bounce_dir', $this->appDir($bounce_dir));
 
         Audio::getInstance()->dj;
         return $this;

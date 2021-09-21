@@ -39,7 +39,11 @@ class DAW extends Gear
     {
         $this->app_dir = realpath($dir);
 
-        $env = require($this->appdir('env.php'));
+        $env_path = $this->appDir('env.php');
+        if (! $env_path) {
+            throw new \Exception('app requires env.php');
+        }
+        $env = require($env_path);
         $env = ($env && $env !== 1) ? $env : 'production';
 
         $preset = Audio::getInstance()->preset;

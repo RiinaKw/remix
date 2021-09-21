@@ -16,25 +16,25 @@ class Html
     }
     // function quote()
 
-    public function typeHtml(string $value): string
+    public static function typeHtml(string $value): string
     {
         return "<php-type>{$value}</php-type>";
     }
     // function typeHtml()
 
-    public function keyHtml(string $value): string
+    public static function keyHtml(string $value): string
     {
         return "<php-key>{$value}</php-key>";
     }
     // function valueHtml()
 
-    public function valueHtml(string $value): string
+    public static function valueHtml(string $value): string
     {
         return "<php-value>{$value}</php-value>";
     }
     // function valueHtml()
 
-    public function scopeHtml(string $value): string
+    public static function scopeHtml(string $value): string
     {
         return "<php-scope>{$value}</php-scope>";
     }

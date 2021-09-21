@@ -108,7 +108,10 @@ class Mixer extends Gear
         } else {
             if (is_string($action) && strpos($action, '@')) {
                 list($class, $method) = explode('@', $action);
-                $class = '\\App\\Channel\\' . $class;
+
+
+                $namespace = Audio::getInstance()->preset->get('app.namespace');
+                $class = '\\' . $namespace . '\\Channel\\' . $class;
 
                 if (! class_exists($class)) {
                     throw new \Remix\RemixException('Unknwon channel "' . $class . '"');

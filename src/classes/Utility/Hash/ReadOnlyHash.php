@@ -15,6 +15,10 @@ class ReadOnlyHash
      */
     protected $source = [];
 
+    /**
+     * Constructor
+     * @param array<string, mixed> $array  source array
+     */
     public function __construct(array $array = [])
     {
         $this->source = $array;
@@ -33,7 +37,7 @@ class ReadOnlyHash
 
     /**
      * Source array as a reference
-     * @param array $array  reference of source
+     * @param array<string, mixed> $array  reference of source
      */
     public function ref(array &$array): void
     {
@@ -41,8 +45,8 @@ class ReadOnlyHash
     }
 
     /**
-     * Search
-     * @param  string  $key                  key of hash item
+     * Search parent
+     * @param  string  $key                  key of item
      * @param  boolean $create               true to create a key that does not exist
      * @return array<string, mixed>|null     parent array of target item
      */
@@ -73,11 +77,21 @@ class ReadOnlyHash
         }
     }
 
+    /**
+     * Convert a dot-connected character string to an array
+     * @param  string $key         key
+     * @return array<int, string>  exploded key
+     */
     protected function key2arr(string $key): array
     {
         return explode('.', $key);
     }
 
+    /**
+     * Take out the key pointing to the parent
+     * @param  string $key         key
+     * @return array<int, string>  array of keys pointing to the parent
+     */
     protected function parentKeys(string $key): array
     {
         $keys = $this->key2arr($key);
@@ -85,6 +99,11 @@ class ReadOnlyHash
         return $keys;
     }
 
+    /**
+     * Get the key directly under the parent
+     * @param  string $key  key
+     * @return string       key of last child
+     */
     protected function lastKey(string $key): string
     {
         $keys = $this->key2arr($key);

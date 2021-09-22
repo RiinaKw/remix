@@ -1938,7 +1938,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Utility\\Hash\\ReadOnlyHash\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor",
             "url": "classes/Utility-Hash-ReadOnlyHash.html#method___construct"
         },                {
             "fqsen": "\\Utility\\Hash\\ReadOnlyHash\u003A\u003AisEditable\u0028\u0029",
@@ -1953,22 +1953,22 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Utility\\Hash\\ReadOnlyHash\u003A\u003Aparent\u0028\u0029",
             "name": "parent",
-            "summary": "Search",
+            "summary": "Search\u0020parent",
             "url": "classes/Utility-Hash-ReadOnlyHash.html#method_parent"
         },                {
             "fqsen": "\\Utility\\Hash\\ReadOnlyHash\u003A\u003Akey2arr\u0028\u0029",
             "name": "key2arr",
-            "summary": "",
+            "summary": "Convert\u0020a\u0020dot\u002Dconnected\u0020character\u0020string\u0020to\u0020an\u0020array",
             "url": "classes/Utility-Hash-ReadOnlyHash.html#method_key2arr"
         },                {
             "fqsen": "\\Utility\\Hash\\ReadOnlyHash\u003A\u003AparentKeys\u0028\u0029",
             "name": "parentKeys",
-            "summary": "",
+            "summary": "Take\u0020out\u0020the\u0020key\u0020pointing\u0020to\u0020the\u0020parent",
             "url": "classes/Utility-Hash-ReadOnlyHash.html#method_parentKeys"
         },                {
             "fqsen": "\\Utility\\Hash\\ReadOnlyHash\u003A\u003AlastKey\u0028\u0029",
             "name": "lastKey",
-            "summary": "",
+            "summary": "Get\u0020the\u0020key\u0020directly\u0020under\u0020the\u0020parent",
             "url": "classes/Utility-Hash-ReadOnlyHash.html#method_lastKey"
         },                {
             "fqsen": "\\Utility\\Hash\\ReadOnlyHash\u003A\u003AisEmpty\u0028\u0029",

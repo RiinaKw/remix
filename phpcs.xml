@@ -4,15 +4,13 @@
 
     <arg name="extensions" value="php" />
 
-    <!-- 適用コーディング規約の指定 -->
     <rule ref="PSR12" />
 
-    <!-- 出力に色を適用 -->
+    <!-- Color the output -->
     <arg name="colors" />
 
-    <!-- オプション p:進捗表示  s:エラー表示時にルールを表示 -->
+    <!-- Options  p:progress  s:Show the rule in which the error occurred -->
     <arg value="ps" />
 
-    <!-- 除外ディレクトリ -->
     <exclude-pattern>/vendor/</exclude-pattern>
 </ruleset>

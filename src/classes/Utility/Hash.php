@@ -7,7 +7,7 @@ namespace Utility;
  *
  * @package  Utility
  */
-class Hash extends Hash\ReadOnly
+class Hash extends Hash\ReadOnlyHash
 {
     use Hash\Editable;
 }

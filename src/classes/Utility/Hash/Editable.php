@@ -3,14 +3,14 @@
 namespace Utility\Hash;
 
 /**
- * Hash with editable
+ * trait of Hash with editable
  *
  * @package  Utility\Hash
  */
 trait Editable
 {
     /**
-     * @property array $source
+     * @property array<string, mixed> $source
      */
 
      /**
@@ -38,7 +38,7 @@ trait Editable
 
     /**
      * magic method
-     * @see self::set()
+     * @see Editable::set()
      */
     public function __set(string $key, $value)
     {
@@ -47,7 +47,7 @@ trait Editable
 
     /**
      * magic method
-     * @see self::delete()
+     * @see Editable::delete()
      */
     public function __unset(string $key)
     {

@@ -1713,68 +1713,8 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Utility\\Hash",
             "name": "Hash",
-            "summary": "Utilities\u0020of\u0020hash\u0020operations",
+            "summary": "General\u0020Hash",
             "url": "classes/Utility-Hash.html"
-        },                {
-            "fqsen": "\\Utility\\Hash\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Utility-Hash.html#method___construct"
-        },                {
-            "fqsen": "\\Utility\\Hash\u003A\u003Aref\u0028\u0029",
-            "name": "ref",
-            "summary": "",
-            "url": "classes/Utility-Hash.html#method_ref"
-        },                {
-            "fqsen": "\\Utility\\Hash\u003A\u003Acallback\u0028\u0029",
-            "name": "callback",
-            "summary": "",
-            "url": "classes/Utility-Hash.html#method_callback"
-        },                {
-            "fqsen": "\\Utility\\Hash\u003A\u003Aget\u0028\u0029",
-            "name": "get",
-            "summary": "",
-            "url": "classes/Utility-Hash.html#method_get"
-        },                {
-            "fqsen": "\\Utility\\Hash\u003A\u003Aset\u0028\u0029",
-            "name": "set",
-            "summary": "",
-            "url": "classes/Utility-Hash.html#method_set"
-        },                {
-            "fqsen": "\\Utility\\Hash\u003A\u003Aisset\u0028\u0029",
-            "name": "isset",
-            "summary": "",
-            "url": "classes/Utility-Hash.html#method_isset"
-        },                {
-            "fqsen": "\\Utility\\Hash\u003A\u003Adelete\u0028\u0029",
-            "name": "delete",
-            "summary": "",
-            "url": "classes/Utility-Hash.html#method_delete"
-        },                {
-            "fqsen": "\\Utility\\Hash\u003A\u003Apush\u0028\u0029",
-            "name": "push",
-            "summary": "",
-            "url": "classes/Utility-Hash.html#method_push"
-        },                {
-            "fqsen": "\\Utility\\Hash\u003A\u003ApushHash\u0028\u0029",
-            "name": "pushHash",
-            "summary": "",
-            "url": "classes/Utility-Hash.html#method_pushHash"
-        },                {
-            "fqsen": "\\Utility\\Hash\u003A\u003A__get\u0028\u0029",
-            "name": "__get",
-            "summary": "",
-            "url": "classes/Utility-Hash.html#method___get"
-        },                {
-            "fqsen": "\\Utility\\Hash\u003A\u003A__set\u0028\u0029",
-            "name": "__set",
-            "summary": "",
-            "url": "classes/Utility-Hash.html#method___set"
-        },                {
-            "fqsen": "\\Utility\\Hash\u003A\u003A\u0024prop",
-            "name": "prop",
-            "summary": "",
-            "url": "classes/Utility-Hash.html#property_prop"
         },                {
             "fqsen": "\\Utility\\Html",
             "name": "Html",
@@ -1951,6 +1891,111 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Utility-Tests-InvokePrivateBehavior.html#method_invokeStaticProperty"
         },                {
+            "fqsen": "\\Utility\\Hash\\Editable",
+            "name": "Editable",
+            "summary": "trait\u0020of\u0020Hash\u0020with\u0020editable",
+            "url": "classes/Utility-Hash-Editable.html"
+        },                {
+            "fqsen": "\\Utility\\Hash\\Editable\u003A\u003Aset\u0028\u0029",
+            "name": "set",
+            "summary": "Set\u0020Hash\u0020value",
+            "url": "classes/Utility-Hash-Editable.html#method_set"
+        },                {
+            "fqsen": "\\Utility\\Hash\\Editable\u003A\u003Adelete\u0028\u0029",
+            "name": "delete",
+            "summary": "Delete\u0020item",
+            "url": "classes/Utility-Hash-Editable.html#method_delete"
+        },                {
+            "fqsen": "\\Utility\\Hash\\Editable\u003A\u003A__set\u0028\u0029",
+            "name": "__set",
+            "summary": "magic\u0020method",
+            "url": "classes/Utility-Hash-Editable.html#method___set"
+        },                {
+            "fqsen": "\\Utility\\Hash\\Editable\u003A\u003A__unset\u0028\u0029",
+            "name": "__unset",
+            "summary": "magic\u0020method",
+            "url": "classes/Utility-Hash-Editable.html#method___unset"
+        },                {
+            "fqsen": "\\Utility\\Hash\\Editable\u003A\u003Atruncate\u0028\u0029",
+            "name": "truncate",
+            "summary": "Truncate\u0020Hash",
+            "url": "classes/Utility-Hash-Editable.html#method_truncate"
+        },                {
+            "fqsen": "\\Utility\\Hash\\Editable\u003A\u003Apush\u0028\u0029",
+            "name": "push",
+            "summary": "",
+            "url": "classes/Utility-Hash-Editable.html#method_push"
+        },                {
+            "fqsen": "\\Utility\\Hash\\Editable\u003A\u003ApushHash\u0028\u0029",
+            "name": "pushHash",
+            "summary": "",
+            "url": "classes/Utility-Hash-Editable.html#method_pushHash"
+        },                {
+            "fqsen": "\\Utility\\Hash\\ReadOnlyHash",
+            "name": "ReadOnlyHash",
+            "summary": "Hash\u0020with\u0020read\u002Donly",
+            "url": "classes/Utility-Hash-ReadOnlyHash.html"
+        },                {
+            "fqsen": "\\Utility\\Hash\\ReadOnlyHash\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Utility-Hash-ReadOnlyHash.html#method___construct"
+        },                {
+            "fqsen": "\\Utility\\Hash\\ReadOnlyHash\u003A\u003Aref\u0028\u0029",
+            "name": "ref",
+            "summary": "Source\u0020array\u0020as\u0020a\u0020reference",
+            "url": "classes/Utility-Hash-ReadOnlyHash.html#method_ref"
+        },                {
+            "fqsen": "\\Utility\\Hash\\ReadOnlyHash\u003A\u003Aparent\u0028\u0029",
+            "name": "parent",
+            "summary": "Search",
+            "url": "classes/Utility-Hash-ReadOnlyHash.html#method_parent"
+        },                {
+            "fqsen": "\\Utility\\Hash\\ReadOnlyHash\u003A\u003Akey2arr\u0028\u0029",
+            "name": "key2arr",
+            "summary": "",
+            "url": "classes/Utility-Hash-ReadOnlyHash.html#method_key2arr"
+        },                {
+            "fqsen": "\\Utility\\Hash\\ReadOnlyHash\u003A\u003AparentKeys\u0028\u0029",
+            "name": "parentKeys",
+            "summary": "",
+            "url": "classes/Utility-Hash-ReadOnlyHash.html#method_parentKeys"
+        },                {
+            "fqsen": "\\Utility\\Hash\\ReadOnlyHash\u003A\u003AlastKey\u0028\u0029",
+            "name": "lastKey",
+            "summary": "",
+            "url": "classes/Utility-Hash-ReadOnlyHash.html#method_lastKey"
+        },                {
+            "fqsen": "\\Utility\\Hash\\ReadOnlyHash\u003A\u003AisEmpty\u0028\u0029",
+            "name": "isEmpty",
+            "summary": "Is\u0020Hash\u0020empty\u003F",
+            "url": "classes/Utility-Hash-ReadOnlyHash.html#method_isEmpty"
+        },                {
+            "fqsen": "\\Utility\\Hash\\ReadOnlyHash\u003A\u003AisSet\u0028\u0029",
+            "name": "isSet",
+            "summary": "Is\u0020key\u0020contained\u0020in\u0020Hash\u003F",
+            "url": "classes/Utility-Hash-ReadOnlyHash.html#method_isSet"
+        },                {
+            "fqsen": "\\Utility\\Hash\\ReadOnlyHash\u003A\u003Aget\u0028\u0029",
+            "name": "get",
+            "summary": "Get\u0020Hash\u0020value",
+            "url": "classes/Utility-Hash-ReadOnlyHash.html#method_get"
+        },                {
+            "fqsen": "\\Utility\\Hash\\ReadOnlyHash\u003A\u003A__get\u0028\u0029",
+            "name": "__get",
+            "summary": "magic\u0020method",
+            "url": "classes/Utility-Hash-ReadOnlyHash.html#method___get"
+        },                {
+            "fqsen": "\\Utility\\Hash\\ReadOnlyHash\u003A\u003A__isset\u0028\u0029",
+            "name": "__isset",
+            "summary": "magic\u0020method",
+            "url": "classes/Utility-Hash-ReadOnlyHash.html#method___isset"
+        },                {
+            "fqsen": "\\Utility\\Hash\\ReadOnlyHash\u003A\u003A\u0024source",
+            "name": "source",
+            "summary": "properties",
+            "url": "classes/Utility-Hash-ReadOnlyHash.html#property_source"
+        },                {
             "fqsen": "\\",
             "name": "\\",
             "summary": "",
@@ -2000,6 +2045,11 @@ Search.appendIndex(
             "name": "Utility",
             "summary": "",
             "url": "namespaces/utility.html"
+        },                {
+            "fqsen": "\\Utility\\Hash",
+            "name": "Hash",
+            "summary": "",
+            "url": "namespaces/utility-hash.html"
         },                {
             "fqsen": "\\Utility\\Performance",
             "name": "Performance",

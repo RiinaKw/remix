@@ -7,7 +7,7 @@ namespace Utility\Hash;
  *
  * @package  Utility\Hash
  */
-class ReadOnly
+class ReadOnlyHash
 {
     /**
      * properties
@@ -118,7 +118,7 @@ class ReadOnly
 
     /**
      * magic method
-     * @see self::get()
+     * @see ReadOnlyHash::get()
      */
     public function __get(string $key)
     {
@@ -127,7 +127,7 @@ class ReadOnly
 
     /**
      * magic method
-     * @see self::isSet()
+     * @see ReadOnlyHash::isSet()
      */
     public function __isset(string $key): bool
     {

@@ -26,16 +26,16 @@
     },
     "scripts": {
         "phpmd": [
-            "sh vendor/bin/phpmd . text phpmd.xml cleancode,codesize,controversial,design,naming,unusedcode --exclude vendor"
+            "php vendor/bin/phpmd . text phpmd.xml cleancode,codesize,controversial,design,naming,unusedcode --exclude vendor"
         ],
         "phpcs": [
-            "sh vendor/bin/phpcs ."
+            "php vendor/bin/phpcs ."
         ],
         "phpunit": [
-            "sh vendor/bin/phpunit"
+            "php vendor/bin/phpunit"
         ],
         "phpdoc": [
-            "sh vendor/bin/phpdoc"
+            "php vendor/bin/phpdoc"
         ]
     }
 }

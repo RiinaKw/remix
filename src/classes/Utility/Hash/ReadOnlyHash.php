@@ -26,7 +26,7 @@ class ReadOnlyHash
 
     /**
      * Is Hash editable?
-     * @return bool  true if editable
+     * @return bool  editable or not
      */
     protected function isEditable(): bool
     {
@@ -112,7 +112,7 @@ class ReadOnlyHash
 
     /**
      * Is Hash empty?
-     * @return bool  true if empty
+     * @return bool  empty or not
      */
     public function isEmpty(): bool
     {
@@ -122,7 +122,7 @@ class ReadOnlyHash
     /**
      * Is key contained in Hash?
      * @param  string $key  target key
-     * @return bool         true if be contained
+     * @return bool         contained or not
      */
     public function isSet(string $key): bool
     {

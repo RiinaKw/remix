@@ -1941,6 +1941,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Utility-Hash-ReadOnlyHash.html#method___construct"
         },                {
+            "fqsen": "\\Utility\\Hash\\ReadOnlyHash\u003A\u003AisEditable\u0028\u0029",
+            "name": "isEditable",
+            "summary": "Is\u0020Hash\u0020editable\u003F",
+            "url": "classes/Utility-Hash-ReadOnlyHash.html#method_isEditable"
+        },                {
             "fqsen": "\\Utility\\Hash\\ReadOnlyHash\u003A\u003Aref\u0028\u0029",
             "name": "ref",
             "summary": "Source\u0020array\u0020as\u0020a\u0020reference",

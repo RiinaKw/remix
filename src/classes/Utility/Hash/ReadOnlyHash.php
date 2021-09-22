@@ -21,6 +21,17 @@ class ReadOnlyHash
     }
 
     /**
+     * Is Hash editable?
+     * @return bool  true if editable
+     */
+    protected function isEditable(): bool
+    {
+        return isset(
+            class_uses($this)[Editable::class]
+        );
+    }
+
+    /**
      * Source array as a reference
      * @param array $array  reference of source
      */
@@ -45,7 +56,7 @@ class ReadOnlyHash
             $parent =& $this->source;
             foreach ($keys as $k) {
                 if (! isset($parent[$k])) {
-                    if ($create) {
+                    if ($this->isEditable() && $create) {
                         $parent[$k] = [];
                     } else {
                         return $null;

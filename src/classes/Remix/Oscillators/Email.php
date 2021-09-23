@@ -5,7 +5,7 @@ namespace Remix\Oscillators;
 use Remix\Oscillator;
 
 /**
- * Remix Oscillator Required : this field is required
+ * Remix Oscillator Email : this field must be a valid email address
  *
  * @package  Remix\Web
  * @todo Write the details.

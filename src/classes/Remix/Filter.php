@@ -41,7 +41,7 @@ class Filter extends Gear
         Delay::logBirth(static::class . ' [' . $key . ']');
 
         $this->key = $key;
-        $this->label = $label ?: $key;
+        $this->label = $label;
     }
     // function __construct()
 
@@ -50,6 +50,18 @@ class Filter extends Gear
         Delay::logDeath(static::class . ' [' . $this->key . ']');
     }
     // function __destruct()
+
+    /**
+     * Define a field
+     *
+     * @param  string      $key    Key of item
+     * @param  string|null $label  Label of item
+     * @return self                Instance which was constructed
+     */
+    public static function define(string $key, string $label = null): self
+    {
+        return parent::factory($key, $label ?: $key);
+    }
 
     /**
      * Append oscillators

@@ -2101,10 +2101,20 @@ Search.appendIndex(
             "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020destructed.",
             "url": "classes/Remix-Filter.html#method___destruct"
         },                {
-            "fqsen": "\\Remix\\Filter\u003A\u003A\u0024rules",
+            "fqsen": "\\Remix\\Filter\u003A\u003Adefine\u0028\u0029",
+            "name": "define",
+            "summary": "Define\u0020a\u0020field",
+            "url": "classes/Remix-Filter.html#method_define"
+        },                {
+            "fqsen": "\\Remix\\Filter\u003A\u003Arules\u0028\u0029",
             "name": "rules",
-            "summary": "Input\u0020rules",
-            "url": "classes/Remix-Filter.html#property_rules"
+            "summary": "Append\u0020oscillators",
+            "url": "classes/Remix-Filter.html#method_rules"
+        },                {
+            "fqsen": "\\Remix\\Filter\u003A\u003AoscillateFromString\u0028\u0029",
+            "name": "oscillateFromString",
+            "summary": "Append\u0020a\u0020oscillator\u0020from\u0020string",
+            "url": "classes/Remix-Filter.html#method_oscillateFromString"
         },                {
             "fqsen": "\\Remix\\Filter\u003A\u003A\u0024key",
             "name": "key",
@@ -2118,13 +2128,18 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Filter\u003A\u003Arun\u0028\u0029",
             "name": "run",
-            "summary": "Run\u0020all\u0020rules",
+            "summary": "Run\u0020all\u0020oscillators",
             "url": "classes/Remix-Filter.html#method_run"
         },                {
-            "fqsen": "\\Remix\\Filter\u003A\u003ArunRule\u0028\u0029",
-            "name": "runRule",
-            "summary": "Run\u0020the\u0020rule",
-            "url": "classes/Remix-Filter.html#method_runRule"
+            "fqsen": "\\Remix\\Filter\u003A\u003AOSCILLATORS",
+            "name": "OSCILLATORS",
+            "summary": "",
+            "url": "classes/Remix-Filter.html#constant_OSCILLATORS"
+        },                {
+            "fqsen": "\\Remix\\Filter\u003A\u003A\u0024oscillators",
+            "name": "oscillators",
+            "summary": "Input\u0020oscillators",
+            "url": "classes/Remix-Filter.html#property_oscillators"
         },                {
             "fqsen": "\\Remix\\Synthesizer",
             "name": "Synthesizer",
@@ -2150,6 +2165,76 @@ Search.appendIndex(
             "name": "errors",
             "summary": "errors",
             "url": "classes/Remix-Synthesizer.html#property_errors"
+        },                {
+            "fqsen": "\\Remix\\Oscillator",
+            "name": "Oscillator",
+            "summary": "Remix\u0020Oscillator\u0020\u003A\u0020rule\u0020definition\u0020of\u0020a\u0020input\u0020item",
+            "url": "classes/Remix-Oscillator.html"
+        },                {
+            "fqsen": "\\Remix\\Oscillator\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020constructed.",
+            "url": "classes/Remix-Oscillator.html#method___construct"
+        },                {
+            "fqsen": "\\Remix\\Oscillator\u003A\u003Arun\u0028\u0029",
+            "name": "run",
+            "summary": "Run\u0020validation",
+            "url": "classes/Remix-Oscillator.html#method_run"
+        },                {
+            "fqsen": "\\Remix\\Oscillator\u003A\u003Aerror\u0028\u0029",
+            "name": "error",
+            "summary": "Get\u0020the\u0020error\u0020message",
+            "url": "classes/Remix-Oscillator.html#method_error"
+        },                {
+            "fqsen": "\\Remix\\Oscillator\u003A\u003A\u0024option",
+            "name": "option",
+            "summary": "",
+            "url": "classes/Remix-Oscillator.html#property_option"
+        },                {
+            "fqsen": "\\Remix\\Oscillators\\Email",
+            "name": "Email",
+            "summary": "Remix\u0020Oscillator\u0020Email\u0020\u003A\u0020this\u0020field\u0020must\u0020be\u0020a\u0020valid\u0020email\u0020address",
+            "url": "classes/Remix-Oscillators-Email.html"
+        },                {
+            "fqsen": "\\Remix\\Oscillators\\Email\u003A\u003Arun\u0028\u0029",
+            "name": "run",
+            "summary": "Run\u0020validation",
+            "url": "classes/Remix-Oscillators-Email.html#method_run"
+        },                {
+            "fqsen": "\\Remix\\Oscillators\\Email\u003A\u003Aerror\u0028\u0029",
+            "name": "error",
+            "summary": "Get\u0020the\u0020error\u0020message",
+            "url": "classes/Remix-Oscillators-Email.html#method_error"
+        },                {
+            "fqsen": "\\Remix\\Oscillators\\Max",
+            "name": "Max",
+            "summary": "Remix\u0020Oscillator\u0020Max\u0020\u003A\u0020this\u0020field\u0020must\u0020be\u0020less\u0020than\u0020or\u0020equal\u0020to\u0020the\u0020specified\u0020number\u0020of\u0020characters",
+            "url": "classes/Remix-Oscillators-Max.html"
+        },                {
+            "fqsen": "\\Remix\\Oscillators\\Max\u003A\u003Arun\u0028\u0029",
+            "name": "run",
+            "summary": "Run\u0020validation",
+            "url": "classes/Remix-Oscillators-Max.html#method_run"
+        },                {
+            "fqsen": "\\Remix\\Oscillators\\Max\u003A\u003Aerror\u0028\u0029",
+            "name": "error",
+            "summary": "Get\u0020the\u0020error\u0020message",
+            "url": "classes/Remix-Oscillators-Max.html#method_error"
+        },                {
+            "fqsen": "\\Remix\\Oscillators\\Required",
+            "name": "Required",
+            "summary": "Remix\u0020Oscillator\u0020Required\u0020\u003A\u0020this\u0020field\u0020is\u0020required",
+            "url": "classes/Remix-Oscillators-Required.html"
+        },                {
+            "fqsen": "\\Remix\\Oscillators\\Required\u003A\u003Arun\u0028\u0029",
+            "name": "run",
+            "summary": "Run\u0020validation",
+            "url": "classes/Remix-Oscillators-Required.html#method_run"
+        },                {
+            "fqsen": "\\Remix\\Oscillators\\Required\u003A\u003Aerror\u0028\u0029",
+            "name": "error",
+            "summary": "Get\u0020the\u0020error\u0020message",
+            "url": "classes/Remix-Oscillators-Required.html#method_error"
         },                {
             "fqsen": "\\",
             "name": "\\",
@@ -2180,6 +2265,11 @@ Search.appendIndex(
             "name": "Exceptions",
             "summary": "",
             "url": "namespaces/remix-exceptions.html"
+        },                {
+            "fqsen": "\\Remix\\Oscillators",
+            "name": "Oscillators",
+            "summary": "",
+            "url": "namespaces/remix-oscillators.html"
         },                {
             "fqsen": "\\Remix\\Preset",
             "name": "Preset",

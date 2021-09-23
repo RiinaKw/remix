@@ -5,7 +5,7 @@ namespace Remix\Oscillators;
 use Remix\Oscillator;
 
 /**
- * Remix Oscillator Required : this field is required
+ * Remix Oscillator Max : this field must be less than or equal to the specified number of characters
  *
  * @package  Remix\Web
  * @todo Write the details.

@@ -18,8 +18,8 @@ class SynthesizerTest extends TestCase
             $this->synthesizer,
             'filters',
             [
-                \Remix\Filter::factory('name', 'your name')->rules('required|max:5'),
-                \Remix\Filter::factory('email', 'your mail address')->rules('required|email'),
+                \Remix\Filter::define('name', 'your name')->rules('required|max:5'),
+                \Remix\Filter::define('email', 'your mail address')->rules('required|email'),
             ]
         );
     }

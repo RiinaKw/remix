@@ -150,7 +150,7 @@ class ReadOnlyHash
         }
         $parent =& $this->parent($key);
         $last_key = $this->lastKey($key);
-        return isset($parent[$last_key]) && $parent[$last_key] !== '' ? $parent[$last_key] : $default;
+        return (isset($parent[$last_key]) && $parent[$last_key] !== '') ? $parent[$last_key] : $default;
     }
 
     /**

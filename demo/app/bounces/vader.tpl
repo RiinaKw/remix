@@ -1,4 +1,4 @@
 <body>
-  <h1>{{$name}}, I am your Remix.</h1>
+  <h1>{{$name}}, I am your {{$type}}.</h1>
   <p>Noooo...!? Yeah good!!</p>
 </body>

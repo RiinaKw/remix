@@ -3,6 +3,7 @@
 namespace Remix;
 
 use Utility\Hash;
+use Utility\Http;
 
 /**
  * Remix Sampler : web input manager
@@ -38,7 +39,7 @@ class Sampler extends Gear
         $this->method = $params['method'];
         $this->uri = $uri;
 
-        $this->get_hash = new Hash($_GET);
+        $this->get_hash = Http\GetHash::factory();
         $this->post_hash = new Hash($_POST);
     }
     // function load()

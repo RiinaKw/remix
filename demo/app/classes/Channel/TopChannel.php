@@ -18,6 +18,7 @@ class TopChannel extends \Remix\Channel
     {
         $bounce = new Bounce('vader');
         $bounce->name = $sampler->params('name', 'Luke');
+        $bounce->type = $sampler->get('type', 'father');
         return $bounce;
     }
     // function bounce()

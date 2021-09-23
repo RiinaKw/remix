@@ -61,7 +61,7 @@ class FormChannel extends \Remix\Channel
     public function submit(Sampler $sampler): Studio
     {
         $session = Session::hash();
-        $form = new Hash($session->form ?? []);
+        $form = $session->form ?? new Hash([]);
         unset($session->form);
         Monitor::dump($session);
 

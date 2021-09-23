@@ -1,6 +1,6 @@
 <?php
 
-namespace Remix\Demo\Synthesizer;
+namespace Remix\Demo\Synthesizers;
 
 use Remix\Synthesizer;
 use Remix\Filter;

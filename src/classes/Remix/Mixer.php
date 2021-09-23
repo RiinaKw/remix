@@ -111,7 +111,7 @@ class Mixer extends Gear
 
 
                 $namespace = Audio::getInstance()->preset->get('app.namespace');
-                $class = '\\' . $namespace . '\\Channel\\' . $class;
+                $class = '\\' . $namespace . '\\Channels\\' . $class;
 
                 if (! class_exists($class)) {
                     throw new \Remix\RemixException('Unknwon channel "' . $class . '"');

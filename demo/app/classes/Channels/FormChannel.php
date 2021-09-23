@@ -1,6 +1,6 @@
 <?php
 
-namespace Remix\Demo\Channel;
+namespace Remix\Demo\Channels;
 
 use Remix\Sampler;
 use Remix\Studio;
@@ -8,7 +8,7 @@ use Remix\Bounce;
 use Remix\Monitor;
 use Utility\Http\Session;
 use Utility\Hash;
-use Remix\Demo\Synthesizer\FormSynthesizer as Synthesizer;
+use Remix\Demo\Synthesizers\FormSynthesizer as Synthesizer;
 
 class FormChannel extends \Remix\Channel
 {

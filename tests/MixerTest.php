@@ -10,6 +10,17 @@ class MixerTest extends TestCase
 
     protected $mixer = null;
 
+    /**
+     * @SuppressWarnings(PHPMD.Superglobals)
+     */
+    public function __construct()
+    {
+        if (! isset($_SESSION)) {
+            session_start();
+        }
+        parent::__construct();
+    }
+
     protected function setUp(): void
     {
         $this->mixer = \Remix\Audio::getInstance()->mixer;

@@ -7,7 +7,7 @@ use Remix\Oscillator;
 /**
  * Remix Oscillator Max : this field must be less than or equal to the specified number of characters
  *
- * @package  Remix\Web
+ * @package  Remix\Web\Oscillators
  * @todo Write the details.
  */
 class Max extends Oscillator

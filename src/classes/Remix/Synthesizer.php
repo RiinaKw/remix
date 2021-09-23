@@ -9,7 +9,7 @@ use Utility\Http\PostHash;
 /**
  * Remix Synthesizer : input form validation
  *
- * @package  Remix\Web
+ * @package  Remix\Web\Form
  * @see \Remix\Filter
  * @todo Write the details.
  */

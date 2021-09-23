@@ -5,7 +5,7 @@ namespace Remix;
 /**
  * Remix Oscillator : rule definition of a input item
  *
- * @package  Remix\Web
+ * @package  Remix\Web\Form
  * @see \Remix\Filter
  * @todo Write the details.
  */

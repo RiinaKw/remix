@@ -7,7 +7,7 @@ use Remix\Oscillator;
 /**
  * Remix Oscillator Required : this field is required
  *
- * @package  Remix\Web
+ * @package  Remix\Web\Oscillators
  * @todo Write the details.
  */
 class Required extends Oscillator

@@ -5,7 +5,7 @@ namespace Remix;
 /**
  * Remix Filter : definition of a input item from the POST form
  *
- * @package  Remix\Web
+ * @package  Remix\Web\Form
  * @see \Remix\Synthesizer
  * @see \Remix\Oscillator
  * @todo Write the details.

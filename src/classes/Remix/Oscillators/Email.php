@@ -7,7 +7,7 @@ use Remix\Oscillator;
 /**
  * Remix Oscillator Email : this field must be a valid email address
  *
- * @package  Remix\Web
+ * @package  Remix\Web\Oscillators
  * @todo Write the details.
  */
 class Email extends Oscillator

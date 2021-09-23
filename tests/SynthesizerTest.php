@@ -14,11 +14,9 @@ class SynthesizerTest extends TestCase
     {
         $this->synthesizer = \Remix\Synthesizer::factory();
 
-        $reflection = new \ReflectionClass($this->synthesizer);
-        $prop = $reflection->getProperty('filters');
-        $prop->setAccessible(true);
-        $prop->setValue(
+        $this->invokePropertyValue(
             $this->synthesizer,
+            'filters',
             [
                 \Remix\Filter::factory('name', 'your name')->rules('required|max:5'),
                 \Remix\Filter::factory('email', 'your mail address')->rules('required|email'),

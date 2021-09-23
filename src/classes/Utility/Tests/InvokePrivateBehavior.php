@@ -17,7 +17,7 @@ trait InvokePrivateBehavior
         $method->setAccessible(true);
         return $method->invokeArgs($obj, $param);
     }
-    // function invokeMethod
+    // function invokeMethod()
 
     protected function invokeProperty(object $obj, string $name)
     {
@@ -26,7 +26,16 @@ trait InvokePrivateBehavior
         $prop->setAccessible(true);
         return $prop->getValue($obj);
     }
-    // function invokeProperty
+    // function invokeProperty()
+
+    protected function invokePropertyValue(object $obj, string $name, $value)
+    {
+        $reflection = new \ReflectionClass($obj);
+        $prop = $reflection->getProperty($name);
+        $prop->setAccessible(true);
+        $prop->setValue($obj, $value);
+    }
+    // function invokePropertyValue()
 
     protected function invokeStaticMethod(string $classname, string $name, array $param = [])
     {
@@ -35,7 +44,7 @@ trait InvokePrivateBehavior
         $method->setAccessible(true);
         return $method->invokeArgs(null, $param);
     }
-    // function invokeStaticMethod
+    // function invokeStaticMethod()
 
     protected function invokeStaticProperty(string $className, string $name)
     {
@@ -43,6 +52,6 @@ trait InvokePrivateBehavior
         $props = $reflection->getStaticProperties();
         return $props[$name] ?: null;
     }
-    // function invokeStaticProperty
+    // function invokeStaticProperty()
 }
 // trait InvokePrivateBehavior

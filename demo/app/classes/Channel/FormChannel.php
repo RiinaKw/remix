@@ -6,6 +6,7 @@ use Remix\Sampler;
 use Remix\Studio;
 use Remix\Bounce;
 use Remix\Monitor;
+use Utility\Hash;
 
 class FormChannel extends \Remix\Channel
 {
@@ -37,13 +38,13 @@ class FormChannel extends \Remix\Channel
     public function submit(Sampler $sampler): Studio
     {
         $session = $sampler->session();
-        $form = $session->form ?? [];
+        $form = new Hash($session->form ?? []);
         unset($session->form);
         Monitor::dump($session);
 
         $bounce = new Bounce('form/submit');
-        $bounce->name = $form['name'] ?? 'empty';
-        $bounce->email = $form['email'] ?? 'empty';
+        $bounce->name = $form->get('name', 'empty');
+        $bounce->email = $form->get('email', 'empty');
         return $bounce;
     }
     // function submit()

@@ -50,19 +50,19 @@ class Sampler extends Gear
 
     public function params(string $name = '', $default = null)
     {
-        return $this->params_hash->get($name) ?? $default;
+        return $this->params_hash->get($name, $default);
     }
     // function param()
 
     public function get(string $name = '', $default = null)
     {
-        return $this->get_hash->get($name) ?? $default;
+        return $this->get_hash->get($name, $default);
     }
     // function get()
 
     public function post(string $name = '', $default = null)
     {
-        return $this->post_hash->get($name) ?? $default;
+        return $this->post_hash->get($name, $default);
     }
     // function post()
 

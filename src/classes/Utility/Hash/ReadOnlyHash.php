@@ -136,14 +136,21 @@ class ReadOnlyHash
      * @param  string $key  key of item
      * @return mixed        value
      */
-    public function get(string $key = '')
+
+    /**
+     * Get Hash value
+     * @param  string $key     key of item
+     * @param  mixed $default  default value if empty
+     * @return mixed           value
+     */
+    public function get(string $key = '', $default = null)
     {
         if ($key === '') {
             return $this->source;
         }
         $parent =& $this->parent($key);
         $last_key = $this->lastKey($key);
-        return $parent[$last_key] ?? null;
+        return isset($parent[$last_key]) && $parent[$last_key] !== '' ? $parent[$last_key] : $default;
     }
 
     /**

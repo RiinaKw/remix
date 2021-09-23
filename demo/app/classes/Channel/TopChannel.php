@@ -1,6 +1,6 @@
 <?php
 
-namespace RemixDemo\Channel;
+namespace Remix\Demo\Channel;
 
 use Remix\Sampler;
 use Remix\Studio;

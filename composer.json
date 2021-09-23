@@ -21,7 +21,7 @@
         "psr-4": {
             "Remix\\": "src/classes/Remix",
             "Utility\\": "src/classes/Utility",
-            "RemixDemo\\": "demo/app/classes"
+            "Remix\\Demo\\": "demo/app/classes"
         }
     },
     "scripts": {

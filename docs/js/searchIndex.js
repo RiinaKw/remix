@@ -1281,6 +1281,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Remix-Sampler.html#method_post"
         },                {
+            "fqsen": "\\Remix\\Sampler\u003A\u003Asession\u0028\u0029",
+            "name": "session",
+            "summary": "",
+            "url": "classes/Remix-Sampler.html#method_session"
+        },                {
             "fqsen": "\\Remix\\Sampler\u003A\u003A\u0024method",
             "name": "method",
             "summary": "",
@@ -1305,6 +1310,11 @@ Search.appendIndex(
             "name": "post_hash",
             "summary": "",
             "url": "classes/Remix-Sampler.html#property_post_hash"
+        },                {
+            "fqsen": "\\Remix\\Sampler\u003A\u003A\u0024session_hash",
+            "name": "session_hash",
+            "summary": "",
+            "url": "classes/Remix-Sampler.html#property_session_hash"
         },                {
             "fqsen": "\\Remix\\Studio",
             "name": "Studio",
@@ -2001,6 +2011,56 @@ Search.appendIndex(
             "summary": "properties",
             "url": "classes/Utility-Hash-ReadOnlyHash.html#property_source"
         },                {
+            "fqsen": "\\Utility\\Http\\GetHash",
+            "name": "GetHash",
+            "summary": "HTTP\u0020GET\u0020Hash",
+            "url": "classes/Utility-Http-GetHash.html"
+        },                {
+            "fqsen": "\\Utility\\Http\\GetHash\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Constructor",
+            "url": "classes/Utility-Http-GetHash.html#method___construct"
+        },                {
+            "fqsen": "\\Utility\\Http\\PostHash",
+            "name": "PostHash",
+            "summary": "HTTP\u0020POST\u0020Hash",
+            "url": "classes/Utility-Http-PostHash.html"
+        },                {
+            "fqsen": "\\Utility\\Http\\PostHash\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Constructor",
+            "url": "classes/Utility-Http-PostHash.html#method___construct"
+        },                {
+            "fqsen": "\\Utility\\Http\\SessionHash",
+            "name": "SessionHash",
+            "summary": "HTTP\u0020SESSION\u0020Hash",
+            "url": "classes/Utility-Http-SessionHash.html"
+        },                {
+            "fqsen": "\\Utility\\Http\\SessionHash\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Constructor",
+            "url": "classes/Utility-Http-SessionHash.html#method___construct"
+        },                {
+            "fqsen": "\\Utility\\Singleton",
+            "name": "Singleton",
+            "summary": "Trait\u0020that\u0020realizes\u0020a\u0020singleton",
+            "url": "classes/Utility-Singleton.html"
+        },                {
+            "fqsen": "\\Utility\\Singleton\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Unable\u0020to\u0020create\u0020an\u0020instance\u0020from\u0020outside",
+            "url": "classes/Utility-Singleton.html#method___construct"
+        },                {
+            "fqsen": "\\Utility\\Singleton\u003A\u003Afactory\u0028\u0029",
+            "name": "factory",
+            "summary": "Factory\u0020method",
+            "url": "classes/Utility-Singleton.html#method_factory"
+        },                {
+            "fqsen": "\\Utility\\Singleton\u003A\u003A\u0024instance",
+            "name": "instance",
+            "summary": "Only\u0020one\u0020instance",
+            "url": "classes/Utility-Singleton.html#property_instance"
+        },                {
             "fqsen": "\\",
             "name": "\\",
             "summary": "",
@@ -2055,6 +2115,11 @@ Search.appendIndex(
             "name": "Hash",
             "summary": "",
             "url": "namespaces/utility-hash.html"
+        },                {
+            "fqsen": "\\Utility\\Http",
+            "name": "Http",
+            "summary": "",
+            "url": "namespaces/utility-http.html"
         },                {
             "fqsen": "\\Utility\\Performance",
             "name": "Performance",

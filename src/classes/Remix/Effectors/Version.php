@@ -18,7 +18,10 @@ class Version extends Effector
         '' => 'show version',
     ];
 
-    public function index()
+    /**
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     */
+    public function index($arg)
     {
         $preset = Audio::getInstance()->preset;
         static::line($preset->get('remix.title') . ' ' . $preset->get('remix.version'));

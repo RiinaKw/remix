@@ -12,10 +12,7 @@ use Remix\Utility\Arr;
  */
 class Amp extends Gear
 {
-    private const NAMESPACES = [
-        'remix' => '\\Remix\\Effectors\\',
-        'app' => '\\App\\Effectors\\',
-    ];
+    private static $namespaces = [];
     protected static $shorthandles = [];
     private $effectors = [];
 
@@ -32,6 +29,11 @@ class Amp extends Gear
 
         $daw = Audio::getInstance()->daw;
 
+        static::$namespaces = [
+            'remix' => '\\Remix\\Effectors\\',
+            'app' => Audio::getInstance()->preset->get('app.namespace') . '\\Effectors\\',
+        ];
+
         $this->load($daw, 'remix');
         $this->load($daw, 'app');
 
@@ -41,7 +43,7 @@ class Amp extends Gear
     private function load(DAW $daw, string $namespace): void
     {
         if ($namespace == 'app') {
-            $effector_dir = $daw->appDir('classes/Effector');
+            $effector_dir = $daw->appDir('classes/Effectors');
         } else {
             $effector_dir = Audio::getInstance()->preset->get('remix.pathes.effector_dir');
         }
@@ -51,7 +53,7 @@ class Amp extends Gear
                 preg_match('/\/(?<name>.+?).php$/', $file, $matches);
                 $name = $matches['name'];
 
-                $target = static::NAMESPACES[$namespace] . $name;
+                $target = static::$namespaces[$namespace] . $name;
                 if (class_exists($target)) {
                     $command = strtolower($name);
                     $this->effectors[$command] = $target;
@@ -133,7 +135,7 @@ class Amp extends Gear
             }
             $instance = $equalizer->instance($class, $this);
         } else {
-            foreach (static::NAMESPACES as $namespace) {
+            foreach (static::$namespaces as $namespace) {
                 $target = $namespace . $class;
                 if (class_exists($target)) {
                     $instance = $equalizer->instance($target, $this);

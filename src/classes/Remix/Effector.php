@@ -82,9 +82,11 @@ abstract class Effector extends Gear
 
     /**
      * Default command : nothing to do.
+     *
      * @todo: Return value
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
-    public function index()
+    public function index($arg)
     {
         Effector::line('nothing to do', 'black', 'yellow');
     }

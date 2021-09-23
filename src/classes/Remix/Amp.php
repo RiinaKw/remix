@@ -13,8 +13,8 @@ use Remix\Utility\Arr;
 class Amp extends Gear
 {
     private const NAMESPACES = [
-        'remix' => '\\Remix\\Effector\\',
-        'app' => '\\App\\Effector\\',
+        'remix' => '\\Remix\\Effectors\\',
+        'app' => '\\App\\Effectors\\',
     ];
     protected static $shorthandles = [];
     private $effectors = [];
@@ -148,7 +148,7 @@ class Amp extends Gear
             Effector::line("unknown effector '{$class}'", 'black', 'red');
             Effector::line('try "amp help"');
         } else {
-            $instance = $equalizer->instance(Effector\Help::class, $this);
+            $instance = $equalizer->instance(Effectors\Help::class, $this);
             $instance->index($argv);
         }
 

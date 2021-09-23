@@ -721,101 +721,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Remix-DJ.html#property_connection"
         },                {
-            "fqsen": "\\Remix\\Effector\\Help",
-            "name": "Help",
-            "summary": "Remix\u0020Help\u0020Effector\u0020\u003A\u0020cli\u0020help\u0020message",
-            "url": "classes/Remix-Effector-Help.html"
-        },                {
-            "fqsen": "\\Remix\\Effector\\Help\u003A\u003Aindex\u0028\u0029",
-            "name": "index",
-            "summary": "Default\u0020command\u0020\u003A\u0020nothing\u0020to\u0020do.",
-            "url": "classes/Remix-Effector-Help.html#method_index"
-        },                {
-            "fqsen": "\\Remix\\Effector\\Help\u003A\u003ATITLE",
-            "name": "TITLE",
-            "summary": "Its\u0020own\u0020title.",
-            "url": "classes/Remix-Effector-Help.html#constant_TITLE"
-        },                {
-            "fqsen": "\\Remix\\Effector\\Help\u003A\u003ACOMMANDS",
-            "name": "COMMANDS",
-            "summary": "Its\u0020own\u0020available\u0020commands\u0020and\u0020descriptions.",
-            "url": "classes/Remix-Effector-Help.html#constant_COMMANDS"
-        },                {
-            "fqsen": "\\Remix\\Effector\\Livehouse",
-            "name": "Livehouse",
-            "summary": "Remix\u0020Livehouse\u0020Effector\u0020\u003A\u0020migration\u0020manager",
-            "url": "classes/Remix-Effector-Livehouse.html"
-        },                {
-            "fqsen": "\\Remix\\Effector\\Livehouse\u003A\u003Asetup\u0028\u0029",
-            "name": "setup",
-            "summary": "",
-            "url": "classes/Remix-Effector-Livehouse.html#method_setup"
-        },                {
-            "fqsen": "\\Remix\\Effector\\Livehouse\u003A\u003Afind\u0028\u0029",
-            "name": "find",
-            "summary": "",
-            "url": "classes/Remix-Effector-Livehouse.html#method_find"
-        },                {
-            "fqsen": "\\Remix\\Effector\\Livehouse\u003A\u003Aopen\u0028\u0029",
-            "name": "open",
-            "summary": "",
-            "url": "classes/Remix-Effector-Livehouse.html#method_open"
-        },                {
-            "fqsen": "\\Remix\\Effector\\Livehouse\u003A\u003AstepOpen\u0028\u0029",
-            "name": "stepOpen",
-            "summary": "",
-            "url": "classes/Remix-Effector-Livehouse.html#method_stepOpen"
-        },                {
-            "fqsen": "\\Remix\\Effector\\Livehouse\u003A\u003Aclose\u0028\u0029",
-            "name": "close",
-            "summary": "",
-            "url": "classes/Remix-Effector-Livehouse.html#method_close"
-        },                {
-            "fqsen": "\\Remix\\Effector\\Livehouse\u003A\u003AstepClose\u0028\u0029",
-            "name": "stepClose",
-            "summary": "",
-            "url": "classes/Remix-Effector-Livehouse.html#method_stepClose"
-        },                {
-            "fqsen": "\\Remix\\Effector\\Livehouse\u003A\u003ATITLE",
-            "name": "TITLE",
-            "summary": "Its\u0020own\u0020title.",
-            "url": "classes/Remix-Effector-Livehouse.html#constant_TITLE"
-        },                {
-            "fqsen": "\\Remix\\Effector\\Livehouse\u003A\u003ACOMMANDS",
-            "name": "COMMANDS",
-            "summary": "Its\u0020own\u0020available\u0020commands\u0020and\u0020descriptions.",
-            "url": "classes/Remix-Effector-Livehouse.html#constant_COMMANDS"
-        },                {
-            "fqsen": "\\Remix\\Effector\\Livehouse\u003A\u003A\u0024table",
-            "name": "table",
-            "summary": "",
-            "url": "classes/Remix-Effector-Livehouse.html#property_table"
-        },                {
-            "fqsen": "\\Remix\\Effector\\Livehouse\u003A\u003A\u0024vinyl_class",
-            "name": "vinyl_class",
-            "summary": "",
-            "url": "classes/Remix-Effector-Livehouse.html#property_vinyl_class"
-        },                {
-            "fqsen": "\\Remix\\Effector\\Version",
-            "name": "Version",
-            "summary": "Remix\u0020Version\u0020Effector\u0020\u003A\u0020show\u0020versions\u0020of\u0020Remix",
-            "url": "classes/Remix-Effector-Version.html"
-        },                {
-            "fqsen": "\\Remix\\Effector\\Version\u003A\u003Aindex\u0028\u0029",
-            "name": "index",
-            "summary": "Default\u0020command\u0020\u003A\u0020nothing\u0020to\u0020do.",
-            "url": "classes/Remix-Effector-Version.html#method_index"
-        },                {
-            "fqsen": "\\Remix\\Effector\\Version\u003A\u003ATITLE",
-            "name": "TITLE",
-            "summary": "Its\u0020own\u0020title.",
-            "url": "classes/Remix-Effector-Version.html#constant_TITLE"
-        },                {
-            "fqsen": "\\Remix\\Effector\\Version\u003A\u003ACOMMANDS",
-            "name": "COMMANDS",
-            "summary": "Its\u0020own\u0020available\u0020commands\u0020and\u0020descriptions.",
-            "url": "classes/Remix-Effector-Version.html#constant_COMMANDS"
-        },                {
             "fqsen": "\\Remix\\Effector",
             "name": "Effector",
             "summary": "Remix\u0020Effector\u0020\u003A\u0020command\u0020line\u0020controller",
@@ -2216,6 +2121,101 @@ Search.appendIndex(
             "summary": "Get\u0020the\u0020error\u0020message",
             "url": "classes/Remix-Oscillators-Required.html#method_error"
         },                {
+            "fqsen": "\\Remix\\Effectors\\Help",
+            "name": "Help",
+            "summary": "Remix\u0020Help\u0020Effector\u0020\u003A\u0020cli\u0020help\u0020message",
+            "url": "classes/Remix-Effectors-Help.html"
+        },                {
+            "fqsen": "\\Remix\\Effectors\\Help\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "Default\u0020command\u0020\u003A\u0020nothing\u0020to\u0020do.",
+            "url": "classes/Remix-Effectors-Help.html#method_index"
+        },                {
+            "fqsen": "\\Remix\\Effectors\\Help\u003A\u003ATITLE",
+            "name": "TITLE",
+            "summary": "Its\u0020own\u0020title.",
+            "url": "classes/Remix-Effectors-Help.html#constant_TITLE"
+        },                {
+            "fqsen": "\\Remix\\Effectors\\Help\u003A\u003ACOMMANDS",
+            "name": "COMMANDS",
+            "summary": "Its\u0020own\u0020available\u0020commands\u0020and\u0020descriptions.",
+            "url": "classes/Remix-Effectors-Help.html#constant_COMMANDS"
+        },                {
+            "fqsen": "\\Remix\\Effectors\\Livehouse",
+            "name": "Livehouse",
+            "summary": "Remix\u0020Livehouse\u0020Effector\u0020\u003A\u0020migration\u0020manager",
+            "url": "classes/Remix-Effectors-Livehouse.html"
+        },                {
+            "fqsen": "\\Remix\\Effectors\\Livehouse\u003A\u003Asetup\u0028\u0029",
+            "name": "setup",
+            "summary": "",
+            "url": "classes/Remix-Effectors-Livehouse.html#method_setup"
+        },                {
+            "fqsen": "\\Remix\\Effectors\\Livehouse\u003A\u003Afind\u0028\u0029",
+            "name": "find",
+            "summary": "",
+            "url": "classes/Remix-Effectors-Livehouse.html#method_find"
+        },                {
+            "fqsen": "\\Remix\\Effectors\\Livehouse\u003A\u003Aopen\u0028\u0029",
+            "name": "open",
+            "summary": "",
+            "url": "classes/Remix-Effectors-Livehouse.html#method_open"
+        },                {
+            "fqsen": "\\Remix\\Effectors\\Livehouse\u003A\u003AstepOpen\u0028\u0029",
+            "name": "stepOpen",
+            "summary": "",
+            "url": "classes/Remix-Effectors-Livehouse.html#method_stepOpen"
+        },                {
+            "fqsen": "\\Remix\\Effectors\\Livehouse\u003A\u003Aclose\u0028\u0029",
+            "name": "close",
+            "summary": "",
+            "url": "classes/Remix-Effectors-Livehouse.html#method_close"
+        },                {
+            "fqsen": "\\Remix\\Effectors\\Livehouse\u003A\u003AstepClose\u0028\u0029",
+            "name": "stepClose",
+            "summary": "",
+            "url": "classes/Remix-Effectors-Livehouse.html#method_stepClose"
+        },                {
+            "fqsen": "\\Remix\\Effectors\\Livehouse\u003A\u003ATITLE",
+            "name": "TITLE",
+            "summary": "Its\u0020own\u0020title.",
+            "url": "classes/Remix-Effectors-Livehouse.html#constant_TITLE"
+        },                {
+            "fqsen": "\\Remix\\Effectors\\Livehouse\u003A\u003ACOMMANDS",
+            "name": "COMMANDS",
+            "summary": "Its\u0020own\u0020available\u0020commands\u0020and\u0020descriptions.",
+            "url": "classes/Remix-Effectors-Livehouse.html#constant_COMMANDS"
+        },                {
+            "fqsen": "\\Remix\\Effectors\\Livehouse\u003A\u003A\u0024table",
+            "name": "table",
+            "summary": "",
+            "url": "classes/Remix-Effectors-Livehouse.html#property_table"
+        },                {
+            "fqsen": "\\Remix\\Effectors\\Livehouse\u003A\u003A\u0024vinyl_class",
+            "name": "vinyl_class",
+            "summary": "",
+            "url": "classes/Remix-Effectors-Livehouse.html#property_vinyl_class"
+        },                {
+            "fqsen": "\\Remix\\Effectors\\Version",
+            "name": "Version",
+            "summary": "Remix\u0020Version\u0020Effector\u0020\u003A\u0020show\u0020versions\u0020of\u0020Remix",
+            "url": "classes/Remix-Effectors-Version.html"
+        },                {
+            "fqsen": "\\Remix\\Effectors\\Version\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "Default\u0020command\u0020\u003A\u0020nothing\u0020to\u0020do.",
+            "url": "classes/Remix-Effectors-Version.html#method_index"
+        },                {
+            "fqsen": "\\Remix\\Effectors\\Version\u003A\u003ATITLE",
+            "name": "TITLE",
+            "summary": "Its\u0020own\u0020title.",
+            "url": "classes/Remix-Effectors-Version.html#constant_TITLE"
+        },                {
+            "fqsen": "\\Remix\\Effectors\\Version\u003A\u003ACOMMANDS",
+            "name": "COMMANDS",
+            "summary": "Its\u0020own\u0020available\u0020commands\u0020and\u0020descriptions.",
+            "url": "classes/Remix-Effectors-Version.html#constant_COMMANDS"
+        },                {
             "fqsen": "\\",
             "name": "\\",
             "summary": "",
@@ -2236,10 +2236,10 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/remix-dj-bpm.html"
         },                {
-            "fqsen": "\\Remix\\Effector",
-            "name": "Effector",
+            "fqsen": "\\Remix\\Effectors",
+            "name": "Effectors",
             "summary": "",
-            "url": "namespaces/remix-effector.html"
+            "url": "namespaces/remix-effectors.html"
         },                {
             "fqsen": "\\Remix\\Exceptions",
             "name": "Exceptions",

@@ -11,8 +11,8 @@ namespace Remix\Preset;
 final class Effector
 {
     public const SHORTHANDLES = [
-        '-v' => \Remix\Effector\Version::class,
-        '-h' => \Remix\Effector\Help::class,
+        '-v' => \Remix\Effectors\Version::class,
+        '-h' => \Remix\Effectors\Help::class,
     ];
 }
 // class Effector

@@ -1,6 +1,6 @@
 <?php
 
-namespace Remix\Effector;
+namespace Remix\Effectors;
 
 use Remix\Effector;
 use Remix\Audio;
@@ -8,7 +8,7 @@ use Remix\Audio;
 /**
  * Remix Version Effector : show versions of Remix
  *
- * @package  Remix\CLI
+ * @package  Remix\CLI\Effectors
  * @todo Write the details.
  */
 class Version extends Effector

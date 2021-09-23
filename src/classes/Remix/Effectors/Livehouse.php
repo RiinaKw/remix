@@ -1,6 +1,6 @@
 <?php
 
-namespace Remix\Effector;
+namespace Remix\Effectors;
 
 use Remix\Effector;
 use Remix\DJ;
@@ -9,7 +9,7 @@ use Remix\RemixException;
 /**
  * Remix Livehouse Effector : migration manager
  *
- * @package  Remix\CLI
+ * @package  Remix\CLI\Effectors
  * @todo Write the details.
  */
 final class Livehouse extends Effector

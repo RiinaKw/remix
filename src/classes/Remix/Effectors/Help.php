@@ -1,13 +1,13 @@
 <?php
 
-namespace Remix\Effector;
+namespace Remix\Effectors;
 
 use Remix\Effector;
 
 /**
  * Remix Help Effector : cli help message
  *
- * @package  Remix\CLI
+ * @package  Remix\CLI\Effectors
  * @todo Write the details.
  */
 class Help extends Effector

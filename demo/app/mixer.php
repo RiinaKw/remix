@@ -6,6 +6,7 @@ return [
     Track::get('/', 'TopChannel@index'),
     Track::get('/vader(/:name)?', 'TopChannel@vader'),
 
-    Track::get('/form', 'FormChannel@index'),
-    Track::post('/form', 'FormChannel@submit'),
+    Track::any( '/form/input',   'FormChannel@input'),
+    Track::post('/form/confirm', 'FormChannel@confirm'),
+    Track::post('/form/submit',  'FormChannel@submit'),
 ];

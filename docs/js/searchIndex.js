@@ -1846,26 +1846,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Utility-Str.html#method_h"
         },                {
-            "fqsen": "\\Utility\\Tests\\CaptureOutput",
-            "name": "CaptureOutput",
-            "summary": "Utilities\u0020of\u0020capturing\u0020output",
-            "url": "classes/Utility-Tests-CaptureOutput.html"
-        },                {
-            "fqsen": "\\Utility\\Tests\\CaptureOutput\u003A\u003AstartCapture\u0028\u0029",
-            "name": "startCapture",
-            "summary": "",
-            "url": "classes/Utility-Tests-CaptureOutput.html#method_startCapture"
-        },                {
-            "fqsen": "\\Utility\\Tests\\CaptureOutput\u003A\u003AendCapture\u0028\u0029",
-            "name": "endCapture",
-            "summary": "",
-            "url": "classes/Utility-Tests-CaptureOutput.html#method_endCapture"
-        },                {
-            "fqsen": "\\Utility\\Tests\\CaptureOutput\u003A\u003Acapture\u0028\u0029",
-            "name": "capture",
-            "summary": "",
-            "url": "classes/Utility-Tests-CaptureOutput.html#method_capture"
-        },                {
             "fqsen": "\\Utility\\Tests\\InvokePrivateBehavior",
             "name": "InvokePrivateBehavior",
             "summary": "Using\u0020reflection\u0020classes\u0020to\u0020allow\u0020access\u0020to\u0020private\u0020or\u0020protected\u0020properties\/methods",

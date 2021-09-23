@@ -15,8 +15,8 @@ class FormSynthesizer extends Synthesizer
     protected function filters(): array
     {
         return [
-            Filter::factory('name', 'your name')->rules('required|max:5'),
-            Filter::factory('email', 'your mail address')->rules('required|email'),
+            Filter::factory('name', 'your name')->rules('required')->rules('max:5'),
+            Filter::factory('email', 'your mail address')->rules(['required'])->rules(new \Remix\Oscillators\Email()),
         ];
     }
 }

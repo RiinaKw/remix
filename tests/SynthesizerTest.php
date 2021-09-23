@@ -63,8 +63,8 @@ class SynthesizerTest extends TestCase
             'email' => '',
         ];
         $expectedErrors = [
-            'name' => 'your name is required',
-            'email' => 'your mail address is required',
+            'name' => 'name : your name is required',
+            'email' => 'email : your mail address is required',
         ];
         $this->assertSame($expectedInput, $this->synthesizer->input()->get());
         $this->assertSame($expectedErrors, $this->synthesizer->errors()->get());

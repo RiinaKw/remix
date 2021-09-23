@@ -7,6 +7,7 @@ namespace Remix;
  *
  * @package  Remix\Web
  * @see \Remix\Synthesizer
+ * @see \Remix\Oscillator
  * @todo Write the details.
  */
 class Filter extends Gear
@@ -24,10 +25,16 @@ class Filter extends Gear
     protected $label = '';
 
     /**
-     * Input rules
-     * @var array<int, string>
+     * Input oscillators
+     * @var array<int, \Remix\Oscillator>
      */
-    protected $rules = [];
+    protected $oscillators = [];
+
+    protected const OSCILLATORS = [
+        'required' => \Remix\Oscillators\Required::class,
+        'max' => \Remix\Oscillators\Max::class,
+        'email' => \Remix\Oscillators\Email::class,
+    ];
 
     protected function __construct(string $key, string $label)
     {
@@ -45,18 +52,47 @@ class Filter extends Gear
     // function __destruct()
 
     /**
-     * Append rules
+     * Append oscillators
      *
-     * Multiple settings can be made by connecting with '|'
+     * Multiple oscillators can be made by connecting with '|'
      *
-     * @param  string $rules  rule definition
-     * @return self           instance of itself
+     * @param  string|\Remix\Oscillator|array<int, \Remix\Oscillator> $obj  oscillator definition, or oscillator object
+     * @return self  instance of itself
      */
-    public function rules(string $rules): self
+    public function rules($obj): self
     {
-        $arr = explode('|', $rules);
-        $this->rules = array_merge($this->rules, $arr);
+        if (is_string($obj)) {
+            foreach (explode('|', $obj) as $rule) {
+                $this->oscillators[] = $this->oscillateFromString($rule);
+            }
+        } elseif ($obj instanceof Oscillator) {
+            $this->oscillators[] = $obj;
+        } elseif (is_array($obj)) {
+            foreach ($obj as $rule) {
+                $this->rules($rule);
+            }
+        }
         return $this;
+    }
+
+    /**
+     * Append a oscillator from string
+     * @param  string $expression  oscillator definition
+     * @return Oscillator          generated Oscillator instance
+     */
+    protected function oscillateFromString(string $expression): Oscillator
+    {
+        if (strpos($expression, ':') !== false) {
+            list($name, $option) = explode(':', $expression, 2);
+        } else {
+            $name = $expression;
+            $option = null;
+        }
+        if (! isset(static::OSCILLATORS[$name])) {
+            throw new RemixException("unknown rule '{$name}'");
+        }
+        $class = static::OSCILLATORS[$name];
+        return new $class($option);
     }
 
     /**
@@ -80,62 +116,19 @@ class Filter extends Gear
     }
 
     /**
-     * Run all rules
+     * Run all oscillators
      *
      * @param  string $value  input value
      * @return string         error message or empty string
      */
     public function run(string $value): string
     {
-        foreach ($this->rules as $rule) {
-            $error = $this->runRule($rule, $value);
-            if ($error !== '') {
-                $error = str_replace('{label}', $this->label, $error);
-                return $error;
+        foreach ($this->oscillators as $oscillator) {
+            if (! $oscillator->run($value)) {
+                $search = ['{key}', '{label}', '{value}'];
+                $replace = [$this->key, $this->label, $value];
+                return str_replace($search, $replace, $oscillator->error());
             }
-        }
-        return '';
-    }
-
-    /**
-     * Run the rule
-     *
-     * @param  string $rule    rule name
-     * @param  string $value   input value
-     * @return string          error message or empty string
-     * @throws RemixException  undefined rule
-     */
-    protected function runRule(string $rule, string $value): string
-    {
-        if (strpos($rule, ':') !== false) {
-            list($name, $option) = explode(':', $rule, 2);
-        } else {
-            $name = $rule;
-            $option = null;
-        }
-
-        switch ($name) {
-            case 'required':
-                if ($value === null || $value === '') {
-                    return "{label} is required";
-                }
-                break;
-
-            case 'max':
-                if (strlen($value) > (int)$option) {
-                    return "{label} must be {$option} characters or less";
-                }
-                break;
-
-            case 'email':
-                if (! preg_match('/[0-9A-Za-z_\-\.]+@[0-9A-Za-z_\-\.]+\.[a-z]+/', $value)) {
-                    return "{label} is invalid email address";
-                }
-                break;
-
-            default:
-                throw new RemixException("unknown rule '{$name}'");
-                break;
         }
         return '';
     }

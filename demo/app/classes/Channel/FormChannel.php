@@ -5,25 +5,27 @@ namespace RemixDemo\Channel;
 use Remix\Sampler;
 use Remix\Studio;
 use Remix\Bounce;
+use Remix\Monitor;
 
 class FormChannel extends \Remix\Channel
 {
-    public function input(): Studio
+    public function input(Sampler $sampler): Studio
     {
-        session_start();
-        $form = $_SESSION['form'] ?? [];
+        $session = $sampler->session();
+        Monitor::dump($session);
 
         $bounce = new Bounce('form/input');
-        $bounce->name = $form['name'] ?? '';
-        $bounce->email = $form['email'] ?? '';
+        $bounce->name = $session->get('form.name', '');
+        $bounce->email = $session->get('form.email', '');
         return $bounce;
     }
     // function form()
 
     public function confirm(Sampler $sampler): Studio
     {
-        session_start();
-        $_SESSION['form'] = $sampler->post();
+        $session = $sampler->session();
+        $session->form = $sampler->post();
+        Monitor::dump($session);
 
         $bounce = new Bounce('form/confirm');
         $bounce->name = $sampler->post('name', 'empty');
@@ -34,9 +36,10 @@ class FormChannel extends \Remix\Channel
 
     public function submit(Sampler $sampler): Studio
     {
-        session_start();
-        $form = $_SESSION['form'] ?? [];
-        unset($_SESSION['form']);
+        $session = $sampler->session();
+        $form = $session->form ?? [];
+        unset($session->form);
+        Monitor::dump($session);
 
         $bounce = new Bounce('form/submit');
         $bounce->name = $form['name'] ?? 'empty';

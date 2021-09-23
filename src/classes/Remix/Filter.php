@@ -3,9 +3,10 @@
 namespace Remix;
 
 /**
- * Remix Filter : definition of a input item from form
+ * Remix Filter : definition of a input item from the POST form
  *
  * @package  Remix\Web
+ * @see \Remix\Synthesizer
  * @todo Write the details.
  */
 class Filter extends Gear

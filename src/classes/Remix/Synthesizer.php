@@ -10,6 +10,7 @@ use Utility\Http\PostHash;
  * Remix Synthesizer : input form validation
  *
  * @package  Remix\Web
+ * @see \Remix\Filter
  * @todo Write the details.
  */
 class Synthesizer extends Gear

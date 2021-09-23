@@ -9,9 +9,8 @@ class FormSynthesizer extends Synthesizer
 {
     /**
      * filters definition
-     * @return array<int, \Remix\Filter>
      *
-     * rule -> Oscillator
+     * @return array<int, \Remix\Filter>
      */
     protected function filters(): array
     {

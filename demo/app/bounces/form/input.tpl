@@ -1,7 +1,7 @@
 <body>
   <h1>Input form</h1>
-{{if $errors}}
-  <p style="color: red;">{{$errors->get(0)}}</p>
+{{if ! $errors->isEmpty() }}
+  <p style="color: red;">Some errors have occurred</p>
 {{endif}}
   <form action="confirm" method="post">
     <label>

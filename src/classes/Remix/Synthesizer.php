@@ -12,8 +12,14 @@ use Utility\Http\PostHash;
  * @package  Remix\Web
  * @todo Write the details.
  */
-abstract class Synthesizer extends Gear
+class Synthesizer extends Gear
 {
+    /**
+     * filters definition
+     * @var array<int, \Remix\Filter>
+     */
+    protected $filters = [];
+
     /**
      * input from $_POST
      * @var \Utility\Hash\ReadOnlyHash
@@ -30,7 +36,10 @@ abstract class Synthesizer extends Gear
      * filters definition
      * @return array<int, \Remix\Filter>
      */
-    abstract protected function filters(): array;
+    protected function filters(): array
+    {
+        return [];
+    }
 
     /**
      * Run validation
@@ -38,11 +47,12 @@ abstract class Synthesizer extends Gear
      */
     public function run(): self
     {
+        $filters = $this->filters ?: $this->filters();
         $post = PostHash::factory();
         $input = [];
         $errors = [];
 
-        foreach ($this->filters() as $filter) {
+        foreach ($filters as $filter) {
             $key = $filter->key();
             $value = (string)$post->get($key);
             $input[$key] = $value;
@@ -51,10 +61,6 @@ abstract class Synthesizer extends Gear
             if ($error !== '') {
                 $errors[$key] = $error;
             }
-        }
-
-        if (count($errors) !== 0) {
-            $errors[0] = 'some errors';
         }
 
         $this->input = new ReadOnlyHash($input);

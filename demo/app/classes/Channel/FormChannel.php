@@ -8,6 +8,7 @@ use Remix\Bounce;
 use Remix\Monitor;
 use Utility\Http\Session;
 use Utility\Hash;
+use Remix\Demo\Synthesizer\FormSynthesizer as Synthesizer;
 
 class FormChannel extends \Remix\Channel
 {
@@ -17,11 +18,13 @@ class FormChannel extends \Remix\Channel
     public function input(Sampler $sampler): Studio
     {
         $session = Session::hash();
+        $form = $session->form;
         Monitor::dump($session);
 
         $bounce = new Bounce('form/input');
-        $bounce->name = $session->get('form.name', '');
-        $bounce->email = $session->get('form.email', '');
+        $bounce->name = $form->get('name', '');
+        $bounce->email = $form->get('email', '');
+        $bounce->errors = $session->errors ?: new Hash();
         return $bounce;
     }
     // function form()
@@ -31,13 +34,23 @@ class FormChannel extends \Remix\Channel
      */
     public function confirm(Sampler $sampler): Studio
     {
+        $synthesizer = Synthesizer::factory()->run();
+        $form = $synthesizer->input();
+
         $session = Session::hash();
-        $session->form = $sampler->post();
+        $session->form = $form;
+        $errors = $synthesizer->errors();
+
+        if (! $errors->isEmpty()) {
+            $session->errors = $errors;
+            return Studio::factory()->redirect('FormInput');
+        }
+        unset($session->errors);
         Monitor::dump($session);
 
         $bounce = new Bounce('form/confirm');
-        $bounce->name = $sampler->post('name', 'empty');
-        $bounce->email = $sampler->post('email', 'empty');
+        $bounce->name = $form->get('name');
+        $bounce->email = $form->get('email');
         return $bounce;
     }
     // function confirm()
@@ -53,8 +66,8 @@ class FormChannel extends \Remix\Channel
         Monitor::dump($session);
 
         $bounce = new Bounce('form/submit');
-        $bounce->name = $form->get('name', 'empty');
-        $bounce->email = $form->get('email', 'empty');
+        $bounce->name = $form->get('name', '(empty)');
+        $bounce->email = $form->get('email', '(empty)');
         return $bounce;
     }
     // function submit()

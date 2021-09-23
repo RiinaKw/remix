@@ -2,7 +2,7 @@
 
 namespace Remix;
 
-use Utility\Hash;
+use Utility\Hash\ReadOnlyHash;
 use Utility\Http;
 
 /**
@@ -24,17 +24,18 @@ class Sampler extends Gear
      */
     public function load(string $uri, array $params)
     {
-        $this->params_hash = new Hash();
+        $input = [];
         foreach ($params['data'] as $key => $item) {
             if (! is_int($key)) {
-                $this->params_hash->set($key, $item);
+                $input[$key] = $item;
             }
         }
         foreach ($_REQUEST as $key => $item) {
             if (! is_int($key) && $key !== '_method') {
-                $this->params_hash->set($key, $item);
+                $input[$key] = $item;
             }
         }
+        $this->params_hash = new ReadOnlyHash($input);
 
         $this->method = $params['method'];
         $this->uri = $uri;

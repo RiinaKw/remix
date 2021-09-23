@@ -9,7 +9,7 @@ trait Singleton
 {
     /**
      * Only one instance
-     * @var self|null
+     * @var self
      */
     protected static $instance = null;
 

@@ -44,6 +44,7 @@ class Session
 
     /**
      * Get $_SESSION
+     * @return array<string, mixed>  ref of $_SESSION
      *
      * @SuppressWarnings(PHPMD.Superglobals)
      */

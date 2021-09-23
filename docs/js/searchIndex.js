@@ -1281,11 +1281,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Remix-Sampler.html#method_post"
         },                {
-            "fqsen": "\\Remix\\Sampler\u003A\u003Asession\u0028\u0029",
-            "name": "session",
-            "summary": "",
-            "url": "classes/Remix-Sampler.html#method_session"
-        },                {
             "fqsen": "\\Remix\\Sampler\u003A\u003A\u0024method",
             "name": "method",
             "summary": "",
@@ -1310,11 +1305,6 @@ Search.appendIndex(
             "name": "post_hash",
             "summary": "",
             "url": "classes/Remix-Sampler.html#property_post_hash"
-        },                {
-            "fqsen": "\\Remix\\Sampler\u003A\u003A\u0024session_hash",
-            "name": "session_hash",
-            "summary": "",
-            "url": "classes/Remix-Sampler.html#property_session_hash"
         },                {
             "fqsen": "\\Remix\\Studio",
             "name": "Studio",
@@ -2060,6 +2050,36 @@ Search.appendIndex(
             "name": "instance",
             "summary": "Only\u0020one\u0020instance",
             "url": "classes/Utility-Singleton.html#property_instance"
+        },                {
+            "fqsen": "\\Utility\\Http\\Session",
+            "name": "Session",
+            "summary": "HTTP\u0020Session",
+            "url": "classes/Utility-Http-Session.html"
+        },                {
+            "fqsen": "\\Utility\\Http\\Session\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Utility-Http-Session.html#method___construct"
+        },                {
+            "fqsen": "\\Utility\\Http\\Session\u003A\u003Astart\u0028\u0029",
+            "name": "start",
+            "summary": "Start\u0020session",
+            "url": "classes/Utility-Http-Session.html#method_start"
+        },                {
+            "fqsen": "\\Utility\\Http\\Session\u003A\u003Aglobals\u0028\u0029",
+            "name": "globals",
+            "summary": "Get\u0020\u0024_SESSION",
+            "url": "classes/Utility-Http-Session.html#method_globals"
+        },                {
+            "fqsen": "\\Utility\\Http\\Session\u003A\u003Ahash\u0028\u0029",
+            "name": "hash",
+            "summary": "Session\u0020hash",
+            "url": "classes/Utility-Http-Session.html#method_hash"
+        },                {
+            "fqsen": "\\Utility\\Http\\Session\u003A\u003A\u0024session",
+            "name": "session",
+            "summary": "Session\u0020Hash",
+            "url": "classes/Utility-Http-Session.html#property_session"
         },                {
             "fqsen": "\\",
             "name": "\\",

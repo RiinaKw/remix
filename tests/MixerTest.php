@@ -10,14 +10,9 @@ class MixerTest extends TestCase
 
     protected $mixer = null;
 
-    /**
-     * @SuppressWarnings(PHPMD.Superglobals)
-     */
     public function __construct()
     {
-        if (! isset($_SESSION)) {
-            session_start();
-        }
+        \Utility\Http\Session::start();
         parent::__construct();
     }
 

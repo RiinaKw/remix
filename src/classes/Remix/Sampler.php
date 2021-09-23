@@ -16,7 +16,6 @@ class Sampler extends Gear
     protected $params_hash = null;
     protected $get_hash = null;
     protected $post_hash = null;
-    protected $session_hash = null;
 
     protected $method = '';
     protected $uri = '';
@@ -44,7 +43,6 @@ class Sampler extends Gear
 
         $this->get_hash = Http\GetHash::factory();
         $this->post_hash = Http\PostHash::factory();
-        $this->session_hash = Http\SessionHash::factory();
     }
     // function load()
 
@@ -65,11 +63,6 @@ class Sampler extends Gear
         return $this->post_hash->get($name, $default);
     }
     // function post()
-
-    public function session(): Http\SessionHash
-    {
-        return $this->session_hash;
-    }
 
     public function method(): string
     {

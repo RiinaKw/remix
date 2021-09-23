@@ -6,13 +6,17 @@ use Remix\Sampler;
 use Remix\Studio;
 use Remix\Bounce;
 use Remix\Monitor;
+use Utility\Http\Session;
 use Utility\Hash;
 
 class FormChannel extends \Remix\Channel
 {
+    /**
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     */
     public function input(Sampler $sampler): Studio
     {
-        $session = $sampler->session();
+        $session = Session::hash();
         Monitor::dump($session);
 
         $bounce = new Bounce('form/input');
@@ -22,9 +26,12 @@ class FormChannel extends \Remix\Channel
     }
     // function form()
 
+    /**
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     */
     public function confirm(Sampler $sampler): Studio
     {
-        $session = $sampler->session();
+        $session = Session::hash();
         $session->form = $sampler->post();
         Monitor::dump($session);
 
@@ -35,9 +42,12 @@ class FormChannel extends \Remix\Channel
     }
     // function confirm()
 
+    /**
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     */
     public function submit(Sampler $sampler): Studio
     {
-        $session = $sampler->session();
+        $session = Session::hash();
         $form = new Hash($session->form ?? []);
         unset($session->form);
         Monitor::dump($session);

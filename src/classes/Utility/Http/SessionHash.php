@@ -5,28 +5,25 @@ namespace Utility\Http;
 use Utility\Hash\ReadOnlyHash;
 use Utility\Hash\Editable;
 use Utility\Singleton;
+use Utility\Http\Session;
 
 /**
  * HTTP SESSION Hash
  *
  * @package  Utility\Http
+ * @see \Utility\Http\Session
  */
 class SessionHash extends ReadOnlyHash
 {
     use Editable;
     use Singleton;
 
-    /**
-     * @SuppressWarnings(PHPMD.Superglobals)
-     */
     protected function __construct()
     {
         parent::__construct();
 
-        if (! isset($_SESSION)) {
-            session_start();
-        }
-        $this->ref($_SESSION);
+        Session::start();
+        $this->ref(Session::globals());
     }
 }
 // class GetHash

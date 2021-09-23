@@ -40,7 +40,7 @@ class Sampler extends Gear
         $this->uri = $uri;
 
         $this->get_hash = Http\GetHash::factory();
-        $this->post_hash = new Hash($_POST);
+        $this->post_hash = Http\PostHash::factory();
     }
     // function load()
 

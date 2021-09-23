@@ -7,7 +7,7 @@ use Remix\DJ\BPM;
 /**
  * Remix BPM Select : Query Builder for SELECT statement
  *
- * @package  Remix\DB
+ * @package  Remix\DB\BPM
  * @todo Write the details.
  */
 class Select extends BPM

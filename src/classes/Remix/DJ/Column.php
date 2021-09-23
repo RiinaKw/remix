@@ -8,7 +8,7 @@ use Remix\Exceptions\DJException;
 /**
  * Remix DJ Column : column definition of DB table
  *
- * @package  Remix\DB
+ * @package  Remix\DB\Table
  * @todo Write the details.
  */
 class Column extends Gear

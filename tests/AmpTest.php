@@ -12,8 +12,8 @@ class AmpTest extends TestCase
 
     protected function setUp(): void
     {
-        \Remix\Audio::getInstance()->daw->initializeCore();
-        $this->amp = \Remix\Audio::getInstance()->amp->initialize();
+        (new \Remix\DAW())->initializeCore();
+        $this->amp = (new \Remix\Amp())->initialize();
     }
 
     public function tearDown(): void

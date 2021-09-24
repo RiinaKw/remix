@@ -3,6 +3,7 @@
 namespace Remix\DJ;
 
 use Remix\Gear;
+use Remix\Vinyl;
 
 /**
  * Remix DJ Livehouse : migration
@@ -31,9 +32,9 @@ class Livehouse extends Gear
         }
     }
 
-    public function asVinyl(): \Remix\Vinyl
+    public function asVinyl(): Vinyl
     {
-        $vinyl = \Remix\Vinyl\Livehouse::factory();
+        $vinyl = new Vinyl\Livehouse();
         $vinyl->name = $this->name;
         return $vinyl;
     }

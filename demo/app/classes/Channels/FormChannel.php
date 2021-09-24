@@ -43,7 +43,7 @@ class FormChannel extends \Remix\Channel
 
         if (! $errors->isEmpty()) {
             $session->errors = $errors;
-            return Studio::factory()->redirect('FormInput');
+            return (new Studio())->redirect('FormInput');
         }
         unset($session->errors);
         Monitor::dump($session);

@@ -18,7 +18,7 @@ class MixerTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->mixer = \Remix\Audio::getInstance()->mixer;
+        $this->mixer = new \Remix\Mixer();
 
         $tracks = [
             \Remix\Track::get('/cb', function () {
@@ -30,7 +30,6 @@ class MixerTest extends TestCase
 
     public function tearDown(): void
     {
-        \Remix\Audio::destroy();
     }
 
     /**

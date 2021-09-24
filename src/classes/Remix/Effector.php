@@ -74,7 +74,7 @@ abstract class Effector extends Gear
      * Specify the parent Amp.
      * @param Amp $amp  Amp object
      */
-    protected function __construct(Amp $amp)
+    public function __construct(Amp $amp)
     {
         parent::__construct();
         $this->amp = $amp;

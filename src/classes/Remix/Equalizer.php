@@ -47,7 +47,7 @@ class Equalizer extends Gear
      */
     public function instance(string $class, $args = null): Gear
     {
-        return $class::factory($args);
+        return new $class($args);
     }
     // function factory()
 

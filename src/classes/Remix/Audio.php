@@ -24,11 +24,15 @@ class Audio
         if ($is_debug) {
             Delay::logMemory();
         }
+
+        $this->equalizer = new Equalizer();
+        $this->registerHandle();
     }
     // function __construct()
 
     public function __destruct()
     {
+        static::destroy();
     }
     // function __destruct()
 
@@ -36,7 +40,6 @@ class Audio
     {
         if (! static::$audio) {
             static::$audio = new static($is_debug);
-            static::$audio->initialize();
         }
         return static::$audio;
     }
@@ -101,14 +104,11 @@ class Audio
     }
     // function destroy()
 
-    public function initialize(): self
+    private function registerHandle(): void
     {
-        $this->equalizer = Equalizer::factory();
         //set_error_handler([$this, 'errorHandle']);
         set_exception_handler([$this, 'exceptionHandle']);
         register_shutdown_function([$this, 'shutdownHandle']);
-
-        return $this;
     }
     // function initialize()
 

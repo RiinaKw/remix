@@ -35,7 +35,7 @@ class BPMTest extends TestCase
 
     public function testFromTable()
     {
-        $bpm = Table::factory('test')->select();
+        $bpm = (new Table('test'))->select();
         $sql = $this->invokeMethod($bpm, 'buildContext');
         $this->assertSame('SELECT * FROM `test`', $sql);
     }

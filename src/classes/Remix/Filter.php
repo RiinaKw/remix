@@ -36,7 +36,7 @@ class Filter extends Gear
         'email' => \Remix\Oscillators\Email::class,
     ];
 
-    protected function __construct(string $key, string $label)
+    private function __construct(string $key, string $label)
     {
         Delay::logBirth(static::class . ' [' . $key . ']');
 
@@ -60,7 +60,7 @@ class Filter extends Gear
      */
     public static function define(string $key, string $label = null): self
     {
-        return parent::factory($key, $label ?: $key);
+        return new static($key, $label ?: $key);
     }
 
     /**

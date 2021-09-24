@@ -20,7 +20,7 @@ class Table extends Gear
     protected $name;
     protected $columns = [];
 
-    protected function __construct(string $name)
+    public function __construct(string $name)
     {
         if (preg_match('/\W/', $name)) {
             $message = "Illegal table name '{$name}'";
@@ -173,13 +173,13 @@ class Table extends Gear
         switch ($type) {
             case 'int':
             case 'varchar':
-                $column = Column::factory($args[0], ['type' => $type, 'length' => $args[1] ?? false]);
+                $column = new Column($args[0], ['type' => $type, 'length' => $args[1] ?? false]);
                 break;
 
             case 'text':
             case 'datetime':
             case 'timestamp':
-                $column = Column::factory($args[0], ['type' => $type]);
+                $column = new Column($args[0], ['type' => $type]);
                 break;
 
             default:

@@ -3,6 +3,7 @@
 namespace Remix\CoreTests;
 
 use PHPUnit\Framework\TestCase;
+use Remix\Fader;
 
 class FaderTest extends TestCase
 {
@@ -10,47 +11,47 @@ class FaderTest extends TestCase
 
     public function testLoad(): void
     {
-        $fader = \Remix\Fader::factory('');
+        $fader = new Fader('');
         $this->assertNotNull($fader);
     }
 
     public function testTranslate(): void
     {
-        $translated = $this->invokeStaticMethod(\Remix\Fader::class, 'translate', ['/:test']);
+        $translated = $this->invokeStaticMethod(Fader::class, 'translate', ['/:test']);
         $this->assertSame('/^\/(?<test>\S+?)\\/?$/', $translated);
 
-        $translated = $this->invokeStaticMethod(\Remix\Fader::class, 'translate', ['effector :param1 :param2']);
+        $translated = $this->invokeStaticMethod(Fader::class, 'translate', ['effector :param1 :param2']);
         $this->assertSame('/^effector (?<param1>\S+?) (?<param2>\S+?)\/?$/', $translated);
     }
 
     public function testMatch(): void
     {
         // is match?
-        $fader = \Remix\Fader::factory('/:test');
+        $fader = new Fader('/:test');
         $match = $fader->isMatch('/aaa');
         $this->assertSame(true, $match);
         $this->assertSame(['test' => 'aaa'], $fader->matched());
 
         // is multiple matches?
-        $fader = \Remix\Fader::factory('effector :param1 :param2');
+        $fader = new Fader('effector :param1 :param2');
         $match = $fader->isMatch('effector id name');
         $this->assertSame(true, $match);
         $this->assertSame(['param1' => 'id', 'param2' => 'name'], $fader->matched());
 
         // is non-ASCII characters?
-        $fader = \Remix\Fader::factory('effector :file');
+        $fader = new Fader('effector :file');
         $match = $fader->isMatch('effector test.txt');
         $this->assertSame(true, $match);
         $this->assertSame(['file' => 'test.txt'], $fader->matched());
 
         // is non-parameter match?
-        $fader = \Remix\Fader::factory('/test');
+        $fader = new Fader('/test');
         $match = $fader->isMatch('/test');
         $this->assertSame(true, $match);
         $this->assertSame([], $fader->matched());
 
         // is not match?
-        $fader = \Remix\Fader::factory('/test');
+        $fader = new Fader('/test');
         $match = $fader->isMatch('/boo');
         $this->assertSame(false, $match);
     }

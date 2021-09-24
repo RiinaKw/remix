@@ -15,7 +15,7 @@ class Column extends Gear
 {
     protected $props = [];
 
-    protected function __construct(string $name, array $params = [])
+    public function __construct(string $name, array $params = [])
     {
         $this->props['name'] = $name;
         $this->props['type'] = strtoupper($params['type']);

@@ -16,7 +16,7 @@ class DJ extends \Remix\Gear
 {
     protected static $connection = null;
 
-    protected function __construct()
+    public function __construct()
     {
         parent::__construct();
         if (! static::$connection) {
@@ -25,7 +25,6 @@ class DJ extends \Remix\Gear
                 static::$connection = new \PDO($preset['dsn'], $preset['user'], $preset['password']);
             }
         }
-        return $this;
     }
     // function __construct()
 
@@ -65,7 +64,7 @@ class DJ extends \Remix\Gear
 
     public static function table(string $name): Table
     {
-        return Table::factory($name);
+        return new Table($name);
     }
     // function table()
 

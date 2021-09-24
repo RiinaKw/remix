@@ -30,7 +30,7 @@ class Mixer extends Gear
             if ($name) {
                 if (isset($this->named[$name])) {
                     $message = 'Tracks cannot have the same named Track "' . $name . '"';
-                    throw new \Remix\RemixException($message);
+                    throw new RemixException($message);
                 }
                 $this->named[$name] = $track;
             }
@@ -72,14 +72,14 @@ class Mixer extends Gear
 
         foreach ($this->urls as $url => $tracks) {
             // get track
-            $fader = \Remix\Fader::factory($url);
+            $fader = new Fader($url);
             if ($fader->isMatch($path)) {
                 if (isset($tracks['ANY'])) {
                     $track = $tracks['ANY'];
                 } elseif (isset($tracks[$method])) {
                     $track = $tracks[$method];
                 } else {
-                    return Studio::factory()->header(
+                    return (new Studio())->header(
                         405,
                         'method ' . $method . ' not allowed, given ' . $method . ' ' . $path
                     );
@@ -97,14 +97,14 @@ class Mixer extends Gear
                 return static::studio($track->action, $sampler);
             }
         }
-        return Studio::factory()->header(404, 'it did not match any route, given ' . $path);
+        return (new Studio())->header(404, 'it did not match any route, given ' . $path);
     }
     // function route()
 
     protected static function studio($action, Sampler $sampler)
     {
         if (is_object($action)) {
-            return Studio::factory('closure', $action);
+            return new Studio('closure', $action);
         } else {
             if (is_string($action) && strpos($action, '@')) {
                 list($class, $method) = explode('@', $action);
@@ -114,7 +114,7 @@ class Mixer extends Gear
                 $class = '\\' . $namespace . '\\Channels\\' . $class;
 
                 if (! class_exists($class)) {
-                    throw new \Remix\RemixException('Unknwon channel "' . $class . '"');
+                    throw new RemixException('Unknwon channel "' . $class . '"');
                 }
 
                 $channel = new $class($method);
@@ -126,11 +126,11 @@ class Mixer extends Gear
             if ($result instanceof Studio) {
                 return $result;
             } else {
-                return Studio::factory('text', $result);
+                return new Studio('text', $result);
             }
             return $result;
         }
-        throw new \Remix\RemixException(__METHOD__ . ' has some errors??');
+        throw new RemixException(__METHOD__ . ' has some errors??');
     }
     // function studio()
 
@@ -144,7 +144,7 @@ class Mixer extends Gear
     {
         $track = $this->named($name);
         if (! $track) {
-            throw new \Remix\RemixException('track "' . $name . '" not found');
+            throw new RemixException('track "' . $name . '" not found');
         }
 
         $path = $track->path;

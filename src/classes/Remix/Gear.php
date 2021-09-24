@@ -12,7 +12,7 @@ abstract class Gear
     /**
      * Let Delay know that an instance has been constructed.
      */
-    protected function __construct()
+    public function __construct()
     {
         Delay::logBirth(static::class);
     }
@@ -24,24 +24,6 @@ abstract class Gear
     public function __destruct()
     {
         Delay::logDeath(static::class);
-    }
-
-    /**
-     * Factory method.
-     *
-     * @param  mixed $arg1  Arguments to the __construct.
-     * @param  mixed $arg2  Arguments to the __construct.
-     * @return self         Instance which was constructed.
-     */
-    public static function factory($arg1 = null, $arg2 = null): self
-    {
-        if ($arg1 === null) {
-            return new static();
-        } elseif ($arg2 === null) {
-            return new static($arg1);
-        } else {
-            return new static($arg1, $arg2);
-        }
     }
 
     /**

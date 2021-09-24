@@ -31,10 +31,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Remix-Amp.html#method_play"
         },                {
-            "fqsen": "\\Remix\\Amp\u003A\u003ANAMESPACES",
-            "name": "NAMESPACES",
+            "fqsen": "\\Remix\\Amp\u003A\u003A\u0024namespaces",
+            "name": "namespaces",
             "summary": "",
-            "url": "classes/Remix-Amp.html#constant_NAMESPACES"
+            "url": "classes/Remix-Amp.html#property_namespaces"
         },                {
             "fqsen": "\\Remix\\Amp\u003A\u003A\u0024shorthandles",
             "name": "shorthandles",
@@ -81,10 +81,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Remix-Audio.html#method_destroy"
         },                {
-            "fqsen": "\\Remix\\Audio\u003A\u003Ainitialize\u0028\u0029",
-            "name": "initialize",
+            "fqsen": "\\Remix\\Audio\u003A\u003AregisterHandle\u0028\u0029",
+            "name": "registerHandle",
             "summary": "",
-            "url": "classes/Remix-Audio.html#method_initialize"
+            "url": "classes/Remix-Audio.html#method_registerHandle"
         },                {
             "fqsen": "\\Remix\\Audio\u003A\u003AerrorHandle\u0028\u0029",
             "name": "errorHandle",
@@ -901,11 +901,6 @@ Search.appendIndex(
             "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020destructed.",
             "url": "classes/Remix-Gear.html#method___destruct"
         },                {
-            "fqsen": "\\Remix\\Gear\u003A\u003Afactory\u0028\u0029",
-            "name": "factory",
-            "summary": "Factory\u0020method.",
-            "url": "classes/Remix-Gear.html#method_factory"
-        },                {
             "fqsen": "\\Remix\\Gear\u003A\u003Adestroy\u0028\u0029",
             "name": "destroy",
             "summary": "Destroy\u0020itself.",
@@ -1186,6 +1181,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Remix-Sampler.html#method_post"
         },                {
+            "fqsen": "\\Remix\\Sampler\u003A\u003Asession\u0028\u0029",
+            "name": "session",
+            "summary": "",
+            "url": "classes/Remix-Sampler.html#method_session"
+        },                {
             "fqsen": "\\Remix\\Sampler\u003A\u003A\u0024method",
             "name": "method",
             "summary": "",
@@ -1195,6 +1195,11 @@ Search.appendIndex(
             "name": "uri",
             "summary": "",
             "url": "classes/Remix-Sampler.html#property_uri"
+        },                {
+            "fqsen": "\\Remix\\Sampler\u003A\u003Asynthesize\u0028\u0029",
+            "name": "synthesize",
+            "summary": "",
+            "url": "classes/Remix-Sampler.html#method_synthesize"
         },                {
             "fqsen": "\\Remix\\Sampler\u003A\u003A\u0024params_hash",
             "name": "params_hash",
@@ -1210,6 +1215,11 @@ Search.appendIndex(
             "name": "post_hash",
             "summary": "",
             "url": "classes/Remix-Sampler.html#property_post_hash"
+        },                {
+            "fqsen": "\\Remix\\Sampler\u003A\u003A\u0024session_hash",
+            "name": "session_hash",
+            "summary": "",
+            "url": "classes/Remix-Sampler.html#property_session_hash"
         },                {
             "fqsen": "\\Remix\\Studio",
             "name": "Studio",

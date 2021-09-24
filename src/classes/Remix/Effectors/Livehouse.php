@@ -58,7 +58,7 @@ final class Livehouse extends Effector
                     throw new RemixException($message);
                 }
 
-                $livehouse = $class_ns::factory(basename($name, '.php'));
+                $livehouse = new $class_ns(basename($name, '.php'));
                 $arr[$livehouse_name] = $livehouse;
             }
         } // foreach (glob())

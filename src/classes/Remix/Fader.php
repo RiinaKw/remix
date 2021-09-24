@@ -32,7 +32,7 @@ class Fader extends Gear
      *
      * @param string $pattern  Pattern of expression.
      */
-    protected function __construct(string $pattern)
+    public function __construct(string $pattern)
     {
         Delay::logBirth(__METHOD__ . ' [' . $pattern . ']');
 

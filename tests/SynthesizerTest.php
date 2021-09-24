@@ -13,7 +13,7 @@ class SynthesizerTest extends TestCase
     protected function setUp(): void
     {
         $this->post_hash = \Utility\Http\PostHash::factory();
-        $this->synthesizer = \Remix\Synthesizer::factory();
+        $this->synthesizer = new \Remix\Synthesizer();
 
         $this->invokePropertyValue(
             $this->synthesizer,

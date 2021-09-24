@@ -18,7 +18,7 @@ class FormChannel extends \Remix\Channel
     public function input(Sampler $sampler): Studio
     {
         $session = Session::hash();
-        $form = $session->form;
+        $form = $session->form ?: new Hash();
         Monitor::dump($session);
 
         $bounce = new Bounce('form/input');

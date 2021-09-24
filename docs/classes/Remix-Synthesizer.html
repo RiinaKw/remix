@@ -58,6 +58,7 @@
                                             <li><a href="namespaces/remix-exceptions.html"><abbr title="\Remix\Exceptions">Exceptions</abbr></a></li>
                                             <li><a href="namespaces/remix-oscillators.html"><abbr title="\Remix\Oscillators">Oscillators</abbr></a></li>
                                             <li><a href="namespaces/remix-preset.html"><abbr title="\Remix\Preset">Preset</abbr></a></li>
+                                            <li><a href="namespaces/remix-studio.html"><abbr title="\Remix\Studio">Studio</abbr></a></li>
                                             <li><a href="namespaces/remix-vinyl.html"><abbr title="\Remix\Vinyl">Vinyl</abbr></a></li>
                                     </ul>
                             <h4 class="phpdocumentor-sidebar__root-namespace"><a href="namespaces/utility.html"><abbr title="\Utility">Utility</abbr></a></h4>
@@ -212,13 +213,6 @@
 <dd>Let Delay know that an instance has been destructed.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-Gear.html#method_destroy">destroy()</a>
-    <span>
-                        &nbsp;: void    </span>
-</dt>
-<dd>Destroy itself.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-Synthesizer.html#method_errors">errors()</a>
     <span>
                         &nbsp;: <a href="classes/Utility-Hash-ReadOnlyHash.html"><abbr title="\Utility\Hash\ReadOnlyHash">ReadOnlyHash</abbr></a>    </span>
@@ -233,25 +227,11 @@
 <dd>Inputs from form</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-Gear.html#method_recordable">recordable()</a>
-    <span>
-                        &nbsp;: bool    </span>
-</dt>
-<dd>Does it implementing the trait Recordable?</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-Synthesizer.html#method_run">run()</a>
     <span>
                         &nbsp;: self    </span>
 </dt>
 <dd>Run validation</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-Gear.html#method_uses">uses()</a>
-    <span>
-                        &nbsp;: bool    </span>
-</dt>
-<dd>Does it implementing the specified trait?</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/Remix-Synthesizer.html#method_filters">filters()</a>
@@ -449,40 +429,6 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_destroy">
-        destroy()
-        <a href="classes/Remix-Gear.html#method_destroy" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Gear.php"><a href="files/src-classes-remix-gear.html"><abbr title="src/classes/Remix/Gear.php">Gear.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">32</span>
-</aside>
-
-        <p class="phpdocumentor-summary">Destroy itself.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">destroy</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">void</span>
-            &mdash;
-            <section class="phpdocumentor-description"></section>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
     <h4 class="phpdocumentor-element__name" id="method_errors">
         errors()
         <a href="classes/Remix-Synthesizer.html#method_errors" class="headerlink"><i class="fas fa-link"></i></a>
@@ -553,41 +499,6 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_recordable">
-        recordable()
-        <a href="classes/Remix-Gear.html#method_recordable" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Gear.php"><a href="files/src-classes-remix-gear.html"><abbr title="src/classes/Remix/Gear.php">Gear.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">50</span>
-</aside>
-
-        <p class="phpdocumentor-summary">Does it implementing the trait Recordable?</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">recordable</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Implemented or not</p>
-</section>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
     <h4 class="phpdocumentor-element__name" id="method_run">
         run()
         <a href="classes/Remix-Synthesizer.html#method_run" class="headerlink"><i class="fas fa-link"></i></a>
@@ -625,53 +536,6 @@
     <span class="phpdocumentor-signature__response_type">self</span>
             &mdash;
             <section class="phpdocumentor-description"><p>instance of itself</p>
-</section>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_uses">
-        uses()
-        <a href="classes/Remix-Gear.html#method_uses" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Gear.php"><a href="files/src-classes-remix-gear.html"><abbr title="src/classes/Remix/Gear.php">Gear.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">41</span>
-</aside>
-
-        <p class="phpdocumentor-summary">Does it implementing the specified trait?</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">uses</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$name</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Target trait</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Implemented or not</p>
 </section>
 
     

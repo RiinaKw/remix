@@ -58,6 +58,7 @@
                                             <li><a href="namespaces/remix-exceptions.html"><abbr title="\Remix\Exceptions">Exceptions</abbr></a></li>
                                             <li><a href="namespaces/remix-oscillators.html"><abbr title="\Remix\Oscillators">Oscillators</abbr></a></li>
                                             <li><a href="namespaces/remix-preset.html"><abbr title="\Remix\Preset">Preset</abbr></a></li>
+                                            <li><a href="namespaces/remix-studio.html"><abbr title="\Remix\Studio">Studio</abbr></a></li>
                                             <li><a href="namespaces/remix-vinyl.html"><abbr title="\Remix\Vinyl">Vinyl</abbr></a></li>
                                     </ul>
                             <h4 class="phpdocumentor-sidebar__root-namespace"><a href="namespaces/utility.html"><abbr title="\Utility">Utility</abbr></a></h4>
@@ -208,7 +209,7 @@
 <dd>Create internal Hash.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-Gear.html#method___destruct">__destruct()</a>
+    <a href="classes/Remix-Preset.html#method___destruct">__destruct()</a>
     <span>
                         &nbsp;: mixed    </span>
 </dt>
@@ -220,13 +221,6 @@
                         &nbsp;: self    </span>
 </dt>
 <dd>Set application directory.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-Gear.html#method_destroy">destroy()</a>
-    <span>
-                        &nbsp;: void    </span>
-</dt>
-<dd>Destroy itself.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-Preset.html#method_env">env()</a>
@@ -248,13 +242,6 @@
                         &nbsp;: void    </span>
 </dt>
 <dd>Load the optional configs in the application namespace.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-Gear.html#method_recordable">recordable()</a>
-    <span>
-                        &nbsp;: bool    </span>
-</dt>
-<dd>Does it implementing the trait Recordable?</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-Preset.html#method_remixDir">remixDir()</a>
@@ -283,13 +270,6 @@
                         &nbsp;: mixed    </span>
 </dt>
 <dd>Set to the config hash.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-Gear.html#method_uses">uses()</a>
-    <span>
-                        &nbsp;: bool    </span>
-</dt>
-<dd>Does it implementing the specified trait?</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/Remix-Preset.html#method_load">load()</a>
@@ -644,12 +624,12 @@
 >
     <h4 class="phpdocumentor-element__name" id="method___destruct">
         __destruct()
-        <a href="classes/Remix-Gear.html#method___destruct" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/Remix-Preset.html#method___destruct" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Gear.php"><a href="files/src-classes-remix-gear.html"><abbr title="src/classes/Remix/Gear.php">Gear.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Preset.php"><a href="files/src-classes-remix-preset.html"><abbr title="src/classes/Remix/Preset.php">Preset.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">24</span>
+    <span class="phpdocumentor-element-found-in__line">72</span>
 </aside>
 
         <p class="phpdocumentor-summary">Let Delay know that an instance has been destructed.</p>
@@ -683,7 +663,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Preset.php"><a href="files/src-classes-remix-preset.html"><abbr title="src/classes/Remix/Preset.php">Preset.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">91</span>
+    <span class="phpdocumentor-element-found-in__line">98</span>
 </aside>
 
         <p class="phpdocumentor-summary">Set application directory.</p>
@@ -723,40 +703,6 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_destroy">
-        destroy()
-        <a href="classes/Remix-Gear.html#method_destroy" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Gear.php"><a href="files/src-classes-remix-gear.html"><abbr title="src/classes/Remix/Gear.php">Gear.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">32</span>
-</aside>
-
-        <p class="phpdocumentor-summary">Destroy itself.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">destroy</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">void</span>
-            &mdash;
-            <section class="phpdocumentor-description"></section>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
     <h4 class="phpdocumentor-element__name" id="method_env">
         env()
         <a href="classes/Remix-Preset.html#method_env" class="headerlink"><i class="fas fa-link"></i></a>
@@ -764,7 +710,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Preset.php"><a href="files/src-classes-remix-preset.html"><abbr title="src/classes/Remix/Preset.php">Preset.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">199</span>
+    <span class="phpdocumentor-element-found-in__line">206</span>
 </aside>
 
         <p class="phpdocumentor-summary">Get current environment</p>
@@ -799,7 +745,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Preset.php"><a href="files/src-classes-remix-preset.html"><abbr title="src/classes/Remix/Preset.php">Preset.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">176</span>
+    <span class="phpdocumentor-element-found-in__line">183</span>
 </aside>
 
         <p class="phpdocumentor-summary">Get from the config hash.</p>
@@ -855,7 +801,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Preset.php"><a href="files/src-classes-remix-preset.html"><abbr title="src/classes/Remix/Preset.php">Preset.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">129</span>
+    <span class="phpdocumentor-element-found-in__line">136</span>
 </aside>
 
         <p class="phpdocumentor-summary">Load the optional configs in the application namespace.</p>
@@ -912,41 +858,6 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_recordable">
-        recordable()
-        <a href="classes/Remix-Gear.html#method_recordable" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Gear.php"><a href="files/src-classes-remix-gear.html"><abbr title="src/classes/Remix/Gear.php">Gear.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">50</span>
-</aside>
-
-        <p class="phpdocumentor-summary">Does it implementing the trait Recordable?</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">recordable</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Implemented or not</p>
-</section>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
     <h4 class="phpdocumentor-element__name" id="method_remixDir">
         remixDir()
         <a href="classes/Remix-Preset.html#method_remixDir" class="headerlink"><i class="fas fa-link"></i></a>
@@ -954,7 +865,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Preset.php"><a href="files/src-classes-remix-preset.html"><abbr title="src/classes/Remix/Preset.php">Preset.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">78</span>
+    <span class="phpdocumentor-element-found-in__line">85</span>
 </aside>
 
         <p class="phpdocumentor-summary">Set Remix core directory.</p>
@@ -1001,7 +912,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Preset.php"><a href="files/src-classes-remix-preset.html"><abbr title="src/classes/Remix/Preset.php">Preset.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">105</span>
+    <span class="phpdocumentor-element-found-in__line">112</span>
 </aside>
 
         <p class="phpdocumentor-summary">Load the required configs in the Remix namespace.</p>
@@ -1065,7 +976,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Preset.php"><a href="files/src-classes-remix-preset.html"><abbr title="src/classes/Remix/Preset.php">Preset.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">117</span>
+    <span class="phpdocumentor-element-found-in__line">124</span>
 </aside>
 
         <p class="phpdocumentor-summary">Load the required configs in the application namespace.</p>
@@ -1129,7 +1040,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Preset.php"><a href="files/src-classes-remix-preset.html"><abbr title="src/classes/Remix/Preset.php">Preset.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">188</span>
+    <span class="phpdocumentor-element-found-in__line">195</span>
 </aside>
 
         <p class="phpdocumentor-summary">Set to the config hash.</p>
@@ -1174,53 +1085,6 @@
                     <article
         class="phpdocumentor-element
             -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_uses">
-        uses()
-        <a href="classes/Remix-Gear.html#method_uses" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Gear.php"><a href="files/src-classes-remix-gear.html"><abbr title="src/classes/Remix/Gear.php">Gear.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">41</span>
-</aside>
-
-        <p class="phpdocumentor-summary">Does it implementing the specified trait?</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">uses</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$name</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Target trait</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Implemented or not</p>
-</section>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
             -private
                                                         "
 >
@@ -1231,7 +1095,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Preset.php"><a href="files/src-classes-remix-preset.html"><abbr title="src/classes/Remix/Preset.php">Preset.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">144</span>
+    <span class="phpdocumentor-element-found-in__line">151</span>
 </aside>
 
         <p class="phpdocumentor-summary">Load config file.</p>

@@ -58,6 +58,7 @@
                                             <li><a href="namespaces/remix-exceptions.html"><abbr title="\Remix\Exceptions">Exceptions</abbr></a></li>
                                             <li><a href="namespaces/remix-oscillators.html"><abbr title="\Remix\Oscillators">Oscillators</abbr></a></li>
                                             <li><a href="namespaces/remix-preset.html"><abbr title="\Remix\Preset">Preset</abbr></a></li>
+                                            <li><a href="namespaces/remix-studio.html"><abbr title="\Remix\Studio">Studio</abbr></a></li>
                                             <li><a href="namespaces/remix-vinyl.html"><abbr title="\Remix\Vinyl">Vinyl</abbr></a></li>
                                     </ul>
                             <h4 class="phpdocumentor-sidebar__root-namespace"><a href="namespaces/utility.html"><abbr title="\Utility">Utility</abbr></a></h4>
@@ -107,6 +108,7 @@
             <div class="phpdocumentor-column -eight phpdocumentor-content">
                     <ul class="phpdocumentor-breadcrumbs">
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/remix.html">Remix</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/remix-studio.html">Studio</a></li>
     </ul>
 
     <article class="phpdocumentor-element -class">
@@ -128,13 +130,13 @@
     
             <span class="phpdocumentor-element__extends">
             Uses
-                            <a href="classes/Remix-Recordable.html"><abbr title="\Remix\Recordable">Recordable</abbr></a>,                             <a href="classes/Remix-RecordableWithTemplate.html"><abbr title="\Remix\RecordableWithTemplate">RecordableWithTemplate</abbr></a>                    </span>
+                            <a href="classes/Remix-Studio-Recordable.html"><abbr title="\Remix\Studio\Recordable">Recordable</abbr></a>,                             <a href="classes/Remix-Studio-RecordableWithTemplate.html"><abbr title="\Remix\Studio\RecordableWithTemplate">RecordableWithTemplate</abbr></a>                    </span>
     </h2>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Bounce.php"><a href="files/src-classes-remix-bounce.html"><abbr title="src/classes/Remix/Bounce.php">Bounce.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Studio/Bounce.php"><a href="files/src-classes-remix-studio-bounce.html"><abbr title="src/classes/Remix/Studio/Bounce.php">Bounce.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13</span>
+    <span class="phpdocumentor-element-found-in__line">15</span>
 </aside>
 
             <p class="phpdocumentor-summary">Remix Bounce : view renderer</p>
@@ -170,7 +172,14 @@
 
 <dl class="phpdocumentor-table-of-contents">
                 <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/Remix-Bounce.html#property_left_delimiter">$left_delimiter</a>
+    <a href="classes/Remix-Studio-Bounce.html#property_bounce_dir">$bounce_dir</a>
+    <span>
+                &nbsp;: mixed            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/Remix-Studio-Bounce.html#property_left_delimiter">$left_delimiter</a>
     <span>
                 &nbsp;: mixed            </span>
 </dt>
@@ -184,39 +193,32 @@
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/Remix-Bounce.html#property_right_delimiter">$right_delimiter</a>
+    <a href="classes/Remix-Studio-Bounce.html#property_right_delimiter">$right_delimiter</a>
     <span>
                 &nbsp;: mixed            </span>
 </dt>
 <dd></dd>
 
                 <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-Bounce.html#method___construct">__construct()</a>
+    <a href="classes/Remix-Studio-Bounce.html#method___construct">__construct()</a>
     <span>
                         &nbsp;: mixed    </span>
 </dt>
 <dd>Let Delay know that an instance has been constructed.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-Gear.html#method___destruct">__destruct()</a>
+    <a href="classes/Remix-Studio-Bounce.html#method___destruct">__destruct()</a>
     <span>
                         &nbsp;: mixed    </span>
 </dt>
 <dd>Let Delay know that an instance has been destructed.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-Recordable.html#method___set">__set()</a>
+    <a href="classes/Remix-Studio-Recordable.html#method___set">__set()</a>
     <span>
                         &nbsp;: void    </span>
 </dt>
 <dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-Gear.html#method_destroy">destroy()</a>
-    <span>
-                        &nbsp;: void    </span>
-</dt>
-<dd>Destroy itself.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-Studio.html#method_finalize">finalize()</a>
@@ -254,14 +256,14 @@
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-Bounce.html#method_record">record()</a>
+    <a href="classes/Remix-Studio-Bounce.html#method_record">record()</a>
     <span>
                         &nbsp;: string    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-Gear.html#method_recordable">recordable()</a>
+    <a href="classes/Remix-Studio.html#method_recordable">recordable()</a>
     <span>
                         &nbsp;: bool    </span>
 </dt>
@@ -289,14 +291,14 @@
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-Recordable.html#method_setEscaped">setEscaped()</a>
+    <a href="classes/Remix-Studio-Recordable.html#method_setEscaped">setEscaped()</a>
     <span>
                         &nbsp;: void    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-Recordable.html#method_setHtml">setHtml()</a>
+    <a href="classes/Remix-Studio-Recordable.html#method_setHtml">setHtml()</a>
     <span>
                         &nbsp;: void    </span>
 </dt>
@@ -308,13 +310,6 @@
                         &nbsp;: self    </span>
 </dt>
 <dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-Gear.html#method_uses">uses()</a>
-    <span>
-                        &nbsp;: bool    </span>
-</dt>
-<dd>Does it implementing the specified trait?</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/Remix-Studio.html#method_appendConsole">appendConsole()</a>
@@ -331,7 +326,14 @@
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/Remix-Bounce.html#method_play">play()</a>
+    <a href="classes/Remix-Studio-RecordableWithTemplate.html#method_pathes">pathes()</a>
+    <span>
+                        &nbsp;: mixed    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/Remix-Studio-Bounce.html#method_play">play()</a>
     <span>
                         &nbsp;: string    </span>
 </dt>
@@ -345,14 +347,14 @@
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/Remix-RecordableWithTemplate.html#method_template">template()</a>
+    <a href="classes/Remix-Studio-RecordableWithTemplate.html#method_template">template()</a>
     <span>
                         &nbsp;: string    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/Remix-Bounce.html#method_translate">translate()</a>
+    <a href="classes/Remix-Studio-Bounce.html#method_translate">translate()</a>
     <span>
                         &nbsp;: string    </span>
 </dt>
@@ -368,8 +370,38 @@
     <section class="phpdocumentor-properties">
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
-            <a href="classes/Remix-Bounce.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/Remix-Studio-Bounce.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+            -static                                            "
+>
+    <h4 class="phpdocumentor-element__name" id="property_bounce_dir">
+        $bounce_dir
+        <a href="classes/Remix-Studio-Bounce.html#property_bounce_dir" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Studio/Bounce.php"><a href="files/src-classes-remix-studio-bounce.html"><abbr title="src/classes/Remix/Studio/Bounce.php">Bounce.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">23</span>
+</aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">$bounce_dir</span>
+     = <span class="phpdocumentor-signature__default-value">[]</span></code>
+
+    
+    
+
+</article>
                     <article
         class="
             phpdocumentor-element
@@ -379,14 +411,14 @@
 >
     <h4 class="phpdocumentor-element__name" id="property_left_delimiter">
         $left_delimiter
-        <a href="classes/Remix-Bounce.html#property_left_delimiter" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/Remix-Studio-Bounce.html#property_left_delimiter" class="headerlink"><i class="fas fa-link"></i></a>
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Bounce.php"><a href="files/src-classes-remix-bounce.html"><abbr title="src/classes/Remix/Bounce.php">Bounce.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Studio/Bounce.php"><a href="files/src-classes-remix-studio-bounce.html"><abbr title="src/classes/Remix/Studio/Bounce.php">Bounce.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">18</span>
+    <span class="phpdocumentor-element-found-in__line">20</span>
 </aside>
 
     
@@ -439,14 +471,14 @@
 >
     <h4 class="phpdocumentor-element__name" id="property_right_delimiter">
         $right_delimiter
-        <a href="classes/Remix-Bounce.html#property_right_delimiter" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/Remix-Studio-Bounce.html#property_right_delimiter" class="headerlink"><i class="fas fa-link"></i></a>
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Bounce.php"><a href="files/src-classes-remix-bounce.html"><abbr title="src/classes/Remix/Bounce.php">Bounce.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Studio/Bounce.php"><a href="files/src-classes-remix-studio-bounce.html"><abbr title="src/classes/Remix/Studio/Bounce.php">Bounce.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">19</span>
+    <span class="phpdocumentor-element-found-in__line">21</span>
 </aside>
 
     
@@ -465,7 +497,7 @@
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/Remix-Bounce.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/Remix-Studio-Bounce.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
                     <article
         class="phpdocumentor-element
@@ -475,12 +507,12 @@
 >
     <h4 class="phpdocumentor-element__name" id="method___construct">
         __construct()
-        <a href="classes/Remix-Bounce.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/Remix-Studio-Bounce.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Bounce.php"><a href="files/src-classes-remix-bounce.html"><abbr title="src/classes/Remix/Bounce.php">Bounce.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Studio/Bounce.php"><a href="files/src-classes-remix-studio-bounce.html"><abbr title="src/classes/Remix/Studio/Bounce.php">Bounce.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">21</span>
+    <span class="phpdocumentor-element-found-in__line">25</span>
 </aside>
 
         <p class="phpdocumentor-summary">Let Delay know that an instance has been constructed.</p>
@@ -526,12 +558,12 @@
 >
     <h4 class="phpdocumentor-element__name" id="method___destruct">
         __destruct()
-        <a href="classes/Remix-Gear.html#method___destruct" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/Remix-Studio-Bounce.html#method___destruct" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Gear.php"><a href="files/src-classes-remix-gear.html"><abbr title="src/classes/Remix/Gear.php">Gear.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Studio/Bounce.php"><a href="files/src-classes-remix-studio-bounce.html"><abbr title="src/classes/Remix/Studio/Bounce.php">Bounce.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">24</span>
+    <span class="phpdocumentor-element-found-in__line">38</span>
 </aside>
 
         <p class="phpdocumentor-summary">Let Delay know that an instance has been destructed.</p>
@@ -560,10 +592,10 @@
 >
     <h4 class="phpdocumentor-element__name" id="method___set">
         __set()
-        <a href="classes/Remix-Recordable.html#method___set" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/Remix-Studio-Recordable.html#method___set" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Recordable.php"><a href="files/src-classes-remix-recordable.html"><abbr title="src/classes/Remix/Recordable.php">Recordable.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Studio/Recordable.php"><a href="files/src-classes-remix-studio-recordable.html"><abbr title="src/classes/Remix/Studio/Recordable.php">Recordable.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">18</span>
 </aside>
@@ -607,40 +639,6 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_destroy">
-        destroy()
-        <a href="classes/Remix-Gear.html#method_destroy" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Gear.php"><a href="files/src-classes-remix-gear.html"><abbr title="src/classes/Remix/Gear.php">Gear.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">32</span>
-</aside>
-
-        <p class="phpdocumentor-summary">Destroy itself.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">destroy</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">void</span>
-            &mdash;
-            <section class="phpdocumentor-description"></section>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
     <h4 class="phpdocumentor-element__name" id="method_finalize">
         finalize()
         <a href="classes/Remix-Studio.html#method_finalize" class="headerlink"><i class="fas fa-link"></i></a>
@@ -648,7 +646,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Studio.php"><a href="files/src-classes-remix-studio.html"><abbr title="src/classes/Remix/Studio.php">Studio.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">217</span>
+    <span class="phpdocumentor-element-found-in__line">227</span>
 </aside>
 
     
@@ -680,7 +678,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Studio.php"><a href="files/src-classes-remix-studio.html"><abbr title="src/classes/Remix/Studio.php">Studio.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">77</span>
+    <span class="phpdocumentor-element-found-in__line">88</span>
 </aside>
 
     
@@ -712,7 +710,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Studio.php"><a href="files/src-classes-remix-studio.html"><abbr title="src/classes/Remix/Studio.php">Studio.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">71</span>
+    <span class="phpdocumentor-element-found-in__line">82</span>
 </aside>
 
     
@@ -744,7 +742,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Studio.php"><a href="files/src-classes-remix-studio.html"><abbr title="src/classes/Remix/Studio.php">Studio.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">159</span>
+    <span class="phpdocumentor-element-found-in__line">170</span>
 </aside>
 
     
@@ -793,7 +791,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Studio.php"><a href="files/src-classes-remix-studio.html"><abbr title="src/classes/Remix/Studio.php">Studio.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">172</span>
+    <span class="phpdocumentor-element-found-in__line">183</span>
 </aside>
 
     
@@ -830,12 +828,12 @@
 >
     <h4 class="phpdocumentor-element__name" id="method_record">
         record()
-        <a href="classes/Remix-Bounce.html#method_record" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/Remix-Studio-Bounce.html#method_record" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Bounce.php"><a href="files/src-classes-remix-bounce.html"><abbr title="src/classes/Remix/Bounce.php">Bounce.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Studio/Bounce.php"><a href="files/src-classes-remix-studio-bounce.html"><abbr title="src/classes/Remix/Studio/Bounce.php">Bounce.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">34</span>
+    <span class="phpdocumentor-element-found-in__line">43</span>
 </aside>
 
     
@@ -862,12 +860,12 @@
 >
     <h4 class="phpdocumentor-element__name" id="method_recordable">
         recordable()
-        <a href="classes/Remix-Gear.html#method_recordable" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/Remix-Studio.html#method_recordable" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Gear.php"><a href="files/src-classes-remix-gear.html"><abbr title="src/classes/Remix/Gear.php">Gear.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Studio.php"><a href="files/src-classes-remix-studio.html"><abbr title="src/classes/Remix/Studio.php">Studio.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">50</span>
+    <span class="phpdocumentor-element-found-in__line">53</span>
 </aside>
 
         <p class="phpdocumentor-summary">Does it implementing the trait Recordable?</p>
@@ -902,7 +900,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Studio.php"><a href="files/src-classes-remix-studio.html"><abbr title="src/classes/Remix/Studio.php">Studio.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">92</span>
+    <span class="phpdocumentor-element-found-in__line">103</span>
 </aside>
 
     
@@ -934,7 +932,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Studio.php"><a href="files/src-classes-remix-studio.html"><abbr title="src/classes/Remix/Studio.php">Studio.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">229</span>
+    <span class="phpdocumentor-element-found-in__line">245</span>
 </aside>
 
     
@@ -976,7 +974,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Studio.php"><a href="files/src-classes-remix-studio.html"><abbr title="src/classes/Remix/Studio.php">Studio.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">148</span>
+    <span class="phpdocumentor-element-found-in__line">159</span>
 </aside>
 
     
@@ -1027,10 +1025,10 @@
 >
     <h4 class="phpdocumentor-element__name" id="method_setEscaped">
         setEscaped()
-        <a href="classes/Remix-Recordable.html#method_setEscaped" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/Remix-Studio-Recordable.html#method_setEscaped" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Recordable.php"><a href="files/src-classes-remix-recordable.html"><abbr title="src/classes/Remix/Recordable.php">Recordable.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Studio/Recordable.php"><a href="files/src-classes-remix-studio-recordable.html"><abbr title="src/classes/Remix/Studio/Recordable.php">Recordable.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">39</span>
 </aside>
@@ -1076,10 +1074,10 @@
 >
     <h4 class="phpdocumentor-element__name" id="method_setHtml">
         setHtml()
-        <a href="classes/Remix-Recordable.html#method_setHtml" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/Remix-Studio-Recordable.html#method_setHtml" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Recordable.php"><a href="files/src-classes-remix-recordable.html"><abbr title="src/classes/Remix/Recordable.php">Recordable.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Studio/Recordable.php"><a href="files/src-classes-remix-studio-recordable.html"><abbr title="src/classes/Remix/Studio/Recordable.php">Recordable.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">44</span>
 </aside>
@@ -1130,7 +1128,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Studio.php"><a href="files/src-classes-remix-studio.html"><abbr title="src/classes/Remix/Studio.php">Studio.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">60</span>
+    <span class="phpdocumentor-element-found-in__line">71</span>
 </aside>
 
     
@@ -1162,53 +1160,6 @@
                     <article
         class="phpdocumentor-element
             -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_uses">
-        uses()
-        <a href="classes/Remix-Gear.html#method_uses" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Gear.php"><a href="files/src-classes-remix-gear.html"><abbr title="src/classes/Remix/Gear.php">Gear.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">41</span>
-</aside>
-
-        <p class="phpdocumentor-summary">Does it implementing the specified trait?</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">uses</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$name</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Target trait</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Implemented or not</p>
-</section>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
             -protected
                                                         "
 >
@@ -1219,13 +1170,13 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Studio.php"><a href="files/src-classes-remix-studio.html"><abbr title="src/classes/Remix/Studio.php">Studio.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">182</span>
+    <span class="phpdocumentor-element-found-in__line">193</span>
 </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-                <span class="phpdocumentor-signature__name">appendConsole</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$content</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-Preset.html"><abbr title="\Remix\Preset">Preset</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$preset</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+                <span class="phpdocumentor-signature__name">appendConsole</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$content</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$template_path</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$preset_arr</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -1238,8 +1189,15 @@
                 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$preset</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-Preset.html"><abbr title="\Remix\Preset">Preset</abbr></a></span>
+                <span class="phpdocumentor-signature__argument__name">$template_path</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$preset_arr</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -1268,7 +1226,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Studio.php"><a href="files/src-classes-remix-studio.html"><abbr title="src/classes/Remix/Studio.php">Studio.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">47</span>
+    <span class="phpdocumentor-element-found-in__line">58</span>
 </aside>
 
     
@@ -1310,14 +1268,46 @@
             -protected
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_play">
-        play()
-        <a href="classes/Remix-Bounce.html#method_play" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_pathes">
+        pathes()
+        <a href="classes/Remix-Studio-RecordableWithTemplate.html#method_pathes" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Bounce.php"><a href="files/src-classes-remix-bounce.html"><abbr title="src/classes/Remix/Bounce.php">Bounce.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Studio/RecordableWithTemplate.php"><a href="files/src-classes-remix-studio-recordablewithtemplate.html"><abbr title="src/classes/Remix/Studio/RecordableWithTemplate.php">RecordableWithTemplate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">110</span>
+    <span class="phpdocumentor-element-found-in__line">24</span>
+</aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                <span class="phpdocumentor-signature__name">pathes</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_play">
+        play()
+        <a href="classes/Remix-Studio-Bounce.html#method_play" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Studio/Bounce.php"><a href="files/src-classes-remix-studio-bounce.html"><abbr title="src/classes/Remix/Studio/Bounce.php">Bounce.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">119</span>
 </aside>
 
     
@@ -1375,7 +1365,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Studio.php"><a href="files/src-classes-remix-studio.html"><abbr title="src/classes/Remix/Studio.php">Studio.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">83</span>
+    <span class="phpdocumentor-element-found-in__line">94</span>
 </aside>
 
     
@@ -1402,12 +1392,12 @@
 >
     <h4 class="phpdocumentor-element__name" id="method_template">
         template()
-        <a href="classes/Remix-RecordableWithTemplate.html#method_template" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/Remix-Studio-RecordableWithTemplate.html#method_template" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/RecordableWithTemplate.php"><a href="files/src-classes-remix-recordablewithtemplate.html"><abbr title="src/classes/Remix/RecordableWithTemplate.php">RecordableWithTemplate.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Studio/RecordableWithTemplate.php"><a href="files/src-classes-remix-studio-recordablewithtemplate.html"><abbr title="src/classes/Remix/Studio/RecordableWithTemplate.php">RecordableWithTemplate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15</span>
+    <span class="phpdocumentor-element-found-in__line">34</span>
 </aside>
 
     
@@ -1444,12 +1434,12 @@
 >
     <h4 class="phpdocumentor-element__name" id="method_translate">
         translate()
-        <a href="classes/Remix-Bounce.html#method_translate" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/Remix-Studio-Bounce.html#method_translate" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Bounce.php"><a href="files/src-classes-remix-bounce.html"><abbr title="src/classes/Remix/Bounce.php">Bounce.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Studio/Bounce.php"><a href="files/src-classes-remix-studio-bounce.html"><abbr title="src/classes/Remix/Studio/Bounce.php">Bounce.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">40</span>
+    <span class="phpdocumentor-element-found-in__line">49</span>
 </aside>
 
     
@@ -1494,7 +1484,7 @@
 </section>
             </div>
         </div>
-        <a href="classes/Remix-Bounce.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/Remix-Studio-Bounce.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

@@ -66,6 +66,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Remix-Audio.html#method_getInstance"
         },                {
+            "fqsen": "\\Remix\\Audio\u003A\u003Asingleton\u0028\u0029",
+            "name": "singleton",
+            "summary": "",
+            "url": "classes/Remix-Audio.html#method_singleton"
+        },                {
             "fqsen": "\\Remix\\Audio\u003A\u003A__get\u0028\u0029",
             "name": "__get",
             "summary": "",
@@ -120,41 +125,6 @@ Search.appendIndex(
             "name": "is_cli",
             "summary": "",
             "url": "classes/Remix-Audio.html#property_is_cli"
-        },                {
-            "fqsen": "\\Remix\\Bounce",
-            "name": "Bounce",
-            "summary": "Remix\u0020Bounce\u0020\u003A\u0020view\u0020renderer",
-            "url": "classes/Remix-Bounce.html"
-        },                {
-            "fqsen": "\\Remix\\Bounce\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020constructed.",
-            "url": "classes/Remix-Bounce.html#method___construct"
-        },                {
-            "fqsen": "\\Remix\\Bounce\u003A\u003Arecord\u0028\u0029",
-            "name": "record",
-            "summary": "",
-            "url": "classes/Remix-Bounce.html#method_record"
-        },                {
-            "fqsen": "\\Remix\\Bounce\u003A\u003Atranslate\u0028\u0029",
-            "name": "translate",
-            "summary": "",
-            "url": "classes/Remix-Bounce.html#method_translate"
-        },                {
-            "fqsen": "\\Remix\\Bounce\u003A\u003Aplay\u0028\u0029",
-            "name": "play",
-            "summary": "",
-            "url": "classes/Remix-Bounce.html#method_play"
-        },                {
-            "fqsen": "\\Remix\\Bounce\u003A\u003A\u0024left_delimiter",
-            "name": "left_delimiter",
-            "summary": "",
-            "url": "classes/Remix-Bounce.html#property_left_delimiter"
-        },                {
-            "fqsen": "\\Remix\\Bounce\u003A\u003A\u0024right_delimiter",
-            "name": "right_delimiter",
-            "summary": "",
-            "url": "classes/Remix-Bounce.html#property_right_delimiter"
         },                {
             "fqsen": "\\Remix\\Channel",
             "name": "Channel",
@@ -711,11 +681,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Remix-DJ.html#method_table"
         },                {
-            "fqsen": "\\Remix\\DJ\u003A\u003Adestroy\u0028\u0029",
-            "name": "destroy",
-            "summary": "Destroy\u0020itself.",
-            "url": "classes/Remix-DJ.html#method_destroy"
-        },                {
             "fqsen": "\\Remix\\DJ\u003A\u003A\u0024connection",
             "name": "connection",
             "summary": "",
@@ -796,10 +761,10 @@ Search.appendIndex(
             "summary": "Get\u0020a\u0020instance.",
             "url": "classes/Remix-Equalizer.html#method_instance"
         },                {
-            "fqsen": "\\Remix\\Equalizer\u003A\u003Adestroy\u0028\u0029",
-            "name": "destroy",
-            "summary": "Destroy\u0020all\u0020held\u0020singleton\u0020objects.",
-            "url": "classes/Remix-Equalizer.html#method_destroy"
+            "fqsen": "\\Remix\\Equalizer\u003A\u003A__destruct\u0028\u0029",
+            "name": "__destruct",
+            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020destructed.",
+            "url": "classes/Remix-Equalizer.html#method___destruct"
         },                {
             "fqsen": "\\Remix\\Equalizer\u003A\u003A\u0024container",
             "name": "container",
@@ -901,21 +866,6 @@ Search.appendIndex(
             "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020destructed.",
             "url": "classes/Remix-Gear.html#method___destruct"
         },                {
-            "fqsen": "\\Remix\\Gear\u003A\u003Adestroy\u0028\u0029",
-            "name": "destroy",
-            "summary": "Destroy\u0020itself.",
-            "url": "classes/Remix-Gear.html#method_destroy"
-        },                {
-            "fqsen": "\\Remix\\Gear\u003A\u003Auses\u0028\u0029",
-            "name": "uses",
-            "summary": "Does\u0020it\u0020implementing\u0020the\u0020specified\u0020trait\u003F",
-            "url": "classes/Remix-Gear.html#method_uses"
-        },                {
-            "fqsen": "\\Remix\\Gear\u003A\u003Arecordable\u0028\u0029",
-            "name": "recordable",
-            "summary": "Does\u0020it\u0020implementing\u0020the\u0020trait\u0020Recordable\u003F",
-            "url": "classes/Remix-Gear.html#method_recordable"
-        },                {
             "fqsen": "\\Remix\\Mixer",
             "name": "Mixer",
             "summary": "Remix\u0020Mixer\u0020\u003A\u0020routing",
@@ -931,10 +881,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Remix-Mixer.html#method_urlArr"
         },                {
-            "fqsen": "\\Remix\\Mixer\u003A\u003Adestroy\u0028\u0029",
-            "name": "destroy",
-            "summary": "Destroy\u0020itself.",
-            "url": "classes/Remix-Mixer.html#method_destroy"
+            "fqsen": "\\Remix\\Mixer\u003A\u003A__destruct\u0028\u0029",
+            "name": "__destruct",
+            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020destructed.",
+            "url": "classes/Remix-Mixer.html#method___destruct"
         },                {
             "fqsen": "\\Remix\\Mixer\u003A\u003Aroute\u0028\u0029",
             "name": "route",
@@ -1036,6 +986,11 @@ Search.appendIndex(
             "summary": "Create\u0020internal\u0020Hash.",
             "url": "classes/Remix-Preset.html#method___construct"
         },                {
+            "fqsen": "\\Remix\\Preset\u003A\u003A__destruct\u0028\u0029",
+            "name": "__destruct",
+            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020destructed.",
+            "url": "classes/Remix-Preset.html#method___destruct"
+        },                {
             "fqsen": "\\Remix\\Preset\u003A\u003AremixDir\u0028\u0029",
             "name": "remixDir",
             "summary": "Set\u0020Remix\u0020core\u0020directory.",
@@ -1115,41 +1070,6 @@ Search.appendIndex(
             "name": "hash",
             "summary": "All\u0020settings\u0020it\u0027s\u0020managing",
             "url": "classes/Remix-Preset.html#property_hash"
-        },                {
-            "fqsen": "\\Remix\\Recordable",
-            "name": "Recordable",
-            "summary": "Recordable\u0020base\u0020trait\u0020of\u0020Remix",
-            "url": "classes/Remix-Recordable.html"
-        },                {
-            "fqsen": "\\Remix\\Recordable\u003A\u003Arecord\u0028\u0029",
-            "name": "record",
-            "summary": "",
-            "url": "classes/Remix-Recordable.html#method_record"
-        },                {
-            "fqsen": "\\Remix\\Recordable\u003A\u003A__set\u0028\u0029",
-            "name": "__set",
-            "summary": "",
-            "url": "classes/Remix-Recordable.html#method___set"
-        },                {
-            "fqsen": "\\Remix\\Recordable\u003A\u003AsetEscaped\u0028\u0029",
-            "name": "setEscaped",
-            "summary": "",
-            "url": "classes/Remix-Recordable.html#method_setEscaped"
-        },                {
-            "fqsen": "\\Remix\\Recordable\u003A\u003AsetHtml\u0028\u0029",
-            "name": "setHtml",
-            "summary": "",
-            "url": "classes/Remix-Recordable.html#method_setHtml"
-        },                {
-            "fqsen": "\\Remix\\RecordableWithTemplate",
-            "name": "RecordableWithTemplate",
-            "summary": "Recordable\u0020using\u0020template\u0020files",
-            "url": "classes/Remix-RecordableWithTemplate.html"
-        },                {
-            "fqsen": "\\Remix\\RecordableWithTemplate\u003A\u003Atemplate\u0028\u0029",
-            "name": "template",
-            "summary": "",
-            "url": "classes/Remix-RecordableWithTemplate.html#method_template"
         },                {
             "fqsen": "\\Remix\\RemixException",
             "name": "RemixException",
@@ -1231,10 +1151,15 @@ Search.appendIndex(
             "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020constructed.",
             "url": "classes/Remix-Studio.html#method___construct"
         },                {
-            "fqsen": "\\Remix\\Studio\u003A\u003Adestroy\u0028\u0029",
-            "name": "destroy",
-            "summary": "Destroy\u0020itself.",
-            "url": "classes/Remix-Studio.html#method_destroy"
+            "fqsen": "\\Remix\\Studio\u003A\u003A__destruct\u0028\u0029",
+            "name": "__destruct",
+            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020destructed.",
+            "url": "classes/Remix-Studio.html#method___destruct"
+        },                {
+            "fqsen": "\\Remix\\Studio\u003A\u003Arecordable\u0028\u0029",
+            "name": "recordable",
+            "summary": "Does\u0020it\u0020implementing\u0020the\u0020trait\u0020Recordable\u003F",
+            "url": "classes/Remix-Studio.html#method_recordable"
         },                {
             "fqsen": "\\Remix\\Studio\u003A\u003AcontentType\u0028\u0029",
             "name": "contentType",
@@ -2226,6 +2151,96 @@ Search.appendIndex(
             "summary": "Its\u0020own\u0020available\u0020commands\u0020and\u0020descriptions.",
             "url": "classes/Remix-Effectors-Version.html#constant_COMMANDS"
         },                {
+            "fqsen": "\\Remix\\Studio\\Bounce",
+            "name": "Bounce",
+            "summary": "Remix\u0020Bounce\u0020\u003A\u0020view\u0020renderer",
+            "url": "classes/Remix-Studio-Bounce.html"
+        },                {
+            "fqsen": "\\Remix\\Studio\\Bounce\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020constructed.",
+            "url": "classes/Remix-Studio-Bounce.html#method___construct"
+        },                {
+            "fqsen": "\\Remix\\Studio\\Bounce\u003A\u003A__destruct\u0028\u0029",
+            "name": "__destruct",
+            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020destructed.",
+            "url": "classes/Remix-Studio-Bounce.html#method___destruct"
+        },                {
+            "fqsen": "\\Remix\\Studio\\Bounce\u003A\u003Arecord\u0028\u0029",
+            "name": "record",
+            "summary": "",
+            "url": "classes/Remix-Studio-Bounce.html#method_record"
+        },                {
+            "fqsen": "\\Remix\\Studio\\Bounce\u003A\u003Atranslate\u0028\u0029",
+            "name": "translate",
+            "summary": "",
+            "url": "classes/Remix-Studio-Bounce.html#method_translate"
+        },                {
+            "fqsen": "\\Remix\\Studio\\Bounce\u003A\u003Aplay\u0028\u0029",
+            "name": "play",
+            "summary": "",
+            "url": "classes/Remix-Studio-Bounce.html#method_play"
+        },                {
+            "fqsen": "\\Remix\\Studio\\Bounce\u003A\u003A\u0024left_delimiter",
+            "name": "left_delimiter",
+            "summary": "",
+            "url": "classes/Remix-Studio-Bounce.html#property_left_delimiter"
+        },                {
+            "fqsen": "\\Remix\\Studio\\Bounce\u003A\u003A\u0024right_delimiter",
+            "name": "right_delimiter",
+            "summary": "",
+            "url": "classes/Remix-Studio-Bounce.html#property_right_delimiter"
+        },                {
+            "fqsen": "\\Remix\\Studio\\Bounce\u003A\u003A\u0024bounce_dir",
+            "name": "bounce_dir",
+            "summary": "",
+            "url": "classes/Remix-Studio-Bounce.html#property_bounce_dir"
+        },                {
+            "fqsen": "\\Remix\\Studio\\Recordable",
+            "name": "Recordable",
+            "summary": "Recordable\u0020base\u0020trait\u0020of\u0020Remix",
+            "url": "classes/Remix-Studio-Recordable.html"
+        },                {
+            "fqsen": "\\Remix\\Studio\\Recordable\u003A\u003Arecord\u0028\u0029",
+            "name": "record",
+            "summary": "",
+            "url": "classes/Remix-Studio-Recordable.html#method_record"
+        },                {
+            "fqsen": "\\Remix\\Studio\\Recordable\u003A\u003A__set\u0028\u0029",
+            "name": "__set",
+            "summary": "",
+            "url": "classes/Remix-Studio-Recordable.html#method___set"
+        },                {
+            "fqsen": "\\Remix\\Studio\\Recordable\u003A\u003AsetEscaped\u0028\u0029",
+            "name": "setEscaped",
+            "summary": "",
+            "url": "classes/Remix-Studio-Recordable.html#method_setEscaped"
+        },                {
+            "fqsen": "\\Remix\\Studio\\Recordable\u003A\u003AsetHtml\u0028\u0029",
+            "name": "setHtml",
+            "summary": "",
+            "url": "classes/Remix-Studio-Recordable.html#method_setHtml"
+        },                {
+            "fqsen": "\\Remix\\Studio\\RecordableWithTemplate",
+            "name": "RecordableWithTemplate",
+            "summary": "Recordable\u0020using\u0020template\u0020files",
+            "url": "classes/Remix-Studio-RecordableWithTemplate.html"
+        },                {
+            "fqsen": "\\Remix\\Studio\\RecordableWithTemplate\u003A\u003Apathes\u0028\u0029",
+            "name": "pathes",
+            "summary": "",
+            "url": "classes/Remix-Studio-RecordableWithTemplate.html#method_pathes"
+        },                {
+            "fqsen": "\\Remix\\Studio\\RecordableWithTemplate\u003A\u003Atemplate\u0028\u0029",
+            "name": "template",
+            "summary": "",
+            "url": "classes/Remix-Studio-RecordableWithTemplate.html#method_template"
+        },                {
+            "fqsen": "\\Remix\\Studio\\RecordableWithTemplate\u003A\u003A\u0024bounce_dir",
+            "name": "bounce_dir",
+            "summary": "",
+            "url": "classes/Remix-Studio-RecordableWithTemplate.html#property_bounce_dir"
+        },                {
             "fqsen": "\\",
             "name": "\\",
             "summary": "",
@@ -2270,6 +2285,11 @@ Search.appendIndex(
             "name": "Http",
             "summary": "",
             "url": "namespaces/remix-preset-http.html"
+        },                {
+            "fqsen": "\\Remix\\Studio",
+            "name": "Studio",
+            "summary": "",
+            "url": "namespaces/remix-studio.html"
         },                {
             "fqsen": "\\Remix\\Vinyl",
             "name": "Vinyl",

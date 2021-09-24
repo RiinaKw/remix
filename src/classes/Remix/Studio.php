@@ -46,6 +46,15 @@ class Studio extends Gear
     }
     // function destroy()
 
+    /**
+     * Does it implementing the trait Recordable?
+     * @return bool  Implemented or not
+     */
+    public function recordable(): bool
+    {
+        return isset(class_uses($this)['Remix\\Recordable']);
+    }
+
     protected function contentType(string $forceType = '', string $charset = 'utf-8'): self
     {
         if ($forceType) {
@@ -183,7 +192,7 @@ class Studio extends Gear
 
     protected function appendConsole(string $content, string $template_path, array $preset_arr): string
     {
-        $view = new Bounce($template_path);
+        $view = new Studio\Bounce($template_path);
 
         Delay::logMemory();
         Delay::logTime();

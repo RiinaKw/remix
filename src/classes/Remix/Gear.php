@@ -25,24 +25,5 @@ abstract class Gear
     {
         Delay::logDeath(static::class);
     }
-
-    /**
-     * Does it implementing the specified trait?
-     * @param  string $name  Target trait
-     * @return bool          Implemented or not
-     */
-    public function uses(string $name): bool
-    {
-        return isset(class_uses($this)[$name]);
-    }
-
-    /**
-     * Does it implementing the trait Recordable?
-     * @return bool  Implemented or not
-     */
-    public function recordable(): bool
-    {
-        return $this->uses('Remix\\Recordable');
-    }
 }
 // class Component

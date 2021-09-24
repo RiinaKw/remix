@@ -1,7 +1,9 @@
 <?php
 
-namespace Remix;
+namespace Remix\Studio;
 
+use Remix\Audio;
+use Remix\RemixException;
 use Utility\Capture;
 
 /**

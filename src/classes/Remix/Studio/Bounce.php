@@ -1,7 +1,9 @@
 <?php
 
-namespace Remix;
+namespace Remix\Studio;
 
+use Remix\Studio;
+use Remix\Delay;
 use Utility\Capture;
 
 /**

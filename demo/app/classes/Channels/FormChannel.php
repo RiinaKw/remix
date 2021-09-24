@@ -4,9 +4,8 @@ namespace Remix\Demo\Channels;
 
 use Remix\Sampler;
 use Remix\Studio;
-use Remix\Bounce;
+use Remix\Studio\Bounce;
 use Remix\Monitor;
-use Utility\Http\Session;
 use Utility\Hash;
 use Remix\Demo\Synthesizers\FormSynthesizer as Synthesizer;
 

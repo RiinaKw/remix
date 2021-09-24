@@ -4,7 +4,7 @@ namespace Remix\Demo\Channels;
 
 use Remix\Sampler;
 use Remix\Studio;
-use Remix\Bounce;
+use Remix\Studio\Bounce;
 
 class TopChannel extends \Remix\Channel
 {

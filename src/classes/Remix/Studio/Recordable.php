@@ -1,6 +1,6 @@
 <?php
 
-namespace Remix;
+namespace Remix\Studio;
 
 /**
  * Recordable base trait of Remix

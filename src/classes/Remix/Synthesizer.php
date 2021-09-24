@@ -44,12 +44,12 @@ class Synthesizer extends Gear
 
     /**
      * Run validation
-     * @return self  instance of itself
+     * @param  PostHash $post  Input hash of form
+     * @return self            instance of itself
      */
-    public function run(): self
+    public function run(PostHash $post): self
     {
         $filters = $this->filters ?: $this->filters();
-        $post = PostHash::factory();
         $input = [];
         $errors = [];
 

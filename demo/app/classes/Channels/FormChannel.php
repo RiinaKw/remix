@@ -34,7 +34,7 @@ class FormChannel extends \Remix\Channel
      */
     public function confirm(Sampler $sampler): Studio
     {
-        $synthesizer = Synthesizer::factory()->run();
+        $synthesizer = $sampler->synthesize(Synthesizer::class);
         $form = $synthesizer->input();
 
         $session = Session::hash();

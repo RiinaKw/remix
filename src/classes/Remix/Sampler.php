@@ -75,5 +75,12 @@ class Sampler extends Gear
         return $this->uri;
     }
     // function uri()
+
+    public function synthesize(string $class): Synthesizer
+    {
+        $synthesizer = Audio::getInstance()->equalizer->singleton($class);
+        return $synthesizer->run($this->post_hash);
+    }
+    // function synthesize()
 }
 // class Sampler

@@ -72,7 +72,7 @@ class Bounce extends Studio
 
         $executable = preg_replace(
             $re_l . 'exec\s*(\$.+?)' . $re_r,
-            '<?php if ( $1 instanceof Remix\\Gear && $1->recordable() ) { echo $1->record(); } ?>',
+            '<?php if ( $1 instanceof Remix\\Studio && $1->recordable() ) { echo $1->record(); } ?>',
             $executable
         );
 

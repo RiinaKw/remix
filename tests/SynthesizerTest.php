@@ -12,6 +12,7 @@ class SynthesizerTest extends TestCase
 
     protected function setUp(): void
     {
+        $this->post_hash = \Utility\Http\PostHash::factory();
         $this->synthesizer = \Remix\Synthesizer::factory();
 
         $this->invokePropertyValue(
@@ -37,7 +38,7 @@ class SynthesizerTest extends TestCase
         // has it passed the validation?
         $_POST['name'] = 'riina';
         $_POST['email'] = 'riina@example.net';
-        $this->synthesizer->run();
+        $this->synthesizer->run($this->post_hash);
 
         $expectedInput = [
             'name' => 'riina',
@@ -56,7 +57,7 @@ class SynthesizerTest extends TestCase
         // hasn't it passed the validation?
         unset($_POST['name']);
         unset($_POST['email']);
-        $this->synthesizer->run();
+        $this->synthesizer->run($this->post_hash);
 
         $expectedInput = [
             'name' => '',
@@ -78,7 +79,7 @@ class SynthesizerTest extends TestCase
         // is the error message correct?
         $_POST['name'] = 'riina kwaad';
         $_POST['email'] = 'informal address';
-        $this->synthesizer->run();
+        $this->synthesizer->run($this->post_hash);
 
         $expectedErrors = [
             'name' => 'your name must be 5 characters or less',

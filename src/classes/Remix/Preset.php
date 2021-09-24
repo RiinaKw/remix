@@ -69,6 +69,13 @@ class Preset extends Gear
     }
     // function __construct()
 
+    public function __destruct()
+    {
+        $this->hash->truncate();
+        $this->hash = null;
+        parent::__destruct();
+    }
+
     /**
      * Set Remix core directory.
      *

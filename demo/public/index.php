@@ -7,6 +7,8 @@ $project_dir = dirname(dirname(__DIR__));
 
 require_once($project_dir . '/vendor/autoload.php');
 
-$daw = \Remix\Audio::getInstance(true)->daw;
-echo $daw->initialize($app_dir)->playWeb()->finalize();
-$daw = null;
+echo \Remix\Audio::getInstance(true)
+    ->daw
+    ->initialize($app_dir)
+    ->playWeb()
+    ->finalize();

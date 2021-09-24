@@ -7,6 +7,7 @@ $project_dir = __DIR__;
 
 require_once($project_dir . '/../vendor/autoload.php');
 
-$daw = \Remix\Audio::getInstance(true)->daw; // the arg in getInstance means debug mode
-$daw->initialize($app_dir)->playCli($argv);
-$daw = null;
+\Remix\Audio::getInstance(true) // the arg in getInstance means debug mode
+    ->daw
+    ->initialize($app_dir)
+    ->playCli($argv);

@@ -21,8 +21,8 @@ class Studio extends Gear
     public function __construct(string $type = 'none', $params = [])
     {
         // parent::__construct();
-        $this->property = new Hash();
 
+        $this->property = new Hash();
         $this->property->type = $type;
         $this->property->status_code = 200;
         $this->property->is_console = false;
@@ -38,9 +38,11 @@ class Studio extends Gear
     }
     // function __construct()
 
-    public function destroy(): void
+    public function __destruct()
     {
+        $this->property->truncate();
         $this->property = null;
+        parent::__destruct();
     }
     // function destroy()
 
@@ -179,10 +181,8 @@ class Studio extends Gear
     }
     // function output()
 
-    protected function appendConsole(string $content, Preset $preset): string
+    protected function appendConsole(string $content, string $template_path, array $preset_arr): string
     {
-        $template_path = $preset->get('remix.pathes.console_path');
-
         $view = new Bounce($template_path);
 
         Delay::logMemory();
@@ -191,16 +191,17 @@ class Studio extends Gear
         $view->setHtml(
             'preset',
             \Utility\Dump::html(
-                $preset->get(),
+                $preset_arr,
                 [
                     'id_prefix' => 'remix-dump-',
                 ]
             )
         );
-        $preset = null;
+        unset($preset_arr);
 
         $view->delay = Delay::get();
         $console = $view->record();
+        unset($view);
 
         $body_end = preg_match('/<\/body>/', $content);
         if ($body_end) {
@@ -221,7 +222,13 @@ class Studio extends Gear
             $audio = Audio::getInstance();
             $preset = $audio->preset;
             $audio->destroy();
-            $content = $this->appendConsole($content, $preset);
+
+            $template_path = $preset->get('remix.pathes.console_path');
+            $preset_arr = $preset->get();
+            unset($preset);
+
+            $content = $this->appendConsole($content, $template_path, $preset_arr);
+            unset($preset);
         }
         return $content;
     }

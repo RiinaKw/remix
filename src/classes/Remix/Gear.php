@@ -27,13 +27,6 @@ abstract class Gear
     }
 
     /**
-     * Destroy itself.
-     */
-    public function destroy(): void
-    {
-    }
-
-    /**
      * Does it implementing the specified trait?
      * @param  string $name  Target trait
      * @return bool          Implemented or not

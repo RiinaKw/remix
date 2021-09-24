@@ -35,13 +35,6 @@ class Equalizer extends Gear
      * Get a instance.
      *
      * @param  string $class  class name
-     * @return Gear           object
-     */
-
-    /**
-     * Get a instance.
-     *
-     * @param  string $class  class name
      * @param  mixed  $args   Arguments of constructor
      * @return Gear           object
      */
@@ -51,22 +44,17 @@ class Equalizer extends Gear
     }
     // function factory()
 
-    /**
-     * Destroy all held singleton objects.
-     */
-    public function destroy(): void
+    public function __destruct()
     {
         if ($this->container) {
-            foreach ($this->container as $key => $item) {
-                if (method_exists($item, 'destroy')) {
-                    $item->destroy();
-                }
-                $item = null;
+            foreach (array_keys($this->container) as $key) {
                 unset($this->container[$key]);
             }
             $this->container = [];
         }
+
+        parent::__destruct();
     }
-    // function destroy()
+    // function __destruct()
 }
 // class Equalizer

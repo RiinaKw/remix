@@ -27,7 +27,7 @@ class SynthesizerTest extends TestCase
 
     public function tearDown(): void
     {
-        $this->synthesizer->destroy();
+        unset($this->synthesizer);
     }
 
     /**

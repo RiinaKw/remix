@@ -90,12 +90,9 @@ class DAW extends Gear
         $path = $_SERVER['PATH_INFO'] ?? '';
 
         $tracks_path = $this->appDir('/mixer.php') ?: [];
-        $mixer = $audio->mixer;
-        $studio = $mixer->load($tracks_path)->route($path);
+        $studio = $audio->mixer->load($tracks_path)->route($path);
         Delay::log('BODY', $studio->getMimeType());
-        $mixer->destroy();
-        $mixer = null;
-        $audio = null;
+        unset($audio);
         return $studio;
     }
     // function playWeb()
@@ -105,7 +102,7 @@ class DAW extends Gear
         $audio = Audio::getInstance();
         $audio->amp->initialize()->play($argv);
         Delay::log('BODY', '');
-        $audio = null;
+        unset($audio);
     }
     // function playCli()
 }

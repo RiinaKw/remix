@@ -45,6 +45,11 @@ class Audio
     }
     // function getInstance()
 
+    private function singleton(string $class): Gear
+    {
+        return $this->equalizer ? $this->equalizer->singleton($class) : null;
+    }
+
     public function __get($key)
     {
         switch ($key) {
@@ -58,19 +63,19 @@ class Audio
                 return $this->equalizer;
 
             case 'daw':
-                return $this->equalizer->singleton(DAW::class);
+                return $this->singleton(DAW::class);
 
             case 'preset':
-                return $this->equalizer->singleton(Preset::class);
+                return $this->singleton(Preset::class);
 
             case 'mixer':
-                return $this->equalizer->singleton(Mixer::class);
+                return $this->singleton(Mixer::class);
 
             case 'amp':
-                return $this->equalizer->singleton(Amp::class);
+                return $this->singleton(Amp::class);
 
             case 'dj':
-                return $this->equalizer->singleton(DJ::class);
+                return $this->singleton(DJ::class);
 
             default:
                 var_dump('unknown key', $key);
@@ -96,7 +101,6 @@ class Audio
     public static function destroy(): void
     {
         if (static::$audio) {
-            static::$audio->equalizer->destroy();
             static::$audio->equalizer = null;
         }
         static::$audio = null;

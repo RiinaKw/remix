@@ -36,6 +36,7 @@ class Amp extends Gear
 
         $this->load($daw, 'remix');
         $this->load($daw, 'app');
+        unset($daw);
 
         return $this;
     }
@@ -60,6 +61,7 @@ class Amp extends Gear
                 }
             } // if (is_file($file))
         }
+        unset($daw);
     }
     // function load()
 
@@ -154,7 +156,7 @@ class Amp extends Gear
             $instance->index($argv);
         }
 
-        $equalizer = null;
+        unset($equalizer);
     }
     // function play()
 }

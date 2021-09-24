@@ -50,13 +50,14 @@ class Mixer extends Gear
         $this->urls[$path][$track->method] = $track;
     }
 
-    public function destroy(): void
+    public function __destruct()
     {
         $this->tracks = null;
         $this->named = null;
         $this->urls = null;
+        parent::__destruct();
     }
-    // function destroy()
+    // function __destruct()
 
     /**
      * @SuppressWarnings(PHPMD.Superglobals)

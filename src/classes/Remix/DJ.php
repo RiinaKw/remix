@@ -30,7 +30,7 @@ class DJ extends \Remix\Gear
 
     public function __destruct()
     {
-        static::destroy();
+        static::$connection = null;
         parent::__destruct();
     }
     // function __destruct()
@@ -67,11 +67,5 @@ class DJ extends \Remix\Gear
         return new Table($name);
     }
     // function table()
-
-    public function destroy(): void
-    {
-        static::$connection = null;
-    }
-    // function destroy()
 }
 // class DJ

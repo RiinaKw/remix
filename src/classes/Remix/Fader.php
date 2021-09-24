@@ -34,7 +34,7 @@ class Fader extends Gear
      */
     public function __construct(string $pattern)
     {
-        Delay::logBirth(__METHOD__ . ' [' . $pattern . ']');
+        Delay::logBirth(static::class . ' [' . $pattern . ']');
 
         $this->pattern = $pattern;
         $this->translated = static::translate($pattern);
@@ -46,7 +46,7 @@ class Fader extends Gear
      */
     public function __destruct()
     {
-        Delay::logDeath(__METHOD__ . ' [' . $this->pattern . ']');
+        Delay::logDeath(static::class . ' [' . $this->pattern . ']');
     }
     // function __destruct()
 

@@ -18,6 +18,8 @@ class Bounce extends Studio
     protected static $left_delimiter = '{{';
     protected static $right_delimiter = '}}';
 
+    protected static $bounce_dir = [];
+
     public function __construct(string $file, array $params = [])
     {
         Delay::logBirth(static::class . ' [' . $file . ']');
@@ -26,10 +28,15 @@ class Bounce extends Studio
         $this->property->file = $file;
         $this->property->escaped_params = $params;
 
-        $this->property->source = static::template($this->property->file);
+        $this->pathes();
+        $this->property->source = $this->template($this->property->file);
     }
     // function __construct()
 
+    public function __destruct()
+    {
+        Delay::logDeath(static::class . ' [' . $this->property->file . ']');
+    }
 
     public function record(): string
     {
@@ -54,7 +61,7 @@ class Bounce extends Studio
             }
         }
 
-        $bounce_dir = Audio::getInstance()->preset->get('app.pathes.bounce_dir');
+        $bounce_dir = static::$bounce_dir['app'];
         $executable = preg_replace(
             $re_l . 'include\s+(.+?)' . $re_r,
             "<?php include('{$bounce_dir}/$1'); ?>",

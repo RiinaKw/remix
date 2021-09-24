@@ -21,9 +21,6 @@ class SessionHash extends ReadOnlyHash
     protected function __construct()
     {
         parent::__construct();
-
-        Session::start();
-        $this->ref(Session::globals());
     }
 }
 // class GetHash

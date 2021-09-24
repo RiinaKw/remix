@@ -27,28 +27,27 @@ class Session
     private function __construct()
     {
         static::start();
-        $this->session = static::hash();
+        $this->session = SessionHash::factory();
+        $this->session->ref(static::globals());
     }
 
     /**
      * Start session
-     *
-     * @SuppressWarnings(PHPMD.Superglobals)
      */
     public static function start(): void
     {
-        if (! isset($_SESSION)) {
+        if (static::globals() === null) {
             session_start();
         }
     }
 
     /**
      * Get $_SESSION
-     * @return array<string, mixed>  ref of $_SESSION
+     * @return null|array<string, mixed>  ref of $_SESSION
      *
      * @SuppressWarnings(PHPMD.Superglobals)
      */
-    public static function &globals(): array
+    private static function &globals(): ?array
     {
         return $_SESSION;
     }
@@ -59,7 +58,7 @@ class Session
      */
     public static function hash(): SessionHash
     {
-        return SessionHash::factory();
+        return static::factory()->session;
     }
 }
 // class Session

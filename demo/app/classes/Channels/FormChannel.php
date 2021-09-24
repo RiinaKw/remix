@@ -17,7 +17,7 @@ class FormChannel extends \Remix\Channel
      */
     public function input(Sampler $sampler): Studio
     {
-        $session = Session::hash();
+        $session = $sampler->session();
         $form = $session->form ?: new Hash();
         Monitor::dump($session);
 
@@ -37,7 +37,7 @@ class FormChannel extends \Remix\Channel
         $synthesizer = $sampler->synthesize(Synthesizer::class);
         $form = $synthesizer->input();
 
-        $session = Session::hash();
+        $session = $sampler->session();
         $session->form = $form;
         $errors = $synthesizer->errors();
 
@@ -60,7 +60,7 @@ class FormChannel extends \Remix\Channel
      */
     public function submit(Sampler $sampler): Studio
     {
-        $session = Session::hash();
+        $session = $sampler->session();
         $form = $session->form ?? new Hash([]);
         unset($session->form);
         Monitor::dump($session);

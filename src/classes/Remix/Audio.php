@@ -33,7 +33,6 @@ class Audio
 
     public function __destruct()
     {
-        echo 'Audio will be back';
         Delay::logDeath(static::class);
     }
     // function __destruct()
@@ -47,7 +46,7 @@ class Audio
     }
     // function getInstance()
 
-    private function singleton(string $class): Gear
+    private function singleton(string $class): ?Gear
     {
         return $this->equalizer ? $this->equalizer->singleton($class) : null;
     }

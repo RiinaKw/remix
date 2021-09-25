@@ -96,7 +96,7 @@ class Mixer extends Gear
                 return static::studio($track->action, $sampler);
             }
         }
-        return (new Studio())->header(404, 'it did not match any route, given ' . $path);
+        throw new Exceptions\HttpException('it did not match any route, given ' . $path, 404);
     }
     // function route()
 

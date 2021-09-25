@@ -26,7 +26,7 @@ class Reverb extends Gear
 
     public function __toString()
     {
-        $output = $this->studio->output();
+        $output = $this->studio->output(true);
         $is_console = $this->studio->isConsole();
         $this->studio = null;
 
@@ -68,11 +68,20 @@ class Reverb extends Gear
 
     public static function exeption(\Throwable $exception, Preset $preset): ?self
     {
-        $status_code = 500;
-        if ($exception instanceof HttpException) {
+        if ($exception instanceof Exceptions\HttpException) {
             $status_code = $exception->getStatusCode();
+            $bounce = new Studio\Bounce('httperror', [
+                'satus_code' => $status_code,
+                'title' => $status_code . ' ' . Preset\Http\StatusCode::get($status_code),
+                'message' => $exception->getMessage(),
+            ]);
+            $bounce->pathes($preset);
+            $bounce->statusCode($status_code);
+
+            return new static($bounce, $preset);
         }
 
+        $status_code = 500;
         $traces = [];
         foreach ($exception->getTrace() as $item) {
             if (! isset($item['file']) || ! isset($item['line'])) {

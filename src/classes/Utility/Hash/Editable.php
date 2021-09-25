@@ -66,7 +66,9 @@ trait Editable
     {
         if ($key === null) {
             $parent =& $this->parent($name);
-            $parent[$name] = [];
+            if (! isset($parent[$name])) {
+                $parent[$name] = [];
+            }
             $parent[$name][] = $value;
         } else {
             $new_key = $name . '.' . $key;

@@ -72,7 +72,7 @@ class Studio extends Gear
             $mime_type = MimeType::get($this->property->type);
         }
         $this->property->is_console = $mime_type['console'];
-        $this->property->push('headers', "Content-type: {$mime_type['type']}; charset={$charset}");
+        $this->property->push('headers', "Content-type: {$mime_type['type']}; charset={$charset}", 'Content-Type');
         $this->property->mime_type = $mime_type['type'];
         return $this;
     }
@@ -141,15 +141,6 @@ class Studio extends Gear
                 header('Location: ' . $this->property->params);
                 return '';
             },
-            'header' => function () {
-                $this->contentType('html');
-                $bounce = new Bounce('httperror', [
-                    'satus_code' => $this->property->status_code,
-                    'title' => $this->property->params['title'],
-                    'message' => $this->property->params['message'],
-                ]);
-                return $bounce->record();
-            },
         ];
 
         if (isset($map[$this->property->type])) {
@@ -176,19 +167,6 @@ class Studio extends Gear
     }
     // function redirect()
 
-    public function header(int $status_code, string $message = ''): self
-    {
-        $this->statusCode($status_code);
-        $this->property->type = 'header';
-        $this->property->status_code = $status_code;
-        $this->property->params = [
-            'title' => $this->property->status,
-            'message' => $message
-        ];
-        return $this;
-    }
-    // function header()
-
     public function output(bool $sendHeader = true): string
     {
         $output = $this->recorded();
@@ -198,38 +176,6 @@ class Studio extends Gear
         return $output;
     }
     // function output()
-
-    protected function appendConsole(string $content, Studio\Bounce $view, array $preset_arr): string
-    {
-        Delay::logMemory();
-        Delay::logTime();
-
-        $view->setHtml(
-            'preset',
-            \Utility\Dump::html(
-                $preset_arr,
-                [
-                    'id_prefix' => 'remix-dump-',
-                ]
-            )
-        );
-        unset($preset_arr);
-
-        $view->delay = Delay::get();
-        $console = $view->record();
-        unset($view);
-
-        $body_end = preg_match('/<\/body>/', $content);
-        if ($body_end) {
-            return str_replace(
-                '</body>',
-                $console . '</body>',
-                $content
-            );
-        } else {
-            return $content . $console;
-        }
-    }
 
     public function isConsole(): bool
     {

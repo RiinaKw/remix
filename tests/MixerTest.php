@@ -49,10 +49,12 @@ class MixerTest extends TestCase
      */
     public function test404(): void
     {
+        $this->expectException(\Remix\Exceptions\HttpException::class);
+        $this->expectExceptionMessage('given /unknwon');
+
         // will throw exception when unknown route?
         $_SERVER['REQUEST_METHOD'] = 'GET';
-        $response = $this->mixer->route('/unknwon');
-        $this->assertSame(404, $response->getStatusCode());
+        $this->mixer->route('/unknwon');
     }
 
     public function testName(): void

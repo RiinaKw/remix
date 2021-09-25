@@ -26,18 +26,13 @@ class Bounce extends Studio
 
     public function __construct(string $file, array $params = [])
     {
-        Delay::logBirth(static::class . ' [' . $file . ']');
-
+        $this->log_param = $file;
         parent::__construct('html', $params);
+
         $this->property->file = $file;
         $this->property->escaped_params = $params;
     }
     // function __construct()
-
-    public function __destruct()
-    {
-        Delay::logDeath(static::class . ' [' . $this->property->file . ']');
-    }
 
     public function record(): string
     {

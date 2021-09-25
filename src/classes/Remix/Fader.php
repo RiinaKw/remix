@@ -34,21 +34,13 @@ class Fader extends Gear
      */
     public function __construct(string $pattern)
     {
-        Delay::logBirth(static::class . ' [' . $pattern . ']');
+        $this->log_param = $pattern;
+        parent::__construct();
 
         $this->pattern = $pattern;
         $this->translated = static::translate($pattern);
     }
     // function __construct()
-
-    /**
-     * Let Delay know that an instance has been destructed and the pattern it is holding.
-     */
-    public function __destruct()
-    {
-        Delay::logDeath(static::class . ' [' . $this->pattern . ']');
-    }
-    // function __destruct()
 
     /**
      * Translates a pattern to a regular expression.

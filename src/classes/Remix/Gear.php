@@ -9,12 +9,18 @@ namespace Remix;
  */
 abstract class Gear
 {
+    protected $log_param = '';
+
     /**
      * Let Delay know that an instance has been constructed.
      */
     public function __construct()
     {
-        Delay::logBirth(static::class);
+        if ($this->log_param) {
+            Delay::logBirth(static::class . ' [' . $this->log_param . ']');
+        } else {
+            Delay::logBirth(static::class);
+        }
     }
     // function __construct()
 
@@ -23,7 +29,11 @@ abstract class Gear
      */
     public function __destruct()
     {
-        Delay::logDeath(static::class);
+        if ($this->log_param) {
+            Delay::logDeath(static::class . ' [' . $this->log_param . ']');
+        } else {
+            Delay::logDeath(static::class);
+        }
     }
 }
 // class Component

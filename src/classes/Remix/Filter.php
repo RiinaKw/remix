@@ -38,18 +38,13 @@ class Filter extends Gear
 
     private function __construct(string $key, string $label)
     {
-        Delay::logBirth(static::class . ' [' . $key . ']');
+        $this->log_param = $key;
+        parent::__construct();
 
         $this->key = $key;
         $this->label = $label;
     }
     // function __construct()
-
-    public function __destruct()
-    {
-        Delay::logDeath(static::class . ' [' . $this->key . ']');
-    }
-    // function __destruct()
 
     /**
      * Define a field

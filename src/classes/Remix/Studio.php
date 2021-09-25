@@ -20,7 +20,7 @@ class Studio extends Gear
 
     public function __construct(string $type = 'none', $params = [])
     {
-        // parent::__construct();
+        parent::__construct();
 
         $this->property = new Hash();
         $this->property->type = $type;

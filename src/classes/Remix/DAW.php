@@ -10,26 +10,28 @@ namespace Remix;
  */
 class DAW extends Gear
 {
+    private $preset = null;
+
     protected $remix_dir;
     protected $app_dir;
 
     public function initializeCore(): self
     {
+        $this->loadPreset();
+
         $this->remix_dir = realpath(__DIR__ . '/../..');
+        $this->preset->remixDir($this->remixDir('/presets'));
 
-        $preset = Audio::getInstance()->preset;
-        $preset->remixDir($this->remixDir('/presets'));
+        $this->preset->set('remix.pathes.root_dir', $this->remix_dir);
 
-        $preset->set('remix.pathes.root_dir', $this->remix_dir);
-
-        $preset->remixRequire('versions', 'remix', Preset::APPEND);
-        $preset->remixRequire('pathes', '', Preset::APPEND);
-        foreach ($preset->get('remix.pathes') as $key => $value) {
+        $this->preset->remixRequire('versions', 'remix', Preset::APPEND);
+        $this->preset->remixRequire('pathes', '', Preset::APPEND);
+        foreach ($this->preset->get('remix.pathes') as $key => $value) {
             if ($key === 'root_dir') {
                 continue;
             }
             $key = 'remix.pathes.' . $key;
-            $preset->set($key, $this->remixDir($value));
+            $this->preset->set($key, $this->remixDir($value));
         }
 
         return $this;
@@ -37,6 +39,7 @@ class DAW extends Gear
 
     public function initializeApp(string $dir): self
     {
+        $this->loadPreset();
         $this->app_dir = realpath($dir);
 
         $env_path = $this->appDir('env.php');
@@ -46,21 +49,32 @@ class DAW extends Gear
         $env = require($env_path);
         $env = ($env && $env !== 1) ? $env : 'production';
 
-        $preset = Audio::getInstance()->preset;
-        $preset->appDir($this->appDir('/presets'));
+        $this->preset->appDir($this->appDir('/presets'));
 
         $env_file = 'env.' . $env;
-        $preset->require('app', 'app');
-        $preset->require($env_file, 'app', Preset::APPEND);
-        $preset->optional('effector');
+        $this->preset->require('app', 'app');
+        $this->preset->require($env_file, 'app', Preset::APPEND);
+        $this->preset->optional('effector');
 
-        $bounce_dir = $preset->get('app.pathes.bounce_dir');
-        $preset->set('app.pathes.bounce_dir', $this->appDir($bounce_dir));
+        $bounce_dir = $this->preset->get('app.pathes.bounce_dir');
+        $this->preset->set('app.pathes.bounce_dir', $this->appDir($bounce_dir));
 
-        Audio::getInstance()->dj;
         return $this;
     }
     // function initializeApp()
+
+    public function loadPreset(): self
+    {
+        if (! $this->preset) {
+            $this->preset = Audio::getInstance()->preset;
+        }
+        return $this;
+    }
+
+    public function preset(): Preset
+    {
+        return $this->preset;
+    }
 
     public function initialize(string $dir): self
     {
@@ -91,8 +105,8 @@ class DAW extends Gear
 
         $tracks_path = $this->appDir('/mixer.php') ?: [];
         $studio = $audio->mixer->load($tracks_path)->route($path);
-        Delay::log('BODY', $studio->getMimeType());
         unset($audio);
+        Delay::log('BODY', $studio->getMimeType());
         return $studio;
     }
     // function playWeb()
@@ -100,9 +114,9 @@ class DAW extends Gear
     public function playCli(array $argv): void
     {
         $audio = Audio::getInstance();
-        $audio->amp->initialize()->play($argv);
-        Delay::log('BODY', '');
+        $audio->amp->initialize($this)->play($argv);
         unset($audio);
+        Delay::log('BODY', '');
     }
     // function playCli()
 }

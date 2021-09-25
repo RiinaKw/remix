@@ -190,10 +190,8 @@ class Studio extends Gear
     }
     // function output()
 
-    protected function appendConsole(string $content, string $template_path, array $preset_arr): string
+    protected function appendConsole(string $content, Studio\Bounce $view, array $preset_arr): string
     {
-        $view = new Studio\Bounce($template_path);
-
         Delay::logMemory();
         Delay::logTime();
 
@@ -226,18 +224,21 @@ class Studio extends Gear
 
     public function finalize(): string
     {
+        $preset = Audio::getInstance()->preset;
+        $this->pathes($preset);
+        unset($preset);
+
         $content = $this->output();
         if ($this->property->type === 'html' && $this->property->is_console) {
-            $audio = Audio::getInstance();
-            $preset = $audio->preset;
-            $audio->destroy();
+            $preset = Audio::getInstance()->preset;
+            $this->pathes($preset);
+            Audio::destroy();
 
-            $template_path = $preset->get('remix.pathes.console_path');
+            $view = new Studio\Bounce($preset->get('remix.pathes.console_path'));
+            $view->pathes($preset);
             $preset_arr = $preset->get();
             unset($preset);
-
-            $content = $this->appendConsole($content, $template_path, $preset_arr);
-            unset($preset);
+            $content = $this->appendConsole($content, $view, $preset_arr);
         }
         return $content;
     }
@@ -270,7 +271,7 @@ class Studio extends Gear
             //Monitor::dump(Audio::getInstance()->preset);
             return '';
         }
-        $view = new Bounce($template_path, [
+        $view = new Studio\Bounce($template_path, [
             'status' => $status_code,
             'message' => $exception->getMessage(),
             'file' => $exception->getFile(),

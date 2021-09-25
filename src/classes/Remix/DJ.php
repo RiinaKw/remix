@@ -19,12 +19,7 @@ class DJ extends \Remix\Gear
     public function __construct()
     {
         parent::__construct();
-        if (! static::$connection) {
-            $preset = Audio::getInstance()->preset->get('app.db');
-            if ($preset) {
-                static::$connection = new \PDO($preset['dsn'], $preset['user'], $preset['password']);
-            }
-        }
+        static::connect();
     }
     // function __construct()
 
@@ -35,8 +30,19 @@ class DJ extends \Remix\Gear
     }
     // function __destruct()
 
+    private static function connect()
+    {
+        if (! static::$connection) {
+            $preset = Audio::getInstance()->preset->get('app.db');
+            if ($preset) {
+                static::$connection = new \PDO($preset['dsn'], $preset['user'], $preset['password']);
+            }
+        }
+    }
+
     public static function prepare(string $sql, array $params = []): Setlist
     {
+        static::connect();
         $statement = static::$connection->prepare($sql);
         return new Setlist($statement, $params);
     }
@@ -44,6 +50,7 @@ class DJ extends \Remix\Gear
 
     public static function play(string $sql, array $params = []): Setlist
     {
+        static::connect();
         $setlist = static::prepare($sql, $params);
         return $setlist->play($params);
     }
@@ -51,6 +58,7 @@ class DJ extends \Remix\Gear
 
     public static function first(string $sql, array $params = [])
     {
+        static::connect();
         $setlist = static::prepare($sql, $params);
         return $setlist->first($params);
     }
@@ -58,12 +66,14 @@ class DJ extends \Remix\Gear
 
     public static function back2back(): Back2back
     {
+        static::connect();
         return new Back2back(static::$connection);
     }
     // function back2back()
 
     public static function table(string $name): Table
     {
+        static::connect();
         return new Table($name);
     }
     // function table()

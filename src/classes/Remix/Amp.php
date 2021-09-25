@@ -12,14 +12,20 @@ use Remix\Utility\Arr;
  */
 class Amp extends Gear
 {
+    private $daw = null;
+    private $preset = null;
+
     private static $namespaces = [];
     protected static $shorthandles = [];
     private $effectors = [];
 
-    public function initialize(): self
+    public function initialize(DAW $daw): self
     {
+        $this->daw = $daw;
+        $this->preset = $daw->preset();
+
         static::$shorthandles = Preset\Effector::SHORTHANDLES;
-        $app_shorthandles = Audio::getInstance()->preset->get('app.effector.shorthandles', []);
+        $app_shorthandles = $this->preset->get('app.effector.shorthandles', []);
         foreach ($app_shorthandles as $handle => $method) {
             if (isset(static::$shorthandles[$handle])) {
                 throw new \Exception("Error: reserved handle : {$handle}");
@@ -27,26 +33,23 @@ class Amp extends Gear
             static::$shorthandles[$handle] = $method;
         }
 
-        $daw = Audio::getInstance()->daw;
-
         static::$namespaces = [
             'remix' => '\\Remix\\Effectors\\',
-            'app' => Audio::getInstance()->preset->get('app.namespace') . '\\Effectors\\',
+            'app' => $this->preset->get('app.namespace') . '\\Effectors\\',
         ];
 
-        $this->load($daw, 'remix');
-        $this->load($daw, 'app');
-        unset($daw);
+        $this->load('remix');
+        $this->load('app');
 
         return $this;
     }
 
-    private function load(DAW $daw, string $namespace): void
+    private function load(string $namespace): void
     {
         if ($namespace == 'app') {
-            $effector_dir = $daw->appDir('classes/Effectors');
+            $effector_dir = $this->daw->appDir('classes/Effectors');
         } else {
-            $effector_dir = Audio::getInstance()->preset->get('remix.pathes.effector_dir');
+            $effector_dir = $this->preset->get('remix.pathes.effector_dir');
         }
 
         foreach (glob($effector_dir . '/{*.php}', GLOB_BRACE) as $file) {
@@ -61,7 +64,6 @@ class Amp extends Gear
                 }
             } // if (is_file($file))
         }
-        unset($daw);
     }
     // function load()
 
@@ -114,7 +116,6 @@ class Amp extends Gear
 
     public function play(array $argv): void
     {
-        $equalizer = Audio::getInstance()->equalizer;
         array_shift($argv);
 
         $instance = null;
@@ -135,12 +136,12 @@ class Amp extends Gear
                 $class = $target;
                 $method = 'index';
             }
-            $instance = $equalizer->instance($class, $this);
+            $instance = new $class($this);
         } else {
             foreach (static::$namespaces as $namespace) {
                 $target = $namespace . $class;
                 if (class_exists($target)) {
-                    $instance = $equalizer->instance($target, $this);
+                    $instance = new $target($this);
                     break;
                 }
             }
@@ -152,11 +153,9 @@ class Amp extends Gear
             Effector::line("unknown effector '{$class}'", 'black', 'red');
             Effector::line('try "amp help"');
         } else {
-            $instance = $equalizer->instance(Effectors\Help::class, $this);
+            $instance = new Effectors\Help($this);
             $instance->index($argv);
         }
-
-        unset($equalizer);
     }
     // function play()
 }

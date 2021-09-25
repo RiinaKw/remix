@@ -64,7 +64,7 @@ class Setlist extends Gear implements \Iterator, \Countable
             throw new DJException($message);
         }
         $this->exexuted = $sql;
-        Delay::getInstance()->log('QUERY', $sql);
+        Delay::log('QUERY', $sql);
         return $this;
     }
     // function dump()

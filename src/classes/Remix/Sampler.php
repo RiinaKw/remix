@@ -24,7 +24,7 @@ class Sampler extends Gear
     /**
      * @SuppressWarnings(PHPMD.Superglobals)
      */
-    public function load(string $uri, array $params)
+    public function load(string $uri, array $params): self
     {
         $input = [];
         foreach ($params['data'] as $key => $item) {
@@ -45,6 +45,8 @@ class Sampler extends Gear
         $this->get_hash = Http\GetHash::factory();
         $this->post_hash = Http\PostHash::factory();
         $this->session_hash = Http\Session::hash();
+
+        return $this;
     }
     // function load()
 
@@ -85,7 +87,7 @@ class Sampler extends Gear
 
     public function synthesize(string $class): Synthesizer
     {
-        $synthesizer = Audio::getInstance()->equalizer->singleton($class);
+        $synthesizer = new $class();
         return $synthesizer->run($this->post_hash);
     }
     // function synthesize()

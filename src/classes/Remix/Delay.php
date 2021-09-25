@@ -13,15 +13,13 @@ use Utility\Performance\Time;
  */
 class Delay
 {
-    private static $delay = null;
-
     private static $is_debug = false;
     private static $is_cli = false;
 
     private static $time = null;
     private static $log = [];
 
-    private function __construct(bool $is_debug, bool $is_cli)
+    public static function start(bool $is_debug = false, $is_cli = false)
     {
         static::$is_debug = $is_debug;
         static::$is_cli = $is_cli;
@@ -29,19 +27,10 @@ class Delay
         static::$time = new Time();
         static::$time->start();
     }
-
-    public static function getInstance(bool $is_debug = false, $is_cli = false): self
-    {
-        if (! static::$delay) {
-            static::$delay = new self($is_debug, $is_cli);
-        }
-        return static::$delay;
-    }
     // function getInstance()
 
     public static function destroy(): void
     {
-        static::$delay = null;
     }
 
     public static function log(string $type, string $str, string $flag = ''): void

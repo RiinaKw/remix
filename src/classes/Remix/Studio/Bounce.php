@@ -17,6 +17,8 @@ class Bounce extends Studio
     use Recordable;
     use RecordableWithTemplate;
 
+    protected static $preset = null;
+
     protected static $left_delimiter = '{{';
     protected static $right_delimiter = '}}';
 
@@ -29,9 +31,6 @@ class Bounce extends Studio
         parent::__construct('html', $params);
         $this->property->file = $file;
         $this->property->escaped_params = $params;
-
-        $this->pathes();
-        $this->property->source = $this->template($this->property->file);
     }
     // function __construct()
 
@@ -42,6 +41,7 @@ class Bounce extends Studio
 
     public function record(): string
     {
+        $this->property->source = $this->template($this->property->file);
         return $this->play($this->property->source);
     }
     // function record()

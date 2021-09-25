@@ -73,6 +73,7 @@ class Preset extends Gear
     {
         $this->hash->truncate();
         $this->hash = null;
+
         parent::__destruct();
     }
 

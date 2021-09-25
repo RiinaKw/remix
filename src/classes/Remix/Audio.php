@@ -20,10 +20,11 @@ class Audio
     {
         static::$is_debug = $is_debug;
         static::$is_cli = (php_sapi_name() == 'cli');
-        Delay::getInstance(static::$is_debug, static::$is_cli);
+        Delay::start(static::$is_debug, static::$is_cli);
         if ($is_debug) {
             Delay::logMemory();
         }
+        Delay::logBirth(static::class);
 
         $this->equalizer = new Equalizer();
         $this->registerHandle();
@@ -32,7 +33,8 @@ class Audio
 
     public function __destruct()
     {
-        static::destroy();
+        echo 'Audio will be back';
+        Delay::logDeath(static::class);
     }
     // function __destruct()
 
@@ -104,7 +106,6 @@ class Audio
             static::$audio->equalizer = null;
         }
         static::$audio = null;
-        Delay::destroy();
     }
     // function destroy()
 

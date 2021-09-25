@@ -21,12 +21,12 @@ trait RecordableWithTemplate
 
     protected static $bounce_dir = [];
 
-    protected function pathes()
+    public function pathes(\Remix\Preset $preset)
     {
         if (! static::$bounce_dir) {
             static::$bounce_dir = [
-                'remix' => Audio::getInstance()->preset->get('remix.pathes.bounce_dir'),
-                'app' => Audio::getInstance()->preset->get('app.pathes.bounce_dir'),
+                'remix' => $preset->get('remix.pathes.bounce_dir'),
+                'app' => $preset->get('app.pathes.bounce_dir'),
             ];
         }
     }

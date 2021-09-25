@@ -52,7 +52,16 @@ class Studio extends Gear
      */
     public function recordable(): bool
     {
-        return isset(class_uses($this)['Remix\\Recordable']);
+        return isset(class_uses($this)['Remix\\Studio\\Recordable']);
+    }
+
+    /**
+     * Does it implementing the trait RecordableWithTemplate?
+     * @return bool  Implemented or not
+     */
+    public function hasTemplate(): bool
+    {
+        return isset(class_uses($this)['Remix\\Studio\\RecordableWithTemplate']);
     }
 
     protected function contentType(string $forceType = '', string $charset = 'utf-8'): self
@@ -222,25 +231,9 @@ class Studio extends Gear
         }
     }
 
-    public function finalize(): string
+    public function isConsole(): bool
     {
-        $preset = Audio::getInstance()->preset;
-        $this->pathes($preset);
-        unset($preset);
-
-        $content = $this->output();
-        if ($this->property->type === 'html' && $this->property->is_console) {
-            $preset = Audio::getInstance()->preset;
-            $this->pathes($preset);
-            Audio::destroy();
-
-            $view = new Studio\Bounce($preset->get('remix.pathes.console_path'));
-            $view->pathes($preset);
-            $preset_arr = $preset->get();
-            unset($preset);
-            $content = $this->appendConsole($content, $view, $preset_arr);
-        }
-        return $content;
+        return $this->property->type === 'html' && $this->property->is_console;
     }
 
     public static function recordException(\Throwable $exception): string
@@ -261,7 +254,9 @@ class Studio extends Gear
             ];
         }
 
-        $template_path = Audio::getInstance()->preset->get('remix.pathes.exception_path');
+        $preset = Audio::getInstance()->preset;
+
+        $template_path = $preset->get('remix.pathes.exception_path');
         if (! $template_path) {
             http_response_code(500);
             echo '<h1>Remix fatal error : Cannot render exception</h1>' . "\n";
@@ -279,6 +274,8 @@ class Studio extends Gear
             'target' => Monitor::getSource($exception->getFile(), $exception->getLine(), 10),
             'traces' => $traces,
         ]);
+        $view->pathes($preset);
+        unset($preset);
         return $view->statusCode($status_code)->sendHeader()->finalize();
     }
     // function recordException()

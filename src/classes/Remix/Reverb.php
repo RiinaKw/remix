@@ -15,6 +15,8 @@ class Reverb extends Gear
 
     public function __construct(Studio $studio, Preset $preset)
     {
+        parent::__construct();
+
         if ($studio->hasTemplate()) {
             $studio->pathes($preset);
         }
@@ -62,5 +64,45 @@ class Reverb extends Gear
             }
         }
         return $output;
+    }
+
+    public static function exeption(\Throwable $exception, Preset $preset): ?self
+    {
+        $status_code = 500;
+        if ($exception instanceof HttpException) {
+            $status_code = $exception->getStatusCode();
+        }
+
+        $traces = [];
+        foreach ($exception->getTrace() as $item) {
+            if (! isset($item['file']) || ! isset($item['line'])) {
+                break;
+            }
+            $traces[] = [
+                'trace' => $item,
+                'source' => Monitor::getSource($item['file'], $item['line'], 5),
+            ];
+        }
+
+        $template_path = $preset->get('remix.pathes.exception_path');
+        if (! $template_path) {
+            http_response_code(500);
+            echo '<h1>Remix fatal error : Cannot render exception</h1>' . "\n";
+            echo '<h2>Exception thrown : ' . $exception->getMessage() . '</h2>' . "\n";
+            echo $exception->getFile() . ' in ' . $exception->getLine();
+            //Monitor::dump($exception->getTrace());
+            //Monitor::dump(Audio::getInstance()->preset);
+            return null;
+        }
+
+        $view = new Studio\Bounce($template_path, [
+            'status' => $status_code,
+            'message' => $exception->getMessage(),
+            'file' => $exception->getFile(),
+            'line' => $exception->getLine(),
+            'target' => Monitor::getSource($exception->getFile(), $exception->getLine(), 10),
+            'traces' => $traces,
+        ]);
+        return new static($view, $preset);
     }
 }

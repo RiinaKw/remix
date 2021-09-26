@@ -4,7 +4,7 @@ namespace Remix\Studio;
 
 use Remix\Studio;
 use Remix\Audio;
-use Remix\Preset;
+use Remix\Instruments\Preset;
 
 /**
  * Remix Maximizer : view renderer

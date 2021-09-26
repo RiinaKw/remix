@@ -41,4 +41,4 @@ abstract class Gear
         }
     }
 }
-// class Component
+// class Gear

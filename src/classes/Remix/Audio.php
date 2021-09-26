@@ -26,7 +26,7 @@ class Audio
         }
         Delay::logBirth(static::class);
 
-        $this->equalizer = new Equalizer();
+        $this->equalizer = new Instruments\Equalizer();
         $this->registerHandle();
     }
     // function __construct()
@@ -64,19 +64,19 @@ class Audio
                 return $this->equalizer;
 
             case 'daw':
-                return $this->singleton(DAW::class);
+                return $this->singleton(Instruments\DAW::class);
 
             case 'preset':
-                return $this->singleton(Preset::class);
+                return $this->singleton(Instruments\Preset::class);
 
             case 'mixer':
-                return $this->singleton(Mixer::class);
+                return $this->singleton(Instruments\Mixer::class);
 
             case 'amp':
-                return $this->singleton(Amp::class);
+                return $this->singleton(Instruments\Amp::class);
 
             case 'dj':
-                return $this->singleton(DJ::class);
+                return $this->singleton(Instruments\DJ::class);
 
             default:
                 var_dump('unknown key', $key);
@@ -138,7 +138,7 @@ class Audio
             );
             static::destroy();
         } else {
-            $preset = $this->preset;
+            $preset = static::$audio->preset;
             static::destroy();
             static::$audio = null;
 

@@ -1,7 +1,11 @@
 <?php
 
-namespace Remix;
+namespace Remix\Instruments;
 
+use Remix\Instrument;
+use Remix\Preset\Effector as ShortHandles;
+use Remix\Effector;
+use Remix\Effectors\Help;
 use Remix\Utility\Arr;
 
 /**
@@ -10,7 +14,7 @@ use Remix\Utility\Arr;
  * @package  Remix\CLI
  * @todo Write the details.
  */
-class Amp extends Gear
+class Amp extends Instrument
 {
     private $daw = null;
     private $preset = null;
@@ -24,7 +28,7 @@ class Amp extends Gear
         $this->daw = $daw;
         $this->preset = $daw->preset();
 
-        static::$shorthandles = Preset\Effector::SHORTHANDLES;
+        static::$shorthandles = ShortHandles::SHORTHANDLES;
         $app_shorthandles = $this->preset->get('app.effector.shorthandles', []);
         foreach ($app_shorthandles as $handle => $method) {
             if (isset(static::$shorthandles[$handle])) {
@@ -153,7 +157,7 @@ class Amp extends Gear
             Effector::line("unknown effector '{$class}'", 'black', 'red');
             Effector::line('try "amp help"');
         } else {
-            $instance = new Effectors\Help($this);
+            $instance = new Help($this);
             $instance->index($argv);
         }
     }

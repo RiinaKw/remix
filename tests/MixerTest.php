@@ -18,7 +18,7 @@ class MixerTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->mixer = new \Remix\Mixer();
+        $this->mixer = new \Remix\Instruments\Mixer();
 
         $tracks = [
             \Remix\Track::get('/cb', function () {

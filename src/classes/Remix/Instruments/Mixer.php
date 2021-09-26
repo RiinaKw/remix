@@ -1,7 +1,15 @@
 <?php
 
-namespace Remix;
+namespace Remix\Instruments;
 
+use Remix\Instrument;
+use Remix\Audio;
+use Remix\Track;
+use Remix\Fader;
+use Remix\Sampler;
+use Remix\Studio;
+use Remix\RemixException;
+use Remix\Exceptions\HttpException;
 use Utility\Arr;
 
 /**
@@ -10,7 +18,7 @@ use Utility\Arr;
  * @package  Remix\Web
  * @todo Write the details.
  */
-class Mixer extends Gear
+class Mixer extends Instrument
 {
     protected $tracks = [];
     protected $named = [];
@@ -96,7 +104,7 @@ class Mixer extends Gear
                 return static::studio($track->action, $sampler);
             }
         }
-        throw new Exceptions\HttpException('it did not match any route, given ' . $path, 404);
+        throw new HttpException('it did not match any route, given ' . $path, 404);
     }
     // function route()
 

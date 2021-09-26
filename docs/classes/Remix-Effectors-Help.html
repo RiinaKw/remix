@@ -56,6 +56,7 @@
                                             <li><a href="namespaces/remix-dj.html"><abbr title="\Remix\DJ">DJ</abbr></a></li>
                                             <li><a href="namespaces/remix-effectors.html"><abbr title="\Remix\Effectors">Effectors</abbr></a></li>
                                             <li><a href="namespaces/remix-exceptions.html"><abbr title="\Remix\Exceptions">Exceptions</abbr></a></li>
+                                            <li><a href="namespaces/remix-instruments.html"><abbr title="\Remix\Instruments">Instruments</abbr></a></li>
                                             <li><a href="namespaces/remix-oscillators.html"><abbr title="\Remix\Oscillators">Oscillators</abbr></a></li>
                                             <li><a href="namespaces/remix-preset.html"><abbr title="\Remix\Preset">Preset</abbr></a></li>
                                             <li><a href="namespaces/remix-studio.html"><abbr title="\Remix\Studio">Studio</abbr></a></li>
@@ -75,10 +76,10 @@
                     <h3 class="phpdocumentor-sidebar__root-package"><a href="packages/Default.html"><abbr title="\Default">Default</abbr></a></h3>
                                 <h3 class="phpdocumentor-sidebar__root-package"><a href="packages/Remix.html"><abbr title="\Remix">Remix</abbr></a></h3>
                         <ul class="phpdocumentor-list">
-                                    <li><a href="packages/Remix-CLI.html"><abbr title="\Remix\CLI">CLI</abbr></a></li>
                                     <li><a href="packages/Remix-Core.html"><abbr title="\Remix\Core">Core</abbr></a></li>
                                     <li><a href="packages/Remix-Web.html"><abbr title="\Remix\Web">Web</abbr></a></li>
                                     <li><a href="packages/Remix-DB.html"><abbr title="\Remix\DB">DB</abbr></a></li>
+                                    <li><a href="packages/Remix-CLI.html"><abbr title="\Remix\CLI">CLI</abbr></a></li>
                                     <li><a href="packages/Remix-Exception.html"><abbr title="\Remix\Exception">Exception</abbr></a></li>
                                     <li><a href="packages/Remix-Base.html"><abbr title="\Remix\Base">Base</abbr></a></li>
                             </ul>
@@ -200,11 +201,11 @@
                 <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/Remix-Effector.html#property_amp">$amp</a>
     <span>
-                &nbsp;: <a href="classes/Remix-Amp.html"><abbr title="\Remix\Amp">Amp</abbr></a>            </span>
+                &nbsp;: <a href="classes/Remix-Instruments-Amp.html"><abbr title="\Remix\Instruments\Amp">Amp</abbr></a>            </span>
 </dt>
 <dd>Parent Amp object.</dd>
 
-            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/Remix-Gear.html#property_log_param">$log_param</a>
     <span>
                 &nbsp;: string            </span>
@@ -333,7 +334,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effector.php"><a href="files/src-classes-remix-effector.html"><abbr title="src/classes/Remix/Effector.php">Effector.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">62</span>
+    <span class="phpdocumentor-element-found-in__line">64</span>
 </aside>
 
         <p class="phpdocumentor-summary">Background colors for CLI</p>
@@ -375,7 +376,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effector.php"><a href="files/src-classes-remix-effector.html"><abbr title="src/classes/Remix/Effector.php">Effector.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">37</span>
+    <span class="phpdocumentor-element-found-in__line">39</span>
 </aside>
 
         <p class="phpdocumentor-summary">Text colors for CLI</p>
@@ -432,14 +433,14 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effector.php"><a href="files/src-classes-remix-effector.html"><abbr title="src/classes/Remix/Effector.php">Effector.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">16</span>
+    <span class="phpdocumentor-element-found-in__line">18</span>
 </aside>
 
         <p class="phpdocumentor-summary">Parent Amp object.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type"><a href="classes/Remix-Amp.html"><abbr title="\Remix\Amp">Amp</abbr></a></span>
+        <span class="phpdocumentor-signature__type"><a href="classes/Remix-Instruments-Amp.html"><abbr title="\Remix\Instruments\Amp">Amp</abbr></a></span>
     <span class="phpdocumentor-signature__name">$amp</span>
      = <span class="phpdocumentor-signature__default-value">null</span></code>
 
@@ -452,7 +453,7 @@
         class="
             phpdocumentor-element
             -property
-            -protected
+            -private
                                                         "
 >
     <h4 class="phpdocumentor-element__name" id="property_log_param">
@@ -470,7 +471,7 @@
         <p class="phpdocumentor-summary">Option parameter for Delay</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
+    <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">$log_param</span>
      = <span class="phpdocumentor-signature__default-value">&#039;&#039;</span></code>
@@ -507,11 +508,21 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$log_param</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
         <section class="phpdocumentor-description"></section>
 
-    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$log_param</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -534,7 +545,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Gear.php"><a href="files/src-classes-remix-gear.html"><abbr title="src/classes/Remix/Gear.php">Gear.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">34</span>
+    <span class="phpdocumentor-element-found-in__line">35</span>
 </aside>
 
         <p class="phpdocumentor-summary">Let Delay know that an instance has been destructed.</p>
@@ -568,7 +579,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effector.php"><a href="files/src-classes-remix-effector.html"><abbr title="src/classes/Remix/Effector.php">Effector.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">171</span>
+    <span class="phpdocumentor-element-found-in__line">173</span>
 </aside>
 
         <p class="phpdocumentor-summary">Color the text</p>
@@ -692,7 +703,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effector.php"><a href="files/src-classes-remix-effector.html"><abbr title="src/classes/Remix/Effector.php">Effector.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">130</span>
+    <span class="phpdocumentor-element-found-in__line">132</span>
 </aside>
 
         <p class="phpdocumentor-summary">Output a line to the CLI</p>
@@ -771,7 +782,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effector.php"><a href="files/src-classes-remix-effector.html"><abbr title="src/classes/Remix/Effector.php">Effector.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">150</span>
+    <span class="phpdocumentor-element-found-in__line">152</span>
 </aside>
 
         <p class="phpdocumentor-summary">Output a line to the STDERR</p>
@@ -850,7 +861,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effector.php"><a href="files/src-classes-remix-effector.html"><abbr title="src/classes/Remix/Effector.php">Effector.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">100</span>
+    <span class="phpdocumentor-element-found-in__line">102</span>
 </aside>
 
         <p class="phpdocumentor-summary">Execute the command.</p>

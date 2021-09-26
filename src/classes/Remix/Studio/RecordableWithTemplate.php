@@ -2,7 +2,7 @@
 
 namespace Remix\Studio;
 
-use Remix\Preset;
+use Remix\Instruments\Preset;
 use Remix\RemixException;
 use Utility\Capture;
 

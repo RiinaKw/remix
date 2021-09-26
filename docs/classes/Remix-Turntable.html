@@ -56,6 +56,7 @@
                                             <li><a href="namespaces/remix-dj.html"><abbr title="\Remix\DJ">DJ</abbr></a></li>
                                             <li><a href="namespaces/remix-effectors.html"><abbr title="\Remix\Effectors">Effectors</abbr></a></li>
                                             <li><a href="namespaces/remix-exceptions.html"><abbr title="\Remix\Exceptions">Exceptions</abbr></a></li>
+                                            <li><a href="namespaces/remix-instruments.html"><abbr title="\Remix\Instruments">Instruments</abbr></a></li>
                                             <li><a href="namespaces/remix-oscillators.html"><abbr title="\Remix\Oscillators">Oscillators</abbr></a></li>
                                             <li><a href="namespaces/remix-preset.html"><abbr title="\Remix\Preset">Preset</abbr></a></li>
                                             <li><a href="namespaces/remix-studio.html"><abbr title="\Remix\Studio">Studio</abbr></a></li>
@@ -75,10 +76,10 @@
                     <h3 class="phpdocumentor-sidebar__root-package"><a href="packages/Default.html"><abbr title="\Default">Default</abbr></a></h3>
                                 <h3 class="phpdocumentor-sidebar__root-package"><a href="packages/Remix.html"><abbr title="\Remix">Remix</abbr></a></h3>
                         <ul class="phpdocumentor-list">
-                                    <li><a href="packages/Remix-CLI.html"><abbr title="\Remix\CLI">CLI</abbr></a></li>
                                     <li><a href="packages/Remix-Core.html"><abbr title="\Remix\Core">Core</abbr></a></li>
                                     <li><a href="packages/Remix-Web.html"><abbr title="\Remix\Web">Web</abbr></a></li>
                                     <li><a href="packages/Remix-DB.html"><abbr title="\Remix\DB">DB</abbr></a></li>
+                                    <li><a href="packages/Remix-CLI.html"><abbr title="\Remix\CLI">CLI</abbr></a></li>
                                     <li><a href="packages/Remix-Exception.html"><abbr title="\Remix\Exception">Exception</abbr></a></li>
                                     <li><a href="packages/Remix-Base.html"><abbr title="\Remix\Base">Base</abbr></a></li>
                             </ul>
@@ -168,18 +169,18 @@
 
 <dl class="phpdocumentor-table-of-contents">
                 <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/Remix-Gear.html#property_log_param">$log_param</a>
-    <span>
-                &nbsp;: string            </span>
-</dt>
-<dd>Option parameter for Delay</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/Remix-Turntable.html#property_prop">$prop</a>
     <span>
                 &nbsp;: mixed            </span>
 </dt>
 <dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/Remix-Gear.html#property_log_param">$log_param</a>
+    <span>
+                &nbsp;: string            </span>
+</dt>
+<dd>Option parameter for Delay</dd>
 
                 <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-Turntable.html#method___construct">__construct()</a>
@@ -228,38 +229,6 @@
             -protected
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="property_log_param">
-        $log_param
-        <a href="classes/Remix-Gear.html#property_log_param" class="headerlink"><i class="fas fa-link"></i></a>
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Gear.php"><a href="files/src-classes-remix-gear.html"><abbr title="src/classes/Remix/Gear.php">Gear.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">16</span>
-</aside>
-
-        <p class="phpdocumentor-summary">Option parameter for Delay</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">string</span>
-    <span class="phpdocumentor-signature__name">$log_param</span>
-     = <span class="phpdocumentor-signature__default-value">&#039;&#039;</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -protected
-                                                        "
->
     <h4 class="phpdocumentor-element__name" id="property_prop">
         $prop
         <a href="classes/Remix-Turntable.html#property_prop" class="headerlink"><i class="fas fa-link"></i></a>
@@ -280,6 +249,38 @@
      = <span class="phpdocumentor-signature__default-value">[]</span></code>
 
     
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_log_param">
+        $log_param
+        <a href="classes/Remix-Gear.html#property_log_param" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Gear.php"><a href="files/src-classes-remix-gear.html"><abbr title="src/classes/Remix/Gear.php">Gear.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">16</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Option parameter for Delay</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type">string</span>
+    <span class="phpdocumentor-signature__name">$log_param</span>
+     = <span class="phpdocumentor-signature__default-value">&#039;&#039;</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
     
 
 </article>
@@ -347,7 +348,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Gear.php"><a href="files/src-classes-remix-gear.html"><abbr title="src/classes/Remix/Gear.php">Gear.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">34</span>
+    <span class="phpdocumentor-element-found-in__line">35</span>
 </aside>
 
         <p class="phpdocumentor-summary">Let Delay know that an instance has been destructed.</p>

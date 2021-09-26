@@ -2,6 +2,8 @@
 
 namespace Remix;
 
+use Remix\Instruments\Amp;
+
 /**
  * Remix Effector : command line controller
  *
@@ -11,7 +13,7 @@ abstract class Effector extends Gear
 {
     /**
      * Parent Amp object.
-     * @var Amp
+     * @var \Remix\Instruments\Amp
      */
     protected $amp = null;
 

@@ -1,7 +1,8 @@
 <?php
 
-namespace Remix;
+namespace Remix\Instruments;
 
+use Remix\Instrument;
 use Utility\Hash;
 use Remix\Exceptions\CoreException;
 
@@ -10,7 +11,7 @@ use Remix\Exceptions\CoreException;
  *
  * @package  Remix\Core
  */
-class Preset extends Gear
+class Preset extends Instrument
 {
     /**
      * Is it required or optional?
@@ -147,7 +148,8 @@ class Preset extends Gear
      * @param string $file       Target file
      * @param string $key        Key of the hash to manage config
      * @param bool   $append     Is it replace or append?
-     * @throws RemixException When required and the target file is not found
+     *
+     * @throws \Remix\Exceptions\CoreException  When required and the target file is not found
      */
     private function load(string $namespace, bool $required, string $file, string $key = '', bool $append = false): void
     {
@@ -156,7 +158,7 @@ class Preset extends Gear
 
         if (! realpath($file)) {
             if ($required === static::REQUIRED) {
-                throw new RemixException("preset file '{$filename}' not found");
+                throw new CoreException("preset file '{$filename}' not found");
             } else {
                 return;
             }

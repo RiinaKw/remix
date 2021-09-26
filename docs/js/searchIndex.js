@@ -1,61 +1,6 @@
 Search.appendIndex(
     [
                 {
-            "fqsen": "\\Remix\\Amp",
-            "name": "Amp",
-            "summary": "Remix\u0020Amp\u0020\u003A\u0020command\u0020line\u0020interface",
-            "url": "classes/Remix-Amp.html"
-        },                {
-            "fqsen": "\\Remix\\Amp\u003A\u003Ainitialize\u0028\u0029",
-            "name": "initialize",
-            "summary": "",
-            "url": "classes/Remix-Amp.html#method_initialize"
-        },                {
-            "fqsen": "\\Remix\\Amp\u003A\u003Aload\u0028\u0029",
-            "name": "load",
-            "summary": "",
-            "url": "classes/Remix-Amp.html#method_load"
-        },                {
-            "fqsen": "\\Remix\\Amp\u003A\u003AavailableEffector\u0028\u0029",
-            "name": "availableEffector",
-            "summary": "",
-            "url": "classes/Remix-Amp.html#method_availableEffector"
-        },                {
-            "fqsen": "\\Remix\\Amp\u003A\u003AavailableCommands\u0028\u0029",
-            "name": "availableCommands",
-            "summary": "",
-            "url": "classes/Remix-Amp.html#method_availableCommands"
-        },                {
-            "fqsen": "\\Remix\\Amp\u003A\u003Aplay\u0028\u0029",
-            "name": "play",
-            "summary": "",
-            "url": "classes/Remix-Amp.html#method_play"
-        },                {
-            "fqsen": "\\Remix\\Amp\u003A\u003A\u0024daw",
-            "name": "daw",
-            "summary": "",
-            "url": "classes/Remix-Amp.html#property_daw"
-        },                {
-            "fqsen": "\\Remix\\Amp\u003A\u003A\u0024preset",
-            "name": "preset",
-            "summary": "",
-            "url": "classes/Remix-Amp.html#property_preset"
-        },                {
-            "fqsen": "\\Remix\\Amp\u003A\u003A\u0024namespaces",
-            "name": "namespaces",
-            "summary": "",
-            "url": "classes/Remix-Amp.html#property_namespaces"
-        },                {
-            "fqsen": "\\Remix\\Amp\u003A\u003A\u0024shorthandles",
-            "name": "shorthandles",
-            "summary": "",
-            "url": "classes/Remix-Amp.html#property_shorthandles"
-        },                {
-            "fqsen": "\\Remix\\Amp\u003A\u003A\u0024effectors",
-            "name": "effectors",
-            "summary": "",
-            "url": "classes/Remix-Amp.html#property_effectors"
-        },                {
             "fqsen": "\\Remix\\Audio",
             "name": "Audio",
             "summary": "Remix\u0020Audio\u0020\u003A\u0020application\u0020handler",
@@ -145,66 +90,6 @@ Search.appendIndex(
             "name": "play",
             "summary": "",
             "url": "classes/Remix-Channel.html#method_play"
-        },                {
-            "fqsen": "\\Remix\\DAW",
-            "name": "DAW",
-            "summary": "Remix\u0020DAW\u0020\u003A\u0020entry\u0020point",
-            "url": "classes/Remix-DAW.html"
-        },                {
-            "fqsen": "\\Remix\\DAW\u003A\u003AinitializeCore\u0028\u0029",
-            "name": "initializeCore",
-            "summary": "",
-            "url": "classes/Remix-DAW.html#method_initializeCore"
-        },                {
-            "fqsen": "\\Remix\\DAW\u003A\u003AinitializeApp\u0028\u0029",
-            "name": "initializeApp",
-            "summary": "",
-            "url": "classes/Remix-DAW.html#method_initializeApp"
-        },                {
-            "fqsen": "\\Remix\\DAW\u003A\u003AloadPreset\u0028\u0029",
-            "name": "loadPreset",
-            "summary": "",
-            "url": "classes/Remix-DAW.html#method_loadPreset"
-        },                {
-            "fqsen": "\\Remix\\DAW\u003A\u003A\u0024preset",
-            "name": "preset",
-            "summary": "",
-            "url": "classes/Remix-DAW.html#property_preset"
-        },                {
-            "fqsen": "\\Remix\\DAW\u003A\u003Ainitialize\u0028\u0029",
-            "name": "initialize",
-            "summary": "",
-            "url": "classes/Remix-DAW.html#method_initialize"
-        },                {
-            "fqsen": "\\Remix\\DAW\u003A\u003AremixDir\u0028\u0029",
-            "name": "remixDir",
-            "summary": "",
-            "url": "classes/Remix-DAW.html#method_remixDir"
-        },                {
-            "fqsen": "\\Remix\\DAW\u003A\u003AappDir\u0028\u0029",
-            "name": "appDir",
-            "summary": "",
-            "url": "classes/Remix-DAW.html#method_appDir"
-        },                {
-            "fqsen": "\\Remix\\DAW\u003A\u003AplayWeb\u0028\u0029",
-            "name": "playWeb",
-            "summary": "",
-            "url": "classes/Remix-DAW.html#method_playWeb"
-        },                {
-            "fqsen": "\\Remix\\DAW\u003A\u003AplayCli\u0028\u0029",
-            "name": "playCli",
-            "summary": "",
-            "url": "classes/Remix-DAW.html#method_playCli"
-        },                {
-            "fqsen": "\\Remix\\DAW\u003A\u003A\u0024remix_dir",
-            "name": "remix_dir",
-            "summary": "",
-            "url": "classes/Remix-DAW.html#property_remix_dir"
-        },                {
-            "fqsen": "\\Remix\\DAW\u003A\u003A\u0024app_dir",
-            "name": "app_dir",
-            "summary": "",
-            "url": "classes/Remix-DAW.html#property_app_dir"
         },                {
             "fqsen": "\\Remix\\Debug",
             "name": "Debug",
@@ -651,56 +536,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Remix-DJ-Table.html#property_columns"
         },                {
-            "fqsen": "\\Remix\\DJ",
-            "name": "DJ",
-            "summary": "Remix\u0020DJ\u0020\u003A\u0020DB\u0020access\u0020manager",
-            "url": "classes/Remix-DJ.html"
-        },                {
-            "fqsen": "\\Remix\\DJ\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020constructed.",
-            "url": "classes/Remix-DJ.html#method___construct"
-        },                {
-            "fqsen": "\\Remix\\DJ\u003A\u003A__destruct\u0028\u0029",
-            "name": "__destruct",
-            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020destructed.",
-            "url": "classes/Remix-DJ.html#method___destruct"
-        },                {
-            "fqsen": "\\Remix\\DJ\u003A\u003Aconnect\u0028\u0029",
-            "name": "connect",
-            "summary": "",
-            "url": "classes/Remix-DJ.html#method_connect"
-        },                {
-            "fqsen": "\\Remix\\DJ\u003A\u003Aprepare\u0028\u0029",
-            "name": "prepare",
-            "summary": "",
-            "url": "classes/Remix-DJ.html#method_prepare"
-        },                {
-            "fqsen": "\\Remix\\DJ\u003A\u003Aplay\u0028\u0029",
-            "name": "play",
-            "summary": "",
-            "url": "classes/Remix-DJ.html#method_play"
-        },                {
-            "fqsen": "\\Remix\\DJ\u003A\u003Afirst\u0028\u0029",
-            "name": "first",
-            "summary": "",
-            "url": "classes/Remix-DJ.html#method_first"
-        },                {
-            "fqsen": "\\Remix\\DJ\u003A\u003Aback2back\u0028\u0029",
-            "name": "back2back",
-            "summary": "",
-            "url": "classes/Remix-DJ.html#method_back2back"
-        },                {
-            "fqsen": "\\Remix\\DJ\u003A\u003Atable\u0028\u0029",
-            "name": "table",
-            "summary": "",
-            "url": "classes/Remix-DJ.html#method_table"
-        },                {
-            "fqsen": "\\Remix\\DJ\u003A\u003A\u0024connection",
-            "name": "connection",
-            "summary": "",
-            "url": "classes/Remix-DJ.html#property_connection"
-        },                {
             "fqsen": "\\Remix\\Effector",
             "name": "Effector",
             "summary": "Remix\u0020Effector\u0020\u003A\u0020command\u0020line\u0020controller",
@@ -760,31 +595,6 @@ Search.appendIndex(
             "name": "amp",
             "summary": "Parent\u0020Amp\u0020object.",
             "url": "classes/Remix-Effector.html#property_amp"
-        },                {
-            "fqsen": "\\Remix\\Equalizer",
-            "name": "Equalizer",
-            "summary": "Remix\u0020Equalizer\u0020\u003A\u0020instance\u0020manager",
-            "url": "classes/Remix-Equalizer.html"
-        },                {
-            "fqsen": "\\Remix\\Equalizer\u003A\u003Asingleton\u0028\u0029",
-            "name": "singleton",
-            "summary": "Get\u0020a\u0020singleton\u0020instance.",
-            "url": "classes/Remix-Equalizer.html#method_singleton"
-        },                {
-            "fqsen": "\\Remix\\Equalizer\u003A\u003Ainstance\u0028\u0029",
-            "name": "instance",
-            "summary": "Get\u0020a\u0020instance.",
-            "url": "classes/Remix-Equalizer.html#method_instance"
-        },                {
-            "fqsen": "\\Remix\\Equalizer\u003A\u003A__destruct\u0028\u0029",
-            "name": "__destruct",
-            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020destructed.",
-            "url": "classes/Remix-Equalizer.html#method___destruct"
-        },                {
-            "fqsen": "\\Remix\\Equalizer\u003A\u003A\u0024container",
-            "name": "container",
-            "summary": "Array\u0020of\u0020singleton\u0020instances.",
-            "url": "classes/Remix-Equalizer.html#property_container"
         },                {
             "fqsen": "\\Remix\\Exceptions\\CoreException",
             "name": "CoreException",
@@ -881,56 +691,6 @@ Search.appendIndex(
             "summary": "Option\u0020parameter\u0020for\u0020Delay",
             "url": "classes/Remix-Gear.html#property_log_param"
         },                {
-            "fqsen": "\\Remix\\Mixer",
-            "name": "Mixer",
-            "summary": "Remix\u0020Mixer\u0020\u003A\u0020routing",
-            "url": "classes/Remix-Mixer.html"
-        },                {
-            "fqsen": "\\Remix\\Mixer\u003A\u003Aload\u0028\u0029",
-            "name": "load",
-            "summary": "",
-            "url": "classes/Remix-Mixer.html#method_load"
-        },                {
-            "fqsen": "\\Remix\\Mixer\u003A\u003AurlArr\u0028\u0029",
-            "name": "urlArr",
-            "summary": "",
-            "url": "classes/Remix-Mixer.html#method_urlArr"
-        },                {
-            "fqsen": "\\Remix\\Mixer\u003A\u003A__destruct\u0028\u0029",
-            "name": "__destruct",
-            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020destructed.",
-            "url": "classes/Remix-Mixer.html#method___destruct"
-        },                {
-            "fqsen": "\\Remix\\Mixer\u003A\u003Aroute\u0028\u0029",
-            "name": "route",
-            "summary": "",
-            "url": "classes/Remix-Mixer.html#method_route"
-        },                {
-            "fqsen": "\\Remix\\Mixer\u003A\u003Astudio\u0028\u0029",
-            "name": "studio",
-            "summary": "",
-            "url": "classes/Remix-Mixer.html#method_studio"
-        },                {
-            "fqsen": "\\Remix\\Mixer\u003A\u003A\u0024named",
-            "name": "named",
-            "summary": "",
-            "url": "classes/Remix-Mixer.html#property_named"
-        },                {
-            "fqsen": "\\Remix\\Mixer\u003A\u003Auri\u0028\u0029",
-            "name": "uri",
-            "summary": "",
-            "url": "classes/Remix-Mixer.html#method_uri"
-        },                {
-            "fqsen": "\\Remix\\Mixer\u003A\u003A\u0024tracks",
-            "name": "tracks",
-            "summary": "",
-            "url": "classes/Remix-Mixer.html#property_tracks"
-        },                {
-            "fqsen": "\\Remix\\Mixer\u003A\u003A\u0024urls",
-            "name": "urls",
-            "summary": "",
-            "url": "classes/Remix-Mixer.html#property_urls"
-        },                {
             "fqsen": "\\Remix\\Monitor",
             "name": "Monitor",
             "summary": "Remix\u0020Monitor\u003A\u0020debug\u0020tools",
@@ -990,101 +750,6 @@ Search.appendIndex(
             "name": "CODES",
             "summary": "",
             "url": "classes/Remix-Preset-Http-StatusCode.html#constant_CODES"
-        },                {
-            "fqsen": "\\Remix\\Preset",
-            "name": "Preset",
-            "summary": "Remix\u0020Preset\u0020\u003A\u0020configs\u0020manager",
-            "url": "classes/Remix-Preset.html"
-        },                {
-            "fqsen": "\\Remix\\Preset\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "Create\u0020internal\u0020Hash.",
-            "url": "classes/Remix-Preset.html#method___construct"
-        },                {
-            "fqsen": "\\Remix\\Preset\u003A\u003A__destruct\u0028\u0029",
-            "name": "__destruct",
-            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020destructed.",
-            "url": "classes/Remix-Preset.html#method___destruct"
-        },                {
-            "fqsen": "\\Remix\\Preset\u003A\u003AremixDir\u0028\u0029",
-            "name": "remixDir",
-            "summary": "Set\u0020Remix\u0020core\u0020directory.",
-            "url": "classes/Remix-Preset.html#method_remixDir"
-        },                {
-            "fqsen": "\\Remix\\Preset\u003A\u003AappDir\u0028\u0029",
-            "name": "appDir",
-            "summary": "Set\u0020application\u0020directory.",
-            "url": "classes/Remix-Preset.html#method_appDir"
-        },                {
-            "fqsen": "\\Remix\\Preset\u003A\u003AremixRequire\u0028\u0029",
-            "name": "remixRequire",
-            "summary": "Load\u0020the\u0020required\u0020configs\u0020in\u0020the\u0020Remix\u0020namespace.",
-            "url": "classes/Remix-Preset.html#method_remixRequire"
-        },                {
-            "fqsen": "\\Remix\\Preset\u003A\u003Arequire\u0028\u0029",
-            "name": "require",
-            "summary": "Load\u0020the\u0020required\u0020configs\u0020in\u0020the\u0020application\u0020namespace.",
-            "url": "classes/Remix-Preset.html#method_require"
-        },                {
-            "fqsen": "\\Remix\\Preset\u003A\u003Aoptional\u0028\u0029",
-            "name": "optional",
-            "summary": "Load\u0020the\u0020optional\u0020configs\u0020in\u0020the\u0020application\u0020namespace.",
-            "url": "classes/Remix-Preset.html#method_optional"
-        },                {
-            "fqsen": "\\Remix\\Preset\u003A\u003Aload\u0028\u0029",
-            "name": "load",
-            "summary": "Load\u0020config\u0020file.",
-            "url": "classes/Remix-Preset.html#method_load"
-        },                {
-            "fqsen": "\\Remix\\Preset\u003A\u003Aget\u0028\u0029",
-            "name": "get",
-            "summary": "Get\u0020from\u0020the\u0020config\u0020hash.",
-            "url": "classes/Remix-Preset.html#method_get"
-        },                {
-            "fqsen": "\\Remix\\Preset\u003A\u003Aset\u0028\u0029",
-            "name": "set",
-            "summary": "Set\u0020to\u0020the\u0020config\u0020hash.",
-            "url": "classes/Remix-Preset.html#method_set"
-        },                {
-            "fqsen": "\\Remix\\Preset\u003A\u003Aenv\u0028\u0029",
-            "name": "env",
-            "summary": "Get\u0020current\u0020environment",
-            "url": "classes/Remix-Preset.html#method_env"
-        },                {
-            "fqsen": "\\Remix\\Preset\u003A\u003AREQUIRED",
-            "name": "REQUIRED",
-            "summary": "Is\u0020it\u0020required\u0020or\u0020optional\u003F",
-            "url": "classes/Remix-Preset.html#constant_REQUIRED"
-        },                {
-            "fqsen": "\\Remix\\Preset\u003A\u003AOPTIONAL",
-            "name": "OPTIONAL",
-            "summary": "Is\u0020it\u0020required\u0020or\u0020optional\u003F",
-            "url": "classes/Remix-Preset.html#constant_OPTIONAL"
-        },                {
-            "fqsen": "\\Remix\\Preset\u003A\u003AAPPEND",
-            "name": "APPEND",
-            "summary": "Is\u0020it\u0020replace\u0020or\u0020append\u003F",
-            "url": "classes/Remix-Preset.html#constant_APPEND"
-        },                {
-            "fqsen": "\\Remix\\Preset\u003A\u003AREPLACE",
-            "name": "REPLACE",
-            "summary": "Is\u0020it\u0020replace\u0020or\u0020append\u003F",
-            "url": "classes/Remix-Preset.html#constant_REPLACE"
-        },                {
-            "fqsen": "\\Remix\\Preset\u003A\u003A\u0024remix_dir",
-            "name": "remix_dir",
-            "summary": "Remix\u0020core\u0020directory",
-            "url": "classes/Remix-Preset.html#property_remix_dir"
-        },                {
-            "fqsen": "\\Remix\\Preset\u003A\u003A\u0024dir",
-            "name": "dir",
-            "summary": "Application\u0020directory",
-            "url": "classes/Remix-Preset.html#property_dir"
-        },                {
-            "fqsen": "\\Remix\\Preset\u003A\u003A\u0024hash",
-            "name": "hash",
-            "summary": "All\u0020settings\u0020it\u0027s\u0020managing",
-            "url": "classes/Remix-Preset.html#property_hash"
         },                {
             "fqsen": "\\Remix\\RemixException",
             "name": "RemixException",
@@ -1170,6 +835,11 @@ Search.appendIndex(
             "name": "__destruct",
             "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020destructed.",
             "url": "classes/Remix-Studio.html#method___destruct"
+        },                {
+            "fqsen": "\\Remix\\Studio\u003A\u003Apreset\u0028\u0029",
+            "name": "preset",
+            "summary": "",
+            "url": "classes/Remix-Studio.html#method_preset"
         },                {
             "fqsen": "\\Remix\\Studio\u003A\u003Arecordable\u0028\u0029",
             "name": "recordable",
@@ -2171,6 +1841,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Remix-Studio-Bounce.html#method_play"
         },                {
+            "fqsen": "\\Remix\\Studio\\Bounce\u003A\u003A\u0024source",
+            "name": "source",
+            "summary": "source\u0020php",
+            "url": "classes/Remix-Studio-Bounce.html#property_source"
+        },                {
             "fqsen": "\\Remix\\Studio\\Bounce\u003A\u003A\u0024preset",
             "name": "preset",
             "summary": "",
@@ -2185,11 +1860,6 @@ Search.appendIndex(
             "name": "right_delimiter",
             "summary": "",
             "url": "classes/Remix-Studio-Bounce.html#property_right_delimiter"
-        },                {
-            "fqsen": "\\Remix\\Studio\\Bounce\u003A\u003A\u0024bounce_dir",
-            "name": "bounce_dir",
-            "summary": "",
-            "url": "classes/Remix-Studio-Bounce.html#property_bounce_dir"
         },                {
             "fqsen": "\\Remix\\Studio\\Recordable",
             "name": "Recordable",
@@ -2221,15 +1891,30 @@ Search.appendIndex(
             "summary": "Recordable\u0020using\u0020template\u0020files",
             "url": "classes/Remix-Studio-RecordableWithTemplate.html"
         },                {
-            "fqsen": "\\Remix\\Studio\\RecordableWithTemplate\u003A\u003Apathes\u0028\u0029",
-            "name": "pathes",
+            "fqsen": "\\Remix\\Studio\\RecordableWithTemplate\u003A\u003AloadTemplate\u0028\u0029",
+            "name": "loadTemplate",
             "summary": "",
-            "url": "classes/Remix-Studio-RecordableWithTemplate.html#method_pathes"
+            "url": "classes/Remix-Studio-RecordableWithTemplate.html#method_loadTemplate"
         },                {
             "fqsen": "\\Remix\\Studio\\RecordableWithTemplate\u003A\u003Atemplate\u0028\u0029",
             "name": "template",
-            "summary": "",
+            "summary": "Find\u0020and\u0020load\u0020a\u0020template\u0020file",
             "url": "classes/Remix-Studio-RecordableWithTemplate.html#method_template"
+        },                {
+            "fqsen": "\\Remix\\Studio\\RecordableWithTemplate\u003A\u003AbounceDir\u0028\u0029",
+            "name": "bounceDir",
+            "summary": "",
+            "url": "classes/Remix-Studio-RecordableWithTemplate.html#method_bounceDir"
+        },                {
+            "fqsen": "\\Remix\\Studio\\RecordableWithTemplate\u003A\u003A\u0024props",
+            "name": "props",
+            "summary": "\u005Bprotected\u0020description\u005D",
+            "url": "classes/Remix-Studio-RecordableWithTemplate.html#property_props"
+        },                {
+            "fqsen": "\\Remix\\Studio\\RecordableWithTemplate\u003A\u003A\u0024file",
+            "name": "file",
+            "summary": "source\u0020file",
+            "url": "classes/Remix-Studio-RecordableWithTemplate.html#property_file"
         },                {
             "fqsen": "\\Remix\\Studio\\RecordableWithTemplate\u003A\u003A\u0024bounce_dir",
             "name": "bounce_dir",
@@ -2266,6 +1951,386 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Remix-Reverb.html#property_preset"
         },                {
+            "fqsen": "\\Remix\\Instrument",
+            "name": "Instrument",
+            "summary": "Remix\u0020Instrument\u0020\u003A\u0020Core\u0020class\u0020of\u0020Remix",
+            "url": "classes/Remix-Instrument.html"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Amp",
+            "name": "Amp",
+            "summary": "Remix\u0020Amp\u0020\u003A\u0020command\u0020line\u0020interface",
+            "url": "classes/Remix-Instruments-Amp.html"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Amp\u003A\u003Ainitialize\u0028\u0029",
+            "name": "initialize",
+            "summary": "",
+            "url": "classes/Remix-Instruments-Amp.html#method_initialize"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Amp\u003A\u003Aload\u0028\u0029",
+            "name": "load",
+            "summary": "",
+            "url": "classes/Remix-Instruments-Amp.html#method_load"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Amp\u003A\u003AavailableEffector\u0028\u0029",
+            "name": "availableEffector",
+            "summary": "",
+            "url": "classes/Remix-Instruments-Amp.html#method_availableEffector"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Amp\u003A\u003AavailableCommands\u0028\u0029",
+            "name": "availableCommands",
+            "summary": "",
+            "url": "classes/Remix-Instruments-Amp.html#method_availableCommands"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Amp\u003A\u003Aplay\u0028\u0029",
+            "name": "play",
+            "summary": "",
+            "url": "classes/Remix-Instruments-Amp.html#method_play"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Amp\u003A\u003A\u0024daw",
+            "name": "daw",
+            "summary": "",
+            "url": "classes/Remix-Instruments-Amp.html#property_daw"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Amp\u003A\u003A\u0024preset",
+            "name": "preset",
+            "summary": "",
+            "url": "classes/Remix-Instruments-Amp.html#property_preset"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Amp\u003A\u003A\u0024namespaces",
+            "name": "namespaces",
+            "summary": "",
+            "url": "classes/Remix-Instruments-Amp.html#property_namespaces"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Amp\u003A\u003A\u0024shorthandles",
+            "name": "shorthandles",
+            "summary": "",
+            "url": "classes/Remix-Instruments-Amp.html#property_shorthandles"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Amp\u003A\u003A\u0024effectors",
+            "name": "effectors",
+            "summary": "",
+            "url": "classes/Remix-Instruments-Amp.html#property_effectors"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\DAW",
+            "name": "DAW",
+            "summary": "Remix\u0020DAW\u0020\u003A\u0020entry\u0020point",
+            "url": "classes/Remix-Instruments-DAW.html"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\DAW\u003A\u003AinitializeCore\u0028\u0029",
+            "name": "initializeCore",
+            "summary": "",
+            "url": "classes/Remix-Instruments-DAW.html#method_initializeCore"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\DAW\u003A\u003AinitializeApp\u0028\u0029",
+            "name": "initializeApp",
+            "summary": "",
+            "url": "classes/Remix-Instruments-DAW.html#method_initializeApp"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\DAW\u003A\u003AloadPreset\u0028\u0029",
+            "name": "loadPreset",
+            "summary": "",
+            "url": "classes/Remix-Instruments-DAW.html#method_loadPreset"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\DAW\u003A\u003A\u0024preset",
+            "name": "preset",
+            "summary": "",
+            "url": "classes/Remix-Instruments-DAW.html#property_preset"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\DAW\u003A\u003Ainitialize\u0028\u0029",
+            "name": "initialize",
+            "summary": "",
+            "url": "classes/Remix-Instruments-DAW.html#method_initialize"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\DAW\u003A\u003AremixDir\u0028\u0029",
+            "name": "remixDir",
+            "summary": "",
+            "url": "classes/Remix-Instruments-DAW.html#method_remixDir"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\DAW\u003A\u003AappDir\u0028\u0029",
+            "name": "appDir",
+            "summary": "",
+            "url": "classes/Remix-Instruments-DAW.html#method_appDir"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\DAW\u003A\u003AplayWeb\u0028\u0029",
+            "name": "playWeb",
+            "summary": "",
+            "url": "classes/Remix-Instruments-DAW.html#method_playWeb"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\DAW\u003A\u003AplayCli\u0028\u0029",
+            "name": "playCli",
+            "summary": "",
+            "url": "classes/Remix-Instruments-DAW.html#method_playCli"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\DAW\u003A\u003A\u0024remix_dir",
+            "name": "remix_dir",
+            "summary": "",
+            "url": "classes/Remix-Instruments-DAW.html#property_remix_dir"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\DAW\u003A\u003A\u0024app_dir",
+            "name": "app_dir",
+            "summary": "",
+            "url": "classes/Remix-Instruments-DAW.html#property_app_dir"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\DJ",
+            "name": "DJ",
+            "summary": "Remix\u0020DJ\u0020\u003A\u0020DB\u0020access\u0020manager",
+            "url": "classes/Remix-Instruments-DJ.html"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\DJ\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Remix-Instruments-DJ.html#method___construct"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\DJ\u003A\u003A__destruct\u0028\u0029",
+            "name": "__destruct",
+            "summary": "",
+            "url": "classes/Remix-Instruments-DJ.html#method___destruct"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\DJ\u003A\u003Aconnect\u0028\u0029",
+            "name": "connect",
+            "summary": "",
+            "url": "classes/Remix-Instruments-DJ.html#method_connect"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\DJ\u003A\u003Aprepare\u0028\u0029",
+            "name": "prepare",
+            "summary": "",
+            "url": "classes/Remix-Instruments-DJ.html#method_prepare"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\DJ\u003A\u003Aplay\u0028\u0029",
+            "name": "play",
+            "summary": "",
+            "url": "classes/Remix-Instruments-DJ.html#method_play"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\DJ\u003A\u003Afirst\u0028\u0029",
+            "name": "first",
+            "summary": "",
+            "url": "classes/Remix-Instruments-DJ.html#method_first"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\DJ\u003A\u003Aback2back\u0028\u0029",
+            "name": "back2back",
+            "summary": "",
+            "url": "classes/Remix-Instruments-DJ.html#method_back2back"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\DJ\u003A\u003Atable\u0028\u0029",
+            "name": "table",
+            "summary": "",
+            "url": "classes/Remix-Instruments-DJ.html#method_table"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\DJ\u003A\u003A\u0024connection",
+            "name": "connection",
+            "summary": "",
+            "url": "classes/Remix-Instruments-DJ.html#property_connection"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Equalizer",
+            "name": "Equalizer",
+            "summary": "Remix\u0020Equalizer\u0020\u003A\u0020instance\u0020manager",
+            "url": "classes/Remix-Instruments-Equalizer.html"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Equalizer\u003A\u003Asingleton\u0028\u0029",
+            "name": "singleton",
+            "summary": "Get\u0020a\u0020singleton\u0020instance.",
+            "url": "classes/Remix-Instruments-Equalizer.html#method_singleton"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Equalizer\u003A\u003Ainstance\u0028\u0029",
+            "name": "instance",
+            "summary": "Get\u0020a\u0020instance.",
+            "url": "classes/Remix-Instruments-Equalizer.html#method_instance"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Equalizer\u003A\u003A__destruct\u0028\u0029",
+            "name": "__destruct",
+            "summary": "",
+            "url": "classes/Remix-Instruments-Equalizer.html#method___destruct"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Equalizer\u003A\u003A\u0024container",
+            "name": "container",
+            "summary": "Array\u0020of\u0020singleton\u0020instances.",
+            "url": "classes/Remix-Instruments-Equalizer.html#property_container"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Mixer",
+            "name": "Mixer",
+            "summary": "Remix\u0020Mixer\u0020\u003A\u0020routing",
+            "url": "classes/Remix-Instruments-Mixer.html"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Mixer\u003A\u003Aload\u0028\u0029",
+            "name": "load",
+            "summary": "",
+            "url": "classes/Remix-Instruments-Mixer.html#method_load"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Mixer\u003A\u003AurlArr\u0028\u0029",
+            "name": "urlArr",
+            "summary": "",
+            "url": "classes/Remix-Instruments-Mixer.html#method_urlArr"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Mixer\u003A\u003A__destruct\u0028\u0029",
+            "name": "__destruct",
+            "summary": "",
+            "url": "classes/Remix-Instruments-Mixer.html#method___destruct"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Mixer\u003A\u003Aroute\u0028\u0029",
+            "name": "route",
+            "summary": "",
+            "url": "classes/Remix-Instruments-Mixer.html#method_route"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Mixer\u003A\u003Astudio\u0028\u0029",
+            "name": "studio",
+            "summary": "",
+            "url": "classes/Remix-Instruments-Mixer.html#method_studio"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Mixer\u003A\u003A\u0024named",
+            "name": "named",
+            "summary": "",
+            "url": "classes/Remix-Instruments-Mixer.html#property_named"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Mixer\u003A\u003Auri\u0028\u0029",
+            "name": "uri",
+            "summary": "",
+            "url": "classes/Remix-Instruments-Mixer.html#method_uri"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Mixer\u003A\u003A\u0024tracks",
+            "name": "tracks",
+            "summary": "",
+            "url": "classes/Remix-Instruments-Mixer.html#property_tracks"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Mixer\u003A\u003A\u0024urls",
+            "name": "urls",
+            "summary": "",
+            "url": "classes/Remix-Instruments-Mixer.html#property_urls"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Preset",
+            "name": "Preset",
+            "summary": "Remix\u0020Preset\u0020\u003A\u0020configs\u0020manager",
+            "url": "classes/Remix-Instruments-Preset.html"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Preset\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Create\u0020internal\u0020Hash.",
+            "url": "classes/Remix-Instruments-Preset.html#method___construct"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Preset\u003A\u003A__destruct\u0028\u0029",
+            "name": "__destruct",
+            "summary": "",
+            "url": "classes/Remix-Instruments-Preset.html#method___destruct"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Preset\u003A\u003AremixDir\u0028\u0029",
+            "name": "remixDir",
+            "summary": "Set\u0020Remix\u0020core\u0020directory.",
+            "url": "classes/Remix-Instruments-Preset.html#method_remixDir"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Preset\u003A\u003AappDir\u0028\u0029",
+            "name": "appDir",
+            "summary": "Set\u0020application\u0020directory.",
+            "url": "classes/Remix-Instruments-Preset.html#method_appDir"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Preset\u003A\u003AremixRequire\u0028\u0029",
+            "name": "remixRequire",
+            "summary": "Load\u0020the\u0020required\u0020configs\u0020in\u0020the\u0020Remix\u0020namespace.",
+            "url": "classes/Remix-Instruments-Preset.html#method_remixRequire"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Preset\u003A\u003Arequire\u0028\u0029",
+            "name": "require",
+            "summary": "Load\u0020the\u0020required\u0020configs\u0020in\u0020the\u0020application\u0020namespace.",
+            "url": "classes/Remix-Instruments-Preset.html#method_require"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Preset\u003A\u003Aoptional\u0028\u0029",
+            "name": "optional",
+            "summary": "Load\u0020the\u0020optional\u0020configs\u0020in\u0020the\u0020application\u0020namespace.",
+            "url": "classes/Remix-Instruments-Preset.html#method_optional"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Preset\u003A\u003Aload\u0028\u0029",
+            "name": "load",
+            "summary": "Load\u0020config\u0020file.",
+            "url": "classes/Remix-Instruments-Preset.html#method_load"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Preset\u003A\u003Aget\u0028\u0029",
+            "name": "get",
+            "summary": "Get\u0020from\u0020the\u0020config\u0020hash.",
+            "url": "classes/Remix-Instruments-Preset.html#method_get"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Preset\u003A\u003Aset\u0028\u0029",
+            "name": "set",
+            "summary": "Set\u0020to\u0020the\u0020config\u0020hash.",
+            "url": "classes/Remix-Instruments-Preset.html#method_set"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Preset\u003A\u003Aenv\u0028\u0029",
+            "name": "env",
+            "summary": "Get\u0020current\u0020environment",
+            "url": "classes/Remix-Instruments-Preset.html#method_env"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Preset\u003A\u003AREQUIRED",
+            "name": "REQUIRED",
+            "summary": "Is\u0020it\u0020required\u0020or\u0020optional\u003F",
+            "url": "classes/Remix-Instruments-Preset.html#constant_REQUIRED"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Preset\u003A\u003AOPTIONAL",
+            "name": "OPTIONAL",
+            "summary": "Is\u0020it\u0020required\u0020or\u0020optional\u003F",
+            "url": "classes/Remix-Instruments-Preset.html#constant_OPTIONAL"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Preset\u003A\u003AAPPEND",
+            "name": "APPEND",
+            "summary": "Is\u0020it\u0020replace\u0020or\u0020append\u003F",
+            "url": "classes/Remix-Instruments-Preset.html#constant_APPEND"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Preset\u003A\u003AREPLACE",
+            "name": "REPLACE",
+            "summary": "Is\u0020it\u0020replace\u0020or\u0020append\u003F",
+            "url": "classes/Remix-Instruments-Preset.html#constant_REPLACE"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Preset\u003A\u003A\u0024remix_dir",
+            "name": "remix_dir",
+            "summary": "Remix\u0020core\u0020directory",
+            "url": "classes/Remix-Instruments-Preset.html#property_remix_dir"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Preset\u003A\u003A\u0024dir",
+            "name": "dir",
+            "summary": "Application\u0020directory",
+            "url": "classes/Remix-Instruments-Preset.html#property_dir"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Preset\u003A\u003A\u0024hash",
+            "name": "hash",
+            "summary": "All\u0020settings\u0020it\u0027s\u0020managing",
+            "url": "classes/Remix-Instruments-Preset.html#property_hash"
+        },                {
+            "fqsen": "\\Remix\\Studio\\Compressor",
+            "name": "Compressor",
+            "summary": "Remix\u0020Maximizer\u0020\u003A\u0020view\u0020renderer",
+            "url": "classes/Remix-Studio-Compressor.html"
+        },                {
+            "fqsen": "\\Remix\\Studio\\Compressor\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020constructed.",
+            "url": "classes/Remix-Studio-Compressor.html#method___construct"
+        },                {
+            "fqsen": "\\Remix\\Studio\\Compressor\u003A\u003Apreset\u0028\u0029",
+            "name": "preset",
+            "summary": "",
+            "url": "classes/Remix-Studio-Compressor.html#method_preset"
+        },                {
+            "fqsen": "\\Remix\\Studio\\Compressor\u003A\u003A__set\u0028\u0029",
+            "name": "__set",
+            "summary": "",
+            "url": "classes/Remix-Studio-Compressor.html#method___set"
+        },                {
+            "fqsen": "\\Remix\\Studio\\Compressor\u003A\u003AsetEscaped\u0028\u0029",
+            "name": "setEscaped",
+            "summary": "",
+            "url": "classes/Remix-Studio-Compressor.html#method_setEscaped"
+        },                {
+            "fqsen": "\\Remix\\Studio\\Compressor\u003A\u003AsetHtml\u0028\u0029",
+            "name": "setHtml",
+            "summary": "",
+            "url": "classes/Remix-Studio-Compressor.html#method_setHtml"
+        },                {
+            "fqsen": "\\Remix\\Studio\\Compressor\u003A\u003Arecord\u0028\u0029",
+            "name": "record",
+            "summary": "",
+            "url": "classes/Remix-Studio-Compressor.html#method_record"
+        },                {
+            "fqsen": "\\Remix\\Studio\\Compressor\u003A\u003A\u0024bounce",
+            "name": "bounce",
+            "summary": "",
+            "url": "classes/Remix-Studio-Compressor.html#property_bounce"
+        },                {
             "fqsen": "\\",
             "name": "\\",
             "summary": "",
@@ -2295,6 +2360,11 @@ Search.appendIndex(
             "name": "Exceptions",
             "summary": "",
             "url": "namespaces/remix-exceptions.html"
+        },                {
+            "fqsen": "\\Remix\\Instruments",
+            "name": "Instruments",
+            "summary": "",
+            "url": "namespaces/remix-instruments.html"
         },                {
             "fqsen": "\\Remix\\Oscillators",
             "name": "Oscillators",

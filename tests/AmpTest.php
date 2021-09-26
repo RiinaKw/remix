@@ -12,8 +12,8 @@ class AmpTest extends TestCase
 
     protected function setUp(): void
     {
-        $daw = (new \Remix\DAW())->initializeCore();
-        $this->amp = (new \Remix\Amp())->initialize($daw);
+        $daw = (new \Remix\Instruments\DAW())->initializeCore();
+        $this->amp = (new \Remix\Instruments\Amp())->initialize($daw);
     }
 
     public function tearDown(): void

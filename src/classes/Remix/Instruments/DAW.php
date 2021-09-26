@@ -1,6 +1,11 @@
 <?php
 
-namespace Remix;
+namespace Remix\Instruments;
+
+use Remix\Instrument;
+use Remix\Audio;
+use Remix\Reverb;
+use Remix\Delay;
 
 /**
  * Remix DAW : entry point
@@ -8,7 +13,7 @@ namespace Remix;
  * @package  Remix\Core
  * @todo Write the details.
  */
-class DAW extends Gear
+class DAW extends Instrument
 {
     private $preset = null;
 
@@ -19,7 +24,7 @@ class DAW extends Gear
     {
         $this->loadPreset();
 
-        $this->remix_dir = realpath(__DIR__ . '/../..');
+        $this->remix_dir = realpath(__DIR__ . '/../../..');
         $this->preset->remixDir($this->remixDir('/presets'));
 
         $this->preset->set('remix.pathes.root_dir', $this->remix_dir);

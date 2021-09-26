@@ -56,6 +56,7 @@
                                             <li><a href="namespaces/remix-dj.html"><abbr title="\Remix\DJ">DJ</abbr></a></li>
                                             <li><a href="namespaces/remix-effectors.html"><abbr title="\Remix\Effectors">Effectors</abbr></a></li>
                                             <li><a href="namespaces/remix-exceptions.html"><abbr title="\Remix\Exceptions">Exceptions</abbr></a></li>
+                                            <li><a href="namespaces/remix-instruments.html"><abbr title="\Remix\Instruments">Instruments</abbr></a></li>
                                             <li><a href="namespaces/remix-oscillators.html"><abbr title="\Remix\Oscillators">Oscillators</abbr></a></li>
                                             <li><a href="namespaces/remix-preset.html"><abbr title="\Remix\Preset">Preset</abbr></a></li>
                                             <li><a href="namespaces/remix-studio.html"><abbr title="\Remix\Studio">Studio</abbr></a></li>
@@ -75,10 +76,10 @@
                     <h3 class="phpdocumentor-sidebar__root-package"><a href="packages/Default.html"><abbr title="\Default">Default</abbr></a></h3>
                                 <h3 class="phpdocumentor-sidebar__root-package"><a href="packages/Remix.html"><abbr title="\Remix">Remix</abbr></a></h3>
                         <ul class="phpdocumentor-list">
-                                    <li><a href="packages/Remix-CLI.html"><abbr title="\Remix\CLI">CLI</abbr></a></li>
                                     <li><a href="packages/Remix-Core.html"><abbr title="\Remix\Core">Core</abbr></a></li>
                                     <li><a href="packages/Remix-Web.html"><abbr title="\Remix\Web">Web</abbr></a></li>
                                     <li><a href="packages/Remix-DB.html"><abbr title="\Remix\DB">DB</abbr></a></li>
+                                    <li><a href="packages/Remix-CLI.html"><abbr title="\Remix\CLI">CLI</abbr></a></li>
                                     <li><a href="packages/Remix-Exception.html"><abbr title="\Remix\Exception">Exception</abbr></a></li>
                                     <li><a href="packages/Remix-Base.html"><abbr title="\Remix\Base">Base</abbr></a></li>
                             </ul>
@@ -112,7 +113,7 @@
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    Equalizer
+    Instrument
 
         <span class="phpdocumentor-element__extends">
         extends <a href="classes/Remix-Gear.html"><abbr title="\Remix\Gear">Gear</abbr></a>
@@ -122,7 +123,7 @@
             in package
             <ul class="phpdocumentor-breadcrumbs">
                                     <li class="phpdocumentor-breadcrumb"><a href="packages/Remix.html">Remix</a></li>
-                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Remix-Core.html">Core</a></li>
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Remix-Base.html">Base</a></li>
                             </ul>
         </div>
     
@@ -130,12 +131,12 @@
     </h2>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Equalizer.php"><a href="files/src-classes-remix-equalizer.html"><abbr title="src/classes/Remix/Equalizer.php">Equalizer.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Instrument.php"><a href="files/src-classes-remix-instrument.html"><abbr title="src/classes/Remix/Instrument.php">Instrument.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">10</span>
 </aside>
 
-            <p class="phpdocumentor-summary">Remix Equalizer : instance manager</p>
+            <p class="phpdocumentor-summary">Remix Instrument : Core class of Remix</p>
 
     <section class="phpdocumentor-description"></section>
 
@@ -152,19 +153,12 @@
 </h3>
 
 <dl class="phpdocumentor-table-of-contents">
-                <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+                <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/Remix-Gear.html#property_log_param">$log_param</a>
     <span>
                 &nbsp;: string            </span>
 </dt>
 <dd>Option parameter for Delay</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Remix-Equalizer.html#property_container">$container</a>
-    <span>
-                &nbsp;: array&lt;string|int, <a href="classes/Remix-Gear.html"><abbr title="\Remix\Gear">Gear</abbr></a>&gt;            </span>
-</dt>
-<dd>Array of singleton instances.</dd>
 
                 <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-Gear.html#method___construct">__construct()</a>
@@ -174,25 +168,11 @@
 <dd>Let Delay know that an instance has been constructed.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-Equalizer.html#method___destruct">__destruct()</a>
+    <a href="classes/Remix-Gear.html#method___destruct">__destruct()</a>
     <span>
                         &nbsp;: mixed    </span>
 </dt>
 <dd>Let Delay know that an instance has been destructed.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-Equalizer.html#method_instance">instance()</a>
-    <span>
-                        &nbsp;: <a href="classes/Remix-Gear.html"><abbr title="\Remix\Gear">Gear</abbr></a>    </span>
-</dt>
-<dd>Get a instance.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-Equalizer.html#method_singleton">singleton()</a>
-    <span>
-                        &nbsp;: <a href="classes/Remix-Gear.html"><abbr title="\Remix\Gear">Gear</abbr></a>    </span>
-</dt>
-<dd>Get a singleton instance.</dd>
 
         </dl>
 
@@ -204,13 +184,13 @@
     <section class="phpdocumentor-properties">
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
-            <a href="classes/Remix-Equalizer.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/Remix-Instrument.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
                     <article
         class="
             phpdocumentor-element
             -property
-            -protected
+            -private
                                                         "
 >
     <h4 class="phpdocumentor-element__name" id="property_log_param">
@@ -228,7 +208,7 @@
         <p class="phpdocumentor-summary">Option parameter for Delay</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
+    <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">$log_param</span>
      = <span class="phpdocumentor-signature__default-value">&#039;&#039;</span></code>
@@ -238,59 +218,12 @@
     
 
 </article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -private
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_container">
-        $container
-        <a href="classes/Remix-Equalizer.html#property_container" class="headerlink"><i class="fas fa-link"></i></a>
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Equalizer.php"><a href="files/src-classes-remix-equalizer.html"><abbr title="src/classes/Remix/Equalizer.php">Equalizer.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">17</span>
-</aside>
-
-        <p class="phpdocumentor-summary">Array of singleton instances.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type">array&lt;string|int, <a href="classes/Remix-Gear.html"><abbr title="\Remix\Gear">Gear</abbr></a>&gt;</span>
-    <span class="phpdocumentor-signature__name">$container</span>
-     = <span class="phpdocumentor-signature__default-value">[]</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">todo</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>Why not Hash?</p>
-</section>
-
-                                    </dd>
-                        </dl>
-
-</article>
             </section>
 
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/Remix-Equalizer.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/Remix-Instrument.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
                     <article
         class="phpdocumentor-element
@@ -312,11 +245,21 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$log_param</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
         <section class="phpdocumentor-description"></section>
 
-    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$log_param</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -334,12 +277,12 @@
 >
     <h4 class="phpdocumentor-element__name" id="method___destruct">
         __destruct()
-        <a href="classes/Remix-Equalizer.html#method___destruct" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/Remix-Gear.html#method___destruct" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Equalizer.php"><a href="files/src-classes-remix-equalizer.html"><abbr title="src/classes/Remix/Equalizer.php">Equalizer.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Gear.php"><a href="files/src-classes-remix-gear.html"><abbr title="src/classes/Remix/Gear.php">Gear.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">47</span>
+    <span class="phpdocumentor-element-found-in__line">35</span>
 </aside>
 
         <p class="phpdocumentor-summary">Let Delay know that an instance has been destructed.</p>
@@ -360,109 +303,6 @@
 
     
 </article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_instance">
-        instance()
-        <a href="classes/Remix-Equalizer.html#method_instance" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Equalizer.php"><a href="files/src-classes-remix-equalizer.html"><abbr title="src/classes/Remix/Equalizer.php">Equalizer.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">41</span>
-</aside>
-
-        <p class="phpdocumentor-summary">Get a instance.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">instance</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$args</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Remix-Gear.html"><abbr title="\Remix\Gear">Gear</abbr></a></span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$class</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>class name</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$args</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Arguments of constructor</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Remix-Gear.html"><abbr title="\Remix\Gear">Gear</abbr></a></span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>object</p>
-</section>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_singleton">
-        singleton()
-        <a href="classes/Remix-Equalizer.html#method_singleton" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Equalizer.php"><a href="files/src-classes-remix-equalizer.html"><abbr title="src/classes/Remix/Equalizer.php">Equalizer.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">25</span>
-</aside>
-
-        <p class="phpdocumentor-summary">Get a singleton instance.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">singleton</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Remix-Gear.html"><abbr title="\Remix\Gear">Gear</abbr></a></span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$class</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>class name</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Remix-Gear.html"><abbr title="\Remix\Gear">Gear</abbr></a></span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>object</p>
-</section>
-
-    
-</article>
             </section>
 
     </article>
@@ -479,7 +319,7 @@
 </section>
             </div>
         </div>
-        <a href="classes/Remix-Equalizer.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/Remix-Instrument.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

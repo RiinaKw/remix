@@ -1,13 +1,16 @@
 <?php
 
-namespace Remix;
+namespace Remix\Instruments;
+
+use Remix\Gear;
+use Remix\Instrument;
 
 /**
  * Remix Equalizer : instance manager
  *
  * @package  Remix\Core
  */
-class Equalizer extends Gear
+class Equalizer extends Instrument
 {
     /**
      * Array of singleton instances.

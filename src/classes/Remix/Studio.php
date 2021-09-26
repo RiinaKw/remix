@@ -4,6 +4,7 @@ namespace Remix;
 
 use Utility\Hash;
 use Utility\Arr;
+use Remix\Instruments\Preset;
 use Remix\Preset\Http\MimeType;
 use Remix\Preset\Http\StatusCode;
 use Remix\Exceptions\HttpException;

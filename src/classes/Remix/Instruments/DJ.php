@@ -1,7 +1,8 @@
 <?php
 
-namespace Remix;
+namespace Remix\Instruments;
 
+use Remix\Instrument;
 use Remix\DJ\Setlist;
 use Remix\DJ\Back2back;
 use Remix\DJ\Table;
@@ -12,7 +13,7 @@ use Remix\DJ\Table;
  * @package  Remix\DB
  * @todo Write the details.
  */
-class DJ extends \Remix\Gear
+class DJ extends Instrument
 {
     protected static $connection = null;
 

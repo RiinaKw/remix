@@ -2,6 +2,8 @@
 
 namespace Remix;
 
+use Remix\Instruments\Preset;
+
 /**
  * Remix Reverb : web finalizer
  *

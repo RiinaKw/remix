@@ -18,7 +18,7 @@ class Reverb extends Gear
         parent::__construct();
 
         if ($studio->hasTemplate()) {
-            $studio->pathes($preset);
+            $studio->preset($preset);
         }
         $this->studio = $studio;
         $this->preset = $preset;
@@ -32,9 +32,9 @@ class Reverb extends Gear
 
         if ($is_console) {
             $console = new Studio\Bounce($this->preset->get('remix.pathes.console_path'));
-            $console->pathes($this->preset);
+            $console->loadTemplate($this->preset);
             $preset_arr = $this->preset->get();
-            $this->preset = null;
+            unset($this->preset);
 
             Delay::logMemory();
             Delay::logTime();
@@ -70,15 +70,15 @@ class Reverb extends Gear
     {
         if ($exception instanceof Exceptions\HttpException) {
             $status_code = $exception->getStatusCode();
-            $bounce = new Studio\Bounce('httperror', [
+            $compressor = new Studio\Compressor('httperror', [
                 'satus_code' => $status_code,
                 'title' => $status_code . ' ' . Preset\Http\StatusCode::get($status_code),
                 'message' => $exception->getMessage(),
             ]);
-            $bounce->pathes($preset);
-            $bounce->statusCode($status_code);
+            $compressor->preset($preset);
+            $compressor->statusCode($status_code);
 
-            return new static($bounce, $preset);
+            return new static($compressor, $preset);
         }
 
         $status_code = 500;
@@ -104,7 +104,7 @@ class Reverb extends Gear
             return null;
         }
 
-        $view = new Studio\Bounce($template_path, [
+        $compressor = new Studio\Compressor($template_path, [
             'status' => $status_code,
             'message' => $exception->getMessage(),
             'file' => $exception->getFile(),
@@ -112,6 +112,6 @@ class Reverb extends Gear
             'target' => Monitor::getSource($exception->getFile(), $exception->getLine(), 10),
             'traces' => $traces,
         ]);
-        return new static($view, $preset);
+        return new static($compressor, $preset);
     }
 }

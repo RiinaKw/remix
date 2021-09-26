@@ -2,8 +2,10 @@
 
 namespace Remix\Studio;
 
+use Remix\Gear;
 use Remix\Studio;
 use Remix\Delay;
+use Utility\Hash;
 use Utility\Capture;
 
 /**
@@ -12,32 +14,54 @@ use Utility\Capture;
  * @package  Remix\Web
  * @todo Write the details.
  */
-class Bounce extends Studio
+class Bounce extends Gear
 {
     use Recordable;
     use RecordableWithTemplate;
+
+    /**
+     * source php
+     * @var string
+     */
+    protected $source = '';
 
     protected static $preset = null;
 
     protected static $left_delimiter = '{{';
     protected static $right_delimiter = '}}';
 
-    protected static $bounce_dir = [];
-
     public function __construct(string $file, array $params = [])
     {
         $this->log_param = $file;
-        parent::__construct('html', $params);
+        parent::__construct();
 
-        $this->property->file = $file;
-        $this->property->escaped_params = $params;
+        $this->file = $file;
+        $this->props = new Hash();
+        $this->props->escaped_params = $params;
     }
     // function __construct()
 
+/*
+    public function __set(string $name, $value): void
+    {
+        $this->setEscaped($name, $value);
+    }
+
+    public function setEscaped(string $name, $value): void
+    {
+        $this->props->push('escaped_params', $value, $name);
+    }
+
+    public function setHtml(string $name, $value): void
+    {
+        $this->props->push('html_params', $value, $name);
+    }
+*/
+
     public function record(): string
     {
-        $this->property->source = $this->template($this->property->file);
-        return $this->play($this->property->source);
+        $this->source = $this->template($this->file);
+        return $this->play($this->source);
     }
     // function record()
 
@@ -48,8 +72,8 @@ class Bounce extends Studio
         $executable = $source;
 
         // translate to php
-        if ($this->property->html_params) {
-            foreach (array_keys($this->property->html_params) as $key) {
+        if ($this->props->html_params) {
+            foreach (array_keys($this->props->html_params) as $key) {
                 $executable = preg_replace(
                     $re_l . '(\$' . $key . ')' . $re_r,
                     '<?php echo $1 ?? null; ?>',
@@ -58,7 +82,7 @@ class Bounce extends Studio
             }
         }
 
-        $bounce_dir = static::$bounce_dir['app'];
+        $bounce_dir = $this->bounceDir('app');
         $executable = preg_replace(
             $re_l . 'include\s+(.+?)' . $re_r,
             "<?php include('{$bounce_dir}/$1'); ?>",
@@ -111,10 +135,10 @@ class Bounce extends Studio
     /**
      * @SuppressWarnings(PHPMD.EvalExpression)
      */
-    protected function play($source): string
+    protected function play(string $source): string
     {
-        $escaped_params = $this->property->escaped_params;
-        $html_params = $this->property->html_params;
+        $escaped_params = $this->props->escaped_params;
+        $html_params = $this->props->html_params;
 
         $response = Capture::capture(
             function () use ($source, $escaped_params, $html_params) {

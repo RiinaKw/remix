@@ -127,9 +127,6 @@ class Audio
 
     public function exceptionHandle($e): void
     {
-        $preset = $this->preset;
-        static::destroy();
-
         if (static::$is_cli) {
             Effector::line(
                 '####' . PHP_EOL .
@@ -141,7 +138,13 @@ class Audio
             );
             static::destroy();
         } else {
-            echo Reverb::exeption($e, $preset);
+            $preset = $this->preset;
+            static::destroy();
+            static::$audio = null;
+
+            $reverb = Reverb::exeption($e, $preset);
+            unset($preset);
+            echo $reverb;
         }
         unset($e);
     }

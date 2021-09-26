@@ -98,20 +98,18 @@ class DAW extends Gear
      */
     public function playWeb(): Reverb
     {
-        $audio = Audio::getInstance();
-        $preset = $audio->preset;
-        $audio->cli = false;
+        Audio::getInstance()->cli = false;
+        $mixer = Audio::getInstance()->mixer;
 
         $path = $_SERVER['PATH_INFO'] ?? '';
 
         $tracks_path = $this->appDir('/mixer.php') ?: [];
-        $studio = $audio->mixer->load($tracks_path)->route($path);
+        $studio = $mixer->load($tracks_path)->route($path);
         Delay::log('BODY', $studio->getMimeType());
 
-        unset($audio);
+        unset($mixer);
         Audio::destroy();
-
-        return new Reverb($studio, $preset);
+        return new Reverb($studio, $this->preset);
     }
     // function playWeb()
 

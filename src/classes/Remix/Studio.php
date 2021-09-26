@@ -47,6 +47,13 @@ class Studio extends Gear
     // function destroy()
 
     /**
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     */
+    public function preset(Preset $preset)
+    {
+    }
+
+    /**
      * Does it implementing the trait Recordable?
      * @return bool  Implemented or not
      */

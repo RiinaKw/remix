@@ -34,8 +34,7 @@ class Fader extends Gear
      */
     public function __construct(string $pattern)
     {
-        $this->log_param = $pattern;
-        parent::__construct();
+        parent::__construct($pattern);
 
         $this->pattern = $pattern;
         $this->translated = static::translate($pattern);

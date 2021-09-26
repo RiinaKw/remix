@@ -14,8 +14,7 @@ class Track extends Gear
 
     private function __construct(string $method, string $path, $action)
     {
-        $this->log_param = $method . ' ' . $path;
-        parent::__construct();
+        parent::__construct($method . ' ' . $path);
 
         $this->props['method'] = $method;
         $this->props['path'] = $path;

@@ -38,8 +38,7 @@ class Filter extends Gear
 
     private function __construct(string $key, string $label)
     {
-        $this->log_param = $key;
-        parent::__construct();
+        parent::__construct($key);
 
         $this->key = $key;
         $this->label = $label;

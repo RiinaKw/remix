@@ -13,14 +13,15 @@ abstract class Gear
      * Option parameter for Delay
      * @var string
      */
-    protected $log_param = '';
+    private $log_param = '';
 
     /**
      * Let Delay know that an instance has been constructed.
      */
-    public function __construct()
+    public function __construct(string $log_param = null)
     {
-        if ($this->log_param) {
+        if ($log_param) {
+            $this->log_param = $log_param;
             Delay::logBirth(static::class . ' [' . $this->log_param . ']');
         } else {
             Delay::logBirth(static::class);

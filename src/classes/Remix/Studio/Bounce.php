@@ -32,8 +32,7 @@ class Bounce extends Gear
 
     public function __construct(string $file, array $params = [])
     {
-        $this->log_param = $file;
-        parent::__construct();
+        parent::__construct($file);
 
         $this->file = $file;
         $this->props = new Hash();

@@ -53,6 +53,15 @@ class Reverb extends Gear
                     ]
                 )
             );
+            $console->setHtml(
+                'session',
+                \Utility\Dump::html(
+                    \Utility\Http\Session::hash()->get(),
+                    [
+                        'id_prefix' => 'remix-session-',
+                    ]
+                )
+            );
 
             $console->delay = Delay::get();
             $console_html = $console->record();

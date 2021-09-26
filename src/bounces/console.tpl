@@ -110,11 +110,9 @@
     </details>
 
     <details class="Pane">
-      <summary class="Pane__title">3rd</summary>
+      <summary class="Pane__title">Session</summary>
       <section class="Pane__content">
-        <div class="Pane__container">
-          3rd content
-        </div>
+        <div class="Pane__container">{{ $session }}</div>
       </section>
     </details>
 

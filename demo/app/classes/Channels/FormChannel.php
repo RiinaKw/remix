@@ -5,7 +5,6 @@ namespace Remix\Demo\Channels;
 use Remix\Sampler;
 use Remix\Studio;
 use Remix\Studio\Compressor;
-use Remix\Monitor;
 use Utility\Hash;
 use Remix\Demo\Synthesizers\FormSynthesizer as Synthesizer;
 
@@ -18,7 +17,6 @@ class FormChannel extends \Remix\Channel
     {
         $session = $sampler->session();
         $form = $session->form ?: new Hash();
-        Monitor::dump($session);
 
         $bounce = new Compressor('form/input');
         $bounce->name = $form->get('name', '');
@@ -45,7 +43,6 @@ class FormChannel extends \Remix\Channel
             return (new Studio())->redirect('FormInput');
         }
         unset($session->errors);
-        Monitor::dump($session);
 
         $bounce = new Compressor('form/confirm');
         $bounce->name = $form->get('name');
@@ -62,7 +59,6 @@ class FormChannel extends \Remix\Channel
         $session = $sampler->session();
         $form = $session->form ?? new Hash([]);
         unset($session->form);
-        Monitor::dump($session);
 
         $bounce = new Compressor('form/submit');
         $bounce->name = $form->get('name', '(empty)');

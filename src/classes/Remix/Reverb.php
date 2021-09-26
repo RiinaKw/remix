@@ -38,6 +38,9 @@ class Reverb extends Gear
             $preset_arr = $this->preset->get();
             unset($this->preset);
 
+            Delay::log('NOTICE', 'Bounce of console cannot be destruct now');
+            Delay::log('NOTICE', 'Reverb cannot be destruct now');
+
             Delay::logMemory();
             Delay::logTime();
 

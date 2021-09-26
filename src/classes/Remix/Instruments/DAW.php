@@ -110,10 +110,10 @@ class DAW extends Instrument
 
         $tracks_path = $this->appDir('/mixer.php') ?: [];
         $studio = $mixer->load($tracks_path)->route($path);
-        Delay::log('BODY', $studio->getMimeType());
-
         unset($mixer);
         Audio::destroy();
+
+        Delay::log('BODY', $studio->getMimeType());
         return new Reverb($studio, $this->preset);
     }
     // function playWeb()

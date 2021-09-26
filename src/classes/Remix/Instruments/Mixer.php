@@ -88,10 +88,8 @@ class Mixer extends Instrument
                 } elseif (isset($tracks[$method])) {
                     $track = $tracks[$method];
                 } else {
-                    return (new Studio())->header(
-                        405,
-                        'method ' . $method . ' not allowed, given ' . $method . ' ' . $path
-                    );
+                    $message = 'method ' . $method . ' not allowed, given ' . $method . ' ' . $path;
+                    throw new HttpException($message, 405);
                 }
 
                 // setup Studio
@@ -104,7 +102,8 @@ class Mixer extends Instrument
                 return static::studio($track->action, $sampler);
             }
         }
-        throw new HttpException('it did not match any route, given ' . $path, 404);
+        $message = 'it did not match any route, given ' . $path;
+        throw new HttpException($message, 404);
     }
     // function route()
 

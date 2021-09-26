@@ -50,11 +50,21 @@ class MixerTest extends TestCase
     public function test404(): void
     {
         $this->expectException(\Remix\Exceptions\HttpException::class);
-        $this->expectExceptionMessage('given /unknwon');
+        $this->expectExceptionMessage('did not match any route, given /unknwon');
 
         // will throw exception when unknown route?
         $_SERVER['REQUEST_METHOD'] = 'GET';
         $this->mixer->route('/unknwon');
+    }
+
+    public function test405(): void
+    {
+        $this->expectException(\Remix\Exceptions\HttpException::class);
+        $this->expectExceptionMessage('method POST not allowed, given POST /cb');
+
+        // will throw exception when invalid method?
+        $_SERVER['REQUEST_METHOD'] = 'POST';
+        $response = $this->mixer->route('/cb');
     }
 
     public function testName(): void

@@ -31,6 +31,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Remix-Amp.html#method_play"
         },                {
+            "fqsen": "\\Remix\\Amp\u003A\u003A\u0024daw",
+            "name": "daw",
+            "summary": "",
+            "url": "classes/Remix-Amp.html#property_daw"
+        },                {
+            "fqsen": "\\Remix\\Amp\u003A\u003A\u0024preset",
+            "name": "preset",
+            "summary": "",
+            "url": "classes/Remix-Amp.html#property_preset"
+        },                {
             "fqsen": "\\Remix\\Amp\u003A\u003A\u0024namespaces",
             "name": "namespaces",
             "summary": "",
@@ -151,6 +161,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Remix-DAW.html#method_initializeApp"
         },                {
+            "fqsen": "\\Remix\\DAW\u003A\u003AloadPreset\u0028\u0029",
+            "name": "loadPreset",
+            "summary": "",
+            "url": "classes/Remix-DAW.html#method_loadPreset"
+        },                {
+            "fqsen": "\\Remix\\DAW\u003A\u003A\u0024preset",
+            "name": "preset",
+            "summary": "",
+            "url": "classes/Remix-DAW.html#property_preset"
+        },                {
             "fqsen": "\\Remix\\DAW\u003A\u003Ainitialize\u0028\u0029",
             "name": "initialize",
             "summary": "",
@@ -206,15 +226,10 @@ Search.appendIndex(
             "summary": "Remix\u0020Delay\u0020\u003A\u0020log\u0020manager",
             "url": "classes/Remix-Delay.html"
         },                {
-            "fqsen": "\\Remix\\Delay\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
+            "fqsen": "\\Remix\\Delay\u003A\u003Astart\u0028\u0029",
+            "name": "start",
             "summary": "",
-            "url": "classes/Remix-Delay.html#method___construct"
-        },                {
-            "fqsen": "\\Remix\\Delay\u003A\u003AgetInstance\u0028\u0029",
-            "name": "getInstance",
-            "summary": "",
-            "url": "classes/Remix-Delay.html#method_getInstance"
+            "url": "classes/Remix-Delay.html#method_start"
         },                {
             "fqsen": "\\Remix\\Delay\u003A\u003Adestroy\u0028\u0029",
             "name": "destroy",
@@ -260,11 +275,6 @@ Search.appendIndex(
             "name": "get",
             "summary": "",
             "url": "classes/Remix-Delay.html#method_get"
-        },                {
-            "fqsen": "\\Remix\\Delay\u003A\u003A\u0024delay",
-            "name": "delay",
-            "summary": "",
-            "url": "classes/Remix-Delay.html#property_delay"
         },                {
             "fqsen": "\\Remix\\Delay\u003A\u003A\u0024is_debug",
             "name": "is_debug",
@@ -656,6 +666,11 @@ Search.appendIndex(
             "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020destructed.",
             "url": "classes/Remix-DJ.html#method___destruct"
         },                {
+            "fqsen": "\\Remix\\DJ\u003A\u003Aconnect\u0028\u0029",
+            "name": "connect",
+            "summary": "",
+            "url": "classes/Remix-DJ.html#method_connect"
+        },                {
             "fqsen": "\\Remix\\DJ\u003A\u003Aprepare\u0028\u0029",
             "name": "prepare",
             "summary": "",
@@ -816,11 +831,6 @@ Search.appendIndex(
             "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020constructed\u0020and\u0020the\u0020pattern\u0020it\u0020is\u0020holding.",
             "url": "classes/Remix-Fader.html#method___construct"
         },                {
-            "fqsen": "\\Remix\\Fader\u003A\u003A__destruct\u0028\u0029",
-            "name": "__destruct",
-            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020destructed\u0020and\u0020the\u0020pattern\u0020it\u0020is\u0020holding.",
-            "url": "classes/Remix-Fader.html#method___destruct"
-        },                {
             "fqsen": "\\Remix\\Fader\u003A\u003Atranslate\u0028\u0029",
             "name": "translate",
             "summary": "Translates\u0020a\u0020pattern\u0020to\u0020a\u0020regular\u0020expression.",
@@ -865,6 +875,11 @@ Search.appendIndex(
             "name": "__destruct",
             "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020destructed.",
             "url": "classes/Remix-Gear.html#method___destruct"
+        },                {
+            "fqsen": "\\Remix\\Gear\u003A\u003A\u0024log_param",
+            "name": "log_param",
+            "summary": "Option\u0020parameter\u0020for\u0020Delay",
+            "url": "classes/Remix-Gear.html#property_log_param"
         },                {
             "fqsen": "\\Remix\\Mixer",
             "name": "Mixer",
@@ -1161,6 +1176,11 @@ Search.appendIndex(
             "summary": "Does\u0020it\u0020implementing\u0020the\u0020trait\u0020Recordable\u003F",
             "url": "classes/Remix-Studio.html#method_recordable"
         },                {
+            "fqsen": "\\Remix\\Studio\u003A\u003AhasTemplate\u0028\u0029",
+            "name": "hasTemplate",
+            "summary": "Does\u0020it\u0020implementing\u0020the\u0020trait\u0020RecordableWithTemplate\u003F",
+            "url": "classes/Remix-Studio.html#method_hasTemplate"
+        },                {
             "fqsen": "\\Remix\\Studio\u003A\u003AcontentType\u0028\u0029",
             "name": "contentType",
             "summary": "",
@@ -1196,30 +1216,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Remix-Studio.html#method_redirect"
         },                {
-            "fqsen": "\\Remix\\Studio\u003A\u003Aheader\u0028\u0029",
-            "name": "header",
-            "summary": "",
-            "url": "classes/Remix-Studio.html#method_header"
-        },                {
             "fqsen": "\\Remix\\Studio\u003A\u003Aoutput\u0028\u0029",
             "name": "output",
             "summary": "",
             "url": "classes/Remix-Studio.html#method_output"
         },                {
-            "fqsen": "\\Remix\\Studio\u003A\u003AappendConsole\u0028\u0029",
-            "name": "appendConsole",
+            "fqsen": "\\Remix\\Studio\u003A\u003AisConsole\u0028\u0029",
+            "name": "isConsole",
             "summary": "",
-            "url": "classes/Remix-Studio.html#method_appendConsole"
-        },                {
-            "fqsen": "\\Remix\\Studio\u003A\u003Afinalize\u0028\u0029",
-            "name": "finalize",
-            "summary": "",
-            "url": "classes/Remix-Studio.html#method_finalize"
-        },                {
-            "fqsen": "\\Remix\\Studio\u003A\u003ArecordException\u0028\u0029",
-            "name": "recordException",
-            "summary": "",
-            "url": "classes/Remix-Studio.html#method_recordException"
+            "url": "classes/Remix-Studio.html#method_isConsole"
         },                {
             "fqsen": "\\Remix\\Studio\u003A\u003A\u0024property",
             "name": "property",
@@ -1235,11 +1240,6 @@ Search.appendIndex(
             "name": "__construct",
             "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020constructed.",
             "url": "classes/Remix-Track.html#method___construct"
-        },                {
-            "fqsen": "\\Remix\\Track\u003A\u003A__destruct\u0028\u0029",
-            "name": "__destruct",
-            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020destructed.",
-            "url": "classes/Remix-Track.html#method___destruct"
         },                {
             "fqsen": "\\Remix\\Track\u003A\u003Aget\u0028\u0029",
             "name": "get",
@@ -1916,11 +1916,6 @@ Search.appendIndex(
             "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020constructed.",
             "url": "classes/Remix-Filter.html#method___construct"
         },                {
-            "fqsen": "\\Remix\\Filter\u003A\u003A__destruct\u0028\u0029",
-            "name": "__destruct",
-            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020destructed.",
-            "url": "classes/Remix-Filter.html#method___destruct"
-        },                {
             "fqsen": "\\Remix\\Filter\u003A\u003Adefine\u0028\u0029",
             "name": "define",
             "summary": "Define\u0020a\u0020field",
@@ -2161,11 +2156,6 @@ Search.appendIndex(
             "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020constructed.",
             "url": "classes/Remix-Studio-Bounce.html#method___construct"
         },                {
-            "fqsen": "\\Remix\\Studio\\Bounce\u003A\u003A__destruct\u0028\u0029",
-            "name": "__destruct",
-            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020destructed.",
-            "url": "classes/Remix-Studio-Bounce.html#method___destruct"
-        },                {
             "fqsen": "\\Remix\\Studio\\Bounce\u003A\u003Arecord\u0028\u0029",
             "name": "record",
             "summary": "",
@@ -2180,6 +2170,11 @@ Search.appendIndex(
             "name": "play",
             "summary": "",
             "url": "classes/Remix-Studio-Bounce.html#method_play"
+        },                {
+            "fqsen": "\\Remix\\Studio\\Bounce\u003A\u003A\u0024preset",
+            "name": "preset",
+            "summary": "",
+            "url": "classes/Remix-Studio-Bounce.html#property_preset"
         },                {
             "fqsen": "\\Remix\\Studio\\Bounce\u003A\u003A\u0024left_delimiter",
             "name": "left_delimiter",
@@ -2240,6 +2235,36 @@ Search.appendIndex(
             "name": "bounce_dir",
             "summary": "",
             "url": "classes/Remix-Studio-RecordableWithTemplate.html#property_bounce_dir"
+        },                {
+            "fqsen": "\\Remix\\Reverb",
+            "name": "Reverb",
+            "summary": "Remix\u0020Reverb\u0020\u003A\u0020web\u0020finalizer",
+            "url": "classes/Remix-Reverb.html"
+        },                {
+            "fqsen": "\\Remix\\Reverb\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020constructed.",
+            "url": "classes/Remix-Reverb.html#method___construct"
+        },                {
+            "fqsen": "\\Remix\\Reverb\u003A\u003A__toString\u0028\u0029",
+            "name": "__toString",
+            "summary": "",
+            "url": "classes/Remix-Reverb.html#method___toString"
+        },                {
+            "fqsen": "\\Remix\\Reverb\u003A\u003Aexeption\u0028\u0029",
+            "name": "exeption",
+            "summary": "",
+            "url": "classes/Remix-Reverb.html#method_exeption"
+        },                {
+            "fqsen": "\\Remix\\Reverb\u003A\u003A\u0024studio",
+            "name": "studio",
+            "summary": "",
+            "url": "classes/Remix-Reverb.html#property_studio"
+        },                {
+            "fqsen": "\\Remix\\Reverb\u003A\u003A\u0024preset",
+            "name": "preset",
+            "summary": "",
+            "url": "classes/Remix-Reverb.html#property_preset"
         },                {
             "fqsen": "\\",
             "name": "\\",

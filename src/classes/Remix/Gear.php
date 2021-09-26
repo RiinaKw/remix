@@ -9,6 +9,10 @@ namespace Remix;
  */
 abstract class Gear
 {
+    /**
+     * Option parameter for Delay
+     * @var string
+     */
     protected $log_param = '';
 
     /**

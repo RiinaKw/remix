@@ -112,7 +112,7 @@
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    Synthesizer
+    Reverb
 
         <span class="phpdocumentor-element__extends">
         extends <a href="classes/Remix-Gear.html"><abbr title="\Remix\Gear">Gear</abbr></a>
@@ -123,7 +123,6 @@
             <ul class="phpdocumentor-breadcrumbs">
                                     <li class="phpdocumentor-breadcrumb"><a href="packages/Remix.html">Remix</a></li>
                                     <li class="phpdocumentor-breadcrumb"><a href="packages/Remix-Web.html">Web</a></li>
-                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Remix-Web-Form.html">Form</a></li>
                             </ul>
         </div>
     
@@ -131,12 +130,12 @@
     </h2>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Synthesizer.php"><a href="files/src-classes-remix-synthesizer.html"><abbr title="src/classes/Remix/Synthesizer.php">Synthesizer.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Reverb.php"><a href="files/src-classes-remix-reverb.html"><abbr title="src/classes/Remix/Reverb.php">Reverb.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">16</span>
+    <span class="phpdocumentor-element-found-in__line">11</span>
 </aside>
 
-            <p class="phpdocumentor-summary">Remix Synthesizer : input form validation</p>
+            <p class="phpdocumentor-summary">Remix Reverb : web finalizer</p>
 
     <section class="phpdocumentor-description"></section>
 
@@ -147,15 +146,6 @@
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/Remix-Filter.html"><abbr title="\Remix\Filter">Filter</abbr></a></span>
-                                        
-                                                 <section class="phpdocumentor-description"></section>
-
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">todo</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
@@ -178,35 +168,28 @@
 
 <dl class="phpdocumentor-table-of-contents">
                 <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/Remix-Synthesizer.html#property_errors">$errors</a>
-    <span>
-                &nbsp;: <a href="classes/Utility-Hash-ReadOnlyHash.html"><abbr title="\Utility\Hash\ReadOnlyHash">ReadOnlyHash</abbr></a>            </span>
-</dt>
-<dd>errors</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/Remix-Synthesizer.html#property_filters">$filters</a>
-    <span>
-                &nbsp;: array&lt;int, <a href="classes/Remix-Filter.html"><abbr title="\Remix\Filter">Filter</abbr></a>&gt;            </span>
-</dt>
-<dd>filters definition</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/Remix-Synthesizer.html#property_input">$input</a>
-    <span>
-                &nbsp;: <a href="classes/Utility-Hash-ReadOnlyHash.html"><abbr title="\Utility\Hash\ReadOnlyHash">ReadOnlyHash</abbr></a>            </span>
-</dt>
-<dd>input from $_POST</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/Remix-Gear.html#property_log_param">$log_param</a>
     <span>
                 &nbsp;: string            </span>
 </dt>
 <dd>Option parameter for Delay</dd>
 
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/Remix-Reverb.html#property_preset">$preset</a>
+    <span>
+                &nbsp;: mixed            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/Remix-Reverb.html#property_studio">$studio</a>
+    <span>
+                &nbsp;: mixed            </span>
+</dt>
+<dd></dd>
+
                 <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-Gear.html#method___construct">__construct()</a>
+    <a href="classes/Remix-Reverb.html#method___construct">__construct()</a>
     <span>
                         &nbsp;: mixed    </span>
 </dt>
@@ -220,32 +203,18 @@
 <dd>Let Delay know that an instance has been destructed.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-Synthesizer.html#method_errors">errors()</a>
+    <a href="classes/Remix-Reverb.html#method___toString">__toString()</a>
     <span>
-                        &nbsp;: <a href="classes/Utility-Hash-ReadOnlyHash.html"><abbr title="\Utility\Hash\ReadOnlyHash">ReadOnlyHash</abbr></a>    </span>
+                        &nbsp;: mixed    </span>
 </dt>
-<dd>Validation errors</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-Synthesizer.html#method_input">input()</a>
+    <a href="classes/Remix-Reverb.html#method_exeption">exeption()</a>
     <span>
-                        &nbsp;: <a href="classes/Utility-Hash-ReadOnlyHash.html"><abbr title="\Utility\Hash\ReadOnlyHash">ReadOnlyHash</abbr></a>    </span>
+                        &nbsp;: self|null    </span>
 </dt>
-<dd>Inputs from form</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-Synthesizer.html#method_run">run()</a>
-    <span>
-                        &nbsp;: self    </span>
-</dt>
-<dd>Run validation</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/Remix-Synthesizer.html#method_filters">filters()</a>
-    <span>
-                        &nbsp;: array&lt;int, <a href="classes/Remix-Filter.html"><abbr title="\Remix\Filter">Filter</abbr></a>&gt;    </span>
-</dt>
-<dd>filters definition</dd>
+<dd></dd>
 
         </dl>
 
@@ -257,104 +226,8 @@
     <section class="phpdocumentor-properties">
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
-            <a href="classes/Remix-Synthesizer.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/Remix-Reverb.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -protected
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_errors">
-        $errors
-        <a href="classes/Remix-Synthesizer.html#property_errors" class="headerlink"><i class="fas fa-link"></i></a>
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Synthesizer.php"><a href="files/src-classes-remix-synthesizer.html"><abbr title="src/classes/Remix/Synthesizer.php">Synthesizer.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">34</span>
-</aside>
-
-        <p class="phpdocumentor-summary">errors</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type"><a href="classes/Utility-Hash-ReadOnlyHash.html"><abbr title="\Utility\Hash\ReadOnlyHash">ReadOnlyHash</abbr></a></span>
-    <span class="phpdocumentor-signature__name">$errors</span>
-     = <span class="phpdocumentor-signature__default-value">null</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -protected
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_filters">
-        $filters
-        <a href="classes/Remix-Synthesizer.html#property_filters" class="headerlink"><i class="fas fa-link"></i></a>
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Synthesizer.php"><a href="files/src-classes-remix-synthesizer.html"><abbr title="src/classes/Remix/Synthesizer.php">Synthesizer.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">22</span>
-</aside>
-
-        <p class="phpdocumentor-summary">filters definition</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">array&lt;int, <a href="classes/Remix-Filter.html"><abbr title="\Remix\Filter">Filter</abbr></a>&gt;</span>
-    <span class="phpdocumentor-signature__name">$filters</span>
-     = <span class="phpdocumentor-signature__default-value">[]</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -protected
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_input">
-        $input
-        <a href="classes/Remix-Synthesizer.html#property_input" class="headerlink"><i class="fas fa-link"></i></a>
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Synthesizer.php"><a href="files/src-classes-remix-synthesizer.html"><abbr title="src/classes/Remix/Synthesizer.php">Synthesizer.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">28</span>
-</aside>
-
-        <p class="phpdocumentor-summary">input from $_POST</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type"><a href="classes/Utility-Hash-ReadOnlyHash.html"><abbr title="\Utility\Hash\ReadOnlyHash">ReadOnlyHash</abbr></a></span>
-    <span class="phpdocumentor-signature__name">$input</span>
-     = <span class="phpdocumentor-signature__default-value">[]</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-
-</article>
                     <article
         class="
             phpdocumentor-element
@@ -387,12 +260,72 @@
     
 
 </article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_preset">
+        $preset
+        <a href="classes/Remix-Reverb.html#property_preset" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Reverb.php"><a href="files/src-classes-remix-reverb.html"><abbr title="src/classes/Remix/Reverb.php">Reverb.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">14</span>
+</aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">$preset</span>
+     = <span class="phpdocumentor-signature__default-value">null</span></code>
+
+    
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_studio">
+        $studio
+        <a href="classes/Remix-Reverb.html#property_studio" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Reverb.php"><a href="files/src-classes-remix-reverb.html"><abbr title="src/classes/Remix/Reverb.php">Reverb.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">13</span>
+</aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">$studio</span>
+     = <span class="phpdocumentor-signature__default-value">null</span></code>
+
+    
+    
+
+</article>
             </section>
 
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/Remix-Synthesizer.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/Remix-Reverb.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
                     <article
         class="phpdocumentor-element
@@ -402,23 +335,40 @@
 >
     <h4 class="phpdocumentor-element__name" id="method___construct">
         __construct()
-        <a href="classes/Remix-Gear.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/Remix-Reverb.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Gear.php"><a href="files/src-classes-remix-gear.html"><abbr title="src/classes/Remix/Gear.php">Gear.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Reverb.php"><a href="files/src-classes-remix-reverb.html"><abbr title="src/classes/Remix/Reverb.php">Reverb.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">21</span>
+    <span class="phpdocumentor-element-found-in__line">16</span>
 </aside>
 
         <p class="phpdocumentor-summary">Let Delay know that an instance has been constructed.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-Studio.html"><abbr title="\Remix\Studio">Studio</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$studio</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-Preset.html"><abbr title="\Remix\Preset">Preset</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$preset</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
         <section class="phpdocumentor-description"></section>
 
-    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$studio</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-Studio.html"><abbr title="\Remix\Studio">Studio</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$preset</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-Preset.html"><abbr title="\Remix\Preset">Preset</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -468,32 +418,29 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_errors">
-        errors()
-        <a href="classes/Remix-Synthesizer.html#method_errors" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method___toString">
+        __toString()
+        <a href="classes/Remix-Reverb.html#method___toString" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Synthesizer.php"><a href="files/src-classes-remix-synthesizer.html"><abbr title="src/classes/Remix/Synthesizer.php">Synthesizer.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Reverb.php"><a href="files/src-classes-remix-reverb.html"><abbr title="src/classes/Remix/Reverb.php">Reverb.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">85</span>
+    <span class="phpdocumentor-element-found-in__line">27</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Validation errors</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">errors</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Utility-Hash-ReadOnlyHash.html"><abbr title="\Utility\Hash\ReadOnlyHash">ReadOnlyHash</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">__toString</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
     
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Utility-Hash-ReadOnlyHash.html"><abbr title="\Utility\Hash\ReadOnlyHash">ReadOnlyHash</abbr></a></span>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
-            <section class="phpdocumentor-description"><p>Hash of errors</p>
-</section>
+            <section class="phpdocumentor-description"></section>
 
     
 </article>
@@ -501,113 +448,46 @@
         class="phpdocumentor-element
             -method
             -public
-                                                        "
+                                    -static                    "
 >
-    <h4 class="phpdocumentor-element__name" id="method_input">
-        input()
-        <a href="classes/Remix-Synthesizer.html#method_input" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_exeption">
+        exeption()
+        <a href="classes/Remix-Reverb.html#method_exeption" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Synthesizer.php"><a href="files/src-classes-remix-synthesizer.html"><abbr title="src/classes/Remix/Synthesizer.php">Synthesizer.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Reverb.php"><a href="files/src-classes-remix-reverb.html"><abbr title="src/classes/Remix/Reverb.php">Reverb.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">76</span>
+    <span class="phpdocumentor-element-found-in__line">69</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Inputs from form</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">input</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Utility-Hash-ReadOnlyHash.html"><abbr title="\Utility\Hash\ReadOnlyHash">ReadOnlyHash</abbr></a></span></code>
-
-        <section class="phpdocumentor-description"></section>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">exeption</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Throwable">Throwable</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$exception</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-Preset.html"><abbr title="\Remix\Preset">Preset</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$preset</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">self|null</span></code>
 
     
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Utility-Hash-ReadOnlyHash.html"><abbr title="\Utility\Hash\ReadOnlyHash">ReadOnlyHash</abbr></a></span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Hash of input params</p>
-</section>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_run">
-        run()
-        <a href="classes/Remix-Synthesizer.html#method_run" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Synthesizer.php"><a href="files/src-classes-remix-synthesizer.html"><abbr title="src/classes/Remix/Synthesizer.php">Synthesizer.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">50</span>
-</aside>
-
-        <p class="phpdocumentor-summary">Run validation</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">run</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Utility-Http-PostHash.html"><abbr title="\Utility\Http\PostHash">PostHash</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$post</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">self</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$post</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Utility-Http-PostHash.html"><abbr title="\Utility\Http\PostHash">PostHash</abbr></a></span>
+                <span class="phpdocumentor-signature__argument__name">$exception</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Throwable">Throwable</abbr></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Input hash of form</p>
-</section>
-
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$preset</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-Preset.html"><abbr title="\Remix\Preset">Preset</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
             </dd>
             </dl>
 
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">self</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>instance of itself</p>
-</section>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -protected
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_filters">
-        filters()
-        <a href="classes/Remix-Synthesizer.html#method_filters" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Synthesizer.php"><a href="files/src-classes-remix-synthesizer.html"><abbr title="src/classes/Remix/Synthesizer.php">Synthesizer.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">40</span>
-</aside>
-
-        <p class="phpdocumentor-summary">filters definition</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-                <span class="phpdocumentor-signature__name">filters</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;int, <a href="classes/Remix-Filter.html"><abbr title="\Remix\Filter">Filter</abbr></a>&gt;</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;int, <a href="classes/Remix-Filter.html"><abbr title="\Remix\Filter">Filter</abbr></a>&gt;</span>
+    <span class="phpdocumentor-signature__response_type">self|null</span>
             &mdash;
             <section class="phpdocumentor-description"></section>
 
@@ -629,7 +509,7 @@
 </section>
             </div>
         </div>
-        <a href="classes/Remix-Synthesizer.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/Remix-Reverb.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

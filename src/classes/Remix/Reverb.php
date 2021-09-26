@@ -74,7 +74,7 @@ class Reverb extends Gear
             $status_code = $exception->getStatusCode();
             $compressor = new Studio\Compressor('httperror', [
                 'satus_code' => $status_code,
-                'title' => $status_code . ' ' . Preset\Http\StatusCode::get($status_code),
+                'title' => $status_code . ' ' . \Remix\Preset\Http\StatusCode::get($status_code),
                 'message' => $exception->getMessage(),
             ]);
             $compressor->preset($preset);

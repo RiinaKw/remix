@@ -91,21 +91,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Remix-Channel.html#method_play"
         },                {
-            "fqsen": "\\Remix\\Debug",
-            "name": "Debug",
-            "summary": "Remix\u0020Debug\u0020\u003A\u0020utilities\u0020for\u0020debug",
-            "url": "classes/Remix-Debug.html"
-        },                {
-            "fqsen": "\\Remix\\Debug\u003A\u003Adump\u0028\u0029",
-            "name": "dump",
-            "summary": "",
-            "url": "classes/Remix-Debug.html#method_dump"
-        },                {
-            "fqsen": "\\Remix\\Debug\u003A\u003AgetSource\u0028\u0029",
-            "name": "getSource",
-            "summary": "",
-            "url": "classes/Remix-Debug.html#method_getSource"
-        },                {
             "fqsen": "\\Remix\\Delay",
             "name": "Delay",
             "summary": "Remix\u0020Delay\u0020\u003A\u0020log\u0020manager",

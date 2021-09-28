@@ -28,7 +28,7 @@ class Compressor extends Studio
 
     public function preset(Preset $preset)
     {
-        $this->bounce->loadTemplate($preset);
+        Bounce::loadTemplate($preset);
     }
 
     public function __set(string $name, $value): void

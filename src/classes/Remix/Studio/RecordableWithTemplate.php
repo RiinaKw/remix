@@ -14,44 +14,55 @@ use Utility\Capture;
  */
 trait RecordableWithTemplate
 {
-     /**
-      * [protected description]
-      * @var Hash
-      */
-     protected $props = null;
+    /**
+     * [protected description]
+     * @var Hash
+     */
+    protected $props = null;
 
-     /**
-      * source file
-      * @var string
-      */
-     protected $file = '';
+    /**
+     * source file
+     * @var string
+     */
+    protected $file = '';
 
-    protected $bounce_dir = [];
+    protected static $bounce_dir = [];
 
-    public function loadTemplate(Preset $preset)
+    public static function loadTemplate(Preset $preset)
     {
-        $this->bounce_dir = [
+        static::$bounce_dir = [
             'app' => $preset->get('app.pathes.bounce_dir'),
             'remix' => $preset->get('remix.pathes.bounce_dir'),
         ];
     }
 
+    public static function findTemplateNS(string $path, string $ns)
+    {
+        $template = static::$bounce_dir[$ns] . '/' . $path . '.tpl';
+        return file_exists($template) ? $template : null;
+    }
+
     /**
      * Find and load a template file
-     * @param  string $path  path of file
-     * @return string        loaded template source
+     * @param  string $path         path of file
+     * @param  string $namespace    namespace of file
+     * @return string               loaded template source
      */
-    protected function template(string $path = null): string
+    protected function template(string $path = null, string $namespace = null): string
     {
         if (! $path || ! file_exists($path)) {
-            foreach ($this->bounce_dir as $dir) {
-                $path = $dir . '/' . $this->file . '.tpl';
-                if (file_exists($path)) {
-                    break;
+            if ($namespace) {
+                $path = static::findTemplateNS($namespace);
+            } else {
+                foreach (array_keys(static::$bounce_dir) as $ns) {
+                    $path = static::findTemplateNS($path, $ns);
+                    if ($path) {
+                        break;
+                    }
                 }
             }
         }
-        if (! $path || ! file_exists($path)) {
+        if (! $path) {
             throw new RemixException('bounce "' . $this->file . '" not found');
         }
 

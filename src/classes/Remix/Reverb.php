@@ -33,8 +33,8 @@ class Reverb extends Gear
         $this->studio = null;
 
         if ($is_console) {
+            Studio\Bounce::loadTemplate($this->preset);
             $console = new Studio\Bounce($this->preset->get('remix.pathes.console_path'));
-            $console->loadTemplate($this->preset);
             $preset_arr = $this->preset->get();
             unset($this->preset);
 
@@ -53,6 +53,12 @@ class Reverb extends Gear
                     ]
                 )
             );
+/*
+var_dump(
+  \Utility\Dump::html(
+    \Utility\Http\Session::hash()->get()
+  )
+);
             $console->setHtml(
                 'session',
                 \Utility\Dump::html(
@@ -62,7 +68,7 @@ class Reverb extends Gear
                     ]
                 )
             );
-
+*/
             $console->delay = Delay::get();
             $console_html = $console->record();
             unset($console);
@@ -84,10 +90,16 @@ class Reverb extends Gear
     {
         if ($exception instanceof Exceptions\HttpException) {
             $code = $exception->getStatusCode();
+/*
             $bounce_dir = $preset->get('app.pathes.bounce_dir');;
             $bounce_path =  $bounce_dir . '/errors/' . $code . '.tpl';
-            if (! file_exists($bounce_path)) {
-                $bounce_path = $preset->get('remix.pathes.bounce_dir') . '/httperror.tpl';
+*/
+            Studio\Bounce::loadTemplate($preset);
+            $name = 'errors/' . $code;
+            $bounce_path = Studio\Bounce::findTemplateNS($name, 'app');
+
+            if (! $bounce_path) {
+                $bounce_path = Studio\Bounce::findTemplateNS('httperror', 'remix');
             }
             
             $compressor = new Studio\Compressor(
@@ -99,7 +111,6 @@ class Reverb extends Gear
                     'exception' => $exception,
                 ]
             );
-            $compressor->preset($preset);
             $compressor->statusCode($code);
 
             return new static($compressor, $preset);

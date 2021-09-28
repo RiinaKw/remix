@@ -59,6 +59,7 @@ var_dump(
     \Utility\Http\Session::hash()->get()
   )
 );
+
             $console->setHtml(
                 'session',
                 \Utility\Dump::html(
@@ -101,7 +102,7 @@ var_dump(
             if (! $bounce_path) {
                 $bounce_path = Studio\Bounce::findTemplateNS('httperror', 'remix');
             }
-            
+
             $compressor = new Studio\Compressor(
                 $bounce_path,
                 [

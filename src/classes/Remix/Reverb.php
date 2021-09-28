@@ -107,7 +107,7 @@ var_dump(
                 $bounce_path,
                 [
                     'satus_code' => $code,
-                    'title' => $code . ' ' . \Remix\Preset\Http\StatusCode::get($code),
+                    'title' => \Remix\Preset\Http\StatusCode::get($code),
                     'message' => $exception->getMessage(),
                     'exception' => $exception,
                 ]

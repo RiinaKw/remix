@@ -65,10 +65,15 @@ final class StatusCode
         511 => 'Network Authentication Required',
     ];
 
-    public static function get(string $code): string
+    private static function getText(int $code): string
     {
         return self::CODES[$code] ?? 'Unknown Status Code';
     }
     // function get()
+
+    public static function get(int $code): string
+    {
+        return $code . ' ' . static::getText($code);
+    }
 }
 // class StatusCode

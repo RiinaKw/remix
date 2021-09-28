@@ -29,7 +29,7 @@
             "php ./vendor/bin/phpmd . text phpmd.xml cleancode,codesize,controversial,design,naming,unusedcode --exclude vendor"
         ],
         "phpcs": [
-            "./vendor/bin/phpcs ."
+            "php ./vendor/bin/phpcs ."
         ],
         "phpunit": [
             "php ./vendor/bin/phpunit"

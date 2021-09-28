@@ -83,14 +83,24 @@ class Reverb extends Gear
     public static function exeption(\Throwable $exception, Preset $preset): ?self
     {
         if ($exception instanceof Exceptions\HttpException) {
-            $status_code = $exception->getStatusCode();
-            $compressor = new Studio\Compressor('httperror', [
-                'satus_code' => $status_code,
-                'title' => $status_code . ' ' . \Remix\Preset\Http\StatusCode::get($status_code),
-                'message' => $exception->getMessage(),
-            ]);
+            $code = $exception->getStatusCode();
+            $bounce_dir = $preset->get('app.pathes.bounce_dir');;
+            $bounce_path =  $bounce_dir . '/errors/' . $code . '.tpl';
+            if (! file_exists($bounce_path)) {
+                $bounce_path = $preset->get('remix.pathes.bounce_dir') . '/httperror.tpl';
+            }
+            
+            $compressor = new Studio\Compressor(
+                $bounce_path,
+                [
+                    'satus_code' => $code,
+                    'title' => $code . ' ' . \Remix\Preset\Http\StatusCode::get($code),
+                    'message' => $exception->getMessage(),
+                    'exception' => $exception,
+                ]
+            );
             $compressor->preset($preset);
-            $compressor->statusCode($status_code);
+            $compressor->statusCode($code);
 
             return new static($compressor, $preset);
         }

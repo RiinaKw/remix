@@ -57,6 +57,9 @@ class MixerTest extends TestCase
         $this->mixer->route('/unknwon');
     }
 
+    /**
+     * @SuppressWarnings(PHPMD.Superglobals)
+     */
     public function test405(): void
     {
         $this->expectException(\Remix\Exceptions\HttpException::class);
@@ -64,7 +67,7 @@ class MixerTest extends TestCase
 
         // will throw exception when invalid method?
         $_SERVER['REQUEST_METHOD'] = 'POST';
-        $response = $this->mixer->route('/cb');
+        $this->mixer->route('/cb');
     }
 
     public function testName(): void

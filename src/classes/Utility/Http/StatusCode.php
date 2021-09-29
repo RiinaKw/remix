@@ -1,12 +1,11 @@
 <?php
 
-namespace Remix\Preset\Http;
+namespace Utility\Http;
 
 /**
  * HTTP status codes
  *
- * @package  Remix\Core
- * @deprecated  No need to make it a class.
+ * @package  Utility\Http
  */
 final class StatusCode
 {

@@ -2,11 +2,11 @@
 
 namespace Remix;
 
+use Remix\Instruments\Preset;
 use Utility\Hash;
 use Utility\Arr;
-use Remix\Instruments\Preset;
-use Remix\Preset\Http\MimeType;
-use Remix\Preset\Http\StatusCode;
+use Utility\Http\MimeType;
+use Utility\Http\StatusCode;
 use Remix\Exceptions\HttpException;
 
 /**

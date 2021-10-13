@@ -2,8 +2,11 @@
 
 namespace Remix\Effectors;
 
+use Remix\Audio;
 use Remix\Effector;
-use Remix\DJ;
+use Remix\Instruments\DJ;
+use Remix\Vinyl\Livehouse as Vinyl;
+use \Remix\DJ\Livehouse as DJLivehouse;
 use Remix\RemixException;
 
 /**
@@ -21,7 +24,7 @@ final class Livehouse extends Effector
     ];
 
     private static $table = null;
-    private static $vinyl_class = \Remix\Vinyl\Livehouse::class;
+    private static $vinyl_class = Vinyl::class;
 
     private static function setup(): void
     {
@@ -38,6 +41,7 @@ final class Livehouse extends Effector
     private static function find(): array
     {
         $livehouse_dir = \Remix\Audio::getInstance()->daw->appDir('livehouses');
+        $namespace = Audio::getInstance()->preset->get('app.namespace');
         $arr = [];
 
         foreach (glob($livehouse_dir . '/*.php') as $file) {
@@ -52,7 +56,7 @@ final class Livehouse extends Effector
                 }
 
                 require($file);
-                $class_ns = '\\App\\Livehouse\\' . $class;
+                $class_ns = '\\' . $namespace . '\\Livehouse\\' . $class;
                 if (! class_exists($class_ns)) {
                     $message = "The file '{$name}' doees not contain class '{$class_ns}'";
                     throw new RemixException($message);
@@ -96,7 +100,7 @@ final class Livehouse extends Effector
     }
     // function open()
 
-    private static function stepOpen(\Remix\DJ\Livehouse $livehouse): bool
+    private static function stepOpen(DJLivehouse $livehouse): bool
     {
         $vinyl = self::$vinyl_class::find($livehouse->name);
         if (! $vinyl) {
@@ -145,7 +149,7 @@ final class Livehouse extends Effector
     }
     // function close()
 
-    private static function stepClose(\Remix\DJ\Livehouse $livehouse): void
+    private static function stepClose(DJLivehouse $livehouse): void
     {
         $vinyl = self::$vinyl_class::find($livehouse->name);
         if ($vinyl) {

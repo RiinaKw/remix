@@ -3,7 +3,7 @@
 namespace Remix\DJ;
 
 use Remix\Gear;
-use Remix\DJ;
+use Remix\Instruments\DJ;
 use Remix\DJ\Setlist;
 use Remix\DJ\BPM;
 use Remix\DJ\BPM\Select;

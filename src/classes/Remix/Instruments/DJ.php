@@ -3,6 +3,7 @@
 namespace Remix\Instruments;
 
 use Remix\Instrument;
+use Remix\Audio;
 use Remix\DJ\Setlist;
 use Remix\DJ\Back2back;
 use Remix\DJ\Table;

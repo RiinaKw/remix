@@ -2,9 +2,10 @@
 
 namespace Remix;
 
-use Remix\DJ;
-use Remix\Turntable;
+use Remix\Instruments\DJ;
+use Remix\DJ\Table;
 use Remix\DJ\BPM;
+use Remix\Turntable;
 
 /**
  * Remix Vinyl : active Record
@@ -81,7 +82,7 @@ abstract class Vinyl extends Gear
      *
      * @return DJ\Table  Table object
      */
-    public static function table(): DJ\Table
+    public static function table(): Table
     {
         return DJ::table(static::TABLE);
     }

@@ -47,7 +47,7 @@ class TableTest extends TestCase
         $table->create(function (Table $table) {
             $table->int('id')->pk()->unsigned();
             $table->varchar('user_id', 100)->uq()->nullable()->default(0);
-            $table->timestamp('created_at')->currentTimestamp();
+            $table->timestamp('created_at')->idx()->currentTimestamp();
         });
 
         $columns = DJ::play('SHOW COLUMNS FROM test');
@@ -73,7 +73,42 @@ class TableTest extends TestCase
         $this->assertSame('created_at', $column['Field']);
         $this->assertSame('timestamp', $column['Type']);
         $this->assertSame('NO', $column['Null']);
-        $this->assertSame('', $column['Key']);
+        $this->assertSame('MUL', $column['Key']);
         $this->assertSame('current_timestamp()', $column['Default']);
+    }
+
+    public function testIndex()
+    {
+        DJ::play('DROP TABLE IF EXISTS test');
+
+        $table = DJ::table('test');
+        $table->create(function (Table $table) {
+            $table->int('id')->pk()->unsigned();
+            $table->varchar('user_id', 100)->uq();
+            $table->timestamp('created_at')->idx();
+        });
+
+        $columns = DJ::play('SHOW INDEXES FROM test');
+        $this->assertSame(3, count($columns));
+
+        $column = $columns->first();
+        $this->assertSame('test', $column['Table']);
+        $this->assertSame('PRIMARY', $column['Key_name']);
+        $this->assertSame('id', $column['Column_name']);
+        $this->assertSame('0', $column['Non_unique']);
+
+        $columns->next();
+        $column = $columns->current();
+        $this->assertSame('test', $column['Table']);
+        $this->assertSame('uq__test__user_id', $column['Key_name']);
+        $this->assertSame('user_id', $column['Column_name']);
+        $this->assertSame('0', $column['Non_unique']);
+
+        $columns->next();
+        $column = $columns->current();
+        $this->assertSame('test', $column['Table']);
+        $this->assertSame('idx__test__created_at', $column['Key_name']);
+        $this->assertSame('created_at', $column['Column_name']);
+        $this->assertSame('1', $column['Non_unique']);
     }
 }

@@ -113,7 +113,7 @@ class Table extends Gear
                 $message = 'Unknown index type "' . $column->index . '"';
                 throw new DJException($message);
         }
-        $index_name = $prefix . '_' . $this->name . '_' . $column->name;
+        $index_name = $prefix . '__' . $this->name . '__' . $column->name;
 
         $sql = "CREATE {$index_type} `{$index_name}` ON `{$this->name}`(`{$column->name}`);";
         $results = DJ::play($sql);

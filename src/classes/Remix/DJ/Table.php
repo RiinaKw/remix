@@ -7,6 +7,7 @@ use Remix\Instruments\DJ;
 use Remix\DJ\Setlist;
 use Remix\DJ\BPM;
 use Remix\DJ\BPM\Select;
+use Remix\DJ\Columns;
 use Remix\Exceptions\DJException;
 
 /**
@@ -93,7 +94,7 @@ class Table extends Gear
     public function createIndex(Column $column): void
     {
         if (! $this->exists()) {
-            $message = 'Table "' . $index_name .  '" does not exists';
+            $message = 'Table "' . $this->name .  '" does not exists';
             throw new DJException($message);
         }
         switch ($column->index) {
@@ -169,61 +170,47 @@ class Table extends Gear
     {
         if (! $this->columns_cache) {
             $columns = DJ::play('SHOW COLUMNS FROM ' . $this->name . '');
-            foreach ($columns as $column_def) {
-                $field = $column_def['Field'];
-                $type = strtolower($column_def['Type']);
-
-                preg_match('/^(?<type>\w+)(\((?<length>\d+)\))?/', $type, $matches);
-                $type = $matches['type'];
-                $length = $matches['length'] ?? 0;
-
-                $index = '';
-                switch ($column_def['Key']) {
-                default:
-                    break;
-                case 'PRI':
-                    $index = 'pk';
-                    break;
-                case 'UNI':
-                    $index = 'uq';
-                    break;
-                case 'MUL':
-                    $index = 'idx';
-                    break;
+            foreach ($columns as $def) {
+                $column = Column::constructFromDef($def);
+                switch ($def['Key']) {
+                    default:
+                        break;
+                    case 'PRI':
+                        $column->pk();
+                        break;
+                    case 'UNI':
+                        $column->uq();
+                        break;
+                    case 'MUL':
+                        $column->idx();
+                        break;
                 }
-
-                $column = new Column(
-                    $field,
-                    [
-                        'type' => $type,
-                        'length' => $length,
-                        'unsigned' => (strpos($column_def['Type'], 'unsigned') !== false),
-                        'nullable' => ($column_def['Null'] === 'YES'),
-                        'default' => $column_def['Default'] !== '' ? $column_def['Default'] : null,
-                        'index' => $index,
-                    ]
-                );
-                var_dump($column, $column_def);
-                $this->columns_cache[$field] = $column;
+                $this->columns_cache[$column->name] = $column;
             }
         }
-        //var_dump($this->columns_cache[$name]);
         return $this->columns_cache[$name] ?? null;
     }
     // function column()
 
     public function __call(string $type, $args): Column
     {
+        $name = $args[0];
         switch ($type) {
             case 'int':
-            case 'varchar':
-                $column = new Column($args[0], ['type' => $type, 'length' => $args[1] ?? false]);
+                $column = new Columns\IntCol($name, ($args[1] ?? false));
                 break;
 
-            case 'text':
+            case 'varchar':
+                $column = new Columns\VarcharCol($name, ($args[1] ?? false));
+                break;
+
+            //case 'text':
             case 'datetime':
+                $column = new Columns\DatetimeCol($name);
+                break;
+
             case 'timestamp':
-                $column = new Column($args[0], ['type' => $type]);
+                $column = new Columns\TimestampCol($name);
                 break;
 
             default:

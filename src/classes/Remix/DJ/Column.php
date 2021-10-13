@@ -11,18 +11,19 @@ use Remix\Exceptions\DJException;
  * @package  Remix\DB\Table
  * @todo Write the details.
  */
-class Column extends Gear
+abstract class Column extends Gear
 {
+    protected $name = '';
+    protected $type = '';
     protected $props = [];
 
-    public function __construct(string $name, array $params = [])
+    public function __construct(string $name, string $type, array $params = [])
     {
-        $this->props['name'] = $name;
-        $this->props['type'] = strtoupper($params['type']);
+        $this->name = $name;
+        $this->type = strtoupper($type);
         $this->props['length'] = $params['length'] ?? false;
         $this->props['nullable'] = $params['nullable'] ?? false;
         $this->props['unsigned'] = $params['unsigned'] ?? false;
-        //$this->props['default'] = ''; // unset is default
         if (isset($params['default'])) {
             $this->props['default'] = $params['default'];
         }
@@ -30,21 +31,59 @@ class Column extends Gear
         $this->props['index'] = $params['index'] ?? '';
     }
 
+    public static function constructFromDef(array $def = []): self
+    {
+        $type = strtolower($def['Type']);
+
+        preg_match('/^(?<type>\w+)(\((?<length>\d+)\))?/', $type, $matches);
+        $name = $def['Field'];
+        $type = $matches['type'];
+        $length = $matches['length'] ?? 0;
+
+        switch ($type) {
+            case 'int':
+                $column = Columns\IntCol::fromDef($name, $length, $def);
+                break;
+
+            case 'varchar':
+                $column = Columns\VarcharCol::fromDef($name, $length, $def);
+                break;
+
+            case 'text':
+                $column = Columns\TextCol::fromDef($name, $def);
+                break;
+
+            case 'datetime':
+                $column = Columns\DatetimeCol::fromDef($name, $def);
+                break;
+
+            case 'timestamp':
+                $column = Columns\TimestampCol::fromDef($name, $def);
+                break;
+
+            default:
+                $message = 'unknown method ' . $type;
+                throw new DJException($message);
+        }
+        if ($def['Null'] === 'YES') {
+            $column->nullable();
+        }
+        if ($def['Default'] !== null) {
+            $column->default($def['Default']);
+        }
+        return $column;
+    }
+
     public function __get(string $key)
     {
-        return $this->props[$key] ?? null;
-    }
-
-    public function autoIncrement(): self
-    {
-        $this->props['additional'][] = 'AUTO_INCREMENT';
-        return $this;
-    }
-
-    public function unsigned(): self
-    {
-        $this->props['unsigned'] = true;
-        return $this;
+        switch ($key) {
+            default:
+                return $this->props[$key] ?? null;
+            case 'name':
+                return $this->name;
+            case 'type':
+                return $this->type;
+        }
     }
 
     public function nullable(): self
@@ -59,16 +98,9 @@ class Column extends Gear
         return $this;
     }
 
-    public function currentTimestamp(): self
-    {
-        $this->props['default'] = 'current_timestamp()';
-        return $this;
-    }
-
     private function definitionType(): string
     {
-        $type = '';
-        switch ($this->props['type']) {
+        switch ($this->type) {
             case 'INT':
                 if ($this->props['length']) {
                     $type = "INT({$this->props['length']})";
@@ -87,10 +119,10 @@ class Column extends Gear
             case 'TEXT':
             case 'DATETIME':
             case 'TIMESTAMP':
-                $type = $this->props['type'];
+                $type = $this->type;
                 break;
         }
-        return "`{$this->props['name']}` {$type}";
+        return "`{$this->name}` {$type}";
     }
 
     private function definitionDefaultValue(): string
@@ -112,16 +144,19 @@ class Column extends Gear
         return '';
     }
 
-    public function __call(string $name, array $args): self
+    public function pk()
     {
-        switch ($name) {
-            case 'pk':
-            case 'uq':
-            case 'idx':
-                $this->props['index'] = $name;
-                break;
-        }
-        return $this;
+        $this->props['index'] = 'pk';
+    }
+
+    public function uq()
+    {
+        $this->props['index'] = 'uq';
+    }
+
+    public function idx()
+    {
+        $this->props['index'] = 'idx';
     }
 
     public function __toString()

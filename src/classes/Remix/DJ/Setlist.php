@@ -84,13 +84,7 @@ class Setlist extends Gear implements \Iterator, \Countable
 
     public function count(): int
     {
-        $sql = preg_replace(
-            '/^\s*(SELECT)\s+(.+)\s+(FROM)\s/',
-            'SELECT COUNT(*) FROM ',
-            $this->statement->queryString
-        );
-        $result = \Remix\DJ::first($sql, $this->holders);
-        return $result[0];
+        return $this->statement->rowCount();
     }
 
     public function current()

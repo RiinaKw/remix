@@ -20,6 +20,9 @@ class Table extends Gear
     protected $name;
     protected $columns = [];
 
+    protected $columns_cache = null;
+    protected $indexes_cache = null;
+
     public function __construct(string $name)
     {
         if (preg_match('/\W/', $name)) {
@@ -164,7 +167,48 @@ class Table extends Gear
 
     public function column(string $name): ?Column
     {
-        return $this->columns[$name] ?? null;
+        if (! $this->columns_cache) {
+            $columns = DJ::play('SHOW COLUMNS FROM ' . $this->name . '');
+            foreach ($columns as $column_def) {
+                $field = $column_def['Field'];
+                $type = strtolower($column_def['Type']);
+
+                preg_match('/^(?<type>\w+)(\((?<length>\d+)\))?/', $type, $matches);
+                $type = $matches['type'];
+                $length = $matches['length'] ?? 0;
+
+                $index = '';
+                switch ($column_def['Key']) {
+                default:
+                    break;
+                case 'PRI':
+                    $index = 'pk';
+                    break;
+                case 'UNI':
+                    $index = 'uq';
+                    break;
+                case 'MUL':
+                    $index = 'idx';
+                    break;
+                }
+
+                $column = new Column(
+                    $field,
+                    [
+                        'type' => $type,
+                        'length' => $length,
+                        'unsigned' => (strpos($column_def['Type'], 'unsigned') !== false),
+                        'nullable' => ($column_def['Null'] === 'YES'),
+                        'default' => $column_def['Default'] !== '' ? $column_def['Default'] : null,
+                        'index' => $index,
+                    ]
+                );
+                var_dump($column, $column_def);
+                $this->columns_cache[$field] = $column;
+            }
+        }
+        //var_dump($this->columns_cache[$name]);
+        return $this->columns_cache[$name] ?? null;
     }
     // function column()
 

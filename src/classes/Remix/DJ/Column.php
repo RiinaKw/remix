@@ -20,21 +20,19 @@ class Column extends Gear
         $this->props['name'] = $name;
         $this->props['type'] = strtoupper($params['type']);
         $this->props['length'] = $params['length'] ?? false;
-        $this->props['nullable'] = false;
-        $this->props['unsigned'] = false;
+        $this->props['nullable'] = $params['nullable'] ?? false;
+        $this->props['unsigned'] = $params['unsigned'] ?? false;
         //$this->props['default'] = ''; // unset is default
+        if (isset($params['default'])) {
+            $this->props['default'] = $params['default'];
+        }
         $this->props['additional'] = [];
-        $this->props['index'] = '';
+        $this->props['index'] = $params['index'] ?? '';
     }
 
     public function __get(string $key)
     {
-        switch ($key) {
-            case 'name':
-            case 'index':
-                return $this->props[$key] ?? null;
-        }
-        return null;
+        return $this->props[$key] ?? null;
     }
 
     public function autoIncrement(): self

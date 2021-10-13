@@ -85,7 +85,7 @@ class TableTest extends TestCase
         $table = DJ::table('test');
         $table->create(function (Table $table) {
             $table->int('id')->pk()->unsigned();
-            $table->varchar('user_id', 100)->uq();
+            $table->varchar('user_id', 100)->uq()->nullable()->default(0);
             $table->timestamp('created_at')->idx();
         });
 
@@ -112,4 +112,62 @@ class TableTest extends TestCase
         $this->assertSame('created_at', $column['Column_name']);
         $this->assertSame('1', $column['Non_unique']);
     }
+
+    public function testGetColumn(): void
+    {
+        DJ::play('DROP TABLE IF EXISTS test');
+
+        $table = DJ::table('test');
+        $table->create(function (Table $table) {
+            $table->int('id')->pk()->unsigned();
+            $table->varchar('user_id', 100)->uq()->nullable()->default(0);
+            $table->timestamp('created_at')->idx();
+        });
+        unset($table);
+
+        $table = DJ::table('test');
+        $column = $table->column('id');
+        $this->assertTrue($column instanceof Column);
+        $this->assertSame('id', $column->name);
+        $this->assertSame('INT', $column->type);
+        $this->assertSame('10', $column->length);
+        $this->assertSame(true, $column->unsigned);
+        $this->assertSame(false, $column->nullable);
+        $this->assertSame('pk', $column->index);
+
+        $column = $table->column('user_id');
+        $this->assertTrue($column instanceof Column);
+        $this->assertSame('user_id', $column->name);
+        $this->assertSame('VARCHAR', $column->type);
+        $this->assertSame('100', $column->length);
+        $this->assertSame(true, $column->nullable);
+        $this->assertSame('0', $column->default);
+        $this->assertSame('uq', $column->index);
+
+        $column = $table->column('created_at');
+        $this->assertTrue($column instanceof Column);
+        $this->assertSame('created_at', $column->name);
+        $this->assertSame('TIMESTAMP', $column->type);
+        $this->assertSame(false, $column->nullable);
+        $this->assertSame('current_timestamp()', $column->default);
+        $this->assertSame('idx', $column->index);
+    }
+
+/*
+    public function testGetIndex(): void
+    {
+        DJ::play('DROP TABLE IF EXISTS test');
+
+        $table = DJ::table('test');
+        $table->create(function (Table $table) {
+            $table->int('id')->pk()->unsigned();
+            $table->varchar('user_id', 100)->uq();
+            $table->timestamp('created_at')->idx();
+        });
+        unset($table);
+
+        $table = DJ::table('test');
+        //$index = $table->index('uq__test__user_id');
+        //$this->assertTrue($index instanceof Column);
+    }*/
 }

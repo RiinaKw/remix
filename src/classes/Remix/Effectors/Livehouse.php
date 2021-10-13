@@ -6,7 +6,7 @@ use Remix\Audio;
 use Remix\Effector;
 use Remix\Instruments\DJ;
 use Remix\Vinyl\Livehouse as Vinyl;
-use \Remix\DJ\Livehouse as DJLivehouse;
+use Remix\DJ\Livehouse as DJLivehouse;
 use Remix\RemixException;
 
 /**

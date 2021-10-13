@@ -706,36 +706,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Remix-Preset-Effector.html#constant_SHORTHANDLES"
         },                {
-            "fqsen": "\\Remix\\Preset\\Http\\MimeType",
-            "name": "MimeType",
-            "summary": "Mime\u0020type",
-            "url": "classes/Remix-Preset-Http-MimeType.html"
-        },                {
-            "fqsen": "\\Remix\\Preset\\Http\\MimeType\u003A\u003Aget\u0028\u0029",
-            "name": "get",
-            "summary": "",
-            "url": "classes/Remix-Preset-Http-MimeType.html#method_get"
-        },                {
-            "fqsen": "\\Remix\\Preset\\Http\\MimeType\u003A\u003ATYPES",
-            "name": "TYPES",
-            "summary": "",
-            "url": "classes/Remix-Preset-Http-MimeType.html#constant_TYPES"
-        },                {
-            "fqsen": "\\Remix\\Preset\\Http\\StatusCode",
-            "name": "StatusCode",
-            "summary": "HTTP\u0020status\u0020codes",
-            "url": "classes/Remix-Preset-Http-StatusCode.html"
-        },                {
-            "fqsen": "\\Remix\\Preset\\Http\\StatusCode\u003A\u003Aget\u0028\u0029",
-            "name": "get",
-            "summary": "",
-            "url": "classes/Remix-Preset-Http-StatusCode.html#method_get"
-        },                {
-            "fqsen": "\\Remix\\Preset\\Http\\StatusCode\u003A\u003ACODES",
-            "name": "CODES",
-            "summary": "",
-            "url": "classes/Remix-Preset-Http-StatusCode.html#constant_CODES"
-        },                {
             "fqsen": "\\Remix\\RemixException",
             "name": "RemixException",
             "summary": "Exception\u0020class\u0020of\u0020Remix",
@@ -1881,6 +1851,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Remix-Studio-RecordableWithTemplate.html#method_loadTemplate"
         },                {
+            "fqsen": "\\Remix\\Studio\\RecordableWithTemplate\u003A\u003AfindTemplateNS\u0028\u0029",
+            "name": "findTemplateNS",
+            "summary": "",
+            "url": "classes/Remix-Studio-RecordableWithTemplate.html#method_findTemplateNS"
+        },                {
             "fqsen": "\\Remix\\Studio\\RecordableWithTemplate\u003A\u003Atemplate\u0028\u0029",
             "name": "template",
             "summary": "Find\u0020and\u0020load\u0020a\u0020template\u0020file",
@@ -2316,6 +2291,41 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Remix-Studio-Compressor.html#property_bounce"
         },                {
+            "fqsen": "\\Utility\\Http\\MimeType",
+            "name": "MimeType",
+            "summary": "Mime\u0020type",
+            "url": "classes/Utility-Http-MimeType.html"
+        },                {
+            "fqsen": "\\Utility\\Http\\MimeType\u003A\u003Aget\u0028\u0029",
+            "name": "get",
+            "summary": "",
+            "url": "classes/Utility-Http-MimeType.html#method_get"
+        },                {
+            "fqsen": "\\Utility\\Http\\MimeType\u003A\u003ATYPES",
+            "name": "TYPES",
+            "summary": "",
+            "url": "classes/Utility-Http-MimeType.html#constant_TYPES"
+        },                {
+            "fqsen": "\\Utility\\Http\\StatusCode",
+            "name": "StatusCode",
+            "summary": "HTTP\u0020status\u0020codes",
+            "url": "classes/Utility-Http-StatusCode.html"
+        },                {
+            "fqsen": "\\Utility\\Http\\StatusCode\u003A\u003AgetText\u0028\u0029",
+            "name": "getText",
+            "summary": "",
+            "url": "classes/Utility-Http-StatusCode.html#method_getText"
+        },                {
+            "fqsen": "\\Utility\\Http\\StatusCode\u003A\u003Aget\u0028\u0029",
+            "name": "get",
+            "summary": "",
+            "url": "classes/Utility-Http-StatusCode.html#method_get"
+        },                {
+            "fqsen": "\\Utility\\Http\\StatusCode\u003A\u003ACODES",
+            "name": "CODES",
+            "summary": "",
+            "url": "classes/Utility-Http-StatusCode.html#constant_CODES"
+        },                {
             "fqsen": "\\",
             "name": "\\",
             "summary": "",
@@ -2360,11 +2370,6 @@ Search.appendIndex(
             "name": "Preset",
             "summary": "",
             "url": "namespaces/remix-preset.html"
-        },                {
-            "fqsen": "\\Remix\\Preset\\Http",
-            "name": "Http",
-            "summary": "",
-            "url": "namespaces/remix-preset-http.html"
         },                {
             "fqsen": "\\Remix\\Studio",
             "name": "Studio",

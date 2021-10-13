@@ -5,6 +5,7 @@ namespace Remix\CoreTests;
 use PHPUnit\Framework\TestCase;
 use Remix\Instruments\DJ;
 use Remix\DJ\Table;
+use Remix\DJ\Column;
 
 class TableTest extends TestCase
 {
@@ -77,7 +78,7 @@ class TableTest extends TestCase
         $this->assertSame('current_timestamp()', $column['Default']);
     }
 
-    public function testIndex()
+    public function testIndexes()
     {
         DJ::play('DROP TABLE IF EXISTS test');
 

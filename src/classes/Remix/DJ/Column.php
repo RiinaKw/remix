@@ -71,6 +71,9 @@ abstract class Column extends Gear
         if ($def['Default'] !== null) {
             $column->default($def['Default']);
         }
+        if ($def['Comment'] !== null) {
+            $column->comment($def['Comment']);
+        }
         return $column;
     }
 
@@ -144,19 +147,28 @@ abstract class Column extends Gear
         return '';
     }
 
-    public function pk()
+    public function pk(): self
     {
         $this->props['index'] = 'pk';
+        return $this;
     }
 
-    public function uq()
+    public function uq(): self
     {
         $this->props['index'] = 'uq';
+        return $this;
     }
 
-    public function idx()
+    public function idx(): self
     {
         $this->props['index'] = 'idx';
+        return $this;
+    }
+
+    public function comment(string $comment): self
+    {
+        $this->props['comment'] = $comment;
+        return $this;
     }
 
     public function __toString()
@@ -166,6 +178,9 @@ abstract class Column extends Gear
         $text .= $this->definitionDefaultValue();
         $text .= $this->props['additional'] ? (' ' . implode(' ', $this->props['additional'])) : '';
         $text .= $this->props['index'] === 'pk' ? ' PRIMARY KEY' : '';
+        if (isset($this->props['comment'])) {
+            $text .= " COMMENT '{$this->props['comment']}'";
+        }
         return $text;
     }
 }

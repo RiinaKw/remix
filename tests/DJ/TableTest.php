@@ -119,9 +119,10 @@ class TableTest extends TestCase
 
         $table = DJ::table('test');
         $table->create(function (Table $table) {
-            $table->int('id')->unsigned();
-            $table->varchar('user_id', 100)->nullable()->default(0);
-            $table->timestamp('created_at');
+            $table->comment('sample table');
+            $table->int('id')->unsigned()->comment('sample');
+            $table->varchar('user_id', 100)->nullable()->default(0)->comment('of');
+            $table->timestamp('created_at')->comment('comment');
         });
         unset($table);
 
@@ -133,6 +134,7 @@ class TableTest extends TestCase
         $this->assertSame(10, $column->length);
         $this->assertSame(true, $column->unsigned);
         $this->assertSame(false, $column->nullable);
+        $this->assertSame('sample', $column->comment);
 
         $column = $table->column('user_id');
         $this->assertTrue($column instanceof Columns\VarcharCol);
@@ -141,6 +143,7 @@ class TableTest extends TestCase
         $this->assertSame(100, $column->length);
         $this->assertSame(true, $column->nullable);
         $this->assertSame('0', $column->default);
+        $this->assertSame('of', $column->comment);
 
         $column = $table->column('created_at');
         $this->assertTrue($column instanceof Columns\TimestampCol);
@@ -148,6 +151,7 @@ class TableTest extends TestCase
         $this->assertSame('TIMESTAMP', $column->type);
         $this->assertSame(false, $column->nullable);
         $this->assertSame('current_timestamp()', $column->default);
+        $this->assertSame('comment', $column->comment);
     }
 
 /*

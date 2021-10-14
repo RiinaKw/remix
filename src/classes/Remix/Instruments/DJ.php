@@ -40,6 +40,9 @@ class DJ extends Instrument
                 static::$connection = new \PDO($preset['dsn'], $preset['user'], $preset['password']);
             }
         }
+
+        static::$connection->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);
+        //static::$connection->setAttribute(\PDO::ATTR_EMULATE_PREPARES, false);
     }
 
     public static function prepare(string $sql, array $params = []): Setlist

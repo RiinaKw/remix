@@ -22,7 +22,6 @@ class Setlist extends Gear implements \Iterator, \Countable
     private $i = 0;
     private $cur_row = null;
 
-    //public function __construct($statement)
     public function __construct(\PDOStatement $statement, array $holders = [])
     {
         parent::__construct();
@@ -75,6 +74,11 @@ class Setlist extends Gear implements \Iterator, \Countable
         return $this->dump();
     }
     // function play()
+
+    public function all(): array
+    {
+        return $this->statement->fetchAll();
+    }
 
     public function first()
     {

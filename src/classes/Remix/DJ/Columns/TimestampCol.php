@@ -29,7 +29,6 @@ class TimestampCol extends Column
 
     public function currentTimestamp(): self
     {
-        $this->props['default'] = 'current_timestamp()';
-        return $this;
+        return $this->default('current_timestamp()');
     }
 }

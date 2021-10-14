@@ -19,6 +19,7 @@ use Remix\Exceptions\DJException;
 class Table extends Gear
 {
     protected $name;
+    protected $comment = '';
     protected $columns = [];
 
     protected $columns_cache = null;
@@ -55,6 +56,11 @@ class Table extends Gear
     }
     // function exists()
 
+    public function comment(string $comment)
+    {
+        $this->comment = $comment;
+    }
+
     public function create(callable $cb): bool
     {
         if (! $this->exists()) {
@@ -68,7 +74,11 @@ class Table extends Gear
                 $columns_string[] = (string)$column;
             }
             $columns = implode(', ', $columns_string);
-            $sql = "CREATE TABLE `{$this->name}` ({$columns});";
+            $sql = "CREATE TABLE `{$this->name}` ({$columns})";
+            if ($this->comment) {
+                $sql .= " COMMENT='{$this->comment}'";
+            }
+            $sql .= ';';
 
             try {
                 if (DJ::play($sql)) {
@@ -166,10 +176,31 @@ class Table extends Gear
     }
     // function select()
 
+    public function dumpCreate()
+    {
+        if ($this->exists()) {
+            $sql = "SHOW CREATE TABLE `{$this->name}`;";
+            $setlist = DJ::play($sql);
+            return $setlist->first();
+        }
+        return null;
+    }
+
+    public function dumpColumns()
+    {
+        if ($this->exists()) {
+            $sql = "SHOW FULL COLUMNS FROM `{$this->name}`;";
+            $setlist = DJ::play($sql);
+            return $setlist->all();
+        }
+        return null;
+    }
+
     public function column(string $name): ?Column
     {
         if (! $this->columns_cache) {
-            $columns = DJ::play('SHOW COLUMNS FROM ' . $this->name . '');
+            $sql = "SHOW FULL COLUMNS FROM `{$this->name}`;";
+            $columns = DJ::play($sql);
             foreach ($columns as $def) {
                 $column = Column::constructFromDef($def);
                 switch ($def['Key']) {

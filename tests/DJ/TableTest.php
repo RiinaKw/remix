@@ -23,7 +23,7 @@ class TableTest extends TestCase
     public function testTable(): void
     {
         $table = DJ::table('test');
-        $this->assertTrue($table instanceof Table);
+        $this->assertInstanceof(Table::class, $table);
         $this->assertSame('test', $table->name);
     }
 
@@ -53,7 +53,7 @@ class TableTest extends TestCase
         });
 
         $columns = DJ::play('SHOW COLUMNS FROM test');
-        $this->assertSame(3, count($columns));
+        $this->assertCount(3, $columns);
 
         $column = $columns->first();
         $this->assertSame('id', $column['Field']);
@@ -73,10 +73,9 @@ class TableTest extends TestCase
         $this->assertSame('created_at', $column['Field']);
         $this->assertSame('timestamp', $column['Type']);
         $this->assertSame('NO', $column['Null']);
-        $this->assertSame('current_timestamp()', $column['Default']);
+        $this->assertContains($column['Default'], ['current_timestamp()', 'CURRENT_TIMESTAMP']);
     }
 
-/*
     public function testIndexes()
     {
         DJ::play('DROP TABLE IF EXISTS test');
@@ -89,7 +88,7 @@ class TableTest extends TestCase
         });
 
         $columns = DJ::play('SHOW INDEXES FROM test');
-        $this->assertSame(3, count($columns));
+        $this->assertCount(3, $columns);
 
         $column = $columns->first();
         $this->assertSame('test', $column['Table']);
@@ -111,7 +110,6 @@ class TableTest extends TestCase
         $this->assertSame('created_at', $column['Column_name']);
         $this->assertSame('1', $column['Non_unique']);
     }
-*/
 
     public function testGetColumn(): void
     {
@@ -120,15 +118,15 @@ class TableTest extends TestCase
         $table = DJ::table('test');
         $table->create(function (Table $table) {
             $table->comment('sample table');
-            $table->int('id')->unsigned()->comment('sample');
-            $table->varchar('user_id', 100)->nullable()->default(0)->comment('of');
-            $table->timestamp('created_at')->comment('comment');
+            $table->int('id')->unsigned()->pk()->comment('sample');
+            $table->varchar('user_id', 100)->uq()->nullable()->default(0)->comment('of');
+            $table->timestamp('created_at')->idx()->comment('comment');
         });
         unset($table);
 
         $table = DJ::table('test');
         $column = $table->column('id');
-        $this->assertTrue($column instanceof Columns\IntCol);
+        $this->assertInstanceof(Columns\IntCol::class, $column);
         $this->assertSame('id', $column->name);
         $this->assertSame('INT', $column->type);
         $this->assertSame(10, $column->length);
@@ -137,7 +135,7 @@ class TableTest extends TestCase
         $this->assertSame('sample', $column->comment);
 
         $column = $table->column('user_id');
-        $this->assertTrue($column instanceof Columns\VarcharCol);
+        $this->assertInstanceof(Columns\VarcharCol::class, $column);
         $this->assertSame('user_id', $column->name);
         $this->assertSame('VARCHAR', $column->type);
         $this->assertSame(100, $column->length);
@@ -146,11 +144,11 @@ class TableTest extends TestCase
         $this->assertSame('of', $column->comment);
 
         $column = $table->column('created_at');
-        $this->assertTrue($column instanceof Columns\TimestampCol);
+        $this->assertInstanceof(Columns\TimestampCol::class, $column);
         $this->assertSame('created_at', $column->name);
         $this->assertSame('TIMESTAMP', $column->type);
         $this->assertSame(false, $column->nullable);
-        $this->assertSame('current_timestamp()', $column->default);
+        $this->assertContains($column->default, ['current_timestamp()', 'CURRENT_TIMESTAMP']);
         $this->assertSame('comment', $column->comment);
     }
 
@@ -168,7 +166,8 @@ class TableTest extends TestCase
         unset($table);
 
         $table = DJ::table('test');
-        //$index = $table->index('uq__test__user_id');
-        //$this->assertTrue($index instanceof Column);
-    }*/
+        $index = $table->index('uq__test__user_id');
+        $this->assertInstanceof(Column::class, $index);
+    }
+*/
 }

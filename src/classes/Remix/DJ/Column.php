@@ -40,31 +40,39 @@ abstract class Column extends Gear
         $type = $matches['type'];
         $length = $matches['length'] ?? 0;
 
-        switch ($type) {
-            case 'int':
-                $column = Columns\IntCol::fromDef($name, $length, $def);
-                break;
-
-            case 'varchar':
-                $column = Columns\VarcharCol::fromDef($name, $length, $def);
-                break;
-
-            case 'text':
-                $column = Columns\TextCol::fromDef($name, $def);
-                break;
-
-            case 'datetime':
-                $column = Columns\DatetimeCol::fromDef($name, $def);
-                break;
-
-            case 'timestamp':
-                $column = Columns\TimestampCol::fromDef($name, $def);
-                break;
-
-            default:
-                $message = 'unknown method ' . $type;
-                throw new DJException($message);
+        $types = [
+            'int' => [
+                'class' => Columns\IntCol::class,
+                'ignore_length' => false,
+            ],
+            'varchar' => [
+                'class' => Columns\VarcharCol::class,
+                'ignore_length' => false,
+            ],
+            'text' => [
+                'class' => Columns\TextCol::class,
+                'ignore_length' => true,
+            ],
+            'datetime' => [
+                'class' => Columns\DatetimeCol::class,
+                'ignore_length' => true,
+            ],
+            'timestamp' => [
+                'class' => Columns\TimestampCol::class,
+                'ignore_length' => true,
+            ],
+        ];
+        if (! isset($types[$type])) {
+            $message = 'unknown method ' . $type;
+            throw new DJException($message);
         }
+        $typedef = $types[$type];
+        if ($typedef['ignore_length']) {
+            $column = $typedef['class']::fromDef($name, $def);
+        } else {
+            $column = $typedef['class']::fromDef($name, $length, $def);
+        }
+
         if ($def['Null'] === 'YES') {
             $column->nullable();
         }
@@ -74,6 +82,22 @@ abstract class Column extends Gear
         if ($def['Comment'] !== null) {
             $column->comment($def['Comment']);
         }
+
+        $indexes = [
+            'PRI' => function ($column) {
+                $column->pk();
+            },
+            'UNI' => function ($column) {
+                $column->uq();
+            },
+            'MUL' => function ($column) {
+                $column->idx();
+            },
+        ];
+        if (isset($indexes[$def['Key']])) {
+            $indexes[$def['Key']]($column);
+        }
+
         return $column;
     }
 

@@ -22,7 +22,6 @@ class Table extends Gear
     protected $comment = '';
     protected $columns = [];
 
-    protected $columns_cache = null;
     protected $indexes_cache = null;
 
     public function __construct(string $name)
@@ -176,50 +175,10 @@ class Table extends Gear
     }
     // function select()
 
-    public function dumpCreate()
+    public function column(string $column): ?Column
     {
-        if ($this->exists()) {
-            $sql = "SHOW CREATE TABLE `{$this->name}`;";
-            $setlist = DJ::play($sql);
-            return $setlist->first();
-        }
-        return null;
-    }
-
-    public function dumpColumns()
-    {
-        if ($this->exists()) {
-            $sql = "SHOW FULL COLUMNS FROM `{$this->name}`;";
-            $setlist = DJ::play($sql);
-            return $setlist->all();
-        }
-        return null;
-    }
-
-    public function column(string $name): ?Column
-    {
-        if (! $this->columns_cache) {
-            $sql = "SHOW FULL COLUMNS FROM `{$this->name}`;";
-            $columns = DJ::play($sql);
-            foreach ($columns as $def) {
-                $column = Column::constructFromDef($def);
-                switch ($def['Key']) {
-                    default:
-                        break;
-                    case 'PRI':
-                        $column->pk();
-                        break;
-                    case 'UNI':
-                        $column->uq();
-                        break;
-                    case 'MUL':
-                        $column->idx();
-                        break;
-                }
-                $this->columns_cache[$column->name] = $column;
-            }
-        }
-        return $this->columns_cache[$name] ?? null;
+        $def = DJ::dumpColumns($this->name, $column);
+        return $def ? Column::constructFromDef($def) : null;
     }
     // function column()
 

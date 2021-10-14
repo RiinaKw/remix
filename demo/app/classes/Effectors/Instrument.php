@@ -32,7 +32,7 @@ class Instrument extends Effector
         static::line(
             'I like John Cage\'s '
             . Effector::color('4\'33"', 'black', 'yellow')
-            . '... is it not piano!?',
+            . '... is it not piano!?'
         );
     }
 

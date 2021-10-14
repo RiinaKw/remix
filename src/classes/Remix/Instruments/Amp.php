@@ -58,7 +58,7 @@ class Amp extends Instrument
 
         foreach (glob($effector_dir . '/{*.php}', GLOB_BRACE) as $file) {
             if (is_file($file)) {
-                preg_match('/\/(?<name>.+?).php$/', $file, $matches);
+                preg_match('/(?<name>[^\/]+?).php$/', $file, $matches);
                 $name = $matches['name'];
 
                 $target = static::$namespaces[$namespace] . $name;

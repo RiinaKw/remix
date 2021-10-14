@@ -13,14 +13,11 @@ use Utility\Capture;
  * @package  Remix\DB
  * @todo Write the details.
  */
-class Setlist extends Gear implements \Iterator, \Countable
+class Setlist extends Gear implements \IteratorAggregate, \Countable
 {
     protected $holders;
     protected $statement = null;
     protected $exexuted = '';
-
-    private $i = 0;
-    private $cur_row = null;
 
     public function __construct(\PDOStatement $statement, array $holders = [])
     {
@@ -30,6 +27,11 @@ class Setlist extends Gear implements \Iterator, \Countable
         $this->statement = $statement;
     }
     // function __construct()
+
+    public function getIterator()
+    {
+        return $this->statement;
+    }
 
     public function asVinyl($classname): self
     {
@@ -86,36 +88,14 @@ class Setlist extends Gear implements \Iterator, \Countable
         return $result ? $this->statement->fetch() : null;
     }
 
+    public function fetch()
+    {
+        return $this->statement->fetch();
+    }
+
     public function count(): int
     {
         return $this->statement->rowCount();
-    }
-
-    public function current()
-    {
-        return $this->cur_row;
-    }
-
-    public function key()
-    {
-        return $this->i;
-    }
-
-    public function next(): void
-    {
-        $this->cur_row = $this->statement->fetch();
-        ++$this->i;
-    }
-
-    public function rewind(): void
-    {
-        $this->cur_row = $this->statement->fetch();
-        $this->i = 0;
-    }
-
-    public function valid(): bool
-    {
-        return (bool)$this->cur_row;
     }
 }
 // class Setlist

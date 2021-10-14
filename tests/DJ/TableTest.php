@@ -55,21 +55,19 @@ class TableTest extends TestCase
         $columns = DJ::play('SHOW COLUMNS FROM test');
         $this->assertCount(3, $columns);
 
-        $column = $columns->first();
+        $column = $columns->fetch();
         $this->assertSame('id', $column['Field']);
         $this->assertSame('int(10) unsigned', $column['Type']);
         $this->assertSame('NO', $column['Null']);
         $this->assertSame(null, $column['Default']);
 
-        $columns->next();
-        $column = $columns->current();
+        $column = $columns->fetch();
         $this->assertSame('user_id', $column['Field']);
         $this->assertSame('varchar(100)', $column['Type']);
         $this->assertSame('YES', $column['Null']);
         $this->assertSame('0', $column['Default']);
 
-        $columns->next();
-        $column = $columns->current();
+        $column = $columns->fetch();
         $this->assertSame('created_at', $column['Field']);
         $this->assertSame('timestamp', $column['Type']);
         $this->assertSame('NO', $column['Null']);
@@ -90,21 +88,19 @@ class TableTest extends TestCase
         $columns = DJ::play('SHOW INDEXES FROM test');
         $this->assertCount(3, $columns);
 
-        $column = $columns->first();
+        $column = $columns->fetch();
         $this->assertSame('test', $column['Table']);
         $this->assertSame('PRIMARY', $column['Key_name']);
         $this->assertSame('id', $column['Column_name']);
         $this->assertSame('0', $column['Non_unique']);
 
-        $columns->next();
-        $column = $columns->current();
+        $column = $columns->fetch();
         $this->assertSame('test', $column['Table']);
         $this->assertSame('uq__test__user_id', $column['Key_name']);
         $this->assertSame('user_id', $column['Column_name']);
         $this->assertSame('0', $column['Non_unique']);
 
-        $columns->next();
-        $column = $columns->current();
+        $column = $columns->fetch();
         $this->assertSame('test', $column['Table']);
         $this->assertSame('idx__test__created_at', $column['Key_name']);
         $this->assertSame('created_at', $column['Column_name']);

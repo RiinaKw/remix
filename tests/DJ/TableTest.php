@@ -194,6 +194,7 @@ class TableTest extends TestCase
         });
         unset($table);
 
+        // Now there are 3 columns
         $table = DJ::table('test');
         $columns = $table->operate()->columns();
         array_walk($columns, function (&$item) {
@@ -201,16 +202,46 @@ class TableTest extends TestCase
         });
         $this->assertSame(['id', 'user_id', 'created_at'], $columns);
 
-        /*
-        $table->modify(function (Table $table) {
-            Column::text('description')->appendTo($table);
-        });
+        // Add a column
+        $table->operate()->modify([
+            Column::text('description'),
+        ]);
 
+        // There should be 4 columns
         $columns = $table->operate()->columns();
         array_walk($columns, function (&$item) {
             $item = $item['Field'];
         });
         $this->assertSame(['id', 'user_id', 'created_at', 'description'], $columns);
-        */
+    }
+
+    public function testAddColumnWithOrder(): void
+    {
+        DJ::play('DROP TABLE IF EXISTS test');
+
+        $table = DJ::table('test');
+        $table->operate()->create(function (Table $table) {
+            $table->comment('sample table');
+            Column::int('id')->unsigned()->comment('sample')
+                ->pk()->appendTo($table);
+            Column::varchar('user_id', 100)->nullable()->default(0)->comment('of')
+                ->uq()->appendTo($table);
+            Column::timestamp('created_at')->currentTimestamp()->comment('comment')
+                ->idx()->appendTo($table);
+        });
+        unset($table);
+
+        // Add a column after id
+        $table = DJ::table('test');
+        $table->operate()->modify([
+            Column::varchar('name', 100)->after('id'),
+        ]);
+
+        // Has order changed?
+        $columns = $table->operate()->columns();
+        array_walk($columns, function (&$item) {
+            $item = $item['Field'];
+        });
+        $this->assertSame(['id', 'name', 'user_id', 'created_at'], $columns);
     }
 }

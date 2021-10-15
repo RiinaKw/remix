@@ -165,6 +165,7 @@ abstract class Column extends Gear
 
             case 'default':
             case 'comment':
+            case 'after':
                 $this->props[$key] = $arg[0];
                 break;
 

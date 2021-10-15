@@ -101,12 +101,55 @@ class Operate extends Gear
     }
     // function create()
 
+    public function modify(array $columns): bool
+    {
+        $name = $this->table->name;
+        if (! $this->exists()) {
+            throw new DJException("Table '{$name}' does not exists");
+        }
+
+        $add_columns = [];
+        foreach ($columns as $key => $column) {
+            if (is_numeric($key)) {
+                // add
+                $add_columns[] = $column;
+            } else {
+                // modify
+            }
+        }
+        if ($add_columns) {
+            $columns_string = [];
+            foreach ($add_columns as $column) {
+                $sql = 'ADD COLUMN ' . (string)$column;
+                if ($column->after) {
+                    $sql .= " AFTER `{$column->after}`";
+                }
+                $columns_string[] = $sql;
+            }
+            $columns_sql = implode(', ', $columns_string);
+            $sql = "ALTER TABLE `{$name}` {$columns_sql};";
+
+            try {
+                if (DJ::play($sql)) {
+                    foreach ($add_columns as $column) {
+                        $this->createIndex($column);
+                    }
+                    return true;
+                } else {
+                    throw new DJException("Cannot modify table '{$name}'");
+                }
+            } catch (\Exception $e) {
+                throw new DJException($e->getMessage());
+            }
+        }
+        return false;
+    }
+
     public function createIndex(Column $column): void
     {
         $name = $this->table->name;
         if (! $this->exists()) {
-            $message = "Table '{$name}' does not exists";
-            throw new DJException($message);
+            throw new DJException("Table '{$name}' does not exists");
         }
 
         switch ($column->index) {
@@ -137,7 +180,7 @@ class Operate extends Gear
             throw new DJException("Cannot create index '{$index_name}' for table '{$name}'");
         }
     }
-    // function index()
+    // function createIndex()
 
     public function createTable()
     {

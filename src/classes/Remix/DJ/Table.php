@@ -149,14 +149,14 @@ class Table extends Gear
 
     public function column(string $column): ?Column
     {
-        $def = DJ::dumpColumns($this->name, $column);
+        $def = $this->operate()->columns($column);
         return $def ? Column::constructFromDef($def) : null;
     }
     // function column()
 
     public function index(string $index): ?Index
     {
-        $def = DJ::dumpIndexes($this->name, $index);
+        $def = $this->operate()->indexes($index);
         return $def ? Index::constructFromDef($def) : null;
     }
 }

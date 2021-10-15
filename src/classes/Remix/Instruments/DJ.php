@@ -82,55 +82,5 @@ class DJ extends Instrument
         return new Table($name);
     }
     // function table()
-
-    public function dumpCreateTable(string $table)
-    {
-        if (static::table($table)->operate()->exists()) {
-            $sql = "SHOW CREATE TABLE `{$table}`;";
-            $setlist = static::play($sql);
-            return $setlist->first();
-        }
-        return null;
-    }
-
-    public function dumpColumns(string $table, string $column = null)
-    {
-        if (static::table($table)->operate()->exists()) {
-            $params = [];
-            $sql = "SHOW FULL COLUMNS FROM `{$table}`";
-            if ($column) {
-                $sql .= " WHERE Field = :column";
-                $params['column'] = $column;
-            }
-            $sql .= ';';
-            $setlist = static::play($sql, $params);
-            if ($column) {
-                return $setlist->first();
-            } else {
-                return $setlist->all();
-            }
-        }
-        return null;
-    }
-
-    public function dumpIndexes(string $table, string $index = null)
-    {
-        if (static::table($table)->operate()->exists()) {
-            $params = [];
-            $sql = "SHOW INDEX FROM `{$table}`";
-            if ($index) {
-                $sql .= " WHERE Key_name = :index";
-                $params['index'] = $index;
-            }
-            $sql .= ';';
-            $setlist = static::play($sql, $params);
-            if ($index) {
-                return $setlist->first();
-            } else {
-                return $setlist->all();
-            }
-        }
-        return null;
-    }
 }
 // class DJ

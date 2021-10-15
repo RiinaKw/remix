@@ -58,4 +58,57 @@ class Operate extends Gear
         }
     }
     // function truncate()
+
+    public function createTable()
+    {
+        $name = $this->table->name;
+        if ($this->exists()) {
+            $sql = "SHOW CREATE TABLE `{$name}`;";
+            $setlist = DJ::play($sql);
+            return $setlist->first();
+        }
+        return null;
+    }
+
+    public function columns(string $column = null)
+    {
+        $name = $this->table->name;
+        if ($this->exists()) {
+            $params = [];
+            $sql = "SHOW FULL COLUMNS FROM `{$name}`";
+            if ($column) {
+                $sql .= " WHERE Field = :column";
+                $params['column'] = $column;
+            }
+            $sql .= ';';
+            $setlist = DJ::play($sql, $params);
+            if ($column) {
+                return $setlist->first();
+            } else {
+                return $setlist->all();
+            }
+        }
+        return null;
+    }
+
+    public function indexes(string $index = null)
+    {
+        $name = $this->table->name;
+        if ($this->exists()) {
+            $params = [];
+            $sql = "SHOW INDEX FROM `{$name}`";
+            if ($index) {
+                $sql .= " WHERE Key_name = :index";
+                $params['index'] = $index;
+            }
+            $sql .= ';';
+            $setlist = DJ::play($sql, $params);
+            if ($index) {
+                return $setlist->first();
+            } else {
+                return $setlist->all();
+            }
+        }
+        return null;
+    }
 }

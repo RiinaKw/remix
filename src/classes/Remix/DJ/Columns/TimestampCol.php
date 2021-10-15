@@ -27,8 +27,16 @@ class TimestampCol extends Column
         return $column;
     }
 
-    public function currentTimestamp(): self
+    public function __call(string $key, array $arg): self
     {
-        return $this->default('current_timestamp()');
+        switch ($key) {
+            case 'currentTimestamp':
+                $this->default('current_timestamp()');
+                break;
+
+            default:
+                parent::__call($key, $arg);
+        }
+        return $this;
     }
 }

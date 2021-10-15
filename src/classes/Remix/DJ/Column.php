@@ -13,24 +13,24 @@ use Remix\Exceptions\DJException;
  */
 abstract class Column extends Gear
 {
+    protected $table = '';
     protected $name = '';
     protected $type = '';
     protected $props = [];
-/*
-    public static function int(string $name, int $length = 11)
-    {
-        return new Columns\IntCol($name, $length);
-    }
 
-    public static function varchar(string $name, int $length = 11)
+    public function __construct(string $name, string $type, array $params = [])
     {
-        return new Columns\VarcharCol($name, $length);
+        $this->name = $name;
+        $this->type = strtoupper($type);
+        $this->props['length'] = $params['length'] ?? false;
+        $this->props['nullable'] = $params['nullable'] ?? false;
+        $this->props['unsigned'] = $params['unsigned'] ?? false;
+        if (isset($params['default'])) {
+            $this->props['default'] = $params['default'];
+        }
+        $this->props['additional'] = [];
+        $this->props['index'] = $params['index'] ?? '';
     }
-
-    public static function timestamp(string $name)
-    {
-        return new Columns\TimestampCol($name);
-    }*/
 
     public static function __callStatic($type, $args): self
     {
@@ -66,20 +66,6 @@ abstract class Column extends Gear
     {
         $this->table = $table->name;
         $table->append($this);
-    }
-
-    public function __construct(string $name, string $type, array $params = [])
-    {
-        $this->name = $name;
-        $this->type = strtoupper($type);
-        $this->props['length'] = $params['length'] ?? false;
-        $this->props['nullable'] = $params['nullable'] ?? false;
-        $this->props['unsigned'] = $params['unsigned'] ?? false;
-        if (isset($params['default'])) {
-            $this->props['default'] = $params['default'];
-        }
-        $this->props['additional'] = [];
-        $this->props['index'] = $params['index'] ?? '';
     }
 
     public static function constructFromDef(array $def = []): self
@@ -164,15 +150,27 @@ abstract class Column extends Gear
         }
     }
 
-    public function nullable(): self
+    public function __call(string $key, array $arg): self
     {
-        $this->props['nullable'] = true;
-        return $this;
-    }
+        switch ($key) {
+            case 'pk':
+            case 'uq':
+            case 'idx':
+                $this->props['index'] = $key;
+                break;
 
-    public function default($value): self
-    {
-        $this->props['default'] = $value;
+            case 'nullable':
+                $this->props[$key] = true;
+                break;
+
+            case 'default':
+            case 'comment':
+                $this->props[$key] = $arg[0];
+                break;
+
+            default:
+                throw new DJException("unknown method '{$key}'");
+        }
         return $this;
     }
 
@@ -220,30 +218,6 @@ abstract class Column extends Gear
             return ' DEFAULT ' . $formatted;
         }
         return '';
-    }
-
-    public function pk(): self
-    {
-        $this->props['index'] = 'pk';
-        return $this;
-    }
-
-    public function uq(): self
-    {
-        $this->props['index'] = 'uq';
-        return $this;
-    }
-
-    public function idx(): self
-    {
-        $this->props['index'] = 'idx';
-        return $this;
-    }
-
-    public function comment(string $comment): self
-    {
-        $this->props['comment'] = $comment;
-        return $this;
     }
 
     public function __toString()

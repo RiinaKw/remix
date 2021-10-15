@@ -3,6 +3,7 @@
 namespace Remix\DJ\Columns;
 
 use Remix\DJ\Column;
+use Remix\Exceptions\DJException;
 
 /**
  * Remix DJ Column : column definition of DB table
@@ -34,9 +35,16 @@ class IntCol extends Column
         return $this;
     }
 
-    public function unsigned(): self
+    public function __call(string $key, array $arg): self
     {
-        $this->props['unsigned'] = true;
+        switch ($key) {
+            case 'unsigned':
+                $this->props[$key] = true;
+                break;
+
+            default:
+                parent::__call($key, $arg);
+        }
         return $this;
     }
 }

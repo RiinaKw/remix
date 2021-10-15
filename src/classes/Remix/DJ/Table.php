@@ -8,10 +8,11 @@ use Remix\DJ\Setlist;
 use Remix\DJ\BPM;
 use Remix\DJ\BPM\Select;
 use Remix\DJ\Columns;
+use Remix\DJ\Table\Operate;
 use Remix\Exceptions\DJException;
 
 /**
- * Remix DJ Table : DB tables
+ * Remix DJ Table : DB tables definition
  *
  * @package  Remix\DB\Table
  * @todo Write the details.
@@ -35,6 +36,11 @@ class Table extends Gear
     }
     // function __construct()
 
+    public function operate(): Operate
+    {
+        return new Operate($this);
+    }
+
     public function __get(string $key)
     {
         switch ($key) {
@@ -48,13 +54,6 @@ class Table extends Gear
     }
     // function __get()
 
-    public function exists(): bool
-    {
-        $result = DJ::first('SHOW TABLES LIKE :table;', [':table' => $this->name]);
-        return (bool)$result;
-    }
-    // function exists()
-
     public function comment(string $comment)
     {
         $this->comment = $comment;
@@ -67,7 +66,7 @@ class Table extends Gear
 
     public function create(callable $cb): bool
     {
-        if (! $this->exists()) {
+        if (! $this->operate()->exists()) {
             $cb($this);
             if (count($this->columns) < 1) {
                 $message = "Table '{$this->name}' must contains any column";
@@ -107,7 +106,7 @@ class Table extends Gear
 
     protected function createIndex(Column $column): void
     {
-        if (! $this->exists()) {
+        if (! $this->operate()->exists()) {
             $message = 'Table "' . $this->name .  '" does not exists';
             throw new DJException($message);
         }
@@ -142,36 +141,6 @@ class Table extends Gear
     }
     // function index()
 
-    public function drop(): bool
-    {
-        if ($this->exists()) {
-            $result = DJ::play("DROP TABLE `{$this->name}`;");
-            if ($result) {
-                $this->columns = [];
-                return true;
-            } else {
-                $message = "Table '{$this->name}' is not exists";
-                throw new DJException($message);
-            }
-        } else {
-            $message = "Table '{$this->name}' is not exists";
-            throw new DJException($message);
-        }
-        return false;
-    }
-    // function drop()
-
-    public function truncate(): bool
-    {
-        if ($this->exists()) {
-            return DJ::play("TRUNCATE TABLE `{$this->name}`;") !== false;
-        } else {
-            $message = "Table '{$this->name}' is not exists";
-            throw new DJException($message);
-        }
-    }
-    // function truncate()
-
     public function select(): BPM
     {
         return new Select($this->name);
@@ -190,39 +159,5 @@ class Table extends Gear
         $def = DJ::dumpIndexes($this->name, $index);
         return $def ? Index::constructFromDef($def) : null;
     }
-
-/*
-    public function __call(string $type, $args): Column
-    {
-        $name = $args[0];
-        switch ($type) {
-            case 'int':
-                $column = new Columns\IntCol($name, ($args[1] ?? false));
-                break;
-
-            case 'varchar':
-                $column = new Columns\VarcharCol($name, ($args[1] ?? false));
-                break;
-
-            case 'text':
-                $column = new Columns\TextCol($name);
-                break;
-
-            case 'datetime':
-                $column = new Columns\DatetimeCol($name);
-                break;
-
-            case 'timestamp':
-                $column = new Columns\TimestampCol($name);
-                break;
-
-            default:
-                $message = "unknown method '{$type}'";
-                throw new DJException($message);
-        }
-        $this->columns[$args[0]] = $column;
-        return $column;
-    }
-    // function __call()*/
 }
 // class Table

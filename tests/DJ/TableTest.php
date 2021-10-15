@@ -36,10 +36,10 @@ class TableTest extends TestCase
         $table->create(function (Table $table) {
             Column::int('id')->appendTo($table);
         });
-        $this->assertTrue($table->exists());
+        $this->assertTrue($table->operate()->exists());
 
-        $table->drop();
-        $this->assertFalse($table->exists());
+        $table->operate()->drop();
+        $this->assertFalse($table->operate()->exists());
     }
 
     public function testColumns(): void

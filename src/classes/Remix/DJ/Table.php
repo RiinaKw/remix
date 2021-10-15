@@ -182,6 +182,12 @@ class Table extends Gear
     }
     // function column()
 
+    public function index(string $index): ?Index
+    {
+        $def = DJ::dumpIndexes($this->name, $index);
+        return $def ? Index::constructFromDef($def) : null;
+    }
+
     public function __call(string $type, $args): Column
     {
         $name = $args[0];

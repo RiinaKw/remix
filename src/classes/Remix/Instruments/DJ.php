@@ -112,5 +112,25 @@ class DJ extends Instrument
         }
         return null;
     }
+
+    public function dumpIndexes(string $table, string $index = null)
+    {
+        if (static::table($table)->exists()) {
+            $params = [];
+            $sql = "SHOW INDEX FROM `{$table}`";
+            if ($index) {
+                $sql .= " WHERE Key_name = :index";
+                $params['index'] = $index;
+            }
+            $sql .= ';';
+            $setlist = static::play($sql, $params);
+            if ($index) {
+                return $setlist->first();
+            } else {
+                return $setlist->all();
+            }
+        }
+        return null;
+    }
 }
 // class DJ

@@ -6,6 +6,7 @@ use PHPUnit\Framework\TestCase;
 use Remix\Instruments\DJ;
 use Remix\DJ\Table;
 use Remix\DJ\Column;
+use Remix\DJ\Index;
 use Remix\DJ\Columns;
 
 class TableTest extends TestCase
@@ -148,7 +149,6 @@ class TableTest extends TestCase
         $this->assertSame('comment', $column->comment);
     }
 
-/*
     public function testGetIndex(): void
     {
         DJ::play('DROP TABLE IF EXISTS test');
@@ -163,7 +163,9 @@ class TableTest extends TestCase
 
         $table = DJ::table('test');
         $index = $table->index('uq__test__user_id');
-        $this->assertInstanceof(Column::class, $index);
+        $this->assertInstanceof(Index::class, $index);
+        $this->assertSame('uq__test__user_id', $index->name);
+        $this->assertSame('test', $index->table);
+        $this->assertSame('user_id', $index->column);
     }
-*/
 }

@@ -34,7 +34,7 @@ class TableTest extends TestCase
 
         $table = DJ::table('test');
         $table->create(function (Table $table) {
-            $table->int('id');
+            Column::int('id')->appendTo($table);
         });
         $this->assertTrue($table->exists());
 
@@ -48,9 +48,17 @@ class TableTest extends TestCase
 
         $table = DJ::table('test');
         $table->create(function (Table $table) {
+            /*
             $table->int('id')->unsigned();
             $table->varchar('user_id', 100)->nullable()->default(0);
             $table->timestamp('created_at')->currentTimestamp();
+            */
+            Column::int('id')->unsigned()
+                ->appendTo($table);
+            Column::varchar('user_id', 100)->nullable()->default(0)
+                ->appendTo($table);
+            Column::timestamp('created_at')->currentTimestamp()
+                ->appendTo($table);
         });
 
         $columns = DJ::play('SHOW COLUMNS FROM test');
@@ -81,9 +89,17 @@ class TableTest extends TestCase
 
         $table = DJ::table('test');
         $table->create(function (Table $table) {
+            /*
             $table->int('id')->unsigned()->pk();
             $table->varchar('user_id', 100)->uq()->nullable()->default(0);
             $table->timestamp('created_at')->idx();
+            */
+            Column::int('id')->unsigned()
+                ->pk()->appendTo($table);
+            Column::varchar('user_id', 100)->nullable()->default(0)
+                ->uq()->appendTo($table);
+            Column::timestamp('created_at')->currentTimestamp()
+                ->idx()->appendTo($table);
         });
 
         $columns = DJ::play('SHOW INDEXES FROM test');
@@ -115,9 +131,16 @@ class TableTest extends TestCase
         $table = DJ::table('test');
         $table->create(function (Table $table) {
             $table->comment('sample table');
+            /*
             $table->int('id')->unsigned()->pk()->comment('sample');
             $table->varchar('user_id', 100)->uq()->nullable()->default(0)->comment('of');
-            $table->timestamp('created_at')->idx()->comment('comment');
+            $table->timestamp('created_at')->idx()->comment('comment');*/
+            Column::int('id')->unsigned()->comment('sample')
+                ->pk()->appendTo($table);
+            Column::varchar('user_id', 100)->nullable()->default(0)->comment('of')
+                ->uq()->appendTo($table);
+            Column::timestamp('created_at')->currentTimestamp()->comment('comment')
+                ->idx()->appendTo($table);
         });
         unset($table);
 
@@ -155,9 +178,14 @@ class TableTest extends TestCase
 
         $table = DJ::table('test');
         $table->create(function (Table $table) {
+            /*
             $table->int('id')->pk()->unsigned();
             $table->varchar('user_id', 100)->uq();
             $table->timestamp('created_at')->idx();
+            */
+            Column::int('id')->unsigned()->pk()->appendTo($table);
+            Column::varchar('user_id', 100)->nullable()->default(0)->uq()->appendTo($table);
+            Column::timestamp('created_at')->currentTimestamp()->idx()->appendTo($table);
         });
         unset($table);
 

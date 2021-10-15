@@ -60,6 +60,11 @@ class Table extends Gear
         $this->comment = $comment;
     }
 
+    public function append(Column $column, string $after = '')
+    {
+        $this->columns[$column->name] = $column;
+    }
+
     public function create(callable $cb): bool
     {
         if (! $this->exists()) {
@@ -100,7 +105,7 @@ class Table extends Gear
     }
     // function create()
 
-    public function createIndex(Column $column): void
+    protected function createIndex(Column $column): void
     {
         if (! $this->exists()) {
             $message = 'Table "' . $this->name .  '" does not exists';
@@ -140,8 +145,7 @@ class Table extends Gear
     public function drop(): bool
     {
         if ($this->exists()) {
-            $sql = 'DROP TABLE ' . $this->name . ';';
-            $result = DJ::play($sql);
+            $result = DJ::play("DROP TABLE `{$this->name}`;");
             if ($result) {
                 $this->columns = [];
                 return true;
@@ -160,8 +164,7 @@ class Table extends Gear
     public function truncate(): bool
     {
         if ($this->exists()) {
-            $sql = "TRUNCATE TABLE `{$this->name}`;";
-            return DJ::play($sql) !== false;
+            return DJ::play("TRUNCATE TABLE `{$this->name}`;") !== false;
         } else {
             $message = "Table '{$this->name}' is not exists";
             throw new DJException($message);
@@ -188,6 +191,7 @@ class Table extends Gear
         return $def ? Index::constructFromDef($def) : null;
     }
 
+/*
     public function __call(string $type, $args): Column
     {
         $name = $args[0];
@@ -200,7 +204,10 @@ class Table extends Gear
                 $column = new Columns\VarcharCol($name, ($args[1] ?? false));
                 break;
 
-            //case 'text':
+            case 'text':
+                $column = new Columns\TextCol($name);
+                break;
+
             case 'datetime':
                 $column = new Columns\DatetimeCol($name);
                 break;
@@ -210,12 +217,12 @@ class Table extends Gear
                 break;
 
             default:
-                $message = 'unknown method ' . $type;
+                $message = "unknown method '{$type}'";
                 throw new DJException($message);
         }
         $this->columns[$args[0]] = $column;
         return $column;
     }
-    // function __call()
+    // function __call()*/
 }
 // class Table

@@ -16,6 +16,57 @@ abstract class Column extends Gear
     protected $name = '';
     protected $type = '';
     protected $props = [];
+/*
+    public static function int(string $name, int $length = 11)
+    {
+        return new Columns\IntCol($name, $length);
+    }
+
+    public static function varchar(string $name, int $length = 11)
+    {
+        return new Columns\VarcharCol($name, $length);
+    }
+
+    public static function timestamp(string $name)
+    {
+        return new Columns\TimestampCol($name);
+    }*/
+
+    public static function __callStatic($type, $args): self
+    {
+        $name = $args[0];
+        switch ($type) {
+            case 'int':
+                return new Columns\IntCol($name, ($args[1] ?? false));
+                break;
+
+            case 'varchar':
+                return new Columns\VarcharCol($name, ($args[1] ?? false));
+                break;
+
+            case 'text':
+                return new Columns\TextCol($name);
+                break;
+
+            case 'datetime':
+                return new Columns\DatetimeCol($name);
+                break;
+
+            case 'timestamp':
+                return new Columns\TimestampCol($name);
+                break;
+
+            default:
+                $message = "unknown column type '{$type}'";
+                throw new DJException($message);
+        }
+    }
+
+    public function appendTo(Table $table)
+    {
+        $this->table = $table->name;
+        $table->append($this);
+    }
 
     public function __construct(string $name, string $type, array $params = [])
     {

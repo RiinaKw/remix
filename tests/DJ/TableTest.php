@@ -33,7 +33,7 @@ class TableTest extends TestCase
         DJ::play('DROP TABLE IF EXISTS test');
 
         $table = DJ::table('test');
-        $table->create(function (Table $table) {
+        $table->operate()->create(function (Table $table) {
             Column::int('id')->appendTo($table);
         });
         $this->assertTrue($table->operate()->exists());
@@ -47,7 +47,7 @@ class TableTest extends TestCase
         DJ::play('DROP TABLE IF EXISTS test');
 
         $table = DJ::table('test');
-        $table->create(function (Table $table) {
+        $table->operate()->create(function (Table $table) {
             Column::int('id')->unsigned()
                 ->appendTo($table);
             Column::varchar('user_id', 100)->nullable()->default(0)
@@ -83,7 +83,7 @@ class TableTest extends TestCase
         DJ::play('DROP TABLE IF EXISTS test');
 
         $table = DJ::table('test');
-        $table->create(function (Table $table) {
+        $table->operate()->create(function (Table $table) {
             Column::int('id')->unsigned()
                 ->pk()->appendTo($table);
             Column::varchar('user_id', 100)->nullable()->default(0)
@@ -119,7 +119,7 @@ class TableTest extends TestCase
         DJ::play('DROP TABLE IF EXISTS test');
 
         $table = DJ::table('test');
-        $table->create(function (Table $table) {
+        $table->operate()->create(function (Table $table) {
             $table->comment('sample table');
             Column::int('id')->unsigned()->comment('sample')
                 ->pk()->appendTo($table);
@@ -163,7 +163,7 @@ class TableTest extends TestCase
         DJ::play('DROP TABLE IF EXISTS test');
 
         $table = DJ::table('test');
-        $table->create(function (Table $table) {
+        $table->operate()->create(function (Table $table) {
             Column::int('id')->unsigned()->pk()->appendTo($table);
             Column::varchar('user_id', 100)->nullable()->default(0)->uq()->appendTo($table);
             Column::timestamp('created_at')->currentTimestamp()->idx()->appendTo($table);
@@ -176,5 +176,41 @@ class TableTest extends TestCase
         $this->assertSame('uq__test__user_id', $index->name);
         $this->assertSame('test', $index->table);
         $this->assertSame('user_id', $index->column);
+    }
+
+    public function testAddColumn(): void
+    {
+        DJ::play('DROP TABLE IF EXISTS test');
+
+        $table = DJ::table('test');
+        $table->operate()->create(function (Table $table) {
+            $table->comment('sample table');
+            Column::int('id')->unsigned()->comment('sample')
+                ->pk()->appendTo($table);
+            Column::varchar('user_id', 100)->nullable()->default(0)->comment('of')
+                ->uq()->appendTo($table);
+            Column::timestamp('created_at')->currentTimestamp()->comment('comment')
+                ->idx()->appendTo($table);
+        });
+        unset($table);
+
+        $table = DJ::table('test');
+        $columns = $table->operate()->columns();
+        array_walk($columns, function (&$item) {
+            $item = $item['Field'];
+        });
+        $this->assertSame(['id', 'user_id', 'created_at'], $columns);
+
+        /*
+        $table->modify(function (Table $table) {
+            Column::text('description')->appendTo($table);
+        });
+
+        $columns = $table->operate()->columns();
+        array_walk($columns, function (&$item) {
+            $item = $item['Field'];
+        });
+        $this->assertSame(['id', 'user_id', 'created_at', 'description'], $columns);
+        */
     }
 }

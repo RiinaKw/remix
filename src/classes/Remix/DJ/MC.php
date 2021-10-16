@@ -82,7 +82,7 @@ class MC extends Gear
 
     /**
      * Create table
-     * @param  Table|string   $table     table instance or table name
+     * @param  Table|string   $table    Table instance or table name
      * @param  array<Column>  $columns  Columns contained in the table
      * @return bool                     Successfull or not
      */
@@ -113,7 +113,7 @@ class MC extends Gear
 
     /**
      * Create table
-     * @param  Table|string   $table     table instance or table name
+     * @param  Table|string   $table           Table instance or table name
      * @param  array<Column>  $columns_to_add  Columns to add to the table
      * @return bool                            Successfull or not
      */
@@ -148,7 +148,7 @@ class MC extends Gear
 
     /**
      * Create an index into this table from the column definition
-     * @param Table|string   $table   table instance or table name
+     * @param Table|string   $table   Table instance or table name
      * @param Column         $column  Target column
      */
     public function indexCreate($table, Column $column): void
@@ -173,8 +173,7 @@ class MC extends Gear
                 break;
 
             default:
-                $message = 'Unknown index type "' . $column->index . '"';
-                throw new DJException($message);
+                throw new DJException("Unknown index type '{$column->index}'");
         }
         $index_name = $prefix . '__' . $name . '__' . $column->name;
 
@@ -188,10 +187,10 @@ class MC extends Gear
 
     /**
      * Drop table
-     * @param  Table|string  $table  table instance or table name
-     * @param  boolean      $force  If true, run even if it does not exist
-     * @return bool                 Successful or not
-     * @throws DJException          If not force and target does not exists, or couldn't be executed
+     * @param  Table|string  $table  Table instance or table name
+     * @param  boolean       $force  If true, run even if it does not exist
+     * @return bool                  Successful or not
+     * @throws DJException           If not force and target does not exists, or couldn't be executed
      */
     public static function tableDrop(string $table, bool $force = false): bool
     {
@@ -229,9 +228,9 @@ class MC extends Gear
      * @param  Table|string  $table   Target table instance or table name
      * @param  string|null   $column  Target column, all targets if null
      * @return null|Column|array<string, Column>
-     *             * Null : it doesn't exist,
+     *             * null : it doesn't exist,
      *             * Column : if the target exists,
-     *             * array of Column : no target specified
+     *             * array<Column> : no target specified
      */
     public static function tableColumns($table, string $column = null)
     {
@@ -266,9 +265,9 @@ class MC extends Gear
      * @param  Table|string  $table  Target table instance or table name
      * @param  string|null   $index  Target index, all targets if null
      * @return null|Index|array<string, Index>
-     *             * Null : it doesn't exist,
+     *             * null : it doesn't exist,
      *             * Index : if the target exists,
-     *             * array of Index : no target specified
+     *             * array<Index> : no target specified
      */
     public static function tableIndexes($table, string $index = null)
     {

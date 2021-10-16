@@ -4,6 +4,7 @@ namespace Remix\DJ;
 
 use Remix\Gear;
 use Remix\Instruments\DJ;
+use Remix\DJ\MC;
 use Remix\DJ\BPM;
 use Remix\DJ\BPM\Select;
 use Remix\DJ\Table\Operate;
@@ -69,18 +70,5 @@ class Table extends Gear
         return new Select($this->name);
     }
     // function select()
-
-    public function column(string $column): ?Column
-    {
-        $def = $this->operate()->columns($column);
-        return $def ? Column::constructFromDef($def) : null;
-    }
-    // function column()
-
-    public function index(string $index): ?Index
-    {
-        $def = $this->operate()->indexes($index);
-        return $def ? Index::constructFromDef($def) : null;
-    }
 }
 // class Table

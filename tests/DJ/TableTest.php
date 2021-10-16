@@ -4,6 +4,7 @@ namespace Remix\CoreTests;
 
 use PHPUnit\Framework\TestCase;
 use Remix\Instruments\DJ;
+use Remix\DJ\MC;
 use Remix\DJ\Table;
 use Remix\DJ\Column;
 use Remix\DJ\Index;
@@ -26,20 +27,6 @@ class TableTest extends TestCase
         $table = DJ::table('test');
         $this->assertInstanceof(Table::class, $table);
         $this->assertSame('test', $table->name);
-    }
-
-    public function testCreateAndDrop(): void
-    {
-        DJ::play('DROP TABLE IF EXISTS test');
-
-        $table = DJ::table('test');
-        $table->operate()->create(function (Table $table) {
-            Column::int('id')->appendTo($table);
-        });
-        $this->assertTrue($table->operate()->exists());
-
-        $table->operate()->drop();
-        $this->assertFalse($table->operate()->exists());
     }
 
     public function testColumns(): void
@@ -130,8 +117,7 @@ class TableTest extends TestCase
         });
         unset($table);
 
-        $table = DJ::table('test');
-        $column = $table->column('id');
+        $column = MC::tableColumns('test', 'id');
         $this->assertInstanceof(Columns\IntCol::class, $column);
         $this->assertSame('id', $column->name);
         $this->assertSame('INT', $column->type);
@@ -140,7 +126,7 @@ class TableTest extends TestCase
         $this->assertSame(false, $column->nullable);
         $this->assertSame('sample', $column->comment);
 
-        $column = $table->column('user_id');
+        $column = MC::tableColumns('test', 'user_id');
         $this->assertInstanceof(Columns\VarcharCol::class, $column);
         $this->assertSame('user_id', $column->name);
         $this->assertSame('VARCHAR', $column->type);
@@ -149,7 +135,7 @@ class TableTest extends TestCase
         $this->assertSame('0', $column->default);
         $this->assertSame('of', $column->comment);
 
-        $column = $table->column('created_at');
+        $column = MC::tableColumns('test', 'created_at');
         $this->assertInstanceof(Columns\TimestampCol::class, $column);
         $this->assertSame('created_at', $column->name);
         $this->assertSame('TIMESTAMP', $column->type);
@@ -170,8 +156,7 @@ class TableTest extends TestCase
         });
         unset($table);
 
-        $table = DJ::table('test');
-        $index = $table->index('uq__test__user_id');
+        $index = MC::tableIndexes('test', 'uq__test__user_id');
         $this->assertInstanceof(Index::class, $index);
         $this->assertSame('uq__test__user_id', $index->name);
         $this->assertSame('test', $index->table);
@@ -195,20 +180,20 @@ class TableTest extends TestCase
         unset($table);
 
         // Now there are 3 columns
-        $table = DJ::table('test');
-        $columns = $table->operate()->columns();
+        $columns = MC::tableColumns('test');
         array_walk($columns, function (&$item) {
             $item = $item['Field'];
         });
         $this->assertSame(['id', 'user_id', 'created_at'], $columns);
 
         // Add a column
+        $table = DJ::table('test');
         $table->operate()->modify([
             Column::text('description'),
         ]);
 
         // There should be 4 columns
-        $columns = $table->operate()->columns();
+        $columns = MC::tableColumns('test');
         array_walk($columns, function (&$item) {
             $item = $item['Field'];
         });
@@ -238,7 +223,7 @@ class TableTest extends TestCase
         ]);
 
         // Has order changed?
-        $columns = $table->operate()->columns();
+        $columns = MC::tableColumns('test');
         array_walk($columns, function (&$item) {
             $item = $item['Field'];
         });

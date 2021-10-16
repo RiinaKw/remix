@@ -55,42 +55,42 @@ class MC extends Gear
 
     public static function tableColumns(string $table, string $column = null)
     {
-        if (static::tableExists($table)) {
-            $params = [];
-            $sql = "SHOW FULL COLUMNS FROM `{$table}`";
-            if ($column) {
-                $sql .= " WHERE Field = :column";
-                $params['column'] = $column;
-            }
-            $sql .= ';';
-            $setlist = DJ::play($sql, $params);
-            if ($column) {
-                $def = $setlist->first();
-                return $def ? Column::constructFromDef($def) : null;
-            } else {
-                return $setlist->all();
-            }
+        static::expectTableExists($table, true);
+
+        $params = [];
+        $sql = "SHOW FULL COLUMNS FROM `{$table}`";
+        if ($column) {
+            $sql .= " WHERE Field = :column";
+            $params['column'] = $column;
+        }
+        $sql .= ';';
+        $setlist = DJ::play($sql, $params);
+        if ($column) {
+            $def = $setlist->first();
+            return $def ? Column::constructFromDef($def) : null;
+        } else {
+            return $setlist->all();
         }
         return null;
     }
 
     public static function tableIndexes(string $table, string $index = null)
     {
-        if (static::tableExists($table)) {
-            $params = [];
-            $sql = "SHOW INDEX FROM `{$table}`";
-            if ($index) {
-                $sql .= " WHERE Key_name = :index";
-                $params['index'] = $index;
-            }
-            $sql .= ';';
-            $setlist = DJ::play($sql, $params);
-            if ($index) {
-                $def = $setlist->first();
-                return $def ? Index::constructFromDef($def) : null;
-            } else {
-                return $setlist->all();
-            }
+        static::expectTableExists($table, true);
+
+        $params = [];
+        $sql = "SHOW INDEX FROM `{$table}`";
+        if ($index) {
+            $sql .= " WHERE Key_name = :index";
+            $params['index'] = $index;
+        }
+        $sql .= ';';
+        $setlist = DJ::play($sql, $params);
+        if ($index) {
+            $def = $setlist->first();
+            return $def ? Index::constructFromDef($def) : null;
+        } else {
+            return $setlist->all();
         }
         return null;
     }

@@ -157,7 +157,7 @@ class TableTest extends TestCase
         // Add a column after id
         $table = DJ::table('test');
         $table->modify(function (Table $table) {
-            Column::varchar('name', 100)->modify($table, 'id')->after('id');
+            Column::varchar('name', 100)->modify($table)->after('id');
         });
 
         // Has order changed?

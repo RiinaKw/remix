@@ -7,7 +7,6 @@ use Remix\Instruments\DJ;
 use Remix\DJ\MC;
 use Remix\DJ\BPM;
 use Remix\DJ\BPM\Select;
-use Remix\DJ\Table\Operate;
 use Remix\Exceptions\DJException;
 
 /**
@@ -35,11 +34,6 @@ class Table extends Gear
         $this->name = $name;
     }
     // function __construct()
-
-    public function operate(): Operate
-    {
-        return new Operate($this);
-    }
 
     public function __get(string $key)
     {

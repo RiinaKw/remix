@@ -6,6 +6,7 @@ use Remix\Gear;
 use Remix\Instruments\DJ;
 use Remix\Exceptions\DJException;
 use Remix\RemixException;
+use Utility\Arr;
 
 /**
  * Remix MC : DB definition manager
@@ -89,11 +90,9 @@ class MC extends Gear
     {
         $name = static::tableName($table);
 
-        $columns_string = [];
-        foreach ($columns as $column) {
-            $columns_string[] = (string)$column;
-        }
-        $columns_sql = implode(', ', $columns_string);
+        $columns_sql = Arr::mapImplode($columns, ', ', function ($column) {
+            return (string)$column;
+        });
         $sql = "CREATE TABLE `{$name}` ({$columns_sql});";
 
         try {
@@ -122,15 +121,13 @@ class MC extends Gear
     {
         $name = static::tableName($table);
 
-        $columns_string = [];
-        foreach ($columns_to_add as $column) {
+        $columns_sql = Arr::mapImplode($columns_to_add, ', ', function ($column) {
             $sql = 'ADD COLUMN ' . (string)$column;
             if ($column->after) {
                 $sql .= " AFTER `{$column->after}`";
             }
-            $columns_string[] = $sql;
-        }
-        $columns_sql = implode(', ', $columns_string);
+            return $sql;
+        });
         $sql = "ALTER TABLE `{$name}` {$columns_sql};";
 
         try {
@@ -254,11 +251,12 @@ class MC extends Gear
             $def = $setlist->first();
             return $def ? Column::constructFromDef($def) : null;
         } else {
-            $result = [];
-            foreach ($setlist as $item) {
-                $result[$item['Field']] = Column::constructFromDef($item);
-            }
-            return $result;
+            return Arr::map($setlist, function ($item) {
+                return [
+                    Column::constructFromDef($item),
+                    $item['Field'],
+                ];
+            });
         }
     }
     // function tableColumns()
@@ -290,11 +288,12 @@ class MC extends Gear
             $def = $setlist->first();
             return $def ? Index::constructFromDef($def) : null;
         } else {
-            $result = [];
-            foreach ($setlist as $item) {
-                $result[$item['Key_name']] = Index::constructFromDef($item);
-            }
-            return $result;
+            return Arr::map($setlist, function ($item) {
+                return [
+                    Index::constructFromDef($item),
+                    $item['Key_name'],
+                ];
+            });
         }
     }
     // function tableIndexes()

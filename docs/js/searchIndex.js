@@ -1021,6 +1021,21 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Utility-Arr.html#method_toXML"
         },                {
+            "fqsen": "\\Utility\\Arr\u003A\u003AcallbackMap\u0028\u0029",
+            "name": "callbackMap",
+            "summary": "Callback\u0020of\u0020map\u0028\u0029,\u0020mapImplode\u0028\u0029",
+            "url": "classes/Utility-Arr.html#method_callbackMap"
+        },                {
+            "fqsen": "\\Utility\\Arr\u003A\u003Amap\u0028\u0029",
+            "name": "map",
+            "summary": "Extend\u0020array_map\u0020to\u0020hash",
+            "url": "classes/Utility-Arr.html#method_map"
+        },                {
+            "fqsen": "\\Utility\\Arr\u003A\u003AmapImplode\u0028\u0029",
+            "name": "mapImplode",
+            "summary": "Create\u0020an\u0020array\u0020and\u0020implode",
+            "url": "classes/Utility-Arr.html#method_mapImplode"
+        },                {
             "fqsen": "\\Utility\\Capture",
             "name": "Capture",
             "summary": "Utilities\u0020of\u0020capturing\u0020output",

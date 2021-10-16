@@ -17,4 +17,13 @@ class TextCol extends Column
         $params['type'] = $name;
         parent::__construct($name, 'text', $params);
     }
+
+    /**
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     */
+    public static function fromDef(string $name, array $def = [])
+    {
+        $column = new static($name);
+        return $column;
+    }
 }

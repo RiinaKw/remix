@@ -63,12 +63,17 @@ class MC extends Gear
             $params['column'] = $column;
         }
         $sql .= ';';
+        $setlist = DJ::play($sql, $params);
 
         if ($column) {
-            $def = DJ::first($sql, $params);
+            $def = $setlist->first();
             return $def ? Column::constructFromDef($def) : null;
         } else {
-            return DJ::play($sql, $params)->all();
+            $result = [];
+            foreach ($setlist as $item) {
+                $result[$item['Field']] = Column::constructFromDef($item);
+            }
+            return $result;
         }
     }
 
@@ -83,12 +88,17 @@ class MC extends Gear
             $params['index'] = $index;
         }
         $sql .= ';';
+        $setlist = DJ::play($sql, $params);
 
         if ($index) {
-            $def = DJ::first($sql, $params);
+            $def = $setlist->first();
             return $def ? Index::constructFromDef($def) : null;
         } else {
-            return DJ::play($sql, $params)->all();
+            $result = [];
+            foreach ($setlist as $item) {
+                $result[$item['Key_name']] = Index::constructFromDef($item);
+            }
+            return $result;
         }
     }
 }

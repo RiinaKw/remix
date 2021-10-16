@@ -76,7 +76,7 @@ abstract class Column extends Gear
         return $this;
     }
 
-    public static function constructFromDef(array $def = []): self
+    public static function constructFromDef(array $def): self
     {
         $type = strtolower($def['Type']);
 

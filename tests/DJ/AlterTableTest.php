@@ -44,10 +44,7 @@ class AlterTableTest extends TestCase
 
         // Now there are 3 columns
         $columns = MC::tableColumns('test');
-        array_walk($columns, function (&$item) {
-            $item = $item['Field'];
-        });
-        $this->assertSame(['id', 'user_id', 'created_at'], $columns);
+        $this->assertSame(['id', 'user_id', 'created_at'], array_keys($columns));
 
         // Add a column
         $table = DJ::table('test');
@@ -57,10 +54,7 @@ class AlterTableTest extends TestCase
 
         // There should be 4 columns
         $columns = MC::tableColumns('test');
-        array_walk($columns, function (&$item) {
-            $item = $item['Field'];
-        });
-        $this->assertSame(['id', 'user_id', 'created_at', 'description'], $columns);
+        $this->assertSame(['id', 'user_id', 'created_at', 'description'], array_keys($columns));
     }
 
     public function testAddColumnWithOrder(): void
@@ -75,9 +69,6 @@ class AlterTableTest extends TestCase
 
         // Has order changed?
         $columns = MC::tableColumns('test');
-        array_walk($columns, function (&$item) {
-            $item = $item['Field'];
-        });
-        $this->assertSame(['id', 'name', 'user_id', 'created_at'], $columns);
+        $this->assertSame(['id', 'name', 'user_id', 'created_at'], array_keys($columns));
     }
 }

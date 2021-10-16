@@ -8,22 +8,44 @@ use Remix\DJ\MC;
 use Remix\DJ\BPM;
 use Remix\DJ\BPM\Select;
 use Remix\Exceptions\DJException;
+use Remix\RemixException;
 
 /**
- * Remix DJ Table : DB tables definition
+ * Remix DJ Table : DB table operations
  *
- * @package  Remix\DB\Table
+ * @package  Remix\DB
  * @todo Write the details.
  */
 class Table extends Gear
 {
-    protected $name;
+    /**
+     * Name of table
+     * @var string
+     */
+    protected $name = '';
+
+    /**
+     * Comments of table
+     * @var string
+     */
     protected $comment = '';
+
+    /**
+     * Columns
+     * @var array<Column>
+     */
     protected $columns = [];
+
+    /**
+     * Columns to alter
+     * @var array<Column>
+     */
     protected $columns_add = [];
 
-    protected $indexes_cache = null;
-
+    /**
+     * Set up the table
+     * @param string $name  Name of table
+     */
     public function __construct(string $name)
     {
         if (preg_match('/\W/', $name)) {
@@ -35,6 +57,11 @@ class Table extends Gear
     }
     // function __construct()
 
+    /**
+     * Getter
+     * @param  string $key  Name of a key
+     * @return mixed
+     */
     public function __get(string $key)
     {
         switch ($key) {
@@ -45,32 +72,72 @@ class Table extends Gear
 
             default:
                 $message = 'Unknown property "' . $key . '"';
-                throw new DJException($message);
+                throw new RemixException($message);
         }
     }
     // function __get()
 
-    public function comment(string $comment)
+    /**
+     * Add comments to this table
+     * @param  string $comment  Comments to add
+     * @return self             Itself
+     */
+    public function comment(string $comment): self
     {
         $this->comment = $comment;
+        return $this;
     }
 
-    public function append(Column $column)
+    /**
+     * Create a column into this table, used in CREATE TABLE
+     * @param  Column $column  A column to add
+     * @return self            Itself
+     */
+    public function append(Column $column): self
     {
         $this->columns[$column->name] = $column;
+        return $this;
     }
 
-    public function addColumn(Column $column)
+    /**
+     * Add a column into this table, used in ALTER TABLE
+     * @param  Column $column  A column to add
+     * @return self            Itself
+     */
+    public function addColumn(Column $column): self
     {
         $this->columns_add[$column->name] = $column;
+        return $this;
     }
 
+    /**
+     * Get SELECT query builder
+     * @return BPM  Query builder
+     */
     public function select(): BPM
     {
         return new Select($this->name);
     }
     // function select()
 
+    /**
+     * Callback of create(), modify()
+     * @param  self   $table  Itself
+     * @throws RemixException This is a prototype; not meant to be called directly.
+     * @see Table::create()
+     * @see Table::modify()
+     */
+    private static function callbackToCreate(self $table): void
+    {
+        throw new RemixException(__METHOD__ . ' is prototype of callback');
+    }
+
+    /**
+     * Create a table
+     * @param  callable $cb  Callback to create columns
+     * @return bool          Successful or not
+     * @see Table::callbackToCreate()
+     */
     public function create(callable $cb): bool
     {
         MC::expectTableExists($this->name, false);
@@ -102,6 +169,12 @@ class Table extends Gear
     }
     // function create()
 
+    /**
+     * Modify a table
+     * @param  callable $cb  Callback to alter columns
+     * @return bool          Successful or not
+     * @see Table::callbackToCreate()
+     */
     public function modify(callable $cb): bool
     {
         MC::expectTableExists($this->name, true);
@@ -136,6 +209,10 @@ class Table extends Gear
         return false;
     }
 
+    /**
+     * Create an index into this table from the column definition
+     * @param Column $column  Target column
+     */
     public function createIndex(Column $column): void
     {
         MC::expectTableExists($this->name, true);

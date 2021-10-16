@@ -130,7 +130,7 @@
     
             <span class="phpdocumentor-element__implements">
             implements
-                            <abbr title="\Iterator">Iterator</abbr>,                             <abbr title="\Countable">Countable</abbr>                    </span>
+                            <abbr title="\IteratorAggregate">IteratorAggregate</abbr>,                             <abbr title="\Countable">Countable</abbr>                    </span>
     
     </h2>
 
@@ -170,7 +170,7 @@
 </h3>
 
 <dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -interface"><abbr title="\Iterator">Iterator</abbr></dt>
+            <dt class="phpdocumentor-table-of-contents__entry -interface"><abbr title="\IteratorAggregate">IteratorAggregate</abbr></dt>
         <dd></dd>
             <dt class="phpdocumentor-table-of-contents__entry -interface"><abbr title="\Countable">Countable</abbr></dt>
         <dd></dd>
@@ -207,20 +207,6 @@
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Remix-DJ-Setlist.html#property_cur_row">$cur_row</a>
-    <span>
-                &nbsp;: mixed            </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Remix-DJ-Setlist.html#property_i">$i</a>
-    <span>
-                &nbsp;: mixed            </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/Remix-Gear.html#property_log_param">$log_param</a>
     <span>
                 &nbsp;: string            </span>
@@ -242,6 +228,13 @@
 <dd>Let Delay know that an instance has been destructed.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Remix-DJ-Setlist.html#method_all">all()</a>
+    <span>
+                        &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-DJ-Setlist.html#method_asVinyl">asVinyl()</a>
     <span>
                         &nbsp;: self    </span>
@@ -256,7 +249,7 @@
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-DJ-Setlist.html#method_current">current()</a>
+    <a href="classes/Remix-DJ-Setlist.html#method_fetch">fetch()</a>
     <span>
                         &nbsp;: mixed    </span>
 </dt>
@@ -270,16 +263,9 @@
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-DJ-Setlist.html#method_key">key()</a>
+    <a href="classes/Remix-DJ-Setlist.html#method_getIterator">getIterator()</a>
     <span>
                         &nbsp;: mixed    </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-DJ-Setlist.html#method_next">next()</a>
-    <span>
-                        &nbsp;: void    </span>
 </dt>
 <dd></dd>
 
@@ -287,20 +273,6 @@
     <a href="classes/Remix-DJ-Setlist.html#method_play">play()</a>
     <span>
                         &nbsp;: self    </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-DJ-Setlist.html#method_rewind">rewind()</a>
-    <span>
-                        &nbsp;: void    </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-DJ-Setlist.html#method_valid">valid()</a>
-    <span>
-                        &nbsp;: bool    </span>
 </dt>
 <dd></dd>
 
@@ -420,66 +392,6 @@
             -private
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="property_cur_row">
-        $cur_row
-        <a href="classes/Remix-DJ-Setlist.html#property_cur_row" class="headerlink"><i class="fas fa-link"></i></a>
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/DJ/Setlist.php"><a href="files/src-classes-remix-dj-setlist.html"><abbr title="src/classes/Remix/DJ/Setlist.php">Setlist.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">23</span>
-</aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">$cur_row</span>
-     = <span class="phpdocumentor-signature__default-value">null</span></code>
-
-    
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -private
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_i">
-        $i
-        <a href="classes/Remix-DJ-Setlist.html#property_i" class="headerlink"><i class="fas fa-link"></i></a>
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/DJ/Setlist.php"><a href="files/src-classes-remix-dj-setlist.html"><abbr title="src/classes/Remix/DJ/Setlist.php">Setlist.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">22</span>
-</aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">$i</span>
-     = <span class="phpdocumentor-signature__default-value">0</span></code>
-
-    
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -private
-                                                        "
->
     <h4 class="phpdocumentor-element__name" id="property_log_param">
         $log_param
         <a href="classes/Remix-Gear.html#property_log_param" class="headerlink"><i class="fas fa-link"></i></a>
@@ -525,7 +437,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/DJ/Setlist.php"><a href="files/src-classes-remix-dj-setlist.html"><abbr title="src/classes/Remix/DJ/Setlist.php">Setlist.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">26</span>
+    <span class="phpdocumentor-element-found-in__line">22</span>
 </aside>
 
         <p class="phpdocumentor-summary">Let Delay know that an instance has been constructed.</p>
@@ -603,6 +515,38 @@
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_all">
+        all()
+        <a href="classes/Remix-DJ-Setlist.html#method_all" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/DJ/Setlist.php"><a href="files/src-classes-remix-dj-setlist.html"><abbr title="src/classes/Remix/DJ/Setlist.php">Setlist.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">80</span>
+</aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">all</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+    
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_asVinyl">
         asVinyl()
         <a href="classes/Remix-DJ-Setlist.html#method_asVinyl" class="headerlink"><i class="fas fa-link"></i></a>
@@ -610,7 +554,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/DJ/Setlist.php"><a href="files/src-classes-remix-dj-setlist.html"><abbr title="src/classes/Remix/DJ/Setlist.php">Setlist.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">35</span>
+    <span class="phpdocumentor-element-found-in__line">36</span>
 </aside>
 
     
@@ -652,7 +596,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/DJ/Setlist.php"><a href="files/src-classes-remix-dj-setlist.html"><abbr title="src/classes/Remix/DJ/Setlist.php">Setlist.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">85</span>
+    <span class="phpdocumentor-element-found-in__line">96</span>
 </aside>
 
     
@@ -677,20 +621,20 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_current">
-        current()
-        <a href="classes/Remix-DJ-Setlist.html#method_current" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_fetch">
+        fetch()
+        <a href="classes/Remix-DJ-Setlist.html#method_fetch" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/DJ/Setlist.php"><a href="files/src-classes-remix-dj-setlist.html"><abbr title="src/classes/Remix/DJ/Setlist.php">Setlist.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">90</span>
+    <span class="phpdocumentor-element-found-in__line">91</span>
 </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">current</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                <span class="phpdocumentor-signature__name">fetch</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     
     
@@ -716,7 +660,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/DJ/Setlist.php"><a href="files/src-classes-remix-dj-setlist.html"><abbr title="src/classes/Remix/DJ/Setlist.php">Setlist.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">79</span>
+    <span class="phpdocumentor-element-found-in__line">85</span>
 </aside>
 
     
@@ -741,20 +685,20 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_key">
-        key()
-        <a href="classes/Remix-DJ-Setlist.html#method_key" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_getIterator">
+        getIterator()
+        <a href="classes/Remix-DJ-Setlist.html#method_getIterator" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/DJ/Setlist.php"><a href="files/src-classes-remix-dj-setlist.html"><abbr title="src/classes/Remix/DJ/Setlist.php">Setlist.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">95</span>
+    <span class="phpdocumentor-element-found-in__line">31</span>
 </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">key</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                <span class="phpdocumentor-signature__name">getIterator</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     
     
@@ -773,38 +717,6 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_next">
-        next()
-        <a href="classes/Remix-DJ-Setlist.html#method_next" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/DJ/Setlist.php"><a href="files/src-classes-remix-dj-setlist.html"><abbr title="src/classes/Remix/DJ/Setlist.php">Setlist.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">100</span>
-</aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">next</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
-
-    
-    
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">void</span>
-            &mdash;
-            <section class="phpdocumentor-description"></section>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
     <h4 class="phpdocumentor-element__name" id="method_play">
         play()
         <a href="classes/Remix-DJ-Setlist.html#method_play" class="headerlink"><i class="fas fa-link"></i></a>
@@ -812,7 +724,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/DJ/Setlist.php"><a href="files/src-classes-remix-dj-setlist.html"><abbr title="src/classes/Remix/DJ/Setlist.php">Setlist.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">72</span>
+    <span class="phpdocumentor-element-found-in__line">73</span>
 </aside>
 
     
@@ -834,70 +746,6 @@
                     <article
         class="phpdocumentor-element
             -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_rewind">
-        rewind()
-        <a href="classes/Remix-DJ-Setlist.html#method_rewind" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/DJ/Setlist.php"><a href="files/src-classes-remix-dj-setlist.html"><abbr title="src/classes/Remix/DJ/Setlist.php">Setlist.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">106</span>
-</aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">rewind</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
-
-    
-    
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">void</span>
-            &mdash;
-            <section class="phpdocumentor-description"></section>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_valid">
-        valid()
-        <a href="classes/Remix-DJ-Setlist.html#method_valid" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/DJ/Setlist.php"><a href="files/src-classes-remix-dj-setlist.html"><abbr title="src/classes/Remix/DJ/Setlist.php">Setlist.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">112</span>
-</aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">valid</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
-
-    
-    
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"></section>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
             -protected
                                                         "
 >
@@ -908,7 +756,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/DJ/Setlist.php"><a href="files/src-classes-remix-dj-setlist.html"><abbr title="src/classes/Remix/DJ/Setlist.php">Setlist.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">42</span>
+    <span class="phpdocumentor-element-found-in__line">43</span>
 </aside>
 
     

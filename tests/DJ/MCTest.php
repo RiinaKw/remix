@@ -9,6 +9,7 @@ use Remix\DJ\Table;
 use Remix\DJ\Column;
 use Remix\DJ\Columns;
 use Remix\DJ\Index;
+use Remix\Exceptions\DJException;
 
 class MCTest extends TestCase
 {
@@ -22,7 +23,7 @@ class MCTest extends TestCase
         \Remix\Audio::destroy();
     }
 
-    public function testTable(): void
+    public function testCreate(): void
     {
         DJ::play('DROP TABLE IF EXISTS test');
 
@@ -36,6 +37,27 @@ class MCTest extends TestCase
 
         // 'test' exists
         $this->assertTrue(MC::tableExists('test'));
+    }
+
+    public function testCreateDuplicate()
+    {
+        $this->expectException(DJException::class);
+        $this->expectExceptionMessage("Table `test` is already exists");
+
+        DJ::play('DROP TABLE IF EXISTS test');
+
+        $this->assertFalse(MC::tableExists('test'));
+
+        $table = DJ::table('test');
+        $table->create(function (Table $table) {
+            Column::int('id')->appendTo($table);
+        });
+
+        // Try to create a table that already exists
+        $table = DJ::table('test');
+        $table->create(function (Table $table) {
+            Column::int('id')->appendTo($table);
+        });
     }
 
     public function testDrop(): void
@@ -55,7 +77,7 @@ class MCTest extends TestCase
 
     public function testDropNonExists(): void
     {
-        $this->expectException(\Remix\Exceptions\DJException::class);
+        $this->expectException(DJException::class);
         $this->expectExceptionMessage('Table `test` is not exists');
 
         // Make sure to drop 'test'
@@ -98,7 +120,6 @@ class MCTest extends TestCase
             Column::timestamp('created_at')->currentTimestamp()->comment('comment')
                 ->idx()->appendTo($table);
         });
-        unset($table);
 
         $column = MC::tableColumns('test', 'id');
         $this->assertInstanceof(Columns\IntCol::class, $column);
@@ -137,7 +158,6 @@ class MCTest extends TestCase
             Column::varchar('user_id', 100)->nullable()->default(0)->uq()->appendTo($table);
             Column::timestamp('created_at')->currentTimestamp()->idx()->appendTo($table);
         });
-        unset($table);
 
         $index = MC::tableIndexes('test', 'uq__test__user_id');
         $this->assertInstanceof(Index::class, $index);

@@ -92,6 +92,11 @@ class Table extends Gear
      */
     public function append(Column $column): self
     {
+        if (isset($this->columns[$column->name])) {
+            $table_escaped = DJ::identifier($this->name);
+            $column_escaped = DJ::identifier($column->name);
+            throw new DJException("Column {$column_escaped} is already exists in {$table_escaped}");
+        }
         $this->columns[$column->name] = $column;
         return $this;
     }
@@ -103,6 +108,11 @@ class Table extends Gear
      */
     public function addColumn(Column $column): self
     {
+        if (isset($this->columns[$column->name])) {
+            $table_escaped = DJ::identifier($this->name);
+            $column_escaped = DJ::identifier($column->name);
+            throw new DJException("Column {$column_escaped} is already exists in {$table_escaped}");
+        }
         $this->columns_add[$column->name] = $column;
         return $this;
     }

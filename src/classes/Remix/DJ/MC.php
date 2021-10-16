@@ -4,9 +4,9 @@ namespace Remix\DJ;
 
 use Remix\Gear;
 use Remix\Instruments\DJ;
-use Remix\Exceptions\DJException;
-use Remix\RemixException;
 use Utility\Arr;
+use Remix\RemixException;
+use Remix\Exceptions\DJException;
 
 /**
  * Remix MC : DB definition manager
@@ -71,11 +71,13 @@ class MC extends Gear
      */
     public static function expectTableExists($table, bool $exists = true): void
     {
+        $table_escaped = DJ::identifier(static::tableName($table));
+
         if ($exists && ! static::tableExists($table)) {
-            throw new DJException("Table '{$table}' is not exists");
+            throw new DJException("Table {$table_escaped} is not exists");
         }
         if (! $exists && static::tableExists($table)) {
-            throw new DJException("Table '{$table}' is already exists");
+            throw new DJException("Table {$table_escaped} is already exists");
         }
     }
     // function expectTableExists()

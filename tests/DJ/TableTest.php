@@ -9,6 +9,7 @@ use Remix\DJ\Table;
 use Remix\DJ\Column;
 use Remix\DJ\Index;
 use Remix\DJ\Columns;
+use Remix\Exceptions\DJException;
 
 class TableTest extends TestCase
 {
@@ -95,5 +96,35 @@ class TableTest extends TestCase
         $this->assertSame('idx__test__created_at', $column['Key_name']);
         $this->assertSame('created_at', $column['Column_name']);
         $this->assertSame('1', $column['Non_unique']);
+    }
+
+    public function testColumnDuplicate(): void
+    {
+        $this->expectException(DJException::class);
+        $this->expectExceptionMessage("Column `id` is already exists in `test`");
+
+        MC::tableDrop('test', true);
+
+        $table = DJ::table('test');
+        $table->create(function (Table $table) {
+            Column::int('id')->appendTo($table);
+            Column::int('id')->appendTo($table);
+        });
+    }
+
+    public function testModifyColumnDuplicate(): void
+    {
+        $this->expectException(DJException::class);
+        $this->expectExceptionMessage("Column `id` is already exists in `test`");
+
+        MC::tableDrop('test', true);
+
+        $table = DJ::table('test');
+        $table->create(function (Table $table) {
+            Column::int('id')->appendTo($table);
+        });
+        $table->modify(function (Table $table) {
+            Column::int('id')->appendTo($table);
+        });
     }
 }

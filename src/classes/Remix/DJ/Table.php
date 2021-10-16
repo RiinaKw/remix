@@ -126,6 +126,8 @@ class Table extends Gear
      * @throws RemixException This is a prototype; not meant to be called directly.
      * @see Table::create()
      * @see Table::modify()
+     * @SuppressWarnings(PHPMD.UnusedPrivateMethod)
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     private static function callbackToCreate(self $table): void
     {
@@ -146,26 +148,7 @@ class Table extends Gear
         if (count($this->columns) < 1) {
             throw new DJException("Table '{$this->name}' must contains any column");
         }
-        $columns_string = [];
-        foreach ($this->columns as $column) {
-            $columns_string[] = (string)$column;
-        }
-        $columns = implode(', ', $columns_string);
-        $sql = "CREATE TABLE `{$this->name}` ({$columns});";
-
-        try {
-            if (DJ::play($sql)) {
-                foreach ($this->columns as $column) {
-                    $this->createIndex($column);
-                }
-                return true;
-            } else {
-                throw new DJException("Cannot create table '{$this->name}'");
-            }
-        } catch (\Exception $e) {
-            throw new DJException($e->getMessage());
-        }
-        return false;
+        return MC::tableCreate($this, $this->columns);
     }
     // function create()
 
@@ -181,70 +164,10 @@ class Table extends Gear
         $cb($this);
 
         if ($this->columns_add) {
-            $columns_string = [];
-            foreach ($this->columns_add as $column) {
-                $sql = 'ADD COLUMN ' . (string)$column;
-                if ($column->after) {
-                    $sql .= " AFTER `{$column->after}`";
-                }
-                $columns_string[] = $sql;
-            }
-            $columns_sql = implode(', ', $columns_string);
-            $sql = "ALTER TABLE `{$this->name}` {$columns_sql};";
-
-            try {
-                if (DJ::play($sql)) {
-                    foreach ($this->columns_add as $column) {
-                        $this->createIndex($column);
-                    }
-                    return true;
-                } else {
-                    throw new DJException("Cannot modify table '{$this->name}'");
-                }
-            } catch (\Exception $e) {
-                throw new DJException($e->getMessage());
-            }
+            return MC::tableModify($this, $this->columns_add);
         }
-
         return false;
     }
-
-    /**
-     * Create an index into this table from the column definition
-     * @param Column $column  Target column
-     */
-    public function createIndex(Column $column): void
-    {
-        MC::expectTableExists($this->name, true);
-
-        switch ($column->index) {
-            case '':
-            case 'pk':
-                // ignore
-                return;
-
-            case 'idx':
-                $index_type = 'INDEX';
-                $prefix = 'idx';
-                break;
-
-            case 'uq':
-                $index_type = 'UNIQUE INDEX';
-                $prefix = 'uq';
-                break;
-
-            default:
-                $message = 'Unknown index type "' . $column->index . '"';
-                throw new DJException($message);
-        }
-        $index_name = $prefix . '__' . $this->name . '__' . $column->name;
-
-        $sql = "CREATE {$index_type} `{$index_name}` ON `{$this->name}`(`{$column->name}`);";
-        $results = DJ::play($sql);
-        if (! $results) {
-            throw new DJException("Cannot create index '{$index_name}' for table '{$this->name}'");
-        }
-    }
-    // function createIndex()
+    // function modify()
 }
 // class Table

@@ -56,7 +56,7 @@ class MCTest extends TestCase
     public function testDropNonExists(): void
     {
         $this->expectException(\Remix\Exceptions\DJException::class);
-        $this->expectExceptionMessage('Table \'test\' is not exists');
+        $this->expectExceptionMessage('Table `test` is not exists');
 
         // Make sure to drop 'test'
         if (MC::tableExists('test')) {

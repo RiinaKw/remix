@@ -48,10 +48,7 @@ class Table extends Gear
      */
     public function __construct(string $name)
     {
-        if (preg_match('/\W/', $name)) {
-            $message = "Illegal table name '{$name}'";
-            throw new DJException($message);
-        }
+        DJ::expectIdentifier($name);
         parent::__construct();
         $this->name = $name;
     }

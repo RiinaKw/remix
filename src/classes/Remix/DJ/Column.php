@@ -3,6 +3,7 @@
 namespace Remix\DJ;
 
 use Remix\Gear;
+use Remix\Instruments\DJ;
 use Remix\Exceptions\DJException;
 
 /**
@@ -20,6 +21,7 @@ abstract class Column extends Gear
 
     public function __construct(string $name, string $type, array $params = [])
     {
+        DJ::expectIdentifier($name);
         $this->name = $name;
         $this->type = strtoupper($type);
         $this->props['length'] = $params['length'] ?? false;

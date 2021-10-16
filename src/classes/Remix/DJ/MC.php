@@ -88,12 +88,12 @@ class MC extends Gear
      */
     public static function tableCreate($table, array $columns)
     {
-        $name = static::tableName($table);
+        $table_escaped = DJ::identifier(static::tableName($table));
 
         $columns_sql = Arr::mapImplode($columns, ', ', function ($column) {
             return (string)$column;
         });
-        $sql = "CREATE TABLE `{$name}` ({$columns_sql});";
+        $sql = "CREATE TABLE {$table_escaped} ({$columns_sql});";
 
         try {
             if (DJ::play($sql)) {
@@ -102,7 +102,7 @@ class MC extends Gear
                 }
                 return true;
             } else {
-                throw new DJException("Cannot create table '{$name}'");
+                throw new DJException("Cannot create table {$table_escaped}");
             }
         } catch (\Exception $e) {
             throw new DJException($e->getMessage());
@@ -119,16 +119,17 @@ class MC extends Gear
      */
     public static function tableModify(Table $table, array $columns_to_add): bool
     {
-        $name = static::tableName($table);
+        $table_escaped = DJ::identifier(static::tableName($table));
 
         $columns_sql = Arr::mapImplode($columns_to_add, ', ', function ($column) {
             $sql = 'ADD COLUMN ' . (string)$column;
             if ($column->after) {
-                $sql .= " AFTER `{$column->after}`";
+                $after = DJ::identifier($column->after);
+                $sql .= " AFTER {$after}";
             }
             return $sql;
         });
-        $sql = "ALTER TABLE `{$name}` {$columns_sql};";
+        $sql = "ALTER TABLE {$table_escaped} {$columns_sql};";
 
         try {
             if (DJ::play($sql)) {
@@ -137,7 +138,7 @@ class MC extends Gear
                 }
                 return true;
             } else {
-                throw new DJException("Cannot modify table '{$name}'");
+                throw new DJException("Cannot modify table {$table_escaped}");
             }
         } catch (\Exception $e) {
             throw new DJException($e->getMessage());
@@ -175,12 +176,14 @@ class MC extends Gear
             default:
                 throw new DJException("Unknown index type '{$column->index}'");
         }
-        $index_name = $prefix . '__' . $name . '__' . $column->name;
+        $index_escaped = DJ::identifier($prefix . '__' . $name . '__' . $column->name);
+        $table_escaped = DJ::identifier($name);
+        $column_escaped = DJ::identifier($column->name);
 
-        $sql = "CREATE {$index_type} `{$index_name}` ON `{$name}`(`{$column->name}`);";
+        $sql = "CREATE {$index_type} {$index_escaped} ON {$table_escaped}({$column_escaped});";
         $results = DJ::play($sql);
         if (! $results) {
-            throw new DJException("Cannot create index '{$index_name}' for table '{$name}'");
+            throw new DJException("Cannot create index {$index_escaped} for table {$table_escaped}");
         }
     }
     // function indexCreate()
@@ -194,15 +197,15 @@ class MC extends Gear
      */
     public static function tableDrop(string $table, bool $force = false): bool
     {
-        $name = static::tableName($table);
+        $table_escaped = DJ::identifier(static::tableName($table));
 
         if (! $force && ! static::tableExists($table)) {
-            throw new DJException("Table '{$name}' is not exists");
+            throw new DJException("Table {$table_escaped} is not exists");
         }
 
-        $result = DJ::play("DROP TABLE IF EXISTS `{$name}`;");
+        $result = DJ::play("DROP TABLE IF EXISTS {$table_escaped};");
         if (! $result) {
-            throw new DJException("Table '{$name}' is not exists");
+            throw new DJException("Table {$table_escaped} is not exists");
         }
         return true;
     }
@@ -216,9 +219,9 @@ class MC extends Gear
     public static function tableCreateSql(string $table): string
     {
         static::expectTableExists($table, true);
-        $name = static::tableName($table);
+        $table_escaped = DJ::identifier(static::tableName($table));
 
-        $sql = "SHOW CREATE TABLE `{$name}`;";
+        $sql = "SHOW CREATE TABLE {$table_escaped};";
         return DJ::first($sql);
     }
     // function tableCreateSql()
@@ -235,10 +238,10 @@ class MC extends Gear
     public static function tableColumns($table, string $column = null)
     {
         static::expectTableExists($table, true);
-        $name = static::tableName($table);
+        $table_escaped = DJ::identifier(static::tableName($table));
 
         $params = [];
-        $sql = "SHOW FULL COLUMNS FROM `{$name}`";
+        $sql = "SHOW FULL COLUMNS FROM {$table_escaped}";
         if ($column) {
             $sql .= " WHERE Field = :column";
             $params['column'] = $column;
@@ -272,10 +275,10 @@ class MC extends Gear
     public static function tableIndexes($table, string $index = null)
     {
         static::expectTableExists($table, true);
-        $name = static::tableName($table);
+        $table_escaped = DJ::identifier(static::tableName($table));
 
         $params = [];
-        $sql = "SHOW INDEX FROM `{$name}`";
+        $sql = "SHOW INDEX FROM {$table_escaped}";
         if ($index) {
             $sql .= " WHERE Key_name = :index";
             $params['index'] = $index;

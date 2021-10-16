@@ -7,6 +7,7 @@ use Remix\Audio;
 use Remix\DJ\Setlist;
 use Remix\DJ\Back2back;
 use Remix\DJ\Table;
+use Remix\Exceptions\DJException;
 
 /**
  * Remix DJ : DB access manager
@@ -31,6 +32,19 @@ class DJ extends Instrument
         parent::__destruct();
     }
     // function __destruct()
+
+    public static function expectIdentifier(string $name)
+    {
+        if (preg_match('/\W/', $name)) {
+            $message = "Illegal identifier '{$name}'";
+            throw new DJException($message);
+        }
+    }
+
+    public static function identifier(string $name)
+    {
+        return "`{$name}`";
+    }
 
     private static function connect()
     {

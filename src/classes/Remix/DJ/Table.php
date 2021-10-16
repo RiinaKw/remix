@@ -21,6 +21,7 @@ class Table extends Gear
     protected $name;
     protected $comment = '';
     protected $columns = [];
+    protected $columns_add = [];
 
     protected $indexes_cache = null;
 
@@ -60,9 +61,14 @@ class Table extends Gear
         $this->comment = $comment;
     }
 
-    public function append(Column $column, string $after = '')
+    public function append(Column $column)
     {
         $this->columns[$column->name] = $column;
+    }
+
+    public function addColumn(Column $column)
+    {
+        $this->columns_add[$column->name] = $column;
     }
 
     public function select(): BPM
@@ -103,6 +109,42 @@ class Table extends Gear
         return false;
     }
     // function create()
+
+    public function modify(callable $cb): bool
+    {
+        if (! MC::tableExists($this->name)) {
+            throw new DJException("Table '{$this->name}' does not exists");
+        }
+        $cb($this);
+
+        if ($this->columns_add) {
+            $columns_string = [];
+            foreach ($this->columns_add as $column) {
+                $sql = 'ADD COLUMN ' . (string)$column;
+                if ($column->after) {
+                    $sql .= " AFTER `{$column->after}`";
+                }
+                $columns_string[] = $sql;
+            }
+            $columns_sql = implode(', ', $columns_string);
+            $sql = "ALTER TABLE `{$this->name}` {$columns_sql};";
+
+            try {
+                if (DJ::play($sql)) {
+                    foreach ($this->columns_add as $column) {
+                        $this->createIndex($column);
+                    }
+                    return true;
+                } else {
+                    throw new DJException("Cannot modify table '{$this->name}'");
+                }
+            } catch (\Exception $e) {
+                throw new DJException($e->getMessage());
+            }
+        }
+
+        return false;
+    }
 
     public function createIndex(Column $column): void
     {

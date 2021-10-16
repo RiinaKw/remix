@@ -188,9 +188,14 @@ class TableTest extends TestCase
 
         // Add a column
         $table = DJ::table('test');
+        /*
         $table->operate()->modify([
             Column::text('description'),
         ]);
+        */
+        $table->modify(function (Table $table) {
+            Column::text('description')->modify($table);
+        });
 
         // There should be 4 columns
         $columns = MC::tableColumns('test');
@@ -218,9 +223,14 @@ class TableTest extends TestCase
 
         // Add a column after id
         $table = DJ::table('test');
+        /*
         $table->operate()->modify([
             Column::varchar('name', 100)->after('id'),
         ]);
+        */
+        $table->modify(function (Table $table) {
+            Column::varchar('name', 100)->modify($table, 'id')->after('id');
+        });
 
         // Has order changed?
         $columns = MC::tableColumns('test');

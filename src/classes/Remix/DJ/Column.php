@@ -62,10 +62,18 @@ abstract class Column extends Gear
         }
     }
 
-    public function appendTo(Table $table)
+    public function appendTo(Table $table): self
     {
         $this->table = $table->name;
         $table->append($this);
+        return $this;
+    }
+
+    public function modify(Table $table): self
+    {
+        $this->table = $table->name;
+        $table->addColumn($this);
+        return $this;
     }
 
     public static function constructFromDef(array $def = []): self

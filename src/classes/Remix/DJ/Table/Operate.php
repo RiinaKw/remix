@@ -35,7 +35,7 @@ class Operate extends Gear
         }
     }
     // function truncate()
-
+/*
     public function create(callable $cb): bool
     {
         $name = $this->table->name;
@@ -75,7 +75,7 @@ class Operate extends Gear
         return false;
     }
     // function create()
-
+*/
     public function modify(array $columns): bool
     {
         $name = $this->table->name;

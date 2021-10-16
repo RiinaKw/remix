@@ -28,7 +28,7 @@ class MCTest extends TestCase
         $this->assertFalse(MC::tableExists('test'));
 
         $table = DJ::table('test');
-        $table->operate()->create(function (Table $table) {
+        $table->create(function (Table $table) {
             Column::int('id')->appendTo($table);
         });
 
@@ -41,7 +41,7 @@ class MCTest extends TestCase
         // Make sure to create 'test'
         if (! MC::tableExists('test')) {
             $table = DJ::table('test');
-            $table->operate()->create(function (Table $table) {
+            $table->create(function (Table $table) {
                 Column::int('id')->appendTo($table);
             });
         }

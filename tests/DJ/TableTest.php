@@ -34,7 +34,7 @@ class TableTest extends TestCase
         DJ::play('DROP TABLE IF EXISTS test');
 
         $table = DJ::table('test');
-        $table->operate()->create(function (Table $table) {
+        $table->create(function (Table $table) {
             Column::int('id')->unsigned()
                 ->appendTo($table);
             Column::varchar('user_id', 100)->nullable()->default(0)
@@ -70,7 +70,7 @@ class TableTest extends TestCase
         DJ::play('DROP TABLE IF EXISTS test');
 
         $table = DJ::table('test');
-        $table->operate()->create(function (Table $table) {
+        $table->create(function (Table $table) {
             Column::int('id')->unsigned()
                 ->pk()->appendTo($table);
             Column::varchar('user_id', 100)->nullable()->default(0)
@@ -106,7 +106,7 @@ class TableTest extends TestCase
         DJ::play('DROP TABLE IF EXISTS test');
 
         $table = DJ::table('test');
-        $table->operate()->create(function (Table $table) {
+        $table->create(function (Table $table) {
             $table->comment('sample table');
             Column::int('id')->unsigned()->comment('sample')
                 ->pk()->appendTo($table);
@@ -149,7 +149,7 @@ class TableTest extends TestCase
         DJ::play('DROP TABLE IF EXISTS test');
 
         $table = DJ::table('test');
-        $table->operate()->create(function (Table $table) {
+        $table->create(function (Table $table) {
             Column::int('id')->unsigned()->pk()->appendTo($table);
             Column::varchar('user_id', 100)->nullable()->default(0)->uq()->appendTo($table);
             Column::timestamp('created_at')->currentTimestamp()->idx()->appendTo($table);
@@ -168,7 +168,7 @@ class TableTest extends TestCase
         DJ::play('DROP TABLE IF EXISTS test');
 
         $table = DJ::table('test');
-        $table->operate()->create(function (Table $table) {
+        $table->create(function (Table $table) {
             $table->comment('sample table');
             Column::int('id')->unsigned()->comment('sample')
                 ->pk()->appendTo($table);
@@ -205,7 +205,7 @@ class TableTest extends TestCase
         DJ::play('DROP TABLE IF EXISTS test');
 
         $table = DJ::table('test');
-        $table->operate()->create(function (Table $table) {
+        $table->create(function (Table $table) {
             $table->comment('sample table');
             Column::int('id')->unsigned()->comment('sample')
                 ->pk()->appendTo($table);

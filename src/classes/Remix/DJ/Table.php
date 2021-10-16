@@ -70,5 +70,74 @@ class Table extends Gear
         return new Select($this->name);
     }
     // function select()
+
+    public function create(callable $cb): bool
+    {
+        if (MC::tableExists($this->name)) {
+            throw new DJException("Table '($this->name)' is already exists");
+        }
+
+        $cb($this);
+        if (count($this->columns) < 1) {
+            throw new DJException("Table '{$this->name}' must contains any column");
+        }
+        $columns_string = [];
+        foreach ($this->columns as $column) {
+            $columns_string[] = (string)$column;
+        }
+        $columns = implode(', ', $columns_string);
+        $sql = "CREATE TABLE `{$this->name}` ({$columns});";
+
+        try {
+            if (DJ::play($sql)) {
+                foreach ($this->columns as $column) {
+                    $this->createIndex($column);
+                }
+                return true;
+            } else {
+                throw new DJException("Cannot create table '{$this->name}'");
+            }
+        } catch (\Exception $e) {
+            throw new DJException($e->getMessage());
+        }
+        return false;
+    }
+    // function create()
+
+    public function createIndex(Column $column): void
+    {
+        if (! MC::tableExists($this->name)) {
+            throw new DJException("Table '{$this->name}' does not exists");
+        }
+
+        switch ($column->index) {
+            case '':
+            case 'pk':
+                // ignore
+                return;
+
+            case 'idx':
+                $index_type = 'INDEX';
+                $prefix = 'idx';
+                break;
+
+            case 'uq':
+                $index_type = 'UNIQUE INDEX';
+                $prefix = 'uq';
+                break;
+
+            default:
+                $message = 'Unknown index type "' . $column->index . '"';
+                throw new DJException($message);
+        }
+        $index_name = $prefix . '__' . $this->name . '__' . $column->name;
+
+        $sql = "CREATE {$index_type} `{$index_name}` ON `{$this->name}`(`{$column->name}`);";
+        $results = DJ::play($sql);
+        if (! $results) {
+            throw new DJException("Cannot create index '{$index_name}' for table '{$this->name}'");
+        }
+    }
+    // function createIndex()
 }
 // class Table

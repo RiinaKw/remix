@@ -21,7 +21,7 @@ class TimestampCol extends Column
     /**
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
-    public static function fromDef(string $name, array $def = [])
+    public static function fromDef(string $name, int $length, array $def = [])
     {
         $column = new static($name);
         return $column;

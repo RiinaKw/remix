@@ -32,6 +32,8 @@ abstract class Column extends Gear
         $this->props['index'] = $params['index'] ?? '';
     }
 
+    abstract public static function fromDef(string $name, int $length, array $def = []);
+
     public static function __callStatic($type, $args): self
     {
         $name = $args[0];
@@ -85,38 +87,18 @@ abstract class Column extends Gear
         $type = $matches['type'];
         $length = $matches['length'] ?? 0;
 
-        $types = [
-            'int' => [
-                'class' => Columns\IntCol::class,
-                'ignore_length' => false,
-            ],
-            'varchar' => [
-                'class' => Columns\VarcharCol::class,
-                'ignore_length' => false,
-            ],
-            'text' => [
-                'class' => Columns\TextCol::class,
-                'ignore_length' => true,
-            ],
-            'datetime' => [
-                'class' => Columns\DatetimeCol::class,
-                'ignore_length' => true,
-            ],
-            'timestamp' => [
-                'class' => Columns\TimestampCol::class,
-                'ignore_length' => true,
-            ],
+        $classes = [
+            'int'       => Columns\IntCol::class,
+            'varchar'   => Columns\VarcharCol::class,
+            'text'      => Columns\TextCol::class,
+            'datetime ' => Columns\DatetimeCol::class,
+            'timestamp' => Columns\TimestampCol::class,
         ];
-        if (! isset($types[$type])) {
+        if (! isset($classes[$type])) {
             $message = 'unknown method ' . $type;
             throw new DJException($message);
         }
-        $typedef = $types[$type];
-        if ($typedef['ignore_length']) {
-            $column = $typedef['class']::fromDef($name, $def);
-        } else {
-            $column = $typedef['class']::fromDef($name, $length, $def);
-        }
+        $column = $classes[$type]::fromDef($name, $length, $def);
 
         if ($def['Null'] === 'YES') {
             $column->nullable();

@@ -22,6 +22,22 @@ class TableTest extends TestCase
         \Remix\Audio::destroy();
     }
 
+    protected function prepareTable(): void
+    {
+        MC::tableDrop('test', true);
+
+        $table = DJ::table('test');
+        $table->create(function (Table $table) {
+            $table->comment('sample table');
+            Column::int('id')->unsigned()->comment('sample')
+                ->pk()->appendTo($table);
+            Column::varchar('user_id', 100)->nullable()->default(0)->comment('of')
+                ->uq()->appendTo($table);
+            Column::timestamp('created_at')->currentTimestamp()->comment('comment')
+                ->idx()->appendTo($table);
+        });
+    }
+
     public function testTable(): void
     {
         $table = DJ::table('test');
@@ -31,17 +47,7 @@ class TableTest extends TestCase
 
     public function testColumns(): void
     {
-        MC::tableDrop('test', true);
-
-        $table = DJ::table('test');
-        $table->create(function (Table $table) {
-            Column::int('id')->unsigned()
-                ->appendTo($table);
-            Column::varchar('user_id', 100)->nullable()->default(0)
-                ->appendTo($table);
-            Column::timestamp('created_at')->currentTimestamp()
-                ->appendTo($table);
-        });
+        $this->prepareTable();
 
         $columns = DJ::play('SHOW COLUMNS FROM test');
         $this->assertCount(3, $columns);
@@ -67,17 +73,7 @@ class TableTest extends TestCase
 
     public function testIndexes()
     {
-        MC::tableDrop('test', true);
-
-        $table = DJ::table('test');
-        $table->create(function (Table $table) {
-            Column::int('id')->unsigned()
-                ->pk()->appendTo($table);
-            Column::varchar('user_id', 100)->nullable()->default(0)
-                ->uq()->appendTo($table);
-            Column::timestamp('created_at')->currentTimestamp()
-                ->idx()->appendTo($table);
-        });
+        $this->prepareTable();
 
         $columns = DJ::play('SHOW INDEXES FROM test');
         $this->assertCount(3, $columns);
@@ -99,72 +95,5 @@ class TableTest extends TestCase
         $this->assertSame('idx__test__created_at', $column['Key_name']);
         $this->assertSame('created_at', $column['Column_name']);
         $this->assertSame('1', $column['Non_unique']);
-    }
-
-    public function testAddColumn(): void
-    {
-        MC::tableDrop('test', true);
-
-        $table = DJ::table('test');
-        $table->create(function (Table $table) {
-            $table->comment('sample table');
-            Column::int('id')->unsigned()->comment('sample')
-                ->pk()->appendTo($table);
-            Column::varchar('user_id', 100)->nullable()->default(0)->comment('of')
-                ->uq()->appendTo($table);
-            Column::timestamp('created_at')->currentTimestamp()->comment('comment')
-                ->idx()->appendTo($table);
-        });
-        unset($table);
-
-        // Now there are 3 columns
-        $columns = MC::tableColumns('test');
-        array_walk($columns, function (&$item) {
-            $item = $item['Field'];
-        });
-        $this->assertSame(['id', 'user_id', 'created_at'], $columns);
-
-        // Add a column
-        $table = DJ::table('test');
-        $table->modify(function (Table $table) {
-            Column::text('description')->modify($table);
-        });
-
-        // There should be 4 columns
-        $columns = MC::tableColumns('test');
-        array_walk($columns, function (&$item) {
-            $item = $item['Field'];
-        });
-        $this->assertSame(['id', 'user_id', 'created_at', 'description'], $columns);
-    }
-
-    public function testAddColumnWithOrder(): void
-    {
-        MC::tableDrop('test', true);
-
-        $table = DJ::table('test');
-        $table->create(function (Table $table) {
-            $table->comment('sample table');
-            Column::int('id')->unsigned()->comment('sample')
-                ->pk()->appendTo($table);
-            Column::varchar('user_id', 100)->nullable()->default(0)->comment('of')
-                ->uq()->appendTo($table);
-            Column::timestamp('created_at')->currentTimestamp()->comment('comment')
-                ->idx()->appendTo($table);
-        });
-        unset($table);
-
-        // Add a column after id
-        $table = DJ::table('test');
-        $table->modify(function (Table $table) {
-            Column::varchar('name', 100)->modify($table)->after('id');
-        });
-
-        // Has order changed?
-        $columns = MC::tableColumns('test');
-        array_walk($columns, function (&$item) {
-            $item = $item['Field'];
-        });
-        $this->assertSame(['id', 'name', 'user_id', 'created_at'], $columns);
     }
 }

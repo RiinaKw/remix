@@ -20,6 +20,16 @@ class MC extends Gear
         return (bool)$result;
     }
 
+    public static function expectTableExists(string $table, bool $exists = true): void
+    {
+        if ($exists && ! static::tableExists($table)) {
+            throw new DJException("Table '{$table}' is not exists");
+        }
+        if (! $exists && static::tableExists($table)) {
+            throw new DJException("Table '{$table}' is already exists");
+        }
+    }
+
     public static function tableDrop(string $table, bool $force = false): bool
     {
         if (! $force && ! static::tableExists($table)) {

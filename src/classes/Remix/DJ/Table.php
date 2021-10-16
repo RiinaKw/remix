@@ -73,9 +73,7 @@ class Table extends Gear
 
     public function create(callable $cb): bool
     {
-        if (MC::tableExists($this->name)) {
-            throw new DJException("Table '($this->name)' is already exists");
-        }
+        MC::expectTableExists($this->name, false);
 
         $cb($this);
         if (count($this->columns) < 1) {
@@ -106,9 +104,7 @@ class Table extends Gear
 
     public function modify(callable $cb): bool
     {
-        if (! MC::tableExists($this->name)) {
-            throw new DJException("Table '{$this->name}' does not exists");
-        }
+        MC::expectTableExists($this->name, true);
         $cb($this);
 
         if ($this->columns_add) {
@@ -142,9 +138,7 @@ class Table extends Gear
 
     public function createIndex(Column $column): void
     {
-        if (! MC::tableExists($this->name)) {
-            throw new DJException("Table '{$this->name}' does not exists");
-        }
+        MC::expectTableExists($this->name, true);
 
         switch ($column->index) {
             case '':

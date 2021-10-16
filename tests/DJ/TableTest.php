@@ -97,34 +97,4 @@ class TableTest extends TestCase
         $this->assertSame('created_at', $column['Column_name']);
         $this->assertSame('1', $column['Non_unique']);
     }
-
-    public function testColumnDuplicate(): void
-    {
-        $this->expectException(DJException::class);
-        $this->expectExceptionMessage("Column `id` is already exists in `test`");
-
-        MC::tableDrop('test', true);
-
-        $table = DJ::table('test');
-        $table->create(function (Table $table) {
-            Column::int('id')->appendTo($table);
-            Column::int('id')->appendTo($table);
-        });
-    }
-
-    public function testModifyColumnDuplicate(): void
-    {
-        $this->expectException(DJException::class);
-        $this->expectExceptionMessage("Column `id` is already exists in `test`");
-
-        MC::tableDrop('test', true);
-
-        $table = DJ::table('test');
-        $table->create(function (Table $table) {
-            Column::int('id')->appendTo($table);
-        });
-        $table->modify(function (Table $table) {
-            Column::int('id')->appendTo($table);
-        });
-    }
 }

@@ -496,11 +496,6 @@ Search.appendIndex(
             "summary": "Modify\u0020a\u0020table",
             "url": "classes/Remix-DJ-Table.html#method_modify"
         },                {
-            "fqsen": "\\Remix\\DJ\\Table\u003A\u003AcreateIndex\u0028\u0029",
-            "name": "createIndex",
-            "summary": "Create\u0020an\u0020index\u0020into\u0020this\u0020table\u0020from\u0020the\u0020column\u0020definition",
-            "url": "classes/Remix-DJ-Table.html#method_createIndex"
-        },                {
             "fqsen": "\\Remix\\DJ\\Table\u003A\u003A\u0024name",
             "name": "name",
             "summary": "Name\u0020of\u0020table",
@@ -2466,6 +2461,11 @@ Search.appendIndex(
             "summary": "Don\u0027t\u0020create\u0020an\u0020instance",
             "url": "classes/Remix-DJ-MC.html#method___destruct"
         },                {
+            "fqsen": "\\Remix\\DJ\\MC\u003A\u003AtableName\u0028\u0029",
+            "name": "tableName",
+            "summary": "Get\u0020the\u0020name\u0020of\u0020table",
+            "url": "classes/Remix-DJ-MC.html#method_tableName"
+        },                {
             "fqsen": "\\Remix\\DJ\\MC\u003A\u003AtableExists\u0028\u0029",
             "name": "tableExists",
             "summary": "Does\u0020the\u0020table\u0020exists\u003F",
@@ -2475,6 +2475,21 @@ Search.appendIndex(
             "name": "expectTableExists",
             "summary": "Expect\u0020the\u0020table\u0020to\u0020exist\u0020\/\u0020not\u0020exist,\u0020raise\u0020an\u0020exception\u0020if\u0020unexpected",
             "url": "classes/Remix-DJ-MC.html#method_expectTableExists"
+        },                {
+            "fqsen": "\\Remix\\DJ\\MC\u003A\u003AtableCreate\u0028\u0029",
+            "name": "tableCreate",
+            "summary": "Create\u0020table",
+            "url": "classes/Remix-DJ-MC.html#method_tableCreate"
+        },                {
+            "fqsen": "\\Remix\\DJ\\MC\u003A\u003AtableModify\u0028\u0029",
+            "name": "tableModify",
+            "summary": "Create\u0020table",
+            "url": "classes/Remix-DJ-MC.html#method_tableModify"
+        },                {
+            "fqsen": "\\Remix\\DJ\\MC\u003A\u003AindexCreate\u0028\u0029",
+            "name": "indexCreate",
+            "summary": "Create\u0020an\u0020index\u0020into\u0020this\u0020table\u0020from\u0020the\u0020column\u0020definition",
+            "url": "classes/Remix-DJ-MC.html#method_indexCreate"
         },                {
             "fqsen": "\\Remix\\DJ\\MC\u003A\u003AtableDrop\u0028\u0029",
             "name": "tableDrop",

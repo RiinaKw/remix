@@ -34,24 +34,41 @@ class MC extends Gear
     }
 
     /**
-     * Does the table exists?
-     * @param  string $table  Target table
-     * @return bool           Exists or not
+     * Get the name of table
+     * @param  Table|string  $table  Table instance or table name
+     * @return string                Correct table name
+     * @throws DJException           For unknown instance
      */
-    public static function tableExists(string $table): bool
+    private static function tableName($table): string
     {
-        $result = DJ::first('SHOW TABLES LIKE :table;', [':table' => $table]);
+        if ($table instanceof Table) {
+            return $table->name;
+        } elseif (is_string($table)) {
+            return $table;
+        }
+        throw new DJException('Invalid table instance : ' . get_class($table));
+    }
+
+    /**
+     * Does the table exists?
+     * @param  Table|string  $table  Table instance or table name
+     * @return bool                  Exists or not
+     */
+    public static function tableExists($table): bool
+    {
+        $name = static::tableName($table);
+        $result = DJ::first('SHOW TABLES LIKE :table;', [':table' => $name]);
         return (bool)$result;
     }
     // function tableExists()
 
     /**
      * Expect the table to exist / not exist, raise an exception if unexpected
-     * @param string  $table   Target table
-     * @param boolean $exists  Expect it to exist or not
-     * @throws DJException     If not expected
+     * @param Table|string  $table   Target table instance or table name
+     * @param boolean       $exists  Expect it to exist or not
+     * @throws DJException           If not expected
      */
-    public static function expectTableExists(string $table, bool $exists = true): void
+    public static function expectTableExists($table, bool $exists = true): void
     {
         if ($exists && ! static::tableExists($table)) {
             throw new DJException("Table '{$table}' is not exists");
@@ -64,18 +81,20 @@ class MC extends Gear
 
     /**
      * Create table
-     * @param  Table          $table    Table instance
+     * @param  Table|string   $table     table instance or table name
      * @param  array<Column>  $columns  Columns contained in the table
      * @return bool                     Successfull or not
      */
     public static function tableCreate($table, array $columns)
     {
+        $name = static::tableName($table);
+
         $columns_string = [];
         foreach ($columns as $column) {
             $columns_string[] = (string)$column;
         }
         $columns_sql = implode(', ', $columns_string);
-        $sql = "CREATE TABLE `{$table->name}` ({$columns_sql});";
+        $sql = "CREATE TABLE `{$name}` ({$columns_sql});";
 
         try {
             if (DJ::play($sql)) {
@@ -84,7 +103,7 @@ class MC extends Gear
                 }
                 return true;
             } else {
-                throw new DJException("Cannot create table '{$table->name}'");
+                throw new DJException("Cannot create table '{$name}'");
             }
         } catch (\Exception $e) {
             throw new DJException($e->getMessage());
@@ -95,12 +114,14 @@ class MC extends Gear
 
     /**
      * Create table
-     * @param  Table          $table           Table instance
+     * @param  Table|string   $table     table instance or table name
      * @param  array<Column>  $columns_to_add  Columns to add to the table
      * @return bool                            Successfull or not
      */
     public static function tableModify(Table $table, array $columns_to_add): bool
     {
+        $name = static::tableName($table);
+
         $columns_string = [];
         foreach ($columns_to_add as $column) {
             $sql = 'ADD COLUMN ' . (string)$column;
@@ -110,7 +131,7 @@ class MC extends Gear
             $columns_string[] = $sql;
         }
         $columns_sql = implode(', ', $columns_string);
-        $sql = "ALTER TABLE `{$table->name}` {$columns_sql};";
+        $sql = "ALTER TABLE `{$name}` {$columns_sql};";
 
         try {
             if (DJ::play($sql)) {
@@ -119,7 +140,7 @@ class MC extends Gear
                 }
                 return true;
             } else {
-                throw new DJException("Cannot modify table '{$table->name}'");
+                throw new DJException("Cannot modify table '{$name}'");
             }
         } catch (\Exception $e) {
             throw new DJException($e->getMessage());
@@ -130,11 +151,13 @@ class MC extends Gear
 
     /**
      * Create an index into this table from the column definition
-     * @param Column $column  Target column
+     * @param Table|string   $table   table instance or table name
+     * @param Column         $column  Target column
      */
-    public function indexCreate(Table $table, Column $column): void
+    public function indexCreate($table, Column $column): void
     {
-        static::expectTableExists($table->name, true);
+        static::expectTableExists($table, true);
+        $name = static::tableName($table);
 
         switch ($column->index) {
             case '':
@@ -156,32 +179,34 @@ class MC extends Gear
                 $message = 'Unknown index type "' . $column->index . '"';
                 throw new DJException($message);
         }
-        $index_name = $prefix . '__' . $table->name . '__' . $column->name;
+        $index_name = $prefix . '__' . $name . '__' . $column->name;
 
-        $sql = "CREATE {$index_type} `{$index_name}` ON `{$table->name}`(`{$column->name}`);";
+        $sql = "CREATE {$index_type} `{$index_name}` ON `{$name}`(`{$column->name}`);";
         $results = DJ::play($sql);
         if (! $results) {
-            throw new DJException("Cannot create index '{$index_name}' for table '{$table->name}'");
+            throw new DJException("Cannot create index '{$index_name}' for table '{$name}'");
         }
     }
     // function indexCreate()
 
     /**
      * Drop table
-     * @param  string  $table  Target table
-     * @param  boolean $force  If true, run even if it does not exist
-     * @return bool            Successful or not
-     * @throws DJException     If not force and target does not exists, or couldn't be executed
+     * @param  Table|string  $table  table instance or table name
+     * @param  boolean      $force  If true, run even if it does not exist
+     * @return bool                 Successful or not
+     * @throws DJException          If not force and target does not exists, or couldn't be executed
      */
     public static function tableDrop(string $table, bool $force = false): bool
     {
+        $name = static::tableName($table);
+
         if (! $force && ! static::tableExists($table)) {
-            throw new DJException("Table '{$table}' is not exists");
+            throw new DJException("Table '{$name}' is not exists");
         }
 
-        $result = DJ::play("DROP TABLE IF EXISTS `{$table}`;");
+        $result = DJ::play("DROP TABLE IF EXISTS `{$name}`;");
         if (! $result) {
-            throw new DJException("Table '{$table}' is not exists");
+            throw new DJException("Table '{$name}' is not exists");
         }
         return true;
     }
@@ -189,33 +214,35 @@ class MC extends Gear
 
     /**
      * Show SQL of CREATE TABLE
-     * @param  string $table  Target table
-     * @return string         SQL of CREATE TABLE
+     * @param  Table|string  $table  Target table instance or table name
+     * @return string                SQL of CREATE TABLE
      */
     public static function tableCreateSql(string $table): string
     {
         static::expectTableExists($table, true);
+        $name = static::tableName($table);
 
-        $sql = "SHOW CREATE TABLE `{$table}`;";
+        $sql = "SHOW CREATE TABLE `{$name}`;";
         return DJ::first($sql);
     }
     // function tableCreateSql()
 
     /**
      * Get column(s) from table definition
-     * @param  string      $table                 Target table
-     * @param  string|null $column                Target column, all targets if null
+     * @param  Table|string  $table   Target table instance or table name
+     * @param  string|null   $column  Target column, all targets if null
      * @return null|Column|array<string, Column>
      *             * Null : it doesn't exist,
      *             * Column : if the target exists,
      *             * array of Column : no target specified
      */
-    public static function tableColumns(string $table, string $column = null)
+    public static function tableColumns($table, string $column = null)
     {
         static::expectTableExists($table, true);
+        $name = static::tableName($table);
 
         $params = [];
-        $sql = "SHOW FULL COLUMNS FROM `{$table}`";
+        $sql = "SHOW FULL COLUMNS FROM `{$name}`";
         if ($column) {
             $sql .= " WHERE Field = :column";
             $params['column'] = $column;
@@ -238,19 +265,20 @@ class MC extends Gear
 
     /**
      * Get Index(es) from table definition
-     * @param  string      $table               Target table
-     * @param  string|null $index               Target index, all targets if null
+     * @param  Table|string  $table  Target table instance or table name
+     * @param  string|null   $index  Target index, all targets if null
      * @return null|Index|array<string, Index>
      *             * Null : it doesn't exist,
      *             * Index : if the target exists,
      *             * array of Index : no target specified
      */
-    public static function tableIndexes(string $table, string $index = null)
+    public static function tableIndexes($table, string $index = null)
     {
         static::expectTableExists($table, true);
+        $name = static::tableName($table);
 
         $params = [];
-        $sql = "SHOW INDEX FROM `{$table}`";
+        $sql = "SHOW INDEX FROM `{$name}`";
         if ($index) {
             $sql .= " WHERE Key_name = :index";
             $params['index'] = $index;

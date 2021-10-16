@@ -47,8 +47,7 @@ class MC extends Gear
     {
         if (static::tableExists($table)) {
             $sql = "SHOW CREATE TABLE `{$table}`;";
-            $setlist = DJ::play($sql);
-            return $setlist->first();
+            return DJ::first($sql);
         }
         return null;
     }
@@ -64,14 +63,13 @@ class MC extends Gear
             $params['column'] = $column;
         }
         $sql .= ';';
-        $setlist = DJ::play($sql, $params);
+
         if ($column) {
-            $def = $setlist->first();
+            $def = DJ::first($sql, $params);
             return $def ? Column::constructFromDef($def) : null;
         } else {
-            return $setlist->all();
+            return DJ::play($sql, $params)->all();
         }
-        return null;
     }
 
     public static function tableIndexes(string $table, string $index = null)
@@ -85,13 +83,12 @@ class MC extends Gear
             $params['index'] = $index;
         }
         $sql .= ';';
-        $setlist = DJ::play($sql, $params);
+
         if ($index) {
-            $def = $setlist->first();
+            $def = DJ::first($sql, $params);
             return $def ? Index::constructFromDef($def) : null;
         } else {
-            return $setlist->all();
+            return DJ::play($sql, $params)->all();
         }
-        return null;
     }
 }

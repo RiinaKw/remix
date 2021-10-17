@@ -21,39 +21,45 @@ class Back2back extends Gear
     }
     // function __construct()
 
+    public function __destruct()
+    {
+        if ($this->inSession()) {
+            $this->fail();
+            throw new DJException("Back2back is not finished");
+        }
+    }
+
     public function start()
     {
-        try {
+        if ($this->inSession()) {
             $this->fail();
-            $this->connection->beginTransaction();
-        } catch (\PDOException $e) {
-            throw new DJException($e->getMessage());
+            throw new DJException("Back2back has already started");
         }
+        $this->connection->beginTransaction();
     }
     // function start()
 
     public function success()
     {
-        if ($this->connection->inTransaction()) {
-            try {
-                $this->connection->commit();
-            } catch (\PDOException $e) {
-                throw new DJException($e->getMessage());
-            }
+        if (! $this->inSession()) {
+            throw new DJException("Back2back has already finished");
         }
+        $this->connection->commit();
     }
     // function success()
 
     public function fail()
     {
-        if ($this->connection->inTransaction()) {
-            try {
-                $this->connection->rollBack();
-            } catch (\PDOException $e) {
-                throw new DJException($e->getMessage());
-            }
+        if (! $this->inSession()) {
+            throw new DJException("Back2back has already finished");
         }
+        $this->connection->rollBack();
     }
     // function fail()
+
+    public function inSession(): bool
+    {
+        return $this->connection->inTransaction();
+    }
 }
 // class Setlist

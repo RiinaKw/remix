@@ -137,33 +137,17 @@ abstract class Column extends Gear
 
     public function __call(string $key, array $arg): self
     {
-        switch ($key) {
-            case 'pk':
-            case 'uq':
-            case 'idx':
-                $this->props['index'] = $key;
-                break;
-
-            case 'nullable':
-                $this->props[$key] = true;
-                break;
-
-            case 'default':
-            case 'comment':
-            case 'after':
-            case 'replace':
-            case 'rename':
-                $this->props[$key] = $arg[0];
-                break;
-
-            case 'add':
-                $this->props[$key] = true;
-                break;
-
-            default:
-                throw new DJException("unknown method '{$key}'");
+        if (in_array(['pk', 'uq', 'idx'], $key, true)) {
+            $this->props['index'] = $key;
+            return $this;
+        } elseif (in_array(['nullable', 'add'], $key, true)) {
+            $this->props[$key] = true;
+            return $this;
+        } elseif (in_array(['default', 'comment', 'after', 'replace', 'rename'], $key, true)) {
+            $this->props[$key] = $arg[0];
+            return $this;
         }
-        return $this;
+        throw new DJException("unknown method '{$key}'");
     }
 
     private function definitionType(): string

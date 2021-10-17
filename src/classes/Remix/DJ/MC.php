@@ -165,8 +165,9 @@ class MC extends Gear
 
         if (DJ::play($sql)) {
             foreach ($columns as $column) {
-                if ($column instanceof Column)
-                static::indexCreate($table, $column);
+                if ($column instanceof Column) {
+                    static::indexCreate($table, $column);
+                }
             }
             return true;
         } else {

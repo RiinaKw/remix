@@ -120,8 +120,6 @@ class Back2backTest extends TestCase
         $this->expectException(DJException::class);
         $this->expectExceptionMessage("Back2back is not finished");
 
-        $setlist = DJ::play('SELECT * FROM test;');
-
         $back2back = DJ::Back2back();
         $back2back->start();
         DJ::play('INSERT INTO test(id) VALUES (1);');

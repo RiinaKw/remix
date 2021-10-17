@@ -128,4 +128,30 @@ class Back2backTest extends TestCase
 
         unset($back2back);
     }
+
+    public function testCallback()
+    {
+        // Make sure the table is empty
+        DJ::play('TRUNCATE TABLE test;');
+        $setlist = DJ::play('SELECT * FROM test;');
+        $this->assertCount(0, $setlist);
+
+        DJ::Back2back()->live(function () {
+            DJ::play('INSERT INTO test(id) VALUES (1);');
+        });
+
+        // Is there contains a row?
+        $setlist = DJ::play('SELECT * FROM test;');
+        $this->assertCount(1, $setlist);
+    }
+
+    public function testExceptionInCallback()
+    {
+        $this->expectException(DJException::class);
+        $this->expectExceptionMessage("Exception thrown 'test'");
+
+        DJ::Back2back()->live(function () {
+            throw new \Exception('test');
+        });
+    }
 }

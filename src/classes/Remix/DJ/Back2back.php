@@ -61,5 +61,20 @@ class Back2back extends Gear
     {
         return $this->connection->inTransaction();
     }
+
+    public function live(callable $cb)
+    {
+        $this->start();
+        try {
+            $cb();
+        } catch (\Exception $e) {
+            $this->fail();
+            $message = $e->getMessage();
+            $file = $e->getFile();
+            $line = $e->getLine();
+            throw new DJException("Exception thrown '{$message}'\n{$file}:{$line}");
+        }
+        $this->success();
+    }
 }
 // class Setlist

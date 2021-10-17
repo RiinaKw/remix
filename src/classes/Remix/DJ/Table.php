@@ -37,6 +37,12 @@ class Table extends Gear
     protected $columns = [];
 
     /**
+     * Columns
+     * @var array<Column>
+     */
+    protected $columns_modify = [];
+
+    /**
      * Columns to alter
      * @var array<Column>
      */
@@ -90,7 +96,8 @@ class Table extends Gear
      * @param  Column $column  A column to add
      * @return self            Itself
      */
-    public function append(Column $column): self
+    /*
+    public function createColumn(Column $column): self
     {
         if (isset($this->columns[$column->name])) {
             $table_escaped = DJ::identifier($this->name);
@@ -100,20 +107,21 @@ class Table extends Gear
         $this->columns[$column->name] = $column;
         return $this;
     }
+    */
 
     /**
      * Add a column into this table, used in ALTER TABLE
      * @param  Column $column  A column to add
      * @return self            Itself
      */
-    public function addColumn(Column $column): self
+    public function appendColumn(Column $column): self
     {
         if (isset($this->columns[$column->name])) {
             $table_escaped = DJ::identifier($this->name);
             $column_escaped = DJ::identifier($column->name);
             throw new DJException("Column {$column_escaped} is already exists in {$table_escaped}");
         }
-        $this->columns_add[$column->name] = $column;
+        $this->columns[$column->name] = $column;
         return $this;
     }
 
@@ -170,8 +178,8 @@ class Table extends Gear
         MC::expectTableExists($this->name, true);
         $cb($this);
 
-        if ($this->columns_add) {
-            return MC::tableModify($this, $this->columns_add);
+        if ($this->columns) {
+            return MC::tableModify($this, $this->columns);
         }
         return false;
     }

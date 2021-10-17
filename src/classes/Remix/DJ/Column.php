@@ -66,17 +66,10 @@ abstract class Column extends Gear
         }
     }
 
-    public function appendTo(Table $table): self
+    public function append(Table $table): self
     {
         $this->table = $table->name;
-        $table->append($this);
-        return $this;
-    }
-
-    public function modify(Table $table): self
-    {
-        $this->table = $table->name;
-        $table->addColumn($this);
+        $table->appendColumn($this);
         return $this;
     }
 
@@ -158,7 +151,13 @@ abstract class Column extends Gear
             case 'default':
             case 'comment':
             case 'after':
+            case 'replace':
+            case 'rename':
                 $this->props[$key] = $arg[0];
+                break;
+
+            case 'add':
+                $this->props[$key] = true;
                 break;
 
             default:
@@ -179,19 +178,16 @@ abstract class Column extends Gear
                 if ($this->props['unsigned']) {
                     $type .= ' UNSIGNED';
                 }
-                break;
+                return $type;
 
             case 'VARCHAR':
-                $type = "VARCHAR({$this->props['length']})";
-                break;
+                return "VARCHAR({$this->props['length']})";
 
             case 'TEXT':
             case 'DATETIME':
             case 'TIMESTAMP':
-                $type = $this->type;
-                break;
+                return $this->type;
         }
-        return "`{$this->name}` {$type}";
     }
 
     private function definitionDefaultValue(): string

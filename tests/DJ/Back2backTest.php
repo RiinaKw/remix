@@ -20,7 +20,7 @@ class Back2backTest extends TestCase
         $table = DJ::table('test');
         $table->create(function (Table $table) {
             $table->comment('sample table');
-            Column::int('id')->appendTo($table);
+            Column::int('id')->append($table);
         });
     }
 

@@ -31,11 +31,11 @@ class TableTest extends TestCase
         $table->create(function (Table $table) {
             $table->comment('sample table');
             Column::int('id')->unsigned()->comment('sample')
-                ->pk()->appendTo($table);
+                ->pk()->append($table);
             Column::varchar('user_id', 100)->nullable()->default(0)->comment('of')
-                ->uq()->appendTo($table);
+                ->uq()->append($table);
             Column::timestamp('created_at')->currentTimestamp()->comment('comment')
-                ->idx()->appendTo($table);
+                ->idx()->append($table);
         });
     }
 

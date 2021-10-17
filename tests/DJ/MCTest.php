@@ -31,11 +31,11 @@ class MCTest extends TestCase
         $table->create(function (Table $table) {
             $table->comment('sample table');
             Column::int('id')->unsigned()->comment('sample')
-                ->pk()->appendTo($table);
+                ->pk()->append($table);
             Column::varchar('user_id', 100)->nullable()->default(0)->comment('of')
-                ->uq()->appendTo($table);
+                ->uq()->append($table);
             Column::timestamp('created_at')->currentTimestamp()->comment('comment')
-                ->idx()->appendTo($table);
+                ->idx()->append($table);
         });
 
         $column = MC::tableColumns('test', 'id');
@@ -71,9 +71,9 @@ class MCTest extends TestCase
 
         $table = DJ::table('test');
         $table->create(function (Table $table) {
-            Column::int('id')->unsigned()->pk()->appendTo($table);
-            Column::varchar('user_id', 100)->nullable()->default(0)->uq()->appendTo($table);
-            Column::timestamp('created_at')->currentTimestamp()->idx()->appendTo($table);
+            Column::int('id')->unsigned()->pk()->append($table);
+            Column::varchar('user_id', 100)->nullable()->default(0)->uq()->append($table);
+            Column::timestamp('created_at')->currentTimestamp()->idx()->append($table);
         });
 
         $index = MC::tableIndexes('test', 'uq__test__user_id');

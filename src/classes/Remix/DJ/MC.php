@@ -93,7 +93,7 @@ class MC extends Gear
         $table_escaped = DJ::identifier(static::tableName($table));
 
         $columns_sql = Arr::mapImplode($columns, ', ', function ($column) {
-            return (string)$column;
+            return DJ::identifier($column->name) . ' ' . (string)$column;
         });
         $sql = "CREATE TABLE {$table_escaped} ({$columns_sql});";
 
@@ -119,23 +119,39 @@ class MC extends Gear
      * @param  array<Column>  $columns_to_add  Columns to add to the table
      * @return bool                            Successfull or not
      */
-    public static function tableModify(Table $table, array $columns_to_add): bool
+    public static function tableModify(Table $table, array $columns): bool
     {
         $table_escaped = DJ::identifier(static::tableName($table));
 
-        $columns_sql = Arr::mapImplode($columns_to_add, ', ', function ($column) {
-            $sql = 'ADD COLUMN ' . (string)$column;
-            if ($column->after) {
-                $after = DJ::identifier($column->after);
-                $sql .= " AFTER {$after}";
+        $columns_sql = Arr::mapImplode($columns, ', ', function ($column) {
+            if ($column->replace) {
+                $sql = 'CHANGE COLUMN'
+                    . ' ' . DJ::identifier($column->replace)
+                    . ' ' . DJ::identifier($column->name)
+                    . ' ' . (string)$column;
+                return $sql;
+            } elseif ($column->rename) {
+                $sql = 'CHANGE COLUMN'
+                    . ' ' . DJ::identifier($column->name)
+                    . ' ' . DJ::identifier($column->rename)
+                    . ' ' . (string)$column;
+                return $sql;
+            } else {
+                $sql = 'ADD COLUMN'
+                    . ' ' . DJ::identifier($column->name)
+                    . ' ' . (string)$column;
+                if ($column->after) {
+                    $after = DJ::identifier($column->after);
+                    $sql .= " AFTER {$after}";
+                }
+                return $sql;
             }
-            return $sql;
         });
         $sql = "ALTER TABLE {$table_escaped} {$columns_sql};";
 
         try {
             if (DJ::play($sql)) {
-                foreach ($columns_to_add as $column) {
+                foreach ($columns as $column) {
                     static::indexCreate($table, $column);
                 }
                 return true;
@@ -218,13 +234,13 @@ class MC extends Gear
      * @param  Table|string  $table  Target table instance or table name
      * @return string                SQL of CREATE TABLE
      */
-    public static function tableCreateSql(string $table): string
+    public static function tableCreateSql($table): string
     {
         static::expectTableExists($table, true);
         $table_escaped = DJ::identifier(static::tableName($table));
 
         $sql = "SHOW CREATE TABLE {$table_escaped};";
-        return DJ::first($sql);
+        return DJ::first($sql)['Create Table'];
     }
     // function tableCreateSql()
 

@@ -84,10 +84,48 @@ class MC extends Gear
 
     /**
      * Create table
+     * @param  Table|string  $table  Table instance or table name
+     * @param  callable      $cb     Callback to create columns
+     * @return Table|null            Table instance
+     */
+    public static function tableCreate($table, callable $cb): Table
+    {
+        static::expectTableExists($table, false);
+
+        if (! $table instanceof Table) {
+            $table = new Table($table);
+        }
+        $table_escaped = DJ::identifier($table->name);
+
+        $cb($table);
+
+        if (count($table->columns) < 1) {
+            throw new DJException("Table {$table_escaped} must contains any column");
+        }
+
+        $columns_sql = Arr::mapImplode($table->columns, ', ', function ($column) {
+            return DJ::identifier($column->name) . ' ' . (string)$column;
+        });
+        $sql = "CREATE TABLE {$table_escaped} ({$columns_sql});";
+
+        if (DJ::play($sql)) {
+            foreach ($table->columns as $column) {
+                static::indexCreate($table, $column);
+            }
+            return $table;
+        } else {
+            throw new DJException("Cannot create table {$table_escaped}");
+        }
+        return null;
+    }
+
+    /**
+     * Create table
      * @param  Table|string   $table    Table instance or table name
      * @param  array<Column>  $columns  Columns contained in the table
      * @return bool                     Successfull or not
      */
+    /*
     public static function tableCreate($table, array $columns)
     {
         $table_escaped = DJ::identifier(static::tableName($table));
@@ -108,6 +146,7 @@ class MC extends Gear
         return false;
     }
     // function tableCreate()
+    */
 
     /**
      * Create table

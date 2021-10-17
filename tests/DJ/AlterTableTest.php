@@ -27,8 +27,7 @@ class AlterTableTest extends TestCase
     {
         MC::tableDrop('test', true);
 
-        $table = DJ::table('test');
-        $table->create(function (Table $table) {
+        MC::tableCreate('test', function (Table $table) {
             $table->comment('sample table');
             Column::int('id')->unsigned()->comment('sample')
                 ->pk()->append($table);
@@ -104,8 +103,7 @@ class AlterTableTest extends TestCase
         MC::tableDrop('test', true);
 
         // Created without problems
-        $table = DJ::table('test');
-        $table->create(function (Table $table) {
+        $table = MC::tableCreate('test', function (Table $table) {
             Column::int('id')->append($table);
         });
 

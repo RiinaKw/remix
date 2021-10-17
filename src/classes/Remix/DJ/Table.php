@@ -60,6 +60,9 @@ class Table extends Gear
             case 'comment':
                 return $this->$key;
 
+            case 'columns':
+                return $this->columns;
+
             default:
                 $message = "Unknown property '{$key}'";
                 throw new RemixException($message);
@@ -124,6 +127,7 @@ class Table extends Gear
      * @return bool          Successful or not
      * @see Table::callbackToCreate()
      */
+    /*
     public function create(callable $cb): bool
     {
         MC::expectTableExists($this->name, false);
@@ -133,7 +137,7 @@ class Table extends Gear
             throw new DJException("Table '{$this->name}' must contains any column");
         }
         return MC::tableCreate($this, $this->columns);
-    }
+    }*/
     // function create()
 
     /**

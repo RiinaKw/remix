@@ -23,12 +23,42 @@ class MCTest extends TestCase
         \Remix\Audio::destroy();
     }
 
+    public function testCreate(): void
+    {
+        DJ::play("DROP TABLE IF EXISTS `test`;");
+
+        $table = MC::tableCreate('test', function (Table $table) {
+            Column::int('id')->unsigned()->pk()->append($table);
+            Column::varchar('user_id', 100)->nullable()->default(0)->uq()->append($table);
+            Column::timestamp('created_at')->currentTimestamp()->idx()->append($table);
+        });
+        $this->assertInstanceof(Table::class, $table);
+        $this->assertSame('test', $table->name);
+
+        $setlist = DJ::play("SHOW TABLES LIKE 'test';");
+        $this->assertCount(1, $setlist);
+
+        $setlist = DJ::play("SHOW FULL COLUMNS FROM `test`;");
+        $this->assertCount(3, $setlist);
+
+        $column = $setlist->fetch();
+        $this->assertSame('id', $column['Field']);
+        $this->assertSame('int(10) unsigned', $column['Type']);
+
+        $column = $setlist->fetch();
+        $this->assertSame('user_id', $column['Field']);
+        $this->assertSame('varchar(100)', $column['Type']);
+
+        $column = $setlist->fetch();
+        $this->assertSame('created_at', $column['Field']);
+        $this->assertSame('timestamp', $column['Type']);
+    }
+
     public function testColumns(): void
     {
-        MC::tableDrop('test', true);
+        DJ::play("DROP TABLE IF EXISTS `test`;");
 
-        $table = DJ::table('test');
-        $table->create(function (Table $table) {
+        MC::tableCreate('test', function (Table $table) {
             $table->comment('sample table');
             Column::int('id')->unsigned()->comment('sample')
                 ->pk()->append($table);
@@ -67,10 +97,9 @@ class MCTest extends TestCase
 
     public function testIndexes(): void
     {
-        MC::tableDrop('test', true);
+        DJ::play("DROP TABLE IF EXISTS `test`;");
 
-        $table = DJ::table('test');
-        $table->create(function (Table $table) {
+        MC::tableCreate('test', function (Table $table) {
             Column::int('id')->unsigned()->pk()->append($table);
             Column::varchar('user_id', 100)->nullable()->default(0)->uq()->append($table);
             Column::timestamp('created_at')->currentTimestamp()->idx()->append($table);

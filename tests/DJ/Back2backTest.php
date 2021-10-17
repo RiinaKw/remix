@@ -15,13 +15,8 @@ class Back2backTest extends TestCase
     {
         \Remix\Audio::getInstance()->preset->set('app', require('TestEnv.php'));
 
-        MC::tableDrop('test', true);
-
-        $table = DJ::table('test');
-        $table->create(function (Table $table) {
-            $table->comment('sample table');
-            Column::int('id')->append($table);
-        });
+        DJ::play("DROP TABLE IF EXISTS `test`;");
+        DJ::play("CREATE TABLE `test` (`id` INT)");
     }
 
     public function tearDown(): void

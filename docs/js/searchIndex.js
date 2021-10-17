@@ -171,6 +171,11 @@ Search.appendIndex(
             "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020constructed.",
             "url": "classes/Remix-DJ-Back2back.html#method___construct"
         },                {
+            "fqsen": "\\Remix\\DJ\\Back2back\u003A\u003A__destruct\u0028\u0029",
+            "name": "__destruct",
+            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020destructed.",
+            "url": "classes/Remix-DJ-Back2back.html#method___destruct"
+        },                {
             "fqsen": "\\Remix\\DJ\\Back2back\u003A\u003Astart\u0028\u0029",
             "name": "start",
             "summary": "",
@@ -185,6 +190,16 @@ Search.appendIndex(
             "name": "fail",
             "summary": "",
             "url": "classes/Remix-DJ-Back2back.html#method_fail"
+        },                {
+            "fqsen": "\\Remix\\DJ\\Back2back\u003A\u003AinSession\u0028\u0029",
+            "name": "inSession",
+            "summary": "",
+            "url": "classes/Remix-DJ-Back2back.html#method_inSession"
+        },                {
+            "fqsen": "\\Remix\\DJ\\Back2back\u003A\u003Alive\u0028\u0029",
+            "name": "live",
+            "summary": "",
+            "url": "classes/Remix-DJ-Back2back.html#method_live"
         },                {
             "fqsen": "\\Remix\\DJ\\Back2back\u003A\u003A\u0024connection",
             "name": "connection",
@@ -291,20 +306,20 @@ Search.appendIndex(
             "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020constructed.",
             "url": "classes/Remix-DJ-Column.html#method___construct"
         },                {
+            "fqsen": "\\Remix\\DJ\\Column\u003A\u003AfromDef\u0028\u0029",
+            "name": "fromDef",
+            "summary": "",
+            "url": "classes/Remix-DJ-Column.html#method_fromDef"
+        },                {
             "fqsen": "\\Remix\\DJ\\Column\u003A\u003A__callStatic\u0028\u0029",
             "name": "__callStatic",
             "summary": "",
             "url": "classes/Remix-DJ-Column.html#method___callStatic"
         },                {
-            "fqsen": "\\Remix\\DJ\\Column\u003A\u003AappendTo\u0028\u0029",
-            "name": "appendTo",
+            "fqsen": "\\Remix\\DJ\\Column\u003A\u003Aappend\u0028\u0029",
+            "name": "append",
             "summary": "",
-            "url": "classes/Remix-DJ-Column.html#method_appendTo"
-        },                {
-            "fqsen": "\\Remix\\DJ\\Column\u003A\u003Amodify\u0028\u0029",
-            "name": "modify",
-            "summary": "",
-            "url": "classes/Remix-DJ-Column.html#method_modify"
+            "url": "classes/Remix-DJ-Column.html#method_append"
         },                {
             "fqsen": "\\Remix\\DJ\\Column\u003A\u003AconstructFromDef\u0028\u0029",
             "name": "constructFromDef",
@@ -330,6 +345,11 @@ Search.appendIndex(
             "name": "definitionDefaultValue",
             "summary": "",
             "url": "classes/Remix-DJ-Column.html#method_definitionDefaultValue"
+        },                {
+            "fqsen": "\\Remix\\DJ\\Column\u003A\u003Arename\u0028\u0029",
+            "name": "rename",
+            "summary": "",
+            "url": "classes/Remix-DJ-Column.html#method_rename"
         },                {
             "fqsen": "\\Remix\\DJ\\Column\u003A\u003A__toString\u0028\u0029",
             "name": "__toString",
@@ -466,15 +486,10 @@ Search.appendIndex(
             "summary": "Comments\u0020of\u0020table",
             "url": "classes/Remix-DJ-Table.html#property_comment"
         },                {
-            "fqsen": "\\Remix\\DJ\\Table\u003A\u003Aappend\u0028\u0029",
-            "name": "append",
-            "summary": "Create\u0020a\u0020column\u0020into\u0020this\u0020table,\u0020used\u0020in\u0020CREATE\u0020TABLE",
-            "url": "classes/Remix-DJ-Table.html#method_append"
-        },                {
-            "fqsen": "\\Remix\\DJ\\Table\u003A\u003AaddColumn\u0028\u0029",
-            "name": "addColumn",
+            "fqsen": "\\Remix\\DJ\\Table\u003A\u003AappendColumn\u0028\u0029",
+            "name": "appendColumn",
             "summary": "Add\u0020a\u0020column\u0020into\u0020this\u0020table,\u0020used\u0020in\u0020ALTER\u0020TABLE",
-            "url": "classes/Remix-DJ-Table.html#method_addColumn"
+            "url": "classes/Remix-DJ-Table.html#method_appendColumn"
         },                {
             "fqsen": "\\Remix\\DJ\\Table\u003A\u003Aselect\u0028\u0029",
             "name": "select",
@@ -496,6 +511,16 @@ Search.appendIndex(
             "summary": "Modify\u0020a\u0020table",
             "url": "classes/Remix-DJ-Table.html#method_modify"
         },                {
+            "fqsen": "\\Remix\\DJ\\Table\u003A\u003ArenameColumn\u0028\u0029",
+            "name": "renameColumn",
+            "summary": "Rename\u0020the\u0020column\u0020contained\u0020in\u0020this\u0020table",
+            "url": "classes/Remix-DJ-Table.html#method_renameColumn"
+        },                {
+            "fqsen": "\\Remix\\DJ\\Table\u003A\u003AdropColumn\u0028\u0029",
+            "name": "dropColumn",
+            "summary": "Drop\u0020the\u0020column\u0020contained\u0020in\u0020this\u0020table",
+            "url": "classes/Remix-DJ-Table.html#method_dropColumn"
+        },                {
             "fqsen": "\\Remix\\DJ\\Table\u003A\u003A\u0024name",
             "name": "name",
             "summary": "Name\u0020of\u0020table",
@@ -505,11 +530,6 @@ Search.appendIndex(
             "name": "columns",
             "summary": "Columns",
             "url": "classes/Remix-DJ-Table.html#property_columns"
-        },                {
-            "fqsen": "\\Remix\\DJ\\Table\u003A\u003A\u0024columns_add",
-            "name": "columns_add",
-            "summary": "Columns\u0020to\u0020alter",
-            "url": "classes/Remix-DJ-Table.html#property_columns_add"
         },                {
             "fqsen": "\\Remix\\Effector",
             "name": "Effector",
@@ -2050,6 +2070,16 @@ Search.appendIndex(
             "name": "__destruct",
             "summary": "",
             "url": "classes/Remix-Instruments-DJ.html#method___destruct"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\DJ\u003A\u003AexpectIdentifier\u0028\u0029",
+            "name": "expectIdentifier",
+            "summary": "",
+            "url": "classes/Remix-Instruments-DJ.html#method_expectIdentifier"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\DJ\u003A\u003Aidentifier\u0028\u0029",
+            "name": "identifier",
+            "summary": "",
+            "url": "classes/Remix-Instruments-DJ.html#method_identifier"
         },                {
             "fqsen": "\\Remix\\Instruments\\DJ\u003A\u003Aconnect\u0028\u0029",
             "name": "connect",

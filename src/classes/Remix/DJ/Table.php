@@ -32,7 +32,7 @@ class Table extends Gear
 
     /**
      * Columns
-     * @var array<Column>
+     * @var array<string, Column|array>
      */
     protected $columns = [];
 
@@ -58,7 +58,6 @@ class Table extends Gear
         switch ($key) {
             case 'name':
             case 'comment':
-            case 'columns':
                 return $this->$key;
 
             default:
@@ -78,24 +77,6 @@ class Table extends Gear
         $this->comment = $comment;
         return $this;
     }
-
-    /**
-     * Create a column into this table, used in CREATE TABLE
-     * @param  Column $column  A column to add
-     * @return self            Itself
-     */
-    /*
-    public function createColumn(Column $column): self
-    {
-        if (isset($this->columns[$column->name])) {
-            $table_escaped = DJ::identifier($this->name);
-            $column_escaped = DJ::identifier($column->name);
-            throw new DJException("Column {$column_escaped} is already exists in {$table_escaped}");
-        }
-        $this->columns[$column->name] = $column;
-        return $this;
-    }
-    */
 
     /**
      * Add a column into this table, used in ALTER TABLE
@@ -173,6 +154,12 @@ class Table extends Gear
     }
     // function modify()
 
+    /**
+     * Rename the column contained in this table
+     * @param  string $old  Old column name
+     * @param  string $new  New column name
+     * @return self         Itself
+     */
     public function renameColumn(string $old, string $new): self
     {
         $this->columns[] = [
@@ -183,6 +170,11 @@ class Table extends Gear
         return $this;
     }
 
+    /**
+     * Drop the column contained in this table
+     * @param  string $column  Column name to drop
+     * @return self            Itself
+     */
     public function dropColumn(string $column): self
     {
         $this->columns[] = [

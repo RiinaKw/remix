@@ -172,16 +172,9 @@
                 <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/Remix-DJ-Table.html#property_columns">$columns</a>
     <span>
-                &nbsp;: array&lt;string|int, <a href="classes/Remix-DJ-Column.html"><abbr title="\Remix\DJ\Column">Column</abbr></a>&gt;            </span>
+                &nbsp;: array&lt;string, \Remix\DJ\Column|array&gt;            </span>
 </dt>
 <dd>Columns</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/Remix-DJ-Table.html#property_columns_add">$columns_add</a>
-    <span>
-                &nbsp;: array&lt;string|int, <a href="classes/Remix-DJ-Column.html"><abbr title="\Remix\DJ\Column">Column</abbr></a>&gt;            </span>
-</dt>
-<dd>Columns to alter</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/Remix-DJ-Table.html#property_comment">$comment</a>
@@ -226,18 +219,11 @@
 <dd>Getter</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-DJ-Table.html#method_addColumn">addColumn()</a>
+    <a href="classes/Remix-DJ-Table.html#method_appendColumn">appendColumn()</a>
     <span>
                         &nbsp;: self    </span>
 </dt>
 <dd>Add a column into this table, used in ALTER TABLE</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-DJ-Table.html#method_append">append()</a>
-    <span>
-                        &nbsp;: self    </span>
-</dt>
-<dd>Create a column into this table, used in CREATE TABLE</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-DJ-Table.html#method_comment">comment()</a>
@@ -254,11 +240,25 @@
 <dd>Create a table</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Remix-DJ-Table.html#method_dropColumn">dropColumn()</a>
+    <span>
+                        &nbsp;: self    </span>
+</dt>
+<dd>Drop the column contained in this table</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-DJ-Table.html#method_modify">modify()</a>
     <span>
                         &nbsp;: bool    </span>
 </dt>
 <dd>Modify a table</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Remix-DJ-Table.html#method_renameColumn">renameColumn()</a>
+    <span>
+                        &nbsp;: self    </span>
+</dt>
+<dd>Rename the column contained in this table</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-DJ-Table.html#method_select">select()</a>
@@ -309,40 +309,8 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">array&lt;string|int, <a href="classes/Remix-DJ-Column.html"><abbr title="\Remix\DJ\Column">Column</abbr></a>&gt;</span>
+        <span class="phpdocumentor-signature__type">array&lt;string, \Remix\DJ\Column|array&gt;</span>
     <span class="phpdocumentor-signature__name">$columns</span>
-     = <span class="phpdocumentor-signature__default-value">[]</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -protected
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_columns_add">
-        $columns_add
-        <a href="classes/Remix-DJ-Table.html#property_columns_add" class="headerlink"><i class="fas fa-link"></i></a>
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/DJ/Table.php"><a href="files/src-classes-remix-dj-table.html"><abbr title="src/classes/Remix/DJ/Table.php">Table.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">43</span>
-</aside>
-
-        <p class="phpdocumentor-summary">Columns to alter</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">array&lt;string|int, <a href="classes/Remix-DJ-Column.html"><abbr title="\Remix\DJ\Column">Column</abbr></a>&gt;</span>
-    <span class="phpdocumentor-signature__name">$columns_add</span>
      = <span class="phpdocumentor-signature__default-value">[]</span></code>
 
         <section class="phpdocumentor-description"></section>
@@ -466,7 +434,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/DJ/Table.php"><a href="files/src-classes-remix-dj-table.html"><abbr title="src/classes/Remix/DJ/Table.php">Table.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">49</span>
+    <span class="phpdocumentor-element-found-in__line">43</span>
 </aside>
 
         <p class="phpdocumentor-summary">Set up the table</p>
@@ -546,7 +514,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/DJ/Table.php"><a href="files/src-classes-remix-dj-table.html"><abbr title="src/classes/Remix/DJ/Table.php">Table.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">65</span>
+    <span class="phpdocumentor-element-found-in__line">56</span>
 </aside>
 
         <p class="phpdocumentor-summary">Getter</p>
@@ -585,68 +553,21 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_addColumn">
-        addColumn()
-        <a href="classes/Remix-DJ-Table.html#method_addColumn" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_appendColumn">
+        appendColumn()
+        <a href="classes/Remix-DJ-Table.html#method_appendColumn" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/DJ/Table.php"><a href="files/src-classes-remix-dj-table.html"><abbr title="src/classes/Remix/DJ/Table.php">Table.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">107</span>
+    <span class="phpdocumentor-element-found-in__line">86</span>
 </aside>
 
         <p class="phpdocumentor-summary">Add a column into this table, used in ALTER TABLE</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">addColumn</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-DJ-Column.html"><abbr title="\Remix\DJ\Column">Column</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$column</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">self</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$column</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-DJ-Column.html"><abbr title="\Remix\DJ\Column">Column</abbr></a></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>A column to add</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">self</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Itself</p>
-</section>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_append">
-        append()
-        <a href="classes/Remix-DJ-Table.html#method_append" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/DJ/Table.php"><a href="files/src-classes-remix-dj-table.html"><abbr title="src/classes/Remix/DJ/Table.php">Table.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">96</span>
-</aside>
-
-        <p class="phpdocumentor-summary">Create a column into this table, used in CREATE TABLE</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">append</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-DJ-Column.html"><abbr title="\Remix\DJ\Column">Column</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$column</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">self</span></code>
+                <span class="phpdocumentor-signature__name">appendColumn</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-DJ-Column.html"><abbr title="\Remix\DJ\Column">Column</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$column</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">self</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -686,7 +607,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/DJ/Table.php"><a href="files/src-classes-remix-dj-table.html"><abbr title="src/classes/Remix/DJ/Table.php">Table.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">85</span>
+    <span class="phpdocumentor-element-found-in__line">75</span>
 </aside>
 
         <p class="phpdocumentor-summary">Add comments to this table</p>
@@ -733,7 +654,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/DJ/Table.php"><a href="files/src-classes-remix-dj-table.html"><abbr title="src/classes/Remix/DJ/Table.php">Table.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">143</span>
+    <span class="phpdocumentor-element-found-in__line">127</span>
 </aside>
 
         <p class="phpdocumentor-summary">Create a table</p>
@@ -788,6 +709,53 @@
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_dropColumn">
+        dropColumn()
+        <a href="classes/Remix-DJ-Table.html#method_dropColumn" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/DJ/Table.php"><a href="files/src-classes-remix-dj-table.html"><abbr title="src/classes/Remix/DJ/Table.php">Table.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">178</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Drop the column contained in this table</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">dropColumn</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$column</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">self</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$column</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Column name to drop</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">self</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>Itself</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_modify">
         modify()
         <a href="classes/Remix-DJ-Table.html#method_modify" class="headerlink"><i class="fas fa-link"></i></a>
@@ -795,7 +763,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/DJ/Table.php"><a href="files/src-classes-remix-dj-table.html"><abbr title="src/classes/Remix/DJ/Table.php">Table.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">161</span>
+    <span class="phpdocumentor-element-found-in__line">145</span>
 </aside>
 
         <p class="phpdocumentor-summary">Modify a table</p>
@@ -850,6 +818,62 @@
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_renameColumn">
+        renameColumn()
+        <a href="classes/Remix-DJ-Table.html#method_renameColumn" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/DJ/Table.php"><a href="files/src-classes-remix-dj-table.html"><abbr title="src/classes/Remix/DJ/Table.php">Table.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">163</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Rename the column contained in this table</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">renameColumn</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$old</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$new</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">self</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$old</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Old column name</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$new</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>New column name</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">self</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>Itself</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_select">
         select()
         <a href="classes/Remix-DJ-Table.html#method_select" class="headerlink"><i class="fas fa-link"></i></a>
@@ -857,7 +881,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/DJ/Table.php"><a href="files/src-classes-remix-dj-table.html"><abbr title="src/classes/Remix/DJ/Table.php">Table.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">117</span>
+    <span class="phpdocumentor-element-found-in__line">101</span>
 </aside>
 
         <p class="phpdocumentor-summary">Get SELECT query builder</p>
@@ -892,7 +916,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/DJ/Table.php"><a href="files/src-classes-remix-dj-table.html"><abbr title="src/classes/Remix/DJ/Table.php">Table.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">132</span>
+    <span class="phpdocumentor-element-found-in__line">116</span>
 </aside>
 
         <p class="phpdocumentor-summary">Callback of create(), modify()</p>

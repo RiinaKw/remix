@@ -150,4 +150,28 @@ class AlterTableTest extends TestCase
         $columns = MC::tableColumns($table);
         $this->assertSame(['id', 'created_at'], array_keys($columns));
     }
+
+    public function testModifyMixed(): void
+    {
+        $this->prepareTable();
+
+        // Add a column after id
+        $table = DJ::table('test');
+        $table->modify(function (Table $table) {
+            // replace
+            Column::varchar('company', 50)->append($table)->replace('id');
+
+            // add
+            Column::varchar('name', 100)->append($table)->add()->after('company');
+
+            // drop
+            $table->dropColumn('user_id');
+
+            // rename
+            $table->renameColumn('created_at', 'modified_at');
+        });
+
+        $columns = MC::tableColumns($table);
+        $this->assertSame(['company', 'name', 'modified_at'], array_keys($columns));
+    }
 }

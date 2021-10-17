@@ -496,21 +496,6 @@ Search.appendIndex(
             "summary": "Get\u0020SELECT\u0020query\u0020builder",
             "url": "classes/Remix-DJ-Table.html#method_select"
         },                {
-            "fqsen": "\\Remix\\DJ\\Table\u003A\u003AcallbackToCreate\u0028\u0029",
-            "name": "callbackToCreate",
-            "summary": "Callback\u0020of\u0020create\u0028\u0029,\u0020modify\u0028\u0029",
-            "url": "classes/Remix-DJ-Table.html#method_callbackToCreate"
-        },                {
-            "fqsen": "\\Remix\\DJ\\Table\u003A\u003Acreate\u0028\u0029",
-            "name": "create",
-            "summary": "Create\u0020a\u0020table",
-            "url": "classes/Remix-DJ-Table.html#method_create"
-        },                {
-            "fqsen": "\\Remix\\DJ\\Table\u003A\u003Amodify\u0028\u0029",
-            "name": "modify",
-            "summary": "Modify\u0020a\u0020table",
-            "url": "classes/Remix-DJ-Table.html#method_modify"
-        },                {
             "fqsen": "\\Remix\\DJ\\Table\u003A\u003ArenameColumn\u0028\u0029",
             "name": "renameColumn",
             "summary": "Rename\u0020the\u0020column\u0020contained\u0020in\u0020this\u0020table",
@@ -2521,6 +2506,11 @@ Search.appendIndex(
             "summary": "Expect\u0020the\u0020table\u0020to\u0020exist\u0020\/\u0020not\u0020exist,\u0020raise\u0020an\u0020exception\u0020if\u0020unexpected",
             "url": "classes/Remix-DJ-MC.html#method_expectTableExists"
         },                {
+            "fqsen": "\\Remix\\DJ\\MC\u003A\u003AcallbackToCreate\u0028\u0029",
+            "name": "callbackToCreate",
+            "summary": "Callback\u0020of\u0020tableCreate\u0028\u0029,\u0020tableModify\u0028\u0029",
+            "url": "classes/Remix-DJ-MC.html#method_callbackToCreate"
+        },                {
             "fqsen": "\\Remix\\DJ\\MC\u003A\u003AtableCreate\u0028\u0029",
             "name": "tableCreate",
             "summary": "Create\u0020table",
@@ -2528,8 +2518,13 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\DJ\\MC\u003A\u003AtableModify\u0028\u0029",
             "name": "tableModify",
-            "summary": "Create\u0020table",
+            "summary": "Alter\u0020table",
             "url": "classes/Remix-DJ-MC.html#method_tableModify"
+        },                {
+            "fqsen": "\\Remix\\DJ\\MC\u003A\u003AeachColumnIndexes\u0028\u0029",
+            "name": "eachColumnIndexes",
+            "summary": "",
+            "url": "classes/Remix-DJ-MC.html#method_eachColumnIndexes"
         },                {
             "fqsen": "\\Remix\\DJ\\MC\u003A\u003AindexCreate\u0028\u0029",
             "name": "indexCreate",

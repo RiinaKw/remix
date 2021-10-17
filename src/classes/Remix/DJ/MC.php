@@ -125,9 +125,7 @@ class MC extends Gear
 
         try {
             if (DJ::play($sql)) {
-                foreach ($table->columns as $column) {
-                    static::indexCreate($table, $column);
-                }
+                static::eachColumnIndexes($table);
                 return $table;
             }
         } catch (\Exception $e) {
@@ -171,7 +169,7 @@ class MC extends Gear
                             . ' ' . DJ::identifier($column['new'])
                             . ' ' . (string)$old_column;
 
-                        $table->columns[] = $old_column->rename($column['new']);
+                        $table->appendColumn($old_column->rename($column['new']));
                         return $sql;
 
                     case 'drop':
@@ -199,11 +197,7 @@ class MC extends Gear
 
         try {
             if (DJ::play($sql)) {
-                foreach ($table->columns as $column) {
-                    if ($column instanceof Column) {
-                        static::indexCreate($table, $column);
-                    }
-                }
+                static::eachColumnIndexes($table);
                 return $table;
             }
         } catch (\Exception $e) {
@@ -213,6 +207,15 @@ class MC extends Gear
         return null;
     }
     // function tableModify()
+
+    protected static function eachColumnIndexes($table): void
+    {
+        foreach ($table->columns as $column) {
+            if ($column instanceof Column) {
+                static::indexCreate($table, $column);
+            }
+        }
+    }
 
     /**
      * Create an index into this table from the column definition

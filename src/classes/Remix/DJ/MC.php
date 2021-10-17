@@ -143,13 +143,6 @@ class MC extends Gear
                     . ' ' . DJ::identifier($column->replace)
                     . ' ' . DJ::identifier($column->name)
                     . ' ' . (string)$column;
-            /*
-            } elseif ($column->rename) {
-                $sql = 'CHANGE COLUMN'
-                    . ' ' . DJ::identifier($column->name)
-                    . ' ' . DJ::identifier($column->rename)
-                    . ' ' . (string)$column;
-                return $sql;*/
             } else {
                 $sql = 'ADD COLUMN'
                     . ' ' . DJ::identifier($column->name)
@@ -165,8 +158,9 @@ class MC extends Gear
 
         if (DJ::play($sql)) {
             foreach ($columns as $column) {
-                if ($column instanceof Column)
-                static::indexCreate($table, $column);
+                if ($column instanceof Column) {
+                    static::indexCreate($table, $column);
+                }
             }
             return true;
         } else {

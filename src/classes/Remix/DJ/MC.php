@@ -97,17 +97,13 @@ class MC extends Gear
         });
         $sql = "CREATE TABLE {$table_escaped} ({$columns_sql});";
 
-        try {
-            if (DJ::play($sql)) {
-                foreach ($columns as $column) {
-                    static::indexCreate($table, $column);
-                }
-                return true;
-            } else {
-                throw new DJException("Cannot create table {$table_escaped}");
+        if (DJ::play($sql)) {
+            foreach ($columns as $column) {
+                static::indexCreate($table, $column);
             }
-        } catch (\Exception $e) {
-            throw new DJException($e->getMessage());
+            return true;
+        } else {
+            throw new DJException("Cannot create table {$table_escaped}");
         }
         return false;
     }
@@ -149,17 +145,13 @@ class MC extends Gear
         });
         $sql = "ALTER TABLE {$table_escaped} {$columns_sql};";
 
-        try {
-            if (DJ::play($sql)) {
-                foreach ($columns as $column) {
-                    static::indexCreate($table, $column);
-                }
-                return true;
-            } else {
-                throw new DJException("Cannot modify table {$table_escaped}");
+        if (DJ::play($sql)) {
+            foreach ($columns as $column) {
+                static::indexCreate($table, $column);
             }
-        } catch (\Exception $e) {
-            throw new DJException($e->getMessage());
+            return true;
+        } else {
+            throw new DJException("Cannot modify table {$table_escaped}");
         }
         return false;
     }

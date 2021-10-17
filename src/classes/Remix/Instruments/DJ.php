@@ -55,6 +55,7 @@ class DJ extends Instrument
             }
         }
 
+        static::$connection->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         static::$connection->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);
         //static::$connection->setAttribute(\PDO::ATTR_EMULATE_PREPARES, false);
     }

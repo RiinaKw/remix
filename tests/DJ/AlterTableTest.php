@@ -47,8 +47,7 @@ class AlterTableTest extends TestCase
         $this->assertSame(['id', 'user_id', 'created_at'], array_keys($columns));
 
         // Add a column
-        $table = DJ::table('test');
-        $table->modify(function (Table $table) {
+        MC::tableModify('test', function (Table $table) {
             Column::text('description')->append($table)->add();
         });
 
@@ -62,8 +61,7 @@ class AlterTableTest extends TestCase
         $this->prepareTable();
 
         // Add a column after id
-        $table = DJ::table('test');
-        $table->modify(function (Table $table) {
+        MC::tableModify('test', function (Table $table) {
             Column::varchar('name', 100)->append($table)->add()->after('id');
         });
 
@@ -77,8 +75,7 @@ class AlterTableTest extends TestCase
         $this->prepareTable();
 
         // Add a column after id
-        $table = DJ::table('test');
-        $table->modify(function (Table $table) {
+        $table = MC::tableModify('test', function (Table $table) {
             Column::varchar('user_name', 200)->append($table)->replace('user_id');
         });
 
@@ -96,19 +93,19 @@ class AlterTableTest extends TestCase
 
     public function testModifyColumnDuplicate(): void
     {
-        $this->expectException(DJException::class);
-        $this->expectExceptionMessage("Column `id` is already exists in `test`");
+        $this->expectException(\PDOException::class);
+        $this->expectExceptionMessage("Duplicate column name 'id'");
 
         // Make sure to drop 'test'
         MC::tableDrop('test', true);
 
         // Created without problems
-        $table = MC::tableCreate('test', function (Table $table) {
+        MC::tableCreate('test', function (Table $table) {
             Column::int('id')->append($table);
         });
 
         // Try to add a column that already exists
-        $table->modify(function (Table $table) {
+        MC::tableModify('test', function (Table $table) {
             Column::int('id')->append($table);
         });
     }
@@ -117,8 +114,7 @@ class AlterTableTest extends TestCase
     {
         $this->prepareTable();
 
-        $table = DJ::table('test');
-        $table->modify(function (Table $table) {
+        $table = MC::tableModify('test', function (Table $table) {
             $table->renameColumn('created_at', 'modified_at');
         });
 
@@ -137,8 +133,7 @@ class AlterTableTest extends TestCase
         $this->prepareTable();
 
         // Add a column after id
-        $table = DJ::table('test');
-        $table->modify(function (Table $table) {
+        $table = MC::tableModify('test', function (Table $table) {
             $table->dropColumn('user_id');
         });
 
@@ -154,8 +149,7 @@ class AlterTableTest extends TestCase
         $this->prepareTable();
 
         // Add a column after id
-        $table = DJ::table('test');
-        $table->modify(function (Table $table) {
+        $table = MC::tableModify('test', function (Table $table) {
             // replace
             Column::varchar('company', 50)->append($table)->replace('id');
 

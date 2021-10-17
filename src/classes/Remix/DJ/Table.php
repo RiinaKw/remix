@@ -146,6 +146,7 @@ class Table extends Gear
      * @return bool          Successful or not
      * @see Table::callbackToCreate()
      */
+    /*
     public function modify(callable $cb): bool
     {
         MC::expectTableExists($this->name, true);
@@ -155,7 +156,7 @@ class Table extends Gear
             return MC::tableModify($this, $this->columns);
         }
         return false;
-    }
+    }*/
     // function modify()
 
     /**

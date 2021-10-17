@@ -108,13 +108,16 @@ class MC extends Gear
         });
         $sql = "CREATE TABLE {$table_escaped} ({$columns_sql});";
 
-        if (DJ::play($sql)) {
-            foreach ($table->columns as $column) {
-                static::indexCreate($table, $column);
+        try {
+            if (DJ::play($sql)) {
+                foreach ($table->columns as $column) {
+                    static::indexCreate($table, $column);
+                }
+                return $table;
             }
-            return $table;
-        } else {
-            throw new DJException("Cannot create table {$table_escaped}");
+        } catch (\Exception $e) {
+            //throw new DJException("Cannot create table {$table_escaped}");
+            throw $e;
         }
         return null;
     }
@@ -154,11 +157,24 @@ class MC extends Gear
      * @param  array<Column>  $columns_to_add  Columns to add to the table
      * @return bool                            Successfull or not
      */
-    public static function tableModify(Table $table, array $columns): bool
+    public static function tableModify($table, callable $cb): Table
     {
+        MC::expectTableExists($table, true);
+
+        if (! $table instanceof Table) {
+            $table = new Table($table);
+        }
+        $table_escaped = DJ::identifier($table->name);
+
+        $cb($table);
+
+        if (! $table->columns) {
+            throw new \Exception("no changes");
+        }
+
         $table_escaped = DJ::identifier(static::tableName($table));
 
-        $columns_sql = Arr::mapImplode($columns, ', ', function (&$column) use ($table) {
+        $columns_sql = Arr::mapImplode($table->columns, ', ', function (&$column) use ($table) {
             if (is_array($column)) {
                 switch ($column['op']) {
                     case 'rename':
@@ -195,17 +211,20 @@ class MC extends Gear
         });
         $sql = "ALTER TABLE {$table_escaped} {$columns_sql};";
 
-        if (DJ::play($sql)) {
-            foreach ($columns as $column) {
-                if ($column instanceof Column) {
-                    static::indexCreate($table, $column);
+        try {
+            if (DJ::play($sql)) {
+                foreach ($table->columns as $column) {
+                    if ($column instanceof Column) {
+                        static::indexCreate($table, $column);
+                    }
                 }
+                return $table;
             }
-            return true;
-        } else {
-            throw new DJException("Cannot modify table {$table_escaped}");
+        } catch (\Exception $e) {
+            //throw new DJException("Cannot modify table {$table_escaped} : " . $e->getMessage());
+            throw $e;
         }
-        return false;
+        return null;
     }
     // function tableModify()
 

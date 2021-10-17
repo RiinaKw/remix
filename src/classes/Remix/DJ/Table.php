@@ -108,58 +108,6 @@ class Table extends Gear
     // function select()
 
     /**
-     * Callback of create(), modify()
-     * @param  self   $table  Itself
-     * @throws RemixException This is a prototype; not meant to be called directly.
-     * @see Table::create()
-     * @see Table::modify()
-     * @SuppressWarnings(PHPMD.UnusedPrivateMethod)
-     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
-     */
-    private static function callbackToCreate(self $table): void
-    {
-        throw new RemixException(__METHOD__ . ' is prototype of callback');
-    }
-
-    /**
-     * Create a table
-     * @param  callable $cb  Callback to create columns
-     * @return bool          Successful or not
-     * @see Table::callbackToCreate()
-     */
-    /*
-    public function create(callable $cb): bool
-    {
-        MC::expectTableExists($this->name, false);
-
-        $cb($this);
-        if (count($this->columns) < 1) {
-            throw new DJException("Table '{$this->name}' must contains any column");
-        }
-        return MC::tableCreate($this, $this->columns);
-    }*/
-    // function create()
-
-    /**
-     * Modify a table
-     * @param  callable $cb  Callback to alter columns
-     * @return bool          Successful or not
-     * @see Table::callbackToCreate()
-     */
-    /*
-    public function modify(callable $cb): bool
-    {
-        MC::expectTableExists($this->name, true);
-        $cb($this);
-
-        if ($this->columns) {
-            return MC::tableModify($this, $this->columns);
-        }
-        return false;
-    }*/
-    // function modify()
-
-    /**
      * Rename the column contained in this table
      * @param  string $old  Old column name
      * @param  string $new  New column name

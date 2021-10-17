@@ -83,12 +83,27 @@ class MC extends Gear
     // function expectTableExists()
 
     /**
+     * Callback of tableCreate(), tableModify()
+     * @param  Table   $table  Target table instance
+     * @throws RemixException This is a prototype; not meant to be called directly.
+     * @see MC::tableCreate()
+     * @see MC::tableModify()
+     * @SuppressWarnings(PHPMD.UnusedPrivateMethod)
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     */
+    private static function callbackToCreate(Table $table): void
+    {
+        throw new RemixException(__METHOD__ . ' is prototype of callback');
+    }
+
+    /**
      * Create table
      * @param  Table|string  $table  Table instance or table name
      * @param  callable      $cb     Callback to create columns
      * @return Table|null            Table instance
+     * @see MC::callbackToCreate()
      */
-    public static function tableCreate($table, callable $cb): Table
+    public static function tableCreate($table, callable $cb): ?Table
     {
         static::expectTableExists($table, false);
 
@@ -121,43 +136,16 @@ class MC extends Gear
         }
         return null;
     }
-
-    /**
-     * Create table
-     * @param  Table|string   $table    Table instance or table name
-     * @param  array<Column>  $columns  Columns contained in the table
-     * @return bool                     Successfull or not
-     */
-    /*
-    public static function tableCreate($table, array $columns)
-    {
-        $table_escaped = DJ::identifier(static::tableName($table));
-
-        $columns_sql = Arr::mapImplode($columns, ', ', function ($column) {
-            return DJ::identifier($column->name) . ' ' . (string)$column;
-        });
-        $sql = "CREATE TABLE {$table_escaped} ({$columns_sql});";
-
-        if (DJ::play($sql)) {
-            foreach ($columns as $column) {
-                static::indexCreate($table, $column);
-            }
-            return true;
-        } else {
-            throw new DJException("Cannot create table {$table_escaped}");
-        }
-        return false;
-    }
     // function tableCreate()
-    */
 
     /**
-     * Create table
-     * @param  Table|string   $table           Table instance or table name
-     * @param  array<Column>  $columns_to_add  Columns to add to the table
-     * @return bool                            Successfull or not
+     * Alter table
+     * @param  Table|string  $table  Table instance or table name
+     * @param  callable      $cb     Callback to create columns
+     * @return Table|null            Table instance
+     * @see MC::callbackToCreate()
      */
-    public static function tableModify($table, callable $cb): Table
+    public static function tableModify($table, callable $cb): ?Table
     {
         MC::expectTableExists($table, true);
 
@@ -169,10 +157,8 @@ class MC extends Gear
         $cb($table);
 
         if (! $table->columns) {
-            throw new \Exception("no changes");
+            throw new DJException("no changes in {$table_escaped}");
         }
-
-        $table_escaped = DJ::identifier(static::tableName($table));
 
         $columns_sql = Arr::mapImplode($table->columns, ', ', function (&$column) use ($table) {
             if (is_array($column)) {
@@ -185,7 +171,7 @@ class MC extends Gear
                             . ' ' . DJ::identifier($column['new'])
                             . ' ' . (string)$old_column;
 
-                        $columns[] = $old_column->rename($column['new']);
+                        $table->columns[] = $old_column->rename($column['new']);
                         return $sql;
 
                     case 'drop':

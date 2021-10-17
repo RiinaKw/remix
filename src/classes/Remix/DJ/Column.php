@@ -209,6 +209,12 @@ abstract class Column extends Gear
         return '';
     }
 
+    public function rename(string $name): self
+    {
+        $this->name = $name;
+        return $this;
+    }
+
     public function __toString()
     {
         $text = $this->definitionType();

@@ -119,19 +119,37 @@ class MC extends Gear
     {
         $table_escaped = DJ::identifier(static::tableName($table));
 
-        $columns_sql = Arr::mapImplode($columns, ', ', function ($column) {
-            if ($column->replace) {
-                $sql = 'CHANGE COLUMN'
+        $columns_sql = Arr::mapImplode($columns, ', ', function (&$column) use ($table) {
+            if (is_array($column)) {
+                switch ($column['op']) {
+                    case 'rename':
+                        $old_column = static::tableColumns($table, $column['old']);
+
+                        $sql = 'CHANGE COLUMN'
+                            . ' ' . DJ::identifier($old_column->name)
+                            . ' ' . DJ::identifier($column['new'])
+                            . ' ' . (string)$old_column;
+
+                        $columns[] = $old_column->rename($column['new']);
+                        return $sql;
+
+                    case 'drop':
+                        return 'DROP COLUMN'
+                            . ' ' . DJ::identifier($column['old']);
+                        break;
+                }
+            } elseif ($column->replace) {
+                return 'CHANGE COLUMN'
                     . ' ' . DJ::identifier($column->replace)
                     . ' ' . DJ::identifier($column->name)
                     . ' ' . (string)$column;
-                return $sql;
+            /*
             } elseif ($column->rename) {
                 $sql = 'CHANGE COLUMN'
                     . ' ' . DJ::identifier($column->name)
                     . ' ' . DJ::identifier($column->rename)
                     . ' ' . (string)$column;
-                return $sql;
+                return $sql;*/
             } else {
                 $sql = 'ADD COLUMN'
                     . ' ' . DJ::identifier($column->name)
@@ -147,6 +165,7 @@ class MC extends Gear
 
         if (DJ::play($sql)) {
             foreach ($columns as $column) {
+                if ($column instanceof Column)
                 static::indexCreate($table, $column);
             }
             return true;

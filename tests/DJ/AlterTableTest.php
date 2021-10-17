@@ -9,6 +9,7 @@ use Remix\DJ\Table;
 use Remix\DJ\Column;
 use Remix\DJ\Index;
 use Remix\DJ\Columns;
+use Remix\Exceptions\DJException;
 
 class AlterTableTest extends TestCase
 {
@@ -85,6 +86,9 @@ class AlterTableTest extends TestCase
         // Has order changed?
         $this->assertNull(MC::tableColumns($table, 'user_id'));
 
+        $columns = MC::tableColumns($table);
+        $this->assertSame(['id', 'user_name', 'created_at'], array_keys($columns));
+
         $column = MC::tableColumns($table, 'user_name');
         $this->assertSame('user_name', $column->name);
         $this->assertSame('VARCHAR', $column->type);
@@ -115,10 +119,9 @@ class AlterTableTest extends TestCase
     {
         $this->prepareTable();
 
-        // Add a column after id
         $table = DJ::table('test');
         $table->modify(function (Table $table) {
-            MC::tableColumns($table, 'created_at')->append($table)->rename('modified_at');
+            $table->renameColumn('created_at', 'modified_at');
         });
 
         // Has order changed?
@@ -126,5 +129,25 @@ class AlterTableTest extends TestCase
 
         $column = MC::tableColumns($table, 'modified_at');
         $this->assertSame('modified_at', $column->name);
+
+        $columns = MC::tableColumns($table);
+        $this->assertSame(['id', 'user_id', 'modified_at'], array_keys($columns));
+    }
+
+    public function testDropColumn(): void
+    {
+        $this->prepareTable();
+
+        // Add a column after id
+        $table = DJ::table('test');
+        $table->modify(function (Table $table) {
+            $table->dropColumn('user_id');
+        });
+
+        // Has order changed?
+        $this->assertNull(MC::tableColumns($table, 'user_id'));
+
+        $columns = MC::tableColumns($table);
+        $this->assertSame(['id', 'created_at'], array_keys($columns));
     }
 }

@@ -37,18 +37,6 @@ class Table extends Gear
     protected $columns = [];
 
     /**
-     * Columns
-     * @var array<Column>
-     */
-    protected $columns_modify = [];
-
-    /**
-     * Columns to alter
-     * @var array<Column>
-     */
-    protected $columns_add = [];
-
-    /**
      * Set up the table
      * @param string $name  Name of table
      */
@@ -184,5 +172,24 @@ class Table extends Gear
         return false;
     }
     // function modify()
+
+    public function renameColumn(string $old, string $new): self
+    {
+        $this->columns[] = [
+            'op' => 'rename',
+            'old' => $old,
+            'new' => $new,
+        ];
+        return $this;
+    }
+
+    public function dropColumn(string $column): self
+    {
+        $this->columns[] = [
+            'op' => 'drop',
+            'old' => $column,
+        ];
+        return $this;
+    }
 }
 // class Table

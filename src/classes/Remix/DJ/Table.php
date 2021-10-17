@@ -61,7 +61,7 @@ class Table extends Gear
                 return $this->$key;
 
             default:
-                $message = 'Unknown property "' . $key . '"';
+                $message = "Unknown property '{$key}'";
                 throw new RemixException($message);
         }
     }

@@ -103,41 +103,4 @@ class TableOperationTest extends TestCase
 
         $this->assertTrue((bool)'There was no any exceptions.');
     }
-
-    public function testColumnDuplicate(): void
-    {
-        $this->expectException(DJException::class);
-        $this->expectExceptionMessage("Column `id` is already exists in `test`");
-
-        // Make sure to drop 'test'
-        MC::tableDrop('test', true);
-
-        // Try to create multiple columns with the same name
-        $table = DJ::table('test');
-        $table->create(function (Table $table) {
-            Column::int('id')->append($table);
-            Column::int('id')->append($table);
-        });
-    }
-
-/*
-    public function testModifyColumnDuplicate(): void
-    {
-        $this->expectException(DJException::class);
-        $this->expectExceptionMessage("Column `id` is already exists in `test`");
-
-        // Make sure to drop 'test'
-        MC::tableDrop('test', true);
-
-        // Created without problems
-        $table = DJ::table('test');
-        $table->create(function (Table $table) {
-            Column::int('id')->appendTo($table);
-        });
-
-        // Try to add a column that already exists
-        $table->modify(function (Table $table) {
-            Column::int('id')->appendTo($table);
-        });
-    }*/
 }

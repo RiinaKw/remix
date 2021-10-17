@@ -91,6 +91,26 @@ class AlterTableTest extends TestCase
         $this->assertSame(200, $column->length);
     }
 
+    public function testModifyColumnDuplicate(): void
+    {
+        $this->expectException(DJException::class);
+        $this->expectExceptionMessage("Column `id` is already exists in `test`");
+
+        // Make sure to drop 'test'
+        MC::tableDrop('test', true);
+
+        // Created without problems
+        $table = DJ::table('test');
+        $table->create(function (Table $table) {
+            Column::int('id')->append($table);
+        });
+
+        // Try to add a column that already exists
+        $table->modify(function (Table $table) {
+            Column::int('id')->append($table);
+        });
+    }
+
     public function testRenameColumn(): void
     {
         $this->prepareTable();

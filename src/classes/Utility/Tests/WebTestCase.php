@@ -11,6 +11,10 @@ abstract class WebTestCase extends DemoTestCase
     protected $studio = null;
     protected $html = null;
 
+    protected $prev_path = '';
+    protected $prev_method = '';
+    protected $prev_post = [];
+
     protected function initialize(string $app_dir)
     {
         // Turn off the CLI flag
@@ -22,6 +26,9 @@ abstract class WebTestCase extends DemoTestCase
 
     private function request(string $path)
     {
+        $this->prev_path = $path;
+        $this->prev_method = $_SERVER['REQUEST_METHOD'];
+        $this->prev_post = $_POST;
         try {
             $_SERVER['PATH_INFO'] = $path;
             $this->daw->playWeb();
@@ -31,6 +38,13 @@ abstract class WebTestCase extends DemoTestCase
         }
         $this->studio = $this->invokeProperty($reverb, 'studio');
         $this->html = $this->studio->output(false);
+    }
+
+    public function reload()
+    {
+        $_SERVER['REQUEST_METHOD'] = $this->prev_method;
+        $_POST = $this->prev_post;
+        $this->request($this->prev_path);
     }
 
     protected function get(string $path)

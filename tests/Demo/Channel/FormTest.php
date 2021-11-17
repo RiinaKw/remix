@@ -3,6 +3,7 @@
 namespace Remix\DemoTests;
 
 use Utility\Tests\WebTestCase;
+use Utility\Http\Session;
 use Utility\Http\Csrf;
 
 class FormTest extends WebTestCase
@@ -42,7 +43,7 @@ class FormTest extends WebTestCase
         $this->assertStatusCode(303);
         $this->assertRedirectUri('http://remix.test/form/input');
 
-        $this->assertSame('Illegal screen transition', Csrf::error());
+        $this->assertSame('Illegal screen transition', Session::hash()->sess_csrf_error);
     }
 
     /**
@@ -58,7 +59,7 @@ class FormTest extends WebTestCase
         $this->assertStatusCode(303);
         $this->assertRedirectUri('http://remix.test/form/input');
 
-        $session_errors = \Utility\Http\Session::hash()->errors;
+        $session_errors = Session::hash()->errors;
         $this->assertSame('name : your name is required', $session_errors->name);
         $this->assertSame('email : your mail address is required', $session_errors->email);
     }
@@ -76,7 +77,7 @@ class FormTest extends WebTestCase
         ]);
         $this->assertStatusCode(303);
 
-        $session_errors = \Utility\Http\Session::hash()->errors;
+        $session_errors = Session::hash()->errors;
         $this->assertSame('your name must be 5 characters or less', $session_errors->name);
     }
 
@@ -93,7 +94,7 @@ class FormTest extends WebTestCase
         ]);
         $this->assertStatusCode(303);
 
-        $session_errors = \Utility\Http\Session::hash()->errors;
+        $session_errors = Session::hash()->errors;
         $this->assertSame('your mail address is invalid email address', $session_errors->email);
     }
 
@@ -111,11 +112,30 @@ class FormTest extends WebTestCase
         ]);
         $this->assertStatusCode(200);
 
-        $this->assertNull(\Utility\Http\Session::hash()->errors);
+        $this->assertNull(Session::hash()->errors);
 
-        $session_params = \Utility\Http\Session::hash()->get('form');
+        $session_params = Session::hash()->form;
         $this->assertSame('Riina', $session_params->name);
         $this->assertSame('riinak.tv@gmail.com', $session_params->email);
+    }
+
+    /**
+     * @runInSeparateProcess
+     */
+    public function testReloadConfirm(): void
+    {
+        $this->get('/form/input');
+
+        $this->post('/form/confirm', [
+            'name' => 'Riina',
+            'email' => 'riinak.tv@gmail.com',
+            'csrf_token' => Csrf::token(),
+        ]);
+
+        $this->reload();
+        $this->assertStatusCode(303);
+        $this->assertRedirectUri('http://remix.test/form/input');
+        $this->assertSame('Illegal screen transition', Session::hash()->sess_csrf_error);
     }
 
     /**
@@ -166,10 +186,9 @@ class FormTest extends WebTestCase
             'csrf_token' => Csrf::token(),
         ]);
 
-        $this->post('/form/submit');
+        $this->reload();
         $this->assertStatusCode(303);
         $this->assertRedirectUri('http://remix.test/form/input');
-
-        $this->assertSame('Illegal screen transition', Csrf::error());
+        $this->assertSame('Illegal screen transition', Session::hash()->sess_csrf_error);
     }
 }

@@ -6,6 +6,9 @@ use Utility\Tests\WebTestCase;
 use Utility\Http\Session;
 use Utility\Http\Csrf;
 
+/**
+ * @SuppressWarnings(PHPMD.TooManyPublicMethods)
+ */
 class FormTest extends WebTestCase
 {
     protected function setUp(): void

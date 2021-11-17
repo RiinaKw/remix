@@ -26,7 +26,7 @@ class TopChannel extends \Remix\Channel
 
     public function redirect302(): Studio
     {
-        return (new Studio)->redirect('redirected', [], 302);
+        return (new Studio())->redirect('redirected', [], 302);
     }
 
     public function redirected()

@@ -24,13 +24,45 @@ abstract class WebTestCase extends DemoTestCase
         chdir($app_dir . '/..');
     }
 
+    /**
+     * @SuppressWarnings(PHPMD.Superglobals)
+     */
+    public function __get(string $key)
+    {
+        switch ($key) {
+            case 'METHOD':
+                return $_SERVER['REQUEST_METHOD'];
+            case 'POST':
+                return $_POST;
+        }
+        return null;
+    }
+
+    /**
+     * @SuppressWarnings(PHPMD.Superglobals)
+     */
+    public function __set(string $key, $value)
+    {
+        switch ($key) {
+            case 'PATH':
+                $_SERVER['PATH_INFO'] = $value;
+                break;
+            case 'METHOD':
+                $_SERVER['REQUEST_METHOD'] = $value;
+                break;
+            case 'POST':
+                $_POST = $value;
+                break;
+        }
+    }
+
     private function request(string $path)
     {
         $this->prev_path = $path;
-        $this->prev_method = $_SERVER['REQUEST_METHOD'];
-        $this->prev_post = $_POST;
+        $this->prev_method = $this->METHOD;
+        $this->prev_post = $this->POST;
         try {
-            $_SERVER['PATH_INFO'] = $path;
+            $this->PATH = $path;
             $this->daw->playWeb();
             $reverb = $this->invokeProperty($this->daw, 'reverb');
         } catch (\Remix\Exceptions\HttpException $e) {
@@ -40,23 +72,23 @@ abstract class WebTestCase extends DemoTestCase
         $this->html = $this->studio->output(false);
     }
 
-    public function reload()
+    protected function reload()
     {
-        $_SERVER['REQUEST_METHOD'] = $this->prev_method;
-        $_POST = $this->prev_post;
+        $this->METHOD = $this->prev_method;
+        $this->POST = $this->prev_post;
         $this->request($this->prev_path);
     }
 
     protected function get(string $path)
     {
-        $_SERVER['REQUEST_METHOD'] = 'GET';
+        $this->METHOD = 'GET';
         $this->request($path);
     }
 
     protected function post(string $path, array $post = [])
     {
-        $_SERVER['REQUEST_METHOD'] = 'POST';
-        $_POST = $post;
+        $this->METHOD = 'POST';
+        $this->POST = $post;
         $this->request($path);
     }
 

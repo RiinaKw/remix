@@ -40,11 +40,11 @@ class Csrf
         $input_token = static::$post->get(static::$post_key, '');
 
         $session_token = static::$session->get(static::$session_token_key, '');
-        $session_token_crypted = static::crypt($session_token);
+        $session_crypted = static::crypt($session_token);
 
         static::$session->delete(static::$session_token_key);
 
-        if (! hash_equals($input_token, $session_token_crypted)) {
+        if (! hash_equals($input_token, $session_crypted)) {
             static::$session->set(static::$session_error_key, 'Illegal screen transition');
             return false;
         }

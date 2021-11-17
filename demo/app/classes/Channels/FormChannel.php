@@ -10,6 +10,13 @@ use Remix\Demo\Synthesizers\FormSynthesizer as Synthesizer;
 
 class FormChannel extends \Remix\Channel
 {
+    private function csrf_check()
+    {
+        if ($csrf_error = $sampler->csrf_check('csrf_token')) {
+            $session->errors = $csrf_error;
+            return (new Studio())->redirect('FormInput');
+        }
+    }
     /**
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
@@ -22,6 +29,9 @@ class FormChannel extends \Remix\Channel
         $bounce->name = $form->get('name', '');
         $bounce->email = $form->get('email', '');
         $bounce->errors = $session->errors ?: new Hash();
+
+        $bounce->csrf_token = $sampler->csrf_create('csrf_token');
+
         return $bounce;
     }
     // function form()
@@ -31,10 +41,16 @@ class FormChannel extends \Remix\Channel
      */
     public function confirm(Sampler $sampler): Studio
     {
+        $session = $sampler->session();
+
+        if ($csrf_error = $sampler->csrf_check('csrf_token')) {
+            $session->errors = $csrf_error;
+            return (new Studio())->redirect('FormInput');
+        }
+
         $synthesizer = $sampler->synthesize(Synthesizer::class);
         $form = $synthesizer->input();
 
-        $session = $sampler->session();
         $session->form = $form;
         $errors = $synthesizer->errors();
 
@@ -47,6 +63,9 @@ class FormChannel extends \Remix\Channel
         $bounce = new Compressor('form/confirm');
         $bounce->name = $form->get('name');
         $bounce->email = $form->get('email');
+
+        $bounce->csrf_token = $sampler->csrf_create('csrf_token');
+
         return $bounce;
     }
     // function confirm()
@@ -57,6 +76,12 @@ class FormChannel extends \Remix\Channel
     public function submit(Sampler $sampler): Studio
     {
         $session = $sampler->session();
+
+        if ($csrf_error = $sampler->csrf_check('csrf_token')) {
+            $session->errors = $csrf_error;
+            return (new Studio())->redirect('FormInput');
+        }
+
         $form = $session->form ?? new Hash([]);
         unset($session->form);
 

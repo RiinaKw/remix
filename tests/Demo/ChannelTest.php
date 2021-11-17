@@ -6,14 +6,19 @@ use Utility\Tests\WebTestCase;
 
 class ChannelTest extends WebTestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->initialize(__DIR__ . '/../../demo/app');
+    }
 
     /**
      * @runInSeparateProcess
      */
     public function testTop(): void
     {
-        $html = (string)$this->request('/');
-        $this->assertRegExp('/I am your Remix/', $html);
+        $this->request('/');
+        $this->assertHtmlContains('I am your Remix.');
     }
 
     /**
@@ -21,8 +26,8 @@ class ChannelTest extends WebTestCase
      */
     public function testVader(): void
     {
-        $html = (string)$this->request('/vader');
-        $this->assertRegExp('/Luke, I am your father/', $html);
+        $this->request('/vader');
+        $this->assertHtmlContains('Luke, I am your father');
     }
 
     /**
@@ -30,8 +35,8 @@ class ChannelTest extends WebTestCase
      */
     public function testRiina(): void
     {
-        $html = (string)$this->request('/vader/riina');
-        $this->assertRegExp('/riina, I am your father/', $html);
+        $this->request('/vader/riina');
+        $this->assertHtmlContains('riina, I am your father');
     }
 
     /**
@@ -39,7 +44,7 @@ class ChannelTest extends WebTestCase
      */
     public function test404(): void
     {
-        $html = (string)$this->request('/noexists');
-        $this->assertRegExp('/That\'s 404/', $html);
+        $this->request('/noexists');
+        $this->assertHtmlContains('That\'s 404');
     }
 }

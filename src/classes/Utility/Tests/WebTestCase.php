@@ -6,29 +6,44 @@ use PHPUnit\Framework\TestCase;
 
 abstract class WebTestCase extends TestCase
 {
+    use \Utility\Tests\InvokePrivateBehavior;
+
     protected $daw = null;
+    protected $studio = null;
+    //protected $reverb = null;
+    protected $html = null;
 
     protected function setUp(): void
     {
-        $app_dir = __DIR__ . '/../../../../demo/app';
-        $this->daw = \Remix\Audio::getInstance(false)->daw->initialize($app_dir);
+        $this->daw = \Remix\Audio::getInstance(false)->daw;
     }
 
-    public function tearDown(): void
+    protected function tearDown(): void
     {
         \Remix\Audio::destroy();
+    }
+
+    protected function initialize(string $app_dir)
+    {
+        $this->daw->initialize($app_dir);
     }
 
     protected function request(string $path)
     {
         try {
             $_SERVER['PATH_INFO'] = $path;
-            return $this->daw->playWeb();
+            $reverb = $this->daw->playWeb();
         } catch (\Remix\Exceptions\HttpException $e) {
             $preset = \Remix\Audio::getInstance(true)->preset;
 
             $reverb = \Remix\Reverb::exeption($e, $preset);
-            return $reverb;
         }
+        $this->studio = $this->invokeProperty($reverb, 'studio');
+        $this->html = (string)$reverb;
+    }
+
+    protected function assertHtmlContains(string $text)
+    {
+        $this->assertTrue(strpos($this->html, $text) !== false);
     }
 }

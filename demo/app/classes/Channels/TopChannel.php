@@ -16,7 +16,7 @@ class TopChannel extends \Remix\Channel
 
     public function vader(Sampler $sampler): Studio
     {
-        throw new \Remix\Exceptions\HttpException('Test', 400);
+        //throw new \Remix\Exceptions\HttpException('Test', 400);
         $bounce = new Compressor('vader');
         $bounce->name = $sampler->params('name', 'Luke');
         $bounce->type = $sampler->get('type', 'father');

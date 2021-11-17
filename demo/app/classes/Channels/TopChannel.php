@@ -23,5 +23,19 @@ class TopChannel extends \Remix\Channel
         return $bounce;
     }
     // function bounce()
+
+    public function redirect302()
+    {
+        $mixer = \Remix\Audio::getInstance()->mixer;
+        $redirect_uri = $mixer->named('redirected')->uri();
+
+        header("Location: ${redirect_uri}");
+        exit;
+    }
+
+    public function redirected()
+    {
+        return 'redirected';
+    }
 }
 // class TopChannel

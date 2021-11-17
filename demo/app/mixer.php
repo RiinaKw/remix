@@ -7,6 +7,8 @@ use Remix\Track;
 return [
     Track::get('/', 'TopChannel@index'),
     Track::get('/vader(/:name)?', 'TopChannel@vader'),
+    Track::any('/302', 'TopChannel@redirect302'),
+    Track::any('/redirected', 'TopChannel@redirected')->name('redirected'),
 
     Track::any( '/form/input',   'FormChannel@input')->name('FormInput'),
     Track::post('/form/confirm', 'FormChannel@confirm'),

@@ -87,7 +87,7 @@ class Track extends Gear
 
     public function uri(): string
     {
-        return Audio::getInstance()->preset()->get('env.public_url') . $this->path;
+        return Audio::getInstance()->preset->get('app.public_url') . $this->path;
     }
     // function uri()
 }

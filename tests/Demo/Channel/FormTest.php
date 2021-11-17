@@ -3,6 +3,7 @@
 namespace Remix\DemoTests;
 
 use Utility\Tests\WebTestCase;
+use Utility\Http\Csrf;
 
 class FormTest extends WebTestCase
 {
@@ -33,9 +34,27 @@ class FormTest extends WebTestCase
     /**
      * @runInSeparateProcess
      */
+    public function testCsrfConfirm(): void
+    {
+        $this->get('/form/input');
+
+        $this->post('/form/confirm');
+        $this->assertStatusCode(303);
+        $this->assertRedirectUri('http://remix.test/form/input');
+
+        $this->assertSame('Illegal screen transition', Csrf::error());
+    }
+
+    /**
+     * @runInSeparateProcess
+     */
     public function testEmptyConfirm(): void
     {
-        $this->post('/form/confirm');
+        $this->get('/form/input');
+
+        $this->post('/form/confirm', [
+            'csrf_token' => Csrf::token(),
+        ]);
         $this->assertStatusCode(303);
         $this->assertRedirectUri('http://remix.test/form/input');
 
@@ -49,8 +68,11 @@ class FormTest extends WebTestCase
      */
     public function testLongName(): void
     {
+        $this->get('/form/input');
+
         $this->post('/form/confirm', [
-            'name' => 'boooooooo'
+            'name' => 'boooooooo',
+            'csrf_token' => Csrf::token(),
         ]);
         $this->assertStatusCode(303);
 
@@ -63,8 +85,11 @@ class FormTest extends WebTestCase
      */
     public function testMalformedEmail(): void
     {
+        $this->get('/form/input');
+
         $this->post('/form/confirm', [
-            'email' => 'malformed'
+            'email' => 'malformed',
+            'csrf_token' => Csrf::token(),
         ]);
         $this->assertStatusCode(303);
 
@@ -77,9 +102,12 @@ class FormTest extends WebTestCase
      */
     public function testValidConfirm(): void
     {
+        $this->get('/form/input');
+
         $this->post('/form/confirm', [
             'name' => 'Riina',
-            'email' => 'riinak.tv@gmail.com'
+            'email' => 'riinak.tv@gmail.com',
+            'csrf_token' => Csrf::token(),
         ]);
         $this->assertStatusCode(200);
 
@@ -104,12 +132,17 @@ class FormTest extends WebTestCase
      */
     public function testValidSubmit(): void
     {
+        $this->get('/form/input');
+
         $this->post('/form/confirm', [
             'name' => 'Riina',
-            'email' => 'riinak.tv@gmail.com'
+            'email' => 'riinak.tv@gmail.com',
+            'csrf_token' => Csrf::token(),
         ]);
 
-        $this->post('/form/submit');
+        $this->post('/form/submit', [
+            'csrf_token' => Csrf::token(),
+        ]);
         $this->assertStatusCode(200);
 
         $this->assertHtmlContains('<dd>Riina</dd>');
@@ -119,11 +152,24 @@ class FormTest extends WebTestCase
     /**
      * @runInSeparateProcess
      */
-    public function testEmptySubmit(): void
+    public function testDoubleSubmit(): void
     {
-        $this->post('/form/submit');
-        $this->assertStatusCode(200);
+        $this->get('/form/input');
 
-        $this->assertHtmlContains('(empty)');
+        $this->post('/form/confirm', [
+            'name' => 'Riina',
+            'email' => 'riinak.tv@gmail.com',
+            'csrf_token' => Csrf::token(),
+        ]);
+
+        $this->post('/form/submit', [
+            'csrf_token' => Csrf::token(),
+        ]);
+
+        $this->post('/form/submit');
+        $this->assertStatusCode(303);
+        $this->assertRedirectUri('http://remix.test/form/input');
+
+        $this->assertSame('Illegal screen transition', Csrf::error());
     }
 }

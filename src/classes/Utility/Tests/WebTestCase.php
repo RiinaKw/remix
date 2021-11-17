@@ -2,30 +2,14 @@
 
 namespace Utility\Tests;
 
-use PHPUnit\Framework\TestCase;
+use Utility\Tests\DemoTestCase;
 
-abstract class WebTestCase extends TestCase
+abstract class WebTestCase extends DemoTestCase
 {
     use \Utility\Tests\InvokePrivateBehavior;
 
-    protected $daw = null;
     protected $studio = null;
     protected $html = null;
-
-    protected function setUp(): void
-    {
-        $this->daw = \Remix\Audio::getInstance(false)->daw;
-    }
-
-    protected function tearDown(): void
-    {
-        \Remix\Audio::destroy();
-    }
-
-    protected function initialize(string $app_dir)
-    {
-        $this->daw->initialize($app_dir);
-    }
 
     private function request(string $path)
     {

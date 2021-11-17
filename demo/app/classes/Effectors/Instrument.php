@@ -23,7 +23,7 @@ class Instrument extends Effector
         \Remix\Monitor::dump(1);
 
         // exception test
-        throw new \Exception('test exception from Effector');
+        //throw new \Exception('test exception from Effector');
     }
 
     public function piano()

@@ -19,7 +19,7 @@ class Audio
     private function __construct(bool $is_debug)
     {
         static::$is_debug = $is_debug;
-        static::$is_cli = (php_sapi_name() == 'cli');
+        static::$is_cli = (php_sapi_name() === 'cli');
         Delay::start(static::$is_debug, static::$is_cli);
         if ($is_debug) {
             Delay::logMemory();
@@ -79,8 +79,7 @@ class Audio
                 return $this->singleton(Instruments\DJ::class);
 
             default:
-                var_dump('unknown key', $key);
-                return null;
+                throw new Exceptions\ErrorException("Unknown key '{$key}'");
         }
     }
     // function __get()
@@ -93,8 +92,7 @@ class Audio
                 break;
 
             default:
-                var_dump('unknown key', $key);
-                break;
+                throw new Exceptions\ErrorException("Unknown key '{$key}'");
         }
     }
     // function __set()

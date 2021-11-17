@@ -11,6 +11,15 @@ abstract class WebTestCase extends DemoTestCase
     protected $studio = null;
     protected $html = null;
 
+    protected function initialize(string $app_dir)
+    {
+        // Turn off the CLI flag
+        $this->invokePropertyValue(\Remix\Audio::getInstance(), 'is_cli', false);
+
+        $this->daw->initialize($app_dir);
+        chdir($app_dir . '/..');
+    }
+
     private function request(string $path)
     {
         try {

@@ -17,10 +17,4 @@ abstract class DemoTestCase extends TestCase
     {
         \Remix\Audio::destroy();
     }
-
-    protected function initialize(string $app_dir)
-    {
-        $this->daw->initialize($app_dir);
-        chdir($app_dir . '/..');
-    }
 }

@@ -60,13 +60,18 @@ class DAW extends Instrument
         $env_file = 'env.' . $env;
         $this->preset->require('app', 'app');
         $this->preset->require($env_file, 'app', Preset::APPEND);
-        $this->preset->optional('effector');
 
-        $bounce_dir = $this->preset->get('app.pathes.bounce_dir');
-        $this->preset->set('app.pathes.bounce_dir', $this->appDir($bounce_dir));
+        if (Audio::getInstance()->cli) {
+            // Do only for CLI
+            $this->preset->optional('effector');
+        } else {
+            // Do only for Web
+            $bounce_dir = $this->preset->get('app.pathes.bounce_dir');
+            $this->preset->set('app.pathes.bounce_dir', $this->appDir($bounce_dir));
 
-        $tracks_path = $this->appDir('/mixer.php') ?: [];
-        Audio::getInstance()->mixer->load($tracks_path);
+            $tracks_path = $this->appDir('/mixer.php') ?: [];
+            Audio::getInstance()->mixer->load($tracks_path);
+        }
 
         return $this;
     }

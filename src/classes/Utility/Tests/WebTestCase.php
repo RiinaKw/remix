@@ -55,7 +55,7 @@ abstract class WebTestCase extends TestCase
 
     protected function assertHtmlContains(string $text)
     {
-        $this->assertTrue(strpos($this->html, $text) !== false);
+        $this->assertNotFalse(strpos($this->html, $text), "The HTML does not contain '{$text}'");
     }
 
     protected function assertStatusCode(int $code)

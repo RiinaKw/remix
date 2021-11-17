@@ -42,6 +42,19 @@ abstract class WebTestCase extends TestCase
         $this->html = (string)$reverb;
     }
 
+    protected function get(string $path)
+    {
+        $_SERVER['REQUEST_METHOD'] = 'GET';
+        $this->request($path);
+    }
+
+    protected function post(string $path, array $post = [])
+    {
+        $_SERVER['REQUEST_METHOD'] = 'POST';
+        $_POST = $post;
+        $this->request($path);
+    }
+
     protected function assertHtmlContains(string $text)
     {
         $this->assertTrue(strpos($this->html, $text) !== false);

@@ -6,17 +6,11 @@ use Remix\Sampler;
 use Remix\Studio;
 use Remix\Studio\Compressor;
 use Utility\Hash;
+use Utility\Http\Csrf;
 use Remix\Demo\Synthesizers\FormSynthesizer as Synthesizer;
 
 class FormChannel extends \Remix\Channel
 {
-    private function csrf_check()
-    {
-        if ($csrf_error = $sampler->csrf_check('csrf_token')) {
-            $session->errors = $csrf_error;
-            return (new Studio())->redirect('FormInput');
-        }
-    }
     /**
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
@@ -30,7 +24,7 @@ class FormChannel extends \Remix\Channel
         $bounce->email = $form->get('email', '');
         $bounce->errors = $session->errors ?: new Hash();
 
-        $bounce->csrf_token = $sampler->csrf_create('csrf_token');
+        $bounce->csrf = Csrf::factory();
 
         return $bounce;
     }
@@ -41,13 +35,11 @@ class FormChannel extends \Remix\Channel
      */
     public function confirm(Sampler $sampler): Studio
     {
-        $session = $sampler->session();
-
-        if ($csrf_error = $sampler->csrf_check('csrf_token')) {
-            $session->errors = $csrf_error;
+        if (! Csrf::check()) {
             return (new Studio())->redirect('FormInput');
         }
 
+        $session = $sampler->session();
         $synthesizer = $sampler->synthesize(Synthesizer::class);
         $form = $synthesizer->input();
 
@@ -64,7 +56,7 @@ class FormChannel extends \Remix\Channel
         $bounce->name = $form->get('name');
         $bounce->email = $form->get('email');
 
-        $bounce->csrf_token = $sampler->csrf_create('csrf_token');
+        $bounce->csrf = Csrf::factory();
 
         return $bounce;
     }
@@ -75,13 +67,11 @@ class FormChannel extends \Remix\Channel
      */
     public function submit(Sampler $sampler): Studio
     {
-        $session = $sampler->session();
-
-        if ($csrf_error = $sampler->csrf_check('csrf_token')) {
-            $session->errors = $csrf_error;
+        if (! Csrf::check()) {
             return (new Studio())->redirect('FormInput');
         }
 
+        $session = $sampler->session();
         $form = $session->form ?? new Hash([]);
         unset($session->form);
 

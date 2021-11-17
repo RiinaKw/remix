@@ -46,6 +46,8 @@ class Sampler extends Gear
         $this->post_hash = Http\PostHash::factory();
         $this->session_hash = Http\Session::hash();
 
+        Http\Csrf::init();
+
         return $this;
     }
     // function load()
@@ -91,36 +93,5 @@ class Sampler extends Gear
         return $synthesizer->run($this->post_hash);
     }
     // function synthesize()
-
-    private function csrf_crypt(string $token)
-    {
-        return crypt($token, 'TOKEN_SALT');
-    }
-
-    private function csrf_session_key()
-    {
-        return 'sess_csrf_token';
-    }
-
-    public function csrf_create(string $post_key = ''): string
-    {
-        $token = bin2hex(random_bytes(32));
-        $this->session_hash->set($this->csrf_session_key(), $token);
-        return $this->csrf_crypt($token);
-    }
-
-    public function csrf_check(string $post_key): ?ReadOnlyHash
-    {
-        $input_token = $this->post_hash->get($post_key, '');
-        $session_token = $this->session_hash->get($this->csrf_session_key(), '');
-        $session_token_crypted = $this->csrf_crypt($session_token);
-        $eq = hash_equals($input_token, $session_token_crypted);
-
-        $this->csrf_create($post_key);
-        if (! $eq) {
-            return new ReadOnlyHash(['csrf' => 'Illegal page transition']);
-        }
-        return null;
-    }
 }
 // class Sampler

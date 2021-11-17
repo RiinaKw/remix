@@ -24,13 +24,9 @@ class TopChannel extends \Remix\Channel
     }
     // function bounce()
 
-    public function redirect302()
+    public function redirect302(): Studio
     {
-        $mixer = \Remix\Audio::getInstance()->mixer;
-        $redirect_uri = $mixer->named('redirected')->uri();
-
-        header("Location: ${redirect_uri}");
-        exit;
+        return (new Studio)->redirect('redirected', [], 302);
     }
 
     public function redirected()

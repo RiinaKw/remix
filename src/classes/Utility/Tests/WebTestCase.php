@@ -11,7 +11,7 @@ abstract class WebTestCase extends TestCase
     protected function setUp(): void
     {
         $app_dir = __DIR__ . '/../../../../demo/app';
-        $this->daw = (new \Remix\Instruments\DAW())->initialize($app_dir);
+        $this->daw = \Remix\Audio::getInstance(false)->daw->initialize($app_dir);
     }
 
     public function tearDown(): void
@@ -21,7 +21,14 @@ abstract class WebTestCase extends TestCase
 
     protected function request(string $path)
     {
-        $_SERVER['PATH_INFO'] = $path;
-        return $this->daw->playWeb();
+        try {
+            $_SERVER['PATH_INFO'] = $path;
+            return $this->daw->playWeb();
+        } catch (\Remix\Exceptions\HttpException $e) {
+            $preset = \Remix\Audio::getInstance(true)->preset;
+
+            $reverb = \Remix\Reverb::exeption($e, $preset);
+            return $reverb;
+        }
     }
 }

@@ -33,4 +33,13 @@ class ChannelTest extends WebTestCase
         $html = (string)$this->request('/vader/riina');
         $this->assertRegExp('/riina, I am your father/', $html);
     }
+
+    /**
+     * @runInSeparateProcess
+     */
+    public function test404(): void
+    {
+        $html = (string)$this->request('/noexists');
+        $this->assertRegExp('/That\'s 404/', $html);
+    }
 }

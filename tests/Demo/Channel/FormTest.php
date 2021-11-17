@@ -17,7 +17,7 @@ class FormTest extends WebTestCase
      */
     public function testInput(): void
     {
-        $this->request('/form/input');
+        $this->get('/form/input');
         $this->assertHtmlContains('Input form');
     }
 

@@ -10,7 +10,6 @@ abstract class WebTestCase extends TestCase
 
     protected $daw = null;
     protected $studio = null;
-    //protected $reverb = null;
     protected $html = null;
 
     protected function setUp(): void
@@ -28,7 +27,7 @@ abstract class WebTestCase extends TestCase
         $this->daw->initialize($app_dir);
     }
 
-    protected function request(string $path)
+    private function request(string $path)
     {
         try {
             $_SERVER['PATH_INFO'] = $path;

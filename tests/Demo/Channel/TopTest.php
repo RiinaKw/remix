@@ -17,7 +17,7 @@ class TopTest extends WebTestCase
      */
     public function testTop(): void
     {
-        $this->request('/');
+        $this->get('/');
         $this->assertHtmlContains('I am your Remix.');
         $this->assertStatusCode(200);
         $this->assertMimeType('text/plain');
@@ -28,7 +28,7 @@ class TopTest extends WebTestCase
      */
     public function testVader(): void
     {
-        $this->request('/vader');
+        $this->get('/vader');
         $this->assertHtmlContains('Luke, I am your father');
         $this->assertStatusCode(200);
         $this->assertMimeType('text/html');
@@ -39,7 +39,7 @@ class TopTest extends WebTestCase
      */
     public function testRiina(): void
     {
-        $this->request('/vader/riina');
+        $this->get('/vader/riina');
         $this->assertHtmlContains('riina, I am your father');
         $this->assertStatusCode(200);
         $this->assertMimeType('text/html');
@@ -51,7 +51,7 @@ class TopTest extends WebTestCase
     public function test404(): void
     {
         // Note that if you get an HttpException, you are getting the error page for App
-        $this->request('/noexists');
+        $this->get('/noexists');
         $this->assertHtmlContains('That\'s 404');
         $this->assertStatusCode(404);
         $this->assertMimeType('text/html');
@@ -62,7 +62,7 @@ class TopTest extends WebTestCase
      */
     public function test302(): void
     {
-        $this->request('/302');
+        $this->get('/302');
         $this->assertStatusCode(302);
         $this->assertRedirectUri('http://remix.test/redirected');
     }

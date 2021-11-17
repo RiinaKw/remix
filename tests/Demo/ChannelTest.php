@@ -56,4 +56,14 @@ class ChannelTest extends WebTestCase
         $this->assertStatusCode(404);
         $this->assertMimeType('text/html');
     }
+
+    /**
+     * @runInSeparateProcess
+     */
+    public function test302(): void
+    {
+        $this->request('/302');
+        $this->assertStatusCode(302);
+        $this->assertRedirectUri('http://remix.test/redirected');
+    }
 }

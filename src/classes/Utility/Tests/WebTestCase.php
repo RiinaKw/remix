@@ -56,4 +56,9 @@ abstract class WebTestCase extends TestCase
     {
         $this->assertSame($mime, $this->studio->getMimeType());
     }
+
+    protected function assertRedirectUri(string $uri)
+    {
+        $this->assertSame($uri, $this->studio->getRedirectUri());
+    }
 }

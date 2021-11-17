@@ -175,6 +175,14 @@ class Studio extends Gear
     }
     // function redirect()
 
+    public function getRedirectUri(): ?string
+    {
+        if ($this->property->type !== 'redirect') {
+            return null;
+        }
+        return $this->property->params;
+    }
+
     public function output(bool $sendHeader = true): string
     {
         $output = $this->recorded();

@@ -28,7 +28,7 @@ class Reverb extends Gear
 
     public function __toString()
     {
-        $output = $this->studio->output(true);
+        $output = $this->studio->output();
         $is_console = $this->studio->isConsole();
         $this->studio = null;
 

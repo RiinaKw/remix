@@ -16,6 +16,7 @@ use Remix\Delay;
 class DAW extends Instrument
 {
     private $preset = null;
+    private $reverb = null;
 
     protected $remix_dir;
     protected $app_dir;
@@ -64,6 +65,9 @@ class DAW extends Instrument
         $bounce_dir = $this->preset->get('app.pathes.bounce_dir');
         $this->preset->set('app.pathes.bounce_dir', $this->appDir($bounce_dir));
 
+        $tracks_path = $this->appDir('/mixer.php') ?: [];
+        Audio::getInstance()->mixer->load($tracks_path);
+
         return $this;
     }
     // function initializeApp()
@@ -101,22 +105,24 @@ class DAW extends Instrument
     /**
      * @SuppressWarnings(PHPMD.Superglobals)
      */
-    public function playWeb(): Reverb
+    public function playWeb(): self
     {
         Audio::getInstance()->cli = false;
-        $mixer = Audio::getInstance()->mixer;
 
         $path = $_SERVER['PATH_INFO'] ?? '';
-
-        $tracks_path = $this->appDir('/mixer.php') ?: [];
-        $studio = $mixer->load($tracks_path)->route($path);
-        unset($mixer);
-        Audio::destroy();
+        $studio = Audio::getInstance()->mixer->route($path);
 
         Delay::log('BODY', $studio->getMimeType());
-        return new Reverb($studio, $this->preset);
+        $this->reverb = new Reverb($studio, $this->preset);
+        return $this;
     }
     // function playWeb()
+
+    public function finalize(): Reverb
+    {
+        Audio::destroy();
+        return $this->reverb;
+    }
 
     public function playCli(array $argv): void
     {

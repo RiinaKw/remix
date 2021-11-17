@@ -10,4 +10,5 @@ require_once($project_dir . '/vendor/autoload.php');
 echo \Remix\Audio::getInstance(true)
     ->daw
     ->initialize($app_dir)
-    ->playWeb();
+    ->playWeb()
+    ->finalize();

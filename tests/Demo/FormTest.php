@@ -104,10 +104,10 @@ class FormTest extends WebTestCase
      */
     public function testValidSubmit(): void
     {
-        $form = new \Utility\Hash([]);
-        $form->name = 'Riina';
-        $form->email = 'riinak.tv@gmail.com';
-        \Utility\Http\Session::hash()->form = $form;
+        $this->post('/form/confirm', [
+            'name' => 'Riina',
+            'email' => 'riinak.tv@gmail.com'
+        ]);
 
         $this->post('/form/submit');
         $this->assertStatusCode(200);

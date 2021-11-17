@@ -32,14 +32,13 @@ abstract class WebTestCase extends TestCase
     {
         try {
             $_SERVER['PATH_INFO'] = $path;
-            $reverb = $this->daw->playWeb();
+            $this->daw->playWeb();
+            $reverb = $this->invokeProperty($this->daw, 'reverb');
         } catch (\Remix\Exceptions\HttpException $e) {
-            $preset = \Remix\Audio::getInstance(true)->preset;
-
-            $reverb = \Remix\Reverb::exeption($e, $preset);
+            $reverb = \Remix\Reverb::exeption($e, \Remix\Audio::getInstance(true)->preset);
         }
         $this->studio = $this->invokeProperty($reverb, 'studio');
-        $this->html = (string)$reverb;
+        $this->html = $this->studio->output(false);
     }
 
     protected function get(string $path)

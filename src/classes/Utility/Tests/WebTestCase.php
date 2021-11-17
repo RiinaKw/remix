@@ -46,4 +46,14 @@ abstract class WebTestCase extends TestCase
     {
         $this->assertTrue(strpos($this->html, $text) !== false);
     }
+
+    protected function assertStatusCode(int $code)
+    {
+        $this->assertSame($code, $this->studio->getStatusCode());
+    }
+
+    protected function assertMimeType(string $mime)
+    {
+        $this->assertSame($mime, $this->studio->getMimeType());
+    }
 }

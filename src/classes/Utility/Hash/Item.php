@@ -41,7 +41,7 @@ class Item
     protected function requireEditable(): void
     {
         if (! $this->isEditable()) {
-            throw new Exception('Parent hash is not editable');
+            throw new \Exception("Hash item '{$this->key}' is not editable");
         }
     }
 

@@ -16,12 +16,11 @@ class Audio
     protected static $is_debug = false;
     protected static $is_cli = false;
 
-    private function __construct(bool $is_debug)
+    private function __construct()
     {
-        static::$is_debug = $is_debug;
         static::$is_cli = (php_sapi_name() === 'cli');
         Delay::start(static::$is_debug, static::$is_cli);
-        if ($is_debug) {
+        if (static::$is_debug) {
             Delay::logMemory();
         }
         Delay::logBirth(static::class);
@@ -37,14 +36,19 @@ class Audio
     }
     // function __destruct()
 
-    public static function getInstance(bool $is_debug = false): self
+    public static function getInstance(): self
     {
         if (! static::$audio) {
-            static::$audio = new static($is_debug);
+            static::$audio = new static();
         }
         return static::$audio;
     }
     // function getInstance()
+
+    public static function isDebug(): void
+    {
+        static::$is_debug = true;
+    }
 
     private function singleton(string $class): ?Gear
     {

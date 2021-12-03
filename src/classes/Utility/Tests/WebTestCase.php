@@ -3,6 +3,9 @@
 namespace Utility\Tests;
 
 use Utility\Tests\DemoTestCase;
+use Remix\Audio;
+use Remix\Reverb;
+use Remix\Exceptions\HttpException;
 
 abstract class WebTestCase extends DemoTestCase
 {
@@ -17,8 +20,10 @@ abstract class WebTestCase extends DemoTestCase
 
     protected function initialize(string $app_dir)
     {
+        Audio::isDebug();
+
         // Turn off the CLI flag
-        $this->invokePropertyValue(\Remix\Audio::getInstance(), 'is_cli', false);
+        $this->invokePropertyValue(Audio::getInstance(), 'is_cli', false);
 
         $this->daw->initialize($app_dir);
         chdir($app_dir . '/..');
@@ -65,8 +70,8 @@ abstract class WebTestCase extends DemoTestCase
             $this->PATH = $path;
             $this->daw->playWeb();
             $reverb = $this->invokeProperty($this->daw, 'reverb');
-        } catch (\Remix\Exceptions\HttpException $e) {
-            $reverb = \Remix\Reverb::exeption($e, \Remix\Audio::getInstance(true)->preset);
+        } catch (HttpException $e) {
+            $reverb = Reverb::exeption($e, Audio::getInstance()->preset);
         }
         $this->studio = $this->invokeProperty($reverb, 'studio');
         $this->html = $this->studio->output(false);

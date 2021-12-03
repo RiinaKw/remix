@@ -50,6 +50,9 @@ class Html
     }
     // function varHtml()
 
+    /**
+     * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
+     */
     public static function detailsHtml(string $summary, string $content, bool $is_open = false): string
     {
         $tag = $is_open ? '<details open>' : '<details>';

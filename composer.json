@@ -32,7 +32,7 @@
             "php ./vendor/bin/phpcs ."
         ],
         "phpunit": [
-            "php ./vendor/bin/phpunit"
+            "php ./vendor/bin/phpunit --testdox"
         ],
         "phpdoc": [
             "php ./vendor/bin/phpdoc"

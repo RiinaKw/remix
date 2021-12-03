@@ -108,21 +108,22 @@
 
             <div class="phpdocumentor-column -eight phpdocumentor-content">
                     <ul class="phpdocumentor-breadcrumbs">
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/remix.html">Remix</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/remix-preset.html">Preset</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/remix-preset-http.html">Http</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/utility.html">Utility</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/utility-tests.html">Tests</a></li>
     </ul>
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    StatusCode
+    DemoTestCase
 
+        <span class="phpdocumentor-element__extends">
+        extends <abbr title="\PHPUnit\Framework\TestCase">TestCase</abbr>
+    </span>
     
             <div class="phpdocumentor-element__package">
             in package
             <ul class="phpdocumentor-breadcrumbs">
-                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Remix.html">Remix</a></li>
-                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Remix-Core.html">Core</a></li>
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Default.html">Default</a></li>
                             </ul>
         </div>
     
@@ -130,31 +131,14 @@
     </h2>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Preset/Http/StatusCode.php"><a href="files/src-classes-remix-preset-http-statuscode.html"><abbr title="src/classes/Remix/Preset/Http/StatusCode.php">StatusCode.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Utility/Tests/DemoTestCase.php"><a href="files/src-classes-utility-tests-demotestcase.html"><abbr title="src/classes/Utility/Tests/DemoTestCase.php">DemoTestCase.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11</span>
+    <span class="phpdocumentor-element-found-in__line">7</span>
 </aside>
 
-            <p class="phpdocumentor-summary">HTTP status codes</p>
-
-    <section class="phpdocumentor-description"></section>
+        
 
 
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">deprecated</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>No need to make it a class.</p>
-</section>
-
-                                    </dd>
-                        </dl>
 
 
 
@@ -167,17 +151,24 @@
 </h3>
 
 <dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -constant -private">
-    <a href="classes/Remix-Preset-Http-StatusCode.html#constant_CODES">CODES</a>
+                <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/Utility-Tests-DemoTestCase.html#property_daw">$daw</a>
     <span>
-        &nbsp;= [200 =&gt; &#039;OK&#039;, 201 =&gt; &#039;Created&#039;, 202 =&gt; &#039;Accepted&#039;, 203 =&gt; &#039;Non-Authoritative Information&#039;, 204 =&gt; &#039;No Content&#039;, 205 =&gt; &#039;Reset Content&#039;, 206 =&gt; &#039;Partial Content&#039;, 300 =&gt; &#039;Multiple Choice&#039;, 301 =&gt; &#039;Moved Permanently&#039;, 302 =&gt; &#039;Found&#039;, 303 =&gt; &#039;See Other&#039;, 304 =&gt; &#039;Not Modified&#039;, 307 =&gt; &#039;Temporary Redirect&#039;, 308 =&gt; &#039;Permanent Redirect&#039;, 400 =&gt; &#039;Bad Request&#039;, 401 =&gt; &#039;Unauthorized&#039;, 402 =&gt; &#039;Payment Required&#039;, 403 =&gt; &#039;Forbidden&#039;, 404 =&gt; &#039;Not Found&#039;, 405 =&gt; &#039;Method Not Allowed&#039;, 406 =&gt; &#039;Not Acceptable&#039;, 407 =&gt; &#039;Proxy Authentication Required&#039;, 408 =&gt; &#039;Request Timeout&#039;, 409 =&gt; &#039;Conflict&#039;, 410 =&gt; &#039;Gone&#039;, 411 =&gt; &#039;Length Required&#039;, 412 =&gt; &#039;Precondition Failed&#039;, 413 =&gt; &#039;Payload Too Large&#039;, 414 =&gt; &#039;URI Too Long&#039;, 415 =&gt; &#039;Unsupported Media Type&#039;, 416 =&gt; &#039;Range Not Satisfiable&#039;, 417 =&gt; &#039;Expectation Failed&#039;, 418 =&gt; &#039;I&#039;m a teapot&#039;, 421 =&gt; &#039;Misdirected Request&#039;, 425 =&gt; &#039;Too Early&#039;, 426 =&gt; &#039;Upgrade Required&#039;, 428 =&gt; &#039;Precondition Required&#039;, 429 =&gt; &#039;Too Many Requests&#039;, 431 =&gt; &#039;Request Header Fields Too Large&#039;, 451 =&gt; &#039;Unavailable For Legal Reasons&#039;, 500 =&gt; &#039;Internal Server Error&#039;, 501 =&gt; &#039;Not Implemented&#039;, 502 =&gt; &#039;Bad Gateway&#039;, 503 =&gt; &#039;Service Unavailable&#039;, 504 =&gt; &#039;Gateway Timeout&#039;, 505 =&gt; &#039;HTTP Version Not Supported&#039;, 506 =&gt; &#039;Variant Also Negotiates&#039;, 510 =&gt; &#039;Not Extended&#039;, 511 =&gt; &#039;Network Authentication Required&#039;]                    </span>
+                &nbsp;: mixed            </span>
 </dt>
 <dd></dd>
 
-                    <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-Preset-Http-StatusCode.html#method_get">get()</a>
+                <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/Utility-Tests-DemoTestCase.html#method_setUp">setUp()</a>
     <span>
-                        &nbsp;: string    </span>
+                        &nbsp;: void    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/Utility-Tests-DemoTestCase.html#method_tearDown">tearDown()</a>
+    <span>
+                        &nbsp;: void    </span>
 </dt>
 <dd></dd>
 
@@ -186,31 +177,38 @@
 
 
         
-    <section class="phpdocumentor-constants">
-        <h3 class="phpdocumentor-elements__header" id="constants">
-            Constants
-            <a href="classes/Remix-Preset-Http-StatusCode.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
-        </h3>
-                    <article class="phpdocumentor-element -constant -private ">
-    <h4 class="phpdocumentor-element__name" id="constant_CODES">
-        CODES
-        <a href="classes/Remix-Preset-Http-StatusCode.html#constant_CODES" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
 
+        
+    <section class="phpdocumentor-properties">
+        <h3 class="phpdocumentor-elements__header" id="properties">
+            Properties
+            <a href="classes/Utility-Tests-DemoTestCase.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+        </h3>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_daw">
+        $daw
+        <a href="classes/Utility-Tests-DemoTestCase.html#property_daw" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Preset/Http/StatusCode.php"><a href="files/src-classes-remix-preset-http-statuscode.html"><abbr title="src/classes/Remix/Preset/Http/StatusCode.php">StatusCode.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Utility/Tests/DemoTestCase.php"><a href="files/src-classes-utility-tests-demotestcase.html"><abbr title="src/classes/Utility/Tests/DemoTestCase.php">DemoTestCase.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13</span>
+    <span class="phpdocumentor-element-found-in__line">9</span>
 </aside>
 
     
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-    <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">CODES</span>
-    = <span class="phpdocumentor-signature__default-value">[200 =&gt; &#039;OK&#039;, 201 =&gt; &#039;Created&#039;, 202 =&gt; &#039;Accepted&#039;, 203 =&gt; &#039;Non-Authoritative Information&#039;, 204 =&gt; &#039;No Content&#039;, 205 =&gt; &#039;Reset Content&#039;, 206 =&gt; &#039;Partial Content&#039;, 300 =&gt; &#039;Multiple Choice&#039;, 301 =&gt; &#039;Moved Permanently&#039;, 302 =&gt; &#039;Found&#039;, 303 =&gt; &#039;See Other&#039;, 304 =&gt; &#039;Not Modified&#039;, 307 =&gt; &#039;Temporary Redirect&#039;, 308 =&gt; &#039;Permanent Redirect&#039;, 400 =&gt; &#039;Bad Request&#039;, 401 =&gt; &#039;Unauthorized&#039;, 402 =&gt; &#039;Payment Required&#039;, 403 =&gt; &#039;Forbidden&#039;, 404 =&gt; &#039;Not Found&#039;, 405 =&gt; &#039;Method Not Allowed&#039;, 406 =&gt; &#039;Not Acceptable&#039;, 407 =&gt; &#039;Proxy Authentication Required&#039;, 408 =&gt; &#039;Request Timeout&#039;, 409 =&gt; &#039;Conflict&#039;, 410 =&gt; &#039;Gone&#039;, 411 =&gt; &#039;Length Required&#039;, 412 =&gt; &#039;Precondition Failed&#039;, 413 =&gt; &#039;Payload Too Large&#039;, 414 =&gt; &#039;URI Too Long&#039;, 415 =&gt; &#039;Unsupported Media Type&#039;, 416 =&gt; &#039;Range Not Satisfiable&#039;, 417 =&gt; &#039;Expectation Failed&#039;, 418 =&gt; &#039;I&#039;m a teapot&#039;, 421 =&gt; &#039;Misdirected Request&#039;, 425 =&gt; &#039;Too Early&#039;, 426 =&gt; &#039;Upgrade Required&#039;, 428 =&gt; &#039;Precondition Required&#039;, 429 =&gt; &#039;Too Many Requests&#039;, 431 =&gt; &#039;Request Header Fields Too Large&#039;, 451 =&gt; &#039;Unavailable For Legal Reasons&#039;, 500 =&gt; &#039;Internal Server Error&#039;, 501 =&gt; &#039;Not Implemented&#039;, 502 =&gt; &#039;Bad Gateway&#039;, 503 =&gt; &#039;Service Unavailable&#039;, 504 =&gt; &#039;Gateway Timeout&#039;, 505 =&gt; &#039;HTTP Version Not Supported&#039;, 506 =&gt; &#039;Variant Also Negotiates&#039;, 510 =&gt; &#039;Not Extended&#039;, 511 =&gt; &#039;Network Authentication Required&#039;]</span>
-</code>
-
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">$daw</span>
+     = <span class="phpdocumentor-signature__default-value">null</span></code>
 
     
     
@@ -218,50 +216,70 @@
 </article>
             </section>
 
-        
-
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/Remix-Preset-Http-StatusCode.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/Utility-Tests-DemoTestCase.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
                     <article
         class="phpdocumentor-element
             -method
-            -public
-                                    -static                    "
+            -protected
+                                                        "
 >
-    <h4 class="phpdocumentor-element__name" id="method_get">
-        get()
-        <a href="classes/Remix-Preset-Http-StatusCode.html#method_get" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_setUp">
+        setUp()
+        <a href="classes/Utility-Tests-DemoTestCase.html#method_setUp" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Preset/Http/StatusCode.php"><a href="files/src-classes-remix-preset-http-statuscode.html"><abbr title="src/classes/Remix/Preset/Http/StatusCode.php">StatusCode.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Utility/Tests/DemoTestCase.php"><a href="files/src-classes-utility-tests-demotestcase.html"><abbr title="src/classes/Utility/Tests/DemoTestCase.php">DemoTestCase.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">68</span>
+    <span class="phpdocumentor-element-found-in__line">11</span>
 </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">get</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$code</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                <span class="phpdocumentor-signature__name">setUp</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$code</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
+    
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
+    <span class="phpdocumentor-signature__response_type">void</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_tearDown">
+        tearDown()
+        <a href="classes/Utility-Tests-DemoTestCase.html#method_tearDown" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Utility/Tests/DemoTestCase.php"><a href="files/src-classes-utility-tests-demotestcase.html"><abbr title="src/classes/Utility/Tests/DemoTestCase.php">DemoTestCase.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">16</span>
+</aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                <span class="phpdocumentor-signature__name">tearDown</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">void</span>
             &mdash;
             <section class="phpdocumentor-description"></section>
 
@@ -283,7 +301,7 @@
 </section>
             </div>
         </div>
-        <a href="classes/Remix-Preset-Http-StatusCode.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/Utility-Tests-DemoTestCase.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

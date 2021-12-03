@@ -851,6 +851,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Remix-Studio.html#method_redirect"
         },                {
+            "fqsen": "\\Remix\\Studio\u003A\u003AgetRedirectUri\u0028\u0029",
+            "name": "getRedirectUri",
+            "summary": "",
+            "url": "classes/Remix-Studio.html#method_getRedirectUri"
+        },                {
             "fqsen": "\\Remix\\Studio\u003A\u003Aoutput\u0028\u0029",
             "name": "output",
             "summary": "",
@@ -1461,6 +1466,11 @@ Search.appendIndex(
             "summary": "Get\u0020Hash\u0020value",
             "url": "classes/Utility-Hash-ReadOnlyHash.html#method_get"
         },                {
+            "fqsen": "\\Utility\\Hash\\ReadOnlyHash\u003A\u003Aitem\u0028\u0029",
+            "name": "item",
+            "summary": "Get\u0020item\u0020object",
+            "url": "classes/Utility-Hash-ReadOnlyHash.html#method_item"
+        },                {
             "fqsen": "\\Utility\\Hash\\ReadOnlyHash\u003A\u003A__get\u0028\u0029",
             "name": "__get",
             "summary": "magic\u0020method",
@@ -2041,10 +2051,20 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Remix-Instruments-DAW.html#method_playWeb"
         },                {
+            "fqsen": "\\Remix\\Instruments\\DAW\u003A\u003Afinalize\u0028\u0029",
+            "name": "finalize",
+            "summary": "",
+            "url": "classes/Remix-Instruments-DAW.html#method_finalize"
+        },                {
             "fqsen": "\\Remix\\Instruments\\DAW\u003A\u003AplayCli\u0028\u0029",
             "name": "playCli",
             "summary": "",
             "url": "classes/Remix-Instruments-DAW.html#method_playCli"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\DAW\u003A\u003A\u0024reverb",
+            "name": "reverb",
+            "summary": "",
+            "url": "classes/Remix-Instruments-DAW.html#property_reverb"
         },                {
             "fqsen": "\\Remix\\Instruments\\DAW\u003A\u003A\u0024remix_dir",
             "name": "remix_dir",
@@ -2555,6 +2575,221 @@ Search.appendIndex(
             "name": "tableIndexes",
             "summary": "Get\u0020Index\u0028es\u0029\u0020from\u0020table\u0020definition",
             "url": "classes/Remix-DJ-MC.html#method_tableIndexes"
+        },                {
+            "fqsen": "\\Utility\\Hash\\Item",
+            "name": "Item",
+            "summary": "Hash\u0020item",
+            "url": "classes/Utility-Hash-Item.html"
+        },                {
+            "fqsen": "\\Utility\\Hash\\Item\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Utility-Hash-Item.html#method___construct"
+        },                {
+            "fqsen": "\\Utility\\Hash\\Item\u003A\u003AisEditable\u0028\u0029",
+            "name": "isEditable",
+            "summary": "Is\u0020Hash\u0020editable\u003F",
+            "url": "classes/Utility-Hash-Item.html#method_isEditable"
+        },                {
+            "fqsen": "\\Utility\\Hash\\Item\u003A\u003ArequireEditable\u0028\u0029",
+            "name": "requireEditable",
+            "summary": "",
+            "url": "classes/Utility-Hash-Item.html#method_requireEditable"
+        },                {
+            "fqsen": "\\Utility\\Hash\\Item\u003A\u003Aget\u0028\u0029",
+            "name": "get",
+            "summary": "",
+            "url": "classes/Utility-Hash-Item.html#method_get"
+        },                {
+            "fqsen": "\\Utility\\Hash\\Item\u003A\u003Aset\u0028\u0029",
+            "name": "set",
+            "summary": "",
+            "url": "classes/Utility-Hash-Item.html#method_set"
+        },                {
+            "fqsen": "\\Utility\\Hash\\Item\u003A\u003Adelete\u0028\u0029",
+            "name": "delete",
+            "summary": "",
+            "url": "classes/Utility-Hash-Item.html#method_delete"
+        },                {
+            "fqsen": "\\Utility\\Hash\\Item\u003A\u003A\u0024parent",
+            "name": "parent",
+            "summary": "Parent\u0020hash\u0020object",
+            "url": "classes/Utility-Hash-Item.html#property_parent"
+        },                {
+            "fqsen": "\\Utility\\Hash\\Item\u003A\u003A\u0024key",
+            "name": "key",
+            "summary": "Target\u0020hash\u0020key",
+            "url": "classes/Utility-Hash-Item.html#property_key"
+        },                {
+            "fqsen": "\\Utility\\Http\\Csrf",
+            "name": "Csrf",
+            "summary": "Class\u0020for\u0020CSRF\u0020measures",
+            "url": "classes/Utility-Http-Csrf.html"
+        },                {
+            "fqsen": "\\Utility\\Http\\Csrf\u003A\u003Ainit\u0028\u0029",
+            "name": "init",
+            "summary": "",
+            "url": "classes/Utility-Http-Csrf.html#method_init"
+        },                {
+            "fqsen": "\\Utility\\Http\\Csrf\u003A\u003Acrypt\u0028\u0029",
+            "name": "crypt",
+            "summary": "",
+            "url": "classes/Utility-Http-Csrf.html#method_crypt"
+        },                {
+            "fqsen": "\\Utility\\Http\\Csrf\u003A\u003Acheck\u0028\u0029",
+            "name": "check",
+            "summary": "",
+            "url": "classes/Utility-Http-Csrf.html#method_check"
+        },                {
+            "fqsen": "\\Utility\\Http\\Csrf\u003A\u003Atoken\u0028\u0029",
+            "name": "token",
+            "summary": "",
+            "url": "classes/Utility-Http-Csrf.html#method_token"
+        },                {
+            "fqsen": "\\Utility\\Http\\Csrf\u003A\u003Aerror\u0028\u0029",
+            "name": "error",
+            "summary": "",
+            "url": "classes/Utility-Http-Csrf.html#method_error"
+        },                {
+            "fqsen": "\\Utility\\Http\\Csrf\u003A\u003A\u0024post",
+            "name": "post",
+            "summary": "",
+            "url": "classes/Utility-Http-Csrf.html#property_post"
+        },                {
+            "fqsen": "\\Utility\\Http\\Csrf\u003A\u003A\u0024token_salt",
+            "name": "token_salt",
+            "summary": "",
+            "url": "classes/Utility-Http-Csrf.html#property_token_salt"
+        },                {
+            "fqsen": "\\Utility\\Http\\Csrf\u003A\u003A\u0024session_token",
+            "name": "session_token",
+            "summary": "",
+            "url": "classes/Utility-Http-Csrf.html#property_session_token"
+        },                {
+            "fqsen": "\\Utility\\Http\\Csrf\u003A\u003A\u0024session_error",
+            "name": "session_error",
+            "summary": "",
+            "url": "classes/Utility-Http-Csrf.html#property_session_error"
+        },                {
+            "fqsen": "\\Utility\\Tests\\CliTestCase",
+            "name": "CliTestCase",
+            "summary": "",
+            "url": "classes/Utility-Tests-CliTestCase.html"
+        },                {
+            "fqsen": "\\Utility\\Tests\\CliTestCase\u003A\u003Ainitialize\u0028\u0029",
+            "name": "initialize",
+            "summary": "",
+            "url": "classes/Utility-Tests-CliTestCase.html#method_initialize"
+        },                {
+            "fqsen": "\\Utility\\Tests\\CliTestCase\u003A\u003Aexecute\u0028\u0029",
+            "name": "execute",
+            "summary": "",
+            "url": "classes/Utility-Tests-CliTestCase.html#method_execute"
+        },                {
+            "fqsen": "\\Utility\\Tests\\DemoTestCase",
+            "name": "DemoTestCase",
+            "summary": "",
+            "url": "classes/Utility-Tests-DemoTestCase.html"
+        },                {
+            "fqsen": "\\Utility\\Tests\\DemoTestCase\u003A\u003AsetUp\u0028\u0029",
+            "name": "setUp",
+            "summary": "",
+            "url": "classes/Utility-Tests-DemoTestCase.html#method_setUp"
+        },                {
+            "fqsen": "\\Utility\\Tests\\DemoTestCase\u003A\u003AtearDown\u0028\u0029",
+            "name": "tearDown",
+            "summary": "",
+            "url": "classes/Utility-Tests-DemoTestCase.html#method_tearDown"
+        },                {
+            "fqsen": "\\Utility\\Tests\\DemoTestCase\u003A\u003A\u0024daw",
+            "name": "daw",
+            "summary": "",
+            "url": "classes/Utility-Tests-DemoTestCase.html#property_daw"
+        },                {
+            "fqsen": "\\Utility\\Tests\\WebTestCase",
+            "name": "WebTestCase",
+            "summary": "",
+            "url": "classes/Utility-Tests-WebTestCase.html"
+        },                {
+            "fqsen": "\\Utility\\Tests\\WebTestCase\u003A\u003Ainitialize\u0028\u0029",
+            "name": "initialize",
+            "summary": "",
+            "url": "classes/Utility-Tests-WebTestCase.html#method_initialize"
+        },                {
+            "fqsen": "\\Utility\\Tests\\WebTestCase\u003A\u003A__get\u0028\u0029",
+            "name": "__get",
+            "summary": "",
+            "url": "classes/Utility-Tests-WebTestCase.html#method___get"
+        },                {
+            "fqsen": "\\Utility\\Tests\\WebTestCase\u003A\u003A__set\u0028\u0029",
+            "name": "__set",
+            "summary": "",
+            "url": "classes/Utility-Tests-WebTestCase.html#method___set"
+        },                {
+            "fqsen": "\\Utility\\Tests\\WebTestCase\u003A\u003Arequest\u0028\u0029",
+            "name": "request",
+            "summary": "",
+            "url": "classes/Utility-Tests-WebTestCase.html#method_request"
+        },                {
+            "fqsen": "\\Utility\\Tests\\WebTestCase\u003A\u003Areload\u0028\u0029",
+            "name": "reload",
+            "summary": "",
+            "url": "classes/Utility-Tests-WebTestCase.html#method_reload"
+        },                {
+            "fqsen": "\\Utility\\Tests\\WebTestCase\u003A\u003Aget\u0028\u0029",
+            "name": "get",
+            "summary": "",
+            "url": "classes/Utility-Tests-WebTestCase.html#method_get"
+        },                {
+            "fqsen": "\\Utility\\Tests\\WebTestCase\u003A\u003Apost\u0028\u0029",
+            "name": "post",
+            "summary": "",
+            "url": "classes/Utility-Tests-WebTestCase.html#method_post"
+        },                {
+            "fqsen": "\\Utility\\Tests\\WebTestCase\u003A\u003AassertHtmlContains\u0028\u0029",
+            "name": "assertHtmlContains",
+            "summary": "",
+            "url": "classes/Utility-Tests-WebTestCase.html#method_assertHtmlContains"
+        },                {
+            "fqsen": "\\Utility\\Tests\\WebTestCase\u003A\u003AassertStatusCode\u0028\u0029",
+            "name": "assertStatusCode",
+            "summary": "",
+            "url": "classes/Utility-Tests-WebTestCase.html#method_assertStatusCode"
+        },                {
+            "fqsen": "\\Utility\\Tests\\WebTestCase\u003A\u003AassertMimeType\u0028\u0029",
+            "name": "assertMimeType",
+            "summary": "",
+            "url": "classes/Utility-Tests-WebTestCase.html#method_assertMimeType"
+        },                {
+            "fqsen": "\\Utility\\Tests\\WebTestCase\u003A\u003AassertRedirectUri\u0028\u0029",
+            "name": "assertRedirectUri",
+            "summary": "",
+            "url": "classes/Utility-Tests-WebTestCase.html#method_assertRedirectUri"
+        },                {
+            "fqsen": "\\Utility\\Tests\\WebTestCase\u003A\u003A\u0024studio",
+            "name": "studio",
+            "summary": "",
+            "url": "classes/Utility-Tests-WebTestCase.html#property_studio"
+        },                {
+            "fqsen": "\\Utility\\Tests\\WebTestCase\u003A\u003A\u0024html",
+            "name": "html",
+            "summary": "",
+            "url": "classes/Utility-Tests-WebTestCase.html#property_html"
+        },                {
+            "fqsen": "\\Utility\\Tests\\WebTestCase\u003A\u003A\u0024prev_path",
+            "name": "prev_path",
+            "summary": "",
+            "url": "classes/Utility-Tests-WebTestCase.html#property_prev_path"
+        },                {
+            "fqsen": "\\Utility\\Tests\\WebTestCase\u003A\u003A\u0024prev_method",
+            "name": "prev_method",
+            "summary": "",
+            "url": "classes/Utility-Tests-WebTestCase.html#property_prev_method"
+        },                {
+            "fqsen": "\\Utility\\Tests\\WebTestCase\u003A\u003A\u0024prev_post",
+            "name": "prev_post",
+            "summary": "",
+            "url": "classes/Utility-Tests-WebTestCase.html#property_prev_post"
         },                {
             "fqsen": "\\",
             "name": "\\",

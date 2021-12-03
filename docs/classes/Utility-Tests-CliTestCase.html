@@ -108,21 +108,22 @@
 
             <div class="phpdocumentor-column -eight phpdocumentor-content">
                     <ul class="phpdocumentor-breadcrumbs">
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/remix.html">Remix</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/remix-preset.html">Preset</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/remix-preset-http.html">Http</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/utility.html">Utility</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/utility-tests.html">Tests</a></li>
     </ul>
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    MimeType
+    CliTestCase
 
+        <span class="phpdocumentor-element__extends">
+        extends <a href="classes/Utility-Tests-DemoTestCase.html"><abbr title="\Utility\Tests\DemoTestCase">DemoTestCase</abbr></a>
+    </span>
     
             <div class="phpdocumentor-element__package">
             in package
             <ul class="phpdocumentor-breadcrumbs">
-                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Remix.html">Remix</a></li>
-                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Remix-Core.html">Core</a></li>
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Default.html">Default</a></li>
                             </ul>
         </div>
     
@@ -130,31 +131,14 @@
     </h2>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Preset/Http/MimeType.php"><a href="files/src-classes-remix-preset-http-mimetype.html"><abbr title="src/classes/Remix/Preset/Http/MimeType.php">MimeType.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Utility/Tests/CliTestCase.php"><a href="files/src-classes-utility-tests-clitestcase.html"><abbr title="src/classes/Utility/Tests/CliTestCase.php">CliTestCase.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11</span>
+    <span class="phpdocumentor-element-found-in__line">7</span>
 </aside>
 
-            <p class="phpdocumentor-summary">Mime type</p>
-
-    <section class="phpdocumentor-description"></section>
+        
 
 
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">deprecated</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>No need to make it a class.</p>
-</section>
-
-                                    </dd>
-                        </dl>
 
 
 
@@ -167,17 +151,38 @@
 </h3>
 
 <dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -constant -private">
-    <a href="classes/Remix-Preset-Http-MimeType.html#constant_TYPES">TYPES</a>
+                <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/Utility-Tests-DemoTestCase.html#property_daw">$daw</a>
     <span>
-        &nbsp;= [&#039;text&#039; =&gt; [&#039;type&#039; =&gt; &#039;text/plain&#039;, &#039;console&#039; =&gt; false], &#039;html&#039; =&gt; [&#039;type&#039; =&gt; &#039;text/html&#039;, &#039;console&#039; =&gt; true], &#039;json&#039; =&gt; [&#039;type&#039; =&gt; &#039;application/json&#039;, &#039;console&#039; =&gt; false], &#039;xml&#039; =&gt; [&#039;type&#039; =&gt; &#039;application/xml&#039;, &#039;console&#039; =&gt; false], &#039;stream&#039; =&gt; [&#039;type&#039; =&gt; &#039;application/octet-stream&#039;, &#039;console&#039; =&gt; false]]                    </span>
+                &nbsp;: mixed            </span>
 </dt>
 <dd></dd>
 
-                    <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-Preset-Http-MimeType.html#method_get">get()</a>
+                <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Utility-Tests-CliTestCase.html#method_execute">execute()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;    </span>
+                        &nbsp;: mixed    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/Utility-Tests-CliTestCase.html#method_initialize">initialize()</a>
+    <span>
+                        &nbsp;: mixed    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/Utility-Tests-DemoTestCase.html#method_setUp">setUp()</a>
+    <span>
+                        &nbsp;: void    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/Utility-Tests-DemoTestCase.html#method_tearDown">tearDown()</a>
+    <span>
+                        &nbsp;: void    </span>
 </dt>
 <dd></dd>
 
@@ -186,31 +191,38 @@
 
 
         
-    <section class="phpdocumentor-constants">
-        <h3 class="phpdocumentor-elements__header" id="constants">
-            Constants
-            <a href="classes/Remix-Preset-Http-MimeType.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
-        </h3>
-                    <article class="phpdocumentor-element -constant -private ">
-    <h4 class="phpdocumentor-element__name" id="constant_TYPES">
-        TYPES
-        <a href="classes/Remix-Preset-Http-MimeType.html#constant_TYPES" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
 
+        
+    <section class="phpdocumentor-properties">
+        <h3 class="phpdocumentor-elements__header" id="properties">
+            Properties
+            <a href="classes/Utility-Tests-CliTestCase.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+        </h3>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_daw">
+        $daw
+        <a href="classes/Utility-Tests-DemoTestCase.html#property_daw" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Preset/Http/MimeType.php"><a href="files/src-classes-remix-preset-http-mimetype.html"><abbr title="src/classes/Remix/Preset/Http/MimeType.php">MimeType.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Utility/Tests/DemoTestCase.php"><a href="files/src-classes-utility-tests-demotestcase.html"><abbr title="src/classes/Utility/Tests/DemoTestCase.php">DemoTestCase.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13</span>
+    <span class="phpdocumentor-element-found-in__line">9</span>
 </aside>
 
     
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-    <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">TYPES</span>
-    = <span class="phpdocumentor-signature__default-value">[&#039;text&#039; =&gt; [&#039;type&#039; =&gt; &#039;text/plain&#039;, &#039;console&#039; =&gt; false], &#039;html&#039; =&gt; [&#039;type&#039; =&gt; &#039;text/html&#039;, &#039;console&#039; =&gt; true], &#039;json&#039; =&gt; [&#039;type&#039; =&gt; &#039;application/json&#039;, &#039;console&#039; =&gt; false], &#039;xml&#039; =&gt; [&#039;type&#039; =&gt; &#039;application/xml&#039;, &#039;console&#039; =&gt; false], &#039;stream&#039; =&gt; [&#039;type&#039; =&gt; &#039;application/octet-stream&#039;, &#039;console&#039; =&gt; false]]</span>
-</code>
-
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">$daw</span>
+     = <span class="phpdocumentor-signature__default-value">null</span></code>
 
     
     
@@ -218,39 +230,37 @@
 </article>
             </section>
 
-        
-
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/Remix-Preset-Http-MimeType.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/Utility-Tests-CliTestCase.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
                     <article
         class="phpdocumentor-element
             -method
             -public
-                                    -static                    "
+                                                        "
 >
-    <h4 class="phpdocumentor-element__name" id="method_get">
-        get()
-        <a href="classes/Remix-Preset-Http-MimeType.html#method_get" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_execute">
+        execute()
+        <a href="classes/Utility-Tests-CliTestCase.html#method_execute" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Preset/Http/MimeType.php"><a href="files/src-classes-remix-preset-http-mimetype.html"><abbr title="src/classes/Remix/Preset/Http/MimeType.php">MimeType.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Utility/Tests/CliTestCase.php"><a href="files/src-classes-utility-tests-clitestcase.html"><abbr title="src/classes/Utility/Tests/CliTestCase.php">CliTestCase.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">36</span>
+    <span class="phpdocumentor-element-found-in__line">15</span>
 </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">get</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$type</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+                <span class="phpdocumentor-signature__name">execute</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$args</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$type</span>
+                <span class="phpdocumentor-signature__argument__name">$args</span>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
@@ -261,7 +271,113 @@
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_initialize">
+        initialize()
+        <a href="classes/Utility-Tests-CliTestCase.html#method_initialize" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Utility/Tests/CliTestCase.php"><a href="files/src-classes-utility-tests-clitestcase.html"><abbr title="src/classes/Utility/Tests/CliTestCase.php">CliTestCase.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">9</span>
+</aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                <span class="phpdocumentor-signature__name">initialize</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$app_dir</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$app_dir</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_setUp">
+        setUp()
+        <a href="classes/Utility-Tests-DemoTestCase.html#method_setUp" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Utility/Tests/DemoTestCase.php"><a href="files/src-classes-utility-tests-demotestcase.html"><abbr title="src/classes/Utility/Tests/DemoTestCase.php">DemoTestCase.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">11</span>
+</aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                <span class="phpdocumentor-signature__name">setUp</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">void</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_tearDown">
+        tearDown()
+        <a href="classes/Utility-Tests-DemoTestCase.html#method_tearDown" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Utility/Tests/DemoTestCase.php"><a href="files/src-classes-utility-tests-demotestcase.html"><abbr title="src/classes/Utility/Tests/DemoTestCase.php">DemoTestCase.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">16</span>
+</aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                <span class="phpdocumentor-signature__name">tearDown</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">void</span>
             &mdash;
             <section class="phpdocumentor-description"></section>
 
@@ -283,7 +399,7 @@
 </section>
             </div>
         </div>
-        <a href="classes/Remix-Preset-Http-MimeType.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/Utility-Tests-CliTestCase.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

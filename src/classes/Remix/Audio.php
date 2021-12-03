@@ -19,7 +19,13 @@ class Audio
     private function __construct()
     {
         static::$is_cli = (php_sapi_name() === 'cli');
-        Delay::start(static::$is_debug, static::$is_cli);
+        if (static::$is_debug) {
+            Delay::isDebug();
+        }
+        if (static::$is_cli) {
+            Delay::isCli();
+        }
+        Delay::start();
         if (static::$is_debug) {
             Delay::logMemory();
         }

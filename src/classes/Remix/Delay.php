@@ -19,15 +19,22 @@ class Delay
     private static $time = null;
     private static $log = [];
 
-    public static function start(bool $is_debug = false, $is_cli = false)
+    public static function isDebug(): void
     {
-        static::$is_debug = $is_debug;
-        static::$is_cli = $is_cli;
+        static::$is_debug = true;
+    }
 
+    public static function isCli(): void
+    {
+        static::$is_cli = true;
+    }
+
+    public static function start()
+    {
         static::$time = new Time();
         static::$time->start();
     }
-    // function getInstance()
+    // function start()
 
     public static function destroy(): void
     {

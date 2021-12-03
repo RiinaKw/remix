@@ -108,7 +108,7 @@ class Studio extends Gear
     }
     // function getMimeType()
 
-    protected function sendHeader(): self
+    public function sendHeader(): self
     {
         foreach ($this->property->headers as $header) {
             header($header);
@@ -182,16 +182,6 @@ class Studio extends Gear
         }
         return $this->property->params;
     }
-
-    public function output(bool $sendHeader = true): string
-    {
-        $output = $this->recorded();
-        if ($sendHeader) {
-            $this->sendHeader();
-        }
-        return $output;
-    }
-    // function output()
 
     public function isConsole(): bool
     {

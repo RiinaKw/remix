@@ -74,7 +74,8 @@ abstract class WebTestCase extends DemoTestCase
             $reverb = Reverb::exeption($e, Audio::getInstance()->preset);
         }
         $this->studio = $this->invokeProperty($reverb, 'studio');
-        $this->html = $this->studio->output(false);
+        $this->html = $this->studio->recorded();
+        $this->studio->sendHeader();
     }
 
     protected function reload()

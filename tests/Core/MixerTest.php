@@ -49,7 +49,7 @@ class MixerTest extends TestCase
         $_SERVER['REQUEST_METHOD'] = 'GET';
         $response = $this->mixer->route('/cb');
         $this->assertTrue($response instanceof Studio);
-        $this->assertRegExp('/from callback/', $response->output(false));
+        $this->assertRegExp('/from callback/', $response->recorded());
     }
 
     /**

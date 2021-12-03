@@ -126,7 +126,7 @@ class Table extends Gear
      */
     public function create(callable $cb): bool
     {
-        MC::expectTableExists($this->name, false);
+        MC::expectTableNotExists($this->name, false);
 
         $cb($this);
         if (count($this->columns) < 1) {

@@ -64,23 +64,30 @@ class MC extends Gear
     // function tableExists()
 
     /**
-     * Expect the table to exist / not exist, raise an exception if unexpected
-     * @param Table|string  $table   Target table instance or table name
-     * @param boolean       $exists  Expect it to exist or not
-     * @throws DJException           If not expected
+     * Expects the table to exist, and throws an exception if unexpected
+     * @param Table|string  $table  Target table instance or table name
+     * @throws DJException          If the table does not exist
      */
-    public static function expectTableExists($table, bool $exists = true): void
+    public static function expectTableExists($table): void
     {
         $table_escaped = DJ::identifier(static::tableName($table));
-
-        if ($exists && ! static::tableExists($table)) {
+        if (! static::tableExists($table)) {
             throw new DJException("Table {$table_escaped} is not exists");
         }
-        if (! $exists && static::tableExists($table)) {
+    }
+
+    /**
+     * Expects the table to not exist, and throws an exception if unexpected
+     * @param Table|string  $table  Target table instance or table name
+     * @throws DJException          If the table exists
+     */
+    public static function expectTableNotExists($table): void
+    {
+        $table_escaped = DJ::identifier(static::tableName($table));
+        if (static::tableExists($table)) {
             throw new DJException("Table {$table_escaped} is already exists");
         }
     }
-    // function expectTableExists()
 
     /**
      * Create table
@@ -177,7 +184,7 @@ class MC extends Gear
      */
     public function indexCreate($table, Column $column): void
     {
-        static::expectTableExists($table, true);
+        static::expectTableExists($table);
         $name = static::tableName($table);
 
         switch ($column->index) {
@@ -241,7 +248,7 @@ class MC extends Gear
      */
     public static function tableCreateSql($table): string
     {
-        static::expectTableExists($table, true);
+        static::expectTableExists($table);
         $table_escaped = DJ::identifier(static::tableName($table));
 
         $sql = "SHOW CREATE TABLE {$table_escaped};";
@@ -260,7 +267,7 @@ class MC extends Gear
      */
     public static function tableColumns($table, string $column = null)
     {
-        static::expectTableExists($table, true);
+        static::expectTableExists($table);
         $table_escaped = DJ::identifier(static::tableName($table));
 
         $params = [];
@@ -297,7 +304,7 @@ class MC extends Gear
      */
     public static function tableIndexes($table, string $index = null)
     {
-        static::expectTableExists($table, true);
+        static::expectTableExists($table);
         $table_escaped = DJ::identifier(static::tableName($table));
 
         $params = [];

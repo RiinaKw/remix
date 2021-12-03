@@ -9,11 +9,11 @@ class HashItemTest extends TestCase
 {
     use \Utility\Tests\InvokePrivateBehavior;
 
-    protected $readonly = null;
+    protected $readonlyhash = null;
 
     protected function setUp(): void
     {
-        $this->readonly = new Hash\ReadOnlyHash([
+        $this->readonlyhash = new Hash\ReadOnlyHash([
             'key1' => [
                 'subkey1' => 1,
                 'subkey2' => 'foo',
@@ -23,13 +23,13 @@ class HashItemTest extends TestCase
 
     public function testGet(): void
     {
-        $item = $this->readonly->item('key1.subkey2');
+        $item = $this->readonlyhash->item('key1.subkey2');
         $this->assertSame('foo', $item->get());
     }
 
     public function testGetDefault(): void
     {
-        $item = $this->readonly->item('key1.notexists');
+        $item = $this->readonlyhash->item('key1.notexists');
         $this->assertSame(null, $item->get());
         $this->assertSame('default', $item->get('default'));
     }
@@ -39,7 +39,7 @@ class HashItemTest extends TestCase
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage("Hash item 'key1.subkey2' is not editable");
 
-        $item = $this->readonly->item('key1.subkey2');
+        $item = $this->readonlyhash->item('key1.subkey2');
         $item->set('bar');
     }
 
@@ -48,7 +48,7 @@ class HashItemTest extends TestCase
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage("Hash item 'key1.subkey2' is not editable");
 
-        $item = $this->readonly->item('key1.subkey2');
+        $item = $this->readonlyhash->item('key1.subkey2');
         $item->delete();
     }
 }

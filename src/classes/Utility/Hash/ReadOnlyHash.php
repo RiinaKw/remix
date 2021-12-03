@@ -51,6 +51,8 @@ class ReadOnlyHash
      * @param  string  $key                  key of item
      * @param  boolean $create               true to create a key that does not exist
      * @return array<string, mixed>|null     parent array of target item
+     *
+     * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
      */
     protected function &parent(string $key = '', bool $create = false): ?array
     {

@@ -110,10 +110,17 @@ class Preset extends Instrument
      * @param  string $file    Target file
      * @param  string $key     Key of the hash to manage config
      * @param  bool   $append  Is it replace or append?
+
+     * @throws \Remix\Exceptions\CoreException  If the target file is not found
      */
     public function remixRequire(string $file, string $key = '', bool $append = false): void
     {
-        $this->load('remix', static::REQUIRED, $file, $key, $append);
+        try {
+            $this->load('remix', $file, $key, $append);
+        } catch (CoreException $e) {
+            // If the target file is not found, rethrow the exception
+            throw $e;
+        }
     }
 
     /**
@@ -122,10 +129,17 @@ class Preset extends Instrument
      * @param  string $file    Target file
      * @param  string $key     Key of the hash to manage config
      * @param  bool   $append  Is it replace or append?
+     *
+     * @throws \Remix\Exceptions\CoreException  If the target file is not found
      */
     public function require(string $file, string $key = '', bool $append = false): void
     {
-        $this->load('app', static::REQUIRED, $file, $key, $append);
+        try {
+            $this->load('app', $file, $key, $append);
+        } catch (CoreException $e) {
+            // If the target file is not found, rethrow the exception
+            throw $e;
+        }
     }
 
     /**
@@ -137,31 +151,30 @@ class Preset extends Instrument
      */
     public function optional(string $file, string $key = '', bool $append = false): void
     {
-        $this->load('app', static::OPTIONAL, $file, $key, $append);
+        try {
+            $this->load('app', $file, $key, $append);
+        } catch (CoreException $e) {
+            // do nothing
+        }
     }
 
     /**
      * Load config file.
      *
      * @param string $namespace  Remix or Application
-     * @param bool   $required   Is it required? (If not required, ignore non-existent files)
      * @param string $file       Target file
      * @param string $key        Key of the hash to manage config
      * @param bool   $append     Is it replace or append?
      *
-     * @throws \Remix\Exceptions\CoreException  When required and the target file is not found
+     * @throws \Remix\Exceptions\CoreException  If the target file is not found
      */
-    private function load(string $namespace, bool $required, string $file, string $key = '', bool $append = false): void
+    private function load(string $namespace, string $file, string $key = '', bool $append = false): void
     {
         $filename = str_replace('.', '/', $file);
         $file = ($namespace === 'remix' ? $this->remix_dir : $this->dir) . '/' . $filename . '.php';
 
         if (! realpath($file)) {
-            if ($required === static::REQUIRED) {
-                throw new CoreException("preset file '{$filename}' not found");
-            } else {
-                return;
-            }
+            throw new CoreException("preset file '{$filename}' not found");
         }
         $preset = require($file);
 

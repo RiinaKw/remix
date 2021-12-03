@@ -157,14 +157,12 @@ STYLES;
     }
     // function number()
 
-    private function string(string &$object, bool $is_pre = false): string
+    private function string(string &$object): string
     {
         $length = strlen($object);
         $label = Html::quote("string($length)");
 
-        if (strpos($object, "\n") !== false) {
-            $is_pre = true;
-        }
+        $is_pre = (strpos($object, "\n") !== false);
 
         if ($is_pre) {
             $content = '<pre>' . Html::valueHtml($object) . '</pre>';
@@ -178,7 +176,6 @@ STYLES;
 
     private function array(array &$object): string
     {
-
         $html = '';
         foreach ($object as $key => $value) {
             $result = $this->internal($value);

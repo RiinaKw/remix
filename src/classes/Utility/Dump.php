@@ -2,6 +2,8 @@
 
 namespace Utility;
 
+use Exception;
+
 /**
  * Utilities of dumping variables
  *
@@ -147,7 +149,7 @@ STYLES;
                 break;
 
             default:
-                throw new \Exception("unknown type {$type}");
+                throw new Exception("unknown type {$type}");
             break;
         }
 

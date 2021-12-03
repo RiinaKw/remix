@@ -102,11 +102,11 @@ abstract class Vinyl extends Gear
      * Get Turntable
      *
      * @return Turntable  Turntable object
-     * @SuppressWarnings(PHPMD.UnusedLocalVariable)
      */
     public function turntable(): Turntable
     {
-        return new static::$turntable($this);
+        $turntable = static::$turntable;
+        return new $turntable($this);
     }
 
     /**

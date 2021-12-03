@@ -3,17 +3,20 @@
 namespace Remix\CoreTests;
 
 use PHPUnit\Framework\TestCase;
+// Remix core
+use Remix\Audio;
 use Remix\Instruments\DJ;
 use Remix\DJ\MC;
 use Remix\DJ\Table;
 use Remix\DJ\Column;
 use Remix\Exceptions\DJException;
+use Exception;
 
 class Back2backTest extends TestCase
 {
     protected function setUp(): void
     {
-        \Remix\Audio::getInstance()->preset->set('app', require('TestEnv.php'));
+        Audio::getInstance()->preset->set('app', require('TestEnv.php'));
 
         MC::tableDrop('test', true);
 
@@ -26,7 +29,7 @@ class Back2backTest extends TestCase
 
     public function tearDown(): void
     {
-        \Remix\Audio::destroy();
+        Audio::destroy();
     }
 
     public function testSuccess()
@@ -108,7 +111,7 @@ class Back2backTest extends TestCase
             $back2back->success();
 
             unset($back2back);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->fail('Unexpected exception has thrown');
         }
 
@@ -149,7 +152,7 @@ class Back2backTest extends TestCase
         $this->expectExceptionMessage("Exception thrown 'test'");
 
         DJ::Back2back()->live(function () {
-            throw new \Exception('test');
+            throw new Exception('test');
         });
     }
 }

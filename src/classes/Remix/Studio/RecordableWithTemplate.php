@@ -38,7 +38,8 @@ trait RecordableWithTemplate
 
     public static function findTemplateNS(string $path, string $ns)
     {
-        $template = static::$bounce_dir[$ns] . '/' . $path . '.tpl';
+        $dirs = static::$bounce_dir;
+        $template = $dirs[$ns] . '/' . $path . '.tpl';
         return file_exists($template) ? $template : null;
     }
 

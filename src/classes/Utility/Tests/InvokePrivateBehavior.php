@@ -2,6 +2,8 @@
 
 namespace Utility\Tests;
 
+use ReflectionClass;
+
 /**
  * Using reflection classes to allow access to private or protected properties/methods
  *
@@ -12,7 +14,7 @@ trait InvokePrivateBehavior
 {
     protected function invokeMethod(object $obj, string $name, array $param = [])
     {
-        $reflection = new \ReflectionClass($obj);
+        $reflection = new ReflectionClass($obj);
         $method = $reflection->getMethod($name);
         $method->setAccessible(true);
         return $method->invokeArgs($obj, $param);
@@ -21,7 +23,7 @@ trait InvokePrivateBehavior
 
     protected function invokeProperty(object $obj, string $name)
     {
-        $reflection = new \ReflectionClass($obj);
+        $reflection = new ReflectionClass($obj);
         $prop = $reflection->getProperty($name);
         $prop->setAccessible(true);
         return $prop->getValue($obj);
@@ -30,7 +32,7 @@ trait InvokePrivateBehavior
 
     protected function invokePropertyValue(object $obj, string $name, $value)
     {
-        $reflection = new \ReflectionClass($obj);
+        $reflection = new ReflectionClass($obj);
         $prop = $reflection->getProperty($name);
         $prop->setAccessible(true);
         $prop->setValue($obj, $value);
@@ -39,7 +41,7 @@ trait InvokePrivateBehavior
 
     protected function invokeStaticMethod(string $classname, string $name, array $param = [])
     {
-        $reflection = new \ReflectionClass($classname);
+        $reflection = new ReflectionClass($classname);
         $method = $reflection->getMethod($name);
         $method->setAccessible(true);
         return $method->invokeArgs(null, $param);
@@ -48,7 +50,7 @@ trait InvokePrivateBehavior
 
     protected function invokeStaticProperty(string $className, string $name)
     {
-        $reflection = new \ReflectionClass($className);
+        $reflection = new ReflectionClass($className);
         $props = $reflection->getStaticProperties();
         return $props[$name] ?: null;
     }

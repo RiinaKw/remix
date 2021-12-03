@@ -26,7 +26,7 @@
     },
     "scripts": {
         "phpmd": [
-            "php ./vendor/bin/phpmd . text phpmd.xml cleancode,codesize,controversial,design,naming,unusedcode --exclude vendor"
+            "php ./vendor/bin/phpmd . text phpmd.xml --exclude vendor"
         ],
         "phpcs": [
             "php ./vendor/bin/phpcs ."

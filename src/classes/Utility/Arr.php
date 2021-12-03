@@ -2,6 +2,8 @@
 
 namespace Utility;
 
+use Exception;
+
 /**
  * Utilities of array operations
  *
@@ -44,7 +46,7 @@ class Arr
      * @return mixed|array<int, mixed>
      *             * mixed : An element contained in the new array
      *             * [mixed, int|string] : An array of two elements, the element and the key
-     * @throws \Exception This is a prototype; not meant to be called directly.
+     * @throws Exception This is a prototype; not meant to be called directly.
      * @see Arr::map()
      * @see Arr::mapImplode()
      * @SuppressWarnings(PHPMD.UnusedPrivateMethod)
@@ -52,7 +54,7 @@ class Arr
      */
     private static function callbackMap($item)
     {
-        throw new \Exception(__METHOD__ . ' is prototype of callback');
+        throw new Exception(__METHOD__ . ' is prototype of callback');
     }
 
     /**

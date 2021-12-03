@@ -3,6 +3,7 @@
 namespace Remix\Instruments;
 
 use Remix\Instrument;
+use Remix\RemixException;
 use Remix\Preset\Effector as ShortHandles;
 use Remix\Effector;
 use Remix\Effectors\Help;
@@ -32,7 +33,7 @@ class Amp extends Instrument
         $app_shorthandles = $this->preset->get('app.effector.shorthandles', []);
         foreach ($app_shorthandles as $handle => $method) {
             if (isset(static::$shorthandles[$handle])) {
-                throw new \Exception("Error: reserved handle : {$handle}");
+                throw new RemixException("Error: reserved handle : {$handle}");
             }
             static::$shorthandles[$handle] = $method;
         }

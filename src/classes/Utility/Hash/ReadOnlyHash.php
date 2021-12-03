@@ -2,6 +2,8 @@
 
 namespace Utility\Hash;
 
+use Exception;
+
 /**
  * Hash with read-only
  *
@@ -71,7 +73,7 @@ class ReadOnlyHash
             if (is_array($parent)) {
                 return $parent;
             } elseif ($parent !== null && $create) {
-                throw new \Exception('cannot override');
+                throw new Exception('cannot override');
             }
             return $null;
         }

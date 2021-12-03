@@ -3,6 +3,14 @@
 namespace Remix\CoreTests;
 
 use PHPUnit\Framework\TestCase;
+// Target of the test
+use Remix\Instruments\Mixer;
+// Remix core
+use Remix\Track;
+use Remix\Studio;
+use Remix\Exceptions\HttpException;
+// Utility
+use Utility\Http\Session;
 
 class MixerTest extends TestCase
 {
@@ -12,16 +20,16 @@ class MixerTest extends TestCase
 
     public function __construct()
     {
-        \Utility\Http\Session::start();
+        Session::start();
         parent::__construct();
     }
 
     protected function setUp(): void
     {
-        $this->mixer = new \Remix\Instruments\Mixer();
+        $this->mixer = new Mixer();
 
         $tracks = [
-            \Remix\Track::get('/cb', function () {
+            Track::get('/cb', function () {
                 return '<b>from callback</b>';
             })->name('testname'),
         ];
@@ -40,7 +48,7 @@ class MixerTest extends TestCase
         // is callable route?
         $_SERVER['REQUEST_METHOD'] = 'GET';
         $response = $this->mixer->route('/cb');
-        $this->assertTrue($response instanceof \Remix\Studio);
+        $this->assertTrue($response instanceof Studio);
         $this->assertRegExp('/from callback/', $response->output(false));
     }
 
@@ -49,7 +57,7 @@ class MixerTest extends TestCase
      */
     public function test404(): void
     {
-        $this->expectException(\Remix\Exceptions\HttpException::class);
+        $this->expectException(HttpException::class);
         $this->expectExceptionMessage('did not match any route, given /unknwon');
 
         // will throw exception when unknown route?
@@ -62,7 +70,7 @@ class MixerTest extends TestCase
      */
     public function test405(): void
     {
-        $this->expectException(\Remix\Exceptions\HttpException::class);
+        $this->expectException(HttpException::class);
         $this->expectExceptionMessage('method POST not allowed, given POST /cb');
 
         // will throw exception when invalid method?
@@ -76,7 +84,7 @@ class MixerTest extends TestCase
 
         // is valid instance?
         $this->assertTrue((bool)$track);
-        $this->assertTrue($track instanceof \Remix\Track);
+        $this->assertTrue($track instanceof Track);
     }
 
     public function testUnknownName(): void

@@ -3,6 +3,11 @@
 namespace Remix\CoreTests;
 
 use PHPUnit\Framework\TestCase;
+// Target of the test
+use Remix\Instruments\Amp;
+// Remix core
+use Remix\Instruments\DAW;
+use Remix\Audio;
 
 class AmpTest extends TestCase
 {
@@ -12,13 +17,13 @@ class AmpTest extends TestCase
 
     protected function setUp(): void
     {
-        $daw = (new \Remix\Instruments\DAW())->initializeCore();
-        $this->amp = (new \Remix\Instruments\Amp())->initialize($daw);
+        $daw = (new DAW())->initializeCore();
+        $this->amp = (new Amp())->initialize($daw);
     }
 
     public function tearDown(): void
     {
-        \Remix\Audio::destroy();
+        Audio::destroy();
     }
 
     public function testLoad(): void

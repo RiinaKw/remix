@@ -8,6 +8,7 @@ use Remix\DJ\Setlist;
 use Remix\DJ\Back2back;
 use Remix\DJ\Table;
 use Remix\Exceptions\DJException;
+use PDO;
 
 /**
  * Remix DJ : DB access manager
@@ -51,13 +52,13 @@ class DJ extends Instrument
         if (! static::$connection) {
             $preset = Audio::getInstance()->preset->get('app.db');
             if ($preset) {
-                static::$connection = new \PDO($preset['dsn'], $preset['user'], $preset['password']);
+                static::$connection = new PDO($preset['dsn'], $preset['user'], $preset['password']);
             }
         }
 
-        static::$connection->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-        static::$connection->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);
-        //static::$connection->setAttribute(\PDO::ATTR_EMULATE_PREPARES, false);
+        static::$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        static::$connection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        //static::$connection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     }
 
     public static function prepare(string $sql, array $params = []): Setlist

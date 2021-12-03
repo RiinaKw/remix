@@ -8,12 +8,12 @@ namespace Remix;
  * @package  Remix\Web
  * @todo Write the details.
  */
-abstract class Channel extends \Remix\Gear
+abstract class Channel extends Gear
 {
     public function play($args, Sampler $sampler)
     {
         if (! method_exists($this, $args)) {
-            throw new \Remix\RemixException(
+            throw new RemixException(
                 'Channel "' . get_class($this)
                 . '" does not contain the method "' . $args . '"'
             );

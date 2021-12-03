@@ -2,6 +2,10 @@
 
 namespace Utility;
 
+use ReflectionClass;
+use ReflectionProperty;
+use ReflectionMethod;
+
 /**
  * Utilities of dumping object variables
  *
@@ -27,7 +31,7 @@ class DumpObject
         // function html()
     }
 
-    private function properties(\ReflectionClass $reflection, object $object): string
+    private function properties(ReflectionClass $reflection, object $object): string
     {
         $props_html = '';
         $props = $reflection->getProperties();
@@ -63,10 +67,10 @@ class DumpObject
         // function properties()
     }
 
-    private function staticProperties(\ReflectionClass $reflection, object $object): string
+    private function staticProperties(ReflectionClass $reflection, object $object): string
     {
         $props_html = '';
-        $props = $reflection->getProperties(\ReflectionProperty::IS_STATIC);
+        $props = $reflection->getProperties(ReflectionProperty::IS_STATIC);
         foreach ($props as $prop) {
             if ($prop->isPrivate()) {
                 $scope = 'private';
@@ -98,9 +102,8 @@ class DumpObject
     /**
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
-    private function constants(\ReflectionClass $reflection, object $object): string
+    private function constants(ReflectionClass $reflection, object $object): string
     {
-        // スコープを取得したかったけど、値がダイレクトに取れてしまう
         $consts_html = '';
         $consts = $reflection->getConstants();
         foreach ($consts as $name => $value) {
@@ -124,7 +127,7 @@ class DumpObject
     /**
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
-    private function method(\ReflectionClass $reflection, object $object): string
+    private function method(ReflectionClass $reflection, object $object): string
     {
         $method_html = '';
         $methods = $reflection->getMethods();
@@ -166,10 +169,10 @@ class DumpObject
     /**
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
-    private function staticMethod(\ReflectionClass $reflection, object $object): string
+    private function staticMethod(ReflectionClass $reflection, object $object): string
     {
         $method_html = '';
-        $methods = $reflection->getMethods(\ReflectionMethod::IS_STATIC);
+        $methods = $reflection->getMethods(ReflectionMethod::IS_STATIC);
         foreach ($methods as $method) {
             if ($method->isPrivate()) {
                 $scope = 'private';
@@ -207,7 +210,7 @@ class DumpObject
      */
     private function object(object &$object): string
     {
-        $reflection = new \ReflectionClass($object);
+        $reflection = new ReflectionClass($object);
 
         $html = '';
 

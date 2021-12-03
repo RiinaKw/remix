@@ -3,6 +3,12 @@
 namespace Remix\CoreTests;
 
 use PHPUnit\Framework\TestCase;
+// Target of the test
+use Remix\Synthesizer;
+// Remix core
+use Remix\Filter;
+// Utility
+use Utility\Http\PostHash;
 
 class SynthesizerTest extends TestCase
 {
@@ -12,15 +18,15 @@ class SynthesizerTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->post_hash = \Utility\Http\PostHash::factory();
-        $this->synthesizer = new \Remix\Synthesizer();
+        $this->post_hash = PostHash::factory();
+        $this->synthesizer = new Synthesizer();
 
         $this->invokePropertyValue(
             $this->synthesizer,
             'filters',
             [
-                \Remix\Filter::define('name', 'your name')->rules('required|max:5'),
-                \Remix\Filter::define('email', 'your mail address')->rules('required|email'),
+                Filter::define('name', 'your name')->rules('required|max:5'),
+                Filter::define('email', 'your mail address')->rules('required|email'),
             ]
         );
     }

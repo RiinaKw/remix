@@ -219,27 +219,46 @@ class MC extends Gear
     // function indexCreate()
 
     /**
-     * Drop table
+     * Drop the table
      * @param  Table|string  $table  Table instance or table name
-     * @param  boolean       $force  If true, run even if it does not exist
      * @return bool                  Successful or not
-     * @throws DJException           If not force and target does not exists, or couldn't be executed
+     * @throws DJException           If target does not exists
      */
-    public static function tableDrop(string $table, bool $force = false): bool
+    public static function tableDrop($table): bool
     {
-        $table_escaped = DJ::identifier(static::tableName($table));
-
-        if (! $force && ! static::tableExists($table)) {
+        if (! static::tableExists($table)) {
+            $table_escaped = DJ::identifier(static::tableName($table));
             throw new DJException("Table {$table_escaped} is not exists");
         }
+        return static::tableDropIfExists($table);
+    }
+    // function tableDrop()
 
+    /**
+     * Drop the table forcibly
+     * @param  Table|string  $table  Table instance or table name
+     * @return bool                  Successful or not
+     */
+    public static function tableDropForce($table)
+    {
+        return static::tableDropIfExists($table);
+    }
+
+    /**
+     * Drop the table if it exists
+     * @param  Table|string  $table  Table instance or table name
+     * @return bool                  Successful or not
+     * @throws DJException           If couldn't be executed
+     */
+    protected static function tableDropIfExists($table)
+    {
+        $table_escaped = DJ::identifier(static::tableName($table));
         $result = DJ::play("DROP TABLE IF EXISTS {$table_escaped};");
         if (! $result) {
-            throw new DJException("Table {$table_escaped} is not exists");
+            throw new DJException("Failed to drop table {$table_escaped}");
         }
         return true;
     }
-    // function tableDrop()
 
     /**
      * Show SQL of CREATE TABLE

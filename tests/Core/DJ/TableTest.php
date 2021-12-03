@@ -25,7 +25,7 @@ class TableTest extends TestCase
 
     protected function prepareTable(): void
     {
-        MC::tableDrop('test', true);
+        MC::tableDropForce('test');
 
         $table = DJ::table('test');
         $table->create(function (Table $table) {

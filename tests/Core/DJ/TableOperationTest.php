@@ -23,8 +23,7 @@ class TableOperationTest extends TestCase
 
     public function testCreate(): void
     {
-        // Make sure to drop 'test'
-        MC::tableDrop('test', true);
+        MC::tableDropForce('test');
 
         // 'test' does not exist
         $this->assertFalse(MC::tableExists('test'));
@@ -43,7 +42,7 @@ class TableOperationTest extends TestCase
         $this->expectException(DJException::class);
         $this->expectExceptionMessage("Table `test` is already exists");
 
-        MC::tableDrop('test', true);
+        MC::tableDropForce('test');
         $this->assertFalse(MC::tableExists('test'));
 
         $table = DJ::table('test');
@@ -96,7 +95,7 @@ class TableOperationTest extends TestCase
 
         try {
             // Try to forcibly drop 'test' that non-exist
-            MC::tableDrop('test', true);
+            MC::tableDropForce('test');
         } catch (\Exception $e) {
             $this->fail('Unexpected exception has thrown');
         }

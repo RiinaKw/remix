@@ -25,7 +25,7 @@ class AlterTableTest extends TestCase
 
     protected function prepareTable(): void
     {
-        MC::tableDrop('test', true);
+        MC::tableDropForce('test');
 
         $table = DJ::table('test');
         $table->create(function (Table $table) {
@@ -100,8 +100,7 @@ class AlterTableTest extends TestCase
         $this->expectException(DJException::class);
         $this->expectExceptionMessage("Column `id` is already exists in `test`");
 
-        // Make sure to drop 'test'
-        MC::tableDrop('test', true);
+        MC::tableDropForce('test');
 
         // Created without problems
         $table = DJ::table('test');

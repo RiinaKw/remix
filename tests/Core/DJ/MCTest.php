@@ -25,7 +25,7 @@ class MCTest extends TestCase
 
     public function testColumns(): void
     {
-        MC::tableDrop('test', true);
+        MC::tableDropForce('test');
 
         $table = DJ::table('test');
         $table->create(function (Table $table) {
@@ -67,7 +67,7 @@ class MCTest extends TestCase
 
     public function testIndexes(): void
     {
-        MC::tableDrop('test', true);
+        MC::tableDropForce('test');
 
         $table = DJ::table('test');
         $table->create(function (Table $table) {

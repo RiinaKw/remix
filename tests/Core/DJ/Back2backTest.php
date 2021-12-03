@@ -18,7 +18,7 @@ class Back2backTest extends TestCase
     {
         Audio::getInstance()->preset->set('app', require('TestEnv.php'));
 
-        MC::tableDrop('test', true);
+        MC::tableDropForce('test');
 
         $table = DJ::table('test');
         $table->create(function (Table $table) {

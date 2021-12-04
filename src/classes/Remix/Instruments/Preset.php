@@ -14,34 +14,6 @@ use Remix\Exceptions\CoreException;
 class Preset extends Instrument
 {
     /**
-     * Is it required or optional?
-     * @var bool
-     * @todo Can't I make it an enum?
-     */
-    private const REQUIRED = true;
-
-    /**
-     * Is it required or optional?
-     * @var bool
-     * @todo Can't I make it an enum?
-     */
-    private const OPTIONAL = false;
-
-    /**
-     * Is it replace or append?
-     * @var bool
-     * @todo Can't I make it an enum?
-     */
-    public const APPEND = true;
-
-    /**
-     * Is it replace or append?
-     * @var bool
-     * @todo Can't I make it an enum?
-     */
-    public const REPLACE = false;
-
-    /**
      * Remix core directory
      * @var string
      */
@@ -86,6 +58,8 @@ class Preset extends Instrument
      */
     public function remixDir(string $dir): self
     {
+        PresetLoader::directory('remix', $dir);
+
         $this->remix_dir = $dir;
         return $this;
     }
@@ -99,92 +73,47 @@ class Preset extends Instrument
      */
     public function appDir(string $dir): self
     {
+        PresetLoader::directory('app', $dir);
+
         $this->dir = $dir;
         return $this;
     }
     // function appDir()
 
     /**
-     * Load the required configs in the Remix namespace.
-     *
-     * @param  string $file    Target file
-     * @param  string $key     Key of the hash to manage config
-     * @param  bool   $append  Is it replace or append?
-
-     * @throws \Remix\Exceptions\CoreException  If the target file is not found
+     * Load the preset file.
+     * @param  PresetLoader $loader  Loader instance
+     * @param  string|null  $target  Target key of hash, or default preset name if null
      */
-    public function remixRequire(string $file, string $key = '', bool $append = false): void
+    public function load(PresetLoader $loader, string $target = null): void
     {
-        try {
-            $this->load('remix', $file, $key, $append);
-        } catch (CoreException $e) {
-            // If the target file is not found, rethrow the exception
-            throw $e;
+        if (! $loader->exists()) {
+            if ($loader->required) {
+                throw new CoreException("preset file '{$loader->preset}' not found");
+            }
+            // If not required, do nothing
+            return;
         }
-    }
+        $preset = $loader->load();
 
-    /**
-     * Load the required configs in the application namespace.
-     *
-     * @param  string $file    Target file
-     * @param  string $key     Key of the hash to manage config
-     * @param  bool   $append  Is it replace or append?
-     *
-     * @throws \Remix\Exceptions\CoreException  If the target file is not found
-     */
-    public function require(string $file, string $key = '', bool $append = false): void
-    {
-        try {
-            $this->load('app', $file, $key, $append);
-        } catch (CoreException $e) {
-            // If the target file is not found, rethrow the exception
-            throw $e;
-        }
-    }
-
-    /**
-     * Load the optional configs in the application namespace.
-     *
-     * @param  string $file    Target file
-     * @param  string $key     Key of the hash to manage config
-     * @param  bool   $append  Is it replace or append?
-     */
-    public function optional(string $file, string $key = '', bool $append = false): void
-    {
-        try {
-            $this->load('app', $file, $key, $append);
-        } catch (CoreException $e) {
-            // do nothing
-        }
-    }
-
-    /**
-     * Load config file.
-     *
-     * @param string $namespace  Remix or Application
-     * @param string $file       Target file
-     * @param string $key        Key of the hash to manage config
-     * @param bool   $append     Is it replace or append?
-     *
-     * @throws \Remix\Exceptions\CoreException  If the target file is not found
-     */
-    private function load(string $namespace, string $file, string $key = '', bool $append = false): void
-    {
-        $filename = str_replace('.', '/', $file);
-        $file = ($namespace === 'remix' ? $this->remix_dir : $this->dir) . '/' . $filename . '.php';
-
-        if (! realpath($file)) {
-            throw new CoreException("preset file '{$filename}' not found");
-        }
-        $preset = require($file);
-
-        if ($namespace !== $key) {
-            $key = $namespace . '.' . ($key ?: $filename);
-        }
-        if ($append == static::APPEND) {
-            $this->hash->pushHash($key, $preset);
+        // Decide the key of hash
+        /**
+         * @todo Can I make more simple?
+         */
+        if ($target === $loader->namespace) {
+            $key = $target;
+        } elseif ($loader->namespace !== $loader->preset) {
+            $key = $loader->namespace . '.' . $loader->preset;
         } else {
+            $key = $loader->preset;
+        }
+
+        if ($loader->replace) {
+            // Replace the hash item
             $this->hash->set($key, $preset);
+        } else {
+            // Append to the hash item
+            $this->hash->pushHash($key, $preset);
         }
     }
     // function load()

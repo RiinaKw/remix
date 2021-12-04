@@ -30,8 +30,14 @@ class DAW extends Instrument
 
         $this->preset->set('remix.pathes.root_dir', $this->remix_dir);
 
-        $this->preset->remixRequire('versions', 'remix', Preset::APPEND);
-        $this->preset->remixRequire('pathes', '', Preset::APPEND);
+        $this->preset->load(
+            (new PresetLoader('versions'))->namespace('remix')->required(),
+            'remix'
+        );
+        $this->preset->load(
+            (new PresetLoader('pathes'))->namespace('remix')->required()
+        );
+
         foreach ($this->preset->get('remix.pathes') as $key => $value) {
             if ($key === 'root_dir') {
                 continue;
@@ -58,12 +64,24 @@ class DAW extends Instrument
         $this->preset->appDir($this->appDir('/presets'));
 
         $env_file = 'env.' . $env;
-        $this->preset->require('app', 'app');
-        $this->preset->require($env_file, 'app', Preset::APPEND);
+
+        $this->preset->load(
+            (new PresetLoader('app'))->namespace('app')->required()
+        );
+        $this->preset->load(
+            (new PresetLoader($env_file))->namespace('app')->required(),
+            'app'
+        );
 
         if (Audio::getInstance()->cli) {
+            /**
+             * @todo ... what is this !!??
+             */
             // Do only for CLI
-            $this->preset->optional('effector');
+            // ... what is this !!??
+            //$this->preset->load(
+            //    (new PresetLoader('effector'))->namespace('app')
+            //);
         } else {
             // Do only for Web
             $bounce_dir = $this->preset->get('app.pathes.bounce_dir');

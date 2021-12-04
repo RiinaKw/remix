@@ -26,15 +26,6 @@ class MC extends Gear
     }
 
     /**
-     * Don't create an instance
-     * @throws RemixException  This class should be used statically
-     */
-    public function __destruct()
-    {
-        throw new RemixException(__CLASS__ . ' should be used statically');
-    }
-
-    /**
      * Get the name of table
      * @param  Table|string  $table  Table instance or table name
      * @return string                Correct table name

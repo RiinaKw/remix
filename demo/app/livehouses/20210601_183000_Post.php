@@ -5,18 +5,19 @@ namespace Remix\Demo\Livehouse;
 use Remix\Instruments\DJ;
 use Remix\DJ\Livehouse;
 use Remix\DJ\Table;
-use Remix\RemixException;
+use Remix\DJ\Column;
+// use Remix\RemixException;
 
 class Post extends Livehouse
 {
     public function open()
     {
-        $table = DJ::table('posts');
-        $table->create(function (Table $table) {
-            $table->int('id')->pk();
-            $table->varchar('title', 100)->default('untitled');
-            $table->text('content')->nullable();
-            $table->timestamp('created_at')->default('current_timestamp()');
+        DJ::table('posts')->create(function (Table $table) {
+            $table->comment('post table');
+            Column::int('id')->pk()->append($table);
+            Column::varchar('title', 100)->default('untitled')->append($table);
+            Column::text('content')->nullable()->append($table);
+            Column::timestamp('created_at')->default('current_timestamp()')->append($table);
         });
         // throw new RemixException('test in Livehouse');
     }

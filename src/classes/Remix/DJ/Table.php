@@ -9,6 +9,7 @@ use Remix\DJ\BPM;
 use Remix\DJ\BPM\Select;
 use Remix\Exceptions\DJException;
 use Remix\RemixException;
+use Exception;
 
 /**
  * Remix DJ Table : DB table operations
@@ -126,9 +127,16 @@ class Table extends Gear
      */
     public function create(callable $cb): bool
     {
-        MC::expectTableNotExists($this->name, false);
+        MC::expectTableNotExists($this->name);
 
-        $cb($this);
+        try {
+            $cb($this);
+        } catch (Exception $e) {
+            throw RemixException::create($e->getMessage(), debug_backtrace()[0]);
+        }
+        if (! MC::tableExists($this->name)) {
+        //    throw new DJException("Cannot create table '{$this->name}'");
+        }
         if (count($this->columns) < 1) {
             throw new DJException("Table '{$this->name}' must contains any column");
         }
@@ -182,6 +190,11 @@ class Table extends Gear
             'old' => $column,
         ];
         return $this;
+    }
+
+    public function drop()
+    {
+        MC::tableDrop($this->name);
     }
 }
 // class Table

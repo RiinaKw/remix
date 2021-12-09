@@ -26,9 +26,15 @@ final class Livehouse extends Effector
         'close' => 'close livehouse, "-a" to run all',
     ];
 
-    private static $table = null;
+    /**
+     * Class name of Vinyl
+     */
     private static $vinyl_class = Vinyl::class;
 
+    /**
+     * List of livehouses
+     * @var array<string, DJLivehouse>
+     */
     private static $livehouses = [];
 
     /**
@@ -42,7 +48,6 @@ final class Livehouse extends Effector
                 Column::varchar('livehouse', 255)->pk()->append($table);
             });
         }
-        self::$table = $table;
         self::$livehouses = static::find();
     }
     // function setup()
@@ -128,7 +133,6 @@ final class Livehouse extends Effector
         );
         DJ::play($sql, [':' . self::$vinyl_class::PK => $livehouse->name]);
 
-        $livehouse->open();
         return true;
     }
     // function openOne()
@@ -146,7 +150,6 @@ final class Livehouse extends Effector
             return false;
         }
 
-        $livehouse->close();
         $sql = sprintf(
             'DELETE FROM `%s` WHERE %s = :%s;',
             self::$vinyl_class::TABLE,

@@ -16,8 +16,9 @@ class FormSynthesizer extends Synthesizer
     protected function filters(): array
     {
         return [
-            Filter::define('name', 'your name')->rules('required')->rules('max:5'),
+            Filter::define('name', 'your name')->rules(['required', 'max:20']),
             Filter::define('email', 'your mail address')->rules(['required'])->rules(new Email()),
+            Filter::define('profile', 'your profile etc'),
         ];
     }
 }

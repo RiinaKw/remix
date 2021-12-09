@@ -20,8 +20,7 @@ class FormChannel extends \Remix\Channel
         $form = $session->form ?: new Hash();
 
         $bounce = new Compressor('form/input');
-        $bounce->name = $form->get('name', '');
-        $bounce->email = $form->get('email', '');
+        $bounce->form = $form;
         $bounce->errors = $session->errors ?: new Hash();
 
         $bounce->csrf = Csrf::factory();
@@ -53,8 +52,7 @@ class FormChannel extends \Remix\Channel
         unset($session->errors);
 
         $bounce = new Compressor('form/confirm');
-        $bounce->name = $form->get('name');
-        $bounce->email = $form->get('email');
+        $bounce->form = $form;
 
         $bounce->csrf = Csrf::factory();
 
@@ -76,8 +74,7 @@ class FormChannel extends \Remix\Channel
         unset($session->form);
 
         $bounce = new Compressor('form/submit');
-        $bounce->name = $form->get('name', '(empty)');
-        $bounce->email = $form->get('email', '(empty)');
+        $bounce->form = $form;
         return $bounce;
     }
     // function submit()

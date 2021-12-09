@@ -2,9 +2,11 @@
   <h1>Input form</h1>
   <dl>
     <dt>name</dt>
-    <dd>{{$name}}</dd>
+    <dd>{{ $form->get('name') }}</dd>
     <dt>email</dt>
-    <dd>{{$email}}</dd>
+    <dd>{{ $form->get('email') }}</dd>
+    <dt>profile</dt>
+    <dd>{{ $form->get('profile') }}</dd>
   </dl>
   <form action="input" method="post">
     <button type="submit">back</button>

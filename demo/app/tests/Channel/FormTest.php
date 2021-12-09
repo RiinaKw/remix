@@ -14,7 +14,9 @@ class FormTest extends WebTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->initialize(__DIR__ . '/../../../demo/app');
+
+        // Be sure to point to the app directory
+        $this->initialize(__DIR__ . '/../..');
     }
 
     /**

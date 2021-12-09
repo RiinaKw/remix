@@ -116,19 +116,20 @@ final class Livehouse extends Effector
     private static function openOne(DJLivehouse $livehouse): bool
     {
         $vinyl = self::$vinyl_class::find($livehouse->name);
-        if (! $vinyl) {
-            $sql = sprintf(
-                'INSERT INTO `%s` (`%s`) VALUES(:%s);',
-                self::$vinyl_class::TABLE,
-                self::$vinyl_class::PK,
-                self::$vinyl_class::PK
-            );
-            DJ::play($sql, [':' . self::$vinyl_class::PK => $livehouse->name]);
-
-            $livehouse->open();
-            return true;
+        if ($vinyl) {
+            return false;
         }
-        return false;
+
+        $sql = sprintf(
+            'INSERT INTO `%s` (`%s`) VALUES(:%s);',
+            self::$vinyl_class::TABLE,
+            self::$vinyl_class::PK,
+            self::$vinyl_class::PK
+        );
+        DJ::play($sql, [':' . self::$vinyl_class::PK => $livehouse->name]);
+
+        $livehouse->open();
+        return true;
     }
     // function openOne()
 
@@ -141,18 +142,19 @@ final class Livehouse extends Effector
     private static function closeOne(DJLivehouse $livehouse): bool
     {
         $vinyl = self::$vinyl_class::find($livehouse->name);
-        if ($vinyl) {
-            $livehouse->close();
-            $sql = sprintf(
-                'DELETE FROM `%s` WHERE %s = :%s;',
-                self::$vinyl_class::TABLE,
-                self::$vinyl_class::PK,
-                self::$vinyl_class::PK
-            );
-            DJ::play($sql, [':' . self::$vinyl_class::PK => $livehouse->name]);
-            return true;
+        if (! $vinyl) {
+            return false;
         }
-        return false;
+
+        $livehouse->close();
+        $sql = sprintf(
+            'DELETE FROM `%s` WHERE %s = :%s;',
+            self::$vinyl_class::TABLE,
+            self::$vinyl_class::PK,
+            self::$vinyl_class::PK
+        );
+        DJ::play($sql, [':' . self::$vinyl_class::PK => $livehouse->name]);
+        return true;
     }
     // function closeOne()
 
@@ -165,18 +167,16 @@ final class Livehouse extends Effector
             $opened = false;
             foreach (static::$livehouses as $livehouse) {
                 try {
-                    $opened = self::openOne($livehouse);
-                    if ($opened) {
+                    if (self::openOne($livehouse)) {
                         static::opened($livehouse);
                     }
                 } catch (\Exception $e) {
                     self::closeOne($livehouse);
                     throw $e;
                 }
-                $livehouse = null;
             }
             if (! $opened) {
-                self::line('  All livehouses opened', 'yellow');
+                static::allOpened();
             }
         } catch (\Exception $e) {
             throw $e;
@@ -200,14 +200,13 @@ final class Livehouse extends Effector
         }
 
         if (! $next_livehouse) {
-            self::line('  All livehouses opened', 'yellow');
+            static::allOpened();
             return;
         }
 
         try {
             // try to open
-            $opened = self::openOne($next_livehouse);
-            if ($opened) {
+            if (self::openOne($next_livehouse)) {
                 static::opened($next_livehouse);
             }
         } catch (\Exception $e) {
@@ -225,14 +224,13 @@ final class Livehouse extends Effector
         try {
             $setlist = self::$vinyl_class::reverseOrder();
             if (! count($setlist)) {
-                self::line('  All livehouses closed', 'yellow');
+                static::allClosed();
                 return;
             }
 
             foreach ($setlist as $item) {
                 $livehouse = static::$livehouses[$item->livehouse];
-                $closed = self::closeOne($livehouse);
-                if ($closed) {
+                if (self::closeOne($livehouse)) {
                     static::closed($livehouse);
                 }
             }
@@ -249,14 +247,14 @@ final class Livehouse extends Effector
     {
         try {
             $vinyl = self::$vinyl_class::last();
-            if ($vinyl) {
-                $livehouse = static::$livehouses[$vinyl->livehouse];
-                $closed = self::closeOne($livehouse);
-                if ($closed) {
-                    static::closed($livehouse);
-                }
-            } else {
-                self::line('  All livehouses closed', 'yellow');
+            if (! $vinyl) {
+                static::allClosed();
+                return;
+            }
+
+            $livehouse = static::$livehouses[$vinyl->livehouse];
+            if (self::closeOne($livehouse)) {
+                static::closed($livehouse);
             }
         } catch (\Exception $e) {
             throw $e;
@@ -309,6 +307,16 @@ final class Livehouse extends Effector
     private static function closed(DJLivehouse $livehouse)
     {
         self::line("  - close livehouse '{$livehouse->name}'", 'purple');
+    }
+
+    private static function allOpened(): void
+    {
+        self::line('  All livehouses opened', 'yellow');
+    }
+
+    private static function allClosed(): void
+    {
+        self::line('  All livehouses closed', 'yellow');
     }
 }
 // class Livehouse

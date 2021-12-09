@@ -3,8 +3,11 @@
          verbose="true"
          bootstrap="vendor/autoload.php">
     <testsuites>
-        <testsuite name="core">
-            <directory>tests/Core</directory>
+        <testsuite name="remix">
+            <directory>tests/Remix</directory>
+        </testsuite>
+        <testsuite name="utility">
+            <directory>tests/Utility</directory>
         </testsuite>
         <testsuite name="demo">
             <directory>demo/app/tests</directory>

@@ -5,6 +5,7 @@ namespace Remix\Effectors;
 use Remix\Audio;
 use Remix\Effector;
 use Remix\Instruments\DJ;
+use Remix\DJ\MC;
 use Remix\Vinyl\Livehouse as Vinyl;
 use Remix\DJ\Livehouse as DJLivehouse;
 use Remix\RemixException;
@@ -29,7 +30,7 @@ final class Livehouse extends Effector
     private static function setup(): void
     {
         $table = self::$vinyl_class::table();
-        if (! $table->exists()) {
+        if (! MC::tableExists($table)) {
             $table->create(function (DJ\Table $table) {
                 $table->varchar('livehouse', 255)->pk();
             });

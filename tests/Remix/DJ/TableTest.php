@@ -97,4 +97,64 @@ class TableTest extends TestCase
         $this->assertSame('created_at', $column['Column_name']);
         $this->assertSame('1', $column['Non_unique']);
     }
+
+    public function testColumnDetails(): void
+    {
+        MC::tableDropForce('test');
+        $table = DJ::table('test');
+
+        $table->create(function (Table $table) {
+            $table->comment('sample table');
+            Column::int('id')->unsigned()->comment('sample')
+                ->pk()->append($table);
+            Column::varchar('user_id', 100)->nullable()->default(0)->comment('of')
+                ->uq()->append($table);
+            Column::timestamp('created_at')->currentTimestamp()->comment('comment')
+                ->idx()->append($table);
+        });
+
+        $column = $table->columns('id');
+        $this->assertInstanceof(Columns\IntCol::class, $column);
+        $this->assertSame('id', $column->name);
+        $this->assertSame('INT', $column->type);
+        $this->assertSame(10, $column->length);
+        $this->assertSame(true, $column->unsigned);
+        $this->assertSame(false, $column->nullable);
+        $this->assertSame('sample', $column->comment);
+
+        $column = $table->columns('user_id');
+        $this->assertInstanceof(Columns\VarcharCol::class, $column);
+        $this->assertSame('user_id', $column->name);
+        $this->assertSame('VARCHAR', $column->type);
+        $this->assertSame(100, $column->length);
+        $this->assertSame(true, $column->nullable);
+        $this->assertSame('0', $column->default);
+        $this->assertSame('of', $column->comment);
+
+        $column = $table->columns('created_at');
+        $this->assertInstanceof(Columns\TimestampCol::class, $column);
+        $this->assertSame('created_at', $column->name);
+        $this->assertSame('TIMESTAMP', $column->type);
+        $this->assertSame(false, $column->nullable);
+        $this->assertContains($column->default, ['current_timestamp()', 'CURRENT_TIMESTAMP']);
+        $this->assertSame('comment', $column->comment);
+    }
+
+    public function testIndexDetails(): void
+    {
+        MC::tableDropForce('test');
+        $table = DJ::table('test');
+
+        $table->create(function (Table $table) {
+            Column::int('id')->unsigned()->pk()->append($table);
+            Column::varchar('user_id', 100)->nullable()->default(0)->uq()->append($table);
+            Column::timestamp('created_at')->currentTimestamp()->idx()->append($table);
+        });
+
+        $index = $table->indexes('uq__test__user_id');
+        $this->assertInstanceof(Index::class, $index);
+        $this->assertSame('uq__test__user_id', $index->name);
+        $this->assertSame('test', $index->table);
+        $this->assertSame('user_id', $index->column);
+    }
 }

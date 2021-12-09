@@ -5,6 +5,7 @@ namespace Remix\DJ;
 use Remix\Gear;
 use Remix\Instruments\DJ;
 use Remix\DJ\Setlist;
+use Remix\DJ\BPM\Select;
 
 /**
  * Remix BPM : Query Builder
@@ -21,11 +22,14 @@ abstract class BPM extends Gear
     protected $order = [];
     protected $holders = [];
 
-/*
-    public __construct(string $table, string $context = 'select')
+    /**
+     * Get SELECT query builder
+     * @return BPM\Select  Query builder
+     */
+    public static function select($table): self
     {
+        return new Select($table->name);
     }
-*/
 
     protected function table($table): self
     {

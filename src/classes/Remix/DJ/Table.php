@@ -2,14 +2,19 @@
 
 namespace Remix\DJ;
 
+// Remix core
 use Remix\Gear;
 use Remix\Instruments\DJ;
 use Remix\DJ\MC;
 use Remix\DJ\BPM;
+use Remix\DJ\Column;
 use Remix\DJ\BPM\Select;
-use Remix\Exceptions\DJException;
-use Remix\RemixException;
+// Utilities
+use Utility\Arr;
+// Exceptions
 use Exception;
+use Remix\RemixException;
+use Remix\Exceptions\DJException;
 
 /**
  * Remix DJ Table : DB table operations
@@ -84,6 +89,7 @@ class Table extends Gear
      * @param  Column $column  A column to add
      * @return self            Itself
      */
+
     public function appendColumn(Column $column): self
     {
         if (isset($this->columns[$column->name])) {
@@ -94,16 +100,6 @@ class Table extends Gear
         $this->columns[$column->name] = $column;
         return $this;
     }
-
-    /**
-     * Get SELECT query builder
-     * @return BPM  Query builder
-     */
-    public function select(): BPM
-    {
-        return new Select($this->name);
-    }
-    // function select()
 
     /**
      * Callback of create(), modify()
@@ -127,7 +123,7 @@ class Table extends Gear
      */
     public function create(callable $cb): bool
     {
-        MC::expectTableNotExists($this->name);
+        MC::expectTableNotExists($this);
 
         try {
             $cb($this);
@@ -152,7 +148,7 @@ class Table extends Gear
      */
     public function modify(callable $cb): bool
     {
-        MC::expectTableExists($this->name, true);
+        MC::expectTableExists($this);
         $cb($this);
 
         if ($this->columns) {
@@ -161,6 +157,12 @@ class Table extends Gear
         return false;
     }
     // function modify()
+
+    public function drop()
+    {
+        MC::tableDrop($this->name);
+    }
+    // function drop()
 
     /**
      * Rename the column contained in this table
@@ -192,9 +194,76 @@ class Table extends Gear
         return $this;
     }
 
-    public function drop()
+    /**
+     * Get column(s) from table definition
+     * @param  string|null   $column  Target column, all targets if null
+     * @return null|Column|array<string, Column>
+     *             * null : it doesn't exist,
+     *             * Column : if the target exists,
+     *             * array<Column> : array of Column, if no target specified
+     */
+    public function columns(string $column = null)
     {
-        MC::tableDrop($this->name);
+        MC::expectTableExists($this);
+        $table_escaped = DJ::identifier($this->name);
+
+        $params = [];
+        $sql = "SHOW FULL COLUMNS FROM {$table_escaped}";
+        if ($column) {
+            $sql .= " WHERE Field = :column";
+            $params['column'] = $column;
+        }
+        $sql .= ';';
+        $setlist = DJ::play($sql, $params);
+
+        if ($column) {
+            $def = $setlist->first();
+            return $def ? Column::constructFromDef($def) : null;
+        } else {
+            return Arr::map($setlist, function ($item) {
+                return [
+                    Column::constructFromDef($item),
+                    $item['Field'],
+                ];
+            });
+        }
     }
+    // function columns()
+
+    /**
+     * Get Index(es) from table definition
+     * @param  string|null   $index  Target index, all targets if null
+     * @return null|Index|array<string, Index>
+     *             * null : it doesn't exist,
+     *             * Index : if the target exists,
+     *             * array<Index> : array of Index, if no target specified
+     */
+    public function indexes(string $index = null)
+    {
+        MC::expectTableExists($this);
+        $table_escaped = DJ::identifier($this->name);
+
+        $params = [];
+        $sql = "SHOW INDEX FROM {$table_escaped}";
+        if ($index) {
+            $sql .= " WHERE Key_name = :index";
+            $params['index'] = $index;
+        }
+        $sql .= ';';
+        $setlist = DJ::play($sql, $params);
+
+        if ($index) {
+            $def = $setlist->first();
+            return $def ? Index::constructFromDef($def) : null;
+        } else {
+            return Arr::map($setlist, function ($item) {
+                return [
+                    Index::constructFromDef($item),
+                    $item['Key_name'],
+                ];
+            });
+        }
+    }
+    // function indexes()
 }
 // class Table

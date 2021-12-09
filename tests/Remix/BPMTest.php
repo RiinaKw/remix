@@ -4,6 +4,7 @@ namespace Remix\CoreTests;
 
 use PHPUnit\Framework\TestCase;
 use Remix\DJ\Table;
+use Remix\DJ\BPM;
 use Remix\DJ\BPM\Select;
 use Remix\DJ\BPM\Delete;
 
@@ -35,7 +36,7 @@ class BPMTest extends TestCase
 
     public function testFromTable()
     {
-        $bpm = (new Table('test'))->select();
+        $bpm = BPM::select(new Table('test'));
         $sql = $this->invokeMethod($bpm, 'buildContext');
         $this->assertSame('SELECT * FROM `test`', $sql);
     }

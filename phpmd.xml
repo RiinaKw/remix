@@ -10,7 +10,15 @@
         Remix custom rule set
     </description>
 
-    <rule ref="rulesets/codesize.xml" />
+    <rule ref="rulesets/codesize.xml">
+        <exclude name="TooManyPublicMethods" />
+    </rule>
+    <rule ref="rulesets/codesize.xml/TooManyPublicMethods">
+        <properties>
+            <property name="maxmethods" value="15" />
+        </properties>
+    </rule>
+    <!-- /codesize -->
 
     <rule ref="rulesets/unusedcode.xml" />
 
@@ -26,7 +34,7 @@
         <!--exclude name="BooleanArgumentFlag" /-->
     </rule>
 
-    <!-- design rules -->
+    <!-- design -->
     <rule ref="rulesets/design.xml">
         <exclude name="NumberOfChildren" />
     </rule>
@@ -35,9 +43,9 @@
             <property name="minimum" value="25" />
         </properties>
     </rule>
-    <!-- /design rules -->
+    <!-- /design -->
 
-    <!-- naming rules -->
+    <!-- naming -->
     <rule ref="rulesets/naming.xml">
         <exclude name="ShortVariable" />
         <exclude name="ShortMethodName" />
@@ -58,5 +66,5 @@
             <property name="minimum" value="2" />
         </properties>
     </rule>
-    <!-- /naming rules -->
+    <!-- /naming -->
 </ruleset>

@@ -2,9 +2,12 @@
 
 namespace Remix\DJ;
 
+// Remix core
 use Remix\Gear;
 use Remix\Instruments\DJ;
+// Utilities
 use Utility\Arr;
+// Exceptions
 use Remix\RemixException;
 use Remix\Exceptions\DJException;
 
@@ -121,7 +124,7 @@ class MC extends Gear
             if (is_array($column)) {
                 switch ($column['op']) {
                     case 'rename':
-                        $old_column = static::tableColumns($table, $column['old']);
+                        $old_column = $table->columns($column['old']);
 
                         $sql = 'CHANGE COLUMN'
                             . ' ' . DJ::identifier($old_column->name)
@@ -265,78 +268,4 @@ class MC extends Gear
         return DJ::first($sql)['Create Table'];
     }
     // function tableCreateSql()
-
-    /**
-     * Get column(s) from table definition
-     * @param  Table|string  $table   Target table instance or table name
-     * @param  string|null   $column  Target column, all targets if null
-     * @return null|Column|array<string, Column>
-     *             * null : it doesn't exist,
-     *             * Column : if the target exists,
-     *             * array<Column> : no target specified
-     */
-    public static function tableColumns($table, string $column = null)
-    {
-        static::expectTableExists($table);
-        $table_escaped = DJ::identifier(static::tableName($table));
-
-        $params = [];
-        $sql = "SHOW FULL COLUMNS FROM {$table_escaped}";
-        if ($column) {
-            $sql .= " WHERE Field = :column";
-            $params['column'] = $column;
-        }
-        $sql .= ';';
-        $setlist = DJ::play($sql, $params);
-
-        if ($column) {
-            $def = $setlist->first();
-            return $def ? Column::constructFromDef($def) : null;
-        } else {
-            return Arr::map($setlist, function ($item) {
-                return [
-                    Column::constructFromDef($item),
-                    $item['Field'],
-                ];
-            });
-        }
-    }
-    // function tableColumns()
-
-    /**
-     * Get Index(es) from table definition
-     * @param  Table|string  $table  Target table instance or table name
-     * @param  string|null   $index  Target index, all targets if null
-     * @return null|Index|array<string, Index>
-     *             * null : it doesn't exist,
-     *             * Index : if the target exists,
-     *             * array<Index> : no target specified
-     */
-    public static function tableIndexes($table, string $index = null)
-    {
-        static::expectTableExists($table);
-        $table_escaped = DJ::identifier(static::tableName($table));
-
-        $params = [];
-        $sql = "SHOW INDEX FROM {$table_escaped}";
-        if ($index) {
-            $sql .= " WHERE Key_name = :index";
-            $params['index'] = $index;
-        }
-        $sql .= ';';
-        $setlist = DJ::play($sql, $params);
-
-        if ($index) {
-            $def = $setlist->first();
-            return $def ? Index::constructFromDef($def) : null;
-        } else {
-            return Arr::map($setlist, function ($item) {
-                return [
-                    Index::constructFromDef($item),
-                    $item['Key_name'],
-                ];
-            });
-        }
-    }
-    // function tableIndexes()
 }

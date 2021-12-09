@@ -10,7 +10,8 @@
     <button type="submit">back</button>
   </form>
   <form action="submit" method="post">
-    {{ $csrf->html() }}
+    {{! $csrf->html() !}}
+
     <button type="submit">submit</button>
   </form>
 </body>

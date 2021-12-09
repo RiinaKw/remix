@@ -17,7 +17,8 @@
       <small>{{ $errors->get('email') }}</small>
     </label>
     <br />
-    {{ $csrf->html() }}
+    {{! $csrf->html() !}}
+
     <button type="submit">confirm</button>
   </form>
 </body>

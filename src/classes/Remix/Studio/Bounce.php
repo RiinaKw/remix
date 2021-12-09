@@ -119,6 +119,11 @@ class Bounce extends Gear
             '<?php $1; ?>',
             $executable
         );
+        $executable = preg_replace(
+            $re_l . '!(.+?)!' . $re_r,
+            '<?php echo $1; ?>',
+            $executable
+        );
 
         $executable = '?>'
             . preg_replace(

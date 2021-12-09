@@ -10,7 +10,7 @@
     <button type="submit">back</button>
   </form>
   <form action="submit" method="post">
-  <input type="hidden" name="csrf_token" value="{{ $csrf->token() }}" />
+    {{ $csrf->html() }}
     <button type="submit">submit</button>
   </form>
 </body>

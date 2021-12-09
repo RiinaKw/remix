@@ -39,6 +39,13 @@ class Csrf
         return crypt($token, static::$token_salt);
     }
 
+    protected function token(): string
+    {
+        $token = bin2hex(random_bytes(32));
+        static::$session_token->set($token);
+        return static::crypt($token);
+    }
+
     public static function check(): bool
     {
         $input_token = static::$post->get('');
@@ -55,17 +62,22 @@ class Csrf
         return true;
     }
 
-    public function token(): string
-    {
-        $token = bin2hex(random_bytes(32));
-        static::$session_token->set($token);
-        return static::crypt($token);
-    }
-
     public function error(): string
     {
         $error = static::$session_error->get('');
         static::$session_error->delete();
         return $error;
+    }
+
+    public static function post()
+    {
+        $key = 'csrf_token';
+        return [$key => Csrf::token()];
+    }
+
+    public function html()
+    {
+        $key = 'csrf_token';
+        return '<input type="hidden" name="' . $key . '" value="' . $this->token() . '" />';
     }
 }

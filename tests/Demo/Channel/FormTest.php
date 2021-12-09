@@ -56,9 +56,7 @@ class FormTest extends WebTestCase
     {
         $this->get('/form/input');
 
-        $this->post('/form/confirm', [
-            'csrf_token' => Csrf::token(),
-        ]);
+        $this->post('/form/confirm', Csrf::post());
         $this->assertStatusCode(303);
         $this->assertRedirectUri('http://remix.test/form/input');
 
@@ -76,8 +74,7 @@ class FormTest extends WebTestCase
 
         $this->post('/form/confirm', [
             'name' => 'boooooooo',
-            'csrf_token' => Csrf::token(),
-        ]);
+        ] + Csrf::post());
         $this->assertStatusCode(303);
 
         $session_errors = Session::hash()->errors;
@@ -93,8 +90,7 @@ class FormTest extends WebTestCase
 
         $this->post('/form/confirm', [
             'email' => 'malformed',
-            'csrf_token' => Csrf::token(),
-        ]);
+        ] + Csrf::post());
         $this->assertStatusCode(303);
 
         $session_errors = Session::hash()->errors;
@@ -111,8 +107,7 @@ class FormTest extends WebTestCase
         $this->post('/form/confirm', [
             'name' => 'Riina',
             'email' => 'riinak.tv@gmail.com',
-            'csrf_token' => Csrf::token(),
-        ]);
+        ] + Csrf::post());
         $this->assertStatusCode(200);
 
         $this->assertNull(Session::hash()->errors);
@@ -132,8 +127,7 @@ class FormTest extends WebTestCase
         $this->post('/form/confirm', [
             'name' => 'Riina',
             'email' => 'riinak.tv@gmail.com',
-            'csrf_token' => Csrf::token(),
-        ]);
+        ] + Csrf::post());
 
         $this->reload();
         $this->assertStatusCode(303);
@@ -160,12 +154,9 @@ class FormTest extends WebTestCase
         $this->post('/form/confirm', [
             'name' => 'Riina',
             'email' => 'riinak.tv@gmail.com',
-            'csrf_token' => Csrf::token(),
-        ]);
+        ] + Csrf::post());
 
-        $this->post('/form/submit', [
-            'csrf_token' => Csrf::token(),
-        ]);
+        $this->post('/form/submit', Csrf::post());
         $this->assertStatusCode(200);
 
         $this->assertHtmlContains('<dd>Riina</dd>');
@@ -182,12 +173,9 @@ class FormTest extends WebTestCase
         $this->post('/form/confirm', [
             'name' => 'Riina',
             'email' => 'riinak.tv@gmail.com',
-            'csrf_token' => Csrf::token(),
-        ]);
+        ] + Csrf::post());
 
-        $this->post('/form/submit', [
-            'csrf_token' => Csrf::token(),
-        ]);
+        $this->post('/form/submit', Csrf::post());
 
         $this->reload();
         $this->assertStatusCode(303);

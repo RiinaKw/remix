@@ -17,7 +17,7 @@
       <small>{{ $errors->get('email') }}</small>
     </label>
     <br />
-    <input type="hidden" name="csrf_token" value="{{ $csrf->token() }}" />
+    {{ $csrf->html() }}
     <button type="submit">confirm</button>
   </form>
 </body>

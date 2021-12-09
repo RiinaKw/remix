@@ -6,6 +6,7 @@ use Remix\Instrument;
 use Remix\Audio;
 use Remix\Reverb;
 use Remix\Delay;
+use Remix\RemixException;
 
 /**
  * Remix DAW : entry point

@@ -44,6 +44,7 @@ class Reverb extends Gear
             Delay::logMemory();
             Delay::logTime();
 
+            // Dump preset
             $console->setHtml(
                 'preset',
                 \Utility\Dump::html(
@@ -53,13 +54,8 @@ class Reverb extends Gear
                     ]
                 )
             );
-/*
-var_dump(
-  \Utility\Dump::html(
-    \Utility\Http\Session::hash()->get()
-  )
-);
 
+            // Dump ssession
             $console->setHtml(
                 'session',
                 \Utility\Dump::html(
@@ -69,7 +65,8 @@ var_dump(
                     ]
                 )
             );
-*/
+
+            // Dump delay
             $console->delay = Delay::get();
             $console_html = $console->record();
             unset($console);

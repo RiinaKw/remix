@@ -9,6 +9,7 @@ use Remix\DJ\Back2back;
 use Remix\DJ\Table;
 use Remix\Exceptions\DJException;
 use PDO;
+use PDOException;
 
 /**
  * Remix DJ : DB access manager
@@ -52,7 +53,12 @@ class DJ extends Instrument
         if (! static::$connection) {
             $preset = Audio::getInstance()->preset->get('app.db');
             if ($preset) {
-                static::$connection = new PDO($preset['dsn'], $preset['user'], $preset['password']);
+                try {
+                    static::$connection = new PDO($preset['dsn'], $preset['user'], $preset['password']);
+                } catch (PDOException $e) {
+                    // database missing
+                    throw new DJException($e->getMessage());
+                }
             }
         }
 

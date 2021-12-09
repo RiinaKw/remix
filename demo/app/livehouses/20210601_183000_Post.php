@@ -6,7 +6,7 @@ use Remix\Instruments\DJ;
 use Remix\DJ\Livehouse;
 use Remix\DJ\Table;
 use Remix\DJ\Column;
-// use Remix\RemixException;
+use Remix\RemixException;
 
 class Post extends Livehouse
 {

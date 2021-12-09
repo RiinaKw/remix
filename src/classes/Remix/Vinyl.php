@@ -5,6 +5,7 @@ namespace Remix;
 use Remix\Instruments\DJ;
 use Remix\DJ\Table;
 use Remix\DJ\BPM;
+use Remix\DJ\Setlist;
 use Remix\Turntable;
 
 /**
@@ -122,6 +123,27 @@ abstract class Vinyl extends Gear
         $setlist = $bpm->prepare();
         $vinyl = $setlist->asVinyl(static::class)->first();
         return $vinyl ?: null;
+    }
+
+    public static function last(): ?self
+    {
+        $bpm = static::select();
+        $bpm->order(static::PK, 'desc');
+        $setlist = $bpm->prepare();
+        $vinyl = $setlist->asVinyl(static::class)->first();
+        return $vinyl ?: null;
+    }
+
+    public static function forwardOrder(): Setlist
+    {
+        $bpm = (static::select())->order(static::PK, 'asc');
+        return $bpm->prepare()->asVinyl(static::class)->play();
+    }
+
+    public static function reverseOrder(): Setlist
+    {
+        $bpm = (static::select())->order(static::PK, 'desc');
+        return $bpm->prepare()->asVinyl(static::class)->play();
     }
 }
 // class Vinyl

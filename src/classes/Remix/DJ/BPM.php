@@ -18,7 +18,9 @@ abstract class BPM extends Gear
     protected $table;
     protected $context;
     protected $where = [];
+    protected $order = [];
     protected $holders = [];
+
 /*
     public __construct(string $table, string $context = 'select')
     {
@@ -37,7 +39,6 @@ abstract class BPM extends Gear
         return $this;
     }
 
-//    public function where($arg1, string $op = '', $value = null): self
     public function where(...$args): self
     {
         $holder = null;
@@ -65,6 +66,22 @@ abstract class BPM extends Gear
         return $this;
     }
 
+    public function order(string $column, string $dir = 'ASC')
+    {
+        $dir = strtoupper($dir);
+        $this->order[$column] = ($dir !== 'DESC' ? 'ASC' : 'DESC');
+        return $this;
+    }
+
+    protected function buildOrder()
+    {
+        $arr = [];
+        foreach ($this->order as $column => $dir) {
+            $arr[] .= "`{$column}` {$dir}";
+        }
+        return implode(', ', $arr);
+    }
+
     protected function placeholder(string $holder, $value)
     {
         $this->holders[$holder] = $value;
@@ -79,13 +96,17 @@ abstract class BPM extends Gear
 
     protected function build(): string
     {
-        $context = $this->buildContext();
-        $where = $this->buildWhere();
-        if ($where) {
-            return $context . ' WHERE ' . $where . ';';
-        } else {
-            return $context . ';';
+        $sql = $this->buildContext();
+
+        if ($this->where) {
+            $sql .= ' WHERE ' . $this->buildWhere();
         }
+
+        if ($this->order) {
+            $sql .= ' ORDER BY ' . $this->buildOrder();
+        }
+
+        return $sql . ';';
     }
 
     public function placeholders(): array

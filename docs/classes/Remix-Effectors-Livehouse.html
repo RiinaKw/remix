@@ -135,7 +135,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">18</span>
+    <span class="phpdocumentor-element-found-in__line">21</span>
 </aside>
 
             <p class="phpdocumentor-summary">Remix Livehouse Effector : migration manager</p>
@@ -173,7 +173,7 @@
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="classes/Remix-Effectors-Livehouse.html#constant_COMMANDS">COMMANDS</a>
     <span>
-        &nbsp;= [&#039;open&#039; =&gt; &#039;oepn livehouse&#039;, &#039;close&#039; =&gt; &#039;close livehouse&#039;]                    </span>
+        &nbsp;= [&#039;open&#039; =&gt; &#039;oepn livehouse, &quot;-s&quot; to run step by step&#039;, &#039;close&#039; =&gt; &#039;close livehouse, &quot;-a&quot; to run all&#039;]                    </span>
 </dt>
 <dd>Its own available commands and descriptions.</dd>
 
@@ -204,6 +204,13 @@
                 &nbsp;: <a href="classes/Remix-Instruments-Amp.html"><abbr title="\Remix\Instruments\Amp">Amp</abbr></a>            </span>
 </dt>
 <dd>Parent Amp object.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/Remix-Effectors-Livehouse.html#property_livehouses">$livehouses</a>
+    <span>
+                &nbsp;: mixed            </span>
+</dt>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/Remix-Gear.html#property_log_param">$log_param</a>
@@ -243,9 +250,9 @@
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-Effectors-Livehouse.html#method_close">close()</a>
     <span>
-                        &nbsp;: mixed    </span>
+                        &nbsp;: void    </span>
 </dt>
-<dd></dd>
+<dd>Close command.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-Effector.html#method_color">color()</a>
@@ -278,9 +285,9 @@
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-Effectors-Livehouse.html#method_open">open()</a>
     <span>
-                        &nbsp;: mixed    </span>
+                        &nbsp;: void    </span>
 </dt>
-<dd></dd>
+<dd>Open command.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-Effector.html#method_play">play()</a>
@@ -290,32 +297,95 @@
 <dd>Execute the command.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/Remix-Effectors-Livehouse.html#method_find">find()</a>
+    <a href="classes/Remix-Effectors-Livehouse.html#method_allClosed">allClosed()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;    </span>
+                        &nbsp;: void    </span>
 </dt>
 <dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/Remix-Effectors-Livehouse.html#method_allOpened">allOpened()</a>
+    <span>
+                        &nbsp;: void    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/Remix-Effectors-Livehouse.html#method_closeAll">closeAll()</a>
+    <span>
+                        &nbsp;: void    </span>
+</dt>
+<dd>Close all livehouses.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/Remix-Effectors-Livehouse.html#method_closed">closed()</a>
+    <span>
+                        &nbsp;: mixed    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/Remix-Effectors-Livehouse.html#method_closeOne">closeOne()</a>
+    <span>
+                        &nbsp;: bool    </span>
+</dt>
+<dd>Close a livehouse.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/Remix-Effectors-Livehouse.html#method_closeStep">closeStep()</a>
+    <span>
+                        &nbsp;: void    </span>
+</dt>
+<dd>Close only one of the following livehouses.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/Remix-Effectors-Livehouse.html#method_find">find()</a>
+    <span>
+                        &nbsp;: array&lt;string, <a href="classes/Remix-DJ-Livehouse.html"><abbr title="\Remix\DJ\Livehouse">Livehouse</abbr></a>&gt;    </span>
+</dt>
+<dd>Load livehouses of app</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/Remix-Effectors-Livehouse.html#method_next">next()</a>
+    <span>
+                        &nbsp;: <a href="classes/Remix-DJ-Livehouse.html"><abbr title="\Remix\DJ\Livehouse">Livehouse</abbr></a>|null    </span>
+</dt>
+<dd>Get the next livehouse</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/Remix-Effectors-Livehouse.html#method_openAll">openAll()</a>
+    <span>
+                        &nbsp;: void    </span>
+</dt>
+<dd>Open all livehouses.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/Remix-Effectors-Livehouse.html#method_opened">opened()</a>
+    <span>
+                        &nbsp;: mixed    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/Remix-Effectors-Livehouse.html#method_openOne">openOne()</a>
+    <span>
+                        &nbsp;: bool    </span>
+</dt>
+<dd>Open a livehouse.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/Remix-Effectors-Livehouse.html#method_openStep">openStep()</a>
+    <span>
+                        &nbsp;: void    </span>
+</dt>
+<dd>Open only one of the following livehouses.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/Remix-Effectors-Livehouse.html#method_setup">setup()</a>
     <span>
                         &nbsp;: void    </span>
 </dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/Remix-Effectors-Livehouse.html#method_stepClose">stepClose()</a>
-    <span>
-                        &nbsp;: void    </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/Remix-Effectors-Livehouse.html#method_stepOpen">stepOpen()</a>
-    <span>
-                        &nbsp;: bool    </span>
-</dt>
-<dd></dd>
+<dd>Make sure to create a livehouse table</dd>
 
         </dl>
 
@@ -336,7 +406,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">21</span>
+    <span class="phpdocumentor-element-found-in__line">24</span>
 </aside>
 
         <p class="phpdocumentor-summary">Its own available commands and descriptions.</p>
@@ -345,7 +415,7 @@
     <span class="phpdocumentor-signature__visibility">public</span>
     <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
     <span class="phpdocumentor-signature__name">COMMANDS</span>
-    = <span class="phpdocumentor-signature__default-value">[&#039;open&#039; =&gt; &#039;oepn livehouse&#039;, &#039;close&#039; =&gt; &#039;close livehouse&#039;]</span>
+    = <span class="phpdocumentor-signature__default-value">[&#039;open&#039; =&gt; &#039;oepn livehouse, &quot;-s&quot; to run step by step&#039;, &#039;close&#039; =&gt; &#039;close livehouse, &quot;-a&quot; to run all&#039;]</span>
 </code>
 
 
@@ -363,7 +433,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">20</span>
+    <span class="phpdocumentor-element-found-in__line">23</span>
 </aside>
 
         <p class="phpdocumentor-summary">Its own title.</p>
@@ -510,6 +580,36 @@
             phpdocumentor-element
             -property
             -private
+            -static                                            "
+>
+    <h4 class="phpdocumentor-element__name" id="property_livehouses">
+        $livehouses
+        <a href="classes/Remix-Effectors-Livehouse.html#property_livehouses" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">32</span>
+</aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">$livehouses</span>
+     = <span class="phpdocumentor-signature__default-value">[]</span></code>
+
+    
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
                                                         "
 >
     <h4 class="phpdocumentor-element__name" id="property_log_param">
@@ -553,7 +653,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">26</span>
+    <span class="phpdocumentor-element-found-in__line">29</span>
 </aside>
 
     
@@ -583,7 +683,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">27</span>
+    <span class="phpdocumentor-element-found-in__line">30</span>
 </aside>
 
     
@@ -695,20 +795,34 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">123</span>
+    <span class="phpdocumentor-element-found-in__line">289</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Close command.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">close</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                <span class="phpdocumentor-signature__name">close</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$args</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
-    
-    
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$args</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Arguments of CLI</p>
+</section>
+
+            </dd>
+            </dl>
+
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type">void</span>
             &mdash;
             <section class="phpdocumentor-description"></section>
 
@@ -1033,20 +1147,34 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">74</span>
+    <span class="phpdocumentor-element-found-in__line">270</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Open command.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">open</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                <span class="phpdocumentor-signature__name">open</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$args</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
-    
-    
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$args</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Arguments of CLI</p>
+</section>
+
+            </dd>
+            </dl>
+
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type">void</span>
             &mdash;
             <section class="phpdocumentor-description"></section>
 
@@ -1113,6 +1241,227 @@
             -private
                                     -static                    "
 >
+    <h4 class="phpdocumentor-element__name" id="method_allClosed">
+        allClosed()
+        <a href="classes/Remix-Effectors-Livehouse.html#method_allClosed" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">317</span>
+</aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">allClosed</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">void</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_allOpened">
+        allOpened()
+        <a href="classes/Remix-Effectors-Livehouse.html#method_allOpened" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">312</span>
+</aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">allOpened</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">void</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_closeAll">
+        closeAll()
+        <a href="classes/Remix-Effectors-Livehouse.html#method_closeAll" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">222</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Close all livehouses.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+                <span class="phpdocumentor-signature__name">closeAll</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">void</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_closed">
+        closed()
+        <a href="classes/Remix-Effectors-Livehouse.html#method_closed" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">307</span>
+</aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">closed</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-DJ-Livehouse.html"><abbr title="\Remix\DJ\Livehouse">Livehouse</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$livehouse</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$livehouse</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-DJ-Livehouse.html"><abbr title="\Remix\DJ\Livehouse">Livehouse</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_closeOne">
+        closeOne()
+        <a href="classes/Remix-Effectors-Livehouse.html#method_closeOne" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">142</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Close a livehouse.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">closeOne</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-DJ-Livehouse.html"><abbr title="\Remix\DJ\Livehouse">Livehouse</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$livehouse</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$livehouse</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-DJ-Livehouse.html"><abbr title="\Remix\DJ\Livehouse">Livehouse</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The livehouse to close</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">bool</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>Success or not</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_closeStep">
+        closeStep()
+        <a href="classes/Remix-Effectors-Livehouse.html#method_closeStep" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">246</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Close only one of the following livehouses.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+                <span class="phpdocumentor-signature__name">closeStep</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">void</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                    -static                    "
+>
     <h4 class="phpdocumentor-element__name" id="method_find">
         find()
         <a href="classes/Remix-Effectors-Livehouse.html#method_find" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1120,20 +1469,226 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">41</span>
+    <span class="phpdocumentor-element-found-in__line">54</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Load livehouses of app</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">find</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string, <a href="classes/Remix-DJ-Livehouse.html"><abbr title="\Remix\DJ\Livehouse">Livehouse</abbr></a>&gt;</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">array&lt;string, <a href="classes/Remix-DJ-Livehouse.html"><abbr title="\Remix\DJ\Livehouse">Livehouse</abbr></a>&gt;</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_next">
+        next()
+        <a href="classes/Remix-Effectors-Livehouse.html#method_next" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">97</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Get the next livehouse</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+                <span class="phpdocumentor-signature__name">next</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$prev</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Remix-DJ-Livehouse.html"><abbr title="\Remix\DJ\Livehouse">Livehouse</abbr></a>|null</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$prev</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The name of the livehouse that was executed last time</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Remix-DJ-Livehouse.html"><abbr title="\Remix\DJ\Livehouse">Livehouse</abbr></a>|null</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>Next livehouse, or null when the live house has already finished</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_openAll">
+        openAll()
+        <a href="classes/Remix-Effectors-Livehouse.html#method_openAll" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">164</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Open all livehouses.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+                <span class="phpdocumentor-signature__name">openAll</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">void</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_opened">
+        opened()
+        <a href="classes/Remix-Effectors-Livehouse.html#method_opened" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">302</span>
 </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">find</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">opened</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-DJ-Livehouse.html"><abbr title="\Remix\DJ\Livehouse">Livehouse</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$livehouse</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$livehouse</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-DJ-Livehouse.html"><abbr title="\Remix\DJ\Livehouse">Livehouse</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_openOne">
+        openOne()
+        <a href="classes/Remix-Effectors-Livehouse.html#method_openOne" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">116</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Open a livehouse.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">openOne</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-DJ-Livehouse.html"><abbr title="\Remix\DJ\Livehouse">Livehouse</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$livehouse</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$livehouse</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-DJ-Livehouse.html"><abbr title="\Remix\DJ\Livehouse">Livehouse</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The livehouse to open</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">bool</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>Success or not</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_openStep">
+        openStep()
+        <a href="classes/Remix-Effectors-Livehouse.html#method_openStep" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">189</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Open only one of the following livehouses.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+                <span class="phpdocumentor-signature__name">openStep</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
     
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+    <span class="phpdocumentor-signature__response_type">void</span>
             &mdash;
             <section class="phpdocumentor-description"></section>
 
@@ -1152,104 +1707,22 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">29</span>
+    <span class="phpdocumentor-element-found-in__line">37</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Make sure to create a livehouse table</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
             <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">setup</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
-    
-    
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">void</span>
-            &mdash;
-            <section class="phpdocumentor-description"></section>
+        <section class="phpdocumentor-description"></section>
 
     
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -private
-                                    -static                    "
->
-    <h4 class="phpdocumentor-element__name" id="method_stepClose">
-        stepClose()
-        <a href="classes/Remix-Effectors-Livehouse.html#method_stepClose" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">152</span>
-</aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">stepClose</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-DJ-Livehouse.html"><abbr title="\Remix\DJ\Livehouse">Livehouse</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$livehouse</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$livehouse</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-DJ-Livehouse.html"><abbr title="\Remix\DJ\Livehouse">Livehouse</abbr></a></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">void</span>
-            &mdash;
-            <section class="phpdocumentor-description"></section>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -private
-                                    -static                    "
->
-    <h4 class="phpdocumentor-element__name" id="method_stepOpen">
-        stepOpen()
-        <a href="classes/Remix-Effectors-Livehouse.html#method_stepOpen" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">103</span>
-</aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">stepOpen</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-DJ-Livehouse.html"><abbr title="\Remix\DJ\Livehouse">Livehouse</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$livehouse</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$livehouse</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-DJ-Livehouse.html"><abbr title="\Remix\DJ\Livehouse">Livehouse</abbr></a></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
             &mdash;
             <section class="phpdocumentor-description"></section>
 

@@ -72,9 +72,11 @@ class FormTest extends WebTestCase
     {
         $this->get('/form/input');
 
-        $this->post('/form/confirm', [
+        $params = [
             'name' => 'boooooooo',
-        ] + Csrf::post());
+        ];
+        $params += Csrf::post();
+        $this->post('/form/confirm', $params);
         $this->assertStatusCode(303);
 
         $session_errors = Session::hash()->errors;
@@ -88,9 +90,11 @@ class FormTest extends WebTestCase
     {
         $this->get('/form/input');
 
-        $this->post('/form/confirm', [
+        $params = [
             'email' => 'malformed',
-        ] + Csrf::post());
+        ];
+        $params += Csrf::post();
+        $this->post('/form/confirm', $params);
         $this->assertStatusCode(303);
 
         $session_errors = Session::hash()->errors;
@@ -104,10 +108,12 @@ class FormTest extends WebTestCase
     {
         $this->get('/form/input');
 
-        $this->post('/form/confirm', [
+        $params = [
             'name' => 'Riina',
             'email' => 'riinak.tv@gmail.com',
-        ] + Csrf::post());
+        ];
+        $params += Csrf::post();
+        $this->post('/form/confirm', $params);
         $this->assertStatusCode(200);
 
         $this->assertNull(Session::hash()->errors);
@@ -124,10 +130,12 @@ class FormTest extends WebTestCase
     {
         $this->get('/form/input');
 
-        $this->post('/form/confirm', [
+        $params = [
             'name' => 'Riina',
             'email' => 'riinak.tv@gmail.com',
-        ] + Csrf::post());
+        ];
+        $params += Csrf::post();
+        $this->post('/form/confirm', $params);
 
         $this->reload();
         $this->assertStatusCode(303);
@@ -151,10 +159,12 @@ class FormTest extends WebTestCase
     {
         $this->get('/form/input');
 
-        $this->post('/form/confirm', [
+        $params = [
             'name' => 'Riina',
             'email' => 'riinak.tv@gmail.com',
-        ] + Csrf::post());
+        ];
+        $params += Csrf::post();
+        $this->post('/form/confirm', $params);
 
         $this->post('/form/submit', Csrf::post());
         $this->assertStatusCode(200);
@@ -170,10 +180,12 @@ class FormTest extends WebTestCase
     {
         $this->get('/form/input');
 
-        $this->post('/form/confirm', [
+        $params = [
             'name' => 'Riina',
             'email' => 'riinak.tv@gmail.com',
-        ] + Csrf::post());
+        ];
+        $params += Csrf::post();
+        $this->post('/form/confirm', $params);
 
         $this->post('/form/submit', Csrf::post());
 

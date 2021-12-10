@@ -37,7 +37,7 @@ class LyricTest extends TestCase
     {
         $this->assertSame(
             'http://remix.example.com/framework/user/1',
-            $this->lyric->make('/user/1')
+            $this->lyric->sing('/user/1')
         );
     }
 

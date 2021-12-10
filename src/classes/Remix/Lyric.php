@@ -16,7 +16,7 @@ class Lyric extends Gear
         return $self;
     }
 
-    public function make(string $path): string
+    public function sing(string $path): string
     {
         return $this->base_uri . '/' . ltrim($path, '/');
     }

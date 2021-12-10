@@ -171,7 +171,7 @@ class Mixer extends Instrument
         foreach ($params as $label => $value) {
             $path = str_replace($label, $value, $path);
         }
-        return Lyric::getInstance()->make($path);
+        return Lyric::getInstance()->sing($path);
     }
     // function uri()
 }

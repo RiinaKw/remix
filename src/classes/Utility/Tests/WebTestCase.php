@@ -121,7 +121,7 @@ abstract class WebTestCase extends DemoTestCase
 
     protected function assertRedirectPath(string $path): void
     {
-        $uri = Lyric::getInstance()->make($path);
+        $uri = Lyric::getInstance()->sing($path);
         $this->assertRedirectUri($uri);
     }
 

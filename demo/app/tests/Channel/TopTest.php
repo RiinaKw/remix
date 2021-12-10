@@ -51,7 +51,7 @@ class TopTest extends WebTestCase
     /**
      * @runInSeparateProcess
      */
-    public function test404(): void
+    public function testStatus404(): void
     {
         // Note that if you get an HttpException, you are getting the error page for App
         $this->get('/noexists');
@@ -63,7 +63,7 @@ class TopTest extends WebTestCase
     /**
      * @runInSeparateProcess
      */
-    public function test302(): void
+    public function testStatus302(): void
     {
         $this->get('/302');
         $this->assertStatusCode(302);

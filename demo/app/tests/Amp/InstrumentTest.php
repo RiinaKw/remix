@@ -14,7 +14,7 @@ class InstrumentTest extends CliTestCase
         $this->initialize(__DIR__ . '/../..');
     }
 
-    public function testNoArg(): void
+    public function testNoArgs(): void
     {
         $this->expectOutputRegex('/I am Instrument belonging to Audio, which instruments do you like\?/');
 
@@ -42,7 +42,7 @@ class InstrumentTest extends CliTestCase
         $this->execute('amp instrument:acid');
     }
 
-    public function testAcid808(): void
+    public function testAcidWith808(): void
     {
         $this->expectOutputRegex('/TB-303/');
         $this->expectOutputRegex('/TR-808/');
@@ -50,7 +50,7 @@ class InstrumentTest extends CliTestCase
         $this->execute('amp instrument:acid -808');
     }
 
-    public function testAcid909(): void
+    public function testAcidWith909(): void
     {
         $this->expectOutputRegex('/TB-303/');
         $this->expectOutputRegex('/TR-808/');

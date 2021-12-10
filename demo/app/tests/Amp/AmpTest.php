@@ -14,7 +14,7 @@ class AmpTest extends CliTestCase
         $this->initialize(__DIR__ . '/../..');
     }
 
-    public function testNoArg(): void
+    public function testNoArgs(): void
     {
         // is callable with no arguments?
         $this->expectOutputRegex('/Example of Effector/');

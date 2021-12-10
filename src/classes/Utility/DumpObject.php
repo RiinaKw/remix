@@ -238,7 +238,7 @@ class DumpObject
             $doccoment = $reflection->getDocComment();
             $comment = Html::liHtml(
                 "doccomment",
-                Dump::html($doccoment),
+                Dump::html($doccoment)
             );
             $html = $comment . $html;
         }

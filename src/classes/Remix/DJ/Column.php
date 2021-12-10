@@ -185,7 +185,7 @@ abstract class Column extends Gear
             $formatted = '';
             if ($default === null) {
                 $formatted = 'NULL';
-            } elseif ($default === 'current_timestamp()') {
+            } elseif ($default === 'current_timestamp()' || $default === 'CURRENT_TIMESTAMP') {
                 $formatted = $default;
             } elseif (is_string($default)) {
                 $formatted = "'" . $default . "'";

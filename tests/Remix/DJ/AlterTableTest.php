@@ -80,7 +80,7 @@ class AlterTableTest extends TestCase
 
         // Add a column after id
         $table->modify(function (Table $table) {
-            Column::varchar('user_name', 200)->append($table)->replace('user_id');
+            Column::varchar('user_name', 50)->append($table)->replace('user_id');
         });
 
         // Has order changed?
@@ -92,7 +92,7 @@ class AlterTableTest extends TestCase
         $column = $table->columns('user_name');
         $this->assertSame('user_name', $column->name);
         $this->assertSame('VARCHAR', $column->type);
-        $this->assertSame(200, $column->length);
+        $this->assertSame(50, $column->length);
     }
 
     public function testModifyColumnDuplicate(): void

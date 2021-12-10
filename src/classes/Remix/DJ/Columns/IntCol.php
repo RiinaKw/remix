@@ -35,7 +35,7 @@ class IntCol extends Column
         return $this;
     }
 
-    public function __call(string $key, array $arg): self
+    public function __call(string $key, array $arg): Column
     {
         switch ($key) {
             case 'unsigned':

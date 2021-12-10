@@ -27,7 +27,7 @@ class TimestampCol extends Column
         return $column;
     }
 
-    public function __call(string $key, array $arg): self
+    public function __call(string $key, array $arg): column
     {
         switch ($key) {
             case 'currentTimestamp':

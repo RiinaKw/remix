@@ -153,16 +153,17 @@ abstract class WebTestCase extends DemoTestCase
      */
     protected function getEmptyTag(string $tagname, string $attr_name, string $attr_value): ?array
     {
+        $matches = null;
+
         // Search by tag string
         preg_match_all(
-            /* "/<{$tagname}(\s+.*?|)\/?>/s", */
-            "/<(input)(\s+.*?|)\/?>/s",
+            "/<{$tagname}(\s+.*?|)\/?>/s"
             $this->html,
             $matches
         );
 
         // Loop the hit tag
-        foreach ($matches[0] as $idx => $tag) {
+        foreach ($matches[0] as $tag) {
             // Get the attribute list
             $attrs = $this->getHtmlAttributes($tag);
 

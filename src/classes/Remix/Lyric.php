@@ -21,14 +21,9 @@ class Lyric extends Gear
         return $this->base_uri . '/' . ltrim($path, '/');
     }
 
-    public function named(string $name): string
+    public function named(string $name, array $params = []): string
     {
-        $track = Audio::getInstance()->mixer->named($name);
-        if (! $track) {
-            return null;
-        }
-
-        return $this->make($track->path);
+        return Audio::getInstance()->mixer->uri($name, $params);
     }
 }
 // class Lyric

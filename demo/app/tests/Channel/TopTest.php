@@ -12,6 +12,8 @@ class TopTest extends WebTestCase
 
         // Be sure to point to the app directory
         $this->initialize(__DIR__ . '/../..');
+
+        \Remix\Audio::getInstance()->preset->set('app.public_url', 'http://remix.test');
     }
 
     /**

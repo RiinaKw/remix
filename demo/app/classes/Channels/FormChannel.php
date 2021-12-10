@@ -35,7 +35,7 @@ class FormChannel extends \Remix\Channel
     public function confirm(Sampler $sampler): Studio
     {
         if (! Csrf::check()) {
-            return (new Studio())->redirect('FormInput');
+            return (new Studio())->redirect('FormInput', [], 307);
         }
 
         $session = $sampler->session();
@@ -47,7 +47,7 @@ class FormChannel extends \Remix\Channel
 
         if (! $errors->isEmpty()) {
             $session->errors = $errors;
-            return (new Studio())->redirect('FormInput');
+            return (new Studio())->redirect('FormInput', [], 307);
         }
         unset($session->errors);
 
@@ -66,7 +66,7 @@ class FormChannel extends \Remix\Channel
     public function submit(Sampler $sampler): Studio
     {
         if (! Csrf::check()) {
-            return (new Studio())->redirect('FormInput');
+            return (new Studio())->redirect('FormInput', [], 307);
         }
 
         $session = $sampler->session();

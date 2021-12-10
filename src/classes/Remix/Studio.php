@@ -171,7 +171,7 @@ class Studio extends Gear
         $this->property->type = 'redirect';
         $this->property->params = $uri;
         $this->property->status_code = $status_code;
-        return $this;
+        return $this->statusCode($status_code);
     }
     // function redirect()
 

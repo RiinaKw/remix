@@ -28,7 +28,7 @@ class LyricTest extends TestCase
         ];
         $audio->mixer->load($tracks);
 
-        $audio->preset->set('app.public_url', 'http://remix.example.com/framework/');
+        $audio->preset->set('app.public_uri', 'http://remix.example.com/framework/');
 
         $this->lyric = Lyric::getInstance();
     }

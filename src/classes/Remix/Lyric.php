@@ -11,7 +11,7 @@ class Lyric extends Gear
         $self = Audio::getInstance()->equalizer->singleton(static::class);
         if (! $self->base_uri) {
             $preset = Audio::getInstance()->preset;
-            $self->base_uri = rtrim($preset->get('app.public_url'), '/');
+            $self->base_uri = rtrim($preset->get('app.public_uri'), '/');
         }
         return $self;
     }

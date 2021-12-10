@@ -2,7 +2,7 @@
 
 return [
     'message' => 'here is sample env',
-    'public_url' => 'http://localhost/remix/demo/public',
+    'public_uri' => 'http://remix.example.com/',
 
     'db' => [
         'dsn'  => 'mysql:host=localhost;dbname=db_remix_sample',

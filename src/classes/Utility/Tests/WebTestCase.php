@@ -5,6 +5,7 @@ namespace Utility\Tests;
 use Utility\Tests\DemoTestCase;
 use Remix\Audio;
 use Remix\Reverb;
+use Remix\Lyric;
 use Remix\Exceptions\HttpException;
 
 abstract class WebTestCase extends DemoTestCase
@@ -113,9 +114,21 @@ abstract class WebTestCase extends DemoTestCase
         $this->assertSame($mime, $this->studio->getMimeType());
     }
 
-    protected function assertRedirectUri(string $uri)
+    protected function assertRedirectUri(string $uri): void
     {
         $this->assertSame($uri, $this->studio->getRedirectUri());
+    }
+
+    protected function assertRedirectPath(string $path): void
+    {
+        $uri = Lyric::getInstance()->make($path);
+        $this->assertRedirectUri($uri);
+    }
+
+    protected function assertRedirectName(string $name): void
+    {
+        $uri = Lyric::getInstance()->named($name);
+        $this->assertRedirectUri($uri);
     }
 
     /**

@@ -2,7 +2,6 @@
 
 namespace Remix\DemoTests;
 
-use Remix\Lyric;
 use Utility\Tests\WebTestCase;
 use Utility\Http\Session;
 use Utility\Http\Csrf;
@@ -82,7 +81,7 @@ class FormTest extends WebTestCase
 
         // Will CSRF error occurs?
         $this->assertStatusCode(307);
-        $this->assertRedirectUri(Lyric::getInstance()->make('/form/input'));
+        $this->assertRedirectPath('/form/input');
         $this->assertSame('Illegal screen transition', Session::hash()->sess_csrf_error);
     }
 
@@ -101,7 +100,7 @@ class FormTest extends WebTestCase
 
         // Will CSRF error occurs?
         $this->assertStatusCode(307);
-        $this->assertRedirectUri(Lyric::getInstance()->make('/form/input'));
+        $this->assertRedirectPath('/form/input');
         $this->assertSame('Illegal screen transition', Session::hash()->sess_csrf_error);
     }
 
@@ -121,7 +120,7 @@ class FormTest extends WebTestCase
 
         // Does it give an input error?
         $this->assertStatusCode(307);
-        $this->assertRedirectUri(Lyric::getInstance()->make('/form/input'));
+        $this->assertRedirectPath('/form/input');
 
         // Is the error message correct?
         $session_errors = Session::hash()->errors;
@@ -151,7 +150,7 @@ class FormTest extends WebTestCase
 
         // Does it give an input error?
         $this->assertStatusCode(307);
-        $this->assertRedirectUri(Lyric::getInstance()->make('/form/input'));
+        $this->assertRedirectPath('/form/input');
 
         // Is the error message correct?
         $session_errors = Session::hash()->errors;
@@ -185,7 +184,7 @@ class FormTest extends WebTestCase
 
         // Does it give an input error?
         $this->assertStatusCode(307);
-        $this->assertRedirectUri(Lyric::getInstance()->make('/form/input'));
+        $this->assertRedirectPath('/form/input');
 
         // Is the error message correct?
         $session_errors = Session::hash()->errors;
@@ -257,7 +256,7 @@ class FormTest extends WebTestCase
 
         // Will CSRF error occurs?
         $this->assertStatusCode(307);
-        $this->assertRedirectUri(Lyric::getInstance()->make('/form/input'));
+        $this->assertRedirectPath('/form/input');
         $this->assertSame('Illegal screen transition', Session::hash()->sess_csrf_error);
     }
 
@@ -392,7 +391,7 @@ class FormTest extends WebTestCase
 
         // Will CSRF error occurs?
         $this->assertStatusCode(307);
-        $this->assertRedirectUri(Lyric::getInstance()->make('/form/input'));
+        $this->assertRedirectPath('/form/input');
         $this->assertSame('Illegal screen transition', Session::hash()->sess_csrf_error);
     }
 }

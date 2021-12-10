@@ -67,6 +67,6 @@ class TopTest extends WebTestCase
     {
         $this->get('/302');
         $this->assertStatusCode(302);
-        $this->assertRedirectUri(Lyric::getInstance()->make('/redirected'));
+        $this->assertRedirectName('redirected');
     }
 }

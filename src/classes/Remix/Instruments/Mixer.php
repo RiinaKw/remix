@@ -8,6 +8,7 @@ use Remix\Track;
 use Remix\Fader;
 use Remix\Sampler;
 use Remix\Studio;
+use Remix\Lyric;
 use Remix\RemixException;
 use Remix\Exceptions\HttpException;
 use Utility\Arr;
@@ -170,9 +171,7 @@ class Mixer extends Instrument
         foreach ($params as $label => $value) {
             $path = str_replace($label, $value, $path);
         }
-
-        $public_url = Audio::getInstance()->preset->get('app.public_url');
-        return $public_url . $path;
+        return Lyric::getInstance()->make($path);
     }
     // function uri()
 }

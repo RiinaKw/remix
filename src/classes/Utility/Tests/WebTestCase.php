@@ -157,7 +157,7 @@ abstract class WebTestCase extends DemoTestCase
 
         // Search by tag string
         preg_match_all(
-            "/<{$tagname}(\s+.*?|)\/?>/s"
+            "/<{$tagname}(\s+.*?|)\/?>/s",
             $this->html,
             $matches
         );

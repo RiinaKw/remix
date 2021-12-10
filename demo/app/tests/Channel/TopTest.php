@@ -2,6 +2,7 @@
 
 namespace Remix\DemoTests;
 
+use Remix\Lyric;
 use Utility\Tests\WebTestCase;
 
 class TopTest extends WebTestCase
@@ -12,8 +13,6 @@ class TopTest extends WebTestCase
 
         // Be sure to point to the app directory
         $this->initialize(__DIR__ . '/../..');
-
-        \Remix\Audio::getInstance()->preset->set('app.public_url', 'http://remix.test');
     }
 
     /**
@@ -68,6 +67,6 @@ class TopTest extends WebTestCase
     {
         $this->get('/302');
         $this->assertStatusCode(302);
-        $this->assertRedirectUri('http://remix.test/redirected');
+        $this->assertRedirectUri(Lyric::getInstance()->make('/redirected'));
     }
 }

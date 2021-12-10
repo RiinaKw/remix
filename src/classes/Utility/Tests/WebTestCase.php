@@ -117,4 +117,157 @@ abstract class WebTestCase extends DemoTestCase
     {
         $this->assertSame($uri, $this->studio->getRedirectUri());
     }
+
+    /**
+     * Get the attribute list of the HTML tag
+     *
+     * @param  string $tag            tag string
+     * @return array<string, string>  An array of the form [name => value]
+     */
+    protected function getHtmlAttributes(string $tag): array
+    {
+        // Cut out the format of attribute="value"
+        preg_match_all('/(?<name>[a-zA-Z\-_]+)="(?<value>.*?)"/', $tag, $matches);
+
+        // Callback for the cut out attributes and values
+        $attrs = [];
+        array_map(
+            function (string $name, string $value) use (&$attrs) {
+                // Add to attribute list
+                $attrs[$name] = $value;
+            },
+            $matches['name'],
+            $matches['value']
+        );
+        return $attrs;
+    }
+    // function getHtmlAttributes()
+
+    /**
+     * Search for empty tag ( <tagname ... /> )
+     *
+     * @param  string $tagname     Target tag name
+     * @param  string $attr_name   Attribute name for unique identification
+     * @param  string $attr_value  Attribute value for unique identification
+     * @return array|null          List of attributes if found、null if not found
+     */
+    protected function getEmptyTag(string $tagname, string $attr_name, string $attr_value): ?array
+    {
+        // Search by tag string
+        preg_match_all(
+            /* "/<{$tagname}(\s+.*?|)\/?>/s", */
+            "/<(input)(\s+.*?|)\/?>/s",
+            $this->html,
+            $matches
+        );
+
+        // Loop the hit tag
+        foreach ($matches[0] as $idx => $tag) {
+            // Get the attribute list
+            $attrs = $this->getHtmlAttributes($tag);
+
+            // If the specified attribute has the specified value, return the tag
+            if ($attrs[$attr_name] === $attr_value) {
+                return $attrs;
+            }
+        }
+        // Not found
+        return null;
+    }
+    // function getEmptyTag()
+
+    /**
+     * Search for normal tag ( <tagname ...> ... </tagname> )
+     *
+     * @param  string $tagname     Target tag name
+     * @param  string $attr_name   Attribute name for unique identification
+     * @param  string $attr_value  Attribute value for unique identification
+     * @return array|null          List of attributes if found、null if not found
+     */
+    protected function getOpenTag(string $tagname, string $attr_name, string $attr_value): ?array
+    {
+        // Search by tag string
+        preg_match_all(
+            "/<{$tagname}(\s+.*?>|>)(?<content>.*?)<\/{$tagname}>/s",
+            $this->html,
+            $matches
+        );
+
+        // Loop the hit tag
+        foreach ($matches[0] as $idx => $tag) {
+            // Get the attribute list and add the content
+            $attrs = [
+                'content' => $matches['content'][$idx],
+            ];
+            $attrs += $this->getHtmlAttributes($tag);
+
+            // If the specified attribute has the specified value, return the tag
+            if ($attrs[$attr_name] === $attr_value) {
+                return $attrs;
+            }
+        }
+        // Not found
+        return null;
+    }
+    // function getOpenTag()
+
+    /**
+     * Is <input> included correctly?
+     *
+     * @param  string $type   Vaule of "type" attribute
+     * @param  string $name   Value of "name" attribute
+     * @param  string $value  Value of "value" attribute
+     */
+    protected function assertInput(string $type, string $name, string $value): void
+    {
+        $this->assertTrue($this->html !== '', 'HTML is empty');
+
+        $tagname = 'input';
+        $attrs = $this->getEmptyTag($tagname, 'name', $name);
+
+        $test = [
+            'type' => $type,
+            'value' => $value,
+        ];
+        foreach ($test as $name => $value) {
+            $this->assertTrue(isset($attrs[$name]));
+            $this->assertSame($value, $attrs[$name]);
+        }
+    }
+    // function assertInput()
+
+    /**
+     * Is <input type="text"> included correctly?
+     *
+     * @param  string $name   Value of "name" attribute
+     * @param  string $value  Value of "value" attribute
+     */
+    protected function assertInputText(string $name, string $value): void
+    {
+        $this->assertInput('text', $name, $value);
+    }
+
+    /**
+     * Is <textarea> included correctly?
+     *
+     * @param  string $name   Value of "name" attribute
+     * @param  string $value  String in textarea
+     */
+    protected function assertTextarea(string $name, string $value): void
+    {
+        $this->assertTrue($this->html !== '', 'HTML is empty');
+
+        $tagname = 'textarea';
+        $attrs = $this->getOpenTag($tagname, 'name', $name);
+
+        $test = [
+            'name' => $attrs['name'],
+            'content' => $value,
+        ];
+        foreach ($test as $name => $value) {
+            $this->assertTrue(isset($attrs[$name]));
+            $this->assertSame($value, $attrs[$name]);
+        }
+    }
+    // function assertTextarea()
 }

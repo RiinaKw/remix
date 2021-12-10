@@ -10,7 +10,8 @@ return [
     Track::any('/302', 'TopChannel@redirect302'),
     Track::any('/redirected', 'TopChannel@redirected')->name('redirected'),
 
-    Track::any( '/form/input',   'FormChannel@input')->name('FormInput'),
+    Track::get( '/form/input',   'FormChannel@init')->name('FormInput'),
+    Track::post('/form/input',   'FormChannel@input'),
     Track::post('/form/confirm', 'FormChannel@confirm'),
     Track::post('/form/submit',  'FormChannel@submit'),
 ];

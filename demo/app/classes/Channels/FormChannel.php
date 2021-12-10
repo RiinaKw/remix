@@ -14,6 +14,25 @@ class FormChannel extends \Remix\Channel
     /**
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
+    public function init(Sampler $sampler): Studio
+    {
+        $session = $sampler->session();
+        unset($session->form);
+        unset($session->errors);
+
+        $bounce = new Compressor('form/input');
+        $bounce->form = new Hash();
+        $bounce->errors = new Hash();
+
+        $bounce->csrf = Csrf::factory();
+
+        return $bounce;
+    }
+    // function init()
+
+    /**
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     */
     public function input(Sampler $sampler): Studio
     {
         $session = $sampler->session();

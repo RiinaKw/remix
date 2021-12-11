@@ -1,13 +1,13 @@
 <?php
 
-namespace Remix\Demo\Channels;
+namespace RemixDemo\Channels;
 
 use Remix\Sampler;
 use Remix\Studio;
 use Remix\Studio\Compressor;
 use Utility\Hash;
 use Utility\Http\Csrf;
-use Remix\Demo\Synthesizers\FormSynthesizer as Synthesizer;
+use RemixDemo\Synthesizers\FormSynthesizer as Synthesizer;
 
 class FormChannel extends \Remix\Channel
 {

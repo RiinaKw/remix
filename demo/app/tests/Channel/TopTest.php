@@ -1,8 +1,8 @@
 <?php
 
-namespace Remix\DemoTests;
+namespace RemixDemo\Tests;
 
-use Remix\Demo\TestCase\WebTestCase as TestCase;
+use RemixDemo\TestCase\WebTestCase as TestCase;
 // Traits
 use Utility\Tests\Traits;
 

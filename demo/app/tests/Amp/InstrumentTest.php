@@ -1,8 +1,8 @@
 <?php
 
-namespace Remix\DemoTests;
+namespace RemixDemo\Tests;
 
-use Remix\Demo\TestCase\CliTestCase as TestCase;
+use RemixDemo\TestCase\CliTestCase as TestCase;
 
 class InstrumentTest extends TestCase
 {

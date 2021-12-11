@@ -1,6 +1,6 @@
 <?php
 
-namespace Remix\Demo\TestCase;
+namespace RemixDemo\TestCase;
 
 // Remix core
 use Remix\Audio;

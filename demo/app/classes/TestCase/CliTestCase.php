@@ -1,6 +1,6 @@
 <?php
 
-namespace Remix\Demo\TestCase;
+namespace RemixDemo\TestCase;
 
 /**
  * PHPUnit TestCase base class for CLI (Amp) in demo environment

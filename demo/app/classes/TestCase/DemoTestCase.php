@@ -1,6 +1,6 @@
 <?php
 
-namespace Remix\Demo\TestCase;
+namespace RemixDemo\TestCase;
 
 use Utility\Tests\BaseTestCase;
 use Remix\Audio;

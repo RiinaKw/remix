@@ -2926,485 +2926,485 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Utility-Tests-Traits-Redirect.html#method_assertRedirectName"
         },                {
-            "fqsen": "\\Remix\\Demo\\Channels\\FormChannel",
+            "fqsen": "\\RemixDemo\\Channels\\FormChannel",
             "name": "FormChannel",
             "summary": "Remix\u0020Channel\u0020\u003A\u0020web\u0020controller",
-            "url": "classes/Remix-Demo-Channels-FormChannel.html"
+            "url": "classes/RemixDemo-Channels-FormChannel.html"
         },                {
-            "fqsen": "\\Remix\\Demo\\Channels\\FormChannel\u003A\u003Ainit\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Channels\\FormChannel\u003A\u003Ainit\u0028\u0029",
             "name": "init",
             "summary": "",
-            "url": "classes/Remix-Demo-Channels-FormChannel.html#method_init"
+            "url": "classes/RemixDemo-Channels-FormChannel.html#method_init"
         },                {
-            "fqsen": "\\Remix\\Demo\\Channels\\FormChannel\u003A\u003Ainput\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Channels\\FormChannel\u003A\u003Ainput\u0028\u0029",
             "name": "input",
             "summary": "",
-            "url": "classes/Remix-Demo-Channels-FormChannel.html#method_input"
+            "url": "classes/RemixDemo-Channels-FormChannel.html#method_input"
         },                {
-            "fqsen": "\\Remix\\Demo\\Channels\\FormChannel\u003A\u003Aconfirm\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Channels\\FormChannel\u003A\u003Aconfirm\u0028\u0029",
             "name": "confirm",
             "summary": "",
-            "url": "classes/Remix-Demo-Channels-FormChannel.html#method_confirm"
+            "url": "classes/RemixDemo-Channels-FormChannel.html#method_confirm"
         },                {
-            "fqsen": "\\Remix\\Demo\\Channels\\FormChannel\u003A\u003Asubmit\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Channels\\FormChannel\u003A\u003Asubmit\u0028\u0029",
             "name": "submit",
             "summary": "",
-            "url": "classes/Remix-Demo-Channels-FormChannel.html#method_submit"
+            "url": "classes/RemixDemo-Channels-FormChannel.html#method_submit"
         },                {
-            "fqsen": "\\Remix\\Demo\\Channels\\TopChannel",
+            "fqsen": "\\RemixDemo\\Channels\\TopChannel",
             "name": "TopChannel",
             "summary": "Remix\u0020Channel\u0020\u003A\u0020web\u0020controller",
-            "url": "classes/Remix-Demo-Channels-TopChannel.html"
+            "url": "classes/RemixDemo-Channels-TopChannel.html"
         },                {
-            "fqsen": "\\Remix\\Demo\\Channels\\TopChannel\u003A\u003Aindex\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Channels\\TopChannel\u003A\u003Aindex\u0028\u0029",
             "name": "index",
             "summary": "",
-            "url": "classes/Remix-Demo-Channels-TopChannel.html#method_index"
+            "url": "classes/RemixDemo-Channels-TopChannel.html#method_index"
         },                {
-            "fqsen": "\\Remix\\Demo\\Channels\\TopChannel\u003A\u003Avader\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Channels\\TopChannel\u003A\u003Avader\u0028\u0029",
             "name": "vader",
             "summary": "",
-            "url": "classes/Remix-Demo-Channels-TopChannel.html#method_vader"
+            "url": "classes/RemixDemo-Channels-TopChannel.html#method_vader"
         },                {
-            "fqsen": "\\Remix\\Demo\\Channels\\TopChannel\u003A\u003Aredirect302\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Channels\\TopChannel\u003A\u003Aredirect302\u0028\u0029",
             "name": "redirect302",
             "summary": "",
-            "url": "classes/Remix-Demo-Channels-TopChannel.html#method_redirect302"
+            "url": "classes/RemixDemo-Channels-TopChannel.html#method_redirect302"
         },                {
-            "fqsen": "\\Remix\\Demo\\Channels\\TopChannel\u003A\u003Aredirected\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Channels\\TopChannel\u003A\u003Aredirected\u0028\u0029",
             "name": "redirected",
             "summary": "",
-            "url": "classes/Remix-Demo-Channels-TopChannel.html#method_redirected"
+            "url": "classes/RemixDemo-Channels-TopChannel.html#method_redirected"
         },                {
-            "fqsen": "\\Remix\\Demo\\Effectors\\Instrument",
+            "fqsen": "\\RemixDemo\\Effectors\\Instrument",
             "name": "Instrument",
             "summary": "Remix\u0020Effector\u0020\u003A\u0020command\u0020line\u0020controller",
-            "url": "classes/Remix-Demo-Effectors-Instrument.html"
+            "url": "classes/RemixDemo-Effectors-Instrument.html"
         },                {
-            "fqsen": "\\Remix\\Demo\\Effectors\\Instrument\u003A\u003Aindex\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Effectors\\Instrument\u003A\u003Aindex\u0028\u0029",
             "name": "index",
             "summary": "Default\u0020command\u0020\u003A\u0020nothing\u0020to\u0020do.",
-            "url": "classes/Remix-Demo-Effectors-Instrument.html#method_index"
+            "url": "classes/RemixDemo-Effectors-Instrument.html#method_index"
         },                {
-            "fqsen": "\\Remix\\Demo\\Effectors\\Instrument\u003A\u003Apiano\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Effectors\\Instrument\u003A\u003Apiano\u0028\u0029",
             "name": "piano",
             "summary": "",
-            "url": "classes/Remix-Demo-Effectors-Instrument.html#method_piano"
+            "url": "classes/RemixDemo-Effectors-Instrument.html#method_piano"
         },                {
-            "fqsen": "\\Remix\\Demo\\Effectors\\Instrument\u003A\u003Aguitar\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Effectors\\Instrument\u003A\u003Aguitar\u0028\u0029",
             "name": "guitar",
             "summary": "",
-            "url": "classes/Remix-Demo-Effectors-Instrument.html#method_guitar"
+            "url": "classes/RemixDemo-Effectors-Instrument.html#method_guitar"
         },                {
-            "fqsen": "\\Remix\\Demo\\Effectors\\Instrument\u003A\u003Aacid\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Effectors\\Instrument\u003A\u003Aacid\u0028\u0029",
             "name": "acid",
             "summary": "",
-            "url": "classes/Remix-Demo-Effectors-Instrument.html#method_acid"
+            "url": "classes/RemixDemo-Effectors-Instrument.html#method_acid"
         },                {
-            "fqsen": "\\Remix\\Demo\\Effectors\\Instrument\u003A\u003ATITLE",
+            "fqsen": "\\RemixDemo\\Effectors\\Instrument\u003A\u003ATITLE",
             "name": "TITLE",
             "summary": "Its\u0020own\u0020title.",
-            "url": "classes/Remix-Demo-Effectors-Instrument.html#constant_TITLE"
+            "url": "classes/RemixDemo-Effectors-Instrument.html#constant_TITLE"
         },                {
-            "fqsen": "\\Remix\\Demo\\Effectors\\Instrument\u003A\u003ACOMMANDS",
+            "fqsen": "\\RemixDemo\\Effectors\\Instrument\u003A\u003ACOMMANDS",
             "name": "COMMANDS",
             "summary": "Its\u0020own\u0020available\u0020commands\u0020and\u0020descriptions.",
-            "url": "classes/Remix-Demo-Effectors-Instrument.html#constant_COMMANDS"
+            "url": "classes/RemixDemo-Effectors-Instrument.html#constant_COMMANDS"
         },                {
-            "fqsen": "\\Remix\\Demo\\Synthesizers\\FormSynthesizer",
+            "fqsen": "\\RemixDemo\\Synthesizers\\FormSynthesizer",
             "name": "FormSynthesizer",
             "summary": "Remix\u0020Synthesizer\u0020\u003A\u0020input\u0020form\u0020validation",
-            "url": "classes/Remix-Demo-Synthesizers-FormSynthesizer.html"
+            "url": "classes/RemixDemo-Synthesizers-FormSynthesizer.html"
         },                {
-            "fqsen": "\\Remix\\Demo\\Synthesizers\\FormSynthesizer\u003A\u003Afilters\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Synthesizers\\FormSynthesizer\u003A\u003Afilters\u0028\u0029",
             "name": "filters",
             "summary": "filters\u0020definition",
-            "url": "classes/Remix-Demo-Synthesizers-FormSynthesizer.html#method_filters"
+            "url": "classes/RemixDemo-Synthesizers-FormSynthesizer.html#method_filters"
         },                {
-            "fqsen": "\\Remix\\Demo\\TestCase\\CliTestCase",
+            "fqsen": "\\RemixDemo\\TestCase\\CliTestCase",
             "name": "CliTestCase",
             "summary": "PHPUnit\u0020TestCase\u0020base\u0020class\u0020for\u0020CLI\u0020\u0028Amp\u0029\u0020in\u0020demo\u0020environment",
-            "url": "classes/Remix-Demo-TestCase-CliTestCase.html"
+            "url": "classes/RemixDemo-TestCase-CliTestCase.html"
         },                {
-            "fqsen": "\\Remix\\Demo\\TestCase\\CliTestCase\u003A\u003Ainitialize\u0028\u0029",
+            "fqsen": "\\RemixDemo\\TestCase\\CliTestCase\u003A\u003Ainitialize\u0028\u0029",
             "name": "initialize",
             "summary": "",
-            "url": "classes/Remix-Demo-TestCase-CliTestCase.html#method_initialize"
+            "url": "classes/RemixDemo-TestCase-CliTestCase.html#method_initialize"
         },                {
-            "fqsen": "\\Remix\\Demo\\TestCase\\CliTestCase\u003A\u003Aexecute\u0028\u0029",
+            "fqsen": "\\RemixDemo\\TestCase\\CliTestCase\u003A\u003Aexecute\u0028\u0029",
             "name": "execute",
             "summary": "",
-            "url": "classes/Remix-Demo-TestCase-CliTestCase.html#method_execute"
+            "url": "classes/RemixDemo-TestCase-CliTestCase.html#method_execute"
         },                {
-            "fqsen": "\\Remix\\Demo\\TestCase\\DemoTestCase",
+            "fqsen": "\\RemixDemo\\TestCase\\DemoTestCase",
             "name": "DemoTestCase",
             "summary": "PHPUnit\u0020TestCase\u0020base\u0020class\u0020for\u0020demo\u0020environment",
-            "url": "classes/Remix-Demo-TestCase-DemoTestCase.html"
+            "url": "classes/RemixDemo-TestCase-DemoTestCase.html"
         },                {
-            "fqsen": "\\Remix\\Demo\\TestCase\\DemoTestCase\u003A\u003AsetUp\u0028\u0029",
+            "fqsen": "\\RemixDemo\\TestCase\\DemoTestCase\u003A\u003AsetUp\u0028\u0029",
             "name": "setUp",
             "summary": "",
-            "url": "classes/Remix-Demo-TestCase-DemoTestCase.html#method_setUp"
+            "url": "classes/RemixDemo-TestCase-DemoTestCase.html#method_setUp"
         },                {
-            "fqsen": "\\Remix\\Demo\\TestCase\\DemoTestCase\u003A\u003AtearDown\u0028\u0029",
+            "fqsen": "\\RemixDemo\\TestCase\\DemoTestCase\u003A\u003AtearDown\u0028\u0029",
             "name": "tearDown",
             "summary": "",
-            "url": "classes/Remix-Demo-TestCase-DemoTestCase.html#method_tearDown"
+            "url": "classes/RemixDemo-TestCase-DemoTestCase.html#method_tearDown"
         },                {
-            "fqsen": "\\Remix\\Demo\\TestCase\\DemoTestCase\u003A\u003A\u0024daw",
+            "fqsen": "\\RemixDemo\\TestCase\\DemoTestCase\u003A\u003A\u0024daw",
             "name": "daw",
             "summary": "",
-            "url": "classes/Remix-Demo-TestCase-DemoTestCase.html#property_daw"
+            "url": "classes/RemixDemo-TestCase-DemoTestCase.html#property_daw"
         },                {
-            "fqsen": "\\Remix\\Demo\\TestCase\\WebTestCase",
+            "fqsen": "\\RemixDemo\\TestCase\\WebTestCase",
             "name": "WebTestCase",
             "summary": "PHPUnit\u0020TestCase\u0020base\u0020class\u0020for\u0020web\u0020\u0028DAW\u0029\u0020in\u0020demo\u0020environment",
-            "url": "classes/Remix-Demo-TestCase-WebTestCase.html"
+            "url": "classes/RemixDemo-TestCase-WebTestCase.html"
         },                {
-            "fqsen": "\\Remix\\Demo\\TestCase\\WebTestCase\u003A\u003Ainitialize\u0028\u0029",
+            "fqsen": "\\RemixDemo\\TestCase\\WebTestCase\u003A\u003Ainitialize\u0028\u0029",
             "name": "initialize",
             "summary": "",
-            "url": "classes/Remix-Demo-TestCase-WebTestCase.html#method_initialize"
+            "url": "classes/RemixDemo-TestCase-WebTestCase.html#method_initialize"
         },                {
-            "fqsen": "\\Remix\\Demo\\TestCase\\WebTestCase\u003A\u003A__get\u0028\u0029",
+            "fqsen": "\\RemixDemo\\TestCase\\WebTestCase\u003A\u003A__get\u0028\u0029",
             "name": "__get",
             "summary": "",
-            "url": "classes/Remix-Demo-TestCase-WebTestCase.html#method___get"
+            "url": "classes/RemixDemo-TestCase-WebTestCase.html#method___get"
         },                {
-            "fqsen": "\\Remix\\Demo\\TestCase\\WebTestCase\u003A\u003A__set\u0028\u0029",
+            "fqsen": "\\RemixDemo\\TestCase\\WebTestCase\u003A\u003A__set\u0028\u0029",
             "name": "__set",
             "summary": "",
-            "url": "classes/Remix-Demo-TestCase-WebTestCase.html#method___set"
+            "url": "classes/RemixDemo-TestCase-WebTestCase.html#method___set"
         },                {
-            "fqsen": "\\Remix\\Demo\\TestCase\\WebTestCase\u003A\u003Arequest\u0028\u0029",
+            "fqsen": "\\RemixDemo\\TestCase\\WebTestCase\u003A\u003Arequest\u0028\u0029",
             "name": "request",
             "summary": "",
-            "url": "classes/Remix-Demo-TestCase-WebTestCase.html#method_request"
+            "url": "classes/RemixDemo-TestCase-WebTestCase.html#method_request"
         },                {
-            "fqsen": "\\Remix\\Demo\\TestCase\\WebTestCase\u003A\u003Areload\u0028\u0029",
+            "fqsen": "\\RemixDemo\\TestCase\\WebTestCase\u003A\u003Areload\u0028\u0029",
             "name": "reload",
             "summary": "",
-            "url": "classes/Remix-Demo-TestCase-WebTestCase.html#method_reload"
+            "url": "classes/RemixDemo-TestCase-WebTestCase.html#method_reload"
         },                {
-            "fqsen": "\\Remix\\Demo\\TestCase\\WebTestCase\u003A\u003Aget\u0028\u0029",
+            "fqsen": "\\RemixDemo\\TestCase\\WebTestCase\u003A\u003Aget\u0028\u0029",
             "name": "get",
             "summary": "",
-            "url": "classes/Remix-Demo-TestCase-WebTestCase.html#method_get"
+            "url": "classes/RemixDemo-TestCase-WebTestCase.html#method_get"
         },                {
-            "fqsen": "\\Remix\\Demo\\TestCase\\WebTestCase\u003A\u003Apost\u0028\u0029",
+            "fqsen": "\\RemixDemo\\TestCase\\WebTestCase\u003A\u003Apost\u0028\u0029",
             "name": "post",
             "summary": "",
-            "url": "classes/Remix-Demo-TestCase-WebTestCase.html#method_post"
+            "url": "classes/RemixDemo-TestCase-WebTestCase.html#method_post"
         },                {
-            "fqsen": "\\Remix\\Demo\\TestCase\\WebTestCase\u003A\u003AassertHtmlContains\u0028\u0029",
+            "fqsen": "\\RemixDemo\\TestCase\\WebTestCase\u003A\u003AassertHtmlContains\u0028\u0029",
             "name": "assertHtmlContains",
             "summary": "",
-            "url": "classes/Remix-Demo-TestCase-WebTestCase.html#method_assertHtmlContains"
+            "url": "classes/RemixDemo-TestCase-WebTestCase.html#method_assertHtmlContains"
         },                {
-            "fqsen": "\\Remix\\Demo\\TestCase\\WebTestCase\u003A\u003AassertStatusCode\u0028\u0029",
+            "fqsen": "\\RemixDemo\\TestCase\\WebTestCase\u003A\u003AassertStatusCode\u0028\u0029",
             "name": "assertStatusCode",
             "summary": "",
-            "url": "classes/Remix-Demo-TestCase-WebTestCase.html#method_assertStatusCode"
+            "url": "classes/RemixDemo-TestCase-WebTestCase.html#method_assertStatusCode"
         },                {
-            "fqsen": "\\Remix\\Demo\\TestCase\\WebTestCase\u003A\u003AassertMimeType\u0028\u0029",
+            "fqsen": "\\RemixDemo\\TestCase\\WebTestCase\u003A\u003AassertMimeType\u0028\u0029",
             "name": "assertMimeType",
             "summary": "",
-            "url": "classes/Remix-Demo-TestCase-WebTestCase.html#method_assertMimeType"
+            "url": "classes/RemixDemo-TestCase-WebTestCase.html#method_assertMimeType"
         },                {
-            "fqsen": "\\Remix\\Demo\\TestCase\\WebTestCase\u003A\u003A\u0024studio",
+            "fqsen": "\\RemixDemo\\TestCase\\WebTestCase\u003A\u003A\u0024studio",
             "name": "studio",
             "summary": "",
-            "url": "classes/Remix-Demo-TestCase-WebTestCase.html#property_studio"
+            "url": "classes/RemixDemo-TestCase-WebTestCase.html#property_studio"
         },                {
-            "fqsen": "\\Remix\\Demo\\TestCase\\WebTestCase\u003A\u003A\u0024html",
+            "fqsen": "\\RemixDemo\\TestCase\\WebTestCase\u003A\u003A\u0024html",
             "name": "html",
             "summary": "",
-            "url": "classes/Remix-Demo-TestCase-WebTestCase.html#property_html"
+            "url": "classes/RemixDemo-TestCase-WebTestCase.html#property_html"
         },                {
-            "fqsen": "\\Remix\\Demo\\TestCase\\WebTestCase\u003A\u003A\u0024prev_path",
+            "fqsen": "\\RemixDemo\\TestCase\\WebTestCase\u003A\u003A\u0024prev_path",
             "name": "prev_path",
             "summary": "",
-            "url": "classes/Remix-Demo-TestCase-WebTestCase.html#property_prev_path"
+            "url": "classes/RemixDemo-TestCase-WebTestCase.html#property_prev_path"
         },                {
-            "fqsen": "\\Remix\\Demo\\TestCase\\WebTestCase\u003A\u003A\u0024prev_method",
+            "fqsen": "\\RemixDemo\\TestCase\\WebTestCase\u003A\u003A\u0024prev_method",
             "name": "prev_method",
             "summary": "",
-            "url": "classes/Remix-Demo-TestCase-WebTestCase.html#property_prev_method"
+            "url": "classes/RemixDemo-TestCase-WebTestCase.html#property_prev_method"
         },                {
-            "fqsen": "\\Remix\\Demo\\TestCase\\WebTestCase\u003A\u003A\u0024prev_post",
+            "fqsen": "\\RemixDemo\\TestCase\\WebTestCase\u003A\u003A\u0024prev_post",
             "name": "prev_post",
             "summary": "",
-            "url": "classes/Remix-Demo-TestCase-WebTestCase.html#property_prev_post"
+            "url": "classes/RemixDemo-TestCase-WebTestCase.html#property_prev_post"
         },                {
-            "fqsen": "\\Remix\\Demo\\Livehouse\\Test",
+            "fqsen": "\\RemixDemo\\Livehouse\\Test",
             "name": "Test",
             "summary": "Remix\u0020DJ\u0020Livehouse\u0020\u003A\u0020migration",
-            "url": "classes/Remix-Demo-Livehouse-Test.html"
+            "url": "classes/RemixDemo-Livehouse-Test.html"
         },                {
-            "fqsen": "\\Remix\\Demo\\Livehouse\\Test\u003A\u003Aopen\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Livehouse\\Test\u003A\u003Aopen\u0028\u0029",
             "name": "open",
             "summary": "",
-            "url": "classes/Remix-Demo-Livehouse-Test.html#method_open"
+            "url": "classes/RemixDemo-Livehouse-Test.html#method_open"
         },                {
-            "fqsen": "\\Remix\\Demo\\Livehouse\\Test\u003A\u003Aclose\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Livehouse\\Test\u003A\u003Aclose\u0028\u0029",
             "name": "close",
             "summary": "",
-            "url": "classes/Remix-Demo-Livehouse-Test.html#method_close"
+            "url": "classes/RemixDemo-Livehouse-Test.html#method_close"
         },                {
-            "fqsen": "\\Remix\\Demo\\Livehouse\\Test2",
+            "fqsen": "\\RemixDemo\\Livehouse\\Test2",
             "name": "Test2",
             "summary": "Remix\u0020DJ\u0020Livehouse\u0020\u003A\u0020migration",
-            "url": "classes/Remix-Demo-Livehouse-Test2.html"
+            "url": "classes/RemixDemo-Livehouse-Test2.html"
         },                {
-            "fqsen": "\\Remix\\Demo\\Livehouse\\Test2\u003A\u003Aopen\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Livehouse\\Test2\u003A\u003Aopen\u0028\u0029",
             "name": "open",
             "summary": "",
-            "url": "classes/Remix-Demo-Livehouse-Test2.html#method_open"
+            "url": "classes/RemixDemo-Livehouse-Test2.html#method_open"
         },                {
-            "fqsen": "\\Remix\\Demo\\Livehouse\\Test2\u003A\u003Aclose\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Livehouse\\Test2\u003A\u003Aclose\u0028\u0029",
             "name": "close",
             "summary": "",
-            "url": "classes/Remix-Demo-Livehouse-Test2.html#method_close"
+            "url": "classes/RemixDemo-Livehouse-Test2.html#method_close"
         },                {
-            "fqsen": "\\Remix\\Demo\\Livehouse\\Post",
+            "fqsen": "\\RemixDemo\\Livehouse\\Post",
             "name": "Post",
             "summary": "Remix\u0020DJ\u0020Livehouse\u0020\u003A\u0020migration",
-            "url": "classes/Remix-Demo-Livehouse-Post.html"
+            "url": "classes/RemixDemo-Livehouse-Post.html"
         },                {
-            "fqsen": "\\Remix\\Demo\\Livehouse\\Post\u003A\u003Aopen\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Livehouse\\Post\u003A\u003Aopen\u0028\u0029",
             "name": "open",
             "summary": "",
-            "url": "classes/Remix-Demo-Livehouse-Post.html#method_open"
+            "url": "classes/RemixDemo-Livehouse-Post.html#method_open"
         },                {
-            "fqsen": "\\Remix\\Demo\\Livehouse\\Post\u003A\u003Aclose\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Livehouse\\Post\u003A\u003Aclose\u0028\u0029",
             "name": "close",
             "summary": "",
-            "url": "classes/Remix-Demo-Livehouse-Post.html#method_close"
+            "url": "classes/RemixDemo-Livehouse-Post.html#method_close"
         },                {
-            "fqsen": "\\Remix\\Demo\\Livehouse\\CreateUser",
+            "fqsen": "\\RemixDemo\\Livehouse\\CreateUser",
             "name": "CreateUser",
             "summary": "Remix\u0020DJ\u0020Livehouse\u0020\u003A\u0020migration",
-            "url": "classes/Remix-Demo-Livehouse-CreateUser.html"
+            "url": "classes/RemixDemo-Livehouse-CreateUser.html"
         },                {
-            "fqsen": "\\Remix\\Demo\\Livehouse\\CreateUser\u003A\u003Aopen\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Livehouse\\CreateUser\u003A\u003Aopen\u0028\u0029",
             "name": "open",
             "summary": "",
-            "url": "classes/Remix-Demo-Livehouse-CreateUser.html#method_open"
+            "url": "classes/RemixDemo-Livehouse-CreateUser.html#method_open"
         },                {
-            "fqsen": "\\Remix\\Demo\\Livehouse\\CreateUser\u003A\u003Aclose\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Livehouse\\CreateUser\u003A\u003Aclose\u0028\u0029",
             "name": "close",
             "summary": "",
-            "url": "classes/Remix-Demo-Livehouse-CreateUser.html#method_close"
+            "url": "classes/RemixDemo-Livehouse-CreateUser.html#method_close"
         },                {
-            "fqsen": "\\Remix\\DemoTests\\AmpTest",
+            "fqsen": "\\RemixDemo\\Tests\\AmpTest",
             "name": "AmpTest",
             "summary": "PHPUnit\u0020TestCase\u0020base\u0020class\u0020for\u0020CLI\u0020\u0028Amp\u0029\u0020in\u0020demo\u0020environment",
-            "url": "classes/Remix-DemoTests-AmpTest.html"
+            "url": "classes/RemixDemo-Tests-AmpTest.html"
         },                {
-            "fqsen": "\\Remix\\DemoTests\\AmpTest\u003A\u003AsetUp\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Tests\\AmpTest\u003A\u003AsetUp\u0028\u0029",
             "name": "setUp",
             "summary": "",
-            "url": "classes/Remix-DemoTests-AmpTest.html#method_setUp"
+            "url": "classes/RemixDemo-Tests-AmpTest.html#method_setUp"
         },                {
-            "fqsen": "\\Remix\\DemoTests\\AmpTest\u003A\u003AtestNoArgs\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Tests\\AmpTest\u003A\u003AtestNoArgs\u0028\u0029",
             "name": "testNoArgs",
             "summary": "",
-            "url": "classes/Remix-DemoTests-AmpTest.html#method_testNoArgs"
+            "url": "classes/RemixDemo-Tests-AmpTest.html#method_testNoArgs"
         },                {
-            "fqsen": "\\Remix\\DemoTests\\InstrumentTest",
+            "fqsen": "\\RemixDemo\\Tests\\InstrumentTest",
             "name": "InstrumentTest",
             "summary": "PHPUnit\u0020TestCase\u0020base\u0020class\u0020for\u0020CLI\u0020\u0028Amp\u0029\u0020in\u0020demo\u0020environment",
-            "url": "classes/Remix-DemoTests-InstrumentTest.html"
+            "url": "classes/RemixDemo-Tests-InstrumentTest.html"
         },                {
-            "fqsen": "\\Remix\\DemoTests\\InstrumentTest\u003A\u003AsetUp\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Tests\\InstrumentTest\u003A\u003AsetUp\u0028\u0029",
             "name": "setUp",
             "summary": "",
-            "url": "classes/Remix-DemoTests-InstrumentTest.html#method_setUp"
+            "url": "classes/RemixDemo-Tests-InstrumentTest.html#method_setUp"
         },                {
-            "fqsen": "\\Remix\\DemoTests\\InstrumentTest\u003A\u003AtestNoArgs\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Tests\\InstrumentTest\u003A\u003AtestNoArgs\u0028\u0029",
             "name": "testNoArgs",
             "summary": "",
-            "url": "classes/Remix-DemoTests-InstrumentTest.html#method_testNoArgs"
+            "url": "classes/RemixDemo-Tests-InstrumentTest.html#method_testNoArgs"
         },                {
-            "fqsen": "\\Remix\\DemoTests\\InstrumentTest\u003A\u003AtestPiano\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Tests\\InstrumentTest\u003A\u003AtestPiano\u0028\u0029",
             "name": "testPiano",
             "summary": "",
-            "url": "classes/Remix-DemoTests-InstrumentTest.html#method_testPiano"
+            "url": "classes/RemixDemo-Tests-InstrumentTest.html#method_testPiano"
         },                {
-            "fqsen": "\\Remix\\DemoTests\\InstrumentTest\u003A\u003AtestGuitar\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Tests\\InstrumentTest\u003A\u003AtestGuitar\u0028\u0029",
             "name": "testGuitar",
             "summary": "",
-            "url": "classes/Remix-DemoTests-InstrumentTest.html#method_testGuitar"
+            "url": "classes/RemixDemo-Tests-InstrumentTest.html#method_testGuitar"
         },                {
-            "fqsen": "\\Remix\\DemoTests\\InstrumentTest\u003A\u003AtestAcid\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Tests\\InstrumentTest\u003A\u003AtestAcid\u0028\u0029",
             "name": "testAcid",
             "summary": "",
-            "url": "classes/Remix-DemoTests-InstrumentTest.html#method_testAcid"
+            "url": "classes/RemixDemo-Tests-InstrumentTest.html#method_testAcid"
         },                {
-            "fqsen": "\\Remix\\DemoTests\\InstrumentTest\u003A\u003AtestAcidWith808\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Tests\\InstrumentTest\u003A\u003AtestAcidWith808\u0028\u0029",
             "name": "testAcidWith808",
             "summary": "",
-            "url": "classes/Remix-DemoTests-InstrumentTest.html#method_testAcidWith808"
+            "url": "classes/RemixDemo-Tests-InstrumentTest.html#method_testAcidWith808"
         },                {
-            "fqsen": "\\Remix\\DemoTests\\InstrumentTest\u003A\u003AtestAcidWith909\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Tests\\InstrumentTest\u003A\u003AtestAcidWith909\u0028\u0029",
             "name": "testAcidWith909",
             "summary": "",
-            "url": "classes/Remix-DemoTests-InstrumentTest.html#method_testAcidWith909"
+            "url": "classes/RemixDemo-Tests-InstrumentTest.html#method_testAcidWith909"
         },                {
-            "fqsen": "\\Remix\\DemoTests\\FormTest",
+            "fqsen": "\\RemixDemo\\Tests\\FormTest",
             "name": "FormTest",
             "summary": "PHPUnit\u0020TestCase\u0020base\u0020class\u0020for\u0020web\u0020\u0028DAW\u0029\u0020in\u0020demo\u0020environment",
-            "url": "classes/Remix-DemoTests-FormTest.html"
+            "url": "classes/RemixDemo-Tests-FormTest.html"
         },                {
-            "fqsen": "\\Remix\\DemoTests\\FormTest\u003A\u003AsetUp\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Tests\\FormTest\u003A\u003AsetUp\u0028\u0029",
             "name": "setUp",
             "summary": "",
-            "url": "classes/Remix-DemoTests-FormTest.html#method_setUp"
+            "url": "classes/RemixDemo-Tests-FormTest.html#method_setUp"
         },                {
-            "fqsen": "\\Remix\\DemoTests\\FormTest\u003A\u003AtestInput\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Tests\\FormTest\u003A\u003AtestInput\u0028\u0029",
             "name": "testInput",
             "summary": "Does\u0020the\u0020input\u0020form\u0020contain\u0020the\u0020required\u0020HTML\u003F",
-            "url": "classes/Remix-DemoTests-FormTest.html#method_testInput"
+            "url": "classes/RemixDemo-Tests-FormTest.html#method_testInput"
         },                {
-            "fqsen": "\\Remix\\DemoTests\\FormTest\u003A\u003AtestDirectConfirm\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Tests\\FormTest\u003A\u003AtestDirectConfirm\u0028\u0029",
             "name": "testDirectConfirm",
             "summary": "Does\u0020it\u0020give\u0020an\u0020error\u0020when\u0020accessing\u0020GET\u0020form\/confirm\u003F",
-            "url": "classes/Remix-DemoTests-FormTest.html#method_testDirectConfirm"
+            "url": "classes/RemixDemo-Tests-FormTest.html#method_testDirectConfirm"
         },                {
-            "fqsen": "\\Remix\\DemoTests\\FormTest\u003A\u003AtestDirectSubmit\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Tests\\FormTest\u003A\u003AtestDirectSubmit\u0028\u0029",
             "name": "testDirectSubmit",
             "summary": "Does\u0020it\u0020give\u0020an\u0020error\u0020when\u0020accessing\u0020GET\u0020form\/submit\u003F",
-            "url": "classes/Remix-DemoTests-FormTest.html#method_testDirectSubmit"
+            "url": "classes/RemixDemo-Tests-FormTest.html#method_testDirectSubmit"
         },                {
-            "fqsen": "\\Remix\\DemoTests\\FormTest\u003A\u003AtestConfirmWithoutCsrf\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Tests\\FormTest\u003A\u003AtestConfirmWithoutCsrf\u0028\u0029",
             "name": "testConfirmWithoutCsrf",
             "summary": "Does\u0020it\u0020give\u0020a\u0020CSRF\u0020error\u0020on\u0020POST\u0020form\/confirm\u0020without\u0020a\u0020token\u003F",
-            "url": "classes/Remix-DemoTests-FormTest.html#method_testConfirmWithoutCsrf"
+            "url": "classes/RemixDemo-Tests-FormTest.html#method_testConfirmWithoutCsrf"
         },                {
-            "fqsen": "\\Remix\\DemoTests\\FormTest\u003A\u003AtestSubmitWithoutCsrf\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Tests\\FormTest\u003A\u003AtestSubmitWithoutCsrf\u0028\u0029",
             "name": "testSubmitWithoutCsrf",
             "summary": "Does\u0020it\u0020give\u0020a\u0020CSRF\u0020error\u0020on\u0020POST\u0020form\/submit\u0020without\u0020a\u0020token\u003F",
-            "url": "classes/Remix-DemoTests-FormTest.html#method_testSubmitWithoutCsrf"
+            "url": "classes/RemixDemo-Tests-FormTest.html#method_testSubmitWithoutCsrf"
         },                {
-            "fqsen": "\\Remix\\DemoTests\\FormTest\u003A\u003AtestEmptyConfirm\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Tests\\FormTest\u003A\u003AtestEmptyConfirm\u0028\u0029",
             "name": "testEmptyConfirm",
             "summary": "Does\u0020it\u0020give\u0020an\u0020error\u0020if\u0020it\u0020doesn\u0027t\u0020fill\u0020in\u0020the\u0020required\u0020fields\u003F",
-            "url": "classes/Remix-DemoTests-FormTest.html#method_testEmptyConfirm"
+            "url": "classes/RemixDemo-Tests-FormTest.html#method_testEmptyConfirm"
         },                {
-            "fqsen": "\\Remix\\DemoTests\\FormTest\u003A\u003AtestLongName\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Tests\\FormTest\u003A\u003AtestLongName\u0028\u0029",
             "name": "testLongName",
             "summary": "Does\u0020it\u0020give\u0020an\u0020error\u0020if\u0020the\u0020name\u0020is\u0020too\u0020long\u003F",
-            "url": "classes/Remix-DemoTests-FormTest.html#method_testLongName"
+            "url": "classes/RemixDemo-Tests-FormTest.html#method_testLongName"
         },                {
-            "fqsen": "\\Remix\\DemoTests\\FormTest\u003A\u003AtestMalformedEmail\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Tests\\FormTest\u003A\u003AtestMalformedEmail\u0028\u0029",
             "name": "testMalformedEmail",
             "summary": "Does\u0020it\u0020give\u0020an\u0020error\u0020if\u0020the\u0020email\u0020is\u0020malformed\u003F",
-            "url": "classes/Remix-DemoTests-FormTest.html#method_testMalformedEmail"
+            "url": "classes/RemixDemo-Tests-FormTest.html#method_testMalformedEmail"
         },                {
-            "fqsen": "\\Remix\\DemoTests\\FormTest\u003A\u003AtestValidConfirm\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Tests\\FormTest\u003A\u003AtestValidConfirm\u0028\u0029",
             "name": "testValidConfirm",
             "summary": "Is\u0020a\u0020input\/confirm\u0020displayed\u0020if\u0020the\u0020input\u0020is\u0020valid\u003F",
-            "url": "classes/Remix-DemoTests-FormTest.html#method_testValidConfirm"
+            "url": "classes/RemixDemo-Tests-FormTest.html#method_testValidConfirm"
         },                {
-            "fqsen": "\\Remix\\DemoTests\\FormTest\u003A\u003AtestReloadConfirm\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Tests\\FormTest\u003A\u003AtestReloadConfirm\u0028\u0029",
             "name": "testReloadConfirm",
             "summary": "Does\u0020it\u0020give\u0020a\u0020CSRF\u0020error\u0020when\u0020form\/confirm\u0020is\u0020reloaded\u003F",
-            "url": "classes/Remix-DemoTests-FormTest.html#method_testReloadConfirm"
+            "url": "classes/RemixDemo-Tests-FormTest.html#method_testReloadConfirm"
         },                {
-            "fqsen": "\\Remix\\DemoTests\\FormTest\u003A\u003AtestBackToForm\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Tests\\FormTest\u003A\u003AtestBackToForm\u0028\u0029",
             "name": "testBackToForm",
             "summary": "Is\u0020it\u0020possible\u0020to\u0020return\u0020to\u0020the\u0020form\/input\u0020correctly\u0020from\u0020the\u0020form\/confirm\u003F",
-            "url": "classes/Remix-DemoTests-FormTest.html#method_testBackToForm"
+            "url": "classes/RemixDemo-Tests-FormTest.html#method_testBackToForm"
         },                {
-            "fqsen": "\\Remix\\DemoTests\\FormTest\u003A\u003AtestResetForm\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Tests\\FormTest\u003A\u003AtestResetForm\u0028\u0029",
             "name": "testResetForm",
             "summary": "Will\u0020GET\u0020form\/input\u0020delete\u0020the\u0020form\u0020data\u003F",
-            "url": "classes/Remix-DemoTests-FormTest.html#method_testResetForm"
+            "url": "classes/RemixDemo-Tests-FormTest.html#method_testResetForm"
         },                {
-            "fqsen": "\\Remix\\DemoTests\\FormTest\u003A\u003AtestValidSubmit\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Tests\\FormTest\u003A\u003AtestValidSubmit\u0028\u0029",
             "name": "testValidSubmit",
             "summary": "Will\u0020the\u0020form\/submit\u0020succeed\u0020if\u0020the\u0020input\u0020is\u0020valid\u003F",
-            "url": "classes/Remix-DemoTests-FormTest.html#method_testValidSubmit"
+            "url": "classes/RemixDemo-Tests-FormTest.html#method_testValidSubmit"
         },                {
-            "fqsen": "\\Remix\\DemoTests\\FormTest\u003A\u003AtestReloadSubmit\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Tests\\FormTest\u003A\u003AtestReloadSubmit\u0028\u0029",
             "name": "testReloadSubmit",
             "summary": "Does\u0020it\u0020give\u0020a\u0020CSRF\u0020error\u0020when\u0020form\/submit\u0020is\u0020reloaded\u003F",
-            "url": "classes/Remix-DemoTests-FormTest.html#method_testReloadSubmit"
+            "url": "classes/RemixDemo-Tests-FormTest.html#method_testReloadSubmit"
         },                {
-            "fqsen": "\\Remix\\DemoTests\\TopTest",
+            "fqsen": "\\RemixDemo\\Tests\\TopTest",
             "name": "TopTest",
             "summary": "PHPUnit\u0020TestCase\u0020base\u0020class\u0020for\u0020web\u0020\u0028DAW\u0029\u0020in\u0020demo\u0020environment",
-            "url": "classes/Remix-DemoTests-TopTest.html"
+            "url": "classes/RemixDemo-Tests-TopTest.html"
         },                {
-            "fqsen": "\\Remix\\DemoTests\\TopTest\u003A\u003AsetUp\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Tests\\TopTest\u003A\u003AsetUp\u0028\u0029",
             "name": "setUp",
             "summary": "",
-            "url": "classes/Remix-DemoTests-TopTest.html#method_setUp"
+            "url": "classes/RemixDemo-Tests-TopTest.html#method_setUp"
         },                {
-            "fqsen": "\\Remix\\DemoTests\\TopTest\u003A\u003AtestTop\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Tests\\TopTest\u003A\u003AtestTop\u0028\u0029",
             "name": "testTop",
             "summary": "",
-            "url": "classes/Remix-DemoTests-TopTest.html#method_testTop"
+            "url": "classes/RemixDemo-Tests-TopTest.html#method_testTop"
         },                {
-            "fqsen": "\\Remix\\DemoTests\\TopTest\u003A\u003AtestVader\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Tests\\TopTest\u003A\u003AtestVader\u0028\u0029",
             "name": "testVader",
             "summary": "",
-            "url": "classes/Remix-DemoTests-TopTest.html#method_testVader"
+            "url": "classes/RemixDemo-Tests-TopTest.html#method_testVader"
         },                {
-            "fqsen": "\\Remix\\DemoTests\\TopTest\u003A\u003AtestRiina\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Tests\\TopTest\u003A\u003AtestRiina\u0028\u0029",
             "name": "testRiina",
             "summary": "",
-            "url": "classes/Remix-DemoTests-TopTest.html#method_testRiina"
+            "url": "classes/RemixDemo-Tests-TopTest.html#method_testRiina"
         },                {
-            "fqsen": "\\Remix\\DemoTests\\TopTest\u003A\u003AtestStatus404\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Tests\\TopTest\u003A\u003AtestStatus404\u0028\u0029",
             "name": "testStatus404",
             "summary": "",
-            "url": "classes/Remix-DemoTests-TopTest.html#method_testStatus404"
+            "url": "classes/RemixDemo-Tests-TopTest.html#method_testStatus404"
         },                {
-            "fqsen": "\\Remix\\DemoTests\\TopTest\u003A\u003AtestStatus302\u0028\u0029",
+            "fqsen": "\\RemixDemo\\Tests\\TopTest\u003A\u003AtestStatus302\u0028\u0029",
             "name": "testStatus302",
             "summary": "",
-            "url": "classes/Remix-DemoTests-TopTest.html#method_testStatus302"
+            "url": "classes/RemixDemo-Tests-TopTest.html#method_testStatus302"
         },                {
             "fqsen": "\\",
             "name": "\\",
             "summary": "",
             "url": "namespaces/default.html"
         },                {
-            "fqsen": "\\Remix\\Demo\\Channels",
+            "fqsen": "\\RemixDemo\\Channels",
             "name": "Channels",
             "summary": "",
-            "url": "namespaces/remix-demo-channels.html"
+            "url": "namespaces/remixdemo-channels.html"
         },                {
-            "fqsen": "\\Remix\\Demo",
-            "name": "Demo",
+            "fqsen": "\\RemixDemo",
+            "name": "RemixDemo",
             "summary": "",
-            "url": "namespaces/remix-demo.html"
+            "url": "namespaces/remixdemo.html"
         },                {
-            "fqsen": "\\Remix\\Demo\\Effectors",
+            "fqsen": "\\RemixDemo\\Effectors",
             "name": "Effectors",
             "summary": "",
-            "url": "namespaces/remix-demo-effectors.html"
+            "url": "namespaces/remixdemo-effectors.html"
         },                {
-            "fqsen": "\\Remix\\Demo\\Synthesizers",
+            "fqsen": "\\RemixDemo\\Synthesizers",
             "name": "Synthesizers",
             "summary": "",
-            "url": "namespaces/remix-demo-synthesizers.html"
+            "url": "namespaces/remixdemo-synthesizers.html"
         },                {
-            "fqsen": "\\Remix\\Demo\\TestCase",
+            "fqsen": "\\RemixDemo\\TestCase",
             "name": "TestCase",
             "summary": "",
-            "url": "namespaces/remix-demo-testcase.html"
+            "url": "namespaces/remixdemo-testcase.html"
         },                {
-            "fqsen": "\\Remix\\Demo\\Livehouse",
+            "fqsen": "\\RemixDemo\\Livehouse",
             "name": "Livehouse",
             "summary": "",
-            "url": "namespaces/remix-demo-livehouse.html"
+            "url": "namespaces/remixdemo-livehouse.html"
         },                {
-            "fqsen": "\\Remix\\DemoTests",
-            "name": "DemoTests",
+            "fqsen": "\\RemixDemo\\Tests",
+            "name": "Tests",
             "summary": "",
-            "url": "namespaces/remix-demotests.html"
+            "url": "namespaces/remixdemo-tests.html"
         },                {
             "fqsen": "\\Remix",
             "name": "Remix",

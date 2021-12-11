@@ -1,6 +1,6 @@
 <?php
 
-namespace Remix\Demo\Effectors;
+namespace RemixDemo\Effectors;
 
 use Remix\Effector;
 

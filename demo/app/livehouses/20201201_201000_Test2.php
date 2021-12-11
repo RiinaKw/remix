@@ -1,6 +1,6 @@
 <?php
 
-namespace Remix\Demo\Livehouse;
+namespace RemixDemo\Livehouse;
 
 use Remix\Instruments\DJ;
 use Remix\DJ\Livehouse;

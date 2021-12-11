@@ -2868,22 +2868,22 @@ Search.appendIndex(
         },                {
             "fqsen": "\\RemixDemo\\Channels\\FormChannel\u003A\u003Ainit\u0028\u0029",
             "name": "init",
-            "summary": "",
+            "summary": "Initialize\u0020input\u0020form.",
             "url": "classes/RemixDemo-Channels-FormChannel.html#method_init"
         },                {
             "fqsen": "\\RemixDemo\\Channels\\FormChannel\u003A\u003Ainput\u0028\u0029",
             "name": "input",
-            "summary": "",
+            "summary": "Display\u0020the\u0020form\u0020page,\u0020and\u0020set\u0020the\u0020input\u0020parameters\u0020to\u0020the\u0020form\u0020as\u0020needed.",
             "url": "classes/RemixDemo-Channels-FormChannel.html#method_input"
         },                {
             "fqsen": "\\RemixDemo\\Channels\\FormChannel\u003A\u003Aconfirm\u0028\u0029",
             "name": "confirm",
-            "summary": "",
+            "summary": "Run\u0020validation,\u0020and\u0020display\u0020a\u0020confirm\u0020page\u0020if\u0020there\u0020is\u0020no\u0020input\u0020errors.",
             "url": "classes/RemixDemo-Channels-FormChannel.html#method_confirm"
         },                {
             "fqsen": "\\RemixDemo\\Channels\\FormChannel\u003A\u003Asubmit\u0028\u0029",
             "name": "submit",
-            "summary": "",
+            "summary": "Display\u0020the\u0020input\u0020completion\u0020page.",
             "url": "classes/RemixDemo-Channels-FormChannel.html#method_submit"
         },                {
             "fqsen": "\\RemixDemo\\Channels\\TopChannel",
@@ -2893,22 +2893,22 @@ Search.appendIndex(
         },                {
             "fqsen": "\\RemixDemo\\Channels\\TopChannel\u003A\u003Aindex\u0028\u0029",
             "name": "index",
-            "summary": "",
+            "summary": "Simply\u0020return\u0020a\u0020string.",
             "url": "classes/RemixDemo-Channels-TopChannel.html#method_index"
         },                {
             "fqsen": "\\RemixDemo\\Channels\\TopChannel\u003A\u003Avader\u0028\u0029",
             "name": "vader",
-            "summary": "",
+            "summary": "Example\u0020of\u0020Sampler\u0020and\u0020input\u0020parameters.",
             "url": "classes/RemixDemo-Channels-TopChannel.html#method_vader"
         },                {
             "fqsen": "\\RemixDemo\\Channels\\TopChannel\u003A\u003Aredirect302\u0028\u0029",
             "name": "redirect302",
-            "summary": "",
+            "summary": "Raise\u0020a\u0020redirect.",
             "url": "classes/RemixDemo-Channels-TopChannel.html#method_redirect302"
         },                {
             "fqsen": "\\RemixDemo\\Channels\\TopChannel\u003A\u003Aredirected\u0028\u0029",
             "name": "redirected",
-            "summary": "",
+            "summary": "Where\u0020the\u0020redirect\u0020will\u0020reach.",
             "url": "classes/RemixDemo-Channels-TopChannel.html#method_redirected"
         },                {
             "fqsen": "\\RemixDemo\\Effectors\\Instrument",

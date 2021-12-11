@@ -17,7 +17,10 @@ use RemixDemo\Synthesizers\FormSynthesizer as Synthesizer;
 class FormChannel extends \Remix\Channel
 {
     /**
-     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     * Initialize input form.
+     * Ignore all sessions.
+     * @param  Sampler  $sampler  Input object
+     * @return Studio
      */
     public function init(Sampler $sampler): Studio
     {
@@ -36,7 +39,10 @@ class FormChannel extends \Remix\Channel
     // function init()
 
     /**
-     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     * Display the form page, and set the input parameters to the form as needed.
+     * Restore input parameters and input errors from the session.
+     * @param  Sampler  $sampler  Input object
+     * @return Studio
      */
     public function input(Sampler $sampler): Studio
     {
@@ -54,7 +60,10 @@ class FormChannel extends \Remix\Channel
     // function form()
 
     /**
-     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     * Run validation, and display a confirm page if there is no input errors.
+     * Check a CSRF token and can only display it once.
+     * @param  Sampler  $sampler  Input object
+     * @return Studio
      */
     public function confirm(Sampler $sampler): Studio
     {
@@ -85,7 +94,10 @@ class FormChannel extends \Remix\Channel
     // function confirm()
 
     /**
-     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     * Display the input completion page.
+     * Check a CSRF token and can only display it once.
+     * @param  Sampler $sampler  Input
+     * @return Studio
      */
     public function submit(Sampler $sampler): Studio
     {

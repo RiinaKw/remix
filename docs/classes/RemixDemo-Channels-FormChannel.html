@@ -202,21 +202,21 @@
     <span>
                         &nbsp;: <a href="classes/Remix-Studio.html"><abbr title="\Remix\Studio">Studio</abbr></a>    </span>
 </dt>
-<dd></dd>
+<dd>Run validation, and display a confirm page if there is no input errors.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/RemixDemo-Channels-FormChannel.html#method_init">init()</a>
     <span>
                         &nbsp;: <a href="classes/Remix-Studio.html"><abbr title="\Remix\Studio">Studio</abbr></a>    </span>
 </dt>
-<dd></dd>
+<dd>Initialize input form.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/RemixDemo-Channels-FormChannel.html#method_input">input()</a>
     <span>
                         &nbsp;: <a href="classes/Remix-Studio.html"><abbr title="\Remix\Studio">Studio</abbr></a>    </span>
 </dt>
-<dd></dd>
+<dd>Display the form page, and set the input parameters to the form as needed.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-Channel.html#method_play">play()</a>
@@ -230,7 +230,7 @@
     <span>
                         &nbsp;: <a href="classes/Remix-Studio.html"><abbr title="\Remix\Studio">Studio</abbr></a>    </span>
 </dt>
-<dd></dd>
+<dd>Display the input completion page.</dd>
 
         </dl>
 
@@ -376,15 +376,17 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="demo/app/classes/Channels/FormChannel.php"><a href="files/demo-app-classes-channels-formchannel.html"><abbr title="demo/app/classes/Channels/FormChannel.php">FormChannel.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">59</span>
+    <span class="phpdocumentor-element-found-in__line">68</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Run validation, and display a confirm page if there is no input errors.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                 <span class="phpdocumentor-signature__name">confirm</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-Sampler.html"><abbr title="\Remix\Sampler">Sampler</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$sampler</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Remix-Studio.html"><abbr title="\Remix\Studio">Studio</abbr></a></span></code>
 
-        <section class="phpdocumentor-description"></section>
+        <section class="phpdocumentor-description"><p>Check a CSRF token and can only display it once.</p>
+</section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -393,26 +395,13 @@
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-Sampler.html"><abbr title="\Remix\Sampler">Sampler</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Input object</p>
+</section>
+
             </dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">SuppressWarnings</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>(PHPMD.UnusedFormalParameter)</p>
-</section>
-
-                                    </dd>
-                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type"><a href="classes/Remix-Studio.html"><abbr title="\Remix\Studio">Studio</abbr></a></span>
@@ -434,15 +423,17 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="demo/app/classes/Channels/FormChannel.php"><a href="files/demo-app-classes-channels-formchannel.html"><abbr title="demo/app/classes/Channels/FormChannel.php">FormChannel.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">22</span>
+    <span class="phpdocumentor-element-found-in__line">25</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Initialize input form.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                 <span class="phpdocumentor-signature__name">init</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-Sampler.html"><abbr title="\Remix\Sampler">Sampler</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$sampler</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Remix-Studio.html"><abbr title="\Remix\Studio">Studio</abbr></a></span></code>
 
-        <section class="phpdocumentor-description"></section>
+        <section class="phpdocumentor-description"><p>Ignore all sessions.</p>
+</section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -451,26 +442,13 @@
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-Sampler.html"><abbr title="\Remix\Sampler">Sampler</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Input object</p>
+</section>
+
             </dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">SuppressWarnings</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>(PHPMD.UnusedFormalParameter)</p>
-</section>
-
-                                    </dd>
-                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type"><a href="classes/Remix-Studio.html"><abbr title="\Remix\Studio">Studio</abbr></a></span>
@@ -492,15 +470,17 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="demo/app/classes/Channels/FormChannel.php"><a href="files/demo-app-classes-channels-formchannel.html"><abbr title="demo/app/classes/Channels/FormChannel.php">FormChannel.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">41</span>
+    <span class="phpdocumentor-element-found-in__line">47</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Display the form page, and set the input parameters to the form as needed.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                 <span class="phpdocumentor-signature__name">input</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-Sampler.html"><abbr title="\Remix\Sampler">Sampler</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$sampler</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Remix-Studio.html"><abbr title="\Remix\Studio">Studio</abbr></a></span></code>
 
-        <section class="phpdocumentor-description"></section>
+        <section class="phpdocumentor-description"><p>Restore input parameters and input errors from the session.</p>
+</section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -509,26 +489,13 @@
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-Sampler.html"><abbr title="\Remix\Sampler">Sampler</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Input object</p>
+</section>
+
             </dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">SuppressWarnings</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>(PHPMD.UnusedFormalParameter)</p>
-</section>
-
-                                    </dd>
-                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type"><a href="classes/Remix-Studio.html"><abbr title="\Remix\Studio">Studio</abbr></a></span>
@@ -599,15 +566,17 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="demo/app/classes/Channels/FormChannel.php"><a href="files/demo-app-classes-channels-formchannel.html"><abbr title="demo/app/classes/Channels/FormChannel.php">FormChannel.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">90</span>
+    <span class="phpdocumentor-element-found-in__line">102</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Display the input completion page.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                 <span class="phpdocumentor-signature__name">submit</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-Sampler.html"><abbr title="\Remix\Sampler">Sampler</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$sampler</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Remix-Studio.html"><abbr title="\Remix\Studio">Studio</abbr></a></span></code>
 
-        <section class="phpdocumentor-description"></section>
+        <section class="phpdocumentor-description"><p>Check a CSRF token and can only display it once.</p>
+</section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -616,26 +585,13 @@
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-Sampler.html"><abbr title="\Remix\Sampler">Sampler</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Input</p>
+</section>
+
             </dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">SuppressWarnings</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>(PHPMD.UnusedFormalParameter)</p>
-</section>
-
-                                    </dd>
-                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type"><a href="classes/Remix-Studio.html"><abbr title="\Remix\Studio">Studio</abbr></a></span>

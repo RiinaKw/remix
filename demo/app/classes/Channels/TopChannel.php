@@ -13,12 +13,21 @@ use Remix\Studio\Compressor;
  */
 class TopChannel extends \Remix\Channel
 {
+    /**
+     * Simply return a string.
+     * @return string
+     */
     public function index()
     {
         return 'I am your Remix.';
     }
     // function index()
 
+    /**
+     * Example of Sampler and input parameters.
+     * @param  Sampler $sampler  Input sampler
+     * @return Studio
+     */
     public function vader(Sampler $sampler): Studio
     {
         //throw new \Remix\Exceptions\HttpException('Test', 400);
@@ -29,12 +38,20 @@ class TopChannel extends \Remix\Channel
     }
     // function bounce()
 
+    /**
+     * Raise a redirect.
+     * @return Studio
+     */
     public function redirect302(): Studio
     {
         return (new Studio())->redirect('redirected', [], 302);
     }
 
-    public function redirected()
+    /**
+     * Where the redirect will reach.
+     * @return string
+     */
+    public function redirected(): string
     {
         return 'redirected';
     }

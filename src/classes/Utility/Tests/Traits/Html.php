@@ -2,6 +2,10 @@
 
 namespace Utility\Tests\Traits;
 
+/**
+ * PHPUnit TestCase trait for HTML operations.
+ * @package  TestCase\Traits
+ */
 trait Html
 {
     /**

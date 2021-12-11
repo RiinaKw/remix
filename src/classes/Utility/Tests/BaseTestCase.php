@@ -5,7 +5,7 @@ namespace Utility\Tests;
 use PHPUnit\Framework\TestCase;
 
 /**
- * PHPUnit TestCase base class
+ * PHPUnit TestCase base class.
  *
  * @package  TestCase
  */

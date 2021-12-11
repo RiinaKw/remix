@@ -5,6 +5,10 @@ namespace Utility\Tests\Traits;
 use Remix\Studio;
 use Remix\Lyric;
 
+/**
+ * PHPUnit TestCase trait for HTTP redirection.
+ * @package  TestCase\Traits
+ */
 trait Redirect
 {
     /**

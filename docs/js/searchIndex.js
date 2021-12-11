@@ -2863,12 +2863,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Utility\\Tests\\BaseTestCase",
             "name": "BaseTestCase",
-            "summary": "PHPUnit\u0020TestCase\u0020base\u0020class",
+            "summary": "PHPUnit\u0020TestCase\u0020base\u0020class.",
             "url": "classes/Utility-Tests-BaseTestCase.html"
         },                {
             "fqsen": "\\Utility\\Tests\\Traits\\Html",
             "name": "Html",
-            "summary": "",
+            "summary": "PHPUnit\u0020TestCase\u0020trait\u0020for\u0020HTML\u0020operations.",
             "url": "classes/Utility-Tests-Traits-Html.html"
         },                {
             "fqsen": "\\Utility\\Tests\\Traits\\Html\u003A\u003AassertHtml\u0028\u0029",
@@ -2908,7 +2908,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Utility\\Tests\\Traits\\Redirect",
             "name": "Redirect",
-            "summary": "",
+            "summary": "PHPUnit\u0020TestCase\u0020trait\u0020for\u0020HTTP\u0020redirection.",
             "url": "classes/Utility-Tests-Traits-Redirect.html"
         },                {
             "fqsen": "\\Utility\\Tests\\Traits\\Redirect\u003A\u003AassertRedirectUri\u0028\u0029",

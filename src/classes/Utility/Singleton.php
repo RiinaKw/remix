@@ -4,6 +4,8 @@ namespace Utility;
 
 /**
  * Trait that realizes a singleton
+ *
+ * @package  Utility
  */
 trait Singleton
 {
@@ -16,7 +18,7 @@ trait Singleton
     /**
      * Unable to create an instance from outside
      */
-    protected function __construct()
+    private function __construct()
     {
         //
     }

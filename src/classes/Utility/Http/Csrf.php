@@ -13,6 +13,10 @@ class Csrf
 {
     use Singleton;
 
+    /**
+     * @method  self factory(): Get the only instance
+     */
+
     private static $post = null;
 
     /**

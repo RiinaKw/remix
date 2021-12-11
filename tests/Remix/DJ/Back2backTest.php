@@ -2,13 +2,15 @@
 
 namespace Remix\CoreTests;
 
-use PHPUnit\Framework\TestCase;
+use Utility\Tests\BaseTestCase as TestCase;
+// Target of the test
+use Remix\Instruments\DJ;
 // Remix core
 use Remix\Audio;
-use Remix\Instruments\DJ;
 use Remix\DJ\MC;
 use Remix\DJ\Table;
 use Remix\DJ\Column;
+// Exception
 use Remix\Exceptions\DJException;
 use Exception;
 

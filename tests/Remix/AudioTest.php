@@ -2,7 +2,7 @@
 
 namespace Remix\CoreTests;
 
-use PHPUnit\Framework\TestCase;
+use Utility\Tests\BaseTestCase as TestCase;
 
 class AudioTest extends TestCase
 {

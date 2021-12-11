@@ -2,9 +2,9 @@
 
 namespace Remix\DemoTests;
 
-use Utility\Tests\CliTestCase;
+use Remix\Demo\TestCase\CliTestCase as TestCase;
 
-class AmpTest extends CliTestCase
+class AmpTest extends TestCase
 {
     protected function setUp(): void
     {

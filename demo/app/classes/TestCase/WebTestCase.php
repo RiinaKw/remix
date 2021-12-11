@@ -1,8 +1,7 @@
 <?php
 
-namespace Utility\Tests;
+namespace Remix\Demo\TestCase;
 
-use Utility\Tests\DemoTestCase;
 // Remix core
 use Remix\Audio;
 use Remix\Reverb;

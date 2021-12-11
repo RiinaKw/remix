@@ -1,8 +1,6 @@
 <?php
 
-namespace Utility\Tests;
-
-use Utility\Tests\DemoTestCase;
+namespace Remix\Demo\TestCase;
 
 abstract class CliTestCase extends DemoTestCase
 {

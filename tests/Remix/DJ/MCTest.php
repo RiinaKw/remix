@@ -2,25 +2,27 @@
 
 namespace Remix\CoreTests;
 
-use PHPUnit\Framework\TestCase;
+use Utility\Tests\BaseTestCase as TestCase;
+// Target of the test
 use Remix\DJ\MC;
+// Remix core
+use Remix\Audio;
 use Remix\Instruments\DJ;
 use Remix\DJ\Table;
 use Remix\DJ\Column;
-use Remix\DJ\Columns;
-use Remix\DJ\Index;
+// Exception
 use Remix\Exceptions\DJException;
 
 class MCTest extends TestCase
 {
     protected function setUp(): void
     {
-        \Remix\Audio::getInstance()->preset->set('app', require('TestEnv.php'));
+        Audio::getInstance()->preset->set('app', require('TestEnv.php'));
     }
 
     public function tearDown(): void
     {
-        \Remix\Audio::destroy();
+        Audio::destroy();
     }
 
     public function testExistsByString(): void

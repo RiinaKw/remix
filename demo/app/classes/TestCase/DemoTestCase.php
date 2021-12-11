@@ -1,11 +1,11 @@
 <?php
 
-namespace Utility\Tests;
+namespace Remix\Demo\TestCase;
 
-use PHPUnit\Framework\TestCase;
+use Utility\Tests\BaseTestCase;
 use Remix\Audio;
 
-abstract class DemoTestCase extends TestCase
+abstract class DemoTestCase extends BaseTestCase
 {
     protected $daw = null;
 

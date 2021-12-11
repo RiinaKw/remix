@@ -2,25 +2,27 @@
 
 namespace Remix\CoreTests;
 
-use PHPUnit\Framework\TestCase;
-use Remix\Instruments\DJ;
+use Utility\Tests\BaseTestCase as TestCase;
+// Target of the test
 use Remix\DJ\MC;
 use Remix\DJ\Table;
+// Remix core
+use Remix\Audio;
+use Remix\Instruments\DJ;
 use Remix\DJ\Column;
-use Remix\DJ\Index;
-use Remix\DJ\Columns;
+// Exception
 use Remix\Exceptions\DJException;
 
 class AlterTableTest extends TestCase
 {
     protected function setUp(): void
     {
-        \Remix\Audio::getInstance()->preset->set('app', require('TestEnv.php'));
+        Audio::getInstance()->preset->set('app', require('TestEnv.php'));
     }
 
     public function tearDown(): void
     {
-        \Remix\Audio::destroy();
+        Audio::destroy();
     }
 
     protected function prepareTable(): void

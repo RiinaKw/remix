@@ -2,13 +2,14 @@
 
 namespace Remix\CoreTests;
 
-use PHPUnit\Framework\TestCase;
+use Utility\Tests\BaseTestCase as TestCase;
 use Remix\Instruments\DJ;
 use Remix\DJ\MC;
 use Remix\DJ\Table;
 use Remix\DJ\Column;
 use Remix\DJ\Index;
 use Remix\DJ\Columns;
+// Exception
 use Remix\Exceptions\DJException;
 
 class TableTest extends TestCase

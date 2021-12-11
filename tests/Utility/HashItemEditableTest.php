@@ -2,7 +2,7 @@
 
 namespace Remix\UtilityTests;
 
-use PHPUnit\Framework\TestCase;
+use Utility\Tests\BaseTestCase as TestCase;
 // Target of the test
 use Utility\Hash;
 

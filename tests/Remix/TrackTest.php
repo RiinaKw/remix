@@ -2,7 +2,8 @@
 
 namespace Remix\CoreTests;
 
-use PHPUnit\Framework\TestCase;
+use Utility\Tests\BaseTestCase as TestCase;
+// Target of the test
 use Remix\Track;
 
 class TrackTest extends TestCase

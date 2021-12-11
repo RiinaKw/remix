@@ -2,15 +2,17 @@
 
 namespace Remix\DemoTests;
 
-use Utility\Tests\WebTestCase;
+use Remix\Demo\TestCase\WebTestCase as TestCase;
+// Traits
 use Utility\Tests\Traits;
+// Utility
 use Utility\Http\Session;
 use Utility\Http\Csrf;
 
 /**
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  */
-class FormTest extends WebTestCase
+class FormTest extends TestCase
 {
     use Traits\Html;
     use Traits\Redirect;

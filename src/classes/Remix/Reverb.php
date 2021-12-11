@@ -164,6 +164,20 @@ class Reverb extends Gear
             return new static($compressor, $preset);
         }
 
+        // Title mapping for each exception class
+        $map = [
+            'RemixException' => 'RemixException must not exist!',
+            'HttpException' => 'HttpException should have already been caught ...?',
+            'CoreException' => 'Remix Core Error',
+            'AppException' => 'App Config Error',
+            'DJException' => 'DJ Connection Error',
+            'ErrorException' => 'PHP Error',
+        ];
+
+        // Determine the title to use from the class name
+        $classname = basename(get_class($exception));
+        $title = $map[$classname] ?? "Who is {$classname} ...?";
+
         // Get debug trace
         $traces = [];
         foreach ($exception->getTrace() as $item) {
@@ -193,6 +207,7 @@ class Reverb extends Gear
         // Create the exception renderer
         $compressor = new Compressor($template_path, [
             'status' => StatusCode::INTERNAL_SERVER_ERROR,
+            'title' => $title,
             'message' => $exception->getMessage(),
             'file' => $exception->getFile(),
             'line' => $exception->getLine(),

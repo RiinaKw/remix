@@ -2,7 +2,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Remix Exception : {{ $title }}</title>
     <style>
+      .remix-exception-title,
+      .remix-exception-message {
+        font-size: 2rem;
+        font-weight: bold;
+        margin: 0;
+      }
       .remix-exception-source {
         margin: 0;
         padding: 0.5rem;
@@ -45,7 +52,8 @@
     </style>
   </head>
   <body>
-    <h1>Exception {{ $status }} : {{ $message }}</h1>
+    <h1 class="remix-exception-title">Exception {{ $status }} : {{ $title }}</h1>
+    <p class="remix-exception-message">{{ $message }}</p>
     <p><strong>{{ $file }}</strong>, line <strong>{{ $line }}</strong></p>
     <ol class="remix-exception-source">
 {{ foreach ($target as $line) }}

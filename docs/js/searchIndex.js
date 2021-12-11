@@ -421,11 +421,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Remix-DJ-Livehouse.html#method___get"
         },                {
-            "fqsen": "\\Remix\\DJ\\Livehouse\u003A\u003AasVinyl\u0028\u0029",
-            "name": "asVinyl",
-            "summary": "",
-            "url": "classes/Remix-DJ-Livehouse.html#method_asVinyl"
-        },                {
             "fqsen": "\\Remix\\DJ\\Livehouse\u003A\u003A\u0024name",
             "name": "name",
             "summary": "",

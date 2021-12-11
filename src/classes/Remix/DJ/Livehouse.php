@@ -10,8 +10,9 @@ use Remix\Vinyl;
  *
  * @package  Remix\DB
  * @todo Write the details.
+ * @todo Can I move some process from the Effector?
  */
-class Livehouse extends Gear
+abstract class Livehouse extends Gear
 {
     protected $name = '';
 
@@ -30,13 +31,6 @@ class Livehouse extends Gear
             default:
                 return null;
         }
-    }
-
-    public function asVinyl(): Vinyl
-    {
-        $vinyl = new Vinyl\Livehouse();
-        $vinyl->name = $this->name;
-        return $vinyl;
     }
 }
 // class Livehouse

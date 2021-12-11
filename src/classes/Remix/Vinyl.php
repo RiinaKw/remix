@@ -16,7 +16,7 @@ use Remix\Turntable;
 abstract class Vinyl extends Gear
 {
     /**
-     * Name of the table
+     * Table name to handle
      * @var string
      */
     public const TABLE = 'default_table';

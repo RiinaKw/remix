@@ -993,7 +993,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Vinyl\\Livehouse\u003A\u003ATABLE",
             "name": "TABLE",
-            "summary": "Name\u0020of\u0020the\u0020table",
+            "summary": "Table\u0020name\u0020to\u0020handle",
             "url": "classes/Remix-Vinyl-Livehouse.html#constant_TABLE"
         },                {
             "fqsen": "\\Remix\\Vinyl\\Livehouse\u003A\u003APK",
@@ -1058,7 +1058,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Vinyl\u003A\u003ATABLE",
             "name": "TABLE",
-            "summary": "Name\u0020of\u0020the\u0020table",
+            "summary": "Table\u0020name\u0020to\u0020handle",
             "url": "classes/Remix-Vinyl.html#constant_TABLE"
         },                {
             "fqsen": "\\Remix\\Vinyl\u003A\u003APK",

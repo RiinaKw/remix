@@ -17,6 +17,7 @@ abstract class Gear
 
     /**
      * Let Delay know that an instance has been constructed.
+     * @param string|null $log_param  If this parameter is on, it will be displayed in Delay
      */
     public function __construct(string $log_param = null)
     {

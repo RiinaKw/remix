@@ -67,6 +67,7 @@
                                             <li><a href="namespaces/utility-hash.html"><abbr title="\Utility\Hash">Hash</abbr></a></li>
                                             <li><a href="namespaces/utility-http.html"><abbr title="\Utility\Http">Http</abbr></a></li>
                                             <li><a href="namespaces/utility-performance.html"><abbr title="\Utility\Performance">Performance</abbr></a></li>
+                                            <li><a href="namespaces/utility-reflection.html"><abbr title="\Utility\Reflection">Reflection</abbr></a></li>
                                             <li><a href="namespaces/utility-tests.html"><abbr title="\Utility\Tests">Tests</abbr></a></li>
                                     </ul>
                         </section>
@@ -87,9 +88,9 @@
                         <ul class="phpdocumentor-list">
                                     <li><a href="packages/Utility-Dump.html"><abbr title="\Utility\Dump">Dump</abbr></a></li>
                                     <li><a href="packages/Utility-Performance.html"><abbr title="\Utility\Performance">Performance</abbr></a></li>
-                                    <li><a href="packages/Utility-Tests.html"><abbr title="\Utility\Tests">Tests</abbr></a></li>
                                     <li><a href="packages/Utility-Hash.html"><abbr title="\Utility\Hash">Hash</abbr></a></li>
                                     <li><a href="packages/Utility-Http.html"><abbr title="\Utility\Http">Http</abbr></a></li>
+                                    <li><a href="packages/Utility-Reflection.html"><abbr title="\Utility\Reflection">Reflection</abbr></a></li>
                             </ul>
                         </section>
     
@@ -208,9 +209,9 @@
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/Remix-Effectors-Livehouse.html#property_livehouses">$livehouses</a>
     <span>
-                &nbsp;: mixed            </span>
+                &nbsp;: array&lt;string, <a href="classes/Remix-DJ-Livehouse.html"><abbr title="\Remix\DJ\Livehouse">Livehouse</abbr></a>&gt;            </span>
 </dt>
-<dd></dd>
+<dd>List of livehouses</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/Remix-Gear.html#property_log_param">$log_param</a>
@@ -220,18 +221,11 @@
 <dd>Option parameter for Delay</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Remix-Effectors-Livehouse.html#property_table">$table</a>
-    <span>
-                &nbsp;: mixed            </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/Remix-Effectors-Livehouse.html#property_vinyl_class">$vinyl_class</a>
     <span>
                 &nbsp;: mixed            </span>
 </dt>
-<dd></dd>
+<dd>Class name of Vinyl</dd>
 
                 <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-Gear.html#method___construct">__construct()</a>
@@ -591,17 +585,19 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">32</span>
+    <span class="phpdocumentor-element-found-in__line">38</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">List of livehouses</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string, <a href="classes/Remix-DJ-Livehouse.html"><abbr title="\Remix\DJ\Livehouse">Livehouse</abbr></a>&gt;</span>
     <span class="phpdocumentor-signature__name">$livehouses</span>
      = <span class="phpdocumentor-signature__default-value">[]</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
     
 
 </article>
@@ -644,36 +640,6 @@
             -private
             -static                                            "
 >
-    <h4 class="phpdocumentor-element__name" id="property_table">
-        $table
-        <a href="classes/Remix-Effectors-Livehouse.html#property_table" class="headerlink"><i class="fas fa-link"></i></a>
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">29</span>
-</aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">$table</span>
-     = <span class="phpdocumentor-signature__default-value">null</span></code>
-
-    
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -private
-            -static                                            "
->
     <h4 class="phpdocumentor-element__name" id="property_vinyl_class">
         $vinyl_class
         <a href="classes/Remix-Effectors-Livehouse.html#property_vinyl_class" class="headerlink"><i class="fas fa-link"></i></a>
@@ -683,17 +649,19 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">30</span>
+    <span class="phpdocumentor-element-found-in__line">32</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Class name of Vinyl</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">$vinyl_class</span>
      = <span class="phpdocumentor-signature__default-value">RemixVinylLivehouse::class</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
     
 
 </article>
@@ -795,7 +763,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">289</span>
+    <span class="phpdocumentor-element-found-in__line">292</span>
 </aside>
 
         <p class="phpdocumentor-summary">Close command.</p>
@@ -1147,7 +1115,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">270</span>
+    <span class="phpdocumentor-element-found-in__line">273</span>
 </aside>
 
         <p class="phpdocumentor-summary">Open command.</p>
@@ -1248,7 +1216,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">317</span>
+    <span class="phpdocumentor-element-found-in__line">320</span>
 </aside>
 
     
@@ -1280,7 +1248,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">312</span>
+    <span class="phpdocumentor-element-found-in__line">315</span>
 </aside>
 
     
@@ -1312,7 +1280,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">222</span>
+    <span class="phpdocumentor-element-found-in__line">225</span>
 </aside>
 
         <p class="phpdocumentor-summary">Close all livehouses.</p>
@@ -1346,7 +1314,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">307</span>
+    <span class="phpdocumentor-element-found-in__line">310</span>
 </aside>
 
     
@@ -1388,7 +1356,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">142</span>
+    <span class="phpdocumentor-element-found-in__line">146</span>
 </aside>
 
         <p class="phpdocumentor-summary">Close a livehouse.</p>
@@ -1435,7 +1403,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">246</span>
+    <span class="phpdocumentor-element-found-in__line">249</span>
 </aside>
 
         <p class="phpdocumentor-summary">Close only one of the following livehouses.</p>
@@ -1469,7 +1437,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">54</span>
+    <span class="phpdocumentor-element-found-in__line">59</span>
 </aside>
 
         <p class="phpdocumentor-summary">Load livehouses of app</p>
@@ -1503,7 +1471,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">97</span>
+    <span class="phpdocumentor-element-found-in__line">102</span>
 </aside>
 
         <p class="phpdocumentor-summary">Get the next livehouse</p>
@@ -1550,7 +1518,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">164</span>
+    <span class="phpdocumentor-element-found-in__line">167</span>
 </aside>
 
         <p class="phpdocumentor-summary">Open all livehouses.</p>
@@ -1584,7 +1552,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">302</span>
+    <span class="phpdocumentor-element-found-in__line">305</span>
 </aside>
 
     
@@ -1626,7 +1594,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">116</span>
+    <span class="phpdocumentor-element-found-in__line">121</span>
 </aside>
 
         <p class="phpdocumentor-summary">Open a livehouse.</p>
@@ -1673,7 +1641,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">189</span>
+    <span class="phpdocumentor-element-found-in__line">192</span>
 </aside>
 
         <p class="phpdocumentor-summary">Open only one of the following livehouses.</p>
@@ -1707,7 +1675,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Effectors/Livehouse.php"><a href="files/src-classes-remix-effectors-livehouse.html"><abbr title="src/classes/Remix/Effectors/Livehouse.php">Livehouse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">37</span>
+    <span class="phpdocumentor-element-found-in__line">43</span>
 </aside>
 
         <p class="phpdocumentor-summary">Make sure to create a livehouse table</p>

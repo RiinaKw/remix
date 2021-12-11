@@ -956,11 +956,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Remix-Track.html#method___get"
         },                {
-            "fqsen": "\\Remix\\Track\u003A\u003Auri\u0028\u0029",
-            "name": "uri",
-            "summary": "",
-            "url": "classes/Remix-Track.html#method_uri"
-        },                {
             "fqsen": "\\Remix\\Track\u003A\u003A\u0024props",
             "name": "props",
             "summary": "",
@@ -1390,36 +1385,6 @@ Search.appendIndex(
             "name": "h",
             "summary": "",
             "url": "classes/Utility-Str.html#method_h"
-        },                {
-            "fqsen": "\\Utility\\Tests\\InvokePrivateBehavior",
-            "name": "InvokePrivateBehavior",
-            "summary": "Using\u0020reflection\u0020classes\u0020to\u0020allow\u0020access\u0020to\u0020private\u0020or\u0020protected\u0020properties\/methods",
-            "url": "classes/Utility-Tests-InvokePrivateBehavior.html"
-        },                {
-            "fqsen": "\\Utility\\Tests\\InvokePrivateBehavior\u003A\u003AinvokeMethod\u0028\u0029",
-            "name": "invokeMethod",
-            "summary": "",
-            "url": "classes/Utility-Tests-InvokePrivateBehavior.html#method_invokeMethod"
-        },                {
-            "fqsen": "\\Utility\\Tests\\InvokePrivateBehavior\u003A\u003AinvokeProperty\u0028\u0029",
-            "name": "invokeProperty",
-            "summary": "",
-            "url": "classes/Utility-Tests-InvokePrivateBehavior.html#method_invokeProperty"
-        },                {
-            "fqsen": "\\Utility\\Tests\\InvokePrivateBehavior\u003A\u003AinvokePropertyValue\u0028\u0029",
-            "name": "invokePropertyValue",
-            "summary": "",
-            "url": "classes/Utility-Tests-InvokePrivateBehavior.html#method_invokePropertyValue"
-        },                {
-            "fqsen": "\\Utility\\Tests\\InvokePrivateBehavior\u003A\u003AinvokeStaticMethod\u0028\u0029",
-            "name": "invokeStaticMethod",
-            "summary": "",
-            "url": "classes/Utility-Tests-InvokePrivateBehavior.html#method_invokeStaticMethod"
-        },                {
-            "fqsen": "\\Utility\\Tests\\InvokePrivateBehavior\u003A\u003AinvokeStaticProperty\u0028\u0029",
-            "name": "invokeStaticProperty",
-            "summary": "",
-            "url": "classes/Utility-Tests-InvokePrivateBehavior.html#method_invokeStaticProperty"
         },                {
             "fqsen": "\\Utility\\Hash\\Editable",
             "name": "Editable",
@@ -1871,19 +1836,14 @@ Search.appendIndex(
             "summary": "Its\u0020own\u0020available\u0020commands\u0020and\u0020descriptions.",
             "url": "classes/Remix-Effectors-Livehouse.html#constant_COMMANDS"
         },                {
-            "fqsen": "\\Remix\\Effectors\\Livehouse\u003A\u003A\u0024table",
-            "name": "table",
-            "summary": "",
-            "url": "classes/Remix-Effectors-Livehouse.html#property_table"
-        },                {
             "fqsen": "\\Remix\\Effectors\\Livehouse\u003A\u003A\u0024vinyl_class",
             "name": "vinyl_class",
-            "summary": "",
+            "summary": "Class\u0020name\u0020of\u0020Vinyl",
             "url": "classes/Remix-Effectors-Livehouse.html#property_vinyl_class"
         },                {
             "fqsen": "\\Remix\\Effectors\\Livehouse\u003A\u003A\u0024livehouses",
             "name": "livehouses",
-            "summary": "",
+            "summary": "List\u0020of\u0020livehouses",
             "url": "classes/Remix-Effectors-Livehouse.html#property_livehouses"
         },                {
             "fqsen": "\\Remix\\Effectors\\Version",
@@ -2741,126 +2701,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Utility-Http-Csrf.html#property_session_error"
         },                {
-            "fqsen": "\\Utility\\Tests\\CliTestCase",
-            "name": "CliTestCase",
-            "summary": "",
-            "url": "classes/Utility-Tests-CliTestCase.html"
-        },                {
-            "fqsen": "\\Utility\\Tests\\CliTestCase\u003A\u003Ainitialize\u0028\u0029",
-            "name": "initialize",
-            "summary": "",
-            "url": "classes/Utility-Tests-CliTestCase.html#method_initialize"
-        },                {
-            "fqsen": "\\Utility\\Tests\\CliTestCase\u003A\u003Aexecute\u0028\u0029",
-            "name": "execute",
-            "summary": "",
-            "url": "classes/Utility-Tests-CliTestCase.html#method_execute"
-        },                {
-            "fqsen": "\\Utility\\Tests\\DemoTestCase",
-            "name": "DemoTestCase",
-            "summary": "",
-            "url": "classes/Utility-Tests-DemoTestCase.html"
-        },                {
-            "fqsen": "\\Utility\\Tests\\DemoTestCase\u003A\u003AsetUp\u0028\u0029",
-            "name": "setUp",
-            "summary": "",
-            "url": "classes/Utility-Tests-DemoTestCase.html#method_setUp"
-        },                {
-            "fqsen": "\\Utility\\Tests\\DemoTestCase\u003A\u003AtearDown\u0028\u0029",
-            "name": "tearDown",
-            "summary": "",
-            "url": "classes/Utility-Tests-DemoTestCase.html#method_tearDown"
-        },                {
-            "fqsen": "\\Utility\\Tests\\DemoTestCase\u003A\u003A\u0024daw",
-            "name": "daw",
-            "summary": "",
-            "url": "classes/Utility-Tests-DemoTestCase.html#property_daw"
-        },                {
-            "fqsen": "\\Utility\\Tests\\WebTestCase",
-            "name": "WebTestCase",
-            "summary": "",
-            "url": "classes/Utility-Tests-WebTestCase.html"
-        },                {
-            "fqsen": "\\Utility\\Tests\\WebTestCase\u003A\u003Ainitialize\u0028\u0029",
-            "name": "initialize",
-            "summary": "",
-            "url": "classes/Utility-Tests-WebTestCase.html#method_initialize"
-        },                {
-            "fqsen": "\\Utility\\Tests\\WebTestCase\u003A\u003A__get\u0028\u0029",
-            "name": "__get",
-            "summary": "",
-            "url": "classes/Utility-Tests-WebTestCase.html#method___get"
-        },                {
-            "fqsen": "\\Utility\\Tests\\WebTestCase\u003A\u003A__set\u0028\u0029",
-            "name": "__set",
-            "summary": "",
-            "url": "classes/Utility-Tests-WebTestCase.html#method___set"
-        },                {
-            "fqsen": "\\Utility\\Tests\\WebTestCase\u003A\u003Arequest\u0028\u0029",
-            "name": "request",
-            "summary": "",
-            "url": "classes/Utility-Tests-WebTestCase.html#method_request"
-        },                {
-            "fqsen": "\\Utility\\Tests\\WebTestCase\u003A\u003Areload\u0028\u0029",
-            "name": "reload",
-            "summary": "",
-            "url": "classes/Utility-Tests-WebTestCase.html#method_reload"
-        },                {
-            "fqsen": "\\Utility\\Tests\\WebTestCase\u003A\u003Aget\u0028\u0029",
-            "name": "get",
-            "summary": "",
-            "url": "classes/Utility-Tests-WebTestCase.html#method_get"
-        },                {
-            "fqsen": "\\Utility\\Tests\\WebTestCase\u003A\u003Apost\u0028\u0029",
-            "name": "post",
-            "summary": "",
-            "url": "classes/Utility-Tests-WebTestCase.html#method_post"
-        },                {
-            "fqsen": "\\Utility\\Tests\\WebTestCase\u003A\u003AassertHtmlContains\u0028\u0029",
-            "name": "assertHtmlContains",
-            "summary": "",
-            "url": "classes/Utility-Tests-WebTestCase.html#method_assertHtmlContains"
-        },                {
-            "fqsen": "\\Utility\\Tests\\WebTestCase\u003A\u003AassertStatusCode\u0028\u0029",
-            "name": "assertStatusCode",
-            "summary": "",
-            "url": "classes/Utility-Tests-WebTestCase.html#method_assertStatusCode"
-        },                {
-            "fqsen": "\\Utility\\Tests\\WebTestCase\u003A\u003AassertMimeType\u0028\u0029",
-            "name": "assertMimeType",
-            "summary": "",
-            "url": "classes/Utility-Tests-WebTestCase.html#method_assertMimeType"
-        },                {
-            "fqsen": "\\Utility\\Tests\\WebTestCase\u003A\u003AassertRedirectUri\u0028\u0029",
-            "name": "assertRedirectUri",
-            "summary": "",
-            "url": "classes/Utility-Tests-WebTestCase.html#method_assertRedirectUri"
-        },                {
-            "fqsen": "\\Utility\\Tests\\WebTestCase\u003A\u003A\u0024studio",
-            "name": "studio",
-            "summary": "",
-            "url": "classes/Utility-Tests-WebTestCase.html#property_studio"
-        },                {
-            "fqsen": "\\Utility\\Tests\\WebTestCase\u003A\u003A\u0024html",
-            "name": "html",
-            "summary": "",
-            "url": "classes/Utility-Tests-WebTestCase.html#property_html"
-        },                {
-            "fqsen": "\\Utility\\Tests\\WebTestCase\u003A\u003A\u0024prev_path",
-            "name": "prev_path",
-            "summary": "",
-            "url": "classes/Utility-Tests-WebTestCase.html#property_prev_path"
-        },                {
-            "fqsen": "\\Utility\\Tests\\WebTestCase\u003A\u003A\u0024prev_method",
-            "name": "prev_method",
-            "summary": "",
-            "url": "classes/Utility-Tests-WebTestCase.html#property_prev_method"
-        },                {
-            "fqsen": "\\Utility\\Tests\\WebTestCase\u003A\u003A\u0024prev_post",
-            "name": "prev_post",
-            "summary": "",
-            "url": "classes/Utility-Tests-WebTestCase.html#property_prev_post"
-        },                {
             "fqsen": "\\Remix\\Instruments\\PresetLoader",
             "name": "PresetLoader",
             "summary": "",
@@ -2920,6 +2760,171 @@ Search.appendIndex(
             "name": "realfile",
             "summary": "",
             "url": "classes/Remix-Instruments-PresetLoader.html#property_realfile"
+        },                {
+            "fqsen": "\\Remix\\Lyric",
+            "name": "Lyric",
+            "summary": "Remix\u0020Gear\u0020\u003A\u0020Base\u0020class\u0020of\u0020Remix",
+            "url": "classes/Remix-Lyric.html"
+        },                {
+            "fqsen": "\\Remix\\Lyric\u003A\u003AgetInstance\u0028\u0029",
+            "name": "getInstance",
+            "summary": "",
+            "url": "classes/Remix-Lyric.html#method_getInstance"
+        },                {
+            "fqsen": "\\Remix\\Lyric\u003A\u003Asing\u0028\u0029",
+            "name": "sing",
+            "summary": "",
+            "url": "classes/Remix-Lyric.html#method_sing"
+        },                {
+            "fqsen": "\\Remix\\Lyric\u003A\u003Anamed\u0028\u0029",
+            "name": "named",
+            "summary": "",
+            "url": "classes/Remix-Lyric.html#method_named"
+        },                {
+            "fqsen": "\\Remix\\Lyric\u003A\u003A\u0024base_uri",
+            "name": "base_uri",
+            "summary": "",
+            "url": "classes/Remix-Lyric.html#property_base_uri"
+        },                {
+            "fqsen": "\\Utility\\Reflection\\ReflectionObject",
+            "name": "ReflectionObject",
+            "summary": "Reflection\u0020for\u0020private\/protected\u0020members",
+            "url": "classes/Utility-Reflection-ReflectionObject.html"
+        },                {
+            "fqsen": "\\Utility\\Reflection\\ReflectionObject\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Utility-Reflection-ReflectionObject.html#method___construct"
+        },                {
+            "fqsen": "\\Utility\\Reflection\\ReflectionObject\u003A\u003AgetPropReflection\u0028\u0029",
+            "name": "getPropReflection",
+            "summary": "",
+            "url": "classes/Utility-Reflection-ReflectionObject.html#method_getPropReflection"
+        },                {
+            "fqsen": "\\Utility\\Reflection\\ReflectionObject\u003A\u003AgetProp\u0028\u0029",
+            "name": "getProp",
+            "summary": "",
+            "url": "classes/Utility-Reflection-ReflectionObject.html#method_getProp"
+        },                {
+            "fqsen": "\\Utility\\Reflection\\ReflectionObject\u003A\u003AsetProp\u0028\u0029",
+            "name": "setProp",
+            "summary": "",
+            "url": "classes/Utility-Reflection-ReflectionObject.html#method_setProp"
+        },                {
+            "fqsen": "\\Utility\\Reflection\\ReflectionObject\u003A\u003AexecuteMethod\u0028\u0029",
+            "name": "executeMethod",
+            "summary": "",
+            "url": "classes/Utility-Reflection-ReflectionObject.html#method_executeMethod"
+        },                {
+            "fqsen": "\\Utility\\Reflection\\ReflectionObject\u003A\u003A\u0024target",
+            "name": "target",
+            "summary": "",
+            "url": "classes/Utility-Reflection-ReflectionObject.html#property_target"
+        },                {
+            "fqsen": "\\Utility\\Reflection\\ReflectionObject\u003A\u003A\u0024reflection",
+            "name": "reflection",
+            "summary": "",
+            "url": "classes/Utility-Reflection-ReflectionObject.html#property_reflection"
+        },                {
+            "fqsen": "\\Utility\\Reflection\\ReflectionStatic",
+            "name": "ReflectionStatic",
+            "summary": "Reflection\u0020for\u0020private\/protected\u0020static\u0020members",
+            "url": "classes/Utility-Reflection-ReflectionStatic.html"
+        },                {
+            "fqsen": "\\Utility\\Reflection\\ReflectionStatic\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Utility-Reflection-ReflectionStatic.html#method___construct"
+        },                {
+            "fqsen": "\\Utility\\Reflection\\ReflectionStatic\u003A\u003AgetPropReflection\u0028\u0029",
+            "name": "getPropReflection",
+            "summary": "",
+            "url": "classes/Utility-Reflection-ReflectionStatic.html#method_getPropReflection"
+        },                {
+            "fqsen": "\\Utility\\Reflection\\ReflectionStatic\u003A\u003AgetProp\u0028\u0029",
+            "name": "getProp",
+            "summary": "",
+            "url": "classes/Utility-Reflection-ReflectionStatic.html#method_getProp"
+        },                {
+            "fqsen": "\\Utility\\Reflection\\ReflectionStatic\u003A\u003AsetProp\u0028\u0029",
+            "name": "setProp",
+            "summary": "",
+            "url": "classes/Utility-Reflection-ReflectionStatic.html#method_setProp"
+        },                {
+            "fqsen": "\\Utility\\Reflection\\ReflectionStatic\u003A\u003AexecuteMethod\u0028\u0029",
+            "name": "executeMethod",
+            "summary": "",
+            "url": "classes/Utility-Reflection-ReflectionStatic.html#method_executeMethod"
+        },                {
+            "fqsen": "\\Utility\\Reflection\\ReflectionStatic\u003A\u003A\u0024reflection",
+            "name": "reflection",
+            "summary": "",
+            "url": "classes/Utility-Reflection-ReflectionStatic.html#property_reflection"
+        },                {
+            "fqsen": "\\Utility\\Tests\\BaseTestCase",
+            "name": "BaseTestCase",
+            "summary": "",
+            "url": "classes/Utility-Tests-BaseTestCase.html"
+        },                {
+            "fqsen": "\\Utility\\Tests\\Traits\\Html",
+            "name": "Html",
+            "summary": "",
+            "url": "classes/Utility-Tests-Traits-Html.html"
+        },                {
+            "fqsen": "\\Utility\\Tests\\Traits\\Html\u003A\u003AassertHtml\u0028\u0029",
+            "name": "assertHtml",
+            "summary": "Is\u0020the\u0020output\u0020HTML\u003F",
+            "url": "classes/Utility-Tests-Traits-Html.html#method_assertHtml"
+        },                {
+            "fqsen": "\\Utility\\Tests\\Traits\\Html\u003A\u003AgetHtmlAttributes\u0028\u0029",
+            "name": "getHtmlAttributes",
+            "summary": "Get\u0020the\u0020attribute\u0020list\u0020of\u0020the\u0020HTML\u0020tag",
+            "url": "classes/Utility-Tests-Traits-Html.html#method_getHtmlAttributes"
+        },                {
+            "fqsen": "\\Utility\\Tests\\Traits\\Html\u003A\u003AgetEmptyTag\u0028\u0029",
+            "name": "getEmptyTag",
+            "summary": "Search\u0020for\u0020empty\u0020tag\u0020\u0028\u0020\u003Ctagname\u0020...\u0020\/\u003E\u0020\u0029",
+            "url": "classes/Utility-Tests-Traits-Html.html#method_getEmptyTag"
+        },                {
+            "fqsen": "\\Utility\\Tests\\Traits\\Html\u003A\u003AgetOpenTag\u0028\u0029",
+            "name": "getOpenTag",
+            "summary": "Search\u0020for\u0020normal\u0020tag\u0020\u0028\u0020\u003Ctagname\u0020...\u003E\u0020...\u0020\u003C\/tagname\u003E\u0020\u0029",
+            "url": "classes/Utility-Tests-Traits-Html.html#method_getOpenTag"
+        },                {
+            "fqsen": "\\Utility\\Tests\\Traits\\Html\u003A\u003AassertInput\u0028\u0029",
+            "name": "assertInput",
+            "summary": "Is\u0020\u003Cinput\u003E\u0020included\u0020correctly\u003F",
+            "url": "classes/Utility-Tests-Traits-Html.html#method_assertInput"
+        },                {
+            "fqsen": "\\Utility\\Tests\\Traits\\Html\u003A\u003AassertInputText\u0028\u0029",
+            "name": "assertInputText",
+            "summary": "Is\u0020\u003Cinput\u0020type\u003D\u0022text\u0022\u003E\u0020included\u0020correctly\u003F",
+            "url": "classes/Utility-Tests-Traits-Html.html#method_assertInputText"
+        },                {
+            "fqsen": "\\Utility\\Tests\\Traits\\Html\u003A\u003AassertTextarea\u0028\u0029",
+            "name": "assertTextarea",
+            "summary": "Is\u0020\u003Ctextarea\u003E\u0020included\u0020correctly\u003F",
+            "url": "classes/Utility-Tests-Traits-Html.html#method_assertTextarea"
+        },                {
+            "fqsen": "\\Utility\\Tests\\Traits\\Redirect",
+            "name": "Redirect",
+            "summary": "",
+            "url": "classes/Utility-Tests-Traits-Redirect.html"
+        },                {
+            "fqsen": "\\Utility\\Tests\\Traits\\Redirect\u003A\u003AassertRedirectUri\u0028\u0029",
+            "name": "assertRedirectUri",
+            "summary": "",
+            "url": "classes/Utility-Tests-Traits-Redirect.html#method_assertRedirectUri"
+        },                {
+            "fqsen": "\\Utility\\Tests\\Traits\\Redirect\u003A\u003AassertRedirectPath\u0028\u0029",
+            "name": "assertRedirectPath",
+            "summary": "",
+            "url": "classes/Utility-Tests-Traits-Redirect.html#method_assertRedirectPath"
+        },                {
+            "fqsen": "\\Utility\\Tests\\Traits\\Redirect\u003A\u003AassertRedirectName\u0028\u0029",
+            "name": "assertRedirectName",
+            "summary": "",
+            "url": "classes/Utility-Tests-Traits-Redirect.html#method_assertRedirectName"
         },                {
             "fqsen": "\\",
             "name": "\\",
@@ -3001,9 +3006,19 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/utility-performance.html"
         },                {
+            "fqsen": "\\Utility\\Reflection",
+            "name": "Reflection",
+            "summary": "",
+            "url": "namespaces/utility-reflection.html"
+        },                {
             "fqsen": "\\Utility\\Tests",
             "name": "Tests",
             "summary": "",
             "url": "namespaces/utility-tests.html"
+        },                {
+            "fqsen": "\\Utility\\Tests\\Traits",
+            "name": "Traits",
+            "summary": "",
+            "url": "namespaces/utility-tests-traits.html"
         }            ]
 );

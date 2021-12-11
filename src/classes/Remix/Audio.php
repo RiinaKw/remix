@@ -10,8 +10,10 @@ use Remix\Instruments\{
     Amp,
     DJ
 };
-use Exceptions\CoreException;
-use Exceptions\ErrorException;
+use Remix\Exceptions\{
+    CoreException,
+    ErrorException
+};
 
 /**
  * Remix Audio : application handler.
@@ -129,7 +131,7 @@ class Audio
 
     private function registerHandle(): void
     {
-        //set_error_handler([$this, 'errorHandle']);
+        set_error_handler([$this, 'errorHandle']);
         set_exception_handler([$this, 'exceptionHandle']);
         register_shutdown_function([$this, 'shutdownHandle']);
     }

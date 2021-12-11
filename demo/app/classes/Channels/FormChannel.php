@@ -2,6 +2,7 @@
 
 namespace RemixDemo\Channels;
 
+use Remix\Channel;
 use Remix\Sampler;
 use Remix\Studio;
 use Remix\Studio\Compressor;
@@ -14,7 +15,7 @@ use RemixDemo\Synthesizers\FormSynthesizer as Synthesizer;
  *
  * @package  Demo\Channels
  */
-class FormChannel extends \Remix\Channel
+class FormChannel extends Channel
 {
     /**
      * Initialize input form.

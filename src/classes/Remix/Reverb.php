@@ -166,12 +166,13 @@ class Reverb extends Gear
 
         // Title mapping for each exception class
         $map = [
-            'RemixException' => 'RemixException must not exist!',
-            'HttpException' => 'HttpException should have already been caught ...?',
-            'CoreException' => 'Remix Core Error',
-            'AppException' => 'App Config Error',
-            'DJException' => 'DJ Connection Error',
+            'RemixException' => 'RemixException must not exist !!',
+            'HttpException'  => 'HttpException should have already been caught ...?',
+            'CoreException'  => 'Remix Core Error, Don\'t look at me !!',
+            'AppException'   => 'App Config Error',
+            'DJException'    => 'DJ Connection Error',
             'ErrorException' => 'PHP Error',
+            'Error'          => 'PHP Syntax Error',
         ];
 
         // Determine the title to use from the class name

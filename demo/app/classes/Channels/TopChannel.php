@@ -2,6 +2,7 @@
 
 namespace RemixDemo\Channels;
 
+use Remix\Channel;
 use Remix\Sampler;
 use Remix\Studio;
 use Remix\Studio\Compressor;
@@ -11,7 +12,7 @@ use Remix\Studio\Compressor;
  *
  * @package  Demo\Channels
  */
-class TopChannel extends \Remix\Channel
+class TopChannel extends Channel
 {
     /**
      * Simply return a string.
@@ -30,7 +31,6 @@ class TopChannel extends \Remix\Channel
      */
     public function vader(Sampler $sampler): Studio
     {
-        //throw new \Remix\Exceptions\HttpException('Test', 400);
         $bounce = new Compressor('vader');
         $bounce->name = $sampler->params('name', 'Luke');
         $bounce->type = $sampler->get('type', 'father');

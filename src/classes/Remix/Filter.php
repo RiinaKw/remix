@@ -3,7 +3,7 @@
 namespace Remix;
 
 /**
- * Remix Filter : definition of a input item from the POST form
+ * Remix Filter : definition of a input item from the POST form.
  *
  * @package  Remix\Web\Form
  * @see \Remix\Synthesizer
@@ -13,29 +13,38 @@ namespace Remix;
 class Filter extends Gear
 {
     /**
-     * Key of item
+     * Key of the input field.
      * @var string
      */
     protected $key = '';
 
     /**
-     * Label of item
+     * Label of the input field.
      * @var string
      */
     protected $label = '';
 
     /**
-     * Input oscillators
+     * Oscillators of the input field.
      * @var array<int, \Remix\Oscillator>
      */
     protected $oscillators = [];
 
+    /**
+     * Predefined oscillator class names.
+     * @var array<string, string>
+     */
     protected const OSCILLATORS = [
         'required' => \Remix\Oscillators\Required::class,
         'max' => \Remix\Oscillators\Max::class,
         'email' => \Remix\Oscillators\Email::class,
     ];
 
+    /**
+     * Set the name and label of the input field.
+     * @param string $key    Key of the input field
+     * @param string $label  Label of the input field
+     */
     private function __construct(string $key, string $label)
     {
         parent::__construct($key);
@@ -46,11 +55,10 @@ class Filter extends Gear
     // function __construct()
 
     /**
-     * Define a field
-     *
-     * @param  string      $key    Key of item
-     * @param  string|null $label  Label of item
-     * @return self                Instance which was constructed
+     * Define a field.
+     * @param  string      $key    Key of the input field
+     * @param  string|null $label  Label of the input field
+     * @return self                Constructed instance
      */
     public static function define(string $key, string $label = null): self
     {
@@ -58,23 +66,25 @@ class Filter extends Gear
     }
 
     /**
-     * Append oscillators
+     * Append oscillators.
      *
-     * Multiple oscillators can be made by connecting with '|'
-     *
-     * @param  string|\Remix\Oscillator|array<int, \Remix\Oscillator> $obj  oscillator definition, or oscillator object
-     * @return self  instance of itself
+     * @param  \Remix\Oscillator|string|array<int, \Remix\Oscillator> $def
+     *               Oscillator definition, allow the following :
+     *                   * Oscillator instance
+     *                   * string of Oscillator name
+     *                   * array of Oscillator
+     * @return self  Instance of itself
      */
-    public function rules($obj): self
+    public function rules($def): self
     {
-        if (is_string($obj)) {
-            foreach (explode('|', $obj) as $rule) {
+        if (is_string($def)) {
+            foreach (explode('|', $def) as $rule) {
                 $this->oscillators[] = $this->oscillateFromString($rule);
             }
-        } elseif ($obj instanceof Oscillator) {
-            $this->oscillators[] = $obj;
-        } elseif (is_array($obj)) {
-            foreach ($obj as $rule) {
+        } elseif ($def instanceof Oscillator) {
+            $this->oscillators[] = $def;
+        } elseif (is_array($def)) {
+            foreach ($def as $rule) {
                 $this->rules($rule);
             }
         }
@@ -82,9 +92,9 @@ class Filter extends Gear
     }
 
     /**
-     * Append a oscillator from string
-     * @param  string $expression  oscillator definition
-     * @return Oscillator          generated Oscillator instance
+     * Append a oscillator from string.
+     * @param  string $expression  Oscillator definition, includes optional parameters
+     * @return Oscillator          Generated Oscillator instance
      */
     protected function oscillateFromString(string $expression): Oscillator
     {
@@ -102,8 +112,7 @@ class Filter extends Gear
     }
 
     /**
-     * Key of the item
-     *
+     * Key of the item.
      * @return string  key
      */
     public function key(): string
@@ -112,8 +121,7 @@ class Filter extends Gear
     }
 
     /**
-     * Label of the item
-     *
+     * Label of the item.
      * @return string  label
      */
     public function label(): string
@@ -122,8 +130,7 @@ class Filter extends Gear
     }
 
     /**
-     * Run all oscillators
-     *
+     * Run all oscillators.
      * @param  string $value  input value
      * @return string         error message or empty string
      */

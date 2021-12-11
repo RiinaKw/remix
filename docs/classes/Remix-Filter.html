@@ -159,7 +159,7 @@
     <span class="phpdocumentor-element-found-in__line">13</span>
 </aside>
 
-            <p class="phpdocumentor-summary">Remix Filter : definition of a input item from the POST form</p>
+            <p class="phpdocumentor-summary">Remix Filter : definition of a input item from the POST form.</p>
 
     <section class="phpdocumentor-description"></section>
 
@@ -214,28 +214,28 @@
     <span>
         &nbsp;= [&#039;required&#039; =&gt; RemixOscillatorsRequired::class, &#039;max&#039; =&gt; RemixOscillatorsMax::class, &#039;email&#039; =&gt; RemixOscillatorsEmail::class]                    </span>
 </dt>
-<dd></dd>
+<dd>Predefined oscillator class names.</dd>
 
                 <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/Remix-Filter.html#property_key">$key</a>
     <span>
                 &nbsp;: string            </span>
 </dt>
-<dd>Key of item</dd>
+<dd>Key of the input field.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/Remix-Filter.html#property_label">$label</a>
     <span>
                 &nbsp;: string            </span>
 </dt>
-<dd>Label of item</dd>
+<dd>Label of the input field.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/Remix-Filter.html#property_oscillators">$oscillators</a>
     <span>
                 &nbsp;: array&lt;int, <a href="classes/Remix-Oscillator.html"><abbr title="\Remix\Oscillator">Oscillator</abbr></a>&gt;            </span>
 </dt>
-<dd>Input oscillators</dd>
+<dd>Oscillators of the input field.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/Remix-Gear.html#property_log_param">$log_param</a>
@@ -256,49 +256,49 @@
     <span>
                         &nbsp;: self    </span>
 </dt>
-<dd>Define a field</dd>
+<dd>Define a field.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-Filter.html#method_key">key()</a>
     <span>
                         &nbsp;: string    </span>
 </dt>
-<dd>Key of the item</dd>
+<dd>Key of the item.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-Filter.html#method_label">label()</a>
     <span>
                         &nbsp;: string    </span>
 </dt>
-<dd>Label of the item</dd>
+<dd>Label of the item.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-Filter.html#method_rules">rules()</a>
     <span>
                         &nbsp;: self    </span>
 </dt>
-<dd>Append oscillators</dd>
+<dd>Append oscillators.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-Filter.html#method_run">run()</a>
     <span>
                         &nbsp;: string    </span>
 </dt>
-<dd>Run all oscillators</dd>
+<dd>Run all oscillators.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/Remix-Filter.html#method_oscillateFromString">oscillateFromString()</a>
     <span>
                         &nbsp;: <a href="classes/Remix-Oscillator.html"><abbr title="\Remix\Oscillator">Oscillator</abbr></a>    </span>
 </dt>
-<dd>Append a oscillator from string</dd>
+<dd>Append a oscillator from string.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/Remix-Filter.html#method___construct">__construct()</a>
     <span>
                         &nbsp;: self    </span>
 </dt>
-<dd>Let Delay know that an instance has been constructed.</dd>
+<dd>Set the name and label of the input field.</dd>
 
         </dl>
 
@@ -319,19 +319,21 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Filter.php"><a href="files/src-classes-remix-filter.html"><abbr title="src/classes/Remix/Filter.php">Filter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">33</span>
+    <span class="phpdocumentor-element-found-in__line">37</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Predefined oscillator class names.</p>
+
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__type">array&lt;string, string&gt;</span>
     <span class="phpdocumentor-signature__name">OSCILLATORS</span>
     = <span class="phpdocumentor-signature__default-value">[&#039;required&#039; =&gt; RemixOscillatorsRequired::class, &#039;max&#039; =&gt; RemixOscillatorsMax::class, &#039;email&#039; =&gt; RemixOscillatorsEmail::class]</span>
 </code>
 
 
-    
+        <section class="phpdocumentor-description"></section>
+
     
 
 </article>
@@ -362,7 +364,7 @@
     <span class="phpdocumentor-element-found-in__line">19</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Key of item</p>
+        <p class="phpdocumentor-summary">Key of the input field.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -394,7 +396,7 @@
     <span class="phpdocumentor-element-found-in__line">25</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Label of item</p>
+        <p class="phpdocumentor-summary">Label of the input field.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -426,7 +428,7 @@
     <span class="phpdocumentor-element-found-in__line">31</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Input oscillators</p>
+        <p class="phpdocumentor-summary">Oscillators of the input field.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -525,10 +527,10 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Filter.php"><a href="files/src-classes-remix-filter.html"><abbr title="src/classes/Remix/Filter.php">Filter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">55</span>
+    <span class="phpdocumentor-element-found-in__line">63</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Define a field</p>
+        <p class="phpdocumentor-summary">Define a field.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -543,7 +545,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Key of item</p>
+                    <section class="phpdocumentor-description"><p>Key of the input field</p>
 </section>
 
             </dd>
@@ -552,7 +554,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Label of item</p>
+                    <section class="phpdocumentor-description"><p>Label of the input field</p>
 </section>
 
             </dd>
@@ -563,7 +565,7 @@
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">self</span>
             &mdash;
-            <section class="phpdocumentor-description"><p>Instance which was constructed</p>
+            <section class="phpdocumentor-description"><p>Constructed instance</p>
 </section>
 
     
@@ -581,10 +583,10 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Filter.php"><a href="files/src-classes-remix-filter.html"><abbr title="src/classes/Remix/Filter.php">Filter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">109</span>
+    <span class="phpdocumentor-element-found-in__line">118</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Key of the item</p>
+        <p class="phpdocumentor-summary">Key of the item.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -616,10 +618,10 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Filter.php"><a href="files/src-classes-remix-filter.html"><abbr title="src/classes/Remix/Filter.php">Filter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">119</span>
+    <span class="phpdocumentor-element-found-in__line">127</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Label of the item</p>
+        <p class="phpdocumentor-summary">Label of the item.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -651,26 +653,30 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Filter.php"><a href="files/src-classes-remix-filter.html"><abbr title="src/classes/Remix/Filter.php">Filter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">68</span>
+    <span class="phpdocumentor-element-found-in__line">78</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Append oscillators</p>
+        <p class="phpdocumentor-summary">Append oscillators.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">rules</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|<a href="classes/Remix-Oscillator.html"><abbr title="\Remix\Oscillator">Oscillator</abbr></a>|array&lt;int, <a href="classes/Remix-Oscillator.html"><abbr title="\Remix\Oscillator">Oscillator</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$obj</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">self</span></code>
+                <span class="phpdocumentor-signature__name">rules</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-Oscillator.html"><abbr title="\Remix\Oscillator">Oscillator</abbr></a>|string|array&lt;int, <a href="classes/Remix-Oscillator.html"><abbr title="\Remix\Oscillator">Oscillator</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$def</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">self</span></code>
 
-        <section class="phpdocumentor-description"><p>Multiple oscillators can be made by connecting with '|'</p>
-</section>
+        <section class="phpdocumentor-description"></section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$obj</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string|<a href="classes/Remix-Oscillator.html"><abbr title="\Remix\Oscillator">Oscillator</abbr></a>|array&lt;int, <a href="classes/Remix-Oscillator.html"><abbr title="\Remix\Oscillator">Oscillator</abbr></a>&gt;</span>
+                <span class="phpdocumentor-signature__argument__name">$def</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-Oscillator.html"><abbr title="\Remix\Oscillator">Oscillator</abbr></a>|string|array&lt;int, <a href="classes/Remix-Oscillator.html"><abbr title="\Remix\Oscillator">Oscillator</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>oscillator definition, or oscillator object</p>
+                    <section class="phpdocumentor-description"><p>Oscillator definition, allow the following :</p>
+<ul>
+<li>Oscillator instance</li>
+<li>string of Oscillator name</li>
+<li>array of Oscillator</li>
+</ul>
 </section>
 
             </dd>
@@ -681,7 +687,7 @@
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">self</span>
             &mdash;
-            <section class="phpdocumentor-description"><p>instance of itself</p>
+            <section class="phpdocumentor-description"><p>Instance of itself</p>
 </section>
 
     
@@ -699,10 +705,10 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Filter.php"><a href="files/src-classes-remix-filter.html"><abbr title="src/classes/Remix/Filter.php">Filter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">130</span>
+    <span class="phpdocumentor-element-found-in__line">137</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Run all oscillators</p>
+        <p class="phpdocumentor-summary">Run all oscillators.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -746,10 +752,10 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Filter.php"><a href="files/src-classes-remix-filter.html"><abbr title="src/classes/Remix/Filter.php">Filter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">89</span>
+    <span class="phpdocumentor-element-found-in__line">99</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Append a oscillator from string</p>
+        <p class="phpdocumentor-summary">Append a oscillator from string.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -764,7 +770,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>oscillator definition</p>
+                    <section class="phpdocumentor-description"><p>Oscillator definition, includes optional parameters</p>
 </section>
 
             </dd>
@@ -775,7 +781,7 @@
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type"><a href="classes/Remix-Oscillator.html"><abbr title="\Remix\Oscillator">Oscillator</abbr></a></span>
             &mdash;
-            <section class="phpdocumentor-description"><p>generated Oscillator instance</p>
+            <section class="phpdocumentor-description"><p>Generated Oscillator instance</p>
 </section>
 
     
@@ -793,10 +799,10 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Filter.php"><a href="files/src-classes-remix-filter.html"><abbr title="src/classes/Remix/Filter.php">Filter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">39</span>
+    <span class="phpdocumentor-element-found-in__line">48</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Let Delay know that an instance has been constructed.</p>
+        <p class="phpdocumentor-summary">Set the name and label of the input field.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
@@ -811,14 +817,18 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Key of the input field</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$label</span>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Label of the input field</p>
+</section>
+
             </dd>
             </dl>
 

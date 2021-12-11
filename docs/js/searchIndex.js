@@ -1578,52 +1578,52 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Filter",
             "name": "Filter",
-            "summary": "Remix\u0020Filter\u0020\u003A\u0020definition\u0020of\u0020a\u0020input\u0020item\u0020from\u0020the\u0020POST\u0020form",
+            "summary": "Remix\u0020Filter\u0020\u003A\u0020definition\u0020of\u0020a\u0020input\u0020item\u0020from\u0020the\u0020POST\u0020form.",
             "url": "classes/Remix-Filter.html"
         },                {
             "fqsen": "\\Remix\\Filter\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020constructed.",
+            "summary": "Set\u0020the\u0020name\u0020and\u0020label\u0020of\u0020the\u0020input\u0020field.",
             "url": "classes/Remix-Filter.html#method___construct"
         },                {
             "fqsen": "\\Remix\\Filter\u003A\u003Adefine\u0028\u0029",
             "name": "define",
-            "summary": "Define\u0020a\u0020field",
+            "summary": "Define\u0020a\u0020field.",
             "url": "classes/Remix-Filter.html#method_define"
         },                {
             "fqsen": "\\Remix\\Filter\u003A\u003Arules\u0028\u0029",
             "name": "rules",
-            "summary": "Append\u0020oscillators",
+            "summary": "Append\u0020oscillators.",
             "url": "classes/Remix-Filter.html#method_rules"
         },                {
             "fqsen": "\\Remix\\Filter\u003A\u003AoscillateFromString\u0028\u0029",
             "name": "oscillateFromString",
-            "summary": "Append\u0020a\u0020oscillator\u0020from\u0020string",
+            "summary": "Append\u0020a\u0020oscillator\u0020from\u0020string.",
             "url": "classes/Remix-Filter.html#method_oscillateFromString"
         },                {
             "fqsen": "\\Remix\\Filter\u003A\u003A\u0024key",
             "name": "key",
-            "summary": "Key\u0020of\u0020item",
+            "summary": "Key\u0020of\u0020the\u0020input\u0020field.",
             "url": "classes/Remix-Filter.html#property_key"
         },                {
             "fqsen": "\\Remix\\Filter\u003A\u003A\u0024label",
             "name": "label",
-            "summary": "Label\u0020of\u0020item",
+            "summary": "Label\u0020of\u0020the\u0020input\u0020field.",
             "url": "classes/Remix-Filter.html#property_label"
         },                {
             "fqsen": "\\Remix\\Filter\u003A\u003Arun\u0028\u0029",
             "name": "run",
-            "summary": "Run\u0020all\u0020oscillators",
+            "summary": "Run\u0020all\u0020oscillators.",
             "url": "classes/Remix-Filter.html#method_run"
         },                {
             "fqsen": "\\Remix\\Filter\u003A\u003AOSCILLATORS",
             "name": "OSCILLATORS",
-            "summary": "",
+            "summary": "Predefined\u0020oscillator\u0020class\u0020names.",
             "url": "classes/Remix-Filter.html#constant_OSCILLATORS"
         },                {
             "fqsen": "\\Remix\\Filter\u003A\u003A\u0024oscillators",
             "name": "oscillators",
-            "summary": "Input\u0020oscillators",
+            "summary": "Oscillators\u0020of\u0020the\u0020input\u0020field.",
             "url": "classes/Remix-Filter.html#property_oscillators"
         },                {
             "fqsen": "\\Remix\\Synthesizer",

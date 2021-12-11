@@ -6,6 +6,7 @@ use Remix\Instrument;
 use Remix\Audio;
 use Remix\Track;
 use Remix\Fader;
+use Remix\Channel;
 use Remix\Sampler;
 use Remix\Studio;
 use Remix\Lyric;
@@ -108,36 +109,87 @@ class Mixer extends Instrument
     }
     // function route()
 
+    /**
+     * Execute a method of the Channel.
+     * Also call "before()" and "after()" methods if they exist.
+     *
+     * @param  Channel        $channel  Target channel
+     * @param  string         $method   Method name of channel
+     * @param  Sampler        $sampler  Input object
+     * @return string|Studio
+     *
+     * @todo Need to be non-static?
+     */
+    protected static function play(Channel $channel, string $method, Sampler $sampler)
+    {
+        if (! method_exists($channel, $method)) {
+            $class = get_class($channel);
+            throw new RemixException(
+                "Channel '{$class}' does not contain the method '{$method}'"
+            );
+        }
+
+        if (method_exists($channel, 'before')) {
+            $channel->before($sampler);
+        }
+
+        $result = $channel->$method($sampler);
+
+        if (method_exists($channel, 'after')) {
+            $result = $channel->after($sampler, $result);
+        }
+        return $result;
+    }
+    // function play()
+
+    protected static function toChannel(string $classname, string $method): Channel
+    {
+        // Find a class by Channel name
+        $namespace = Audio::getInstance()->preset->get('app.namespace');
+        $class = "\\{$namespace}\\Channels\\{$classname}";
+
+        if (! class_exists($class)) {
+            throw new RemixException("Unknwon channel '{$class}'");
+        }
+
+        // The argument is to propagate to Delay
+        return new $class($method);
+    }
+
     protected static function studio($action, Sampler $sampler)
     {
         if (is_object($action)) {
+            // In case of closure, return as it is
             return new Studio('closure', $action);
-        } else {
-            if (is_string($action) && strpos($action, '@')) {
-                list($class, $method) = explode('@', $action);
-
-
-                $namespace = Audio::getInstance()->preset->get('app.namespace');
-                $class = '\\' . $namespace . '\\Channels\\' . $class;
-
-                if (! class_exists($class)) {
-                    throw new RemixException('Unknwon channel "' . $class . '"');
-                }
-
-                $channel = new $class($method);
-            } elseif (is_callable($action)) {
-                list($channel, $method) = $action;
-            }
-            $result = $channel->play($method, $sampler);
-
-            if ($result instanceof Studio) {
-                return $result;
-            } else {
-                return new Studio('text', $result);
-            }
-            return $result;
         }
-        throw new RemixException(__METHOD__ . ' has some errors??');
+
+        if (is_string($action) && strpos($action, '@')) {
+            // Call the method of Channel if the string is separated by "@"
+            list($class, $method) = explode('@', $action);
+            $channel = static::toChannel($class, $method);
+        } elseif (is_array($action) && is_callable($action)) {
+            // When the method of the object is specified directly
+            list($channel, $method) = $action;
+
+            // Make sure it is not a static method
+            if (! $channel instanceof Channel) {
+                $class = Channel::class;
+                throw new RemixException(
+                    "The mixer definition must be an instance of the {$class}"
+                );
+            }
+        } else {
+            throw new RemixException("Unable to run mixer due to unknown action");
+        }
+
+        // execute the method of the Channel
+        $result = static::play($channel, $method, $sampler);
+
+        if ($result instanceof Studio) {
+            return $result;
+        } else {
+            return new Studio('text', $result);
+        }
     }
     // function studio()
 
@@ -151,7 +203,7 @@ class Mixer extends Instrument
     {
         $track = $this->named($name);
         if (! $track) {
-            throw new RemixException('track "' . $name . '" not found');
+            throw new RemixException("track '{$name}' not found");
         }
 
         $path = $track->path;

@@ -10,6 +10,8 @@ use Utility\Http\Session;
 use Utility\Http\Csrf;
 
 /**
+ * Test of FormChannel in the demo env.
+ * @package  Demo\TestCase\Channels
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  */
 class FormTest extends TestCase

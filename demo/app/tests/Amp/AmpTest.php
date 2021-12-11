@@ -4,6 +4,10 @@ namespace RemixDemo\Tests;
 
 use RemixDemo\TestCase\CliTestCase as TestCase;
 
+/**
+ * Test of Amp in the demo env.
+ * @package  Demo\TestCase\Amp
+ */
 class AmpTest extends TestCase
 {
     protected function setUp(): void

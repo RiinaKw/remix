@@ -6,6 +6,10 @@ use RemixDemo\TestCase\WebTestCase as TestCase;
 // Traits
 use Utility\Tests\Traits;
 
+/**
+ * Test of TopChannel in the demo env.
+ * @package  Demo\TestCase\Channels
+ */
 class TopTest extends TestCase
 {
     use Traits\Redirect;

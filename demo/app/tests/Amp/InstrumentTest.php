@@ -4,6 +4,10 @@ namespace RemixDemo\Tests;
 
 use RemixDemo\TestCase\CliTestCase as TestCase;
 
+/**
+ * Test of Effectors\Instrument in the demo env.
+ * @package  Demo\TestCase\Amp\Effectors
+ */
 class InstrumentTest extends TestCase
 {
     protected function setUp(): void

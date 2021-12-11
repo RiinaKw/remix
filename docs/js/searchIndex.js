@@ -3198,7 +3198,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\RemixDemo\\Tests\\AmpTest",
             "name": "AmpTest",
-            "summary": "PHPUnit\u0020TestCase\u0020base\u0020class\u0020for\u0020CLI\u0020\u0028Amp\u0029\u0020in\u0020demo\u0020environment.",
+            "summary": "Test\u0020of\u0020Amp\u0020in\u0020the\u0020demo\u0020env.",
             "url": "classes/RemixDemo-Tests-AmpTest.html"
         },                {
             "fqsen": "\\RemixDemo\\Tests\\AmpTest\u003A\u003AsetUp\u0028\u0029",
@@ -3213,7 +3213,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\RemixDemo\\Tests\\InstrumentTest",
             "name": "InstrumentTest",
-            "summary": "PHPUnit\u0020TestCase\u0020base\u0020class\u0020for\u0020CLI\u0020\u0028Amp\u0029\u0020in\u0020demo\u0020environment.",
+            "summary": "Test\u0020of\u0020Effectors\\Instrument\u0020in\u0020the\u0020demo\u0020env.",
             "url": "classes/RemixDemo-Tests-InstrumentTest.html"
         },                {
             "fqsen": "\\RemixDemo\\Tests\\InstrumentTest\u003A\u003AsetUp\u0028\u0029",
@@ -3253,7 +3253,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\RemixDemo\\Tests\\FormTest",
             "name": "FormTest",
-            "summary": "PHPUnit\u0020TestCase\u0020base\u0020class\u0020for\u0020web\u0020\u0028DAW\u0029\u0020in\u0020demo\u0020environment.",
+            "summary": "Test\u0020of\u0020FormChannel\u0020in\u0020the\u0020demo\u0020env.",
             "url": "classes/RemixDemo-Tests-FormTest.html"
         },                {
             "fqsen": "\\RemixDemo\\Tests\\FormTest\u003A\u003AsetUp\u0028\u0029",
@@ -3333,7 +3333,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\RemixDemo\\Tests\\TopTest",
             "name": "TopTest",
-            "summary": "PHPUnit\u0020TestCase\u0020base\u0020class\u0020for\u0020web\u0020\u0028DAW\u0029\u0020in\u0020demo\u0020environment.",
+            "summary": "Test\u0020of\u0020TopChannel\u0020in\u0020the\u0020demo\u0020env.",
             "url": "classes/RemixDemo-Tests-TopTest.html"
         },                {
             "fqsen": "\\RemixDemo\\Tests\\TopTest\u003A\u003AsetUp\u0028\u0029",

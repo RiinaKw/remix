@@ -1,6 +1,6 @@
 <?php
 
-namespace Utility\Tests\Traits;
+namespace RemixDemo\TestCase\Traits;
 
 /**
  * PHPUnit TestCase trait for HTML operations.

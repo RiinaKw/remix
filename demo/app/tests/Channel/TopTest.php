@@ -4,7 +4,7 @@ namespace RemixDemo\Tests;
 
 use RemixDemo\TestCase\WebTestCase as TestCase;
 // Traits
-use Utility\Tests\Traits;
+use RemixDemo\TestCase\Traits;
 
 /**
  * Test of TopChannel in the demo env.

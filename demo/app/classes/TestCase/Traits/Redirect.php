@@ -1,6 +1,6 @@
 <?php
 
-namespace Utility\Tests\Traits;
+namespace RemixDemo\TestCase\Traits;
 
 use Remix\Studio;
 use Remix\Lyric;
@@ -12,12 +12,12 @@ use Remix\Lyric;
 trait Redirect
 {
     /**
-     * @property Studio $studio
+     * @property Studio $remixStudio
      */
 
     protected function assertRedirectUri(string $uri): void
     {
-        $this->assertSame($uri, $this->studio->getRedirectUri());
+        $this->assertSame($uri, $this->remixStudio->getRedirectUri());
     }
 
     protected function assertRedirectPath(string $path): void

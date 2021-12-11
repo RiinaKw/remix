@@ -19,7 +19,6 @@ class HttpException extends \Remix\RemixException
 
     /**
      * constructor
-     *
      * @param string $message     Message of Exception
      * @param int    $status_code  HTTP status code
      */
@@ -32,7 +31,6 @@ class HttpException extends \Remix\RemixException
 
     /**
      * Get HTTP status code.
-     *
      * @return int  HTTP status code
      */
     public function getStatusCode(): int

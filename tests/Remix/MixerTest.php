@@ -8,7 +8,10 @@ use Remix\Instruments\Mixer;
 // Remix core
 use Remix\Track;
 use Remix\Studio;
-use Remix\Exceptions\HttpException;
+use Remix\Exceptions\Http\{
+    HttpNotFoundException,
+    HttpMethodNotAllowedException
+};
 // Utility
 use Utility\Http\Session;
 
@@ -55,7 +58,7 @@ class MixerTest extends TestCase
      */
     public function test404(): void
     {
-        $this->expectException(HttpException::class);
+        $this->expectException(HttpNotFoundException::class);
         $this->expectExceptionMessage('did not match any route, given /unknwon');
 
         // will throw exception when unknown route?
@@ -68,7 +71,7 @@ class MixerTest extends TestCase
      */
     public function test405(): void
     {
-        $this->expectException(HttpException::class);
+        $this->expectException(HttpMethodNotAllowedException::class);
         $this->expectExceptionMessage('method POST not allowed, given POST /cb');
 
         // will throw exception when invalid method?

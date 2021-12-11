@@ -2,12 +2,15 @@
 
 namespace Remix;
 
+// Remix core
 use Remix\Instruments\Preset;
+// Exceptions
+use Remix\RemixException;
+// Utilities
 use Utility\Hash;
 use Utility\Arr;
 use Utility\Http\MimeType;
 use Utility\Http\StatusCode;
-use Remix\Exceptions\HttpException;
 
 /**
  * Remix Studio : web response manager.

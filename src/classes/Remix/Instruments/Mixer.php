@@ -13,7 +13,10 @@ use Remix\Studio;
 use Remix\Lyric;
 // Exceptions
 use Remix\RemixException;
-use Remix\Exceptions\HttpException;
+use Remix\Exceptions\Http\{
+    HttpNotFoundException,
+    HttpMethodNotAllowedException
+};
 // Utilities
 use Utility\Arr;
 use Utility\Http\StatusCode;
@@ -95,7 +98,7 @@ class Mixer extends Instrument
                     $track = $tracks[$method];
                 } else {
                     $message = 'method ' . $method . ' not allowed, given ' . $method . ' ' . $path;
-                    throw new HttpException($message, StatusCode::METHOD_NOT_ALLOWED);
+                    throw new HttpMethodNotAllowedException($message);
                 }
 
                 // setup Studio
@@ -109,7 +112,7 @@ class Mixer extends Instrument
             }
         }
         $message = 'it did not match any route, given ' . $path;
-        throw new HttpException($message, StatusCode::NOT_FOUND);
+        throw new HttpNotFoundException($message);
     }
     // function route()
 

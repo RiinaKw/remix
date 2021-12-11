@@ -3,11 +3,12 @@
 namespace Remix;
 
 /**
- * Exception class of Remix
+ * Exception base class of Remix.
+ * It can only be used with subclasses.
  *
  * @package  Remix\Base
  */
-class RemixException extends \RuntimeException
+abstract class RemixException extends \RuntimeException
 {
     public function create(string $message, array $trace): self
     {

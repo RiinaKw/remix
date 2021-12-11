@@ -13,7 +13,7 @@ use Remix\DJ\BPM\Select;
 use Utility\Arr;
 // Exceptions
 use Exception;
-use Remix\RemixException;
+use Remix\Exceptions\AppException;
 use Remix\Exceptions\DJException;
 
 /**
@@ -68,7 +68,7 @@ class Table extends Gear
 
             default:
                 $message = "Unknown property '{$key}'";
-                throw new RemixException($message);
+                throw new AppException($message);
         }
     }
     // function __get()

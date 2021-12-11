@@ -3,6 +3,8 @@
 namespace Remix;
 
 use Remix\Instruments\Amp;
+// Exceptions
+use Remix\Exceptions\AppException;
 
 /**
  * Remix Effector : command line controller
@@ -179,10 +181,10 @@ abstract class Effector extends Gear
         $right = '';
 
         if ($text_color && ! isset(self::TEXT_COLORS[$text_color])) {
-            throw new RemixException("unknown color : '{$text_color}'");
+            throw new AppException("unknown color : '{$text_color}'");
         }
         if ($background_color && ! isset(self::BACKGROUND_COLORS[$background_color])) {
-            throw new RemixException("unknown color : '{$background_color}'");
+            throw new AppException("unknown color : '{$background_color}'");
         }
 
         $left = "\033[" . self::TEXT_COLORS[$text_color] . "m";

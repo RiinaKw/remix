@@ -2,8 +2,11 @@
 
 namespace Remix\Studio;
 
+// Remix core
 use Remix\Instruments\Preset;
-use Remix\RemixException;
+// Exceptions
+use Remix\Exceptions\AppException;
+// Utilities
 use Utility\Capture;
 
 /**
@@ -64,7 +67,7 @@ trait RecordableWithTemplate
             }
         }
         if (! $path) {
-            throw new RemixException('bounce "' . $this->file . '" not found');
+            throw new AppException('bounce "' . $this->file . '" not found');
         }
 
         return Capture::capture(function () use ($path) {

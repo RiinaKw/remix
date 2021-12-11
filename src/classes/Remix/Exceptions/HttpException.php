@@ -2,6 +2,7 @@
 
 namespace Remix\Exceptions;
 
+use Remix\RemixException;
 use Utility\Http\StatusCode;
 
 /**
@@ -9,7 +10,7 @@ use Utility\Http\StatusCode;
  *
  * @package  Remix\Exceptions
  */
-class HttpException extends \Remix\RemixException
+class HttpException extends RemixException
 {
     /**
      * HTTP status code

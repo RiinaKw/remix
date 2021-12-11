@@ -5,7 +5,7 @@ namespace Remix;
 // Remix core
 use Remix\Instruments\Preset;
 // Exceptions
-use Remix\RemixException;
+use Remix\Exceptions\AppException;
 // Utilities
 use Utility\Hash;
 use Utility\Arr;
@@ -202,7 +202,7 @@ class Studio extends Gear
 
             if (! is_string($result)) {
                 // ill-behaved closure : it did not return a string
-                throw new RemixException("{$this->property->type} must return string");
+                throw new AppException("{$this->property->type} must return string");
             }
             return $result;
         } else {

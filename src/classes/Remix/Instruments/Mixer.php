@@ -12,7 +12,7 @@ use Remix\Sampler;
 use Remix\Studio;
 use Remix\Lyric;
 // Exceptions
-use Remix\RemixException;
+use Remix\Exceptions\CoreException;
 use Remix\Exceptions\Http\{
     HttpNotFoundException,
     HttpMethodNotAllowedException
@@ -47,7 +47,7 @@ class Mixer extends Instrument
             if ($name) {
                 if (isset($this->named[$name])) {
                     $message = 'Tracks cannot have the same named Track "' . $name . '"';
-                    throw new RemixException($message);
+                    throw new AppException($message);
                 }
                 $this->named[$name] = $track;
             }
@@ -131,7 +131,7 @@ class Mixer extends Instrument
     {
         if (! method_exists($channel, $method)) {
             $class = get_class($channel);
-            throw new RemixException(
+            throw new AppException(
                 "Channel '{$class}' does not contain the method '{$method}'"
             );
         }
@@ -156,7 +156,7 @@ class Mixer extends Instrument
         $class = "\\{$namespace}\\Channels\\{$classname}";
 
         if (! class_exists($class)) {
-            throw new RemixException("Unknwon channel '{$class}'");
+            throw new AppException("Unknwon channel '{$class}'");
         }
 
         // The argument is to propagate to Delay
@@ -181,12 +181,12 @@ class Mixer extends Instrument
             // Make sure it is not a static method
             if (! $channel instanceof Channel) {
                 $class = Channel::class;
-                throw new RemixException(
+                throw new AppException(
                     "The mixer definition must be an instance of the {$class}"
                 );
             }
         } else {
-            throw new RemixException("Unable to run mixer due to unknown action");
+            throw new AppException("Unable to run mixer due to unknown action");
         }
 
         // execute the method of the Channel
@@ -210,7 +210,7 @@ class Mixer extends Instrument
     {
         $track = $this->named($name);
         if (! $track) {
-            throw new RemixException("track '{$name}' not found");
+            throw new CoreException("track '{$name}' not found");
         }
 
         $path = $track->path;

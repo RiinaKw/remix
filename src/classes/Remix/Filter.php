@@ -2,6 +2,8 @@
 
 namespace Remix;
 
+use Remix\Exceptions\AppException;
+
 /**
  * Remix Filter : definition of a input item from the POST form.
  *
@@ -105,7 +107,7 @@ class Filter extends Gear
             $option = null;
         }
         if (! isset(static::OSCILLATORS[$name])) {
-            throw new RemixException("unknown rule '{$name}'");
+            throw new AppException("unknown rule '{$name}'");
         }
         $class = static::OSCILLATORS[$name];
         return new $class($option);

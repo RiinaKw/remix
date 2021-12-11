@@ -2,6 +2,7 @@
 
 namespace Remix\Effectors;
 
+// Remix core
 use Remix\Audio;
 use Remix\Effector;
 use Remix\Instruments\DJ;
@@ -10,7 +11,8 @@ use Remix\DJ\Table;
 use Remix\DJ\Column;
 use Remix\Vinyl\Livehouse as Vinyl;
 use Remix\DJ\Livehouse as DJLivehouse;
-use Remix\RemixException;
+// Exceptions
+use Remix\Exceptions\AppException;
 
 /**
  * Remix Livehouse Effector : migration manager
@@ -70,7 +72,7 @@ final class Livehouse extends Effector
                 $class = $matches[2] ?? null;
                 if (! $class) {
                     $message = "Unexpected file in Livehouse, given '{$name}'";
-                    throw new RemixException($message);
+                    throw new AppException($message);
                 }
 
                 // Load livehouse
@@ -81,7 +83,7 @@ final class Livehouse extends Effector
                     // Does it contain the correct class?
                     if (! class_exists($class_ns)) {
                         $message = "The file '{$name}' doees not contain class '{$class_ns}'";
-                        throw new RemixException($message);
+                        throw new AppException($message);
                     }
                 }
 

@@ -2,11 +2,13 @@
 
 namespace Remix\Instruments;
 
+// Remix core
 use Remix\Instrument;
 use Remix\Audio;
 use Remix\Reverb;
 use Remix\Delay;
-use Remix\RemixException;
+// Exceptions
+use Remix\Exceptions\AppException;
 
 /**
  * Remix DAW : entry point
@@ -57,7 +59,7 @@ class DAW extends Instrument
 
         $env_path = $this->appDir('env.php');
         if (! $env_path) {
-            throw new RemixException('app requires env.php');
+            throw new AppException('app requires env.php');
         }
         $env = require($env_path);
         $env = ($env && $env !== 1) ? $env : 'production';

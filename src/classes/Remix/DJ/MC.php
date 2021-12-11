@@ -8,7 +8,7 @@ use Remix\Instruments\DJ;
 // Utilities
 use Utility\Arr;
 // Exceptions
-use Remix\RemixException;
+use Remix\Exceptions\CoreException;
 use Remix\Exceptions\DJException;
 
 /**
@@ -21,11 +21,11 @@ class MC extends Gear
 {
     /**
      * Don't create an instance
-     * @throws RemixException  This class should be used statically
+     * @throws CoreException  This class should be used statically
      */
     private function __construct()
     {
-        throw new RemixException(__CLASS__ . ' should be used statically');
+        throw new CoreException(__CLASS__ . ' should be used statically');
     }
 
     /**

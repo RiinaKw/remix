@@ -2863,7 +2863,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Utility\\Tests\\BaseTestCase",
             "name": "BaseTestCase",
-            "summary": "",
+            "summary": "PHPUnit\u0020TestCase\u0020base\u0020class",
             "url": "classes/Utility-Tests-BaseTestCase.html"
         },                {
             "fqsen": "\\Utility\\Tests\\Traits\\Html",

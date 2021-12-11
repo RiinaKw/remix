@@ -2,6 +2,11 @@
 
 namespace Remix\Demo\TestCase;
 
+/**
+ * PHPUnit TestCase base class for CLI (Amp) in demo environment
+ *
+ * @package  TestCase
+ */
 abstract class CliTestCase extends DemoTestCase
 {
     protected function initialize(string $app_dir)

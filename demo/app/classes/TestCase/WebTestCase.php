@@ -10,6 +10,11 @@ use Utility\Reflection\ReflectionObject;
 // Exception
 use Remix\Exceptions\HttpException;
 
+/**
+ * PHPUnit TestCase base class for web (DAW) in demo environment
+ *
+ * @package  TestCase
+ */
 abstract class WebTestCase extends DemoTestCase
 {
     protected $studio = null;

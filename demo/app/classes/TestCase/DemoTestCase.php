@@ -5,6 +5,11 @@ namespace Remix\Demo\TestCase;
 use Utility\Tests\BaseTestCase;
 use Remix\Audio;
 
+/**
+ * PHPUnit TestCase base class for demo environment
+ *
+ * @package  TestCase
+ */
 abstract class DemoTestCase extends BaseTestCase
 {
     protected $daw = null;

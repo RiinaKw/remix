@@ -8,7 +8,7 @@ use Remix\Audio;
 /**
  * PHPUnit TestCase base class for demo environment
  *
- * @package  TestCase
+ * @package  TestCase\Demo
  */
 abstract class DemoTestCase extends BaseTestCase
 {

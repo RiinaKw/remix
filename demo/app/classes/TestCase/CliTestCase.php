@@ -5,7 +5,7 @@ namespace Remix\Demo\TestCase;
 /**
  * PHPUnit TestCase base class for CLI (Amp) in demo environment
  *
- * @package  TestCase
+ * @package  TestCase\Demo
  */
 abstract class CliTestCase extends DemoTestCase
 {

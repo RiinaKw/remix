@@ -13,7 +13,7 @@ use Remix\Exceptions\HttpException;
 /**
  * PHPUnit TestCase base class for web (DAW) in demo environment
  *
- * @package  TestCase
+ * @package  TestCase\Demo
  */
 abstract class WebTestCase extends DemoTestCase
 {

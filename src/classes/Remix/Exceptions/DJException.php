@@ -3,7 +3,7 @@
 namespace Remix\Exceptions;
 
 /**
- * Exception class indicating the database errors
+ * Exception class indicating the database errors.
  *
  * @package  Remix\Exceptions
  */

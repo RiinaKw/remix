@@ -2,6 +2,15 @@
 
 namespace Remix;
 
+use Remix\Instruments\{
+    Equalizer,
+    DAW,
+    Preset,
+    Mixer,
+    Amp,
+    DJ
+};
+use Exceptions\CoreException;
 use Exceptions\ErrorException;
 
 /**
@@ -33,7 +42,7 @@ class Audio
         }
         Delay::logBirth(static::class);
 
-        $this->equalizer = new Instruments\Equalizer();
+        $this->equalizer = new Equalizer();
         $this->registerHandle();
     }
     // function __construct()
@@ -76,22 +85,22 @@ class Audio
                 return $this->equalizer;
 
             case 'daw':
-                return $this->singleton(Instruments\DAW::class);
+                return $this->singleton(DAW::class);
 
             case 'preset':
-                return $this->singleton(Instruments\Preset::class);
+                return $this->singleton(Preset::class);
 
             case 'mixer':
-                return $this->singleton(Instruments\Mixer::class);
+                return $this->singleton(Mixer::class);
 
             case 'amp':
-                return $this->singleton(Instruments\Amp::class);
+                return $this->singleton(Amp::class);
 
             case 'dj':
-                return $this->singleton(Instruments\DJ::class);
+                return $this->singleton(DJ::class);
 
             default:
-                throw new ErrorException("Unknown key '{$key}'");
+                throw new CoreException("Unknown key '{$key}'");
         }
     }
     // function __get()
@@ -104,7 +113,7 @@ class Audio
                 break;
 
             default:
-                throw new ErrorException("Unknown key '{$key}'");
+                throw new CoreException("Unknown key '{$key}'");
         }
     }
     // function __set()

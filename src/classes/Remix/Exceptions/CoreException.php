@@ -3,7 +3,8 @@
 namespace Remix\Exceptions;
 
 /**
- * Exception class raised by Remix cores
+ * Exception class thrown by Remix cores.
+ * Used to indicate an error that should not occur.
  *
  * @package  Remix\Exceptions
  */

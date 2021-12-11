@@ -5,7 +5,7 @@ namespace Remix\Exceptions;
 use Utility\Http\StatusCode;
 
 /**
- * Exception class indicating the HTTP error
+ * Exception class indicating the HTTP error.
  *
  * @package  Remix\Exceptions
  */

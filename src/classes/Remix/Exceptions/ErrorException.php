@@ -3,7 +3,7 @@
 namespace Remix\Exceptions;
 
 /**
- * Exception class indicating the PHP errors
+ * Exception class indicating the PHP errors.
  *
  * @package  Remix\Exceptions
  */

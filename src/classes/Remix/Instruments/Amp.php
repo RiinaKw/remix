@@ -2,18 +2,23 @@
 
 namespace Remix\Instruments;
 
+// Remix core
 use Remix\Instrument;
-use Remix\RemixException;
+// Effectors
 use Remix\Preset\Effector as ShortHandles;
 use Remix\Effector;
 use Remix\Effectors\Help;
+// Exceptions
+use Remix\RemixException;
+// Utilities
 use Remix\Utility\Arr;
 
 /**
- * Remix Amp : command line interface
+ * Remix Amp : command line interface.
  *
  * @package  Remix\CLI
  * @todo Write the details.
+ * @todo I think Remix\Preset\Effector should not be a class ...
  */
 class Amp extends Instrument
 {

@@ -104,7 +104,7 @@ class Table extends Gear
     /**
      * Callback of create(), modify()
      * @param  self   $table  Itself
-     * @throws RemixException This is a prototype; not meant to be called directly.
+     * @throws CoreException This is a prototype; not meant to be called directly.
      * @see Table::create()
      * @see Table::modify()
      * @SuppressWarnings(PHPMD.UnusedPrivateMethod)
@@ -112,7 +112,7 @@ class Table extends Gear
      */
     private static function callbackToCreate(self $table): void
     {
-        throw new RemixException(__METHOD__ . ' is prototype of callback');
+        throw new CoreException(__METHOD__ . ' is prototype of callback');
     }
 
     /**
@@ -128,7 +128,7 @@ class Table extends Gear
         try {
             $cb($this);
         } catch (Exception $e) {
-            throw RemixException::create($e->getMessage(), debug_backtrace()[0]);
+            throw DJException::create($e->getMessage(), debug_backtrace()[0]);
         }
         if (! MC::tableExists($this->name)) {
         //    throw new DJException("Cannot create table '{$this->name}'");

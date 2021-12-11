@@ -4,6 +4,11 @@ namespace Remix\Instruments;
 
 use Remix\Exceptions\CoreException;
 
+/**
+ * Remix Preset Loader : configs loader
+ *
+ * @package  Remix\Core
+ */
 class PresetLoader
 {
     private static $directories = [];

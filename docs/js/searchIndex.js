@@ -2703,7 +2703,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Instruments\\PresetLoader",
             "name": "PresetLoader",
-            "summary": "",
+            "summary": "Remix\u0020Preset\u0020Loader\u0020\u003A\u0020configs\u0020loader",
             "url": "classes/Remix-Instruments-PresetLoader.html"
         },                {
             "fqsen": "\\Remix\\Instruments\\PresetLoader\u003A\u003Adirectory\u0028\u0029",
@@ -2763,7 +2763,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Lyric",
             "name": "Lyric",
-            "summary": "Remix\u0020Gear\u0020\u003A\u0020Base\u0020class\u0020of\u0020Remix",
+            "summary": "Remix\u0020Lyric\u0020\u003A\u0020uri\u0020manager",
             "url": "classes/Remix-Lyric.html"
         },                {
             "fqsen": "\\Remix\\Lyric\u003A\u003AgetInstance\u0028\u0029",

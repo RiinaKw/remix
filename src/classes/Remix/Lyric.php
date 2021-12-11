@@ -2,6 +2,12 @@
 
 namespace Remix;
 
+/**
+ * Remix Lyric : uri manager
+ *
+ * @package  Remix\Web
+ * @todo Write the details.
+ */
 class Lyric extends Gear
 {
     private $base_uri = null;

@@ -5,6 +5,7 @@ namespace Remix\Studio;
 use Remix\Studio;
 use Remix\Audio;
 use Remix\Instruments\Preset;
+use Utility\Http\StatusCode;
 
 /**
  * Remix Maximizer : view renderer.
@@ -26,7 +27,7 @@ class Compressor extends Studio
     public function __construct(string $file, array $params = [])
     {
         parent::__construct('html', $params);
-        $this->statusCode($params['status'] ?? 200);
+        $this->statusCode($params['status'] ?? StatusCode::OK);
         $this->bounce = new Bounce($file, $params);
     }
     // function __construct()

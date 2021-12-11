@@ -2,6 +2,8 @@
 
 namespace Remix\Exceptions;
 
+use Utility\Http\StatusCode;
+
 /**
  * Exception class indicating the HTTP error
  *
@@ -13,7 +15,7 @@ class HttpException extends \Remix\RemixException
      * HTTP status code
      * @var int
      */
-    protected $status_code = 200;
+    protected $status_code = StatusCode::INTERNAL_SERVER_ERROR;
 
     /**
      * constructor
@@ -21,7 +23,7 @@ class HttpException extends \Remix\RemixException
      * @param string $message     Message of Exception
      * @param int    $status_code  HTTP status code
      */
-    public function __construct(string $message, int $status_code = 200)
+    public function __construct(string $message, int $status_code = StatusCode::INTERNAL_SERVER_ERROR)
     {
         parent::__construct($message);
         $this->status_code = $status_code;

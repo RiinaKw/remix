@@ -181,7 +181,7 @@ class Reverb extends Gear
 
         if (! $template_path) {
             // Render directly if bounce could not be loaded
-            http_response_code(500);
+            http_response_code(StatusCode::INTERNAL_SERVER_ERROR);
             echo '<h1>Remix fatal error : Cannot render exception</h1>' . "\n";
             echo '<h2>Exception thrown : ' . $exception->getMessage() . '</h2>' . "\n";
             echo $exception->getFile() . ' in ' . $exception->getLine();
@@ -192,7 +192,7 @@ class Reverb extends Gear
 
         // Create the exception renderer
         $compressor = new Compressor($template_path, [
-            'status' => 500,
+            'status' => StatusCode::INTERNAL_SERVER_ERROR,
             'message' => $exception->getMessage(),
             'file' => $exception->getFile(),
             'line' => $exception->getLine(),

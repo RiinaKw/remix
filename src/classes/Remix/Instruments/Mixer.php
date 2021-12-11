@@ -2,6 +2,7 @@
 
 namespace Remix\Instruments;
 
+// Remix core
 use Remix\Instrument;
 use Remix\Audio;
 use Remix\Track;
@@ -10,12 +11,15 @@ use Remix\Channel;
 use Remix\Sampler;
 use Remix\Studio;
 use Remix\Lyric;
+// Exceptions
 use Remix\RemixException;
 use Remix\Exceptions\HttpException;
+// Utilities
 use Utility\Arr;
+use Utility\Http\StatusCode;
 
 /**
- * Remix Mixer : routing
+ * Remix Mixer : routing.
  *
  * @package  Remix\Web
  * @todo Write the details.
@@ -91,7 +95,7 @@ class Mixer extends Instrument
                     $track = $tracks[$method];
                 } else {
                     $message = 'method ' . $method . ' not allowed, given ' . $method . ' ' . $path;
-                    throw new HttpException($message, 405);
+                    throw new HttpException($message, StatusCode::METHOD_NOT_ALLOWED);
                 }
 
                 // setup Studio
@@ -105,7 +109,7 @@ class Mixer extends Instrument
             }
         }
         $message = 'it did not match any route, given ' . $path;
-        throw new HttpException($message, 404);
+        throw new HttpException($message, StatusCode::NOT_FOUND);
     }
     // function route()
 

@@ -42,7 +42,7 @@ class Studio extends Gear
         // Does not output debug console by default
         $this->property->is_console = false;
 
-        $this->statusCode(200);
+        $this->statusCode(StatusCode::OK);
 
         // Make sure to set the mime type
         $this->contentType();
@@ -108,7 +108,7 @@ class Studio extends Gear
      * @param  integer $status_code  3-digit status code
      * @return self                  Itself
      */
-    public function statusCode(int $status_code = 200): self
+    public function statusCode(int $status_code = StatusCode::OK): self
     {
         $message = StatusCode::get($status_code);
         $status = "{$status_code} {$message}";

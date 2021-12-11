@@ -3,6 +3,7 @@
 namespace Remix\Instruments;
 
 use Remix\Instrument;
+use Remix\Instruments\PresetLoader;
 use Utility\Hash;
 use Remix\Exceptions\CoreException;
 
@@ -13,19 +14,6 @@ use Remix\Exceptions\CoreException;
  */
 class Preset extends Instrument
 {
-    /**
-     * Remix core directory
-     * @var string
-     */
-    private $remix_dir = '';
-
-    /**
-     * Application directory
-     * @var string
-     * @todo I wanna rename to '$app_dir'.
-     */
-    private $dir = '';
-
     /**
      * All settings it's managing
      * @var Hash
@@ -59,8 +47,6 @@ class Preset extends Instrument
     public function remixDir(string $dir): self
     {
         PresetLoader::directory('remix', $dir);
-
-        $this->remix_dir = $dir;
         return $this;
     }
     // function remixDir()
@@ -74,8 +60,6 @@ class Preset extends Instrument
     public function appDir(string $dir): self
     {
         PresetLoader::directory('app', $dir);
-
-        $this->dir = $dir;
         return $this;
     }
     // function appDir()

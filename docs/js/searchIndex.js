@@ -2316,16 +2316,6 @@ Search.appendIndex(
             "summary": "Get\u0020current\u0020environment",
             "url": "classes/Remix-Instruments-Preset.html#method_env"
         },                {
-            "fqsen": "\\Remix\\Instruments\\Preset\u003A\u003A\u0024remix_dir",
-            "name": "remix_dir",
-            "summary": "Remix\u0020core\u0020directory",
-            "url": "classes/Remix-Instruments-Preset.html#property_remix_dir"
-        },                {
-            "fqsen": "\\Remix\\Instruments\\Preset\u003A\u003A\u0024dir",
-            "name": "dir",
-            "summary": "Application\u0020directory",
-            "url": "classes/Remix-Instruments-Preset.html#property_dir"
-        },                {
             "fqsen": "\\Remix\\Instruments\\Preset\u003A\u003A\u0024hash",
             "name": "hash",
             "summary": "All\u0020settings\u0020it\u0027s\u0020managing",

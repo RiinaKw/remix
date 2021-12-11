@@ -19,6 +19,7 @@ class FormChannel extends \Remix\Channel
     /**
      * Initialize input form.
      * Ignore all sessions.
+     *
      * @param  Sampler  $sampler  Input object
      * @return Studio
      */
@@ -41,6 +42,7 @@ class FormChannel extends \Remix\Channel
     /**
      * Display the form page, and set the input parameters to the form as needed.
      * Restore input parameters and input errors from the session.
+     *
      * @param  Sampler  $sampler  Input object
      * @return Studio
      */
@@ -62,6 +64,7 @@ class FormChannel extends \Remix\Channel
     /**
      * Run validation, and display a confirm page if there is no input errors.
      * Check a CSRF token and can only display it once.
+     *
      * @param  Sampler  $sampler  Input object
      * @return Studio
      */
@@ -96,6 +99,7 @@ class FormChannel extends \Remix\Channel
     /**
      * Display the input completion page.
      * Check a CSRF token and can only display it once.
+     *
      * @param  Sampler $sampler  Input
      * @return Studio
      */

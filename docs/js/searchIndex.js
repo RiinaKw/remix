@@ -88,12 +88,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Channel",
             "name": "Channel",
-            "summary": "Remix\u0020Channel\u0020\u003A\u0020web\u0020controller",
+            "summary": "Remix\u0020Channel\u0020\u003A\u0020web\u0020controller.",
             "url": "classes/Remix-Channel.html"
         },                {
             "fqsen": "\\Remix\\Channel\u003A\u003Aplay\u0028\u0029",
             "name": "play",
-            "summary": "",
+            "summary": "Execute\u0020a\u0020method\u0020of\u0020a\u0020subclass.",
             "url": "classes/Remix-Channel.html#method_play"
         },                {
             "fqsen": "\\Remix\\Delay",

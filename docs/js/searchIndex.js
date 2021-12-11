@@ -2866,66 +2866,6 @@ Search.appendIndex(
             "summary": "PHPUnit\u0020TestCase\u0020base\u0020class.",
             "url": "classes/Utility-Tests-BaseTestCase.html"
         },                {
-            "fqsen": "\\Utility\\Tests\\Traits\\Html",
-            "name": "Html",
-            "summary": "PHPUnit\u0020TestCase\u0020trait\u0020for\u0020HTML\u0020operations.",
-            "url": "classes/Utility-Tests-Traits-Html.html"
-        },                {
-            "fqsen": "\\Utility\\Tests\\Traits\\Html\u003A\u003AassertHtml\u0028\u0029",
-            "name": "assertHtml",
-            "summary": "Is\u0020the\u0020output\u0020HTML\u003F",
-            "url": "classes/Utility-Tests-Traits-Html.html#method_assertHtml"
-        },                {
-            "fqsen": "\\Utility\\Tests\\Traits\\Html\u003A\u003AgetHtmlAttributes\u0028\u0029",
-            "name": "getHtmlAttributes",
-            "summary": "Get\u0020the\u0020attribute\u0020list\u0020of\u0020the\u0020HTML\u0020tag",
-            "url": "classes/Utility-Tests-Traits-Html.html#method_getHtmlAttributes"
-        },                {
-            "fqsen": "\\Utility\\Tests\\Traits\\Html\u003A\u003AgetEmptyTag\u0028\u0029",
-            "name": "getEmptyTag",
-            "summary": "Search\u0020for\u0020empty\u0020tag\u0020\u0028\u0020\u003Ctagname\u0020...\u0020\/\u003E\u0020\u0029",
-            "url": "classes/Utility-Tests-Traits-Html.html#method_getEmptyTag"
-        },                {
-            "fqsen": "\\Utility\\Tests\\Traits\\Html\u003A\u003AgetOpenTag\u0028\u0029",
-            "name": "getOpenTag",
-            "summary": "Search\u0020for\u0020normal\u0020tag\u0020\u0028\u0020\u003Ctagname\u0020...\u003E\u0020...\u0020\u003C\/tagname\u003E\u0020\u0029",
-            "url": "classes/Utility-Tests-Traits-Html.html#method_getOpenTag"
-        },                {
-            "fqsen": "\\Utility\\Tests\\Traits\\Html\u003A\u003AassertInput\u0028\u0029",
-            "name": "assertInput",
-            "summary": "Is\u0020\u003Cinput\u003E\u0020included\u0020correctly\u003F",
-            "url": "classes/Utility-Tests-Traits-Html.html#method_assertInput"
-        },                {
-            "fqsen": "\\Utility\\Tests\\Traits\\Html\u003A\u003AassertInputText\u0028\u0029",
-            "name": "assertInputText",
-            "summary": "Is\u0020\u003Cinput\u0020type\u003D\u0022text\u0022\u003E\u0020included\u0020correctly\u003F",
-            "url": "classes/Utility-Tests-Traits-Html.html#method_assertInputText"
-        },                {
-            "fqsen": "\\Utility\\Tests\\Traits\\Html\u003A\u003AassertTextarea\u0028\u0029",
-            "name": "assertTextarea",
-            "summary": "Is\u0020\u003Ctextarea\u003E\u0020included\u0020correctly\u003F",
-            "url": "classes/Utility-Tests-Traits-Html.html#method_assertTextarea"
-        },                {
-            "fqsen": "\\Utility\\Tests\\Traits\\Redirect",
-            "name": "Redirect",
-            "summary": "PHPUnit\u0020TestCase\u0020trait\u0020for\u0020HTTP\u0020redirection.",
-            "url": "classes/Utility-Tests-Traits-Redirect.html"
-        },                {
-            "fqsen": "\\Utility\\Tests\\Traits\\Redirect\u003A\u003AassertRedirectUri\u0028\u0029",
-            "name": "assertRedirectUri",
-            "summary": "",
-            "url": "classes/Utility-Tests-Traits-Redirect.html#method_assertRedirectUri"
-        },                {
-            "fqsen": "\\Utility\\Tests\\Traits\\Redirect\u003A\u003AassertRedirectPath\u0028\u0029",
-            "name": "assertRedirectPath",
-            "summary": "",
-            "url": "classes/Utility-Tests-Traits-Redirect.html#method_assertRedirectPath"
-        },                {
-            "fqsen": "\\Utility\\Tests\\Traits\\Redirect\u003A\u003AassertRedirectName\u0028\u0029",
-            "name": "assertRedirectName",
-            "summary": "",
-            "url": "classes/Utility-Tests-Traits-Redirect.html#method_assertRedirectName"
-        },                {
             "fqsen": "\\RemixDemo\\Channels\\FormChannel",
             "name": "FormChannel",
             "summary": "Channel\u0020Example\u0020for\u0020form.",
@@ -3341,6 +3281,66 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/RemixDemo-Tests-TopTest.html#method_testStatus302"
         },                {
+            "fqsen": "\\RemixDemo\\TestCase\\Traits\\Html",
+            "name": "Html",
+            "summary": "PHPUnit\u0020TestCase\u0020trait\u0020for\u0020HTML\u0020operations.",
+            "url": "classes/RemixDemo-TestCase-Traits-Html.html"
+        },                {
+            "fqsen": "\\RemixDemo\\TestCase\\Traits\\Html\u003A\u003AassertHtml\u0028\u0029",
+            "name": "assertHtml",
+            "summary": "Is\u0020the\u0020output\u0020HTML\u003F",
+            "url": "classes/RemixDemo-TestCase-Traits-Html.html#method_assertHtml"
+        },                {
+            "fqsen": "\\RemixDemo\\TestCase\\Traits\\Html\u003A\u003AgetHtmlAttributes\u0028\u0029",
+            "name": "getHtmlAttributes",
+            "summary": "Get\u0020the\u0020attribute\u0020list\u0020of\u0020the\u0020HTML\u0020tag",
+            "url": "classes/RemixDemo-TestCase-Traits-Html.html#method_getHtmlAttributes"
+        },                {
+            "fqsen": "\\RemixDemo\\TestCase\\Traits\\Html\u003A\u003AgetEmptyTag\u0028\u0029",
+            "name": "getEmptyTag",
+            "summary": "Search\u0020for\u0020empty\u0020tag\u0020\u0028\u0020\u003Ctagname\u0020...\u0020\/\u003E\u0020\u0029",
+            "url": "classes/RemixDemo-TestCase-Traits-Html.html#method_getEmptyTag"
+        },                {
+            "fqsen": "\\RemixDemo\\TestCase\\Traits\\Html\u003A\u003AgetOpenTag\u0028\u0029",
+            "name": "getOpenTag",
+            "summary": "Search\u0020for\u0020normal\u0020tag\u0020\u0028\u0020\u003Ctagname\u0020...\u003E\u0020...\u0020\u003C\/tagname\u003E\u0020\u0029",
+            "url": "classes/RemixDemo-TestCase-Traits-Html.html#method_getOpenTag"
+        },                {
+            "fqsen": "\\RemixDemo\\TestCase\\Traits\\Html\u003A\u003AassertInput\u0028\u0029",
+            "name": "assertInput",
+            "summary": "Is\u0020\u003Cinput\u003E\u0020included\u0020correctly\u003F",
+            "url": "classes/RemixDemo-TestCase-Traits-Html.html#method_assertInput"
+        },                {
+            "fqsen": "\\RemixDemo\\TestCase\\Traits\\Html\u003A\u003AassertInputText\u0028\u0029",
+            "name": "assertInputText",
+            "summary": "Is\u0020\u003Cinput\u0020type\u003D\u0022text\u0022\u003E\u0020included\u0020correctly\u003F",
+            "url": "classes/RemixDemo-TestCase-Traits-Html.html#method_assertInputText"
+        },                {
+            "fqsen": "\\RemixDemo\\TestCase\\Traits\\Html\u003A\u003AassertTextarea\u0028\u0029",
+            "name": "assertTextarea",
+            "summary": "Is\u0020\u003Ctextarea\u003E\u0020included\u0020correctly\u003F",
+            "url": "classes/RemixDemo-TestCase-Traits-Html.html#method_assertTextarea"
+        },                {
+            "fqsen": "\\RemixDemo\\TestCase\\Traits\\Redirect",
+            "name": "Redirect",
+            "summary": "PHPUnit\u0020TestCase\u0020trait\u0020for\u0020HTTP\u0020redirection.",
+            "url": "classes/RemixDemo-TestCase-Traits-Redirect.html"
+        },                {
+            "fqsen": "\\RemixDemo\\TestCase\\Traits\\Redirect\u003A\u003AassertRedirectUri\u0028\u0029",
+            "name": "assertRedirectUri",
+            "summary": "",
+            "url": "classes/RemixDemo-TestCase-Traits-Redirect.html#method_assertRedirectUri"
+        },                {
+            "fqsen": "\\RemixDemo\\TestCase\\Traits\\Redirect\u003A\u003AassertRedirectPath\u0028\u0029",
+            "name": "assertRedirectPath",
+            "summary": "",
+            "url": "classes/RemixDemo-TestCase-Traits-Redirect.html#method_assertRedirectPath"
+        },                {
+            "fqsen": "\\RemixDemo\\TestCase\\Traits\\Redirect\u003A\u003AassertRedirectName\u0028\u0029",
+            "name": "assertRedirectName",
+            "summary": "",
+            "url": "classes/RemixDemo-TestCase-Traits-Redirect.html#method_assertRedirectName"
+        },                {
             "fqsen": "\\",
             "name": "\\",
             "summary": "",
@@ -3370,6 +3370,11 @@ Search.appendIndex(
             "name": "TestCase",
             "summary": "",
             "url": "namespaces/remixdemo-testcase.html"
+        },                {
+            "fqsen": "\\RemixDemo\\TestCase\\Traits",
+            "name": "Traits",
+            "summary": "",
+            "url": "namespaces/remixdemo-testcase-traits.html"
         },                {
             "fqsen": "\\RemixDemo\\Livehouse",
             "name": "Livehouse",
@@ -3465,10 +3470,5 @@ Search.appendIndex(
             "name": "Tests",
             "summary": "",
             "url": "namespaces/utility-tests.html"
-        },                {
-            "fqsen": "\\Utility\\Tests\\Traits",
-            "name": "Traits",
-            "summary": "",
-            "url": "namespaces/utility-tests-traits.html"
         }            ]
 );

@@ -4,7 +4,7 @@ namespace RemixDemo\TestCase\Traits;
 
 /**
  * PHPUnit TestCase trait for HTML operations.
- * @package  TestCase\Traits
+ * @package  TestCase\Demo\Traits
  */
 trait Html
 {

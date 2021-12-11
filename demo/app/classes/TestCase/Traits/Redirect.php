@@ -7,7 +7,7 @@ use Remix\Lyric;
 
 /**
  * PHPUnit TestCase trait for HTTP redirection.
- * @package  TestCase\Traits
+ * @package  TestCase\Demo\Traits
  */
 trait Redirect
 {

@@ -11,7 +11,7 @@ use Utility\Reflection\ReflectionObject;
 use Remix\Exceptions\HttpException;
 
 /**
- * PHPUnit TestCase base class for web (DAW) in demo environment
+ * PHPUnit TestCase base class for web (DAW) in demo environment.
  *
  * @package  TestCase\Demo
  */

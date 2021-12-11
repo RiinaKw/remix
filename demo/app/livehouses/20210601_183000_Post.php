@@ -8,6 +8,11 @@ use Remix\DJ\Table;
 use Remix\DJ\Column;
 use Remix\RemixException;
 
+/**
+ * Example livehouse.
+ *
+ * @package  Demo\Livehouses
+ */
 class Post extends Livehouse
 {
     public function open()

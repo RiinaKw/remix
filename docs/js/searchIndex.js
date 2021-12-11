@@ -2928,7 +2928,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\RemixDemo\\Channels\\FormChannel",
             "name": "FormChannel",
-            "summary": "Remix\u0020Channel\u0020\u003A\u0020web\u0020controller",
+            "summary": "Channel\u0020Example\u0020for\u0020form.",
             "url": "classes/RemixDemo-Channels-FormChannel.html"
         },                {
             "fqsen": "\\RemixDemo\\Channels\\FormChannel\u003A\u003Ainit\u0028\u0029",
@@ -2953,7 +2953,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\RemixDemo\\Channels\\TopChannel",
             "name": "TopChannel",
-            "summary": "Remix\u0020Channel\u0020\u003A\u0020web\u0020controller",
+            "summary": "Channel\u0020Example\u0020for\u0020top.",
             "url": "classes/RemixDemo-Channels-TopChannel.html"
         },                {
             "fqsen": "\\RemixDemo\\Channels\\TopChannel\u003A\u003Aindex\u0028\u0029",
@@ -2978,7 +2978,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\RemixDemo\\Effectors\\Instrument",
             "name": "Instrument",
-            "summary": "Remix\u0020Effector\u0020\u003A\u0020command\u0020line\u0020controller",
+            "summary": "Example\u0020effector\u0020for\u0020some\u0020instruments.",
             "url": "classes/RemixDemo-Effectors-Instrument.html"
         },                {
             "fqsen": "\\RemixDemo\\Effectors\\Instrument\u003A\u003Aindex\u0028\u0029",
@@ -3013,7 +3013,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\RemixDemo\\Synthesizers\\FormSynthesizer",
             "name": "FormSynthesizer",
-            "summary": "Remix\u0020Synthesizer\u0020\u003A\u0020input\u0020form\u0020validation",
+            "summary": "Example\u0020synthesizers\u0020for\u0020example\u0020form.",
             "url": "classes/RemixDemo-Synthesizers-FormSynthesizer.html"
         },                {
             "fqsen": "\\RemixDemo\\Synthesizers\\FormSynthesizer\u003A\u003Afilters\u0028\u0029",
@@ -3023,7 +3023,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\RemixDemo\\TestCase\\CliTestCase",
             "name": "CliTestCase",
-            "summary": "PHPUnit\u0020TestCase\u0020base\u0020class\u0020for\u0020CLI\u0020\u0028Amp\u0029\u0020in\u0020demo\u0020environment",
+            "summary": "PHPUnit\u0020TestCase\u0020base\u0020class\u0020for\u0020CLI\u0020\u0028Amp\u0029\u0020in\u0020demo\u0020environment.",
             "url": "classes/RemixDemo-TestCase-CliTestCase.html"
         },                {
             "fqsen": "\\RemixDemo\\TestCase\\CliTestCase\u003A\u003Ainitialize\u0028\u0029",
@@ -3038,7 +3038,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\RemixDemo\\TestCase\\DemoTestCase",
             "name": "DemoTestCase",
-            "summary": "PHPUnit\u0020TestCase\u0020base\u0020class\u0020for\u0020demo\u0020environment",
+            "summary": "PHPUnit\u0020TestCase\u0020base\u0020class\u0020for\u0020demo\u0020environment.",
             "url": "classes/RemixDemo-TestCase-DemoTestCase.html"
         },                {
             "fqsen": "\\RemixDemo\\TestCase\\DemoTestCase\u003A\u003AsetUp\u0028\u0029",
@@ -3058,7 +3058,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\RemixDemo\\TestCase\\WebTestCase",
             "name": "WebTestCase",
-            "summary": "PHPUnit\u0020TestCase\u0020base\u0020class\u0020for\u0020web\u0020\u0028DAW\u0029\u0020in\u0020demo\u0020environment",
+            "summary": "PHPUnit\u0020TestCase\u0020base\u0020class\u0020for\u0020web\u0020\u0028DAW\u0029\u0020in\u0020demo\u0020environment.",
             "url": "classes/RemixDemo-TestCase-WebTestCase.html"
         },                {
             "fqsen": "\\RemixDemo\\TestCase\\WebTestCase\u003A\u003Ainitialize\u0028\u0029",
@@ -3138,7 +3138,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\RemixDemo\\Livehouse\\Test",
             "name": "Test",
-            "summary": "Remix\u0020DJ\u0020Livehouse\u0020\u003A\u0020migration",
+            "summary": "Example\u0020livehouse.",
             "url": "classes/RemixDemo-Livehouse-Test.html"
         },                {
             "fqsen": "\\RemixDemo\\Livehouse\\Test\u003A\u003Aopen\u0028\u0029",
@@ -3153,7 +3153,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\RemixDemo\\Livehouse\\Test2",
             "name": "Test2",
-            "summary": "Remix\u0020DJ\u0020Livehouse\u0020\u003A\u0020migration",
+            "summary": "Example\u0020livehouse.",
             "url": "classes/RemixDemo-Livehouse-Test2.html"
         },                {
             "fqsen": "\\RemixDemo\\Livehouse\\Test2\u003A\u003Aopen\u0028\u0029",
@@ -3168,7 +3168,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\RemixDemo\\Livehouse\\Post",
             "name": "Post",
-            "summary": "Remix\u0020DJ\u0020Livehouse\u0020\u003A\u0020migration",
+            "summary": "Example\u0020livehouse.",
             "url": "classes/RemixDemo-Livehouse-Post.html"
         },                {
             "fqsen": "\\RemixDemo\\Livehouse\\Post\u003A\u003Aopen\u0028\u0029",
@@ -3183,7 +3183,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\RemixDemo\\Livehouse\\CreateUser",
             "name": "CreateUser",
-            "summary": "Remix\u0020DJ\u0020Livehouse\u0020\u003A\u0020migration",
+            "summary": "Example\u0020livehouse.",
             "url": "classes/RemixDemo-Livehouse-CreateUser.html"
         },                {
             "fqsen": "\\RemixDemo\\Livehouse\\CreateUser\u003A\u003Aopen\u0028\u0029",
@@ -3198,7 +3198,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\RemixDemo\\Tests\\AmpTest",
             "name": "AmpTest",
-            "summary": "PHPUnit\u0020TestCase\u0020base\u0020class\u0020for\u0020CLI\u0020\u0028Amp\u0029\u0020in\u0020demo\u0020environment",
+            "summary": "PHPUnit\u0020TestCase\u0020base\u0020class\u0020for\u0020CLI\u0020\u0028Amp\u0029\u0020in\u0020demo\u0020environment.",
             "url": "classes/RemixDemo-Tests-AmpTest.html"
         },                {
             "fqsen": "\\RemixDemo\\Tests\\AmpTest\u003A\u003AsetUp\u0028\u0029",
@@ -3213,7 +3213,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\RemixDemo\\Tests\\InstrumentTest",
             "name": "InstrumentTest",
-            "summary": "PHPUnit\u0020TestCase\u0020base\u0020class\u0020for\u0020CLI\u0020\u0028Amp\u0029\u0020in\u0020demo\u0020environment",
+            "summary": "PHPUnit\u0020TestCase\u0020base\u0020class\u0020for\u0020CLI\u0020\u0028Amp\u0029\u0020in\u0020demo\u0020environment.",
             "url": "classes/RemixDemo-Tests-InstrumentTest.html"
         },                {
             "fqsen": "\\RemixDemo\\Tests\\InstrumentTest\u003A\u003AsetUp\u0028\u0029",
@@ -3253,7 +3253,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\RemixDemo\\Tests\\FormTest",
             "name": "FormTest",
-            "summary": "PHPUnit\u0020TestCase\u0020base\u0020class\u0020for\u0020web\u0020\u0028DAW\u0029\u0020in\u0020demo\u0020environment",
+            "summary": "PHPUnit\u0020TestCase\u0020base\u0020class\u0020for\u0020web\u0020\u0028DAW\u0029\u0020in\u0020demo\u0020environment.",
             "url": "classes/RemixDemo-Tests-FormTest.html"
         },                {
             "fqsen": "\\RemixDemo\\Tests\\FormTest\u003A\u003AsetUp\u0028\u0029",
@@ -3333,7 +3333,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\RemixDemo\\Tests\\TopTest",
             "name": "TopTest",
-            "summary": "PHPUnit\u0020TestCase\u0020base\u0020class\u0020for\u0020web\u0020\u0028DAW\u0029\u0020in\u0020demo\u0020environment",
+            "summary": "PHPUnit\u0020TestCase\u0020base\u0020class\u0020for\u0020web\u0020\u0028DAW\u0029\u0020in\u0020demo\u0020environment.",
             "url": "classes/RemixDemo-Tests-TopTest.html"
         },                {
             "fqsen": "\\RemixDemo\\Tests\\TopTest\u003A\u003AsetUp\u0028\u0029",

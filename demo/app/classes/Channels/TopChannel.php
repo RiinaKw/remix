@@ -6,6 +6,11 @@ use Remix\Sampler;
 use Remix\Studio;
 use Remix\Studio\Compressor;
 
+/**
+ * Channel Example for top.
+ *
+ * @package  Demo\Channels
+ */
 class TopChannel extends \Remix\Channel
 {
     public function index()

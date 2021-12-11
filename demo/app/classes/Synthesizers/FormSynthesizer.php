@@ -6,6 +6,11 @@ use Remix\Synthesizer;
 use Remix\Filter;
 use Remix\Oscillators\{Email};
 
+/**
+ * Example synthesizers for example form.
+ *
+ * @package  Demo\Synthesizers
+ */
 class FormSynthesizer extends Synthesizer
 {
     /**

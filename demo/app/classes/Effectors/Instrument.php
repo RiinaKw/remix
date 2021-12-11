@@ -4,6 +4,11 @@ namespace RemixDemo\Effectors;
 
 use Remix\Effector;
 
+/**
+ * Example effector for some instruments.
+ *
+ * @package  Demo\Instruments
+ */
 class Instrument extends Effector
 {
     public const TITLE = 'Example of Effector.';

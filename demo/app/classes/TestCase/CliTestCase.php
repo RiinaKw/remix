@@ -3,7 +3,7 @@
 namespace RemixDemo\TestCase;
 
 /**
- * PHPUnit TestCase base class for CLI (Amp) in demo environment
+ * PHPUnit TestCase base class for CLI (Amp) in demo environment.
  *
  * @package  TestCase\Demo
  */

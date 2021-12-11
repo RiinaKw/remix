@@ -9,6 +9,11 @@ use Utility\Hash;
 use Utility\Http\Csrf;
 use RemixDemo\Synthesizers\FormSynthesizer as Synthesizer;
 
+/**
+ * Channel Example for form.
+ *
+ * @package  Demo\Channels
+ */
 class FormChannel extends \Remix\Channel
 {
     /**

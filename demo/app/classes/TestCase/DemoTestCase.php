@@ -6,7 +6,7 @@ use Utility\Tests\BaseTestCase;
 use Remix\Audio;
 
 /**
- * PHPUnit TestCase base class for demo environment
+ * PHPUnit TestCase base class for demo environment.
  *
  * @package  TestCase\Demo
  */

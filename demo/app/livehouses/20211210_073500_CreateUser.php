@@ -7,6 +7,11 @@ use Remix\DJ\Livehouse;
 use Remix\DJ\Table;
 use Remix\DJ\Column;
 
+/**
+ * Example livehouse.
+ *
+ * @package  Demo\Livehouses
+ */
 class CreateUser extends Livehouse
 {
     public function open()

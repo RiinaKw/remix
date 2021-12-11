@@ -18,14 +18,14 @@ use Remix\Exceptions\HttpException;
 abstract class WebTestCase extends DemoTestCase
 {
     /**
-     * @property \Remix\Instruments\DAW $daw
+     * @property \Remix\Instruments\DAW $remixDaw
      */
 
     /**
      * Stuido instance
      * @var \Remix\Studio
      */
-    protected $studio = null;
+    protected $remixStudio = null;
 
     /**
      * HTML string of the response
@@ -111,10 +111,10 @@ abstract class WebTestCase extends DemoTestCase
         try {
             // Do it
             $this->PATH = $path;
-            $this->daw->playWeb();
+            $this->remixDaw->playWeb();
 
             // Get protected $reberve from DAW
-            $reflection = new ReflectionObject($this->daw);
+            $reflection = new ReflectionObject($this->remixDaw);
             $reverb = $reflection->getProp('reverb');
         } catch (HttpException $e) {
             $reverb = Reverb::exeption($e, Audio::getInstance()->preset);
@@ -122,10 +122,10 @@ abstract class WebTestCase extends DemoTestCase
 
         // Get protected $studio from Reverb
         $reflection = new ReflectionObject($reverb);
-        $this->studio = $reflection->getProp('studio');
+        $this->remixStudio = $reflection->getProp('studio');
 
-        $this->html = $this->studio->recorded();
-        $this->studio->sendHeader();
+        $this->html = $this->remixStudio->recorded();
+        $this->remixStudio->sendHeader();
     }
 
     /**
@@ -181,7 +181,7 @@ abstract class WebTestCase extends DemoTestCase
      */
     protected function assertStatusCode(int $code): void
     {
-        $this->assertSame($code, $this->studio->getStatusCode());
+        $this->assertSame($code, $this->remixStudio->getStatusCode());
     }
 
     /**
@@ -190,6 +190,6 @@ abstract class WebTestCase extends DemoTestCase
      */
     protected function assertMimeType(string $mimetype): void
     {
-        $this->assertSame($mimetype, $this->studio->getMimeType());
+        $this->assertSame($mimetype, $this->remixStudio->getMimeType());
     }
 }

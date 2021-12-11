@@ -3046,10 +3046,10 @@ Search.appendIndex(
             "summary": "Finalize\u0020application.",
             "url": "classes/RemixDemo-TestCase-DemoTestCase.html#method_tearDown"
         },                {
-            "fqsen": "\\RemixDemo\\TestCase\\DemoTestCase\u003A\u003A\u0024daw",
-            "name": "daw",
+            "fqsen": "\\RemixDemo\\TestCase\\DemoTestCase\u003A\u003A\u0024remixDaw",
+            "name": "remixDaw",
             "summary": "DAW\u0020intance",
-            "url": "classes/RemixDemo-TestCase-DemoTestCase.html#property_daw"
+            "url": "classes/RemixDemo-TestCase-DemoTestCase.html#property_remixDaw"
         },                {
             "fqsen": "\\RemixDemo\\TestCase\\WebTestCase",
             "name": "WebTestCase",
@@ -3106,10 +3106,10 @@ Search.appendIndex(
             "summary": "Do\u0020the\u0020mime\u0020type\u0020of\u0020the\u0020response\u0020match\u003F",
             "url": "classes/RemixDemo-TestCase-WebTestCase.html#method_assertMimeType"
         },                {
-            "fqsen": "\\RemixDemo\\TestCase\\WebTestCase\u003A\u003A\u0024studio",
-            "name": "studio",
+            "fqsen": "\\RemixDemo\\TestCase\\WebTestCase\u003A\u003A\u0024remixStudio",
+            "name": "remixStudio",
             "summary": "Stuido\u0020instance",
-            "url": "classes/RemixDemo-TestCase-WebTestCase.html#property_studio"
+            "url": "classes/RemixDemo-TestCase-WebTestCase.html#property_remixStudio"
         },                {
             "fqsen": "\\RemixDemo\\TestCase\\WebTestCase\u003A\u003A\u0024html",
             "name": "html",

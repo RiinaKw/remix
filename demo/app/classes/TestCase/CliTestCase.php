@@ -10,7 +10,7 @@ namespace RemixDemo\TestCase;
 abstract class CliTestCase extends DemoTestCase
 {
     /**
-     * @property DAW $daw
+     * @property DAW $remixDaw
      */
 
     /**
@@ -19,6 +19,6 @@ abstract class CliTestCase extends DemoTestCase
      */
     public function execute(string $args): void
     {
-        $this->daw->playCli(explode(' ', $args));
+        $this->remixDaw->playCli(explode(' ', $args));
     }
 }

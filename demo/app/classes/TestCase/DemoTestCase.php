@@ -16,7 +16,7 @@ abstract class DemoTestCase extends BaseTestCase
      * DAW intance
      * @var \Remix\Instruments\DAW
      */
-    protected $daw = null;
+    protected $remixDaw = null;
 
     /**
      * Initialize application.
@@ -28,7 +28,7 @@ abstract class DemoTestCase extends BaseTestCase
         chdir($app_dir . '/..');
 
         // Initialize for web operation.
-        $this->daw = Audio::getInstance()->daw->initialize($app_dir);
+        $this->remixDaw = Audio::getInstance()->daw->initialize($app_dir);
     }
 
     /**

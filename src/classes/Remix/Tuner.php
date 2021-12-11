@@ -19,7 +19,7 @@ class Tuner
         return $this->prop;
     }
 
-    public function isTrue(): bool
+    public function is(): bool
     {
         return ($this->prop === true);
     }

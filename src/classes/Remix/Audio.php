@@ -10,6 +10,7 @@ use Remix\Instruments\{
     Amp,
     DJ
 };
+use Remix\Tuner;
 use Remix\Tuners\Cli as CliTuner;
 use Remix\Exceptions\{
     CoreException,
@@ -27,22 +28,24 @@ class Audio
     private static $audio = null;
     private $equalizer = null;
 
-    protected static $is_debug = false;
-
     private $tunerCli = null;
+    private static $tunerDebug = null;
 
     private function __construct()
     {
         $this->tunerCli = new CliTuner(php_sapi_name());
+        if (! static::$tunerDebug) {
+            static::$tunerDebug = new Tuner(false);
+        }
 
-        if (static::$is_debug) {
+        if (static::$tunerDebug->is()) {
             Delay::isDebug();
         }
         if ($this->tunerCli->cli) {
             Delay::isCli();
         }
         Delay::start();
-        if (static::$is_debug) {
+        if (static::$tunerDebug->is()) {
             Delay::logMemory();
         }
         Delay::logBirth(static::class);
@@ -69,7 +72,7 @@ class Audio
 
     public static function isDebug(): void
     {
-        static::$is_debug = true;
+        static::$tunerDebug = new Tuner(true);
     }
 
     private function singleton(string $class): ?Gear
@@ -81,7 +84,7 @@ class Audio
     {
         switch ($key) {
             case 'debug':
-                return static::$is_debug;
+                return static::$tunerDebug->is();
 
             case 'cli':
                 return $this->tunerCli->cli;

@@ -5,7 +5,7 @@ namespace Remix\Exceptions;
 /**
  * Exception class indicating the database errors
  *
- * @package  Remix\Exception
+ * @package  Remix\Exceptions
  */
 class DJException extends \Remix\RemixException
 {

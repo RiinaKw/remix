@@ -8,7 +8,7 @@ use Utility\Http\StatusCode;
 /**
  * HTTP Exception class indicating the "404 Not Found"
  *
- * @package  Remix\Exception\Http
+ * @package  Remix\Exceptions\Http
  */
 class HttpNotFoundException extends HttpException
 {

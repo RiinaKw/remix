@@ -5,7 +5,7 @@ namespace Remix\Exceptions;
 /**
  * Exception class raised by Remix cores
  *
- * @package  Remix\Exception
+ * @package  Remix\Exceptions
  */
 class CoreException extends \Remix\RemixException
 {

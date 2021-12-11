@@ -90,7 +90,7 @@
                                     <li><a href="packages/Remix-Web.html"><abbr title="\Remix\Web">Web</abbr></a></li>
                                     <li><a href="packages/Remix-DB.html"><abbr title="\Remix\DB">DB</abbr></a></li>
                                     <li><a href="packages/Remix-CLI.html"><abbr title="\Remix\CLI">CLI</abbr></a></li>
-                                    <li><a href="packages/Remix-Exception.html"><abbr title="\Remix\Exception">Exception</abbr></a></li>
+                                    <li><a href="packages/Remix-Exceptions.html"><abbr title="\Remix\Exceptions">Exceptions</abbr></a></li>
                                     <li><a href="packages/Remix-Base.html"><abbr title="\Remix\Base">Base</abbr></a></li>
                             </ul>
                                 <h3 class="phpdocumentor-sidebar__root-package"><a href="packages/Utility.html"><abbr title="\Utility">Utility</abbr></a></h3>
@@ -155,10 +155,10 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Reverb.php"><a href="files/src-classes-remix-reverb.html"><abbr title="src/classes/Remix/Reverb.php">Reverb.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13</span>
+    <span class="phpdocumentor-element-found-in__line">24</span>
 </aside>
 
-            <p class="phpdocumentor-summary">Remix Reverb : web finalizer</p>
+            <p class="phpdocumentor-summary">Remix Reverb : web finalizer.</p>
 
     <section class="phpdocumentor-description"></section>
 
@@ -200,23 +200,23 @@
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/Remix-Reverb.html#property_preset">$preset</a>
     <span>
-                &nbsp;: mixed            </span>
+                &nbsp;: <a href="classes/Remix-Instruments-Preset.html"><abbr title="\Remix\Instruments\Preset">Preset</abbr></a>            </span>
 </dt>
-<dd></dd>
+<dd>Preset object used to determine the template</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/Remix-Reverb.html#property_studio">$studio</a>
     <span>
-                &nbsp;: mixed            </span>
+                &nbsp;: <a href="classes/Remix-Studio.html"><abbr title="\Remix\Studio">Studio</abbr></a>            </span>
 </dt>
-<dd></dd>
+<dd>Response object to output</dd>
 
                 <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-Reverb.html#method___construct">__construct()</a>
     <span>
                         &nbsp;: self    </span>
 </dt>
-<dd>Let Delay know that an instance has been constructed.</dd>
+<dd>Create finalizer.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-Gear.html#method___destruct">__destruct()</a>
@@ -228,16 +228,16 @@
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-Reverb.html#method___toString">__toString()</a>
     <span>
-                        &nbsp;: mixed    </span>
+                        &nbsp;: string    </span>
 </dt>
-<dd></dd>
+<dd>Render output.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-Reverb.html#method_exeption">exeption()</a>
     <span>
                         &nbsp;: self|null    </span>
 </dt>
-<dd></dd>
+<dd>Render the exception.</dd>
 
         </dl>
 
@@ -299,17 +299,19 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Reverb.php"><a href="files/src-classes-remix-reverb.html"><abbr title="src/classes/Remix/Reverb.php">Reverb.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">16</span>
+    <span class="phpdocumentor-element-found-in__line">36</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Preset object used to determine the template</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
+        <span class="phpdocumentor-signature__type"><a href="classes/Remix-Instruments-Preset.html"><abbr title="\Remix\Instruments\Preset">Preset</abbr></a></span>
     <span class="phpdocumentor-signature__name">$preset</span>
      = <span class="phpdocumentor-signature__default-value">null</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
     
 
 </article>
@@ -329,17 +331,19 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Reverb.php"><a href="files/src-classes-remix-reverb.html"><abbr title="src/classes/Remix/Reverb.php">Reverb.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15</span>
+    <span class="phpdocumentor-element-found-in__line">30</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Response object to output</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
+        <span class="phpdocumentor-signature__type"><a href="classes/Remix-Studio.html"><abbr title="\Remix\Studio">Studio</abbr></a></span>
     <span class="phpdocumentor-signature__name">$studio</span>
      = <span class="phpdocumentor-signature__default-value">null</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
     
 
 </article>
@@ -363,10 +367,10 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Reverb.php"><a href="files/src-classes-remix-reverb.html"><abbr title="src/classes/Remix/Reverb.php">Reverb.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">18</span>
+    <span class="phpdocumentor-element-found-in__line">43</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Let Delay know that an instance has been constructed.</p>
+        <p class="phpdocumentor-summary">Create finalizer.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -381,14 +385,18 @@
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-Studio.html"><abbr title="\Remix\Studio">Studio</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Response object to output</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$preset</span>
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-Instruments-Preset.html"><abbr title="\Remix\Instruments\Preset">Preset</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Preset object used to determine the template</p>
+</section>
+
             </dd>
             </dl>
 
@@ -448,22 +456,40 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Reverb.php"><a href="files/src-classes-remix-reverb.html"><abbr title="src/classes/Remix/Reverb.php">Reverb.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">29</span>
+    <span class="phpdocumentor-element-found-in__line">61</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Render output.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">__toString</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                <span class="phpdocumentor-signature__name">__toString</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+        <section class="phpdocumentor-description"></section>
 
     
     
-    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">todo</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Is this method too long?</p>
+</section>
+
+                                    </dd>
+                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type">string</span>
             &mdash;
-            <section class="phpdocumentor-description"></section>
+            <section class="phpdocumentor-description"><p>Output string</p>
+</section>
 
     
 </article>
@@ -480,15 +506,17 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Reverb.php"><a href="files/src-classes-remix-reverb.html"><abbr title="src/classes/Remix/Reverb.php">Reverb.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">88</span>
+    <span class="phpdocumentor-element-found-in__line">140</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Render the exception.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">exeption</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Throwable">Throwable</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$exception</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-Instruments-Preset.html"><abbr title="\Remix\Instruments\Preset">Preset</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$preset</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">self|null</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -496,23 +524,44 @@
                 : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Throwable">Throwable</abbr></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Exception to render</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$preset</span>
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Remix-Instruments-Preset.html"><abbr title="\Remix\Instruments\Preset">Preset</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Preset object used to determine the template</p>
+</section>
+
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">todo</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Is this method too long?</p>
+</section>
+
+                                    </dd>
+                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">self|null</span>
             &mdash;
-            <section class="phpdocumentor-description"></section>
+            <section class="phpdocumentor-description"><p>New Reverb object,
+or null if the template not found and it rendered directly</p>
+</section>
 
     
 </article>

@@ -8,7 +8,7 @@ use Utility\Http\StatusCode;
 /**
  * HTTP Exception class indicating the "405 Method Not Allowed"
  *
- * @package  Remix\Exception\Http
+ * @package  Remix\Exceptions\Http
  */
 class HttpMethodNotAllowedException extends HttpException
 {

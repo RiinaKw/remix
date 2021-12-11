@@ -3,7 +3,7 @@ Search.appendIndex(
                 {
             "fqsen": "\\Remix\\Audio",
             "name": "Audio",
-            "summary": "Remix\u0020Audio\u0020\u003A\u0020application\u0020handler",
+            "summary": "Remix\u0020Audio\u0020\u003A\u0020application\u0020handler.",
             "url": "classes/Remix-Audio.html"
         },                {
             "fqsen": "\\Remix\\Audio\u003A\u003A__construct\u0028\u0029",
@@ -90,11 +90,6 @@ Search.appendIndex(
             "name": "Channel",
             "summary": "Remix\u0020Channel\u0020\u003A\u0020web\u0020controller.",
             "url": "classes/Remix-Channel.html"
-        },                {
-            "fqsen": "\\Remix\\Channel\u003A\u003Aplay\u0028\u0029",
-            "name": "play",
-            "summary": "Execute\u0020a\u0020method\u0020of\u0020a\u0020subclass.",
-            "url": "classes/Remix-Channel.html#method_play"
         },                {
             "fqsen": "\\Remix\\Delay",
             "name": "Delay",
@@ -823,12 +818,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Studio",
             "name": "Studio",
-            "summary": "Remix\u0020Studio\u0020\u003A\u0020web\u0020response\u0020manager",
+            "summary": "Remix\u0020Studio\u0020\u003A\u0020web\u0020response\u0020manager.",
             "url": "classes/Remix-Studio.html"
         },                {
             "fqsen": "\\Remix\\Studio\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020constructed.",
+            "summary": "Create\u0020the\u0020response\u0020object.",
             "url": "classes/Remix-Studio.html#method___construct"
         },                {
             "fqsen": "\\Remix\\Studio\u003A\u003A__destruct\u0028\u0029",
@@ -853,47 +848,47 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Studio\u003A\u003AcontentType\u0028\u0029",
             "name": "contentType",
-            "summary": "",
+            "summary": "Set\u0020mime\u0020type.",
             "url": "classes/Remix-Studio.html#method_contentType"
         },                {
             "fqsen": "\\Remix\\Studio\u003A\u003AstatusCode\u0028\u0029",
             "name": "statusCode",
-            "summary": "",
+            "summary": "Set\u0020HTTP\u0020status\u0020code.",
             "url": "classes/Remix-Studio.html#method_statusCode"
         },                {
             "fqsen": "\\Remix\\Studio\u003A\u003AgetStatusCode\u0028\u0029",
             "name": "getStatusCode",
-            "summary": "",
+            "summary": "Get\u0020the\u0020HTTP\u0020status\u0020code.",
             "url": "classes/Remix-Studio.html#method_getStatusCode"
         },                {
             "fqsen": "\\Remix\\Studio\u003A\u003AgetMimeType\u0028\u0029",
             "name": "getMimeType",
-            "summary": "",
+            "summary": "Get\u0020the\u0020mime\u0020type.",
             "url": "classes/Remix-Studio.html#method_getMimeType"
         },                {
             "fqsen": "\\Remix\\Studio\u003A\u003AsendHeader\u0028\u0029",
             "name": "sendHeader",
-            "summary": "",
+            "summary": "Send\u0020all\u0020headers.",
             "url": "classes/Remix-Studio.html#method_sendHeader"
         },                {
             "fqsen": "\\Remix\\Studio\u003A\u003Arecorded\u0028\u0029",
             "name": "recorded",
-            "summary": "",
+            "summary": "Render\u0020the\u0020response.",
             "url": "classes/Remix-Studio.html#method_recorded"
         },                {
             "fqsen": "\\Remix\\Studio\u003A\u003Aredirect\u0028\u0029",
             "name": "redirect",
-            "summary": "",
+            "summary": "Do\u0020redirection.",
             "url": "classes/Remix-Studio.html#method_redirect"
         },                {
             "fqsen": "\\Remix\\Studio\u003A\u003AgetRedirectUri\u0028\u0029",
             "name": "getRedirectUri",
-            "summary": "",
+            "summary": "Get\u0020the\u0020URI\u0020of\u0020the\u0020redirect\u0020destination.",
             "url": "classes/Remix-Studio.html#method_getRedirectUri"
         },                {
             "fqsen": "\\Remix\\Studio\u003A\u003AisConsole\u0028\u0029",
             "name": "isConsole",
-            "summary": "",
+            "summary": "Need\u0020to\u0020output\u0020a\u0020debug\u0020console\u003F",
             "url": "classes/Remix-Studio.html#method_isConsole"
         },                {
             "fqsen": "\\Remix\\Studio\u003A\u003A\u0024property",
@@ -1973,32 +1968,32 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Reverb",
             "name": "Reverb",
-            "summary": "Remix\u0020Reverb\u0020\u003A\u0020web\u0020finalizer",
+            "summary": "Remix\u0020Reverb\u0020\u003A\u0020web\u0020finalizer.",
             "url": "classes/Remix-Reverb.html"
         },                {
             "fqsen": "\\Remix\\Reverb\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020constructed.",
+            "summary": "Create\u0020finalizer.",
             "url": "classes/Remix-Reverb.html#method___construct"
         },                {
             "fqsen": "\\Remix\\Reverb\u003A\u003A__toString\u0028\u0029",
             "name": "__toString",
-            "summary": "",
+            "summary": "Render\u0020output.",
             "url": "classes/Remix-Reverb.html#method___toString"
         },                {
             "fqsen": "\\Remix\\Reverb\u003A\u003Aexeption\u0028\u0029",
             "name": "exeption",
-            "summary": "",
+            "summary": "Render\u0020the\u0020exception.",
             "url": "classes/Remix-Reverb.html#method_exeption"
         },                {
             "fqsen": "\\Remix\\Reverb\u003A\u003A\u0024studio",
             "name": "studio",
-            "summary": "",
+            "summary": "Response\u0020object\u0020to\u0020output",
             "url": "classes/Remix-Reverb.html#property_studio"
         },                {
             "fqsen": "\\Remix\\Reverb\u003A\u003A\u0024preset",
             "name": "preset",
-            "summary": "",
+            "summary": "Preset\u0020object\u0020used\u0020to\u0020determine\u0020the\u0020template",
             "url": "classes/Remix-Reverb.html#property_preset"
         },                {
             "fqsen": "\\Remix\\Instrument",
@@ -2218,7 +2213,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Instruments\\Mixer",
             "name": "Mixer",
-            "summary": "Remix\u0020Mixer\u0020\u003A\u0020routing",
+            "summary": "Remix\u0020Mixer\u0020\u003A\u0020routing.",
             "url": "classes/Remix-Instruments-Mixer.html"
         },                {
             "fqsen": "\\Remix\\Instruments\\Mixer\u003A\u003Aload\u0028\u0029",
@@ -2240,6 +2235,16 @@ Search.appendIndex(
             "name": "route",
             "summary": "",
             "url": "classes/Remix-Instruments-Mixer.html#method_route"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Mixer\u003A\u003Aplay\u0028\u0029",
+            "name": "play",
+            "summary": "Execute\u0020a\u0020method\u0020of\u0020the\u0020Channel.",
+            "url": "classes/Remix-Instruments-Mixer.html#method_play"
+        },                {
+            "fqsen": "\\Remix\\Instruments\\Mixer\u003A\u003AtoChannel\u0028\u0029",
+            "name": "toChannel",
+            "summary": "",
+            "url": "classes/Remix-Instruments-Mixer.html#method_toChannel"
         },                {
             "fqsen": "\\Remix\\Instruments\\Mixer\u003A\u003Astudio\u0028\u0029",
             "name": "studio",
@@ -2328,37 +2333,37 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Studio\\Compressor",
             "name": "Compressor",
-            "summary": "Remix\u0020Maximizer\u0020\u003A\u0020view\u0020renderer",
+            "summary": "Remix\u0020Maximizer\u0020\u003A\u0020view\u0020renderer.",
             "url": "classes/Remix-Studio-Compressor.html"
         },                {
             "fqsen": "\\Remix\\Studio\\Compressor\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "Let\u0020Delay\u0020know\u0020that\u0020an\u0020instance\u0020has\u0020been\u0020constructed.",
+            "summary": "Build\u0020a\u0020bounce.",
             "url": "classes/Remix-Studio-Compressor.html#method___construct"
         },                {
             "fqsen": "\\Remix\\Studio\\Compressor\u003A\u003Apreset\u0028\u0029",
             "name": "preset",
-            "summary": "",
+            "summary": "Set\u0020Preset",
             "url": "classes/Remix-Studio-Compressor.html#method_preset"
         },                {
             "fqsen": "\\Remix\\Studio\\Compressor\u003A\u003A__set\u0028\u0029",
             "name": "__set",
-            "summary": "",
+            "summary": "Setter\u003A\u0020Alias\u0020\u200B\u200Bfor\u0020setEscaped\u0028\u0029",
             "url": "classes/Remix-Studio-Compressor.html#method___set"
         },                {
             "fqsen": "\\Remix\\Studio\\Compressor\u003A\u003AsetEscaped\u0028\u0029",
             "name": "setEscaped",
-            "summary": "",
+            "summary": "HTML\u0020sanitize\u0020and\u0020set\u0020variables.",
             "url": "classes/Remix-Studio-Compressor.html#method_setEscaped"
         },                {
             "fqsen": "\\Remix\\Studio\\Compressor\u003A\u003AsetHtml\u0028\u0029",
             "name": "setHtml",
-            "summary": "",
+            "summary": "Set\u0020the\u0020sanitized\u0020variable\u0020as\u0020HTML.",
             "url": "classes/Remix-Studio-Compressor.html#method_setHtml"
         },                {
             "fqsen": "\\Remix\\Studio\\Compressor\u003A\u003Arecord\u0028\u0029",
             "name": "record",
-            "summary": "",
+            "summary": "Render\u0020output.",
             "url": "classes/Remix-Studio-Compressor.html#method_record"
         },                {
             "fqsen": "\\Remix\\Studio\\Compressor\u003A\u003A\u0024bounce",
@@ -2395,6 +2400,26 @@ Search.appendIndex(
             "name": "get",
             "summary": "",
             "url": "classes/Utility-Http-StatusCode.html#method_get"
+        },                {
+            "fqsen": "\\Utility\\Http\\StatusCode\u003A\u003AOK",
+            "name": "OK",
+            "summary": "",
+            "url": "classes/Utility-Http-StatusCode.html#constant_OK"
+        },                {
+            "fqsen": "\\Utility\\Http\\StatusCode\u003A\u003ANOT_FOUND",
+            "name": "NOT_FOUND",
+            "summary": "",
+            "url": "classes/Utility-Http-StatusCode.html#constant_NOT_FOUND"
+        },                {
+            "fqsen": "\\Utility\\Http\\StatusCode\u003A\u003AMETHOD_NOT_ALLOWED",
+            "name": "METHOD_NOT_ALLOWED",
+            "summary": "",
+            "url": "classes/Utility-Http-StatusCode.html#constant_METHOD_NOT_ALLOWED"
+        },                {
+            "fqsen": "\\Utility\\Http\\StatusCode\u003A\u003AINTERNAL_SERVER_ERROR",
+            "name": "INTERNAL_SERVER_ERROR",
+            "summary": "",
+            "url": "classes/Utility-Http-StatusCode.html#constant_INTERNAL_SERVER_ERROR"
         },                {
             "fqsen": "\\Utility\\Http\\StatusCode\u003A\u003ACODES",
             "name": "CODES",
@@ -3336,6 +3361,26 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/RemixDemo-TestCase-Traits-Redirect.html#method_assertRedirectName"
         },                {
+            "fqsen": "\\Remix\\Exceptions\\Http\\HttpMethodNotAllowedException",
+            "name": "HttpMethodNotAllowedException",
+            "summary": "HTTP\u0020Exception\u0020class\u0020indicating\u0020the\u0020\u0022405\u0020Method\u0020Not\u0020Allowed\u0022",
+            "url": "classes/Remix-Exceptions-Http-HttpMethodNotAllowedException.html"
+        },                {
+            "fqsen": "\\Remix\\Exceptions\\Http\\HttpMethodNotAllowedException\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "constructor",
+            "url": "classes/Remix-Exceptions-Http-HttpMethodNotAllowedException.html#method___construct"
+        },                {
+            "fqsen": "\\Remix\\Exceptions\\Http\\HttpNotFoundException",
+            "name": "HttpNotFoundException",
+            "summary": "HTTP\u0020Exception\u0020class\u0020indicating\u0020the\u0020\u0022404\u0020Not\u0020Found\u0022",
+            "url": "classes/Remix-Exceptions-Http-HttpNotFoundException.html"
+        },                {
+            "fqsen": "\\Remix\\Exceptions\\Http\\HttpNotFoundException\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "constructor",
+            "url": "classes/Remix-Exceptions-Http-HttpNotFoundException.html#method___construct"
+        },                {
             "fqsen": "\\",
             "name": "\\",
             "summary": "",
@@ -3410,6 +3455,11 @@ Search.appendIndex(
             "name": "Exceptions",
             "summary": "",
             "url": "namespaces/remix-exceptions.html"
+        },                {
+            "fqsen": "\\Remix\\Exceptions\\Http",
+            "name": "Http",
+            "summary": "",
+            "url": "namespaces/remix-exceptions-http.html"
         },                {
             "fqsen": "\\Remix\\Instruments",
             "name": "Instruments",

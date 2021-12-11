@@ -7,7 +7,7 @@ use Utility\Http\StatusCode;
 /**
  * Exception class indicating the HTTP error
  *
- * @package  Remix\Exception
+ * @package  Remix\Exceptions
  */
 class HttpException extends \Remix\RemixException
 {

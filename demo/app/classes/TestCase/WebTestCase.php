@@ -5,6 +5,7 @@ namespace RemixDemo\TestCase;
 // Remix core
 use Remix\Audio;
 use Remix\Reverb;
+use Remix\Tuners\Cli as CliTuner;
 // Utility
 use Utility\Reflection\ReflectionObject;
 // Exception
@@ -58,7 +59,7 @@ abstract class WebTestCase extends DemoTestCase
     {
         // Turn off the CLI flag
         $reflection = new ReflectionObject(Audio::getInstance());
-        $reflection->setProp('is_cli', false);
+        $reflection->setProp('tunerCli', new CliTuner('web'));
 
         // Complete the DAW settings first
         parent::setUp();

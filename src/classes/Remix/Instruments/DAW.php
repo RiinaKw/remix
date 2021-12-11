@@ -133,8 +133,6 @@ class DAW extends Instrument
      */
     public function playWeb(): self
     {
-        Audio::getInstance()->cli = false;
-
         $path = $_SERVER['PATH_INFO'] ?? '';
         $studio = Audio::getInstance()->mixer->route($path);
 

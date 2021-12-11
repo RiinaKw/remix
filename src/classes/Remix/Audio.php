@@ -10,6 +10,7 @@ use Remix\Instruments\{
     Amp,
     DJ
 };
+use Remix\Tuners\Cli as CliTuner;
 use Remix\Exceptions\{
     CoreException,
     ErrorException
@@ -27,15 +28,17 @@ class Audio
     private $equalizer = null;
 
     protected static $is_debug = false;
-    protected static $is_cli = false;
+
+    private $tunerCli = null;
 
     private function __construct()
     {
-        static::$is_cli = (php_sapi_name() === 'cli');
+        $this->tunerCli = new CliTuner(php_sapi_name());
+
         if (static::$is_debug) {
             Delay::isDebug();
         }
-        if (static::$is_cli) {
+        if ($this->tunerCli->cli) {
             Delay::isCli();
         }
         Delay::start();
@@ -81,7 +84,7 @@ class Audio
                 return static::$is_debug;
 
             case 'cli':
-                return static::$is_cli;
+                return $this->tunerCli->cli;
 
             case 'equalizer':
                 return $this->equalizer;
@@ -106,19 +109,6 @@ class Audio
         }
     }
     // function __get()
-
-    public function __set(string $key, $value)
-    {
-        switch ($key) {
-            case 'cli':
-                static::$is_cli = $value;
-                break;
-
-            default:
-                throw new CoreException("Unknown key '{$key}'");
-        }
-    }
-    // function __set()
 
     public static function destroy(): void
     {
@@ -148,7 +138,7 @@ class Audio
 
     public function exceptionHandle($e): void
     {
-        if (static::$is_cli) {
+        if ($this->tunerCli->cli) {
             Effector::line(
                 '####' . PHP_EOL .
                 '#### ' . $e->getMessage() . PHP_EOL .

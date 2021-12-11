@@ -618,22 +618,22 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Exceptions\\CoreException",
             "name": "CoreException",
-            "summary": "Exception\u0020class\u0020raised\u0020by\u0020Remix\u0020cores",
+            "summary": "Exception\u0020class\u0020thrown\u0020by\u0020Remix\u0020cores.",
             "url": "classes/Remix-Exceptions-CoreException.html"
         },                {
             "fqsen": "\\Remix\\Exceptions\\DJException",
             "name": "DJException",
-            "summary": "Exception\u0020class\u0020indicating\u0020the\u0020database\u0020errors",
+            "summary": "Exception\u0020class\u0020indicating\u0020the\u0020database\u0020errors.",
             "url": "classes/Remix-Exceptions-DJException.html"
         },                {
             "fqsen": "\\Remix\\Exceptions\\ErrorException",
             "name": "ErrorException",
-            "summary": "Exception\u0020class\u0020indicating\u0020the\u0020PHP\u0020errors",
+            "summary": "Exception\u0020class\u0020indicating\u0020the\u0020PHP\u0020errors.",
             "url": "classes/Remix-Exceptions-ErrorException.html"
         },                {
             "fqsen": "\\Remix\\Exceptions\\HttpException",
             "name": "HttpException",
-            "summary": "Exception\u0020class\u0020indicating\u0020the\u0020HTTP\u0020error",
+            "summary": "Exception\u0020class\u0020indicating\u0020the\u0020HTTP\u0020error.",
             "url": "classes/Remix-Exceptions-HttpException.html"
         },                {
             "fqsen": "\\Remix\\Exceptions\\HttpException\u003A\u003A__construct\u0028\u0029",
@@ -743,7 +743,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\RemixException",
             "name": "RemixException",
-            "summary": "Exception\u0020class\u0020of\u0020Remix",
+            "summary": "Exception\u0020base\u0020class\u0020of\u0020Remix.",
             "url": "classes/Remix-RemixException.html"
         },                {
             "fqsen": "\\Remix\\RemixException\u003A\u003Acreate\u0028\u0029",
@@ -2003,7 +2003,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Remix\\Instruments\\Amp",
             "name": "Amp",
-            "summary": "Remix\u0020Amp\u0020\u003A\u0020command\u0020line\u0020interface",
+            "summary": "Remix\u0020Amp\u0020\u003A\u0020command\u0020line\u0020interface.",
             "url": "classes/Remix-Instruments-Amp.html"
         },                {
             "fqsen": "\\Remix\\Instruments\\Amp\u003A\u003Ainitialize\u0028\u0029",
@@ -3380,6 +3380,81 @@ Search.appendIndex(
             "name": "__construct",
             "summary": "constructor",
             "url": "classes/Remix-Exceptions-Http-HttpNotFoundException.html#method___construct"
+        },                {
+            "fqsen": "\\RemixDemo\\Channels\\ExceptionChannel",
+            "name": "ExceptionChannel",
+            "summary": "Channel\u0020to\u0020test\u0020for\u0020exception\u0020behavior.",
+            "url": "classes/RemixDemo-Channels-ExceptionChannel.html"
+        },                {
+            "fqsen": "\\RemixDemo\\Channels\\ExceptionChannel\u003A\u003Athrow404\u0028\u0029",
+            "name": "throw404",
+            "summary": "Throws\u0020HttpNotFoundException",
+            "url": "classes/RemixDemo-Channels-ExceptionChannel.html#method_throw404"
+        },                {
+            "fqsen": "\\RemixDemo\\Channels\\ExceptionChannel\u003A\u003Athrow405\u0028\u0029",
+            "name": "throw405",
+            "summary": "Throws\u0020HttpMethodNotAllowedException",
+            "url": "classes/RemixDemo-Channels-ExceptionChannel.html#method_throw405"
+        },                {
+            "fqsen": "\\RemixDemo\\Channels\\ExceptionChannel\u003A\u003AthrowRemix\u0028\u0029",
+            "name": "throwRemix",
+            "summary": "Throws\u0020RemixException",
+            "url": "classes/RemixDemo-Channels-ExceptionChannel.html#method_throwRemix"
+        },                {
+            "fqsen": "\\RemixDemo\\Channels\\ExceptionChannel\u003A\u003AthrowApp\u0028\u0029",
+            "name": "throwApp",
+            "summary": "Throws\u0020AppException",
+            "url": "classes/RemixDemo-Channels-ExceptionChannel.html#method_throwApp"
+        },                {
+            "fqsen": "\\RemixDemo\\Channels\\ExceptionChannel\u003A\u003AthrowCore\u0028\u0029",
+            "name": "throwCore",
+            "summary": "Throws\u0020CoreException",
+            "url": "classes/RemixDemo-Channels-ExceptionChannel.html#method_throwCore"
+        },                {
+            "fqsen": "\\RemixDemo\\Channels\\ExceptionChannel\u003A\u003AthrowDJ\u0028\u0029",
+            "name": "throwDJ",
+            "summary": "Throws\u0020DJException",
+            "url": "classes/RemixDemo-Channels-ExceptionChannel.html#method_throwDJ"
+        },                {
+            "fqsen": "\\RemixDemo\\Channels\\ExceptionChannel\u003A\u003AthrowError\u0028\u0029",
+            "name": "throwError",
+            "summary": "Throws\u0020DJException",
+            "url": "classes/RemixDemo-Channels-ExceptionChannel.html#method_throwError"
+        },                {
+            "fqsen": "\\RemixDemo\\Channels\\ExceptionChannel\u003A\u003AthrowRuntime\u0028\u0029",
+            "name": "throwRuntime",
+            "summary": "Throws\u0020DJException",
+            "url": "classes/RemixDemo-Channels-ExceptionChannel.html#method_throwRuntime"
+        },                {
+            "fqsen": "\\RemixDemo\\Channels\\ExceptionChannel\u003A\u003AthrowNativeError\u0028\u0029",
+            "name": "throwNativeError",
+            "summary": "Throws\u0020Error",
+            "url": "classes/RemixDemo-Channels-ExceptionChannel.html#method_throwNativeError"
+        },                {
+            "fqsen": "\\RemixDemo\\Channels\\ExceptionChannel\u003A\u003AthrowSyntax\u0028\u0029",
+            "name": "throwSyntax",
+            "summary": "Contains\u0020syntax\u0020errors",
+            "url": "classes/RemixDemo-Channels-ExceptionChannel.html#method_throwSyntax"
+        },                {
+            "fqsen": "\\RemixDemo\\Channels\\ExceptionChannel\u003A\u003AthrowTriggerError\u0028\u0029",
+            "name": "throwTriggerError",
+            "summary": "trigger_error\u0020E_USER_ERROR",
+            "url": "classes/RemixDemo-Channels-ExceptionChannel.html#method_throwTriggerError"
+        },                {
+            "fqsen": "\\RemixDemo\\Channels\\ExceptionChannel\u003A\u003AthrowTriggerWarning\u0028\u0029",
+            "name": "throwTriggerWarning",
+            "summary": "trigger_error\u0020E_USER_ERROR",
+            "url": "classes/RemixDemo-Channels-ExceptionChannel.html#method_throwTriggerWarning"
+        },                {
+            "fqsen": "\\RemixDemo\\Channels\\ExceptionChannel\u003A\u003AthrowTriggerNotice\u0028\u0029",
+            "name": "throwTriggerNotice",
+            "summary": "trigger_error\u0020E_USER_ERROR",
+            "url": "classes/RemixDemo-Channels-ExceptionChannel.html#method_throwTriggerNotice"
+        },                {
+            "fqsen": "\\Remix\\Exceptions\\AppException",
+            "name": "AppException",
+            "summary": "Exception\u0020class\u0020thrown\u0020by\u0020Remix\u0020app.",
+            "url": "classes/Remix-Exceptions-AppException.html"
         },                {
             "fqsen": "\\",
             "name": "\\",

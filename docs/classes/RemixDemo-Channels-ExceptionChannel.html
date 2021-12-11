@@ -130,23 +130,23 @@
 
             <div class="phpdocumentor-column -eight phpdocumentor-content">
                     <ul class="phpdocumentor-breadcrumbs">
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/remix.html">Remix</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/remix-instruments.html">Instruments</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/remixdemo.html">RemixDemo</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/remixdemo-channels.html">Channels</a></li>
     </ul>
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    DAW
+    ExceptionChannel
 
         <span class="phpdocumentor-element__extends">
-        extends <a href="classes/Remix-Instrument.html"><abbr title="\Remix\Instrument">Instrument</abbr></a>
+        extends <a href="classes/Remix-Channel.html"><abbr title="\Remix\Channel">Channel</abbr></a>
     </span>
     
             <div class="phpdocumentor-element__package">
             in package
             <ul class="phpdocumentor-breadcrumbs">
-                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Remix.html">Remix</a></li>
-                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Remix-Core.html">Core</a></li>
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Demo.html">Demo</a></li>
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Demo-Channels.html">Channels</a></li>
                             </ul>
         </div>
     
@@ -154,31 +154,16 @@
     </h2>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Instruments/DAW.php"><a href="files/src-classes-remix-instruments-daw.html"><abbr title="src/classes/Remix/Instruments/DAW.php">DAW.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="demo/app/classes/Channels/ExceptionChannel.php"><a href="files/demo-app-classes-channels-exceptionchannel.html"><abbr title="demo/app/classes/Channels/ExceptionChannel.php">ExceptionChannel.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">19</span>
+    <span class="phpdocumentor-element-found-in__line">25</span>
 </aside>
 
-            <p class="phpdocumentor-summary">Remix DAW : entry point</p>
+            <p class="phpdocumentor-summary">Channel to test for exception behavior.</p>
 
     <section class="phpdocumentor-description"></section>
 
 
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">todo</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>Write the details.</p>
-</section>
-
-                                    </dd>
-                        </dl>
 
 
 
@@ -191,40 +176,12 @@
 </h3>
 
 <dl class="phpdocumentor-table-of-contents">
-                <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/Remix-Instruments-DAW.html#property_app_dir">$app_dir</a>
-    <span>
-                &nbsp;: mixed            </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/Remix-Instruments-DAW.html#property_remix_dir">$remix_dir</a>
-    <span>
-                &nbsp;: mixed            </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+                <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/Remix-Gear.html#property_log_param">$log_param</a>
     <span>
                 &nbsp;: string            </span>
 </dt>
 <dd>Option parameter for Delay</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Remix-Instruments-DAW.html#property_preset">$preset</a>
-    <span>
-                &nbsp;: mixed            </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Remix-Instruments-DAW.html#property_reverb">$reverb</a>
-    <span>
-                &nbsp;: mixed            </span>
-</dt>
-<dd></dd>
 
                 <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-Gear.html#method___construct">__construct()</a>
@@ -241,74 +198,95 @@
 <dd>Let Delay know that an instance has been destructed.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-Instruments-DAW.html#method_appDir">appDir()</a>
+    <a href="classes/RemixDemo-Channels-ExceptionChannel.html#method_throw404">throw404()</a>
     <span>
                         &nbsp;: string    </span>
 </dt>
-<dd></dd>
+<dd>Throws HttpNotFoundException</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-Instruments-DAW.html#method_finalize">finalize()</a>
-    <span>
-                        &nbsp;: <a href="classes/Remix-Reverb.html"><abbr title="\Remix\Reverb">Reverb</abbr></a>    </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-Instruments-DAW.html#method_initialize">initialize()</a>
-    <span>
-                        &nbsp;: self    </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-Instruments-DAW.html#method_initializeApp">initializeApp()</a>
-    <span>
-                        &nbsp;: self    </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-Instruments-DAW.html#method_initializeCore">initializeCore()</a>
-    <span>
-                        &nbsp;: self    </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-Instruments-DAW.html#method_loadPreset">loadPreset()</a>
-    <span>
-                        &nbsp;: self    </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-Instruments-DAW.html#method_playCli">playCli()</a>
-    <span>
-                        &nbsp;: void    </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-Instruments-DAW.html#method_playWeb">playWeb()</a>
-    <span>
-                        &nbsp;: self    </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-Instruments-DAW.html#method_preset">preset()</a>
-    <span>
-                        &nbsp;: <a href="classes/Remix-Instruments-Preset.html"><abbr title="\Remix\Instruments\Preset">Preset</abbr></a>    </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-Instruments-DAW.html#method_remixDir">remixDir()</a>
+    <a href="classes/RemixDemo-Channels-ExceptionChannel.html#method_throw405">throw405()</a>
     <span>
                         &nbsp;: string    </span>
 </dt>
-<dd></dd>
+<dd>Throws HttpMethodNotAllowedException</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/RemixDemo-Channels-ExceptionChannel.html#method_throwApp">throwApp()</a>
+    <span>
+                        &nbsp;: string    </span>
+</dt>
+<dd>Throws AppException</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/RemixDemo-Channels-ExceptionChannel.html#method_throwCore">throwCore()</a>
+    <span>
+                        &nbsp;: string    </span>
+</dt>
+<dd>Throws CoreException</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/RemixDemo-Channels-ExceptionChannel.html#method_throwDJ">throwDJ()</a>
+    <span>
+                        &nbsp;: string    </span>
+</dt>
+<dd>Throws DJException</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/RemixDemo-Channels-ExceptionChannel.html#method_throwError">throwError()</a>
+    <span>
+                        &nbsp;: string    </span>
+</dt>
+<dd>Throws DJException</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/RemixDemo-Channels-ExceptionChannel.html#method_throwNativeError">throwNativeError()</a>
+    <span>
+                        &nbsp;: string    </span>
+</dt>
+<dd>Throws Error</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/RemixDemo-Channels-ExceptionChannel.html#method_throwRemix">throwRemix()</a>
+    <span>
+                        &nbsp;: string    </span>
+</dt>
+<dd>Throws RemixException</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/RemixDemo-Channels-ExceptionChannel.html#method_throwRuntime">throwRuntime()</a>
+    <span>
+                        &nbsp;: string    </span>
+</dt>
+<dd>Throws DJException</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/RemixDemo-Channels-ExceptionChannel.html#method_throwSyntax">throwSyntax()</a>
+    <span>
+                        &nbsp;: string    </span>
+</dt>
+<dd>Contains syntax errors</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/RemixDemo-Channels-ExceptionChannel.html#method_throwTriggerError">throwTriggerError()</a>
+    <span>
+                        &nbsp;: string    </span>
+</dt>
+<dd>trigger_error E_USER_ERROR</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/RemixDemo-Channels-ExceptionChannel.html#method_throwTriggerNotice">throwTriggerNotice()</a>
+    <span>
+                        &nbsp;: string    </span>
+</dt>
+<dd>trigger_error E_USER_ERROR</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/RemixDemo-Channels-ExceptionChannel.html#method_throwTriggerWarning">throwTriggerWarning()</a>
+    <span>
+                        &nbsp;: string    </span>
+</dt>
+<dd>trigger_error E_USER_ERROR</dd>
 
         </dl>
 
@@ -320,68 +298,8 @@
     <section class="phpdocumentor-properties">
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
-            <a href="classes/Remix-Instruments-DAW.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/RemixDemo-Channels-ExceptionChannel.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -protected
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_app_dir">
-        $app_dir
-        <a href="classes/Remix-Instruments-DAW.html#property_app_dir" class="headerlink"><i class="fas fa-link"></i></a>
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Instruments/DAW.php"><a href="files/src-classes-remix-instruments-daw.html"><abbr title="src/classes/Remix/Instruments/DAW.php">DAW.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">25</span>
-</aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">$app_dir</span>
-    </code>
-
-    
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -protected
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_remix_dir">
-        $remix_dir
-        <a href="classes/Remix-Instruments-DAW.html#property_remix_dir" class="headerlink"><i class="fas fa-link"></i></a>
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Instruments/DAW.php"><a href="files/src-classes-remix-instruments-daw.html"><abbr title="src/classes/Remix/Instruments/DAW.php">DAW.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">24</span>
-</aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">$remix_dir</span>
-    </code>
-
-    
-    
-
-</article>
                     <article
         class="
             phpdocumentor-element
@@ -414,72 +332,12 @@
     
 
 </article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -private
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_preset">
-        $preset
-        <a href="classes/Remix-Instruments-DAW.html#property_preset" class="headerlink"><i class="fas fa-link"></i></a>
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Instruments/DAW.php"><a href="files/src-classes-remix-instruments-daw.html"><abbr title="src/classes/Remix/Instruments/DAW.php">DAW.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">21</span>
-</aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">$preset</span>
-     = <span class="phpdocumentor-signature__default-value">null</span></code>
-
-    
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -private
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_reverb">
-        $reverb
-        <a href="classes/Remix-Instruments-DAW.html#property_reverb" class="headerlink"><i class="fas fa-link"></i></a>
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Instruments/DAW.php"><a href="files/src-classes-remix-instruments-daw.html"><abbr title="src/classes/Remix/Instruments/DAW.php">DAW.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">22</span>
-</aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">$reverb</span>
-     = <span class="phpdocumentor-signature__default-value">null</span></code>
-
-    
-    
-
-</article>
             </section>
 
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/Remix-Instruments-DAW.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/RemixDemo-Channels-ExceptionChannel.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
                     <article
         class="phpdocumentor-element
@@ -567,33 +425,25 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_appDir">
-        appDir()
-        <a href="classes/Remix-Instruments-DAW.html#method_appDir" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_throw404">
+        throw404()
+        <a href="classes/RemixDemo-Channels-ExceptionChannel.html#method_throw404" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Instruments/DAW.php"><a href="files/src-classes-remix-instruments-daw.html"><abbr title="src/classes/Remix/Instruments/DAW.php">DAW.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="demo/app/classes/Channels/ExceptionChannel.php"><a href="files/demo-app-classes-channels-exceptionchannel.html"><abbr title="demo/app/classes/Channels/ExceptionChannel.php">ExceptionChannel.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">125</span>
+    <span class="phpdocumentor-element-found-in__line">30</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Throws HttpNotFoundException</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">appDir</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$path</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+                <span class="phpdocumentor-signature__name">throw404</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+        <section class="phpdocumentor-description"></section>
 
     
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$path</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -609,265 +459,29 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_finalize">
-        finalize()
-        <a href="classes/Remix-Instruments-DAW.html#method_finalize" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_throw405">
+        throw405()
+        <a href="classes/RemixDemo-Channels-ExceptionChannel.html#method_throw405" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Instruments/DAW.php"><a href="files/src-classes-remix-instruments-daw.html"><abbr title="src/classes/Remix/Instruments/DAW.php">DAW.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="demo/app/classes/Channels/ExceptionChannel.php"><a href="files/demo-app-classes-channels-exceptionchannel.html"><abbr title="demo/app/classes/Channels/ExceptionChannel.php">ExceptionChannel.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">147</span>
+    <span class="phpdocumentor-element-found-in__line">40</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Throws HttpMethodNotAllowedException</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">finalize</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Remix-Reverb.html"><abbr title="\Remix\Reverb">Reverb</abbr></a></span></code>
-
-    
-    
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Remix-Reverb.html"><abbr title="\Remix\Reverb">Reverb</abbr></a></span>
-            &mdash;
-            <section class="phpdocumentor-description"></section>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_initialize">
-        initialize()
-        <a href="classes/Remix-Instruments-DAW.html#method_initialize" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Instruments/DAW.php"><a href="files/src-classes-remix-instruments-daw.html"><abbr title="src/classes/Remix/Instruments/DAW.php">DAW.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">114</span>
-</aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">initialize</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$dir</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">self</span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$dir</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">self</span>
-            &mdash;
-            <section class="phpdocumentor-description"></section>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_initializeApp">
-        initializeApp()
-        <a href="classes/Remix-Instruments-DAW.html#method_initializeApp" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Instruments/DAW.php"><a href="files/src-classes-remix-instruments-daw.html"><abbr title="src/classes/Remix/Instruments/DAW.php">DAW.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">55</span>
-</aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">initializeApp</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$dir</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">self</span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$dir</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">self</span>
-            &mdash;
-            <section class="phpdocumentor-description"></section>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_initializeCore">
-        initializeCore()
-        <a href="classes/Remix-Instruments-DAW.html#method_initializeCore" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Instruments/DAW.php"><a href="files/src-classes-remix-instruments-daw.html"><abbr title="src/classes/Remix/Instruments/DAW.php">DAW.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">27</span>
-</aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">initializeCore</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">self</span></code>
-
-    
-    
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">self</span>
-            &mdash;
-            <section class="phpdocumentor-description"></section>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_loadPreset">
-        loadPreset()
-        <a href="classes/Remix-Instruments-DAW.html#method_loadPreset" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Instruments/DAW.php"><a href="files/src-classes-remix-instruments-daw.html"><abbr title="src/classes/Remix/Instruments/DAW.php">DAW.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">101</span>
-</aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">loadPreset</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">self</span></code>
-
-    
-    
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">self</span>
-            &mdash;
-            <section class="phpdocumentor-description"></section>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_playCli">
-        playCli()
-        <a href="classes/Remix-Instruments-DAW.html#method_playCli" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Instruments/DAW.php"><a href="files/src-classes-remix-instruments-daw.html"><abbr title="src/classes/Remix/Instruments/DAW.php">DAW.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">153</span>
-</aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">playCli</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$argv</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$argv</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">void</span>
-            &mdash;
-            <section class="phpdocumentor-description"></section>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_playWeb">
-        playWeb()
-        <a href="classes/Remix-Instruments-DAW.html#method_playWeb" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Instruments/DAW.php"><a href="files/src-classes-remix-instruments-daw.html"><abbr title="src/classes/Remix/Instruments/DAW.php">DAW.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">134</span>
-</aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">playWeb</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">self</span></code>
+                <span class="phpdocumentor-signature__name">throw405</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
         <section class="phpdocumentor-description"></section>
 
     
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">SuppressWarnings</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>(PHPMD.Superglobals)</p>
-</section>
-
-                                    </dd>
-                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">self</span>
+    <span class="phpdocumentor-signature__response_type">string</span>
             &mdash;
             <section class="phpdocumentor-description"></section>
 
@@ -879,27 +493,29 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_preset">
-        preset()
-        <a href="classes/Remix-Instruments-DAW.html#method_preset" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_throwApp">
+        throwApp()
+        <a href="classes/RemixDemo-Channels-ExceptionChannel.html#method_throwApp" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Instruments/DAW.php"><a href="files/src-classes-remix-instruments-daw.html"><abbr title="src/classes/Remix/Instruments/DAW.php">DAW.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="demo/app/classes/Channels/ExceptionChannel.php"><a href="files/demo-app-classes-channels-exceptionchannel.html"><abbr title="demo/app/classes/Channels/ExceptionChannel.php">ExceptionChannel.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">109</span>
+    <span class="phpdocumentor-element-found-in__line">60</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Throws AppException</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">preset</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Remix-Instruments-Preset.html"><abbr title="\Remix\Instruments\Preset">Preset</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">throwApp</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
     
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Remix-Instruments-Preset.html"><abbr title="\Remix\Instruments\Preset">Preset</abbr></a></span>
+    <span class="phpdocumentor-signature__response_type">string</span>
             &mdash;
             <section class="phpdocumentor-description"></section>
 
@@ -911,33 +527,331 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_remixDir">
-        remixDir()
-        <a href="classes/Remix-Instruments-DAW.html#method_remixDir" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_throwCore">
+        throwCore()
+        <a href="classes/RemixDemo-Channels-ExceptionChannel.html#method_throwCore" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Instruments/DAW.php"><a href="files/src-classes-remix-instruments-daw.html"><abbr title="src/classes/Remix/Instruments/DAW.php">DAW.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="demo/app/classes/Channels/ExceptionChannel.php"><a href="files/demo-app-classes-channels-exceptionchannel.html"><abbr title="demo/app/classes/Channels/ExceptionChannel.php">ExceptionChannel.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">119</span>
+    <span class="phpdocumentor-element-found-in__line">70</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Throws CoreException</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">remixDir</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$path</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+                <span class="phpdocumentor-signature__name">throwCore</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+        <section class="phpdocumentor-description"></section>
 
     
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$path</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
+    
 
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_throwDJ">
+        throwDJ()
+        <a href="classes/RemixDemo-Channels-ExceptionChannel.html#method_throwDJ" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="demo/app/classes/Channels/ExceptionChannel.php"><a href="files/demo-app-classes-channels-exceptionchannel.html"><abbr title="demo/app/classes/Channels/ExceptionChannel.php">ExceptionChannel.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">80</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Throws DJException</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">throwDJ</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_throwError">
+        throwError()
+        <a href="classes/RemixDemo-Channels-ExceptionChannel.html#method_throwError" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="demo/app/classes/Channels/ExceptionChannel.php"><a href="files/demo-app-classes-channels-exceptionchannel.html"><abbr title="demo/app/classes/Channels/ExceptionChannel.php">ExceptionChannel.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">90</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Throws DJException</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">throwError</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_throwNativeError">
+        throwNativeError()
+        <a href="classes/RemixDemo-Channels-ExceptionChannel.html#method_throwNativeError" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="demo/app/classes/Channels/ExceptionChannel.php"><a href="files/demo-app-classes-channels-exceptionchannel.html"><abbr title="demo/app/classes/Channels/ExceptionChannel.php">ExceptionChannel.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">110</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Throws Error</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">throwNativeError</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_throwRemix">
+        throwRemix()
+        <a href="classes/RemixDemo-Channels-ExceptionChannel.html#method_throwRemix" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="demo/app/classes/Channels/ExceptionChannel.php"><a href="files/demo-app-classes-channels-exceptionchannel.html"><abbr title="demo/app/classes/Channels/ExceptionChannel.php">ExceptionChannel.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">50</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Throws RemixException</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">throwRemix</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_throwRuntime">
+        throwRuntime()
+        <a href="classes/RemixDemo-Channels-ExceptionChannel.html#method_throwRuntime" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="demo/app/classes/Channels/ExceptionChannel.php"><a href="files/demo-app-classes-channels-exceptionchannel.html"><abbr title="demo/app/classes/Channels/ExceptionChannel.php">ExceptionChannel.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">100</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Throws DJException</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">throwRuntime</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_throwSyntax">
+        throwSyntax()
+        <a href="classes/RemixDemo-Channels-ExceptionChannel.html#method_throwSyntax" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="demo/app/classes/Channels/ExceptionChannel.php"><a href="files/demo-app-classes-channels-exceptionchannel.html"><abbr title="demo/app/classes/Channels/ExceptionChannel.php">ExceptionChannel.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">120</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Contains syntax errors</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">throwSyntax</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_throwTriggerError">
+        throwTriggerError()
+        <a href="classes/RemixDemo-Channels-ExceptionChannel.html#method_throwTriggerError" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="demo/app/classes/Channels/ExceptionChannel.php"><a href="files/demo-app-classes-channels-exceptionchannel.html"><abbr title="demo/app/classes/Channels/ExceptionChannel.php">ExceptionChannel.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">130</span>
+</aside>
+
+        <p class="phpdocumentor-summary">trigger_error E_USER_ERROR</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">throwTriggerError</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_throwTriggerNotice">
+        throwTriggerNotice()
+        <a href="classes/RemixDemo-Channels-ExceptionChannel.html#method_throwTriggerNotice" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="demo/app/classes/Channels/ExceptionChannel.php"><a href="files/demo-app-classes-channels-exceptionchannel.html"><abbr title="demo/app/classes/Channels/ExceptionChannel.php">ExceptionChannel.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">150</span>
+</aside>
+
+        <p class="phpdocumentor-summary">trigger_error E_USER_ERROR</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">throwTriggerNotice</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_throwTriggerWarning">
+        throwTriggerWarning()
+        <a href="classes/RemixDemo-Channels-ExceptionChannel.html#method_throwTriggerWarning" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="demo/app/classes/Channels/ExceptionChannel.php"><a href="files/demo-app-classes-channels-exceptionchannel.html"><abbr title="demo/app/classes/Channels/ExceptionChannel.php">ExceptionChannel.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">140</span>
+</aside>
+
+        <p class="phpdocumentor-summary">trigger_error E_USER_ERROR</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">throwTriggerWarning</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -963,7 +877,7 @@
 </section>
             </div>
         </div>
-        <a href="classes/Remix-Instruments-DAW.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/RemixDemo-Channels-ExceptionChannel.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

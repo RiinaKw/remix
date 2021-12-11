@@ -39,7 +39,7 @@ class FormTest extends WebTestCase
         $this->assertHtmlContains('Input form');
         $this->assertInputText('name', '');
         $this->assertInputText('email', '');
-        $this->assertTextarea('profile', '');
+        $this->assertTextarea('profile1', '');
     }
 
     /**

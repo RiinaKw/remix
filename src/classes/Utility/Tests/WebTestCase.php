@@ -176,9 +176,12 @@ abstract class WebTestCase extends DemoTestCase
         );
 
         // Loop the hit tag
-        foreach ($matches[0] as $tag) {
+        foreach ($matches[0] as $idx => $tag) {
             // Get the attribute list
-            $attrs = $this->getHtmlAttributes($tag);
+            $attrs = [
+                'html' => $matches[0][$idx],
+            ];
+            $attrs += $this->getHtmlAttributes($tag);
 
             // If the specified attribute has the specified value, return the tag
             if ($attrs[$attr_name] === $attr_value) {
@@ -211,6 +214,7 @@ abstract class WebTestCase extends DemoTestCase
         foreach ($matches[0] as $idx => $tag) {
             // Get the attribute list and add the content
             $attrs = [
+                'html' => $matches[0][$idx],
                 'content' => $matches['content'][$idx],
             ];
             $attrs += $this->getHtmlAttributes($tag);
@@ -243,9 +247,10 @@ abstract class WebTestCase extends DemoTestCase
             'type' => $type,
             'value' => $value,
         ];
+        $html = $attrs['html'];
         foreach ($test as $name => $value) {
             $this->assertTrue(isset($attrs[$name]));
-            $this->assertSame($value, $attrs[$name]);
+            $this->assertSame($value, $attrs[$name], "HTML {$html} does not contain value '{$value}' in the attr '{$name}'");
         }
     }
     // function assertInput()
@@ -278,9 +283,10 @@ abstract class WebTestCase extends DemoTestCase
             'name' => $attrs['name'],
             'content' => $value,
         ];
+        $html = $attrs['html'];
         foreach ($test as $name => $value) {
-            $this->assertTrue(isset($attrs[$name]));
-            $this->assertSame($value, $attrs[$name]);
+            $this->assertTrue(isset($attrs[$name]), "No HTML found that contains attr '{$name}'");
+            $this->assertSame($value, $attrs[$name], "HTML {$attrs['html']} does not contain value '{$value}' in the attr '{$name}'");
         }
     }
     // function assertTextarea()

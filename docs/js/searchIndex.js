@@ -2793,72 +2793,72 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Utility\\Reflection\\ReflectionObject\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Set\u0020up\u0020the\u0020ReflectionClass\u0020object.",
             "url": "classes/Utility-Reflection-ReflectionObject.html#method___construct"
         },                {
             "fqsen": "\\Utility\\Reflection\\ReflectionObject\u003A\u003AgetPropReflection\u0028\u0029",
             "name": "getPropReflection",
-            "summary": "",
+            "summary": "Get\u0020the\u0020private\/protected\u0020property\u0020object.",
             "url": "classes/Utility-Reflection-ReflectionObject.html#method_getPropReflection"
         },                {
             "fqsen": "\\Utility\\Reflection\\ReflectionObject\u003A\u003AgetProp\u0028\u0029",
             "name": "getProp",
-            "summary": "",
+            "summary": "Get\u0020the\u0020value\u0020of\u0020private\/protected\u0020property\u0020object.",
             "url": "classes/Utility-Reflection-ReflectionObject.html#method_getProp"
         },                {
             "fqsen": "\\Utility\\Reflection\\ReflectionObject\u003A\u003AsetProp\u0028\u0029",
             "name": "setProp",
-            "summary": "",
+            "summary": "Set\u0020the\u0020value\u0020of\u0020private\/protected\u0020property\u0020object.",
             "url": "classes/Utility-Reflection-ReflectionObject.html#method_setProp"
         },                {
             "fqsen": "\\Utility\\Reflection\\ReflectionObject\u003A\u003AexecuteMethod\u0028\u0029",
             "name": "executeMethod",
-            "summary": "",
+            "summary": "Call\u0020the\u0020private\/protected\u0020method.",
             "url": "classes/Utility-Reflection-ReflectionObject.html#method_executeMethod"
         },                {
             "fqsen": "\\Utility\\Reflection\\ReflectionObject\u003A\u003A\u0024target",
             "name": "target",
-            "summary": "",
+            "summary": "Target\u0020object",
             "url": "classes/Utility-Reflection-ReflectionObject.html#property_target"
         },                {
             "fqsen": "\\Utility\\Reflection\\ReflectionObject\u003A\u003A\u0024reflection",
             "name": "reflection",
-            "summary": "",
+            "summary": "Reflection\u0020object",
             "url": "classes/Utility-Reflection-ReflectionObject.html#property_reflection"
         },                {
             "fqsen": "\\Utility\\Reflection\\ReflectionStatic",
             "name": "ReflectionStatic",
-            "summary": "Reflection\u0020for\u0020private\/protected\u0020static\u0020members",
+            "summary": "Reflection\u0020for\u0020private\/protected\u0020static\u0020members.",
             "url": "classes/Utility-Reflection-ReflectionStatic.html"
         },                {
             "fqsen": "\\Utility\\Reflection\\ReflectionStatic\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Set\u0020up\u0020the\u0020ReflectionClass\u0020object.",
             "url": "classes/Utility-Reflection-ReflectionStatic.html#method___construct"
         },                {
             "fqsen": "\\Utility\\Reflection\\ReflectionStatic\u003A\u003AgetPropReflection\u0028\u0029",
             "name": "getPropReflection",
-            "summary": "",
+            "summary": "Get\u0020the\u0020private\/protected\u0020static\u0020property\u0020object.",
             "url": "classes/Utility-Reflection-ReflectionStatic.html#method_getPropReflection"
         },                {
             "fqsen": "\\Utility\\Reflection\\ReflectionStatic\u003A\u003AgetProp\u0028\u0029",
             "name": "getProp",
-            "summary": "",
+            "summary": "Get\u0020the\u0020value\u0020of\u0020private\/protected\u0020static\u0020property\u0020object.",
             "url": "classes/Utility-Reflection-ReflectionStatic.html#method_getProp"
         },                {
             "fqsen": "\\Utility\\Reflection\\ReflectionStatic\u003A\u003AsetProp\u0028\u0029",
             "name": "setProp",
-            "summary": "",
+            "summary": "Set\u0020the\u0020value\u0020of\u0020private\/protected\u0020static\u0020property\u0020object.",
             "url": "classes/Utility-Reflection-ReflectionStatic.html#method_setProp"
         },                {
             "fqsen": "\\Utility\\Reflection\\ReflectionStatic\u003A\u003AexecuteMethod\u0028\u0029",
             "name": "executeMethod",
-            "summary": "",
+            "summary": "Call\u0020the\u0020private\/protected\u0020static\u0020method.",
             "url": "classes/Utility-Reflection-ReflectionStatic.html#method_executeMethod"
         },                {
             "fqsen": "\\Utility\\Reflection\\ReflectionStatic\u003A\u003A\u0024reflection",
             "name": "reflection",
-            "summary": "",
+            "summary": "Reflection\u0020object",
             "url": "classes/Utility-Reflection-ReflectionStatic.html#property_reflection"
         },                {
             "fqsen": "\\Utility\\Tests\\BaseTestCase",

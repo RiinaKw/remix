@@ -39,7 +39,7 @@ class Csrf
         return crypt($token, static::$token_salt);
     }
 
-    protected function token(): string
+    protected static function token(): string
     {
         $token = bin2hex(random_bytes(32));
         static::$session_token->set($token);
@@ -78,6 +78,6 @@ class Csrf
     public function html()
     {
         $key = 'csrf_token';
-        return '<input type="hidden" name="' . $key . '" value="' . $this->token() . '" />';
+        return '<input type="hidden" name="' . $key . '" value="' . static::token() . '" />';
     }
 }

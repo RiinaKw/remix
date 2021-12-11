@@ -176,7 +176,7 @@ class MC extends Gear
      * @param Table|string   $table   Table instance or table name
      * @param Column         $column  Target column
      */
-    public function indexCreate($table, Column $column): void
+    public static function indexCreate($table, Column $column): void
     {
         static::expectTableExists($table);
         $name = static::tableName($table);

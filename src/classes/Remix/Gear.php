@@ -17,9 +17,10 @@ abstract class Gear
 
     /**
      * Let Delay know that an instance has been constructed.
-     * @param string|null $log_param  If this parameter is on, it will be displayed in Delay
+     * @param string|null $log_param  If this parameter is set, it will be displayed in Delay
+     * @return self
      */
-    public function __construct(string $log_param = null)
+    public function __construct(?string $log_param = null)
     {
         if ($log_param) {
             $this->log_param = $log_param;
@@ -32,6 +33,7 @@ abstract class Gear
 
     /**
      * Let Delay know that an instance has been destructed.
+     * @return void
      */
     public function __destruct()
     {

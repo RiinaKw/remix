@@ -12,13 +12,28 @@ use Remix\Audio;
  */
 abstract class DemoTestCase extends BaseTestCase
 {
+    /**
+     * DAW intance
+     * @var \Remix\Instruments\DAW
+     */
     protected $daw = null;
 
+    /**
+     * Initialize application.
+     */
     protected function setUp(): void
     {
-        $this->daw = Audio::getInstance()->daw;
+        // Be sure to point to the app directory.
+        $app_dir = __DIR__ . '/../..';
+        chdir($app_dir . '/..');
+
+        // Initialize for web operation.
+        $this->daw = Audio::getInstance()->daw->initialize($app_dir);
     }
 
+    /**
+     * Finalize application.
+     */
     protected function tearDown(): void
     {
         Audio::destroy();

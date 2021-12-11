@@ -17,25 +17,55 @@ use Remix\Exceptions\HttpException;
  */
 abstract class WebTestCase extends DemoTestCase
 {
+    /**
+     * @property \Remix\Instruments\DAW $daw
+     */
+
+    /**
+     * Stuido instance
+     * @var \Remix\Studio
+     */
     protected $studio = null;
+
+    /**
+     * HTML string of the response
+     * @var string
+     */
     protected $html = null;
 
+    /**
+     * The path from the last access
+     * @var string
+     */
     protected $prev_path = '';
+
+    /**
+     * The method from the last access
+     * @var string
+     */
     protected $prev_method = '';
+
+    /**
+     * The $_POST from the last access
+     * @var array<string, mixed>
+     */
     protected $prev_post = [];
 
-    protected function initialize(string $app_dir)
+    /**
+     * Initialize application, turn off CLI flag.
+     */
+    protected function setUp(): void
     {
         // Turn off the CLI flag
         $reflection = new ReflectionObject(Audio::getInstance());
         $reflection->setProp('is_cli', false);
 
-        // Initialize for web operation
-        $this->daw->initialize($app_dir);
-        chdir($app_dir . '/..');
+        // Complete the DAW settings first
+        parent::setUp();
     }
 
     /**
+     * Get super global variables.
      * @SuppressWarnings(PHPMD.Superglobals)
      */
     public function __get(string $key)
@@ -50,6 +80,7 @@ abstract class WebTestCase extends DemoTestCase
     }
 
     /**
+     * Set super global variables.
      * @SuppressWarnings(PHPMD.Superglobals)
      */
     public function __set(string $key, $value)
@@ -67,7 +98,11 @@ abstract class WebTestCase extends DemoTestCase
         }
     }
 
-    private function request(string $path)
+    /**
+     * Send a web request.
+     * @param  string $path  Path to access
+     */
+    private function request(string $path): void
     {
         // Back up properties
         $this->prev_path = $path;
@@ -93,7 +128,10 @@ abstract class WebTestCase extends DemoTestCase
         $this->studio->sendHeader();
     }
 
-    protected function reload()
+    /**
+     * Reload the current request.
+     */
+    protected function reload(): void
     {
         // Restore properties
         $this->METHOD = $this->prev_method;
@@ -103,31 +141,55 @@ abstract class WebTestCase extends DemoTestCase
         $this->request($this->prev_path);
     }
 
-    protected function get(string $path)
+    /**
+     * Send a web request with GET method.
+     * @param  string $path  Path to access
+     */
+    protected function get(string $path): void
     {
         $this->METHOD = 'GET';
         $this->request($path);
     }
 
-    protected function post(string $path, array $post = [])
+    /**
+     * Send a web request with POST method.
+     * @param  string $path                 Path to access
+     * @param  array<string, mixed>  $post  Array of $_POST
+     */
+    protected function post(string $path, array $post = []): void
     {
         $this->METHOD = 'POST';
         $this->POST = $post;
         $this->request($path);
     }
 
-    protected function assertHtmlContains(string $text)
+    /**
+     * Does the HTML contain the specified string?
+     * @param string $string  string that must be included
+     */
+    protected function assertHtmlContains(string $string): void
     {
-        $this->assertNotFalse(strpos($this->html, $text), "The HTML does not contain '{$text}'");
+        $this->assertNotFalse(
+            strpos($this->html, $string),
+            "The HTML does not contain '{$string}'"
+        );
     }
 
-    protected function assertStatusCode(int $code)
+    /**
+     * Do the status code of the response match?
+     * @param int $code  Status code that must match
+     */
+    protected function assertStatusCode(int $code): void
     {
         $this->assertSame($code, $this->studio->getStatusCode());
     }
 
-    protected function assertMimeType(string $mime)
+    /**
+     * Do the mime type of the response match?
+     * @param string $mimetype  Mime type that must match
+     */
+    protected function assertMimeType(string $mimetype): void
     {
-        $this->assertSame($mime, $this->studio->getMimeType());
+        $this->assertSame($mimetype, $this->studio->getMimeType());
     }
 }

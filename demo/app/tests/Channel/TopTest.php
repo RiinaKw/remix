@@ -14,14 +14,6 @@ class TopTest extends TestCase
 {
     use Traits\Redirect;
 
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        // Be sure to point to the app directory
-        $this->initialize(__DIR__ . '/../..');
-    }
-
     /**
      * @runInSeparateProcess
      */

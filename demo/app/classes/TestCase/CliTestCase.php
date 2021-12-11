@@ -9,13 +9,15 @@ namespace RemixDemo\TestCase;
  */
 abstract class CliTestCase extends DemoTestCase
 {
-    protected function initialize(string $app_dir)
-    {
-        $this->daw->initialize($app_dir);
-        chdir($app_dir . '/..');
-    }
+    /**
+     * @property DAW $daw
+     */
 
-    public function execute(string $args)
+    /**
+     * Execute the Amp command.
+     * @param  string $args  Arguments of the Effector
+     */
+    public function execute(string $args): void
     {
         $this->daw->playCli(explode(' ', $args));
     }

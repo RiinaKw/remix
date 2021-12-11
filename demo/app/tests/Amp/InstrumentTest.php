@@ -10,14 +10,6 @@ use RemixDemo\TestCase\CliTestCase as TestCase;
  */
 class InstrumentTest extends TestCase
 {
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        // Be sure to point to the app directory
-        $this->initialize(__DIR__ . '/../..');
-    }
-
     public function testNoArgs(): void
     {
         $this->expectOutputRegex('/I am Instrument belonging to Audio, which instruments do you like\?/');

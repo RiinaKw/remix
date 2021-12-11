@@ -3026,14 +3026,9 @@ Search.appendIndex(
             "summary": "PHPUnit\u0020TestCase\u0020base\u0020class\u0020for\u0020CLI\u0020\u0028Amp\u0029\u0020in\u0020demo\u0020environment.",
             "url": "classes/RemixDemo-TestCase-CliTestCase.html"
         },                {
-            "fqsen": "\\RemixDemo\\TestCase\\CliTestCase\u003A\u003Ainitialize\u0028\u0029",
-            "name": "initialize",
-            "summary": "",
-            "url": "classes/RemixDemo-TestCase-CliTestCase.html#method_initialize"
-        },                {
             "fqsen": "\\RemixDemo\\TestCase\\CliTestCase\u003A\u003Aexecute\u0028\u0029",
             "name": "execute",
-            "summary": "",
+            "summary": "Execute\u0020the\u0020Amp\u0020command.",
             "url": "classes/RemixDemo-TestCase-CliTestCase.html#method_execute"
         },                {
             "fqsen": "\\RemixDemo\\TestCase\\DemoTestCase",
@@ -3043,17 +3038,17 @@ Search.appendIndex(
         },                {
             "fqsen": "\\RemixDemo\\TestCase\\DemoTestCase\u003A\u003AsetUp\u0028\u0029",
             "name": "setUp",
-            "summary": "",
+            "summary": "Initialize\u0020application.",
             "url": "classes/RemixDemo-TestCase-DemoTestCase.html#method_setUp"
         },                {
             "fqsen": "\\RemixDemo\\TestCase\\DemoTestCase\u003A\u003AtearDown\u0028\u0029",
             "name": "tearDown",
-            "summary": "",
+            "summary": "Finalize\u0020application.",
             "url": "classes/RemixDemo-TestCase-DemoTestCase.html#method_tearDown"
         },                {
             "fqsen": "\\RemixDemo\\TestCase\\DemoTestCase\u003A\u003A\u0024daw",
             "name": "daw",
-            "summary": "",
+            "summary": "DAW\u0020intance",
             "url": "classes/RemixDemo-TestCase-DemoTestCase.html#property_daw"
         },                {
             "fqsen": "\\RemixDemo\\TestCase\\WebTestCase",
@@ -3061,79 +3056,79 @@ Search.appendIndex(
             "summary": "PHPUnit\u0020TestCase\u0020base\u0020class\u0020for\u0020web\u0020\u0028DAW\u0029\u0020in\u0020demo\u0020environment.",
             "url": "classes/RemixDemo-TestCase-WebTestCase.html"
         },                {
-            "fqsen": "\\RemixDemo\\TestCase\\WebTestCase\u003A\u003Ainitialize\u0028\u0029",
-            "name": "initialize",
-            "summary": "",
-            "url": "classes/RemixDemo-TestCase-WebTestCase.html#method_initialize"
+            "fqsen": "\\RemixDemo\\TestCase\\WebTestCase\u003A\u003AsetUp\u0028\u0029",
+            "name": "setUp",
+            "summary": "Initialize\u0020application,\u0020turn\u0020off\u0020CLI\u0020flag.",
+            "url": "classes/RemixDemo-TestCase-WebTestCase.html#method_setUp"
         },                {
             "fqsen": "\\RemixDemo\\TestCase\\WebTestCase\u003A\u003A__get\u0028\u0029",
             "name": "__get",
-            "summary": "",
+            "summary": "Get\u0020super\u0020global\u0020variables.",
             "url": "classes/RemixDemo-TestCase-WebTestCase.html#method___get"
         },                {
             "fqsen": "\\RemixDemo\\TestCase\\WebTestCase\u003A\u003A__set\u0028\u0029",
             "name": "__set",
-            "summary": "",
+            "summary": "Set\u0020super\u0020global\u0020variables.",
             "url": "classes/RemixDemo-TestCase-WebTestCase.html#method___set"
         },                {
             "fqsen": "\\RemixDemo\\TestCase\\WebTestCase\u003A\u003Arequest\u0028\u0029",
             "name": "request",
-            "summary": "",
+            "summary": "Send\u0020a\u0020web\u0020request.",
             "url": "classes/RemixDemo-TestCase-WebTestCase.html#method_request"
         },                {
             "fqsen": "\\RemixDemo\\TestCase\\WebTestCase\u003A\u003Areload\u0028\u0029",
             "name": "reload",
-            "summary": "",
+            "summary": "Reload\u0020the\u0020current\u0020request.",
             "url": "classes/RemixDemo-TestCase-WebTestCase.html#method_reload"
         },                {
             "fqsen": "\\RemixDemo\\TestCase\\WebTestCase\u003A\u003Aget\u0028\u0029",
             "name": "get",
-            "summary": "",
+            "summary": "Send\u0020a\u0020web\u0020request\u0020with\u0020GET\u0020method.",
             "url": "classes/RemixDemo-TestCase-WebTestCase.html#method_get"
         },                {
             "fqsen": "\\RemixDemo\\TestCase\\WebTestCase\u003A\u003Apost\u0028\u0029",
             "name": "post",
-            "summary": "",
+            "summary": "Send\u0020a\u0020web\u0020request\u0020with\u0020POST\u0020method.",
             "url": "classes/RemixDemo-TestCase-WebTestCase.html#method_post"
         },                {
             "fqsen": "\\RemixDemo\\TestCase\\WebTestCase\u003A\u003AassertHtmlContains\u0028\u0029",
             "name": "assertHtmlContains",
-            "summary": "",
+            "summary": "Does\u0020the\u0020HTML\u0020contain\u0020the\u0020specified\u0020string\u003F",
             "url": "classes/RemixDemo-TestCase-WebTestCase.html#method_assertHtmlContains"
         },                {
             "fqsen": "\\RemixDemo\\TestCase\\WebTestCase\u003A\u003AassertStatusCode\u0028\u0029",
             "name": "assertStatusCode",
-            "summary": "",
+            "summary": "Do\u0020the\u0020status\u0020code\u0020of\u0020the\u0020response\u0020match\u003F",
             "url": "classes/RemixDemo-TestCase-WebTestCase.html#method_assertStatusCode"
         },                {
             "fqsen": "\\RemixDemo\\TestCase\\WebTestCase\u003A\u003AassertMimeType\u0028\u0029",
             "name": "assertMimeType",
-            "summary": "",
+            "summary": "Do\u0020the\u0020mime\u0020type\u0020of\u0020the\u0020response\u0020match\u003F",
             "url": "classes/RemixDemo-TestCase-WebTestCase.html#method_assertMimeType"
         },                {
             "fqsen": "\\RemixDemo\\TestCase\\WebTestCase\u003A\u003A\u0024studio",
             "name": "studio",
-            "summary": "",
+            "summary": "Stuido\u0020instance",
             "url": "classes/RemixDemo-TestCase-WebTestCase.html#property_studio"
         },                {
             "fqsen": "\\RemixDemo\\TestCase\\WebTestCase\u003A\u003A\u0024html",
             "name": "html",
-            "summary": "",
+            "summary": "HTML\u0020string\u0020of\u0020the\u0020response",
             "url": "classes/RemixDemo-TestCase-WebTestCase.html#property_html"
         },                {
             "fqsen": "\\RemixDemo\\TestCase\\WebTestCase\u003A\u003A\u0024prev_path",
             "name": "prev_path",
-            "summary": "",
+            "summary": "The\u0020path\u0020from\u0020the\u0020last\u0020access",
             "url": "classes/RemixDemo-TestCase-WebTestCase.html#property_prev_path"
         },                {
             "fqsen": "\\RemixDemo\\TestCase\\WebTestCase\u003A\u003A\u0024prev_method",
             "name": "prev_method",
-            "summary": "",
+            "summary": "The\u0020method\u0020from\u0020the\u0020last\u0020access",
             "url": "classes/RemixDemo-TestCase-WebTestCase.html#property_prev_method"
         },                {
             "fqsen": "\\RemixDemo\\TestCase\\WebTestCase\u003A\u003A\u0024prev_post",
             "name": "prev_post",
-            "summary": "",
+            "summary": "The\u0020\u0024_POST\u0020from\u0020the\u0020last\u0020access",
             "url": "classes/RemixDemo-TestCase-WebTestCase.html#property_prev_post"
         },                {
             "fqsen": "\\RemixDemo\\Livehouse\\Test",
@@ -3201,11 +3196,6 @@ Search.appendIndex(
             "summary": "Test\u0020of\u0020Amp\u0020in\u0020the\u0020demo\u0020env.",
             "url": "classes/RemixDemo-Tests-AmpTest.html"
         },                {
-            "fqsen": "\\RemixDemo\\Tests\\AmpTest\u003A\u003AsetUp\u0028\u0029",
-            "name": "setUp",
-            "summary": "",
-            "url": "classes/RemixDemo-Tests-AmpTest.html#method_setUp"
-        },                {
             "fqsen": "\\RemixDemo\\Tests\\AmpTest\u003A\u003AtestNoArgs\u0028\u0029",
             "name": "testNoArgs",
             "summary": "",
@@ -3215,11 +3205,6 @@ Search.appendIndex(
             "name": "InstrumentTest",
             "summary": "Test\u0020of\u0020Effectors\\Instrument\u0020in\u0020the\u0020demo\u0020env.",
             "url": "classes/RemixDemo-Tests-InstrumentTest.html"
-        },                {
-            "fqsen": "\\RemixDemo\\Tests\\InstrumentTest\u003A\u003AsetUp\u0028\u0029",
-            "name": "setUp",
-            "summary": "",
-            "url": "classes/RemixDemo-Tests-InstrumentTest.html#method_setUp"
         },                {
             "fqsen": "\\RemixDemo\\Tests\\InstrumentTest\u003A\u003AtestNoArgs\u0028\u0029",
             "name": "testNoArgs",
@@ -3255,11 +3240,6 @@ Search.appendIndex(
             "name": "FormTest",
             "summary": "Test\u0020of\u0020FormChannel\u0020in\u0020the\u0020demo\u0020env.",
             "url": "classes/RemixDemo-Tests-FormTest.html"
-        },                {
-            "fqsen": "\\RemixDemo\\Tests\\FormTest\u003A\u003AsetUp\u0028\u0029",
-            "name": "setUp",
-            "summary": "",
-            "url": "classes/RemixDemo-Tests-FormTest.html#method_setUp"
         },                {
             "fqsen": "\\RemixDemo\\Tests\\FormTest\u003A\u003AtestInput\u0028\u0029",
             "name": "testInput",
@@ -3335,11 +3315,6 @@ Search.appendIndex(
             "name": "TopTest",
             "summary": "Test\u0020of\u0020TopChannel\u0020in\u0020the\u0020demo\u0020env.",
             "url": "classes/RemixDemo-Tests-TopTest.html"
-        },                {
-            "fqsen": "\\RemixDemo\\Tests\\TopTest\u003A\u003AsetUp\u0028\u0029",
-            "name": "setUp",
-            "summary": "",
-            "url": "classes/RemixDemo-Tests-TopTest.html#method_setUp"
         },                {
             "fqsen": "\\RemixDemo\\Tests\\TopTest\u003A\u003AtestTop\u0028\u0029",
             "name": "testTop",

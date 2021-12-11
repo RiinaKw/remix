@@ -19,16 +19,6 @@ class FormTest extends TestCase
     use Traits\Html;
     use Traits\Redirect;
 
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        // Be sure to point to the app directory
-        $this->initialize(__DIR__ . '/../..');
-
-        //\Remix\Audio::getInstance()->preset->set('app.public_url', 'http://remix.test');
-    }
-
     /**
      * Does the input form contain the required HTML?
      *

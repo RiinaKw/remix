@@ -131,6 +131,11 @@ abstract class WebTestCase extends DemoTestCase
         $this->assertRedirectUri($uri);
     }
 
+    protected function assertHtml(): void
+    {
+        $this->assertTrue($this->html !== '', 'HTML is empty');
+    }
+
     /**
      * Get the attribute list of the HTML tag
      *
@@ -178,14 +183,14 @@ abstract class WebTestCase extends DemoTestCase
         // Loop the hit tag
         foreach ($matches[0] as $idx => $tag) {
             // Get the attribute list
-            $attrs = [
+            $info = [
                 'html' => $matches[0][$idx],
+                'attrs' => $this->getHtmlAttributes($tag),
             ];
-            $attrs += $this->getHtmlAttributes($tag);
 
             // If the specified attribute has the specified value, return the tag
-            if ($attrs[$attr_name] === $attr_value) {
-                return $attrs;
+            if ($info['attrs'][$attr_name] === $attr_value) {
+                return $info;
             }
         }
         // Not found
@@ -213,15 +218,15 @@ abstract class WebTestCase extends DemoTestCase
         // Loop the hit tag
         foreach ($matches[0] as $idx => $tag) {
             // Get the attribute list and add the content
-            $attrs = [
+            $info = [
                 'html' => $matches[0][$idx],
                 'content' => $matches['content'][$idx],
+                'attrs' => $this->getHtmlAttributes($tag),
             ];
-            $attrs += $this->getHtmlAttributes($tag);
 
             // If the specified attribute has the specified value, return the tag
-            if ($attrs[$attr_name] === $attr_value) {
-                return $attrs;
+            if ($info['attrs'][$attr_name] === $attr_value) {
+                return $info;
             }
         }
         // Not found
@@ -238,19 +243,31 @@ abstract class WebTestCase extends DemoTestCase
      */
     protected function assertInput(string $type, string $name, string $value): void
     {
-        $this->assertTrue($this->html !== '', 'HTML is empty');
+        $this->assertHtml();
 
         $tagname = 'input';
-        $attrs = $this->getEmptyTag($tagname, 'name', $name);
+        $info = $this->getEmptyTag($tagname, 'name', $name);
+
+        $this->assertIsArray($info, "No matching any HTML tags");
 
         $test = [
             'type' => $type,
             'value' => $value,
         ];
-        $html = $attrs['html'];
-        foreach ($test as $name => $value) {
-            $this->assertTrue(isset($attrs[$name]));
-            $this->assertSame($value, $attrs[$name], "HTML {$html} does not contain value '{$value}' in the attr '{$name}'");
+        $html = $info['html'] ?? '';
+        $attrs = $info['attrs'] ?? [];
+
+        foreach ($test as $attr => $value) {
+            $this->assertArrayHasKey(
+                $attr,
+                $attrs,
+                "HTML {$html} does not contain attr '{$attr}'"
+            );
+            $this->assertSame(
+                $value,
+                $attrs[$attr],
+                "HTML {$html} does not contain value '{$value}' in the attr '{$attr}'"
+            );
         }
     }
     // function assertInput()
@@ -274,19 +291,32 @@ abstract class WebTestCase extends DemoTestCase
      */
     protected function assertTextarea(string $name, string $value): void
     {
-        $this->assertTrue($this->html !== '', 'HTML is empty');
+        $this->assertHtml();
 
         $tagname = 'textarea';
-        $attrs = $this->getOpenTag($tagname, 'name', $name);
+        $info = $this->getOpenTag($tagname, 'name', $name);
+
+        $this->assertIsArray($info, "No matching any HTML tags");
 
         $test = [
-            'name' => $attrs['name'],
-            'content' => $value,
+            'name' => $name,
         ];
-        $html = $attrs['html'];
-        foreach ($test as $name => $value) {
-            $this->assertTrue(isset($attrs[$name]), "No HTML found that contains attr '{$name}'");
-            $this->assertSame($value, $attrs[$name], "HTML {$attrs['html']} does not contain value '{$value}' in the attr '{$name}'");
+        $html = $info['html'] ?? '';
+        $attrs = $info['attrs'] ?? [];
+
+        $this->assertSame($value, $info['content'], "HTML {$info['html']} body does not contain string '{$value}'");
+
+        foreach ($test as $attr => $value) {
+            $this->assertArrayHasKey(
+                $attr,
+                $attrs,
+                "HTML {$html} does not contain attr '{$attr}'"
+            );
+            $this->assertSame(
+                $value,
+                $attrs[$attr],
+                "HTML {$html} does not contain value '{$value}' in the attr '{$attr}'"
+            );
         }
     }
     // function assertTextarea()

@@ -3,6 +3,7 @@
 namespace Remix\DemoTests;
 
 use Utility\Tests\WebTestCase;
+use Utility\Tests\Traits;
 use Utility\Http\Session;
 use Utility\Http\Csrf;
 
@@ -11,6 +12,9 @@ use Utility\Http\Csrf;
  */
 class FormTest extends WebTestCase
 {
+    use Traits\Html;
+    use Traits\Redirect;
+
     protected function setUp(): void
     {
         parent::setUp();

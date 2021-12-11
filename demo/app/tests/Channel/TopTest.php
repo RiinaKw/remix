@@ -2,11 +2,13 @@
 
 namespace Remix\DemoTests;
 
-use Remix\Lyric;
 use Utility\Tests\WebTestCase;
+use Utility\Tests\Traits;
 
 class TopTest extends WebTestCase
 {
+    use Traits\Redirect;
+
     protected function setUp(): void
     {
         parent::setUp();

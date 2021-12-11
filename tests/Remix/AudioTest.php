@@ -6,8 +6,6 @@ use PHPUnit\Framework\TestCase;
 
 class AudioTest extends TestCase
 {
-    use \Utility\Tests\InvokePrivateBehavior;
-
     public function testInstance(): void
     {
         // is loadable?

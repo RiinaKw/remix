@@ -11,8 +11,6 @@ use Remix\Audio;
 
 class AmpTest extends TestCase
 {
-    use \Utility\Tests\InvokePrivateBehavior;
-
     protected $amp = null;
 
     protected function setUp(): void

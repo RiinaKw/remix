@@ -3,41 +3,44 @@
 namespace Remix\CoreTests;
 
 use PHPUnit\Framework\TestCase;
-use Remix\DJ\Table;
+// Target of the test
 use Remix\DJ\BPM;
 use Remix\DJ\BPM\Select;
 use Remix\DJ\BPM\Delete;
+// Remix core
+use Remix\DJ\Table;
+// Utility
+use Utility\Reflection\ReflectionObject;
 
 class BPMTest extends TestCase
 {
-    use \Utility\Tests\InvokePrivateBehavior;
-
     public function testSelect(): void
     {
         $bpm = new Select('test', 'id');
-        $sql = $this->invokeMethod($bpm, 'buildContext');
+
+        $sql = (new ReflectionObject($bpm))->executeMethod('buildContext');
         $this->assertSame('SELECT `id` FROM `test`', $sql);
 
         $bpm = new Select('test2', ['created_at', 'updated_at']);
-        $sql = $this->invokeMethod($bpm, 'buildContext');
+        $sql = (new ReflectionObject($bpm))->executeMethod('buildContext');
         $this->assertSame('SELECT `created_at`, `updated_at` FROM `test2`', $sql);
 
         $bpm = new Select('test3', ['id', '*']);
-        $sql = $this->invokeMethod($bpm, 'buildContext');
+        $sql = (new ReflectionObject($bpm))->executeMethod('buildContext');
         $this->assertSame('SELECT `id`, * FROM `test3`', $sql);
     }
 
     public function testDelete(): void
     {
         $bpm = new Delete('test');
-        $sql = $this->invokeMethod($bpm, 'buildContext');
+        $sql = (new ReflectionObject($bpm))->executeMethod('buildContext');
         $this->assertSame('DELETE FROM `test`', $sql);
     }
 
     public function testFromTable()
     {
         $bpm = BPM::select(new Table('test'));
-        $sql = $this->invokeMethod($bpm, 'buildContext');
+        $sql = (new ReflectionObject($bpm))->executeMethod('buildContext');
         $this->assertSame('SELECT * FROM `test`', $sql);
     }
 
@@ -47,19 +50,19 @@ class BPMTest extends TestCase
         // name and value
         $bpm = new Select('test', 'name');
         $bpm->where('id', 1);
-        $sql = $this->invokeMethod($bpm, 'buildWhere');
+        $sql = (new ReflectionObject($bpm))->executeMethod('buildWhere');
         $this->assertSame("`id` = '1'", $sql);
 
         // name, op and value
         $bpm = new Select('test', 'name');
         $bpm->where('id', '!=', 1);
-        $sql = $this->invokeMethod($bpm, 'buildWhere');
+        $sql = (new ReflectionObject($bpm))->executeMethod('buildWhere');
         $this->assertSame("`id` <> '1'", $sql);
 
         // name, null as value
         $bpm = new Select('test', 'name');
         $bpm->where('id', null);
-        $sql = $this->invokeMethod($bpm, 'buildWhere');
+        $sql = (new ReflectionObject($bpm))->executeMethod('buildWhere');
         $this->assertSame("`id` IS NULL", $sql);
 
         // array as options
@@ -68,7 +71,7 @@ class BPMTest extends TestCase
             'column' => 'id',
             'value' => 3,
         ]);
-        $sql = $this->invokeMethod($bpm, 'buildWhere');
+        $sql = (new ReflectionObject($bpm))->executeMethod('buildWhere');
         $this->assertSame("`id` = '3'", $sql);
 
         // array with op
@@ -78,7 +81,7 @@ class BPMTest extends TestCase
             'op' => '!=',
             'value' => null,
         ]);
-        $sql = $this->invokeMethod($bpm, 'buildWhere');
+        $sql = (new ReflectionObject($bpm))->executeMethod('buildWhere');
         $this->assertSame("`id` IS NOT NULL", $sql);
 
         // array with placeholder
@@ -87,18 +90,24 @@ class BPMTest extends TestCase
             'column' => 'id',
             'placeholder' => 'find_id',
         ]);
-        $sql = $this->invokeMethod($bpm, 'buildWhere');
+        $sql = (new ReflectionObject($bpm))->executeMethod('buildWhere');
         $this->assertSame("`id` = :find_id", $sql);
 */
-        //
+
+
+        // Set up the Reflection
         $bpm = new Select('test', 'name');
+        $reflection = new ReflectionObject($bpm);
+
         $bpm->where('id', 1);
-        $sql = $this->invokeMethod($bpm, 'buildWhere');
+        $sql = $reflection->executeMethod('buildWhere');
         $this->assertRegExp("/^`id` = :[0-9a-zA-Z]+$/", $sql);
+
         preg_match('/(:[0-9a-zA-Z]+)$/', $sql, $matches);
         $holder = $matches[1];
         //$holders = $bpm->placeholders();
-        $holders = $this->invokeProperty($bpm, 'holders');
+
+        $holders = $reflection->getProp('holders');
         $this->assertSame(1, $holders[$holder]);
     }
 }

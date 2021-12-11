@@ -3,12 +3,11 @@
 namespace Remix\UtilityTests;
 
 use PHPUnit\Framework\TestCase;
+// Target of the test
 use Utility\Hash;
 
 class HashItemEditableTest extends TestCase
 {
-    use \Utility\Tests\InvokePrivateBehavior;
-
     protected $hash = null;
 
     protected function setUp(): void

@@ -3,12 +3,13 @@
 namespace Remix\CoreTests;
 
 use PHPUnit\Framework\TestCase;
+// Target of the test
 use Remix\Fader;
+// Utility
+use Utility\Reflection\ReflectionStatic;
 
 class FaderTest extends TestCase
 {
-    use \Utility\Tests\InvokePrivateBehavior;
-
     public function testLoad(): void
     {
         $fader = new Fader('');
@@ -17,10 +18,17 @@ class FaderTest extends TestCase
 
     public function testTranslate(): void
     {
-        $translated = $this->invokeStaticMethod(Fader::class, 'translate', ['/:test']);
+        // Set up the Reflection
+        $reflection = new ReflectionStatic(Fader::class);
+        $translated = $reflection->executeMethod('translate', ['/:test']);
+
+        //$translated = $this->invokeStaticMethod(Fader::class, 'translate', ['/:test']);
         $this->assertSame('/^\/(?<test>\S+?)\\/?$/', $translated);
 
-        $translated = $this->invokeStaticMethod(Fader::class, 'translate', ['effector :param1 :param2']);
+        $reflection = new ReflectionStatic(Fader::class);
+        $translated = $reflection->executeMethod('translate', ['effector :param1 :param2']);
+
+        //$translated = $this->invokeStaticMethod(Fader::class, 'translate', ['effector :param1 :param2']);
         $this->assertSame('/^effector (?<param1>\S+?) (?<param2>\S+?)\/?$/', $translated);
     }
 

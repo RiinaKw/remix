@@ -14,8 +14,6 @@ use Utility\Http\Session;
 
 class MixerTest extends TestCase
 {
-    use \Utility\Tests\InvokePrivateBehavior;
-
     protected $mixer = null;
 
     public function __construct()

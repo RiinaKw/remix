@@ -6,14 +6,14 @@ use PHPUnit\Framework\TestCase;
 // Target of the test
 use Remix\Synthesizer;
 // Remix core
+use Remix\Audio;
 use Remix\Filter;
 // Utility
 use Utility\Http\PostHash;
+use Utility\Reflection\ReflectionObject;
 
 class SynthesizerTest extends TestCase
 {
-    use \Utility\Tests\InvokePrivateBehavior;
-
     protected $synthesizer = null;
 
     protected function setUp(): void
@@ -21,14 +21,15 @@ class SynthesizerTest extends TestCase
         $this->post_hash = PostHash::factory();
         $this->synthesizer = new Synthesizer();
 
-        $this->invokePropertyValue(
-            $this->synthesizer,
-            'filters',
-            [
-                Filter::define('name', 'your name')->rules('required|max:5'),
-                Filter::define('email', 'your mail address')->rules('required|email'),
-            ]
-        );
+        // Synthesizer definition
+        $def = [
+            Filter::define('name', 'your name')->rules('required|max:5'),
+            Filter::define('email', 'your mail address')->rules('required|email'),
+        ];
+
+        // Set up the Reflection
+        $reflection = new ReflectionObject($this->synthesizer);
+        $reflection->setProp('filters', $def);
     }
 
     public function tearDown(): void

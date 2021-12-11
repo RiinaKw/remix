@@ -3,13 +3,11 @@
 namespace Remix\CoreTests;
 
 use PHPUnit\Framework\TestCase;
-use Remix\DJ\Column;
+// Target of the test
 use Remix\DJ\Columns;
 
 class TableColumnTest extends TestCase
 {
-    use \Utility\Tests\InvokePrivateBehavior;
-
     public function testInt(): void
     {
         $column = (new Columns\IntCol('id'));

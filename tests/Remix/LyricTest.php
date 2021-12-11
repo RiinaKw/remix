@@ -11,8 +11,6 @@ use Remix\Track;
 
 class LyricTest extends TestCase
 {
-    use \Utility\Tests\InvokePrivateBehavior;
-
     protected $lyric = null;
 
     protected function setUp(): void

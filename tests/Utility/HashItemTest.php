@@ -3,12 +3,13 @@
 namespace Remix\UtilityTests;
 
 use PHPUnit\Framework\TestCase;
+// Target of the test
 use Utility\Hash;
+// Exception
+use Exception;
 
 class HashItemTest extends TestCase
 {
-    use \Utility\Tests\InvokePrivateBehavior;
-
     protected $readonlyhash = null;
 
     protected function setUp(): void
@@ -36,7 +37,7 @@ class HashItemTest extends TestCase
 
     public function testSetForbidden(): void
     {
-        $this->expectException(\Exception::class);
+        $this->expectException(Exception::class);
         $this->expectExceptionMessage("Hash item 'key1.subkey2' is not editable");
 
         $item = $this->readonlyhash->item('key1.subkey2');
@@ -45,7 +46,7 @@ class HashItemTest extends TestCase
 
     public function testDeleteForbidden(): void
     {
-        $this->expectException(\Exception::class);
+        $this->expectException(Exception::class);
         $this->expectExceptionMessage("Hash item 'key1.subkey2' is not editable");
 
         $item = $this->readonlyhash->item('key1.subkey2');

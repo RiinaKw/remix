@@ -3,14 +3,16 @@
 namespace Utility\Tests;
 
 use Utility\Tests\DemoTestCase;
+// Remix core
 use Remix\Audio;
 use Remix\Reverb;
+// Utility
+use Utility\Reflection\ReflectionObject;
+// Exception
 use Remix\Exceptions\HttpException;
 
 abstract class WebTestCase extends DemoTestCase
 {
-    use \Utility\Tests\InvokePrivateBehavior;
-
     protected $studio = null;
     protected $html = null;
 
@@ -21,8 +23,10 @@ abstract class WebTestCase extends DemoTestCase
     protected function initialize(string $app_dir)
     {
         // Turn off the CLI flag
-        $this->invokePropertyValue(Audio::getInstance(), 'is_cli', false);
+        $reflection = new ReflectionObject(Audio::getInstance());
+        $reflection->setProp('is_cli', false);
 
+        // Initialize for web operation
         $this->daw->initialize($app_dir);
         chdir($app_dir . '/..');
     }
@@ -61,25 +65,37 @@ abstract class WebTestCase extends DemoTestCase
 
     private function request(string $path)
     {
+        // Back up properties
         $this->prev_path = $path;
         $this->prev_method = $this->METHOD;
         $this->prev_post = $this->POST;
         try {
+            // Do it
             $this->PATH = $path;
             $this->daw->playWeb();
-            $reverb = $this->invokeProperty($this->daw, 'reverb');
+
+            // Get protected $reberve from DAW
+            $reflection = new ReflectionObject($this->daw);
+            $reverb = $reflection->getProp('reverb');
         } catch (HttpException $e) {
             $reverb = Reverb::exeption($e, Audio::getInstance()->preset);
         }
-        $this->studio = $this->invokeProperty($reverb, 'studio');
+
+        // Get protected $studio from Reverb
+        $reflection = new ReflectionObject($reverb);
+        $this->studio = $reflection->getProp('studio');
+
         $this->html = $this->studio->recorded();
         $this->studio->sendHeader();
     }
 
     protected function reload()
     {
+        // Restore properties
         $this->METHOD = $this->prev_method;
         $this->POST = $this->prev_post;
+
+        // Do it
         $this->request($this->prev_path);
     }
 

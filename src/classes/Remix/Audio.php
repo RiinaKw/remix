@@ -2,8 +2,10 @@
 
 namespace Remix;
 
+use Exceptions\ErrorException;
+
 /**
- * Remix Audio : application handler
+ * Remix Audio : application handler.
  *
  * @package  Remix\Core
  * @todo Write the details.
@@ -89,7 +91,7 @@ class Audio
                 return $this->singleton(Instruments\DJ::class);
 
             default:
-                throw new Exceptions\ErrorException("Unknown key '{$key}'");
+                throw new ErrorException("Unknown key '{$key}'");
         }
     }
     // function __get()
@@ -102,7 +104,7 @@ class Audio
                 break;
 
             default:
-                throw new Exceptions\ErrorException("Unknown key '{$key}'");
+                throw new ErrorException("Unknown key '{$key}'");
         }
     }
     // function __set()
@@ -129,7 +131,7 @@ class Audio
      */
     public function errorHandle($code, $message, $file, $line, $context = []): void
     {
-        throw new Exceptions\ErrorException($message, $code);
+        throw new ErrorException($message, $code);
     }
     // function errorHandle()
 
@@ -148,7 +150,6 @@ class Audio
         } else {
             $preset = static::$audio->preset;
             static::destroy();
-            static::$audio = null;
 
             $reverb = Reverb::exeption($e, $preset);
             unset($preset);

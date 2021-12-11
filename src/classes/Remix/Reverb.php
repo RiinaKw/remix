@@ -2,19 +2,44 @@
 
 namespace Remix;
 
+// Remix core
 use Remix\Instruments\Preset;
+use Remix\Studio\Bounce;
+use Remix\Studio\Compressor;
+// Utilities
+use Utility\Http\Session;
+use Utility\Http\StatusCode;
+use Utility\Capture;
+use Utility\Dump;
+// Exceptions
+use Throwable;
+use Remix\Exceptions\HttpException;
 
 /**
- * Remix Reverb : web finalizer
+ * Remix Reverb : web finalizer.
  *
  * @package  Remix\Web
  * @todo Write the details.
  */
 class Reverb extends Gear
 {
+    /**
+     * Response object to output
+     * @var Studio
+     */
     private $studio = null;
+
+    /**
+     * Preset object used to determine the template
+     * @var Preset
+     */
     private $preset = null;
 
+    /**
+     * Create finalizer.
+     * @param Studio $studio  Response object to output
+     * @param Preset $preset  Preset object used to determine the template
+     */
     public function __construct(Studio $studio, Preset $preset)
     {
         parent::__construct();
@@ -25,17 +50,33 @@ class Reverb extends Gear
         $this->studio = $studio;
         $this->preset = $preset;
     }
+    // function __construct()
 
-    public function __toString()
+    /**
+     * Render output.
+     * @return string  Output string
+     *
+     * @todo Is this method too long?
+     */
+    public function __toString(): string
     {
-        $output = $this->studio->recorded();
+        try {
+            $output = null;
+            Capture::capture(function () use (&$output) {
+                $output = $this->studio->recorded();
+            });
+        } catch (Throwable $e) {
+            // If an error occurs while rendering the Studio,
+            // Reverb will render the exception directly
+            return (string)static::exeption($e, $this->preset);
+        }
         $this->studio->sendHeader();
         $is_console = $this->studio->isConsole();
         $this->studio = null;
 
         if ($is_console) {
-            Studio\Bounce::loadTemplate($this->preset);
-            $console = new Studio\Bounce($this->preset->get('remix.pathes.console_path'));
+            Bounce::loadTemplate($this->preset);
+            $console = new Bounce($this->preset->get('remix.pathes.console_path'));
             $preset_arr = $this->preset->get();
             unset($this->preset);
 
@@ -48,7 +89,7 @@ class Reverb extends Gear
             // Dump preset
             $console->setHtml(
                 'preset',
-                \Utility\Dump::html(
+                Dump::html(
                     $preset_arr,
                     [
                         'id_prefix' => 'remix-dump-',
@@ -59,8 +100,8 @@ class Reverb extends Gear
             // Dump ssession
             $console->setHtml(
                 'session',
-                \Utility\Dump::html(
-                    \Utility\Http\Session::hash()->get(),
+                Dump::html(
+                    Session::hash()->get(),
                     [
                         'id_prefix' => 'remix-session-',
                     ]
@@ -84,28 +125,36 @@ class Reverb extends Gear
         }
         return $output;
     }
+    // function __toString()
 
-    public static function exeption(\Throwable $exception, Preset $preset): ?self
+    /**
+     * Render the exception.
+     * @param  Throwable $exception  Exception to render
+     * @param  Preset    $preset     Preset object used to determine the template
+     * @return self|null
+     *         New Reverb object,
+     *         or null if the template not found and it rendered directly
+     *
+     * @todo Is this method too long?
+     */
+    public static function exeption(Throwable $exception, Preset $preset): ?self
     {
-        if ($exception instanceof Exceptions\HttpException) {
+        if ($exception instanceof HttpException) {
             $code = $exception->getStatusCode();
-/*
-            $bounce_dir = $preset->get('app.pathes.bounce_dir');;
-            $bounce_path =  $bounce_dir . '/errors/' . $code . '.tpl';
-*/
-            Studio\Bounce::loadTemplate($preset);
+
+            Bounce::loadTemplate($preset);
             $name = 'errors/' . $code;
-            $bounce_path = Studio\Bounce::findTemplateNS($name, 'app');
+            $bounce_path = Bounce::findTemplateNS($name, 'app');
 
             if (! $bounce_path) {
-                $bounce_path = Studio\Bounce::findTemplateNS('httperror', 'remix');
+                $bounce_path = Bounce::findTemplateNS('httperror', 'remix');
             }
 
-            $compressor = new Studio\Compressor(
+            $compressor = new Compressor(
                 $bounce_path,
                 [
                     'satus_code' => $code,
-                    'title' => \Utility\Http\StatusCode::get($code),
+                    'title' => StatusCode::get($code),
                     'message' => $exception->getMessage(),
                     'exception' => $exception,
                 ]
@@ -115,7 +164,7 @@ class Reverb extends Gear
             return new static($compressor, $preset);
         }
 
-        $status_code = 500;
+        // Get debug trace
         $traces = [];
         foreach ($exception->getTrace() as $item) {
             if (! isset($item['file']) || ! isset($item['line'])) {
@@ -127,8 +176,11 @@ class Reverb extends Gear
             ];
         }
 
+        // Load the bounce needed to display the exception
         $template_path = $preset->get('remix.pathes.exception_path');
+
         if (! $template_path) {
+            // Render directly if bounce could not be loaded
             http_response_code(500);
             echo '<h1>Remix fatal error : Cannot render exception</h1>' . "\n";
             echo '<h2>Exception thrown : ' . $exception->getMessage() . '</h2>' . "\n";
@@ -138,8 +190,9 @@ class Reverb extends Gear
             return null;
         }
 
-        $compressor = new Studio\Compressor($template_path, [
-            'status' => $status_code,
+        // Create the exception renderer
+        $compressor = new Compressor($template_path, [
+            'status' => 500,
             'message' => $exception->getMessage(),
             'file' => $exception->getFile(),
             'line' => $exception->getLine(),
@@ -148,4 +201,5 @@ class Reverb extends Gear
         ]);
         return new static($compressor, $preset);
     }
+    // function exeption()
 }

@@ -10,32 +10,42 @@ use Utility\Http\StatusCode;
 use Remix\Exceptions\HttpException;
 
 /**
- * Remix Studio : web response manager
+ * Remix Studio : web response manager.
  *
  * @package  Remix\Web
- * @todo Write the details.
  */
 class Studio extends Gear
 {
     protected $property;
 
+    /**
+     * Create the response object.
+     * @param string $type    Response type
+     *                        Allow the following values :
+     *                          * 'none' : no output
+     *                          * 'text' : plain text
+     *                          * 'html' : HTML text
+     *                          * 'json' : JSON-encoded text
+     *                          * 'xml' : XML-encoded text
+     *                          * 'closure' : execute the function directly
+     *                          * 'redirect' : Send only the redirect header without outputting
+     * @param array  $params  Optional parameters
+     */
     public function __construct(string $type = 'none', $params = [])
     {
         parent::__construct();
 
         $this->property = new Hash();
         $this->property->type = $type;
-        $this->property->status_code = 200;
+        $this->property->params = $params;
+
+        // Does not output debug console by default
         $this->property->is_console = false;
+
+        $this->statusCode(200);
 
         // Make sure to set the mime type
         $this->contentType();
-
-        if ($params instanceof Vinyl) {
-            $this->property->params = $params->toArray();
-        } else {
-            $this->property->params = $params;
-        }
     }
     // function __construct()
 
@@ -48,6 +58,7 @@ class Studio extends Gear
     // function destroy()
 
     /**
+     * @todo This is only overridden by Compressor ... should it be here?
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function preset(Preset $preset)
@@ -72,7 +83,14 @@ class Studio extends Gear
         return isset(class_uses($this)['Remix\\Studio\\RecordableWithTemplate']);
     }
 
-    protected function contentType(string $forceType = '', string $charset = 'utf-8'): self
+    /**
+     * Set mime type.
+     *
+     * @param  string $forceType  Specify when forcibly changing the mime type
+     * @param  string $charset    Output character code
+     * @return self               Itself
+     */
+    protected function contentType(?string $forceType = null, string $charset = 'utf-8'): self
     {
         if ($forceType) {
             $mime_type = MimeType::get($forceType);
@@ -85,6 +103,11 @@ class Studio extends Gear
         return $this;
     }
 
+    /**
+     * Set HTTP status code.
+     * @param  integer $status_code  3-digit status code
+     * @return self                  Itself
+     */
     public function statusCode(int $status_code = 200): self
     {
         $message = StatusCode::get($status_code);
@@ -96,18 +119,30 @@ class Studio extends Gear
     }
     // function status()
 
+    /**
+     * Get the HTTP status code.
+     * @return int  3-digit status code
+     */
     public function getStatusCode(): int
     {
         return $this->property->status_code;
     }
     // function getStatusCode()
 
+    /**
+     * Get the mime type.
+     * @return string  Mime type strings such as "text/html"
+     */
     public function getMimeType(): string
     {
         return $this->property->mime_type;
     }
     // function getMimeType()
 
+    /**
+     * Send all headers.
+     * @return self  Itself
+     */
     public function sendHeader(): self
     {
         foreach ($this->property->headers as $header) {
@@ -117,8 +152,15 @@ class Studio extends Gear
     }
     // function sendHeader()
 
+    /**
+     * Render the response.
+     * Send headers as needed.
+     *
+     * @return string  Rendered output string
+     */
     public function recorded(): string
     {
+        // Closure mapping for each output type
         $map = [
             'none' => function () {
                 return '';
@@ -146,15 +188,23 @@ class Studio extends Gear
                 return Arr::toXML($this->property->params);
             },
             'redirect' => function () {
-                header('Location: ' . $this->property->params);
+                $this->property->push('headers', "Location: {$this->property->params}");
+                $this->sendHeader();
                 return '';
             },
         ];
 
         if (isset($map[$this->property->type])) {
-            return $map[$this->property->type]();
+            $result = $map[$this->property->type]();
+
+            if (! is_string($result)) {
+                // ill-behaved closure : it did not return a string
+                throw new RemixException("{$this->property->type} must return string");
+            }
+            return $result;
         } else {
             if (method_exists($this, 'record')) {
+                // Output as HTML
                 return $this->contentType('html')->record();
             } else {
                 $this->contentType('text');
@@ -164,6 +214,16 @@ class Studio extends Gear
     }
     // function recorded()
 
+    /**
+     * Do redirection.
+     *
+     * @param  string  $name         Route name defined in Mixer
+     * @param  array   $params       Parameters required to build the route
+     * @param  integer $status_code  HTTP status code used for redirect
+     * @return self                  Itself
+     *
+     * @todo Should this exist in Lyric?
+     */
     public function redirect(string $name, array $params = [], int $status_code = 303): self
     {
         $uri = Audio::getInstance()->mixer->uri($name, $params);
@@ -175,6 +235,10 @@ class Studio extends Gear
     }
     // function redirect()
 
+    /**
+     * Get the URI of the redirect destination.
+     * @return string|null  URI, null if not redirect
+     */
     public function getRedirectUri(): ?string
     {
         if ($this->property->type !== 'redirect') {
@@ -182,10 +246,16 @@ class Studio extends Gear
         }
         return $this->property->params;
     }
+    // function getRedirectUri()
 
+    /**
+     * Need to output a debug console?
+     * @return bool  Needed or not
+     */
     public function isConsole(): bool
     {
         return $this->property->type === 'html' && $this->property->is_console;
     }
+    // function isConsole()
 }
 // class Studio

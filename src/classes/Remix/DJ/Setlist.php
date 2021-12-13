@@ -2,10 +2,20 @@
 
 namespace Remix\DJ;
 
+// Remix core
 use Remix\Gear;
 use Remix\Delay;
+// Exceptions
 use Remix\Exceptions\DJException;
+// Utilities
 use Utility\Capture;
+// Implements
+use IteratorAggregate;
+use Countable;
+use Traversable;
+// PDO
+use PDO;
+use PDOStatement;
 
 /**
  * Remix Setlist : PDO statement
@@ -13,7 +23,7 @@ use Utility\Capture;
  * @package  Remix\DB
  * @todo Write the details.
  */
-class Setlist extends Gear implements \IteratorAggregate, \Countable
+class Setlist extends Gear implements IteratorAggregate, Countable
 {
     protected $holders;
     protected $statement = null;
@@ -28,14 +38,14 @@ class Setlist extends Gear implements \IteratorAggregate, \Countable
     }
     // function __construct()
 
-    public function getIterator()
+    public function getIterator(): Traversable
     {
         return $this->statement;
     }
 
     public function asVinyl($classname): self
     {
-        $this->statement->setFetchMode(\PDO::FETCH_CLASS, $classname);
+        $this->statement->setFetchMode(PDO::FETCH_CLASS, $classname);
         return $this;
     }
     // function asVinyl()

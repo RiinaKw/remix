@@ -72,7 +72,7 @@ class Reverb extends Gear
         }
         $this->studio->sendHeader();
         $is_console = $this->studio->isConsole();
-        $this->studio = null;
+        unset($this->studio);
 
         if ($is_console) {
             Bounce::loadTemplate($this->preset);

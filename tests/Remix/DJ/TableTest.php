@@ -84,19 +84,19 @@ class TableTest extends TestCase
         $this->assertSame('test', $column['Table']);
         $this->assertSame('PRIMARY', $column['Key_name']);
         $this->assertSame('id', $column['Column_name']);
-        $this->assertSame('0', $column['Non_unique']);
+        $this->assertSame(0, (int)$column['Non_unique']);
 
         $column = $columns->fetch();
         $this->assertSame('test', $column['Table']);
         $this->assertSame('uq__test__user_id', $column['Key_name']);
         $this->assertSame('user_id', $column['Column_name']);
-        $this->assertSame('0', $column['Non_unique']);
+        $this->assertSame(0, (int)$column['Non_unique']);
 
         $column = $columns->fetch();
         $this->assertSame('test', $column['Table']);
         $this->assertSame('idx__test__created_at', $column['Key_name']);
         $this->assertSame('created_at', $column['Column_name']);
-        $this->assertSame('1', $column['Non_unique']);
+        $this->assertSame(1, (int)$column['Non_unique']);
     }
 
     public function testColumnDetails(): void

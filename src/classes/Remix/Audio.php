@@ -7,6 +7,7 @@ use Remix\Instruments\Equalizer;
 use Remix\Tuner;
 use Remix\Tuners\Cli as CliTuner;
 // Exceptions
+use Throwable;
 use Remix\Exceptions\{
     CoreException,
     ErrorException
@@ -20,11 +21,67 @@ use Remix\Exceptions\{
  */
 class Audio
 {
+    /**
+     * The only instance
+     * @var Audio
+     */
     private static $audio = null;
+
+    /**
+     * Tuner of debug mode
+     * @var Tuner
+     */
+    private static $tunerDebug = null;
+
+    /**
+     * Equalizer instance
+     * @var Equalizer
+     */
     private $equalizer = null;
 
+    /**
+     * Tuner of CLI mode
+     * @var CliTuner
+     */
     private $tunerCli = null;
-    private static $tunerDebug = null;
+
+    /**** static methods ****/
+
+    /**
+     * Get the only instance
+     * @return self
+     */
+    public static function getInstance(): self
+    {
+        if (! static::$audio) {
+            static::$audio = new static();
+        }
+        return static::$audio;
+    }
+    // function getInstance()
+
+    /**
+     * Enter debug mode
+     */
+    public static function debug(): void
+    {
+        static::$tunerDebug = new Tuner(true);
+    }
+    // function debug()
+
+    /**
+     * Finish Remix
+     */
+    public static function destroy(): void
+    {
+        if (static::$audio) {
+            static::$audio->equalizer = null;
+        }
+        static::$audio = null;
+    }
+    // function destroy()
+
+    /**** non-static methods ****/
 
     /**
      * Start Remix
@@ -63,27 +120,6 @@ class Audio
     // function __destruct()
 
     /**
-     * Get the only instance
-     * @return self
-     */
-    public static function getInstance(): self
-    {
-        if (! static::$audio) {
-            static::$audio = new static();
-        }
-        return static::$audio;
-    }
-    // function getInstance()
-
-    /**
-     * Enter debug mode
-     */
-    public static function isDebug(): void
-    {
-        static::$tunerDebug = new Tuner(true);
-    }
-
-    /**
      * Getter
      * @param  string $key  Key of item
      * @return mixed        Any item
@@ -112,18 +148,6 @@ class Audio
         }
     }
     // function __get()
-
-    /**
-     * Finish Remix
-     */
-    public static function destroy(): void
-    {
-        if (static::$audio) {
-            static::$audio->equalizer = null;
-        }
-        static::$audio = null;
-    }
-    // function destroy()
 
     /**
      * Set various handlers

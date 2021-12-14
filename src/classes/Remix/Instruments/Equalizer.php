@@ -24,7 +24,7 @@ class Equalizer extends Instrument
 {
     /**
      * Array of singleton instances.
-     * @var Gear[]
+     * @var array<string, Gear>
      * @todo Why not Hash?
      */
     private $container = [];
@@ -58,7 +58,17 @@ class Equalizer extends Instrument
     // function factory()
 
     /**
+     * Constructor
+     * @return self
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    /**
      * Destructor
+     * @return void
      */
     public function __destruct()
     {

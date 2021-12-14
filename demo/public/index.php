@@ -9,7 +9,7 @@ require_once($project_dir . '/vendor/autoload.php');
 
 use Remix\Audio;
 
-Audio::isDebug();
+Audio::debug();
 echo Audio::getInstance()
     ->daw
     ->initialize($app_dir)

@@ -69,6 +69,7 @@
                                             <li><a href="namespaces/remix-oscillators.html"><abbr title="\Remix\Oscillators">Oscillators</abbr></a></li>
                                             <li><a href="namespaces/remix-preset.html"><abbr title="\Remix\Preset">Preset</abbr></a></li>
                                             <li><a href="namespaces/remix-studio.html"><abbr title="\Remix\Studio">Studio</abbr></a></li>
+                                            <li><a href="namespaces/remix-tuners.html"><abbr title="\Remix\Tuners">Tuners</abbr></a></li>
                                             <li><a href="namespaces/remix-vinyl.html"><abbr title="\Remix\Vinyl">Vinyl</abbr></a></li>
                                     </ul>
                             <h4 class="phpdocumentor-sidebar__root-namespace"><a href="namespaces/utility.html"><abbr title="\Utility">Utility</abbr></a></h4>
@@ -84,6 +85,18 @@
         <section class="phpdocumentor-sidebar__category">
         <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                     <h3 class="phpdocumentor-sidebar__root-package"><a href="packages/Default.html"><abbr title="\Default">Default</abbr></a></h3>
+                                <h3 class="phpdocumentor-sidebar__root-package"><a href="packages/Demo.html"><abbr title="\Demo">Demo</abbr></a></h3>
+                        <ul class="phpdocumentor-list">
+                                    <li><a href="packages/Demo-Channels.html"><abbr title="\Demo\Channels">Channels</abbr></a></li>
+                                    <li><a href="packages/Demo-Instruments.html"><abbr title="\Demo\Instruments">Instruments</abbr></a></li>
+                                    <li><a href="packages/Demo-Synthesizers.html"><abbr title="\Demo\Synthesizers">Synthesizers</abbr></a></li>
+                                    <li><a href="packages/Demo-Livehouses.html"><abbr title="\Demo\Livehouses">Livehouses</abbr></a></li>
+                                    <li><a href="packages/Demo-TestCase.html"><abbr title="\Demo\TestCase">TestCase</abbr></a></li>
+                            </ul>
+                                <h3 class="phpdocumentor-sidebar__root-package"><a href="packages/TestCase.html"><abbr title="\TestCase">TestCase</abbr></a></h3>
+                        <ul class="phpdocumentor-list">
+                                    <li><a href="packages/TestCase-Demo.html"><abbr title="\TestCase\Demo">Demo</abbr></a></li>
+                            </ul>
                                 <h3 class="phpdocumentor-sidebar__root-package"><a href="packages/Remix.html"><abbr title="\Remix">Remix</abbr></a></h3>
                         <ul class="phpdocumentor-list">
                                     <li><a href="packages/Remix-Core.html"><abbr title="\Remix\Core">Core</abbr></a></li>
@@ -96,22 +109,10 @@
                                 <h3 class="phpdocumentor-sidebar__root-package"><a href="packages/Utility.html"><abbr title="\Utility">Utility</abbr></a></h3>
                         <ul class="phpdocumentor-list">
                                     <li><a href="packages/Utility-Dump.html"><abbr title="\Utility\Dump">Dump</abbr></a></li>
-                                    <li><a href="packages/Utility-Performance.html"><abbr title="\Utility\Performance">Performance</abbr></a></li>
                                     <li><a href="packages/Utility-Hash.html"><abbr title="\Utility\Hash">Hash</abbr></a></li>
                                     <li><a href="packages/Utility-Http.html"><abbr title="\Utility\Http">Http</abbr></a></li>
+                                    <li><a href="packages/Utility-Performance.html"><abbr title="\Utility\Performance">Performance</abbr></a></li>
                                     <li><a href="packages/Utility-Reflection.html"><abbr title="\Utility\Reflection">Reflection</abbr></a></li>
-                            </ul>
-                                <h3 class="phpdocumentor-sidebar__root-package"><a href="packages/TestCase.html"><abbr title="\TestCase">TestCase</abbr></a></h3>
-                        <ul class="phpdocumentor-list">
-                                    <li><a href="packages/TestCase-Demo.html"><abbr title="\TestCase\Demo">Demo</abbr></a></li>
-                            </ul>
-                                <h3 class="phpdocumentor-sidebar__root-package"><a href="packages/Demo.html"><abbr title="\Demo">Demo</abbr></a></h3>
-                        <ul class="phpdocumentor-list">
-                                    <li><a href="packages/Demo-Channels.html"><abbr title="\Demo\Channels">Channels</abbr></a></li>
-                                    <li><a href="packages/Demo-Instruments.html"><abbr title="\Demo\Instruments">Instruments</abbr></a></li>
-                                    <li><a href="packages/Demo-Synthesizers.html"><abbr title="\Demo\Synthesizers">Synthesizers</abbr></a></li>
-                                    <li><a href="packages/Demo-Livehouses.html"><abbr title="\Demo\Livehouses">Livehouses</abbr></a></li>
-                                    <li><a href="packages/Demo-TestCase.html"><abbr title="\Demo\TestCase">TestCase</abbr></a></li>
                             </ul>
                         </section>
     
@@ -152,7 +153,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Audio.php"><a href="files/src-classes-remix-audio.html"><abbr title="src/classes/Remix/Audio.php">Audio.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">24</span>
+    <span class="phpdocumentor-element-found-in__line">22</span>
 </aside>
 
             <p class="phpdocumentor-summary">Remix Audio : application handler.</p>
@@ -187,117 +188,103 @@
 </h3>
 
 <dl class="phpdocumentor-table-of-contents">
-                <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/Remix-Audio.html#property_is_cli">$is_cli</a>
-    <span>
-                &nbsp;: mixed            </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/Remix-Audio.html#property_is_debug">$is_debug</a>
-    <span>
-                &nbsp;: mixed            </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+                <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/Remix-Audio.html#property_audio">$audio</a>
     <span>
-                &nbsp;: mixed            </span>
+                &nbsp;: <a href="classes/Remix-Audio.html"><abbr title="\Remix\Audio">Audio</abbr></a>            </span>
 </dt>
-<dd></dd>
+<dd>The only instance</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/Remix-Audio.html#property_equalizer">$equalizer</a>
     <span>
-                &nbsp;: mixed            </span>
+                &nbsp;: <a href="classes/Remix-Instruments-Equalizer.html"><abbr title="\Remix\Instruments\Equalizer">Equalizer</abbr></a>            </span>
 </dt>
-<dd></dd>
+<dd>Equalizer instance</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/Remix-Audio.html#property_tunerCli">$tunerCli</a>
+    <span>
+                &nbsp;: <a href="classes/Remix-Tuners-Cli.html"><abbr title="\Remix\Tuners\Cli">Cli</abbr></a>            </span>
+</dt>
+<dd>Tuner of CLI mode</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/Remix-Audio.html#property_tunerDebug">$tunerDebug</a>
+    <span>
+                &nbsp;: <a href="classes/Remix-Tuner.html"><abbr title="\Remix\Tuner">Tuner</abbr></a>            </span>
+</dt>
+<dd>Tuner of debug mode</dd>
 
                 <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-Audio.html#method___destruct">__destruct()</a>
     <span>
                         &nbsp;: mixed    </span>
 </dt>
-<dd></dd>
+<dd>Finish Remix</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-Audio.html#method___get">__get()</a>
     <span>
                         &nbsp;: mixed    </span>
 </dt>
-<dd></dd>
+<dd>Getter</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-Audio.html#method___set">__set()</a>
+    <a href="classes/Remix-Audio.html#method_debug">debug()</a>
     <span>
-                        &nbsp;: mixed    </span>
+                        &nbsp;: void    </span>
 </dt>
-<dd></dd>
+<dd>Enter debug mode</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-Audio.html#method_destroy">destroy()</a>
     <span>
                         &nbsp;: void    </span>
 </dt>
-<dd></dd>
+<dd>Finish Remix</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-Audio.html#method_errorHandle">errorHandle()</a>
     <span>
                         &nbsp;: void    </span>
 </dt>
-<dd></dd>
+<dd>Error handring method</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-Audio.html#method_exceptionHandle">exceptionHandle()</a>
     <span>
                         &nbsp;: void    </span>
 </dt>
-<dd></dd>
+<dd>Exception handring method</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-Audio.html#method_getInstance">getInstance()</a>
     <span>
                         &nbsp;: self    </span>
 </dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Remix-Audio.html#method_isDebug">isDebug()</a>
-    <span>
-                        &nbsp;: void    </span>
-</dt>
-<dd></dd>
+<dd>Get the only instance</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Remix-Audio.html#method_shutdownHandle">shutdownHandle()</a>
     <span>
                         &nbsp;: void    </span>
 </dt>
-<dd></dd>
+<dd>Shutdown handring method</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/Remix-Audio.html#method___construct">__construct()</a>
     <span>
                         &nbsp;: mixed    </span>
 </dt>
-<dd></dd>
+<dd>Start Remix</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/Remix-Audio.html#method_registerHandle">registerHandle()</a>
     <span>
                         &nbsp;: void    </span>
 </dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/Remix-Audio.html#method_singleton">singleton()</a>
-    <span>
-                        &nbsp;: <a href="classes/Remix-Gear.html"><abbr title="\Remix\Gear">Gear</abbr></a>|null    </span>
-</dt>
-<dd></dd>
+<dd>Set various handlers</dd>
 
         </dl>
 
@@ -315,66 +302,6 @@
         class="
             phpdocumentor-element
             -property
-            -protected
-            -static                                            "
->
-    <h4 class="phpdocumentor-element__name" id="property_is_cli">
-        $is_cli
-        <a href="classes/Remix-Audio.html#property_is_cli" class="headerlink"><i class="fas fa-link"></i></a>
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Audio.php"><a href="files/src-classes-remix-audio.html"><abbr title="src/classes/Remix/Audio.php">Audio.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">30</span>
-</aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">$is_cli</span>
-     = <span class="phpdocumentor-signature__default-value">false</span></code>
-
-    
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -protected
-            -static                                            "
->
-    <h4 class="phpdocumentor-element__name" id="property_is_debug">
-        $is_debug
-        <a href="classes/Remix-Audio.html#property_is_debug" class="headerlink"><i class="fas fa-link"></i></a>
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Audio.php"><a href="files/src-classes-remix-audio.html"><abbr title="src/classes/Remix/Audio.php">Audio.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">29</span>
-</aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">$is_debug</span>
-     = <span class="phpdocumentor-signature__default-value">false</span></code>
-
-    
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
             -private
             -static                                            "
 >
@@ -387,17 +314,19 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Audio.php"><a href="files/src-classes-remix-audio.html"><abbr title="src/classes/Remix/Audio.php">Audio.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">26</span>
+    <span class="phpdocumentor-element-found-in__line">28</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">The only instance</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type"><a href="classes/Remix-Audio.html"><abbr title="\Remix\Audio">Audio</abbr></a></span>
     <span class="phpdocumentor-signature__name">$audio</span>
      = <span class="phpdocumentor-signature__default-value">null</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
     
 
 </article>
@@ -417,17 +346,83 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Audio.php"><a href="files/src-classes-remix-audio.html"><abbr title="src/classes/Remix/Audio.php">Audio.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">27</span>
+    <span class="phpdocumentor-element-found-in__line">40</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Equalizer instance</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
+        <span class="phpdocumentor-signature__type"><a href="classes/Remix-Instruments-Equalizer.html"><abbr title="\Remix\Instruments\Equalizer">Equalizer</abbr></a></span>
     <span class="phpdocumentor-signature__name">$equalizer</span>
      = <span class="phpdocumentor-signature__default-value">null</span></code>
 
+        <section class="phpdocumentor-description"></section>
+
     
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_tunerCli">
+        $tunerCli
+        <a href="classes/Remix-Audio.html#property_tunerCli" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Audio.php"><a href="files/src-classes-remix-audio.html"><abbr title="src/classes/Remix/Audio.php">Audio.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">46</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Tuner of CLI mode</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type"><a href="classes/Remix-Tuners-Cli.html"><abbr title="\Remix\Tuners\Cli">Cli</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$tunerCli</span>
+     = <span class="phpdocumentor-signature__default-value">null</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+            -static                                            "
+>
+    <h4 class="phpdocumentor-element__name" id="property_tunerDebug">
+        $tunerDebug
+        <a href="classes/Remix-Audio.html#property_tunerDebug" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Audio.php"><a href="files/src-classes-remix-audio.html"><abbr title="src/classes/Remix/Audio.php">Audio.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">34</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Tuner of debug mode</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type"><a href="classes/Remix-Tuner.html"><abbr title="\Remix\Tuner">Tuner</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$tunerDebug</span>
+     = <span class="phpdocumentor-signature__default-value">null</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
     
 
 </article>
@@ -451,15 +446,17 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Audio.php"><a href="files/src-classes-remix-audio.html"><abbr title="src/classes/Remix/Audio.php">Audio.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">52</span>
+    <span class="phpdocumentor-element-found-in__line">116</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Finish Remix</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                 <span class="phpdocumentor-signature__name">__destruct</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
     
     
 
@@ -483,23 +480,27 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Audio.php"><a href="files/src-classes-remix-audio.html"><abbr title="src/classes/Remix/Audio.php">Audio.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">77</span>
+    <span class="phpdocumentor-element-found-in__line">127</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Getter</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">__get</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                <span class="phpdocumentor-signature__name">__get</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$key</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Key of item</p>
+</section>
+
             </dd>
             </dl>
 
@@ -508,7 +509,8 @@
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
-            <section class="phpdocumentor-description"></section>
+            <section class="phpdocumentor-description"><p>Any item</p>
+</section>
 
     
 </article>
@@ -516,46 +518,31 @@
         class="phpdocumentor-element
             -method
             -public
-                                                        "
+                                    -static                    "
 >
-    <h4 class="phpdocumentor-element__name" id="method___set">
-        __set()
-        <a href="classes/Remix-Audio.html#method___set" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_debug">
+        debug()
+        <a href="classes/Remix-Audio.html#method_debug" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Audio.php"><a href="files/src-classes-remix-audio.html"><abbr title="src/classes/Remix/Audio.php">Audio.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">110</span>
+    <span class="phpdocumentor-element-found-in__line">66</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Enter debug mode</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">__set</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">debug</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+        <section class="phpdocumentor-description"></section>
 
     
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$key</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$value</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type">void</span>
             &mdash;
             <section class="phpdocumentor-description"></section>
 
@@ -574,15 +561,17 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Audio.php"><a href="files/src-classes-remix-audio.html"><abbr title="src/classes/Remix/Audio.php">Audio.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">123</span>
+    <span class="phpdocumentor-element-found-in__line">75</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Finish Remix</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">destroy</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
     
     
 
@@ -606,10 +595,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Audio.php"><a href="files/src-classes-remix-audio.html"><abbr title="src/classes/Remix/Audio.php">Audio.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">143</span>
+    <span class="phpdocumentor-element-found-in__line">168</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Error handring method</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                 <span class="phpdocumentor-signature__name">errorHandle</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$code</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$message</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$file</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$line</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$context</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
@@ -692,23 +682,27 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Audio.php"><a href="files/src-classes-remix-audio.html"><abbr title="src/classes/Remix/Audio.php">Audio.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">149</span>
+    <span class="phpdocumentor-element-found-in__line">183</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Exception handring method</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">exceptionHandle</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$e</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                <span class="phpdocumentor-signature__name">exceptionHandle</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Throwable">Throwable</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$e</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$e</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Throwable">Throwable</abbr></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Exception thrown</p>
+</section>
+
             </dd>
             </dl>
 
@@ -734,52 +728,22 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Audio.php"><a href="files/src-classes-remix-audio.html"><abbr title="src/classes/Remix/Audio.php">Audio.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">58</span>
+    <span class="phpdocumentor-element-found-in__line">54</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Get the only instance</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">getInstance</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">self</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
     
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">self</span>
-            &mdash;
-            <section class="phpdocumentor-description"></section>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                    -static                    "
->
-    <h4 class="phpdocumentor-element__name" id="method_isDebug">
-        isDebug()
-        <a href="classes/Remix-Audio.html#method_isDebug" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Audio.php"><a href="files/src-classes-remix-audio.html"><abbr title="src/classes/Remix/Audio.php">Audio.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">67</span>
-</aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">isDebug</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
-
-    
-    
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">void</span>
             &mdash;
             <section class="phpdocumentor-description"></section>
 
@@ -798,15 +762,17 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Audio.php"><a href="files/src-classes-remix-audio.html"><abbr title="src/classes/Remix/Audio.php">Audio.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">173</span>
+    <span class="phpdocumentor-element-found-in__line">210</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Shutdown handring method</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                 <span class="phpdocumentor-signature__name">shutdownHandle</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
     
     
 
@@ -830,15 +796,17 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Audio.php"><a href="files/src-classes-remix-audio.html"><abbr title="src/classes/Remix/Audio.php">Audio.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">32</span>
+    <span class="phpdocumentor-element-found-in__line">89</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Start Remix</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
                 <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
     
     
 
@@ -862,62 +830,22 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Audio.php"><a href="files/src-classes-remix-audio.html"><abbr title="src/classes/Remix/Audio.php">Audio.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">132</span>
+    <span class="phpdocumentor-element-found-in__line">155</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Set various handlers</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
                 <span class="phpdocumentor-signature__name">registerHandle</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
     
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">void</span>
-            &mdash;
-            <section class="phpdocumentor-description"></section>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -private
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_singleton">
-        singleton()
-        <a href="classes/Remix-Audio.html#method_singleton" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/classes/Remix/Audio.php"><a href="files/src-classes-remix-audio.html"><abbr title="src/classes/Remix/Audio.php">Audio.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">72</span>
-</aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-                <span class="phpdocumentor-signature__name">singleton</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Remix-Gear.html"><abbr title="\Remix\Gear">Gear</abbr></a>|null</span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$class</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Remix-Gear.html"><abbr title="\Remix\Gear">Gear</abbr></a>|null</span>
             &mdash;
             <section class="phpdocumentor-description"></section>
 

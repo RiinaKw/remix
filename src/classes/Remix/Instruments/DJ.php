@@ -30,8 +30,8 @@ class DJ extends Instrument
 
     public function __destruct()
     {
-        static::$connection = null;
         parent::__destruct();
+        static::$connection = null;
     }
     // function __destruct()
 

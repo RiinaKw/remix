@@ -67,12 +67,22 @@ class Mixer extends Instrument
         $this->urls[$path][$track->method] = $track;
     }
 
-    public function __destruct()
+    public function destroy()
     {
         $this->tracks = null;
         $this->named = null;
         $this->urls = null;
+    }
+
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    public function __destruct()
+    {
         parent::__destruct();
+        $this->destroy();
     }
     // function __destruct()
 

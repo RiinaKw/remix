@@ -27,6 +27,8 @@ class Audio
      */
     private static $audio = null;
 
+    private static $dead = false;
+
     /**
      * Tuner of debug mode.
      * @var Tuner
@@ -76,7 +78,12 @@ class Audio
     {
         if (static::$audio) {
             static::$audio->equalizer = null;
+
+            $id = \Remix\Gear::getId(static::$audio);
+            echo "Audio [{$id}] must be down here.<br />\n";
         }
+
+        static::$dead = true;
         static::$audio = null;
     }
     // function destroy()
@@ -88,6 +95,12 @@ class Audio
      */
     private function __construct()
     {
+        if (static::$dead) {
+            echo "<p style='color: red'>Audio : Don't look at me twice</p>\n";
+            exit;
+        }
+        \Remix\Gear::addHash($this);
+
         $this->tunerCli = new CliTuner(php_sapi_name());
         if (! static::$tunerDebug) {
             static::$tunerDebug = new Tuner(false);
@@ -115,8 +128,12 @@ class Audio
      */
     public function __destruct()
     {
+        \Remix\Gear::removeHash($this);
+
         Delay::logDeath(static::class);
-        echo "Audio is down.<br />\n";
+
+        $id = spl_object_id($this);
+        echo "Audio [{$id}] is down.<br />\n";
     }
     // function __destruct()
 
@@ -193,6 +210,8 @@ class Audio
                 'red'
             );
             static::destroy();
+        } elseif (! static::$audio) {
+            echo "Audio is dead.<br />\n";
         } else {
             $preset = static::$audio->preset;
             static::destroy();

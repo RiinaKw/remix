@@ -23,6 +23,31 @@ abstract class Gear
      */
     private $log_param = '';
 
+    public static $instances = [];
+
+    public static function getId($obj)
+    {
+        return spl_object_id($obj);
+    }
+
+    public static function addHash($obj)
+    {
+        $id = static::getId($obj);
+        static::$instances[$id] = get_class($obj);
+    }
+
+    public static function removeHash($obj)
+    {
+        $id = static::getId($obj);
+        $obj = null;
+        unset(static::$instances[$id]);
+    }
+
+    public static function dumpHash()
+    {
+        var_dump(static::$instances);
+    }
+
     /**
      * Let Delay know that an instance has been constructed.
      * @param string|null $log_param  If this parameter is set, it will be displayed in Delay
@@ -36,6 +61,8 @@ abstract class Gear
         } else {
             Delay::logBirth(static::class);
         }
+
+        static::addHash($this);
     }
     // function __construct()
 
@@ -45,6 +72,9 @@ abstract class Gear
      */
     public function __destruct()
     {
+        $this->audio = null;
+        static::removeHash($this);
+
         if ($this->log_param) {
             Delay::logDeath(static::class . ' [' . $this->log_param . ']');
         } else {

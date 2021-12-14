@@ -43,7 +43,9 @@ class Bounce extends Gear
     public function __destruct()
     {
         parent::__destruct();
-        echo "Bounce is down.<br />\n";
+
+        $id = \Remix\Gear::getId($this);
+        echo "Bounce[{$id}] is down.<br />\n";
     }
 
 /*
@@ -164,6 +166,9 @@ class Bounce extends Gear
                 eval($executable);
             }
         );
+        $id = spl_object_id($this);
+        echo "Bounce[{$id}] is finished.<br />\n";
+        \Remix\Gear::dumpHash();
 
         return $response;
     }

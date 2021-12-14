@@ -54,9 +54,10 @@ class Studio extends Gear
 
     public function __destruct()
     {
+        parent::__destruct();
+
         $this->property->truncate();
         $this->property = null;
-        parent::__destruct();
     }
     // function destroy()
 

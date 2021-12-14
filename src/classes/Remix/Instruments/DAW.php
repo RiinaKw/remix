@@ -30,6 +30,11 @@ class DAW extends Instrument
         $this->preset = $audio->preset;
     }
 
+    public function __destruct()
+    {
+        parent::__destruct();
+    }
+
     public function initializeCore(): self
     {
         $this->remix_dir = realpath(__DIR__ . '/../../..');
@@ -125,6 +130,7 @@ class DAW extends Instrument
     {
         $path = $_SERVER['PATH_INFO'] ?? '';
         $studio = $this->audio->mixer->route($path);
+        $this->audio->mixer->destroy();
         Audio::destroy();
 
         Delay::log('BODY', $studio->getMimeType());

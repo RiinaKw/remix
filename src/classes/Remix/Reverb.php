@@ -43,6 +43,7 @@ class Reverb extends Gear
     public function __construct(Studio $studio, Preset $preset)
     {
         parent::__construct();
+        $this->audio = null;
 
         if ($studio->hasTemplate()) {
             $studio->preset($preset);
@@ -55,7 +56,9 @@ class Reverb extends Gear
     public function __destruct()
     {
         parent::__destruct();
-        echo "Reverb is down.<br />\n";
+
+        $id = \Remix\Gear::getId($this);
+        echo "Reverb [{$id}] is down.<br />\n";
     }
 
     /**
@@ -116,7 +119,6 @@ class Reverb extends Gear
 
             // Dump delay
             $console->delay = Delay::get();
-            echo "Delay is down.<br />\n";
 
             $console_html = $console->record();
             unset($console);
@@ -208,8 +210,6 @@ class Reverb extends Gear
             echo '<h1>Remix fatal error : Cannot render exception</h1>' . "\n";
             echo '<h2>Exception thrown : ' . $exception->getMessage() . '</h2>' . "\n";
             echo $exception->getFile() . ' in ' . $exception->getLine();
-            //Monitor::dump($exception->getTrace());
-            //Monitor::dump(Audio::getInstance()->preset);
             return null;
         }
 

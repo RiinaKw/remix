@@ -46,6 +46,8 @@ class Equalizer extends Instrument
      */
     public function __destruct()
     {
+        parent::__destruct();
+
         $this->audio = null;
 
         if ($this->container) {
@@ -54,8 +56,6 @@ class Equalizer extends Instrument
             }
             $this->container = [];
         }
-
-        parent::__destruct();
     }
     // function __destruct()
 

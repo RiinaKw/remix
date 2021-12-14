@@ -37,11 +37,9 @@ class Preset extends Instrument
      */
     public function __destruct()
     {
+        parent::__destruct();
         $this->hash->truncate();
         $this->hash = null;
-
-        parent::__destruct();
-        echo "Preset is down.<br />\n";
     }
 
     /**

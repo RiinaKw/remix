@@ -22,6 +22,11 @@ class Track extends Gear
     }
     // function __construct()
 
+    public function __destruct()
+    {
+        parent::__destruct();
+    }
+
     public static function get(string $path, $action): self
     {
         $track = new static('GET', $path, $action);

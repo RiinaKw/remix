@@ -22,25 +22,25 @@ use Remix\Exceptions\{
 class Audio
 {
     /**
-     * The only instance
+     * The only instance.
      * @var Audio
      */
     private static $audio = null;
 
     /**
-     * Tuner of debug mode
+     * Tuner of debug mode.
      * @var Tuner
      */
     private static $tunerDebug = null;
 
     /**
-     * Equalizer instance
+     * Equalizer instance.
      * @var Equalizer
      */
     private $equalizer = null;
 
     /**
-     * Tuner of CLI mode
+     * Tuner of CLI mode.
      * @var CliTuner
      */
     private $tunerCli = null;
@@ -48,7 +48,7 @@ class Audio
     /**** static methods ****/
 
     /**
-     * Get the only instance
+     * Get the only instance.
      * @return self
      */
     public static function getInstance(): self
@@ -61,7 +61,7 @@ class Audio
     // function getInstance()
 
     /**
-     * Enter debug mode
+     * Enter debug mode.
      */
     public static function debug(): void
     {
@@ -70,7 +70,7 @@ class Audio
     // function debug()
 
     /**
-     * Finish Remix
+     * Finish Remix.
      */
     public static function destroy(): void
     {
@@ -84,7 +84,7 @@ class Audio
     /**** non-static methods ****/
 
     /**
-     * Start Remix
+     * Start Remix.
      */
     private function __construct()
     {
@@ -105,22 +105,23 @@ class Audio
         }
         Delay::logBirth(static::class);
 
-        $this->equalizer = new Equalizer();
+        $this->equalizer = new Equalizer($this);
         $this->registerHandle();
     }
     // function __construct()
 
     /**
-     * Finish Remix
+     * Finish Remix.
      */
     public function __destruct()
     {
         Delay::logDeath(static::class);
+        echo "Audio is down.<br />\n";
     }
     // function __destruct()
 
     /**
-     * Getter
+     * Getter.
      * @param  string $key  Key of item
      * @return mixed        Any item
      */

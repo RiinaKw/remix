@@ -40,6 +40,12 @@ class Bounce extends Gear
     }
     // function __construct()
 
+    public function __destruct()
+    {
+        parent::__destruct();
+        echo "Bounce is down.<br />\n";
+    }
+
 /*
     public function __set(string $name, $value): void
     {

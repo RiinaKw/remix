@@ -2,6 +2,7 @@
 
 namespace Remix\Instruments;
 
+use Remix\Audio;
 use Remix\Instrument;
 use Remix\Instruments\PresetLoader;
 use Utility\Hash;
@@ -26,16 +27,21 @@ class Preset extends Instrument
     public function __construct()
     {
         parent::__construct();
+        $this->audio = null;
         $this->hash = new Hash();
     }
     // function __construct()
 
+    /**
+     * Destructor.
+     */
     public function __destruct()
     {
         $this->hash->truncate();
         $this->hash = null;
 
         parent::__destruct();
+        echo "Preset is down.<br />\n";
     }
 
     /**

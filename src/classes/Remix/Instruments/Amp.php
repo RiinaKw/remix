@@ -32,7 +32,7 @@ class Amp extends Instrument
     public function initialize(DAW $daw): self
     {
         $this->daw = $daw;
-        $this->preset = $daw->preset();
+        $this->preset = $this->audio->preset;
 
         static::$shorthandles = ShortHandles::SHORTHANDLES;
         $app_shorthandles = $this->preset->get('app.effector.shorthandles', []);

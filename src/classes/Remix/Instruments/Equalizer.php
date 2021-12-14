@@ -4,6 +4,7 @@ namespace Remix\Instruments;
 
 // Remix core
 use Remix\Gear;
+use Remix\Audio;
 use Remix\Instrument;
 use Remix\Instruments\{
     DAW,
@@ -30,15 +31,45 @@ class Equalizer extends Instrument
     private $container = [];
 
     /**
+     * Constructor.
+     * @return self
+     */
+    public function __construct(Audio $audio)
+    {
+        parent::__construct();
+        $this->audio = $audio;
+    }
+
+    /**
+     * Destructor.
+     * @return void
+     */
+    public function __destruct()
+    {
+        $this->audio = null;
+
+        if ($this->container) {
+            foreach (array_keys($this->container) as $key) {
+                unset($this->container[$key]);
+            }
+            $this->container = [];
+        }
+
+        parent::__destruct();
+    }
+    // function __destruct()
+
+    /**
      * Get a singleton instance.
      *
      * @param  string $class  class name
+     * @param  mixed  $args   Arguments of constructor
      * @return Gear           object
      */
-    public function singleton(string $class): Gear
+    public function singleton(string $class, $args = null): Gear
     {
         if (! array_key_exists($class, $this->container)) {
-            $this->container[$class] = $this->instance($class);
+            $this->container[$class] = $this->instance($class, $args);
         }
         return $this->container[$class];
     }
@@ -53,38 +84,14 @@ class Equalizer extends Instrument
      */
     public function instance(string $class, $args = null): Gear
     {
-        return new $class($args);
+        $instance = new $class($args);
+        $instance->audio = $this->audio;
+        return $instance;
     }
     // function factory()
 
     /**
-     * Constructor
-     * @return self
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
-    /**
-     * Destructor
-     * @return void
-     */
-    public function __destruct()
-    {
-        if ($this->container) {
-            foreach (array_keys($this->container) as $key) {
-                unset($this->container[$key]);
-            }
-            $this->container = [];
-        }
-
-        parent::__destruct();
-    }
-    // function __destruct()
-
-    /**
-     * Getter
+     * Getter.
      * @param  string $key  Key of item
      * @return mixed        Any item
      */
@@ -92,7 +99,7 @@ class Equalizer extends Instrument
     {
         switch ($key) {
             case 'daw':
-                return $this->singleton(DAW::class);
+                return $this->singleton(DAW::class, $this->audio);
 
             case 'preset':
                 return $this->singleton(Preset::class);

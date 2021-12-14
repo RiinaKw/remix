@@ -2,6 +2,8 @@
 
 namespace Remix;
 
+use Remix\Audio;
+
 /**
  * Remix Gear : Base class of Remix
  *
@@ -10,7 +12,13 @@ namespace Remix;
 abstract class Gear
 {
     /**
-     * Option parameter for Delay
+     * Audio instance.
+     * @var Audio
+     */
+    protected $audio = null;
+
+    /**
+     * Option parameter for Delay.
      * @var string
      */
     private $log_param = '';

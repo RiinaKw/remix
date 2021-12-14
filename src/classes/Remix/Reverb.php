@@ -52,6 +52,12 @@ class Reverb extends Gear
     }
     // function __construct()
 
+    public function __destruct()
+    {
+        parent::__destruct();
+        echo "Reverb is down.<br />\n";
+    }
+
     /**
      * Render output.
      * @return string  Output string
@@ -110,6 +116,8 @@ class Reverb extends Gear
 
             // Dump delay
             $console->delay = Delay::get();
+            echo "Delay is down.<br />\n";
+
             $console_html = $console->record();
             unset($console);
 

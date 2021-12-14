@@ -12,14 +12,12 @@ class Monitor
 {
     /**
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
-     * parameter '$audio' is renamed dummy parameter from '$is_cli', no longer userd
      */
-    public static function dump($var, Remix\Audio $audio = null): void
+    public static function dump($var): void
     {
         $trace = static::called(1);
-        $is_cli = Audio::getInstance()->cli;
 
-        if ($is_cli) {
+        if (Audio::getInstance()->cli) {
             echo "\033[0;30m" . "\033[43m";
             var_dump($var);
             echo "{$trace['file']} ({$trace['line']})";

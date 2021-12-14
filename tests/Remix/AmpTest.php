@@ -8,6 +8,8 @@ use Remix\Instruments\Amp;
 // Remix core
 use Remix\Instruments\DAW;
 use Remix\Audio;
+// Utility
+use Utility\Reflection\ReflectionObject;
 
 class AmpTest extends TestCase
 {
@@ -15,8 +17,13 @@ class AmpTest extends TestCase
 
     protected function setUp(): void
     {
-        $daw = (new DAW())->initializeCore();
-        $this->amp = (new Amp())->initialize($daw);
+        $audio = Audio::getInstance();
+
+        $this->amp = new Amp();
+        (new ReflectionObject($this->amp))->setProp('audio', $audio);
+
+        $daw = $audio->daw->initializeCore();
+        $this->amp->initialize($daw);
     }
 
     public function tearDown(): void

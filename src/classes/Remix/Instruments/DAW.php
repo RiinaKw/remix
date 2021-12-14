@@ -24,19 +24,18 @@ class DAW extends Instrument
     protected $remix_dir;
     protected $app_dir;
 
+    public function __construct(Audio $audio = null)
+    {
+        parent::__construct();
+        $this->preset = $audio->preset;
+    }
+
     public function initializeCore(): self
     {
-        $this->loadPreset();
-
         $this->remix_dir = realpath(__DIR__ . '/../../..');
         $this->preset->remixDir($this->remixDir('/presets'));
 
         $this->preset->set('remix.pathes.root_dir', $this->remix_dir);
-
-        $this->preset->load(
-            (new PresetLoader('versions'))->namespace('remix')->required(),
-            'remix'
-        );
         $this->preset->load(
             (new PresetLoader('pathes'))->namespace('remix')->required()
         );
@@ -49,12 +48,16 @@ class DAW extends Instrument
             $this->preset->set($key, $this->remixDir($value));
         }
 
+        $this->preset->load(
+            (new PresetLoader('versions'))->namespace('remix')->required(),
+            'remix'
+        );
+
         return $this;
     }
 
     public function initializeApp(string $dir): self
     {
-        $this->loadPreset();
         $this->app_dir = realpath($dir);
 
         $env_path = $this->appDir('env.php');
@@ -76,7 +79,7 @@ class DAW extends Instrument
             'app'
         );
 
-        if (Audio::getInstance()->cli) {
+        if ($this->audio->cli) {
             /**
              * @todo ... what is this !!??
              */
@@ -91,25 +94,12 @@ class DAW extends Instrument
             $this->preset->set('app.pathes.bounce_dir', $this->appDir($bounce_dir));
 
             $tracks_path = $this->appDir('/mixer.php') ?: [];
-            Audio::getInstance()->mixer->load($tracks_path);
+            $this->audio->mixer->load($tracks_path);
         }
 
         return $this;
     }
     // function initializeApp()
-
-    public function loadPreset(): self
-    {
-        if (! $this->preset) {
-            $this->preset = Audio::getInstance()->preset;
-        }
-        return $this;
-    }
-
-    public function preset(): Preset
-    {
-        return $this->preset;
-    }
 
     public function initialize(string $dir): self
     {
@@ -134,9 +124,11 @@ class DAW extends Instrument
     public function playWeb(): self
     {
         $path = $_SERVER['PATH_INFO'] ?? '';
-        $studio = Audio::getInstance()->mixer->route($path);
+        $studio = $this->audio->mixer->route($path);
+        Audio::destroy();
 
         Delay::log('BODY', $studio->getMimeType());
+
         $this->reverb = new Reverb($studio, $this->preset);
         return $this;
     }
@@ -144,15 +136,12 @@ class DAW extends Instrument
 
     public function finalize(): Reverb
     {
-        Audio::destroy();
         return $this->reverb;
     }
 
     public function playCli(array $argv): void
     {
-        $audio = Audio::getInstance();
-        $audio->amp->initialize($this)->play($argv);
-        unset($audio);
+        $this->audio->amp->initialize($this)->play($argv);
         Delay::log('BODY', '');
     }
     // function playCli()

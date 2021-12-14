@@ -135,6 +135,7 @@ class DAW extends Instrument
 
         $this->reverb = new Reverb($studio, $this->preset);
         $this->reverb->audio = $this->audio;
+        $this->audio = null;
         return $this;
     }
     // function playWeb()

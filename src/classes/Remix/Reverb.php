@@ -47,12 +47,6 @@ class Reverb extends Gear
     {
         parent::__construct();
 
-        if ($this->audio) {
-            $this->mixer = $this->audio->mixer;
-            $this->audio->destroy();
-            $this->audio = null;
-        }
-
         if ($studio->hasTemplate()) {
             $studio->preset($preset);
         }
@@ -81,16 +75,27 @@ class Reverb extends Gear
     public function __toString(): string
     {
         try {
+            if ($this->audio) {
+                $this->mixer = $this->audio->mixer;
+                $this->audio->destroy();
+                $this->audio = null;
+            }
+
             $output = null;
             Capture::capture(function () use (&$output) {
                 $output = $this->studio->recorded();
             });
 
+            if ($this->mixer) {
+                $this->mixer->destroy();
+            }
+            $this->mixer = null;
+            $this->audio = null;
+            Audio::destroy();
+
             $this->studio->sendHeader();
             $id = spl_object_id($this->studio);
             $is_console = $this->studio->isConsole();
-
-            //$this->studio = null;
 
         } catch (Throwable $e) {
             // If an error occurs while rendering the Studio,
@@ -103,16 +108,10 @@ class Reverb extends Gear
             $console = new Bounce($this->preset->get('remix.pathes.console_path'));
             $preset_arr = $this->preset->get();
 
-            $this->audio = null;
             $this->preset = null;
             $this->studio = null;
 
-            if ($this->mixer) {
-                $this->mixer->destroy();
-            }
-            $this->mixer = null;
-
-            echo "Rendering of Studio[{$id}] is finished. Now I'm not afraid of anything anymore, except for reverb and myself ...<br />\n";
+            echo "<p>Rendering of Studio[{$id}] is finished. Now I'm not afraid of anything anymore, except for reverb and myself ...</p>\n";
             \Remix\Gear::dumpHash();
             echo "<br />\n";
 

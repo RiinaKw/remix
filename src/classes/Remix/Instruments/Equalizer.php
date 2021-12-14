@@ -49,6 +49,9 @@ class Equalizer extends Instrument
         parent::__destruct();
 
         $this->destroy();
+
+        $id = \Remix\Gear::getId($this);
+        echo "Equalizer[{$id}] is down.<br />\n";
     }
     // function __destruct()
 

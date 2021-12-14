@@ -130,12 +130,11 @@ class DAW extends Instrument
     {
         $path = $_SERVER['PATH_INFO'] ?? '';
         $studio = $this->audio->mixer->route($path);
-        $this->audio->mixer->destroy();
-        Audio::destroy();
 
         Delay::log('BODY', $studio->getMimeType());
 
         $this->reverb = new Reverb($studio, $this->preset);
+        $this->reverb->audio = $this->audio;
         return $this;
     }
     // function playWeb()

@@ -48,6 +48,12 @@ class Equalizer extends Instrument
     {
         parent::__destruct();
 
+        $this->destroy();
+    }
+    // function __destruct()
+
+    public function destroy()
+    {
         $this->audio = null;
 
         if ($this->container) {
@@ -57,7 +63,6 @@ class Equalizer extends Instrument
             $this->container = [];
         }
     }
-    // function __destruct()
 
     /**
      * Get a singleton instance.

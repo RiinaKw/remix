@@ -22,6 +22,7 @@ class TableTest extends TestCase
     public function tearDown(): void
     {
         \Remix\Audio::destroy();
+        \Remix\Audio::$dead = false;
     }
 
     protected function prepareTable(): void

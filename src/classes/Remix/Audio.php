@@ -27,7 +27,7 @@ class Audio
      */
     private static $audio = null;
 
-    private static $dead = false;
+    public static $dead = false;
 
     /**
      * Tuner of debug mode.
@@ -55,6 +55,9 @@ class Audio
      */
     public static function getInstance(): self
     {
+        //$caller = debug_backtrace()[0];
+        //var_dump($caller['file'], $caller['line']);
+
         if (! static::$audio) {
             static::$audio = new static();
         }

@@ -23,6 +23,7 @@ class AlterTableTest extends TestCase
     public function tearDown(): void
     {
         Audio::destroy();
+        Audio::$dead = false;
     }
 
     protected function prepareTable(): void

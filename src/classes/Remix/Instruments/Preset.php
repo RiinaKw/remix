@@ -40,6 +40,9 @@ class Preset extends Instrument
         parent::__destruct();
         $this->hash->truncate();
         $this->hash = null;
+
+        $id = \Remix\Gear::getId($this);
+        echo "Preset[{$id}] is down.<br />\n";
     }
 
     /**

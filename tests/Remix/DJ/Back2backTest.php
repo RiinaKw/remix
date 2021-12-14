@@ -32,6 +32,7 @@ class Back2backTest extends TestCase
     public function tearDown(): void
     {
         Audio::destroy();
+        Audio::$dead = false;
     }
 
     public function testSuccess()

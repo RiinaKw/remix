@@ -37,6 +37,9 @@ class Bounce extends Gear
         $this->file = $file;
         $this->props = new Hash();
         $this->props->escaped_params = $params;
+
+        $id = \Remix\Gear::getId($this);
+        echo "Bounce[{$id}] ({$this->file}) is up.<br />\n";
     }
     // function __construct()
 
@@ -45,7 +48,7 @@ class Bounce extends Gear
         parent::__destruct();
 
         $id = \Remix\Gear::getId($this);
-        echo "Bounce[{$id}] is down.<br />\n";
+        echo "Bounce[{$id}] ({$this->file}) is down.<br />\n";
     }
 
 /*
@@ -166,9 +169,6 @@ class Bounce extends Gear
                 eval($executable);
             }
         );
-        $id = spl_object_id($this);
-        echo "Bounce[{$id}] is finished.<br />\n";
-        \Remix\Gear::dumpHash();
 
         return $response;
     }

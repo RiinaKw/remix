@@ -15,7 +15,6 @@ class LyricTest extends TestCase
 
     protected function setUp(): void
     {
-        Audio::destroy();
         $audio = Audio::getInstance();
 
         $tracks = [
@@ -29,6 +28,12 @@ class LyricTest extends TestCase
         $audio->preset->set('app.public_uri', 'http://remix.example.com/framework/');
 
         $this->lyric = Lyric::getInstance();
+    }
+
+    public function tearDown(): void
+    {
+        Audio::destroy();
+        Audio::$dead = false;
     }
 
     public function testPath(): void

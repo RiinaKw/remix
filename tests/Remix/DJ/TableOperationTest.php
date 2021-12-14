@@ -20,6 +20,7 @@ class TableOperationTest extends TestCase
     public function tearDown(): void
     {
         \Remix\Audio::destroy();
+        \Remix\Audio::$dead = false;
     }
 
     public function testCreate(): void

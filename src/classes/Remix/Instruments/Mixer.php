@@ -83,6 +83,9 @@ class Mixer extends Instrument
     {
         parent::__destruct();
         $this->destroy();
+
+        $id = \Remix\Gear::getId($this);
+        echo "Mixer[{$id}] is down.<br />\n";
     }
     // function __destruct()
 

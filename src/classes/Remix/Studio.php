@@ -149,6 +149,10 @@ class Studio extends Gear
      */
     public function sendHeader(): self
     {
+        if (headers_sent()) {
+            return $this;
+        }
+
         foreach ($this->property->headers as $header) {
             header($header);
         }

@@ -12,11 +12,13 @@ class AudioTest extends TestCase
         $this->assertTrue(class_exists('\Remix\Audio'));
 
         // is valid instance?
+        \Remix\Audio::$dead = false;
         $remix = \Remix\Audio::getInstance();
         $this->assertTrue((bool)$remix);
         $this->assertTrue($remix instanceof \Remix\Audio);
 
         \Remix\Audio::destroy();
+        \Remix\Audio::$dead = false;
     }
 }
 // class AudioTest

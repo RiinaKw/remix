@@ -23,6 +23,7 @@ class MCTest extends TestCase
     public function tearDown(): void
     {
         Audio::destroy();
+        \Remix\Audio::$dead = false;
     }
 
     public function testExistsByString(): void

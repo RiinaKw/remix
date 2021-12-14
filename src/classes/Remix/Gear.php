@@ -30,10 +30,10 @@ abstract class Gear
         return spl_object_id($obj);
     }
 
-    public static function addHash($obj)
+    public static function addHash($obj, ?string $name = null)
     {
         $id = static::getId($obj);
-        static::$instances[$id] = get_class($obj);
+        static::$instances[$id] = $name ?? get_class($obj);
     }
 
     public static function removeHash($obj)
@@ -58,11 +58,12 @@ abstract class Gear
         if ($log_param) {
             $this->log_param = $log_param;
             Delay::logBirth(static::class . ' [' . $this->log_param . ']');
+            static::addHash($this, static::class . ' [' . $this->log_param . ']');
         } else {
             Delay::logBirth(static::class);
+            static::addHash($this);
         }
 
-        static::addHash($this);
     }
     // function __construct()
 

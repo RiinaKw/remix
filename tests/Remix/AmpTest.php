@@ -17,6 +17,7 @@ class AmpTest extends TestCase
 
     protected function setUp(): void
     {
+        Audio::$dead = false;
         $audio = Audio::getInstance();
 
         $this->amp = new Amp();
@@ -29,6 +30,7 @@ class AmpTest extends TestCase
     public function tearDown(): void
     {
         Audio::destroy();
+        Audio::$dead = false;
     }
 
     public function testLoad(): void

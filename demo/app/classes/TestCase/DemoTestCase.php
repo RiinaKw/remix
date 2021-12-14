@@ -37,5 +37,6 @@ abstract class DemoTestCase extends BaseTestCase
     protected function tearDown(): void
     {
         Audio::destroy();
+        Audio::$dead = false;
     }
 }

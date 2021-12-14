@@ -13,6 +13,7 @@ use Utility\Capture;
 use Utility\Dump;
 // Exceptions
 use Throwable;
+use Remix\Exceptions\CoreException;
 use Remix\Exceptions\HttpException;
 
 /**
@@ -35,6 +36,8 @@ class Reverb extends Gear
      */
     private $preset = null;
 
+    private $mixer = null;
+
     /**
      * Create finalizer.
      * @param Studio $studio  Response object to output
@@ -43,13 +46,21 @@ class Reverb extends Gear
     public function __construct(Studio $studio, Preset $preset)
     {
         parent::__construct();
-        $this->audio = null;
+
+        if ($this->audio) {
+            $this->mixer = $this->audio->mixer;
+            $this->audio->destroy();
+            $this->audio = null;
+        }
 
         if ($studio->hasTemplate()) {
             $studio->preset($preset);
         }
         $this->studio = $studio;
         $this->preset = $preset;
+
+        $id = \Remix\Gear::getId($this);
+        echo "Reverb[{$id}] is up.<br />\n";
     }
     // function __construct()
 
@@ -58,7 +69,7 @@ class Reverb extends Gear
         parent::__destruct();
 
         $id = \Remix\Gear::getId($this);
-        echo "Reverb [{$id}] is down.<br />\n";
+        echo "Reverb[{$id}] is down.<br />\n";
     }
 
     /**
@@ -74,20 +85,36 @@ class Reverb extends Gear
             Capture::capture(function () use (&$output) {
                 $output = $this->studio->recorded();
             });
+
+            $this->studio->sendHeader();
+            $id = spl_object_id($this->studio);
+            $is_console = $this->studio->isConsole();
+
+            //$this->studio = null;
+
         } catch (Throwable $e) {
             // If an error occurs while rendering the Studio,
             // Reverb will render the exception directly
-            return (string)static::exeption($e, $this->preset);
+            return (string)static::exeption($e, $this->preset, true);
         }
-        $this->studio->sendHeader();
-        $is_console = $this->studio->isConsole();
-        unset($this->studio);
 
         if ($is_console) {
             Bounce::loadTemplate($this->preset);
             $console = new Bounce($this->preset->get('remix.pathes.console_path'));
             $preset_arr = $this->preset->get();
-            unset($this->preset);
+
+            $this->audio = null;
+            $this->preset = null;
+            $this->studio = null;
+
+            if ($this->mixer) {
+                $this->mixer->destroy();
+            }
+            $this->mixer = null;
+
+            echo "Rendering of Studio[{$id}] is finished. Now I'm not afraid of anything anymore, except for reverb and myself ...<br />\n";
+            \Remix\Gear::dumpHash();
+            echo "<br />\n";
 
             Delay::log('NOTICE', 'Bounce of console cannot be destruct now');
             Delay::log('NOTICE', 'Reverb cannot be destruct now');
@@ -147,8 +174,16 @@ class Reverb extends Gear
      *
      * @todo Is this method too long?
      */
-    public static function exeption(Throwable $exception, Preset $preset): ?self
+    public static function exeption(Throwable $exception, Preset $preset, bool $from_exception = false): ?self
     {
+        if ($from_exception) {
+            http_response_code(StatusCode::INTERNAL_SERVER_ERROR);
+            echo '<h1>Remix fatal error : Exception loop</h1>' . "\n";
+            echo '<h2>Exception thrown : ' . $exception->getMessage() . '</h2>' . "\n";
+            echo $exception->getFile() . ' in ' . $exception->getLine();
+            return null;
+        }
+
         if ($exception instanceof HttpException) {
             $code = $exception->getStatusCode();
 
@@ -223,7 +258,8 @@ class Reverb extends Gear
             'target' => Monitor::getSource($exception->getFile(), $exception->getLine(), 10),
             'traces' => $traces,
         ]);
-        return new static($compressor, $preset);
+        $reverb = new static($compressor, $preset, true);
+        return $reverb;
     }
     // function exeption()
 }

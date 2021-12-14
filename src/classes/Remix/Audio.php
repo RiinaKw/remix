@@ -2,16 +2,11 @@
 
 namespace Remix;
 
-use Remix\Instruments\{
-    Equalizer,
-    DAW,
-    Preset,
-    Mixer,
-    Amp,
-    DJ
-};
+// Remix core
+use Remix\Instruments\Equalizer;
 use Remix\Tuner;
 use Remix\Tuners\Cli as CliTuner;
+// Exceptions
 use Remix\Exceptions\{
     CoreException,
     ErrorException
@@ -31,6 +26,9 @@ class Audio
     private $tunerCli = null;
     private static $tunerDebug = null;
 
+    /**
+     * Start Remix
+     */
     private function __construct()
     {
         $this->tunerCli = new CliTuner(php_sapi_name());
@@ -55,12 +53,19 @@ class Audio
     }
     // function __construct()
 
+    /**
+     * Finish Remix
+     */
     public function __destruct()
     {
         Delay::logDeath(static::class);
     }
     // function __destruct()
 
+    /**
+     * Get the only instance
+     * @return self
+     */
     public static function getInstance(): self
     {
         if (! static::$audio) {
@@ -70,17 +75,20 @@ class Audio
     }
     // function getInstance()
 
+    /**
+     * Enter debug mode
+     */
     public static function isDebug(): void
     {
         static::$tunerDebug = new Tuner(true);
     }
 
-    private function singleton(string $class): ?Gear
-    {
-        return $this->equalizer ? $this->equalizer->singleton($class) : null;
-    }
-
-    public function __get($key)
+    /**
+     * Getter
+     * @param  string $key  Key of item
+     * @return mixed        Any item
+     */
+    public function __get(string $key)
     {
         switch ($key) {
             case 'debug':
@@ -93,19 +101,11 @@ class Audio
                 return $this->equalizer;
 
             case 'daw':
-                return $this->singleton(DAW::class);
-
             case 'preset':
-                return $this->singleton(Preset::class);
-
             case 'mixer':
-                return $this->singleton(Mixer::class);
-
             case 'amp':
-                return $this->singleton(Amp::class);
-
             case 'dj':
-                return $this->singleton(DJ::class);
+                return $this->equalizer->$key;
 
             default:
                 throw new CoreException("Unknown key '{$key}'");
@@ -113,6 +113,9 @@ class Audio
     }
     // function __get()
 
+    /**
+     * Finish Remix
+     */
     public static function destroy(): void
     {
         if (static::$audio) {
@@ -122,6 +125,9 @@ class Audio
     }
     // function destroy()
 
+    /**
+     * Set various handlers
+     */
     private function registerHandle(): void
     {
         set_error_handler([$this, 'errorHandle']);
@@ -131,6 +137,8 @@ class Audio
     // function initialize()
 
     /**
+     * Error handring method
+     *
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function errorHandle($code, $message, $file, $line, $context = []): void
@@ -139,7 +147,16 @@ class Audio
     }
     // function errorHandle()
 
-    public function exceptionHandle($e): void
+    /**
+     * Exception handring method
+     * @param [type] $e  [description]
+     */
+
+    /**
+     * Exception handring method
+     * @param Throwable $e  Exception thrown
+     */
+    public function exceptionHandle(Throwable $e): void
     {
         if ($this->tunerCli->cli) {
             Effector::line(
@@ -163,6 +180,9 @@ class Audio
     }
     // function exceptionHandle()
 
+    /**
+     * Shutdown handring method
+     */
     public function shutdownHandle(): void
     {
         static::destroy();

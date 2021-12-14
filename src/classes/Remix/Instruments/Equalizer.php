@@ -2,8 +2,18 @@
 
 namespace Remix\Instruments;
 
+// Remix core
 use Remix\Gear;
 use Remix\Instrument;
+use Remix\Instruments\{
+    DAW,
+    Preset,
+    Mixer,
+    Amp,
+    DJ
+};
+// Exceptions
+use Remix\Exceptions\CoreException;
 
 /**
  * Remix Equalizer : instance manager
@@ -47,6 +57,9 @@ class Equalizer extends Instrument
     }
     // function factory()
 
+    /**
+     * Destructor
+     */
     public function __destruct()
     {
         if ($this->container) {
@@ -59,5 +72,34 @@ class Equalizer extends Instrument
         parent::__destruct();
     }
     // function __destruct()
+
+    /**
+     * Getter
+     * @param  string $key  Key of item
+     * @return mixed        Any item
+     */
+    public function __get(string $key)
+    {
+        switch ($key) {
+            case 'daw':
+                return $this->singleton(DAW::class);
+
+            case 'preset':
+                return $this->singleton(Preset::class);
+
+            case 'mixer':
+                return $this->singleton(Mixer::class);
+
+            case 'amp':
+                return $this->singleton(Amp::class);
+
+            case 'dj':
+                return $this->singleton(DJ::class);
+
+            default:
+                throw new CoreException("Unknown key '{$key}'");
+        }
+    }
+    // function __get()
 }
 // class Equalizer
